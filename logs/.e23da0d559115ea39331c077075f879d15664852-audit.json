@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "c:\\Users\\ccdmn\\code\\bvaapi\\logs\\.e23da0d559115ea39331c077075f879d15664852-audit.json",
+    "files": [
+        {
+            "date": 1758551834547,
+            "name": "c:\\Users\\ccdmn\\code\\bvaapi\\logs\\mcp-puppeteer-2025-09-22.log",
+            "hash": "4d930ca5bdf444b8209bb90551cf502b73f85531c3958ebd5af56b549f1e9a90"
+        }
+    ],
+    "hashType": "sha256"
+}
