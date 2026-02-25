@@ -637,9 +637,16 @@ def _ecfr_structure_sync() -> CFRStructureResponse:
     )
 
 def _ecfr_section_sync(part: str, section: str) -> CFRSectionResponse:
-    resp = _ecfr_get("full/current/title-38", params={"part": part, "section": section})
+    # Renderer API returns enhanced HTML with redirects; section param needs full "part.section" form
+    url = "https://www.ecfr.gov/api/renderer/v1/content/enhanced/current/title-38"
+    session = requests.Session()
+    session.headers.update(ECFR_HEADERS)
+    resp = session.get(url, params={"part": part, "section": f"{part}.{section}"},
+                       timeout=REQUEST_TIMEOUT, allow_redirects=True)
+    resp.raise_for_status()
     soup = BeautifulSoup(resp.text, "html.parser")
-    for tag in soup.find_all(["AUTH", "SOURCE", "CITA", "AMDDATE"]):
+    # Remove metadata noise
+    for tag in soup.find_all(["script", "style"]):
         tag.decompose()
     markdown = _clean_html_to_text(str(soup))
     return CFRSectionResponse(
@@ -653,24 +660,26 @@ def _ecfr_search_sync(query: str, page: int, per_page: int) -> Dict:
     session = requests.Session()
     session.headers.update(ECFR_HEADERS)
     resp = session.get(ECFR_SEARCH_BASE,
-                       params={"query": query, "per_page": per_page, "page": page, "title": 38},
+                       params={"query": query, "per_page": per_page, "page": page},
                        timeout=REQUEST_TIMEOUT)
     resp.raise_for_status()
     data = resp.json()
     meta = data.get("meta", {})
     results = []
     for r in data.get("results", []):
-        si = r.get("structure_index", {})
-        ident = si.get("identifier", "")
-        part_num = ident.split(".")[0] if "." in ident else ident
-        sec_num  = ident.split(".")[1] if "." in ident else None
-        hier = si.get("hierarchy", {})
+        hier = r.get("hierarchy", {})       # {"title":"38","chapter":"I","part":"9","section":"9.21",...}
+        headings = r.get("headings", {})    # {"section": "Schedule of Losses.",...}
+        hier_hdrs = r.get("hierarchy_headings", {})
+        part_num = hier.get("part") or None
+        sec_num  = hier.get("section") or None
+        label = headings.get("section") or headings.get("part") or ""
+        hier_list = [v for v in hier_hdrs.values() if v] if hier_hdrs else None
         results.append(CFRSearchResult(
-            title=38, part=part_num or None, section=sec_num,
-            label=si.get("label", ""),
-            snippet=r.get("content"),
+            title=38, part=part_num, section=sec_num,
+            label=label,
+            snippet=r.get("full_text_excerpt"),
             score=r.get("score"),
-            hierarchy=list(hier.values()) if hier else None,
+            hierarchy=hier_list,
         ))
     return {"total": meta.get("total_count", len(results)), "results": results}
 
