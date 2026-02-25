@@ -55,6 +55,14 @@ KNOWVA_HEADERS = {
     "Origin": "https://www.knowva.ebenefits.va.gov",
 }
 
+# eCFR API constants
+ECFR_VERSIONER_BASE = "https://www.ecfr.gov/api/versioner/v1"
+ECFR_SEARCH_BASE    = "https://www.ecfr.gov/api/search/v1/results"
+ECFR_HEADERS = {
+    "User-Agent": "VetAI-BVA-API/2.0",
+    "Accept": "application/json, text/plain, */*",
+}
+
 # Full year -> dc collection ID mapping (verified from BVA search dropdown)
 YEAR_DC_MAP: Dict[int, int] = {
     1992: 9133, 1993: 9134, 1994: 9135, 1995: 9136, 1996: 9137,
@@ -153,6 +161,46 @@ class KnowVASearchResponse(BaseModel):
     pagesize: int
     total: int
     results: List[KnowVAArticleSummary]
+
+# 38 CFR models
+class CFRSection(BaseModel):
+    identifier: str
+    label: str
+
+class CFRPart(BaseModel):
+    number: str
+    label: str
+    sections: List[CFRSection]
+
+class CFRStructureResponse(BaseModel):
+    title: int
+    date: str
+    parts: List[CFRPart]
+    retrieved_at: str
+
+class CFRSectionResponse(BaseModel):
+    part: str
+    section: str
+    citation: str
+    content_markdown: str
+    retrieved_at: str
+
+class CFRSearchResult(BaseModel):
+    title: int
+    part: Optional[str]
+    section: Optional[str]
+    label: str
+    snippet: Optional[str]
+    score: Optional[float]
+    hierarchy: Optional[List[str]]
+
+class CFRSearchResponse(BaseModel):
+    query: str
+    page: int
+    per_page: int
+    total: int
+    results: List[CFRSearchResult]
+    retrieved_at: str
 
 # -------------------------------------------------------------------
 # Regex patterns for decision parsing
@@ -314,6 +362,9 @@ async def root():
             "GET  /knowva/search?q=":        "Search KnowVA articles (M21-1, policy, etc.)",
             "GET  /knowva/article/{id}":     "Fetch full KnowVA article by ID",
             "GET  /knowva/popular":          "List most popular KnowVA articles",
+            "GET  /cfr/structure":              "Title 38 CFR table of contents",
+            "GET  /cfr/section?part=&section=": "Fetch 38 CFR section text as markdown",
+            "GET  /cfr/search?q=":              "Search within Title 38 CFR",
             "GET  /health":                  "Health check",
         }
     }
@@ -541,6 +592,88 @@ def _clean_html_to_text(html: str) -> str:
     text = re.sub(r"\n{3,}", "\n\n", text)
     return text.strip()
 
+def _ecfr_get(path: str, params: Optional[Dict[str, Any]] = None) -> requests.Response:
+    url = f"{ECFR_VERSIONER_BASE}/{path}"
+    session = requests.Session()
+    session.headers.update(ECFR_HEADERS)
+    logger.info(f"eCFR GET {url} params={params}")
+    resp = session.get(url, params=params or {}, timeout=REQUEST_TIMEOUT)
+    resp.raise_for_status()
+    return resp
+
+def _ecfr_structure_sync() -> CFRStructureResponse:
+    resp = _ecfr_get("structure/current/title-38.json")
+    data = resp.json()
+    parts: List[CFRPart] = []
+
+    def _collect(node: Dict) -> None:
+        if node.get("type") == "part":
+            sections = []
+            def _secs(n):
+                for c in n.get("children", []):
+                    if c.get("type") == "section":
+                        sections.append(CFRSection(
+                            identifier=c.get("identifier", ""),
+                            label=c.get("label_level", c.get("identifier", "")),
+                        ))
+                    else:
+                        _secs(c)
+            _secs(node)
+            parts.append(CFRPart(
+                number=node.get("identifier", ""),
+                label=node.get("label_level", ""),
+                sections=sections,
+            ))
+        else:
+            for child in node.get("children", []):
+                _collect(child)
+
+    for child in data.get("children", []):
+        _collect(child)
+
+    return CFRStructureResponse(
+        title=38, date=data.get("date", "current"),
+        parts=parts, retrieved_at=datetime.now().isoformat()
+    )
+
+def _ecfr_section_sync(part: str, section: str) -> CFRSectionResponse:
+    resp = _ecfr_get("full/current/title-38", params={"part": part, "section": section})
+    soup = BeautifulSoup(resp.text, "html.parser")
+    for tag in soup.find_all(["AUTH", "SOURCE", "CITA", "AMDDATE"]):
+        tag.decompose()
+    markdown = _clean_html_to_text(str(soup))
+    return CFRSectionResponse(
+        part=part, section=section,
+        citation=f"38 CFR \u00a7 {part}.{section}",
+        content_markdown=markdown,
+        retrieved_at=datetime.now().isoformat(),
+    )
+
+def _ecfr_search_sync(query: str, page: int, per_page: int) -> Dict:
+    session = requests.Session()
+    session.headers.update(ECFR_HEADERS)
+    resp = session.get(ECFR_SEARCH_BASE,
+                       params={"query": query, "per_page": per_page, "page": page, "title": 38},
+                       timeout=REQUEST_TIMEOUT)
+    resp.raise_for_status()
+    data = resp.json()
+    meta = data.get("meta", {})
+    results = []
+    for r in data.get("results", []):
+        si = r.get("structure_index", {})
+        ident = si.get("identifier", "")
+        part_num = ident.split(".")[0] if "." in ident else ident
+        sec_num  = ident.split(".")[1] if "." in ident else None
+        hier = si.get("hierarchy", {})
+        results.append(CFRSearchResult(
+            title=38, part=part_num or None, section=sec_num,
+            label=si.get("label", ""),
+            snippet=r.get("content"),
+            score=r.get("score"),
+            hierarchy=list(hier.values()) if hier else None,
+        ))
+    return {"total": meta.get("total_count", len(results)), "results": results}
+
 def _knowva_article_sync(article_id: int) -> KnowVAArticle:
     data = _knowva_get(f"ss/article/{article_id}", {
         "$attribute": "name,id,lastModifiedDate,content",
@@ -618,6 +751,51 @@ async def knowva_popular(pagesize: int = Query(10, ge=1, le=50)):
         return await loop.run_in_executor(executor, _knowva_popular_sync, pagesize)
     except Exception as e:
         logger.error(f"KnowVA popular error: {e}")
+        raise HTTPException(status_code=502, detail=str(e))
+
+# -------------------------------------------------------------------
+# 38 CFR endpoints
+# -------------------------------------------------------------------
+@app.get("/cfr/structure", response_model=CFRStructureResponse, tags=["38 CFR"])
+async def cfr_structure():
+    """Title 38 CFR table of contents - all parts and sections."""
+    loop = asyncio.get_running_loop()
+    try:
+        return await loop.run_in_executor(executor, _ecfr_structure_sync)
+    except Exception as e:
+        logger.error(f"eCFR structure error: {e}")
+        raise HTTPException(status_code=502, detail=str(e))
+
+@app.get("/cfr/section", response_model=CFRSectionResponse, tags=["38 CFR"])
+async def cfr_section(
+    part: str = Query(..., example="3"),
+    section: str = Query(..., example="102"),
+):
+    """Fetch 38 CFR section text as clean markdown. e.g. part=3&section=102 -> 38 CFR ss 3.102"""
+    loop = asyncio.get_running_loop()
+    try:
+        return await loop.run_in_executor(executor, _ecfr_section_sync, part, section)
+    except Exception as e:
+        logger.error(f"eCFR section error part={part} section={section}: {e}")
+        raise HTTPException(status_code=502, detail=str(e))
+
+@app.get("/cfr/search", response_model=CFRSearchResponse, tags=["38 CFR"])
+async def cfr_search(
+    q: str = Query(..., example="PTSD"),
+    page: int = Query(1, ge=1, le=100),
+    per_page: int = Query(20, ge=1, le=100),
+):
+    """Full-text search within Title 38 CFR regulations."""
+    loop = asyncio.get_running_loop()
+    try:
+        data = await loop.run_in_executor(executor, _ecfr_search_sync, q, page, per_page)
+        return CFRSearchResponse(
+            query=q, page=page, per_page=per_page,
+            total=data["total"], results=data["results"],
+            retrieved_at=datetime.now().isoformat(),
+        )
+    except Exception as e:
+        logger.error(f"eCFR search error q={q}: {e}")
         raise HTTPException(status_code=502, detail=str(e))
 
 def _shutdown(signum, frame):
