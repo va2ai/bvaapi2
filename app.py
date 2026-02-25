@@ -1050,8 +1050,20 @@ async def rag_reindex(
             "total_chunks": stats["total_chunks"],
         }
     except Exception as e:
-        logger.error(f"RAG reindex error: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+        import traceback
+        logger.error(f"RAG reindex error: {traceback.format_exc()}")
+        raise HTTPException(status_code=500, detail=f"{type(e).__name__}: {e}")
+
+@app.get("/rag/debug", tags=["RAG"])
+async def rag_debug():
+    """Debug RAG configuration."""
+    key = os.environ.get("OPENAI_API_KEY", "")
+    return {
+        "openai_key_set": bool(key),
+        "openai_key_prefix": key[:8] + "..." if len(key) > 8 else "(empty)",
+        "chroma_path": os.environ.get("CHROMA_PATH", "./data/chroma"),
+        "bva_api_url": os.environ.get("BVA_API_URL", "http://localhost:8001"),
+    }
 
 def _shutdown(signum, frame):
     logger.info("Shutting down -- releasing ports...")
