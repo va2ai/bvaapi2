@@ -250,18 +250,20 @@ async def bva_knowva_popular(pagesize: int = 10) -> str:
 @mcp.tool(
     description=(
         "Search within Title 38 Code of Federal Regulations (VA regulations). "
-        "Returns matching sections with labels, snippets, part/section numbers, "
-        "and relevance scores. Use bva_cfr_section to fetch full section text."
+        "Results are filtered to Title 38 only. Optionally scope to a specific part: "
+        "Part 3 (Adjudication), Part 4 (Rating Disabilities), Part 19/20 (BVA Appeals). "
+        "Returns matching sections with labels, snippets, and relevance scores."
     )
 )
 async def bva_cfr_search(
     q: str,
+    part: Optional[str] = None,
     page: int = 1,
     per_page: int = 20,
 ) -> str:
-    """Search 38 CFR regulations. q=search query, page=page number, per_page=results per page."""
+    """Search 38 CFR regulations. q=search query, part=optional part filter (e.g. '3','4','19'), page=page number."""
     try:
-        data = await _get("cfr/search", q=q, page=page, per_page=per_page)
+        data = await _get("cfr/search", q=q, part=part, page=page, per_page=per_page)
         return json.dumps(data, indent=2)
     except Exception as e:
         return f"Error: {_err(e)}"

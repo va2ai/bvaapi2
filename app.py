@@ -656,32 +656,64 @@ def _ecfr_section_sync(part: str, section: str) -> CFRSectionResponse:
         retrieved_at=datetime.now().isoformat(),
     )
 
-def _ecfr_search_sync(query: str, page: int, per_page: int) -> Dict:
+def _ecfr_search_sync(query: str, page: int, per_page: int,
+                      part: Optional[str] = None) -> Dict:
+    """Search eCFR, filter to Title 38, deduplicate by section, strip HTML."""
     session = requests.Session()
     session.headers.update(ECFR_HEADERS)
-    resp = session.get(ECFR_SEARCH_BASE,
-                       params={"query": query, "per_page": per_page, "page": page},
-                       timeout=REQUEST_TIMEOUT)
-    resp.raise_for_status()
-    data = resp.json()
-    meta = data.get("meta", {})
     results = []
-    for r in data.get("results", []):
-        hier = r.get("hierarchy", {})       # {"title":"38","chapter":"I","part":"9","section":"9.21",...}
-        headings = r.get("headings", {})    # {"section": "Schedule of Losses.",...}
-        hier_hdrs = r.get("hierarchy_headings", {})
-        part_num = hier.get("part") or None
-        sec_num  = hier.get("section") or None
-        label = headings.get("section") or headings.get("part") or ""
-        hier_list = [v for v in hier_hdrs.values() if v] if hier_hdrs else None
-        results.append(CFRSearchResult(
-            title=38, part=part_num, section=sec_num,
-            label=label,
-            snippet=r.get("full_text_excerpt"),
-            score=r.get("score"),
-            hierarchy=hier_list,
-        ))
-    return {"total": meta.get("total_count", len(results)), "results": results}
+    seen_sections = set()
+    api_page = 1
+    max_api_pages = 10
+
+    while len(results) < per_page and api_page <= max_api_pages:
+        resp = session.get(ECFR_SEARCH_BASE,
+                           params={"query": query, "per_page": 100, "page": api_page},
+                           timeout=REQUEST_TIMEOUT)
+        resp.raise_for_status()
+        data = resp.json()
+        raw = data.get("results", [])
+        if not raw:
+            break
+
+        for r in raw:
+            hier = r.get("hierarchy", {})
+            if hier.get("title") != "38":
+                continue
+            part_num = hier.get("part") or None
+            if part and part_num != part:
+                continue
+            sec_num = hier.get("section") or None
+            dedup_key = f"{part_num}:{sec_num}"
+            if dedup_key in seen_sections:
+                continue
+            seen_sections.add(dedup_key)
+            headings = r.get("headings", {})
+            hier_hdrs = r.get("hierarchy_headings", {})
+            label = headings.get("section") or headings.get("part") or ""
+            label = re.sub(r"<[^>]+>", "", label)
+            snippet = r.get("full_text_excerpt") or ""
+            snippet = re.sub(r"<[^>]+>", "", snippet)
+            hier_list = [v for v in hier_hdrs.values() if v] if hier_hdrs else None
+            results.append(CFRSearchResult(
+                title=38, part=part_num, section=sec_num,
+                label=label,
+                snippet=snippet or None,
+                score=r.get("score"),
+                hierarchy=hier_list,
+            ))
+            if len(results) >= per_page:
+                break
+
+        total_pages = data.get("meta", {}).get("total_pages", 0)
+        if api_page >= total_pages:
+            break
+        api_page += 1
+
+    # Skip results for pagination
+    start = (page - 1) * per_page
+    paged = results[start:start + per_page]
+    return {"total": len(results), "results": paged}
 
 def _knowva_article_sync(article_id: int) -> KnowVAArticle:
     data = _knowva_get(f"ss/article/{article_id}", {
@@ -793,11 +825,12 @@ async def cfr_search(
     q: str = Query(..., example="PTSD"),
     page: int = Query(1, ge=1, le=100),
     per_page: int = Query(20, ge=1, le=100),
+    part: Optional[str] = Query(None, example="3", description="Filter to specific CFR part (e.g. 3, 4, 19)"),
 ):
-    """Full-text search within Title 38 CFR regulations."""
+    """Full-text search within Title 38 CFR regulations. Optionally scope to a specific part."""
     loop = asyncio.get_running_loop()
     try:
-        data = await loop.run_in_executor(executor, _ecfr_search_sync, q, page, per_page)
+        data = await loop.run_in_executor(executor, _ecfr_search_sync, q, page, per_page, part)
         return CFRSearchResponse(
             query=q, page=page, per_page=per_page,
             total=data["total"], results=data["results"],
