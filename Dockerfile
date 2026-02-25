@@ -27,7 +27,8 @@ COPY . .
 ARG OPENAI_API_KEY=""
 RUN if [ -n "$OPENAI_API_KEY" ]; then \
       OPENAI_API_KEY=$OPENAI_API_KEY python ingest.py --source all \
-        --api-url https://bva-api-524576132881.us-central1.run.app; \
+        --api-url https://bva-api-524576132881.us-central1.run.app \
+      || echo "WARNING: RAG index build failed, will index at runtime via /rag/reindex"; \
     else \
       echo "OPENAI_API_KEY not set, skipping RAG index build"; \
     fi

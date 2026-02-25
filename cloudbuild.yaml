@@ -13,13 +13,12 @@ images:
 steps:
   # Build and deploy BVA API (pass OPENAI_API_KEY for RAG index baking)
   - name: gcr.io/cloud-builders/docker
+    entrypoint: bash
     args:
-      - 'build'
-      - '--build-arg'
-      - 'OPENAI_API_KEY=$$OPENAI_API_KEY'
-      - '-t'
-      - '$_REGION-docker.pkg.dev/$PROJECT_ID/$_REPO/$_SERVICE:latest'
-      - '.'
+      - '-c'
+      - |
+        docker build --build-arg OPENAI_API_KEY=$$OPENAI_API_KEY \
+          -t $_REGION-docker.pkg.dev/$PROJECT_ID/$_REPO/$_SERVICE:latest .
     secretEnv: ['OPENAI_API_KEY']
   - name: gcr.io/cloud-builders/docker
     args: ['push', '$_REGION-docker.pkg.dev/$PROJECT_ID/$_REPO/$_SERVICE:latest']
