@@ -63,6 +63,15 @@ ECFR_HEADERS = {
     "Accept": "application/json, text/plain, */*",
 }
 
+# Federal Register API constants
+FR_API_BASE = "https://www.federalregister.gov/api/v1"
+FR_VA_SLUG = "veterans-affairs-department"
+FR_FIELDS = [
+    "document_number", "title", "type", "abstract", "citation",
+    "publication_date", "agencies", "html_url", "pdf_url",
+    "cfr_references", "action", "dates", "effective_on", "comments_close_on",
+]
+
 # Part 4 diagnostic code lookup (eCFR search doesn't index rating criteria well)
 # Format: DC code -> (condition, CFR section, part, description)
 DC_LOOKUP: Dict[str, Dict[str, str]] = {
@@ -286,6 +295,31 @@ class DiagnosticCode(BaseModel):
     section: str
     schedule: str
 
+# Federal Register models
+class FederalRegisterDocument(BaseModel):
+    document_number: str
+    title: str
+    type: str  # Rule, Proposed Rule, Notice, Presidential Document
+    abstract: Optional[str]
+    citation: Optional[str]
+    publication_date: str
+    agencies: List[str]
+    html_url: str
+    pdf_url: Optional[str]
+    cfr_references: Optional[List[str]]
+    action: Optional[str]
+    dates: Optional[str]
+    effective_on: Optional[str]
+    comments_close_on: Optional[str]
+
+class FederalRegisterResponse(BaseModel):
+    query: Optional[str]
+    total: int
+    page: int
+    per_page: int
+    results: List[FederalRegisterDocument]
+    retrieved_at: str
+
 # -------------------------------------------------------------------
 # Regex patterns for decision parsing
 # -------------------------------------------------------------------
@@ -449,6 +483,8 @@ async def root():
             "GET  /cfr/structure":              "Title 38 CFR table of contents",
             "GET  /cfr/section?part=&section=": "Fetch 38 CFR section text as markdown",
             "GET  /cfr/search?q=":              "Search within Title 38 CFR",
+            "GET  /federal-register/va":     "Recent VA Federal Register documents (rules, notices)",
+            "GET  /federal-register/search?q=": "Search VA Federal Register documents",
             "GET  /rag/search?q=":           "Semantic search over indexed CFR/KnowVA content",
             "GET  /rag/status":              "RAG index statistics",
             "POST /rag/reindex?source=":     "Re-index content into RAG",
@@ -802,6 +838,87 @@ def _ecfr_search_sync(query: str, page: int, per_page: int,
     paged = results[start:start + per_page]
     return {"total": len(results), "results": paged}
 
+def _fr_parse_doc(doc: dict) -> FederalRegisterDocument:
+    """Parse a Federal Register API document into our model."""
+    agencies = [a.get("name", "") for a in doc.get("agencies", []) if a.get("name")]
+    cfr_refs = []
+    for ref in doc.get("cfr_references", []) or []:
+        title = ref.get("title")
+        parts = ref.get("parts", [])
+        for p in parts:
+            cfr_refs.append(f"{title} CFR Part {p.get('part', '?')}")
+        if not parts and title:
+            cfr_refs.append(f"{title} CFR")
+    return FederalRegisterDocument(
+        document_number=doc.get("document_number", ""),
+        title=doc.get("title", ""),
+        type=doc.get("type", ""),
+        abstract=doc.get("abstract"),
+        citation=doc.get("citation"),
+        publication_date=doc.get("publication_date", ""),
+        agencies=agencies,
+        html_url=doc.get("html_url", ""),
+        pdf_url=doc.get("pdf_url"),
+        cfr_references=cfr_refs or None,
+        action=doc.get("action"),
+        dates=doc.get("dates"),
+        effective_on=doc.get("effective_on"),
+        comments_close_on=doc.get("comments_close_on"),
+    )
+
+def _fr_va_documents_sync(
+    doc_type: Optional[str] = None,
+    page: int = 1,
+    per_page: int = 20,
+) -> Dict:
+    """Fetch recent VA documents from the Federal Register."""
+    params = {
+        "conditions[agencies][]": FR_VA_SLUG,
+        "fields[]": FR_FIELDS,
+        "per_page": per_page,
+        "page": page,
+        "order": "newest",
+    }
+    if doc_type:
+        params["conditions[type][]"] = doc_type
+    session = requests.Session()
+    session.headers.update({"User-Agent": USER_AGENT})
+    resp = session.get(f"{FR_API_BASE}/documents.json", params=params, timeout=REQUEST_TIMEOUT)
+    resp.raise_for_status()
+    data = resp.json()
+    results = [_fr_parse_doc(d) for d in data.get("results", [])]
+    return {"total": data.get("count", 0), "results": results}
+
+def _fr_search_sync(
+    query: str,
+    doc_type: Optional[str] = None,
+    cfr_title: Optional[int] = None,
+    cfr_part: Optional[str] = None,
+    page: int = 1,
+    per_page: int = 20,
+) -> Dict:
+    """Search VA documents in the Federal Register."""
+    params = {
+        "conditions[agencies][]": FR_VA_SLUG,
+        "conditions[term]": query,
+        "fields[]": FR_FIELDS,
+        "per_page": per_page,
+        "page": page,
+        "order": "relevance",
+    }
+    if doc_type:
+        params["conditions[type][]"] = doc_type
+    if cfr_title and cfr_part:
+        params["conditions[cfr][title]"] = cfr_title
+        params["conditions[cfr][part]"] = cfr_part
+    session = requests.Session()
+    session.headers.update({"User-Agent": USER_AGENT})
+    resp = session.get(f"{FR_API_BASE}/documents.json", params=params, timeout=REQUEST_TIMEOUT)
+    resp.raise_for_status()
+    data = resp.json()
+    results = [_fr_parse_doc(d) for d in data.get("results", [])]
+    return {"total": data.get("count", 0), "results": results}
+
 def _knowva_article_sync(article_id: int) -> KnowVAArticle:
     data = _knowva_get(f"ss/article/{article_id}", {
         "$attribute": "name,id,lastModifiedDate,content",
@@ -964,6 +1081,50 @@ async def cfr_diagnostic_search(
         raise HTTPException(status_code=404, detail=f"No diagnostic codes matching '{q}'")
     results = [_dc_to_model(dc, DC_LOOKUP[dc]) for dc in sorted(matched_dcs)]
     return results
+
+# -------------------------------------------------------------------
+# Federal Register endpoints
+# -------------------------------------------------------------------
+@app.get("/federal-register/va", response_model=FederalRegisterResponse, tags=["Federal Register"])
+async def fr_va_documents(
+    type: Optional[str] = Query(None, description="Document type: Rule, Proposed Rule, Notice"),
+    page: int = Query(1, ge=1, le=100),
+    per_page: int = Query(20, ge=1, le=100),
+):
+    """Get recent VA documents from the Federal Register (rules, proposed rules, notices)."""
+    loop = asyncio.get_running_loop()
+    try:
+        data = await loop.run_in_executor(executor, _fr_va_documents_sync, type, page, per_page)
+        return FederalRegisterResponse(
+            query=None, total=data["total"], page=page, per_page=per_page,
+            results=data["results"], retrieved_at=datetime.now().isoformat(),
+        )
+    except Exception as e:
+        logger.error(f"Federal Register VA docs error: {e}")
+        raise HTTPException(status_code=502, detail=str(e))
+
+@app.get("/federal-register/search", response_model=FederalRegisterResponse, tags=["Federal Register"])
+async def fr_search(
+    q: str = Query(..., description="Search query"),
+    type: Optional[str] = Query(None, description="Document type: Rule, Proposed Rule, Notice"),
+    cfr_title: Optional[int] = Query(None, description="CFR title number (e.g. 38)"),
+    cfr_part: Optional[str] = Query(None, description="CFR part number (e.g. 3, 4)"),
+    page: int = Query(1, ge=1, le=100),
+    per_page: int = Query(20, ge=1, le=100),
+):
+    """Search VA-related Federal Register documents. Filter by type and CFR reference."""
+    loop = asyncio.get_running_loop()
+    try:
+        data = await loop.run_in_executor(
+            executor, _fr_search_sync, q, type, cfr_title, cfr_part, page, per_page,
+        )
+        return FederalRegisterResponse(
+            query=q, total=data["total"], page=page, per_page=per_page,
+            results=data["results"], retrieved_at=datetime.now().isoformat(),
+        )
+    except Exception as e:
+        logger.error(f"Federal Register search error: {e}")
+        raise HTTPException(status_code=502, detail=str(e))
 
 # -------------------------------------------------------------------
 # RAG endpoints

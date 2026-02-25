@@ -337,6 +337,56 @@ async def bva_cfr_dc_search(q: str) -> str:
         return f"Error: {_err(e)}"
 
 
+# --- Federal Register tools ---
+
+@mcp.tool(
+    description=(
+        "Get recent VA documents from the Federal Register - rules, proposed rules, "
+        "and notices published by the Department of Veterans Affairs. Use to track "
+        "regulatory changes affecting veterans' benefits, rating criteria updates, "
+        "and policy changes. Filter by document type: Rule, Proposed Rule, Notice."
+    )
+)
+async def bva_fr_va_documents(
+    doc_type: Optional[str] = None,
+    page: int = 1,
+    per_page: int = 20,
+) -> str:
+    """Get recent VA Federal Register documents. doc_type=Rule/Proposed Rule/Notice, page=page number."""
+    try:
+        data = await _get("federal-register/va", type=doc_type, page=page, per_page=per_page)
+        return json.dumps(data, indent=2)
+    except Exception as e:
+        return f"Error: {_err(e)}"
+
+
+@mcp.tool(
+    description=(
+        "Search VA-related Federal Register documents by keyword. Returns rules, proposed rules, "
+        "and notices from the Department of Veterans Affairs. Filter by document type and CFR "
+        "reference (e.g. cfr_title=38, cfr_part=4 for rating schedule changes). "
+        "Examples: 'PTSD rating criteria', 'sleep apnea', 'TDIU', 'presumptive conditions'."
+    )
+)
+async def bva_fr_search(
+    q: str,
+    doc_type: Optional[str] = None,
+    cfr_title: Optional[int] = None,
+    cfr_part: Optional[str] = None,
+    page: int = 1,
+    per_page: int = 20,
+) -> str:
+    """Search VA Federal Register documents. q=search query, doc_type=Rule/Proposed Rule/Notice."""
+    try:
+        data = await _get(
+            "federal-register/search", q=q, type=doc_type,
+            cfr_title=cfr_title, cfr_part=cfr_part, page=page, per_page=per_page,
+        )
+        return json.dumps(data, indent=2)
+    except Exception as e:
+        return f"Error: {_err(e)}"
+
+
 # --- RAG tools ---
 
 @mcp.tool(
