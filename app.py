@@ -63,6 +63,82 @@ ECFR_HEADERS = {
     "Accept": "application/json, text/plain, */*",
 }
 
+# Part 4 diagnostic code lookup (eCFR search doesn't index rating criteria well)
+# Format: DC code -> (condition, CFR section, part, description)
+DC_LOOKUP: Dict[str, Dict[str, str]] = {
+    # Mental disorders - 4.130
+    "9411": {"condition": "PTSD", "section": "130", "part": "4", "schedule": "Mental Disorders"},
+    "9434": {"condition": "Major Depressive Disorder", "section": "130", "part": "4", "schedule": "Mental Disorders"},
+    "9400": {"condition": "Generalized Anxiety Disorder", "section": "130", "part": "4", "schedule": "Mental Disorders"},
+    "9201": {"condition": "Schizophrenia", "section": "130", "part": "4", "schedule": "Mental Disorders"},
+    "9432": {"condition": "Bipolar Disorder", "section": "130", "part": "4", "schedule": "Mental Disorders"},
+    "9413": {"condition": "Unspecified Anxiety Disorder", "section": "130", "part": "4", "schedule": "Mental Disorders"},
+    "9440": {"condition": "Chronic Adjustment Disorder", "section": "130", "part": "4", "schedule": "Mental Disorders"},
+    # Respiratory - 4.97
+    "6602": {"condition": "Asthma (Bronchial)", "section": "97", "part": "4", "schedule": "Respiratory System"},
+    "6604": {"condition": "COPD", "section": "97", "part": "4", "schedule": "Respiratory System"},
+    "6847": {"condition": "Sleep Apnea (Obstructive)", "section": "97", "part": "4", "schedule": "Respiratory System"},
+    "6600": {"condition": "Bronchitis (Chronic)", "section": "97", "part": "4", "schedule": "Respiratory System"},
+    "6845": {"condition": "Restrictive Lung Disease", "section": "97", "part": "4", "schedule": "Respiratory System"},
+    # Musculoskeletal - 4.71a
+    "5201": {"condition": "Arm (Limitation of Motion)", "section": "71a", "part": "4", "schedule": "Musculoskeletal System"},
+    "5003": {"condition": "Arthritis (Degenerative)", "section": "71a", "part": "4", "schedule": "Musculoskeletal System"},
+    "5010": {"condition": "Arthritis (Traumatic)", "section": "71a", "part": "4", "schedule": "Musculoskeletal System"},
+    "5237": {"condition": "Lumbosacral Strain", "section": "71a", "part": "4", "schedule": "Musculoskeletal System"},
+    "5242": {"condition": "Degenerative Arthritis of the Spine", "section": "71a", "part": "4", "schedule": "Musculoskeletal System"},
+    "5243": {"condition": "Intervertebral Disc Syndrome (IVDS)", "section": "71a", "part": "4", "schedule": "Musculoskeletal System"},
+    "5260": {"condition": "Leg (Limitation of Flexion)", "section": "71a", "part": "4", "schedule": "Musculoskeletal System"},
+    "5261": {"condition": "Leg (Limitation of Extension)", "section": "71a", "part": "4", "schedule": "Musculoskeletal System"},
+    "5271": {"condition": "Ankle (Limited Motion)", "section": "71a", "part": "4", "schedule": "Musculoskeletal System"},
+    # Neurological - 4.124a
+    "8045": {"condition": "Traumatic Brain Injury (TBI)", "section": "124a", "part": "4", "schedule": "Neurological Conditions"},
+    "8100": {"condition": "Migraine Headaches", "section": "124a", "part": "4", "schedule": "Neurological Conditions"},
+    "8520": {"condition": "Sciatic Nerve (Paralysis)", "section": "124a", "part": "4", "schedule": "Neurological Conditions"},
+    "8515": {"condition": "Median Nerve (Paralysis)", "section": "124a", "part": "4", "schedule": "Neurological Conditions"},
+    "8516": {"condition": "Ulnar Nerve (Paralysis)", "section": "124a", "part": "4", "schedule": "Neurological Conditions"},
+    "8510": {"condition": "Upper Radicular Group (Paralysis)", "section": "124a", "part": "4", "schedule": "Neurological Conditions"},
+    # Auditory - 4.85/4.87
+    "6100": {"condition": "Hearing Loss (Bilateral)", "section": "85", "part": "4", "schedule": "Ear"},
+    "6260": {"condition": "Tinnitus", "section": "87", "part": "4", "schedule": "Ear"},
+    # Cardiovascular - 4.104
+    "7005": {"condition": "Coronary Artery Disease", "section": "104", "part": "4", "schedule": "Cardiovascular System"},
+    "7101": {"condition": "Hypertension", "section": "104", "part": "4", "schedule": "Cardiovascular System"},
+    "7110": {"condition": "Aortic Aneurysm", "section": "104", "part": "4", "schedule": "Cardiovascular System"},
+    # Skin - 4.118
+    "7806": {"condition": "Dermatitis/Eczema", "section": "118", "part": "4", "schedule": "Skin"},
+    "7800": {"condition": "Burn Scars (Head/Face/Neck)", "section": "118", "part": "4", "schedule": "Skin"},
+    "7801": {"condition": "Burn Scars (Other)", "section": "118", "part": "4", "schedule": "Skin"},
+    "7804": {"condition": "Unstable/Painful Scars", "section": "118", "part": "4", "schedule": "Skin"},
+    # Digestive - 4.114
+    "7346": {"condition": "GERD (Hiatal Hernia)", "section": "114", "part": "4", "schedule": "Digestive System"},
+    "7319": {"condition": "Irritable Bowel Syndrome (IBS)", "section": "114", "part": "4", "schedule": "Digestive System"},
+    "7323": {"condition": "Ulcerative Colitis", "section": "114", "part": "4", "schedule": "Digestive System"},
+    # Endocrine - 4.119
+    "7913": {"condition": "Diabetes Mellitus (Type II)", "section": "119", "part": "4", "schedule": "Endocrine System"},
+    "7900": {"condition": "Hyperthyroidism", "section": "119", "part": "4", "schedule": "Endocrine System"},
+    # Genitourinary - 4.115
+    "7528": {"condition": "Malignant Neoplasms (Genitourinary)", "section": "115a", "part": "4", "schedule": "Genitourinary System"},
+    "7522": {"condition": "Erectile Dysfunction", "section": "115a", "part": "4", "schedule": "Genitourinary System"},
+    # Eye - 4.79
+    "6066": {"condition": "Visual Acuity Loss", "section": "79", "part": "4", "schedule": "Eye"},
+    # Dental/Oral - 4.150
+    "9905": {"condition": "TMJ (Temporomandibular)", "section": "150", "part": "4", "schedule": "Dental and Oral Conditions"},
+    # Gynecological - 4.116
+    "7629": {"condition": "Endometriosis", "section": "116", "part": "4", "schedule": "Gynecological Conditions"},
+    # Infectious - 4.88b
+    "6354": {"condition": "Chronic Fatigue Syndrome", "section": "88b", "part": "4", "schedule": "Infectious Diseases"},
+    # Hematologic - 4.117
+    "7702": {"condition": "Agranulocytosis", "section": "117", "part": "4", "schedule": "Hemic and Lymphatic Systems"},
+    # Gulf War / Undiagnosed - 3.317
+    "8863": {"condition": "Gulf War Undiagnosed Illness", "section": "317", "part": "3", "schedule": "Undiagnosed Illness (38 CFR 3.317)"},
+}
+
+# Reverse index: condition name (lowercase) -> list of DC codes
+_DC_BY_CONDITION: Dict[str, List[str]] = {}
+for _dc, _info in DC_LOOKUP.items():
+    for _word in _info["condition"].lower().replace("(", "").replace(")", "").split():
+        _DC_BY_CONDITION.setdefault(_word, []).append(_dc)
+
 # Full year -> dc collection ID mapping (verified from BVA search dropdown)
 YEAR_DC_MAP: Dict[int, int] = {
     1992: 9133, 1993: 9134, 1994: 9135, 1995: 9136, 1996: 9137,
@@ -201,6 +277,14 @@ class CFRSearchResponse(BaseModel):
     total: int
     results: List[CFRSearchResult]
     retrieved_at: str
+
+class DiagnosticCode(BaseModel):
+    dc: str
+    condition: str
+    cfr_citation: str
+    part: str
+    section: str
+    schedule: str
 
 # -------------------------------------------------------------------
 # Regex patterns for decision parsing
@@ -839,6 +923,44 @@ async def cfr_search(
     except Exception as e:
         logger.error(f"eCFR search error q={q}: {e}")
         raise HTTPException(status_code=502, detail=str(e))
+
+def _dc_to_model(dc: str, info: Dict[str, str]) -> DiagnosticCode:
+    return DiagnosticCode(
+        dc=dc, condition=info["condition"],
+        cfr_citation=f"38 CFR \u00a7 {info['part']}.{info['section']}",
+        part=info["part"], section=info["section"], schedule=info["schedule"],
+    )
+
+@app.get("/cfr/dc/{code}", response_model=DiagnosticCode, tags=["38 CFR"])
+async def cfr_diagnostic_code(code: str):
+    """Look up a VA diagnostic code (e.g. 9411 for PTSD). Returns CFR citation and schedule."""
+    info = DC_LOOKUP.get(code)
+    if not info:
+        raise HTTPException(status_code=404, detail=f"Diagnostic code {code} not found in lookup table")
+    return _dc_to_model(code, info)
+
+@app.get("/cfr/dc", response_model=List[DiagnosticCode], tags=["38 CFR"])
+async def cfr_diagnostic_search(
+    q: str = Query(..., description="Condition name to search (e.g. PTSD, sleep apnea, tinnitus)"),
+):
+    """Search diagnostic codes by condition name. Returns matching DC codes with CFR citations."""
+    q_lower = q.lower()
+    matched_dcs = set()
+    # Search by keyword overlap
+    for word in q_lower.replace("(", "").replace(")", "").split():
+        if len(word) < 2:
+            continue
+        for dc, info in DC_LOOKUP.items():
+            if word in info["condition"].lower():
+                matched_dcs.add(dc)
+    # Also match against schedule name
+    for dc, info in DC_LOOKUP.items():
+        if q_lower in info["condition"].lower() or q_lower in info["schedule"].lower():
+            matched_dcs.add(dc)
+    if not matched_dcs:
+        raise HTTPException(status_code=404, detail=f"No diagnostic codes matching '{q}'")
+    results = [_dc_to_model(dc, DC_LOOKUP[dc]) for dc in sorted(matched_dcs)]
+    return results
 
 def _shutdown(signum, frame):
     logger.info("Shutting down — releasing ports...")

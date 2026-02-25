@@ -301,6 +301,40 @@ async def bva_cfr_structure() -> str:
         return f"Error: {_err(e)}"
 
 
+# --- Diagnostic Code tools ---
+
+@mcp.tool(
+    description=(
+        "Look up a VA diagnostic code by number. Returns the condition name, "
+        "38 CFR citation, and rating schedule. Example: code='9411' returns "
+        "PTSD at 38 CFR 4.130. Covers 50+ common conditions across all body systems."
+    )
+)
+async def bva_cfr_dc_lookup(code: str) -> str:
+    """Look up a diagnostic code. code=DC number (e.g. '9411' for PTSD, '6847' for sleep apnea)."""
+    try:
+        data = await _get(f"cfr/dc/{code}")
+        return json.dumps(data, indent=2)
+    except Exception as e:
+        return f"Error: {_err(e)}"
+
+
+@mcp.tool(
+    description=(
+        "Search VA diagnostic codes by condition name. Returns matching DC codes "
+        "with their 38 CFR citations. Use when you know the condition but not the "
+        "DC number. Examples: 'PTSD', 'sleep apnea', 'knee', 'hearing loss', 'migraine'."
+    )
+)
+async def bva_cfr_dc_search(q: str) -> str:
+    """Search diagnostic codes by condition name. q=condition name (e.g. 'PTSD', 'back pain', 'tinnitus')."""
+    try:
+        data = await _get("cfr/dc", q=q)
+        return json.dumps(data, indent=2)
+    except Exception as e:
+        return f"Error: {_err(e)}"
+
+
 # --- Health tool ---
 
 @mcp.tool(
