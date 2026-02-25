@@ -8,7 +8,11 @@ from typing import Optional, List
 import httpx
 from mcp.server.fastmcp import FastMCP
 
-mcp = FastMCP("bva_mcp")
+_transport = os.environ.get("MCP_TRANSPORT", "stdio")
+_host = "0.0.0.0" if _transport == "http" else "127.0.0.1"
+_port = int(os.environ.get("PORT", 8080)) if _transport == "http" else 8000
+
+mcp = FastMCP("bva_mcp", host=_host, port=_port)
 API_BASE = os.environ.get("BVA_API_URL", "http://localhost:8001")
 TIMEOUT = 30.0
 
@@ -310,9 +314,7 @@ async def bva_health() -> str:
 
 
 if __name__ == "__main__":
-    transport = os.environ.get("MCP_TRANSPORT", "stdio")
-    if transport == "http":
-        port = int(os.environ.get("PORT", 8080))
-        mcp.run(transport="streamable-http", host="0.0.0.0", port=port)
+    if _transport == "http":
+        mcp.run(transport="streamable-http")
     else:
         mcp.run()  # stdio transport (default)
