@@ -10,7 +10,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 from typing import Optional, List, Dict, Any
 from datetime import datetime
-import logging, requests, asyncio, re
+import logging, requests, asyncio, re, signal, sys, os
+from bs4 import BeautifulSoup
+import html2text as _html2text
 from urllib.parse import urlencode
 from concurrent.futures import ThreadPoolExecutor
 from textstat import flesch_kincaid_grade
@@ -143,8 +145,7 @@ class KnowVAArticle(BaseModel):
     id: int
     name: str
     last_modified_date: Optional[str]
-    content_text: Optional[str]
-    content_html: Optional[str]
+    content: Optional[str]
 
 class KnowVASearchResponse(BaseModel):
     query: str
@@ -522,19 +523,37 @@ def _knowva_search_sync(query: str, page: int, pagesize: int) -> Dict:
     ]
     return {"total": total, "results": results}
 
+def _clean_html_to_text(html: str) -> str:
+    """Convert HTML to clean markdown text."""
+    # Fix mojibake before parsing (cp1252 bytes misread as latin-1)
+    try:
+        html = html.encode("latin-1").decode("utf-8")
+    except (UnicodeEncodeError, UnicodeDecodeError):
+        pass
+    h = _html2text.HTML2Text()
+    h.ignore_links = True
+    h.ignore_images = True
+    h.ignore_tables = False
+    h.body_width = 0          # no line wrapping
+    h.unicode_snob = True
+    text = h.handle(html)
+    # Collapse excessive blank lines
+    text = re.sub(r"\n{3,}", "\n\n", text)
+    return text.strip()
+
 def _knowva_article_sync(article_id: int) -> KnowVAArticle:
     data = _knowva_get(f"ss/article/{article_id}", {
-        "$attribute": "name,id,lastModifiedDate,content,contentText",
+        "$attribute": "name,id,lastModifiedDate,content",
     })
     # Response shape: {"article": [{...}]}
     raw = data.get("article", [data] if "id" in data else [])
     a = raw[0] if raw else {}
+    html = a.get("content", "")
     return KnowVAArticle(
         id=a.get("id", article_id),
         name=a.get("name", ""),
         last_modified_date=a.get("lastModifiedDate"),
-        content_text=a.get("contentText"),
-        content_html=a.get("content"),
+        content=_clean_html_to_text(html) if html else None,
     )
 
 def _knowva_popular_sync(pagesize: int) -> List[KnowVAArticleSummary]:
@@ -601,6 +620,34 @@ async def knowva_popular(pagesize: int = Query(10, ge=1, le=50)):
         logger.error(f"KnowVA popular error: {e}")
         raise HTTPException(status_code=502, detail=str(e))
 
+def _shutdown(signum, frame):
+    logger.info("Shutting down — releasing ports...")
+    executor.shutdown(wait=False, cancel_futures=True)
+    sys.exit(0)
+
+signal.signal(signal.SIGINT, _shutdown)
+signal.signal(signal.SIGTERM, _shutdown)
+
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8001)
+    import socket
+
+    PORT = int(os.environ.get("PORT", 8001))
+
+    # Check if port is free; if not, warn and pick next available
+    def _find_free_port(start: int) -> int:
+        for p in range(start, start + 10):
+            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+                s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+                try:
+                    s.bind(("0.0.0.0", p))
+                    return p
+                except OSError:
+                    continue
+        raise RuntimeError(f"No free port found starting at {start}")
+
+    port = _find_free_port(PORT)
+    if port != PORT:
+        logger.warning(f"Port {PORT} in use, using {port} instead")
+
+    uvicorn.run(app, host="0.0.0.0", port=port)
