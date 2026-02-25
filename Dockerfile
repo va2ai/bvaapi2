@@ -27,7 +27,8 @@ COPY . .
 # Bake RAG index at build time (requires OPENAI_API_KEY build arg)
 ARG OPENAI_API_KEY=""
 RUN if [ -n "$OPENAI_API_KEY" ]; then \
-      OPENAI_API_KEY=$OPENAI_API_KEY python ingest.py --source all \
+      CHROMA_PATH=/app/data/chroma OPENAI_API_KEY=$OPENAI_API_KEY \
+        python ingest.py --source all \
         --api-url https://bva-api-524576132881.us-central1.run.app \
       || echo "WARNING: RAG index build failed, will index at runtime via /rag/reindex"; \
     else \
