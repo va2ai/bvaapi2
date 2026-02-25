@@ -6,7 +6,8 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PIP_NO_CACHE_DIR=1 \
     PORT=8080 \
     UVICORN_WORKERS=2 \
-    UVICORN_TIMEOUT=120
+    UVICORN_TIMEOUT=120 \
+    BVA_API_URL=http://localhost:8080
 
 # System deps (certs, build tools for wheels if needed)
 RUN apt-get update && apt-get install -y --no-install-recommends \

@@ -815,6 +815,10 @@ def _shutdown(signum, frame):
 signal.signal(signal.SIGINT, _shutdown)
 signal.signal(signal.SIGTERM, _shutdown)
 
+# Mount MCP server at /mcp (streamable-HTTP transport for remote access)
+from mcp_server import mcp as _bva_mcp
+app.mount("/mcp", _bva_mcp.streamable_http_app())
+
 if __name__ == "__main__":
     import uvicorn
     import socket
