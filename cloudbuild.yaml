@@ -4,11 +4,14 @@ substitutions:
   _REGION: us-central1
   _REPO: bva-api
   _SERVICE: bva-api
+  _MCP_SERVICE: bva-mcp
 
 images:
   - '$_REGION-docker.pkg.dev/$PROJECT_ID/$_REPO/$_SERVICE:latest'
+  - '$_REGION-docker.pkg.dev/$PROJECT_ID/$_REPO/$_MCP_SERVICE:latest'
 
 steps:
+  # Build and deploy BVA API
   - name: gcr.io/cloud-builders/docker
     args: ['build', '-t', '$_REGION-docker.pkg.dev/$PROJECT_ID/$_REPO/$_SERVICE:latest', '.']
   - name: gcr.io/cloud-builders/docker
@@ -19,6 +22,21 @@ steps:
       [
         'run','deploy','$_SERVICE',
         '--image','$_REGION-docker.pkg.dev/$PROJECT_ID/$_REPO/$_SERVICE:latest',
+        '--region','$_REGION',
+        '--allow-unauthenticated'
+      ]
+
+  # Build and deploy BVA MCP server
+  - name: gcr.io/cloud-builders/docker
+    args: ['build', '-f', 'Dockerfile.mcp', '-t', '$_REGION-docker.pkg.dev/$PROJECT_ID/$_REPO/$_MCP_SERVICE:latest', '.']
+  - name: gcr.io/cloud-builders/docker
+    args: ['push', '$_REGION-docker.pkg.dev/$PROJECT_ID/$_REPO/$_MCP_SERVICE:latest']
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    entrypoint: gcloud
+    args:
+      [
+        'run','deploy','$_MCP_SERVICE',
+        '--image','$_REGION-docker.pkg.dev/$PROJECT_ID/$_REPO/$_MCP_SERVICE:latest',
         '--region','$_REGION',
         '--allow-unauthenticated'
       ]
