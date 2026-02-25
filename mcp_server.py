@@ -335,6 +335,52 @@ async def bva_cfr_dc_search(q: str) -> str:
         return f"Error: {_err(e)}"
 
 
+# --- RAG tools ---
+
+@mcp.tool(
+    description=(
+        "Semantic search over indexed VA regulations (38 CFR Parts 3 & 4) and KnowVA articles. "
+        "Use for discovery queries like 'what conditions qualify for presumptive service connection', "
+        "cross-reference questions like 'how does 3.102 interact with 4.3', or explanation requests "
+        "like 'what does occupational impairment mean'. Filters: content_type (rating_criteria, "
+        "adjudication, guidance), part (3, 4), schedule (Mental Disorders, etc.), source (cfr, knowva)."
+    )
+)
+async def bva_rag_search(
+    q: str,
+    content_type: Optional[str] = None,
+    part: Optional[str] = None,
+    schedule: Optional[str] = None,
+    source: Optional[str] = None,
+    top_k: int = 5,
+) -> str:
+    """Semantic search over CFR and KnowVA content. q=search query, top_k=number of results (1-20)."""
+    try:
+        data = await _get(
+            "rag/search", q=q, content_type=content_type,
+            part=part, schedule=schedule, source=source, top_k=top_k,
+        )
+        return json.dumps(data, indent=2)
+    except Exception as e:
+        return f"Error: {_err(e)}"
+
+
+@mcp.tool(
+    description=(
+        "Check the status of the RAG index. Returns total chunk count, "
+        "breakdown by source (cfr, knowva) and content type (rating_criteria, "
+        "adjudication, guidance), and embedding model info."
+    )
+)
+async def bva_rag_status() -> str:
+    """Get RAG index statistics - chunk counts by source and content type."""
+    try:
+        data = await _get("rag/status")
+        return json.dumps(data, indent=2)
+    except Exception as e:
+        return f"Error: {_err(e)}"
+
+
 # --- Health tool ---
 
 @mcp.tool(

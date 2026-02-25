@@ -449,6 +449,9 @@ async def root():
             "GET  /cfr/structure":              "Title 38 CFR table of contents",
             "GET  /cfr/section?part=&section=": "Fetch 38 CFR section text as markdown",
             "GET  /cfr/search?q=":              "Search within Title 38 CFR",
+            "GET  /rag/search?q=":           "Semantic search over indexed CFR/KnowVA content",
+            "GET  /rag/status":              "RAG index statistics",
+            "POST /rag/reindex?source=":     "Re-index content into RAG",
             "GET  /health":                  "Health check",
         }
     }
@@ -962,8 +965,96 @@ async def cfr_diagnostic_search(
     results = [_dc_to_model(dc, DC_LOOKUP[dc]) for dc in sorted(matched_dcs)]
     return results
 
+# -------------------------------------------------------------------
+# RAG endpoints
+# -------------------------------------------------------------------
+import rag as _rag
+from chunker import Chunk
+
+class RAGSearchResponse(BaseModel):
+    query: str
+    top_k: int
+    results: List[Dict[str, Any]]
+    total_indexed: int
+
+class RAGStatusResponse(BaseModel):
+    total_chunks: int
+    collection: str
+    embedding_model: str
+    by_source: Dict[str, int]
+    by_content_type: Dict[str, int]
+
+@app.get("/rag/search", response_model=RAGSearchResponse, tags=["RAG"])
+async def rag_search(
+    q: str = Query(..., description="Semantic search query"),
+    content_type: Optional[str] = Query(None, description="Filter: rating_criteria, adjudication, guidance"),
+    part: Optional[str] = Query(None, description="Filter: CFR part number (3, 4)"),
+    schedule: Optional[str] = Query(None, description="Filter: rating schedule name"),
+    source: Optional[str] = Query(None, description="Filter: cfr, knowva"),
+    top_k: int = Query(5, ge=1, le=20, description="Number of results"),
+):
+    """Semantic search over indexed CFR sections and KnowVA articles."""
+    try:
+        results = _rag.search(
+            query=q, top_k=top_k,
+            content_type=content_type, part=part,
+            schedule=schedule, source=source,
+        )
+        stats = _rag.get_stats()
+        return RAGSearchResponse(
+            query=q, top_k=top_k,
+            results=results,
+            total_indexed=stats["total_chunks"],
+        )
+    except Exception as e:
+        logger.error(f"RAG search error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/rag/status", response_model=RAGStatusResponse, tags=["RAG"])
+async def rag_status():
+    """Return RAG index statistics."""
+    try:
+        stats = _rag.get_stats()
+        return RAGStatusResponse(
+            total_chunks=stats["total_chunks"],
+            collection=stats["collection"],
+            embedding_model=stats["embedding_model"],
+            by_source=stats.get("by_source", {}),
+            by_content_type=stats.get("by_content_type", {}),
+        )
+    except Exception as e:
+        logger.error(f"RAG status error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/rag/reindex", tags=["RAG"])
+async def rag_reindex(
+    source: str = Query("all", description="Source to reindex: cfr, knowva, all"),
+):
+    """Trigger re-indexing of content into the RAG index."""
+    from ingest import ingest_cfr_part3, ingest_cfr_part4, ingest_knowva
+    api_url = os.environ.get("BVA_API_URL", "http://localhost:8001")
+    loop = asyncio.get_running_loop()
+    try:
+        all_chunks: List[Chunk] = []
+        if source in ("cfr", "all"):
+            all_chunks.extend(await loop.run_in_executor(executor, ingest_cfr_part4, api_url))
+            all_chunks.extend(await loop.run_in_executor(executor, ingest_cfr_part3, api_url))
+        if source in ("knowva", "all"):
+            all_chunks.extend(await loop.run_in_executor(executor, ingest_knowva, api_url))
+        indexed = _rag.add_chunks(all_chunks)
+        stats = _rag.get_stats()
+        return {
+            "status": "ok",
+            "source": source,
+            "chunks_indexed": indexed,
+            "total_chunks": stats["total_chunks"],
+        }
+    except Exception as e:
+        logger.error(f"RAG reindex error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
 def _shutdown(signum, frame):
-    logger.info("Shutting down — releasing ports...")
+    logger.info("Shutting down -- releasing ports...")
     executor.shutdown(wait=False, cancel_futures=True)
     sys.exit(0)
 

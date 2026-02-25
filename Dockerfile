@@ -5,7 +5,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     PIP_NO_CACHE_DIR=1 \
     PORT=8080 \
-    UVICORN_WORKERS=2 \
+    UVICORN_WORKERS=1 \
     UVICORN_TIMEOUT=120 \
     BVA_API_URL=http://localhost:8080
 
@@ -23,7 +23,15 @@ RUN pip install -r requirements.txt
 # Copy the rest of the app
 COPY . .
 
-# If you need environment config, read from env/Secret Manager at runtime
+# Bake RAG index at build time (requires OPENAI_API_KEY build arg)
+ARG OPENAI_API_KEY=""
+RUN if [ -n "$OPENAI_API_KEY" ]; then \
+      OPENAI_API_KEY=$OPENAI_API_KEY python ingest.py --source all \
+        --api-url https://bva-api-524576132881.us-central1.run.app; \
+    else \
+      echo "OPENAI_API_KEY not set, skipping RAG index build"; \
+    fi
+
 # Expose port (Cloud Run honors $PORT)
 EXPOSE 8080
 
