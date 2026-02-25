@@ -7,7 +7,8 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PORT=8080 \
     UVICORN_WORKERS=1 \
     UVICORN_TIMEOUT=120 \
-    BVA_API_URL=http://localhost:8080
+    BVA_API_URL=http://localhost:8080 \
+    CHROMA_PATH=/tmp/chroma
 
 # System deps (certs, build tools for wheels if needed)
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -40,4 +41,6 @@ EXPOSE 8080
 HEALTHCHECK --interval=30s --timeout=5s --retries=3 CMD curl -fsS http://127.0.0.1:${PORT}/health || exit 1
 
 # Start FastAPI via uvicorn (configure host/port, workers via env)
-CMD exec uvicorn app:app --host 0.0.0.0 --port ${PORT} --workers ${UVICORN_WORKERS}
+# Copy baked RAG index to writable /tmp at startup (Cloud Run filesystem is read-only)
+CMD cp -r /app/data/chroma /tmp/chroma 2>/dev/null; \
+    exec uvicorn app:app --host 0.0.0.0 --port ${PORT} --workers ${UVICORN_WORKERS}
