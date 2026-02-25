@@ -1,25 +1,20 @@
 #!/usr/bin/env python3
 """
-FastAPI BVA Scraper API – Optimized
-Includes:
- • Full Year→dc mapping (1997–2025, linear fill before 2021)
- • Optimized /analyze/text endpoint (single-pass keyword scanning)
+FastAPI BVA Search API v2.0
+Uses search.usa.gov JSON API (no HTML scraping) for reliable results.
 """
 
 from fastapi import FastAPI, HTTPException, Query, Body
-from fastapi.responses import JSONResponse, PlainTextResponse
+from fastapi.responses import PlainTextResponse
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 from typing import Optional, List, Dict, Any
 from datetime import datetime
-import logging, requests, time, asyncio, re
-from bs4 import BeautifulSoup
+import logging, requests, asyncio, re
 from urllib.parse import urlencode
 from concurrent.futures import ThreadPoolExecutor
 from textstat import flesch_kincaid_grade
 
-# -------------------------------------------------------------------
-# Logging
-# -------------------------------------------------------------------
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s | %(levelname)s | %(message)s",
@@ -27,31 +22,45 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# -------------------------------------------------------------------
-# FastAPI app
-# -------------------------------------------------------------------
 app = FastAPI(
-    title="BVA Decision Scraper API (No DB)",
-    description="Search and fetch Board of Veterans' Appeals decisions – no database required",
-    version="1.1.0"
+    title="BVA Decision Search API",
+    description="Search Board of Veterans' Appeals decisions via the search.usa.gov JSON API",
+    version="2.0.0"
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 executor = ThreadPoolExecutor(max_workers=10)
 
-USER_AGENT = "VetAI-API/1.0"
+USER_AGENT = "VetAI-BVA-API/2.0"
 REQUEST_TIMEOUT = 15
-RATE_LIMIT_DELAY = 2  # seconds between requests
+SEARCH_BASE = "https://search.usa.gov/search.json"
+RESULTS_PER_PAGE = 20
 
-# -------------------------------------------------------------------
-# Year→dc mapping (verified & linear pre-2021)
-# -------------------------------------------------------------------
+# KnowVA (Oracle Service Cloud) API constants
+KNOWVA_BASE = "https://www.knowva.ebenefits.va.gov/system/ws/v11"
+KNOWVA_PORTAL_ID = "554400000001018"
+KNOWVA_COMMON = {"$lang": "en-us", "usertype": "customer", "portalId": KNOWVA_PORTAL_ID}
+KNOWVA_HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120",
+    "Accept": "application/json, text/plain, */*",
+    "Referer": "https://www.knowva.ebenefits.va.gov/",
+    "Origin": "https://www.knowva.ebenefits.va.gov",
+}
+
+# Full year -> dc collection ID mapping (verified from BVA search dropdown)
 YEAR_DC_MAP: Dict[int, int] = {
-    1997: 9138,
-    1998: 9139, 1999: 9140, 2000: 9141, 2001: 9142, 2002: 9143,
-    2003: 9144, 2004: 9145, 2005: 9146, 2006: 9147, 2007: 9148,
-    2008: 9149, 2009: 9150, 2010: 9151, 2011: 9152, 2012: 9153,
-    2013: 9154, 2014: 9155, 2015: 9156, 2016: 9157, 2017: 9158,
-    2018: 9159, 2019: 9160, 2020: 9161, 2021: 9162,
+    1992: 9133, 1993: 9134, 1994: 9135, 1995: 9136, 1996: 9137,
+    1997: 9138, 1998: 9139, 1999: 9140, 2000: 9141, 2001: 9142,
+    2002: 9143, 2003: 9144, 2004: 9145, 2005: 9146, 2006: 9147,
+    2007: 9148, 2008: 9149, 2009: 9150, 2010: 9151, 2011: 9152,
+    2012: 9153, 2013: 9154, 2014: 9155, 2015: 9156, 2016: 9157,
+    2017: 9158, 2018: 9159, 2019: 9160, 2020: 9161, 2021: 9162,
     2022: 9256, 2023: 9692, 2024: 10080, 2025: 10280,
 }
 
@@ -61,26 +70,29 @@ YEAR_DC_MAP: Dict[int, int] = {
 class SearchRequest(BaseModel):
     query: str
     year: Optional[int] = None
-    max_pages: int = Field(1, ge=1, le=20)
-    page_size: int = Field(20, ge=10, le=50)
+    page: int = Field(1, ge=1, le=50)
+    per_page: int = Field(20, ge=1, le=20)
 
 class SearchResult(BaseModel):
     url: str
     title: str
     snippet: str
-    year: int
     case_number: Optional[str]
+    year: Optional[int]
+    publication_date: Optional[str]
 
 class SearchResponse(BaseModel):
     query: str
-    total_results: int
-    pages_searched: int
+    total: int
+    page: int
+    per_page: int
     results: List[SearchResult]
+    spelling_correction: Optional[str]
     timestamp: str
 
 class CaseDetail(BaseModel):
     url: str
-    year: int
+    year: Optional[int]
     case_number: Optional[str]
     docket_no: Optional[str]
     decision_date: Optional[str]
@@ -94,16 +106,16 @@ class CaseDetail(BaseModel):
     full_text: Optional[str]
     fetch_timestamp: str
 
+class BatchSearchPayload(BaseModel):
+    queries: List[str] = Field(..., min_length=1)
+    year: Optional[int] = None
+    page: int = Field(1, ge=1, le=10)
+
 class BatchSearchResult(BaseModel):
     query: str
+    total: int
     count: int
-    urls: List[str]
-    case_numbers: List[str]
-
-class BatchSearchPayload(BaseModel):
-    queries: List[str] = Field(..., min_items=1, description="List of search queries")
-    year: Optional[int] = Field(None, description="Year filter for all queries")
-    max_pages: int = Field(1, ge=1, le=5, description="Max pages per query")
+    results: List[SearchResult]
 
 class AnalyzeResponse(BaseModel):
     url: str
@@ -115,134 +127,166 @@ class AnalyzeResponse(BaseModel):
     readability_grade: Optional[float]
     analysis_timestamp: str
 
+# KnowVA models
+class KnowVATopic(BaseModel):
+    id: int
+    name: str
+    parent_topic_id: Optional[int]
+    total_article_count: Optional[int]
+
+class KnowVAArticleSummary(BaseModel):
+    id: int
+    name: str
+    snippet: Optional[str]
+
+class KnowVAArticle(BaseModel):
+    id: int
+    name: str
+    last_modified_date: Optional[str]
+    content_text: Optional[str]
+    content_html: Optional[str]
+
+class KnowVASearchResponse(BaseModel):
+    query: str
+    page: int
+    pagesize: int
+    total: int
+    results: List[KnowVAArticleSummary]
+
 # -------------------------------------------------------------------
-# Regex patterns
+# Regex patterns for decision parsing
 # -------------------------------------------------------------------
-DATE_RE  = re.compile(r"Decision\s*Date\s*[:\-]\s*([A-Za-z]{3,9}\s+\d{1,2},\s+\d{4})", re.I)
-DOCKET_RE= re.compile(r"Docket\s*No\.?\s*[:\-]?\s*([\w\-\s\/]+)", re.I)
+DATE_RE     = re.compile(
+    r"(?:Decision\s*Date\s*[:\-]\s*)(\d{2}/\d{2}/\d{2,4}|[A-Za-z]{3,9}\s+\d{1,2},\s+\d{4})",
+    re.I
+)
+DOCKET_RE   = re.compile(r"Docket\s*No\.?\s*[:\-]?\s*([\w\-\s\/]+)", re.I)
+ISSUES_RE   = re.compile(r"ISSUES?\s*[:\-]?\s*(.*)", re.I)
+CFR_RE      = re.compile(r"38\s*CFR\s*[§\u00A7]\s*([\d\.]+[a-z0-9\(\)]*)", re.I)
+M21_RE      = re.compile(r"M21-1[\w\-\.\s]*", re.I)
+RO_RE       = re.compile(r"Regional\s+Office\s+in\s+([A-Za-z\s,]+)", re.I)
+JUDGE_RE    = re.compile(r"(?:Veterans\s+Law\s+Judge|Acting\s+Veterans\s+Law\s+Judge)\s*[:\-]?\s*([A-Z][A-Za-z\s\-\.]+)")
 OUTCOME_PATTERNS = [
-    ("Granted",  re.compile(r"\b(ORDER.*?)(GRANTED)\b", re.I | re.S)),
-    ("Denied",   re.compile(r"\b(ORDER.*?)(DENIED)\b",  re.I | re.S)),
-    ("Remanded", re.compile(r"\b(REMANDED)\b",         re.I)),
+    ("Granted",  re.compile(r"\bGRANTED\b", re.I)),
+    ("Denied",   re.compile(r"\bDENIED\b",  re.I)),
+    ("Remanded", re.compile(r"\bREMANDED\b", re.I)),
 ]
-ISSUES_RE  = re.compile(r"ISSUES?\s*[:\-]?\s*(.*)", re.I)
-CFR_CITATION_RE = re.compile(r"38\s*CFR\s*[§\u00A7]\s*([\d\.]+[a-z0-9\(\)]*)", re.I)
-M21_RE     = re.compile(r"M21-1[\w\-\.\s]*", re.I)
-RO_RE      = re.compile(r"Regional\s+Office\s+in\s+([A-Za-z\s,]+)", re.I)
-JUDGE_RE   = re.compile(r"(Veterans\s+Law\s+Judge|Acting\s+Veterans\s+Law\s+Judge)\s*[:\-]?\s*([A-Z][A-Za-z\s\-\.]+)")
 
 # -------------------------------------------------------------------
 # Helpers
 # -------------------------------------------------------------------
+def extract_year_from_url(url: str) -> Optional[int]:
+    m = re.search(r"/vetapp(\d{2})/", url, re.I)
+    if m:
+        yy = int(m.group(1))
+        return 2000 + yy if yy < 50 else 1900 + yy
+    m = re.search(r"/(19\d{2}|20\d{2})/", url)
+    return int(m.group(1)) if m else None
+
+def clean_snippet(snippet: str) -> str:
+    """Remove search.usa.gov bold-highlight escape chars from snippets."""
+    return re.sub(r"[\xee\x80-\x83\xdc\x80-\xbf]|\uE000|\uE001", "", snippet)
+
+def extract_case_number(url: str) -> Optional[str]:
+    if ".txt" in url:
+        return url.split("/")[-1].replace(".txt", "")
+    return None
+
 def parse_decision_text(text: str) -> Dict[str, Any]:
-    d = {"decision_date": None, "docket_no": None, "outcome": None,
-         "issues": [], "citations": [], "regional_office": None, "judge": None}
-
+    d = {
+        "decision_date": None, "docket_no": None, "outcome": None,
+        "issues": [], "citations": [], "regional_office": None, "judge": None
+    }
     if m := DATE_RE.search(text):
-        try:
-            d["decision_date"] = datetime.strptime(m.group(1), "%B %d, %Y").strftime("%Y-%m-%d")
-        except ValueError:
-            pass
-
+        raw_date = m.group(1).strip()
+        for fmt in ("%m/%d/%y", "%m/%d/%Y", "%B %d, %Y"):
+            try:
+                d["decision_date"] = datetime.strptime(raw_date, fmt).strftime("%Y-%m-%d")
+                break
+            except ValueError:
+                pass
     if m := DOCKET_RE.search(text):
         d["docket_no"] = re.sub(r"\s+", " ", m.group(1)).strip()
 
-    upper_txt = text.upper()
-    if all(x in upper_txt for x in ["REMANDED", "GRANTED", "DENIED"]):
+    outcomes_found = [label for label, pat in OUTCOME_PATTERNS if pat.search(text)]
+    if len(outcomes_found) > 1:
         d["outcome"] = "Mixed"
-    else:
-        for label, pat in OUTCOME_PATTERNS:
-            if pat.search(text):
-                d["outcome"] = label
-                break
+    elif outcomes_found:
+        d["outcome"] = outcomes_found[0]
 
     if m := ISSUES_RE.search(text):
         items = re.split(r"\s*\d+\.\s*|;|\n", m.group(1).strip())
         d["issues"] = [i.strip() for i in items if i.strip()][:5]
 
-    cfrs  = CFR_CITATION_RE.findall(text)
-    m21s  = M21_RE.findall(text)
-    d["citations"] = sorted(set([f"38 CFR § {c}" for c in cfrs[:10]] + m21s[:5]))
+    cfrs = CFR_RE.findall(text)
+    m21s = M21_RE.findall(text)
+    d["citations"] = sorted(set([f"38 CFR ss {c}" for c in cfrs[:10]] + m21s[:5]))
 
     if m := RO_RE.search(text):
         d["regional_office"] = m.group(1).strip().rstrip(".")
-
     if m := JUDGE_RE.search(text):
-        d["judge"] = m.group(2).strip()
+        d["judge"] = m.group(1).strip()
     return d
 
-def build_search_url(query: str, year: Optional[int]) -> str:
-    params = {"affiliate": "bvadecisions", "query": query}
+def _search_json(query: str, year: Optional[int], page: int) -> Dict:
+    """Call search.usa.gov JSON API and return raw response dict."""
+    params: Dict[str, Any] = {
+        "affiliate": "bvadecisions",
+        "query": query,
+    }
     if year and year in YEAR_DC_MAP:
         params["dc"] = YEAR_DC_MAP[year]
     elif year:
-        params["query"] = f"{query} {year}"  # fallback
-    return f"https://search.usa.gov/search/docs?{urlencode(params)}"
+        params["query"] = f"{query} {year}"
 
-def search_bva_paginated(query: str, year: Optional[int] = None,
-                         max_pages: int = 1, page_size: int = 20) -> List[Dict[str, Any]]:
-    all_results: List[Dict[str, Any]] = []
-    current_page = 1
-    current_url = build_search_url(query, year)
+    offset = (page - 1) * RESULTS_PER_PAGE
+    if offset > 0:
+        params["offset"] = offset
+
+    url = f"{SEARCH_BASE}?{urlencode(params)}"
+    logger.info(f"GET {url}")
     session = requests.Session()
     session.headers.update({"User-Agent": USER_AGENT})
+    resp = session.get(url, timeout=REQUEST_TIMEOUT)
+    resp.raise_for_status()
+    return resp.json()
 
-    while current_page <= max_pages:
-        logger.info(f"Fetching page {current_page} for '{query}'")
-        try:
-            resp = session.get(current_url, timeout=REQUEST_TIMEOUT)
-            resp.raise_for_status()
-            soup = BeautifulSoup(resp.text, "html.parser")
-            results = soup.find_all("div", class_="result")
-            for r in results[:page_size]:
-                try:
-                    t_elem = r.find("h4", class_="title")
-                    s_elem = r.find("span", class_="description")
-                    if t_elem and (a := t_elem.find("a")):
-                        url = a.get("href", "")
-                        title = a.get_text(strip=True)
-                        snippet = s_elem.get_text(strip=True) if s_elem else ""
-                        case_number = url.split("/")[-1].replace(".txt", "") if ".txt" in url else None
-                        year_match = re.search(r"/(19\d{2}|20\d{2})/", url)
-                        y = int(year_match.group(1)) if year_match else datetime.now().year
-                        all_results.append({
-                            "url": url, "title": title, "snippet": snippet,
-                            "year": y, "case_number": case_number
-                        })
-                except Exception as e:
-                    logger.debug(f"Parse error: {e}")
-            next_link = soup.find("a", string="Next") or soup.find("a", class_="next")
-            if next_link and next_link.get("href") and current_page < max_pages:
-                href = next_link.get("href")
-                current_url = href if href.startswith("http") else f"https://search.usa.gov{href}"
-                current_page += 1
-                time.sleep(RATE_LIMIT_DELAY)
-            else:
-                break
-        except Exception as e:
-            logger.error(f"Error fetching page {current_page}: {e}")
-            break
-    logger.info(f"Search complete: {len(all_results)} results for '{query}'")
-    return all_results
+def search_bva(query: str, year: Optional[int], page: int) -> Dict:
+    data = _search_json(query, year, page)
+    web = data.get("web", {})
+    raw_results = web.get("results", [])
+    results = []
+    for r in raw_results:
+        result_url = r.get("url", "")
+        results.append(SearchResult(
+            url=result_url,
+            title=r.get("title", "").replace(".txt", ""),
+            snippet=clean_snippet(r.get("snippet", "")),
+            case_number=extract_case_number(result_url),
+            year=extract_year_from_url(result_url),
+            publication_date=r.get("publication_date"),
+        ))
+    return {
+        "total": web.get("total", 0),
+        "spelling_correction": web.get("spelling_correction"),
+        "results": results,
+    }
 
 def fetch_case_text(url: str) -> Dict[str, Any]:
-    logger.info(f"Fetching case text from {url}")
-    s = requests.Session(); s.headers.update({"User-Agent": USER_AGENT})
-    resp = s.get(url, timeout=REQUEST_TIMEOUT)
+    logger.info(f"Fetching case: {url}")
+    session = requests.Session()
+    session.headers.update({"User-Agent": USER_AGENT})
+    resp = session.get(url, timeout=REQUEST_TIMEOUT)
     resp.raise_for_status()
     text = resp.text
     if not text or len(text) < 100:
         raise HTTPException(status_code=422, detail="Invalid or empty case content")
-    parsed = parse_decision_text(text)
-    year_match = re.search(r"/(19\d{2}|20\d{2})/", url)
-    year = int(year_match.group(1)) if year_match else datetime.now().year
-    case_number = url.split("/")[-1].replace(".txt", "") if ".txt" in url else None
     return {
         "url": url,
-        "year": year,
-        "case_number": case_number,
+        "year": extract_year_from_url(url),
+        "case_number": extract_case_number(url),
         "raw_text": text,
-        "parsed": parsed,
+        "parsed": parse_decision_text(text),
         "text_length": len(text),
         "fetch_timestamp": datetime.now().isoformat()
     }
@@ -253,38 +297,85 @@ def fetch_case_text(url: str) -> Dict[str, Any]:
 @app.get("/")
 async def root():
     return {
-        "api": "BVA Decision Scraper (No DB)",
-        "version": "1.1.0",
+        "api": "BVA Decision Search API",
+        "version": "2.0.0",
+        "source": "search.usa.gov JSON API (affiliate: bvadecisions)",
+        "years_available": f"{min(YEAR_DC_MAP)} - {max(YEAR_DC_MAP)}",
         "endpoints": {
-            "/search": "POST - Search BVA decisions",
-            "/case": "GET - Fetch specific case by URL",
-            "/case/text": "GET - Raw text of a case",
-            "/batch/search": "POST - Search multiple queries",
-            "/analyze/text": "GET - Analyze decision text",
-            "/health": "GET - Health check"
+            "GET  /search":                  "Search BVA decisions (query params)",
+            "POST /search":                  "Search BVA decisions (JSON body)",
+            "POST /batch/search":            "Search multiple queries",
+            "GET  /case":                    "Fetch parsed case details by URL",
+            "GET  /case/text":               "Fetch raw case text by URL",
+            "GET  /analyze/text":            "Analyze decision for keywords & VA terms",
+            "GET  /years":                   "List available year->dc collection mappings",
+            "GET  /knowva/topics":           "List KnowVA knowledge base topics",
+            "GET  /knowva/search?q=":        "Search KnowVA articles (M21-1, policy, etc.)",
+            "GET  /knowva/article/{id}":     "Fetch full KnowVA article by ID",
+            "GET  /knowva/popular":          "List most popular KnowVA articles",
+            "GET  /health":                  "Health check",
         }
     }
 
-@app.post("/search", response_model=SearchResponse)
-async def search_decisions(request: SearchRequest):
+@app.get("/search", response_model=SearchResponse)
+async def search_get(
+    q: str = Query(..., description="Search query"),
+    year: Optional[int] = Query(None, ge=1992, le=2025),
+    page: int = Query(1, ge=1, le=50),
+):
     loop = asyncio.get_running_loop()
-    results = await loop.run_in_executor(
-        executor, search_bva_paginated,
-        request.query, request.year, request.max_pages, request.page_size
+    data = await loop.run_in_executor(executor, search_bva, q, year, page)
+    return SearchResponse(
+        query=q,
+        total=data["total"],
+        page=page,
+        per_page=RESULTS_PER_PAGE,
+        results=data["results"],
+        spelling_correction=data.get("spelling_correction"),
+        timestamp=datetime.now().isoformat(),
     )
+
+@app.post("/search", response_model=SearchResponse)
+async def search_post(request: SearchRequest):
+    loop = asyncio.get_running_loop()
+    data = await loop.run_in_executor(executor, search_bva, request.query, request.year, request.page)
     return SearchResponse(
         query=request.query,
-        total_results=len(results),
-        pages_searched=request.max_pages,
-        results=[SearchResult(**r) for r in results],
-        timestamp=datetime.now().isoformat()
+        total=data["total"],
+        page=request.page,
+        per_page=RESULTS_PER_PAGE,
+        results=data["results"],
+        spelling_correction=data.get("spelling_correction"),
+        timestamp=datetime.now().isoformat(),
     )
+
+@app.post("/batch/search", response_model=List[BatchSearchResult])
+async def batch_search(payload: BatchSearchPayload = Body(...)):
+    queries = [q.strip() for q in payload.queries if q.strip()]
+    if not queries:
+        raise HTTPException(status_code=422, detail="`queries` cannot be empty.")
+    loop = asyncio.get_running_loop()
+    results = []
+    for q in queries:
+        try:
+            data = await loop.run_in_executor(executor, search_bva, q, payload.year, payload.page)
+            results.append(BatchSearchResult(
+                query=q,
+                total=data["total"],
+                count=len(data["results"]),
+                results=data["results"],
+            ))
+            await asyncio.sleep(0.5)
+        except Exception as e:
+            logger.error(f"Batch search error for '{q}': {e}")
+            results.append(BatchSearchResult(query=q, total=0, count=0, results=[]))
+    return results
 
 @app.get("/case", response_model=CaseDetail)
 async def get_case(url: str = Query(...), full_text: bool = Query(False)):
     loop = asyncio.get_running_loop()
     case_data = await loop.run_in_executor(executor, fetch_case_text, url)
-    parsed, text = case_data["parsed"], case_data["raw_text"]
+    parsed = case_data["parsed"]
     return CaseDetail(
         url=url,
         year=case_data["year"],
@@ -296,10 +387,10 @@ async def get_case(url: str = Query(...), full_text: bool = Query(False)):
         regional_office=parsed.get("regional_office"),
         issues=parsed.get("issues"),
         citations=parsed.get("citations"),
-        text_length=len(text),
-        text_preview=text[:500],
-        full_text=text if full_text else None,
-        fetch_timestamp=case_data["fetch_timestamp"]
+        text_length=case_data["text_length"],
+        text_preview=case_data["raw_text"][:500],
+        full_text=case_data["raw_text"] if full_text else None,
+        fetch_timestamp=case_data["fetch_timestamp"],
     )
 
 @app.get("/case/text")
@@ -310,63 +401,34 @@ async def get_case_text(url: str = Query(...)):
         content=case_data["raw_text"],
         media_type="text/plain",
         headers={
-            "X-Case-Number": case_data.get("case_number", "unknown"),
-            "X-Year": str(case_data.get("year", "unknown")),
-            "X-Text-Length": str(case_data.get("text_length", 0))
+            "X-Case-Number": case_data.get("case_number") or "unknown",
+            "X-Year": str(case_data.get("year") or "unknown"),
+            "X-Text-Length": str(case_data["text_length"]),
         }
     )
-
-@app.post("/batch/search", response_model=List[BatchSearchResult])
-async def batch_search(payload: BatchSearchPayload = Body(...)):
-    queries = [q.strip() for q in payload.queries if q.strip()]
-    if not queries:
-        raise HTTPException(status_code=422, detail="`queries` cannot be empty.")
-    results: List[BatchSearchResult] = []
-    loop = asyncio.get_running_loop()
-    for q in queries:
-        try:
-            search_results = await loop.run_in_executor(
-                executor, search_bva_paginated, q, payload.year, payload.max_pages, 20
-            )
-            results.append(BatchSearchResult(
-                query=q,
-                count=len(search_results),
-                urls=[r["url"] for r in search_results[:10]],
-                case_numbers=[r["case_number"] for r in search_results[:10] if r.get("case_number")]
-            ))
-            await asyncio.sleep(RATE_LIMIT_DELAY)
-        except Exception as e:
-            logger.error(f"Error searching '{q}': {e}")
-            results.append(BatchSearchResult(query=q, count=0, urls=[], case_numbers=[]))
-    return results
 
 @app.get("/analyze/text", response_model=AnalyzeResponse)
 async def analyze_text(
     url: str = Query(...),
     keywords: List[str] = Query([]),
-    context: bool = Query(False, description="Return keyword context snippets")
+    context: bool = Query(False),
 ):
-    """
-    Optimized analysis: pre-normalize text once, single-pass regex for each keyword.
-    """
     loop = asyncio.get_running_loop()
     case_data = await loop.run_in_executor(executor, fetch_case_text, url)
     text = case_data["raw_text"]
-    text_lower, text_upper = text.lower(), text.upper()
+    text_lower = text.lower()
+    text_upper = text.upper()
 
     keyword_counts: Dict[str, int] = {}
     keyword_contexts: Dict[str, List[str]] = {}
-    if keywords:
-        for k in keywords:
-            matches = list(re.finditer(re.escape(k), text, re.IGNORECASE))
-            keyword_counts[k] = len(matches)
-            if context:
-                snippets = []
-                for m in matches:
-                    start = max(m.start() - 40, 0)
-                    end = min(m.end() + 40, len(text))
-                    snippets.append(text[start:end])
-                keyword_contexts[k] = snippets
+    for k in keywords:
+        matches = list(re.finditer(re.escape(k), text, re.IGNORECASE))
+        keyword_counts[k] = len(matches)
+        if context:
+            keyword_contexts[k] = [
+                text[max(m.start() - 40, 0):min(m.end() + 40, len(text))]
+                for m in matches
+            ]
 
     va_terms = {
         "TDIU": text_upper.count("TDIU"),
@@ -375,7 +437,7 @@ async def analyze_text(
         "disability rating": text_lower.count("disability rating"),
         "effective date": text_lower.count("effective date"),
         "clear and unmistakable error": text_lower.count("clear and unmistakable error"),
-        "individual unemployability": text_lower.count("individual unemployability")
+        "individual unemployability": text_lower.count("individual unemployability"),
     }
 
     return AnalyzeResponse(
@@ -383,21 +445,162 @@ async def analyze_text(
         case_number=case_data.get("case_number"),
         text_length=len(text),
         keyword_counts=keyword_counts or None,
-        keyword_contexts=keyword_contexts or None if context else None,
+        keyword_contexts=keyword_contexts if context else None,
         va_terms_found=va_terms,
         readability_grade=flesch_kincaid_grade(text),
-        analysis_timestamp=datetime.now().isoformat()
+        analysis_timestamp=datetime.now().isoformat(),
     )
+
+@app.get("/years")
+async def list_years():
+    return {
+        "years": [
+            {"year": y, "dc": dc}
+            for y, dc in sorted(YEAR_DC_MAP.items())
+        ]
+    }
 
 @app.get("/health")
 async def health_check():
     return {
         "status": "healthy",
+        "version": "2.0.0",
         "timestamp": datetime.now().isoformat(),
-        "service": "BVA Scraper API (No DB)"
     }
 
 # -------------------------------------------------------------------
+# KnowVA helpers
+# -------------------------------------------------------------------
+def _knowva_get(path: str, params: Dict[str, Any]) -> Dict:
+    url = f"{KNOWVA_BASE}/{path}"
+    merged = {**KNOWVA_COMMON, **params}
+    session = requests.Session()
+    session.headers.update(KNOWVA_HEADERS)
+    logger.info(f"KnowVA GET {url} params={merged}")
+    resp = session.get(url, params=merged, timeout=REQUEST_TIMEOUT)
+    resp.raise_for_status()
+    return resp.json()
+
+def _knowva_topics_sync() -> List[KnowVATopic]:
+    data = _knowva_get("ss/topic", {
+        "$attribute": "name,id,parentTopicId,totalArticleCount",
+        "$level": 0,
+        "$pagenum": 0,
+        "$pagesize": 1000,
+    })
+    # Response shape: {"topicTree": [{"topic": {...}}]}
+    raw = data.get("topicTree", [])
+    topics = []
+    for entry in raw:
+        t = entry.get("topic", entry)
+        topics.append(KnowVATopic(
+            id=t["id"],
+            name=t.get("name", ""),
+            parent_topic_id=t.get("parentTopicId"),
+            total_article_count=t.get("articleTotalCount") or t.get("totalArticleCount"),
+        ))
+    return topics
+
+def _knowva_search_sync(query: str, page: int, pagesize: int) -> Dict:
+    data = _knowva_get("ss/search/kb", {
+        "$attribute": "name,id,snippet,availableEditions,articleTypeAttributes",
+        "$pagenum": page,
+        "$pagesize": pagesize,
+        "federated": "true",
+        "q": query,
+    })
+    # Response shape: {"article": [...], "query": "..."}
+    raw = data.get("article", data.get("items", []))
+    total = data.get("totalCount", len(raw))
+    results = [
+        KnowVAArticleSummary(
+            id=r["id"],
+            name=r.get("name", ""),
+            snippet=r.get("snippet") or r.get("description"),
+        )
+        for r in raw
+    ]
+    return {"total": total, "results": results}
+
+def _knowva_article_sync(article_id: int) -> KnowVAArticle:
+    data = _knowva_get(f"ss/article/{article_id}", {
+        "$attribute": "name,id,lastModifiedDate,content,contentText",
+    })
+    # Response shape: {"article": [{...}]}
+    raw = data.get("article", [data] if "id" in data else [])
+    a = raw[0] if raw else {}
+    return KnowVAArticle(
+        id=a.get("id", article_id),
+        name=a.get("name", ""),
+        last_modified_date=a.get("lastModifiedDate"),
+        content_text=a.get("contentText"),
+        content_html=a.get("content"),
+    )
+
+def _knowva_popular_sync(pagesize: int) -> List[KnowVAArticleSummary]:
+    data = _knowva_get("ss/dfaq", {
+        "$attribute": "name,id,milestone",
+        "$pagenum": 1,
+        "$pagesize": pagesize,
+    })
+    # Response shape: {"article": [...]} or {"items": [...]}
+    raw = data.get("article", data.get("items", []))
+    return [
+        KnowVAArticleSummary(id=r["id"], name=r.get("name", ""), snippet=None)
+        for r in raw
+    ]
+
+# -------------------------------------------------------------------
+# KnowVA endpoints
+# -------------------------------------------------------------------
+@app.get("/knowva/topics", response_model=List[KnowVATopic], tags=["KnowVA"])
+async def knowva_topics():
+    """List all KnowVA knowledge base topics/categories."""
+    loop = asyncio.get_running_loop()
+    try:
+        return await loop.run_in_executor(executor, _knowva_topics_sync)
+    except Exception as e:
+        logger.error(f"KnowVA topics error: {e}")
+        raise HTTPException(status_code=502, detail=str(e))
+
+@app.get("/knowva/search", response_model=KnowVASearchResponse, tags=["KnowVA"])
+async def knowva_search(
+    q: str = Query(..., description="Search query"),
+    page: int = Query(1, ge=1, le=100),
+    pagesize: int = Query(30, ge=1, le=100),
+):
+    """Full-text search of KnowVA articles (M21-1, policy memos, etc.)."""
+    loop = asyncio.get_running_loop()
+    try:
+        data = await loop.run_in_executor(executor, _knowva_search_sync, q, page, pagesize)
+        return KnowVASearchResponse(
+            query=q, page=page, pagesize=pagesize,
+            total=data["total"], results=data["results"],
+        )
+    except Exception as e:
+        logger.error(f"KnowVA search error: {e}")
+        raise HTTPException(status_code=502, detail=str(e))
+
+@app.get("/knowva/article/{article_id}", response_model=KnowVAArticle, tags=["KnowVA"])
+async def knowva_article(article_id: int):
+    """Fetch full content of a KnowVA article by its numeric ID."""
+    loop = asyncio.get_running_loop()
+    try:
+        return await loop.run_in_executor(executor, _knowva_article_sync, article_id)
+    except Exception as e:
+        logger.error(f"KnowVA article error: {e}")
+        raise HTTPException(status_code=502, detail=str(e))
+
+@app.get("/knowva/popular", response_model=List[KnowVAArticleSummary], tags=["KnowVA"])
+async def knowva_popular(pagesize: int = Query(10, ge=1, le=50)):
+    """Return the most popular KnowVA articles."""
+    loop = asyncio.get_running_loop()
+    try:
+        return await loop.run_in_executor(executor, _knowva_popular_sync, pagesize)
+    except Exception as e:
+        logger.error(f"KnowVA popular error: {e}")
+        raise HTTPException(status_code=502, detail=str(e))
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8001)
