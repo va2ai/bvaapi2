@@ -6,7 +6,9 @@ import os
 from typing import Optional, List
 
 import httpx
+import uvicorn
 from mcp.server.fastmcp import FastMCP
+from starlette.middleware.cors import CORSMiddleware
 
 _transport = os.environ.get("MCP_TRANSPORT", "stdio")
 _host = "0.0.0.0" if _transport == "http" else "127.0.0.1"
@@ -397,6 +399,13 @@ async def bva_health() -> str:
 
 if __name__ == "__main__":
     if _transport == "http":
-        mcp.run(transport="streamable-http")
+        asgi_app = mcp.streamable_http_app()
+        cors_app = CORSMiddleware(
+            asgi_app,
+            allow_origins=["*"],
+            allow_methods=["*"],
+            allow_headers=["*"],
+        )
+        uvicorn.run(cors_app, host=_host, port=_port)
     else:
         mcp.run()  # stdio transport (default)
