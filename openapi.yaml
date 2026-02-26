@@ -1,0 +1,713 @@
+openapi: 3.1.0
+info:
+  title: BVA Decision Scraper API
+  description: |
+    Search and fetch Board of Veterans' Appeals (BVA) decisions from the VA.gov database.
+
+    This API provides endpoints to:
+    - Search BVA decisions by keywords and year
+    - Fetch detailed case information with parsed metadata
+    - Retrieve raw case text
+    - Batch search multiple queries
+    - Analyze decision text for keywords and VA-specific terms
+
+    **Data Source**: USA.gov Search API (affiliate: bvadecisions)
+
+    **Coverage**: BVA decisions from 1997-2025
+  version: 1.1.0
+  contact:
+    name: VetAI API Support
+  license:
+    name: MIT
+    identifier: MIT
+
+servers:
+  - url: http://localhost:8001
+    description: Local development server
+  - url: https://bva-api.run.app
+    description: Production server (Google Cloud Run)
+
+tags:
+  - name: Search
+    description: Search BVA decisions
+  - name: Cases
+    description: Fetch and analyze individual cases
+  - name: Health
+    description: API health and status
+
+paths:
+  /:
+    get:
+      summary: API Root
+      description: Returns API information and available endpoints
+      operationId: root
+      tags:
+        - Health
+      responses:
+        '200':
+          description: API information
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  api:
+                    type: string
+                    example: "BVA Decision Scraper (No DB)"
+                  version:
+                    type: string
+                    example: "1.1.0"
+                  endpoints:
+                    type: object
+                    additionalProperties:
+                      type: string
+
+  /health:
+    get:
+      summary: Health Check
+      description: Returns the health status of the API
+      operationId: healthCheck
+      tags:
+        - Health
+      responses:
+        '200':
+          description: API is healthy
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+
+  /search:
+    post:
+      summary: Search BVA Decisions
+      description: |
+        Search for BVA decisions using keywords and optional filters.
+
+        Results are fetched from USA.gov's search API and include:
+        - Case URL
+        - Title (Citation Number)
+        - Snippet preview
+        - Year and case number
+
+        **Rate Limiting**: 2-second delay between paginated requests
+      operationId: searchDecisions
+      tags:
+        - Search
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchRequest'
+            examples:
+              basic:
+                summary: Basic search
+                value:
+                  query: "PTSD combat veteran"
+              with_year:
+                summary: Search with year filter
+                value:
+                  query: "hearing loss"
+                  year: 2024
+                  max_pages: 3
+                  page_size: 20
+      responses:
+        '200':
+          description: Search results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
+        '422':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+
+  /batch/search:
+    post:
+      summary: Batch Search
+      description: |
+        Search multiple queries in a single request.
+
+        Useful for comparing search results across different terms or conditions.
+
+        **Limitations**:
+        - Maximum 5 pages per query
+        - Returns top 10 URLs per query
+        - Rate limited between queries
+      operationId: batchSearch
+      tags:
+        - Search
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BatchSearchPayload'
+            examples:
+              multiple_conditions:
+                summary: Search multiple conditions
+                value:
+                  queries:
+                    - "PTSD"
+                    - "TBI traumatic brain injury"
+                    - "hearing loss tinnitus"
+                  year: 2024
+                  max_pages: 2
+      responses:
+        '200':
+          description: Batch search results
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BatchSearchResult'
+        '422':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+
+  /case:
+    get:
+      summary: Get Case Details
+      description: |
+        Fetch detailed information about a specific BVA case.
+
+        Parses the decision text to extract:
+        - Decision date
+        - Docket number
+        - Outcome (Granted/Denied/Remanded/Mixed)
+        - Veterans Law Judge name
+        - Regional Office
+        - Issues addressed
+        - Legal citations (38 CFR, M21-1)
+      operationId: getCase
+      tags:
+        - Cases
+      parameters:
+        - name: url
+          in: query
+          required: true
+          description: Full URL to the BVA decision text file
+          schema:
+            type: string
+            format: uri
+          example: "https://www.va.gov/vetapp24/files/24012345.txt"
+        - name: full_text
+          in: query
+          required: false
+          description: Include the full decision text in response
+          schema:
+            type: boolean
+            default: false
+      responses:
+        '200':
+          description: Case details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CaseDetail'
+        '422':
+          description: Invalid or empty case content
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPError'
+
+  /case/text:
+    get:
+      summary: Get Raw Case Text
+      description: |
+        Retrieve the raw text content of a BVA decision.
+
+        Returns plain text with metadata in response headers:
+        - `X-Case-Number`: The case citation number
+        - `X-Year`: Decision year
+        - `X-Text-Length`: Character count
+      operationId: getCaseText
+      tags:
+        - Cases
+      parameters:
+        - name: url
+          in: query
+          required: true
+          description: Full URL to the BVA decision text file
+          schema:
+            type: string
+            format: uri
+          example: "https://www.va.gov/vetapp24/files/24012345.txt"
+      responses:
+        '200':
+          description: Raw decision text
+          content:
+            text/plain:
+              schema:
+                type: string
+          headers:
+            X-Case-Number:
+              description: Case citation number
+              schema:
+                type: string
+            X-Year:
+              description: Decision year
+              schema:
+                type: string
+            X-Text-Length:
+              description: Text length in characters
+              schema:
+                type: string
+        '422':
+          description: Invalid or empty case content
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPError'
+
+  /analyze/text:
+    get:
+      summary: Analyze Decision Text
+      description: |
+        Analyze a BVA decision for keywords and VA-specific terminology.
+
+        **Features**:
+        - Custom keyword counting with optional context snippets
+        - Pre-defined VA term detection (PTSD, TDIU, service-connected, etc.)
+        - Flesch-Kincaid readability grade calculation
+
+        **Performance**: Uses optimized single-pass scanning
+      operationId: analyzeText
+      tags:
+        - Cases
+      parameters:
+        - name: url
+          in: query
+          required: true
+          description: Full URL to the BVA decision text file
+          schema:
+            type: string
+            format: uri
+          example: "https://www.va.gov/vetapp24/files/24012345.txt"
+        - name: keywords
+          in: query
+          required: false
+          description: List of keywords to search for (case-insensitive)
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: true
+          example:
+            - "nexus"
+            - "combat"
+            - "stressor"
+        - name: context
+          in: query
+          required: false
+          description: Return context snippets around keyword matches (40 chars before/after)
+          schema:
+            type: boolean
+            default: false
+      responses:
+        '200':
+          description: Text analysis results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalyzeResponse'
+        '422':
+          description: Invalid or empty case content
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPError'
+
+components:
+  schemas:
+    SearchRequest:
+      type: object
+      required:
+        - query
+      properties:
+        query:
+          type: string
+          description: Search keywords
+          minLength: 1
+          example: "PTSD combat veteran"
+        year:
+          type: integer
+          description: Filter results by decision year (1997-2025)
+          minimum: 1997
+          maximum: 2025
+          nullable: true
+          example: 2024
+        max_pages:
+          type: integer
+          description: Maximum number of result pages to fetch
+          minimum: 1
+          maximum: 20
+          default: 1
+          example: 3
+        page_size:
+          type: integer
+          description: Number of results per page
+          minimum: 10
+          maximum: 50
+          default: 20
+          example: 20
+
+    SearchResult:
+      type: object
+      required:
+        - url
+        - title
+        - snippet
+        - year
+      properties:
+        url:
+          type: string
+          format: uri
+          description: URL to the full decision text
+          example: "https://www.va.gov/vetapp24/files/24012345.txt"
+        title:
+          type: string
+          description: Decision title (usually Citation Number)
+          example: "Citation Nr: 24012345"
+        snippet:
+          type: string
+          description: Text snippet from search results
+          example: "...service connection for PTSD is granted..."
+        year:
+          type: integer
+          description: Decision year
+          example: 2024
+        case_number:
+          type: string
+          description: Case citation number extracted from URL
+          nullable: true
+          example: "24012345"
+
+    SearchResponse:
+      type: object
+      required:
+        - query
+        - total_results
+        - pages_searched
+        - results
+        - timestamp
+      properties:
+        query:
+          type: string
+          description: Original search query
+          example: "PTSD combat veteran"
+        total_results:
+          type: integer
+          description: Total number of results returned
+          example: 45
+        pages_searched:
+          type: integer
+          description: Number of pages searched
+          example: 3
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchResult'
+        timestamp:
+          type: string
+          format: date-time
+          description: Response timestamp (ISO 8601)
+          example: "2024-12-10T14:30:00.123456"
+
+    BatchSearchPayload:
+      type: object
+      required:
+        - queries
+      properties:
+        queries:
+          type: array
+          items:
+            type: string
+          minItems: 1
+          description: List of search queries
+          example:
+            - "PTSD"
+            - "TBI"
+            - "hearing loss"
+        year:
+          type: integer
+          description: Year filter applied to all queries
+          minimum: 1997
+          maximum: 2025
+          nullable: true
+          example: 2024
+        max_pages:
+          type: integer
+          description: Maximum pages per query
+          minimum: 1
+          maximum: 5
+          default: 1
+          example: 2
+
+    BatchSearchResult:
+      type: object
+      required:
+        - query
+        - count
+        - urls
+        - case_numbers
+      properties:
+        query:
+          type: string
+          description: The search query
+          example: "PTSD"
+        count:
+          type: integer
+          description: Number of results found
+          example: 150
+        urls:
+          type: array
+          items:
+            type: string
+            format: uri
+          description: Top 10 result URLs
+          maxItems: 10
+        case_numbers:
+          type: array
+          items:
+            type: string
+          description: Case numbers from results
+          maxItems: 10
+
+    CaseDetail:
+      type: object
+      required:
+        - url
+        - year
+        - text_length
+        - text_preview
+        - fetch_timestamp
+      properties:
+        url:
+          type: string
+          format: uri
+          description: Case URL
+          example: "https://www.va.gov/vetapp24/files/24012345.txt"
+        year:
+          type: integer
+          description: Decision year
+          example: 2024
+        case_number:
+          type: string
+          description: Case citation number
+          nullable: true
+          example: "24012345"
+        docket_no:
+          type: string
+          description: Docket number
+          nullable: true
+          example: "23-12345"
+        decision_date:
+          type: string
+          format: date
+          description: Decision date (YYYY-MM-DD)
+          nullable: true
+          example: "2024-01-15"
+        outcome:
+          type: string
+          description: Case outcome
+          enum:
+            - Granted
+            - Denied
+            - Remanded
+            - Mixed
+          nullable: true
+          example: "Granted"
+        judge:
+          type: string
+          description: Veterans Law Judge name
+          nullable: true
+          example: "John A. Smith"
+        regional_office:
+          type: string
+          description: VA Regional Office
+          nullable: true
+          example: "Houston, Texas"
+        issues:
+          type: array
+          items:
+            type: string
+          description: Issues addressed in the decision (max 5)
+          nullable: true
+          example:
+            - "Entitlement to service connection for PTSD"
+            - "Entitlement to TDIU"
+        citations:
+          type: array
+          items:
+            type: string
+          description: Legal citations (38 CFR, M21-1)
+          nullable: true
+          example:
+            - "38 CFR § 3.304"
+            - "38 CFR § 4.130"
+            - "M21-1, Part IV"
+        text_length:
+          type: integer
+          description: Full text length in characters
+          example: 15234
+        text_preview:
+          type: string
+          description: First 500 characters of the decision
+          maxLength: 500
+        full_text:
+          type: string
+          description: Complete decision text (only if full_text=true)
+          nullable: true
+        fetch_timestamp:
+          type: string
+          format: date-time
+          description: When the case was fetched
+          example: "2024-12-10T14:30:00.123456"
+
+    AnalyzeResponse:
+      type: object
+      required:
+        - url
+        - text_length
+        - va_terms_found
+        - analysis_timestamp
+      properties:
+        url:
+          type: string
+          format: uri
+          description: Analyzed case URL
+          example: "https://www.va.gov/vetapp24/files/24012345.txt"
+        case_number:
+          type: string
+          description: Case citation number
+          nullable: true
+          example: "24012345"
+        text_length:
+          type: integer
+          description: Text length in characters
+          example: 15234
+        keyword_counts:
+          type: object
+          additionalProperties:
+            type: integer
+          description: Count of each requested keyword
+          nullable: true
+          example:
+            nexus: 5
+            combat: 12
+            stressor: 8
+        keyword_contexts:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+          description: Context snippets for each keyword (if context=true)
+          nullable: true
+          example:
+            nexus:
+              - "...medical nexus opinion..."
+              - "...establish a nexus between..."
+        va_terms_found:
+          type: object
+          description: Counts of predefined VA terms
+          properties:
+            TDIU:
+              type: integer
+              example: 3
+            PTSD:
+              type: integer
+              example: 15
+            service-connected:
+              type: integer
+              example: 8
+            disability rating:
+              type: integer
+              example: 4
+            effective date:
+              type: integer
+              example: 2
+            clear and unmistakable error:
+              type: integer
+              example: 0
+            individual unemployability:
+              type: integer
+              example: 1
+        readability_grade:
+          type: number
+          format: float
+          description: Flesch-Kincaid grade level
+          nullable: true
+          example: 14.5
+        analysis_timestamp:
+          type: string
+          format: date-time
+          description: When the analysis was performed
+          example: "2024-12-10T14:30:00.123456"
+
+    HealthResponse:
+      type: object
+      required:
+        - status
+        - timestamp
+        - service
+      properties:
+        status:
+          type: string
+          enum:
+            - healthy
+          example: "healthy"
+        timestamp:
+          type: string
+          format: date-time
+          example: "2024-12-10T14:30:00.123456"
+        service:
+          type: string
+          example: "BVA Scraper API (No DB)"
+
+    HTTPError:
+      type: object
+      properties:
+        detail:
+          type: string
+          description: Error message
+          example: "Invalid or empty case content"
+
+    HTTPValidationError:
+      type: object
+      properties:
+        detail:
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+
+    ValidationError:
+      type: object
+      required:
+        - loc
+        - msg
+        - type
+      properties:
+        loc:
+          type: array
+          items:
+            oneOf:
+              - type: string
+              - type: integer
+          description: Error location
+        msg:
+          type: string
+          description: Error message
+        type:
+          type: string
+          description: Error type

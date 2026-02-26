@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BVA API Testing GUI - v1.3.0</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .version-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 450px 1fr;
+            gap: 0;
+            min-height: calc(100vh - 200px);
+        }
+
+        .sidebar {
+            background: #f8f9fa;
+            padding: 30px;
+            border-right: 1px solid #dee2e6;
+            overflow-y: auto;
+            max-height: calc(100vh - 200px);
+        }
+
+        .results-panel {
+            padding: 30px;
+            overflow-y: auto;
+            max-height: calc(100vh - 200px);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #495057;
+            font-size: 0.9em;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 2px solid #dee2e6;
+            border-radius: 6px;
+            font-size: 0.95em;
+            transition: border-color 0.2s;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .checkbox-group label {
+            margin: 0;
+            cursor: pointer;
+            font-weight: normal;
+        }
+
+        .section-title {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: #667eea;
+            margin: 25px 0 15px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .section-title:first-child {
+            margin-top: 0;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 60px 20px;
+            color: #6c757d;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .result-card {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .result-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .result-title {
+            font-weight: 700;
+            color: #212529;
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+
+        .result-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 12px 0;
+        }
+
+        .meta-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            background: #e9ecef;
+            border-radius: 4px;
+            font-size: 0.85em;
+            color: #495057;
+        }
+
+        .meta-badge.outcome-granted {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .meta-badge.outcome-denied {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .meta-badge.outcome-remanded {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .snippet {
+            color: #6c757d;
+            line-height: 1.6;
+            margin: 12px 0;
+            font-size: 0.95em;
+        }
+
+        .snippet strong {
+            background: #fff3cd;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+
+        .result-url {
+            font-size: 0.85em;
+            color: #6c757d;
+            word-break: break-all;
+        }
+
+        .summary-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border-radius: 8px;
+        }
+
+        .stat-box {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .stat-label {
+            font-size: 0.85em;
+            color: #6c757d;
+            margin-top: 5px;
+        }
+
+        .facets-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .facets-title {
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #495057;
+        }
+
+        .facet-group {
+            margin-bottom: 15px;
+        }
+
+        .facet-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 12px;
+            background: white;
+            margin-bottom: 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        .facet-label {
+            color: #495057;
+        }
+
+        .facet-count {
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .api-url {
+            font-size: 0.85em;
+            color: #6c757d;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 4px;
+            word-break: break-all;
+        }
+
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            border-left: 4px solid #721c24;
+        }
+
+        .hint {
+            font-size: 0.85em;
+            color: #6c757d;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .processed-query {
+            background: #e7f3ff;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+        }
+
+        .processed-query strong {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔍 BVA API Testing GUI</h1>
+            <span class="version-badge">Version 1.3.0 - Enhanced Search</span>
+        </div>
+
+        <div class="content">
+            <!-- Sidebar with search form -->
+            <div class="sidebar">
+                <form id="searchForm">
+                    <div class="api-url">
+                        <strong>API Endpoint:</strong><br>
+                        <span id="apiUrl">http://localhost:8001</span>
+                    </div>
+
+                    <div class="section-title">🔍 Query</div>
+
+                    <div class="form-group">
+                        <label for="query">Search Query *</label>
+                        <input type="text" id="query" placeholder="PTSD AND combat NOT TBI" required>
+                        <div class="hint">Supports: AND, OR, NOT, "quoted phrases"</div>
+                    </div>
+
+                    <div class="section-title">📅 Year Filter</div>
+
+                    <div class="form-group">
+                        <label for="yearType">Year Filter Type</label>
+                        <select id="yearType">
+                            <option value="none">No year filter</option>
+                            <option value="single">Single Year</option>
+                            <option value="range" selected>Year Range</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="singleYearGroup" style="display: none;">
+                        <label for="year">Year</label>
+                        <input type="number" id="year" min="1997" max="2025" placeholder="2024">
+                    </div>
+
+                    <div class="grid-2" id="yearRangeGroup">
+                        <div class="form-group">
+                            <label for="yearStart">Start Year</label>
+                            <input type="number" id="yearStart" min="1997" max="2025" placeholder="2023" value="2023">
+                        </div>
+                        <div class="form-group">
+                            <label for="yearEnd">End Year</label>
+                            <input type="number" id="yearEnd" min="1997" max="2025" placeholder="2024" value="2024">
+                        </div>
+                    </div>
+
+                    <div class="section-title">🔧 Pagination</div>
+
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label for="maxPages">Max Pages</label>
+                            <input type="number" id="maxPages" min="1" max="20" value="2">
+                        </div>
+                        <div class="form-group">
+                            <label for="pageSize">Page Size</label>
+                            <input type="number" id="pageSize" min="10" max="50" value="10">
+                        </div>
+                    </div>
+
+                    <div class="section-title">🎯 Filters</div>
+
+                    <div class="form-group">
+                        <label for="filterOutcome">Outcome</label>
+                        <select id="filterOutcome">
+                            <option value="">Any</option>
+                            <option value="granted">Granted</option>
+                            <option value="denied">Denied</option>
+                            <option value="remanded">Remanded</option>
+                            <option value="mixed">Mixed</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="filterJudge">Judge Name</label>
+                        <input type="text" id="filterJudge" placeholder="Smith">
+                        <div class="hint">Partial match, case-insensitive</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="filterRO">Regional Office</label>
+                        <input type="text" id="filterRO" placeholder="Houston">
+                        <div class="hint">Partial match, case-insensitive</div>
+                    </div>
+
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label for="filterDateStart">Date Start</label>
+                            <input type="text" id="filterDateStart" placeholder="2023-01-01">
+                        </div>
+                        <div class="form-group">
+                            <label for="filterDateEnd">Date End</label>
+                            <input type="text" id="filterDateEnd" placeholder="2024-12-31">
+                        </div>
+                    </div>
+
+                    <div class="section-title">📊 Sorting</div>
+
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label for="sortBy">Sort By</label>
+                            <select id="sortBy">
+                                <option value="">Relevance</option>
+                                <option value="date" selected>Date</option>
+                                <option value="year">Year</option>
+                                <option value="case_number">Case Number</option>
+                                <option value="text_length">Text Length</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="sortOrder">Order</label>
+                            <select id="sortOrder">
+                                <option value="desc" selected>Descending</option>
+                                <option value="asc">Ascending</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="section-title">✨ Enhancements</div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="highlightKeywords" checked>
+                        <label for="highlightKeywords">Highlight Keywords</label>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="includeFacets" checked>
+                        <label for="includeFacets">Include Facets</label>
+                    </div>
+
+                    <button type="submit" class="btn" id="searchBtn">
+                        🚀 Search BVA Decisions
+                    </button>
+                </form>
+            </div>
+
+            <!-- Results panel -->
+            <div class="results-panel" id="resultsPanel">
+                <div style="text-align: center; padding: 100px 20px; color: #6c757d;">
+                    <h2 style="margin-bottom: 15px;">Ready to Search</h2>
+                    <p>Configure your search parameters and click "Search BVA Decisions" to begin.</p>
+                    <p style="margin-top: 20px; font-size: 0.9em;">
+                        <strong>New in v1.3.0:</strong> Boolean queries, multi-year search, advanced filtering, sorting, and faceted results.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Configuration
+        const API_BASE_URL = 'http://localhost:8001';
+
+        // DOM elements
+        const searchForm = document.getElementById('searchForm');
+        const resultsPanel = document.getElementById('resultsPanel');
+        const yearTypeSelect = document.getElementById('yearType');
+        const singleYearGroup = document.getElementById('singleYearGroup');
+        const yearRangeGroup = document.getElementById('yearRangeGroup');
+
+        // Year type toggle
+        yearTypeSelect.addEventListener('change', function() {
+            const type = this.value;
+            singleYearGroup.style.display = type === 'single' ? 'block' : 'none';
+            yearRangeGroup.style.display = type === 'range' ? 'flex' : 'none';
+        });
+
+        // Form submission
+        searchForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            // Build request payload
+            const payload = {
+                query: document.getElementById('query').value,
+                max_pages: parseInt(document.getElementById('maxPages').value),
+                page_size: parseInt(document.getElementById('pageSize').value),
+                highlight_keywords: document.getElementById('highlightKeywords').checked,
+                include_facets: document.getElementById('includeFacets').checked
+            };
+
+            // Year filter
+            const yearType = document.getElementById('yearType').value;
+            if (yearType === 'single') {
+                const year = document.getElementById('year').value;
+                if (year) payload.year = parseInt(year);
+            } else if (yearType === 'range') {
+                const yearStart = document.getElementById('yearStart').value;
+                const yearEnd = document.getElementById('yearEnd').value;
+                if (yearStart) payload.year_start = parseInt(yearStart);
+                if (yearEnd) payload.year_end = parseInt(yearEnd);
+            }
+
+            // Filters
+            const filterOutcome = document.getElementById('filterOutcome').value;
+            if (filterOutcome) payload.filter_outcome = filterOutcome;
+
+            const filterJudge = document.getElementById('filterJudge').value;
+            if (filterJudge) payload.filter_judge = filterJudge;
+
+            const filterRO = document.getElementById('filterRO').value;
+            if (filterRO) payload.filter_regional_office = filterRO;
+
+            const filterDateStart = document.getElementById('filterDateStart').value;
+            if (filterDateStart) payload.filter_date_start = filterDateStart;
+
+            const filterDateEnd = document.getElementById('filterDateEnd').value;
+            if (filterDateEnd) payload.filter_date_end = filterDateEnd;
+
+            // Sorting
+            const sortBy = document.getElementById('sortBy').value;
+            if (sortBy) {
+                payload.sort_by = sortBy;
+                payload.sort_order = document.getElementById('sortOrder').value;
+            }
+
+            // Perform search
+            await performSearch(payload);
+        });
+
+        async function performSearch(payload) {
+            // Show loading state
+            const searchBtn = document.getElementById('searchBtn');
+            searchBtn.disabled = true;
+            searchBtn.textContent = '🔄 Searching...';
+
+            resultsPanel.innerHTML = `
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Searching BVA decisions...</p>
+                </div>
+            `;
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/search`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    const error = await response.json();
+                    throw new Error(error.detail || 'Search failed');
+                }
+
+                const data = await response.json();
+                displayResults(data);
+
+            } catch (error) {
+                resultsPanel.innerHTML = `
+                    <div class="error-message">
+                        <strong>Error:</strong> ${error.message}
+                    </div>
+                    <p style="color: #6c757d; text-align: center;">
+                        Make sure the API server is running at ${API_BASE_URL}
+                    </p>
+                `;
+            } finally {
+                searchBtn.disabled = false;
+                searchBtn.textContent = '🚀 Search BVA Decisions';
+            }
+        }
+
+        function displayResults(data) {
+            let html = '';
+
+            // Processed query
+            if (data.processed_query && data.processed_query !== data.query) {
+                html += `
+                    <div class="processed-query">
+                        <strong>Query Processed:</strong> "${data.query}" → "${data.processed_query}"
+                    </div>
+                `;
+            }
+
+            // Summary stats
+            html += `
+                <div class="summary-stats">
+                    <div class="stat-box">
+                        <div class="stat-number">${data.total_results}</div>
+                        <div class="stat-label">Total Results</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">${data.pages_searched}</div>
+                        <div class="stat-label">Pages Searched</div>
+                    </div>
+                    ${data.filters_applied ? `
+                        <div class="stat-box">
+                            <div class="stat-number">${Object.keys(data.filters_applied).length}</div>
+                            <div class="stat-label">Filters Applied</div>
+                        </div>
+                    ` : ''}
+                    ${data.sort_applied ? `
+                        <div class="stat-box">
+                            <div class="stat-number">✓</div>
+                            <div class="stat-label">Sorted by ${data.sort_applied.by}</div>
+                        </div>
+                    ` : ''}
+                </div>
+            `;
+
+            // Facets
+            if (data.facets) {
+                html += `
+                    <div class="facets-section">
+                        <div class="facets-title">📊 Faceted Results</div>
+
+                        ${Object.keys(data.facets.outcomes).length > 0 ? `
+                            <div class="facet-group">
+                                <strong style="font-size: 0.9em; color: #495057;">Outcomes</strong>
+                                ${Object.entries(data.facets.outcomes).map(([key, count]) => `
+                                    <div class="facet-item">
+                                        <span class="facet-label">${key}</span>
+                                        <span class="facet-count">${count}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        ` : ''}
+
+                        ${Object.keys(data.facets.years).length > 0 ? `
+                            <div class="facet-group">
+                                <strong style="font-size: 0.9em; color: #495057;">Years</strong>
+                                ${Object.entries(data.facets.years).map(([year, count]) => `
+                                    <div class="facet-item">
+                                        <span class="facet-label">${year}</span>
+                                        <span class="facet-count">${count}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        ` : ''}
+
+                        ${Object.keys(data.facets.judges).length > 0 ? `
+                            <div class="facet-group">
+                                <strong style="font-size: 0.9em; color: #495057;">Top Judges</strong>
+                                ${Object.entries(data.facets.judges).slice(0, 5).map(([judge, count]) => `
+                                    <div class="facet-item">
+                                        <span class="facet-label">${judge}</span>
+                                        <span class="facet-count">${count}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+            }
+
+            // Results
+            if (data.results && data.results.length > 0) {
+                data.results.forEach(result => {
+                    const snippet = result.highlighted_snippet || result.snippet;
+                    const outcomeClass = result.outcome ? `outcome-${result.outcome.toLowerCase()}` : '';
+
+                    html += `
+                        <div class="result-card">
+                            <div class="result-title">${result.title}</div>
+
+                            <div class="result-meta">
+                                <span class="meta-badge">📅 ${result.year}</span>
+                                ${result.outcome ? `<span class="meta-badge ${outcomeClass}">⚖️ ${result.outcome}</span>` : ''}
+                                ${result.judge ? `<span class="meta-badge">👨‍⚖️ ${result.judge}</span>` : ''}
+                                ${result.regional_office ? `<span class="meta-badge">📍 ${result.regional_office}</span>` : ''}
+                                ${result.decision_date ? `<span class="meta-badge">📆 ${result.decision_date}</span>` : ''}
+                            </div>
+
+                            <div class="snippet">${snippet}</div>
+
+                            ${result.issues && result.issues.length > 0 ? `
+                                <div style="margin-top: 10px; font-size: 0.85em; color: #6c757d;">
+                                    <strong>Issues:</strong> ${result.issues.join('; ')}
+                                </div>
+                            ` : ''}
+
+                            <div class="result-url">
+                                <a href="${result.url}" target="_blank">${result.url}</a>
+                            </div>
+                        </div>
+                    `;
+                });
+            } else {
+                html += `
+                    <div style="text-align: center; padding: 60px 20px; color: #6c757d;">
+                        <h3>No results found</h3>
+                        <p>Try adjusting your search parameters or filters.</p>
+                    </div>
+                `;
+            }
+
+            resultsPanel.innerHTML = html;
+        }
+
+        // Update API URL display
+        document.getElementById('apiUrl').textContent = API_BASE_URL;
+    </script>
+</body>
+</html>

@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BVA MCP Playground</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-primary: #0a0e17;
+    --bg-secondary: #111827;
+    --bg-card: #151d2e;
+    --bg-input: #1a2337;
+    --bg-hover: #1e293b;
+    --border: #1e2d45;
+    --border-active: #3b82f6;
+    --text-primary: #e2e8f0;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --accent: #3b82f6;
+    --accent-glow: rgba(59, 130, 246, 0.15);
+    --accent-green: #10b981;
+    --accent-amber: #f59e0b;
+    --accent-red: #ef4444;
+    --accent-purple: #8b5cf6;
+    --radius: 10px;
+    --mono: 'JetBrains Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Subtle grid background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .app { position: relative; z-index: 1; }
+
+  /* Header */
+  .header {
+    border-bottom: 1px solid var(--border);
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    backdrop-filter: blur(20px);
+    background: rgba(10, 14, 23, 0.85);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-left { display: flex; align-items: center; gap: 14px; }
+
+  .logo {
+    width: 36px; height: 36px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-purple));
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 14px;
+    color: white;
+    letter-spacing: -0.5px;
+  }
+
+  .header h1 {
+    font-family: var(--mono);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+  }
+
+  .header h1 span { color: var(--text-muted); font-weight: 400; }
+
+  .connection-badge {
+    display: flex; align-items: center; gap: 8px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    font-size: 12px;
+    font-family: var(--mono);
+    color: var(--accent-green);
+  }
+
+  .connection-dot {
+    width: 6px; height: 6px;
+    background: var(--accent-green);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .endpoint-url {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-muted);
+    background: var(--bg-input);
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    max-width: 400px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* Main Layout */
+  .main {
+    display: grid;
+    grid-template-columns: 280px 1fr 1fr;
+    height: calc(100vh - 65px);
+  }
+
+  /* Sidebar */
+  .sidebar {
+    border-right: 1px solid var(--border);
+    padding: 16px 0;
+    overflow-y: auto;
+    background: rgba(17, 24, 39, 0.4);
+  }
+
+  .sidebar-section {
+    padding: 0 16px;
+    margin-bottom: 20px;
+  }
+
+  .sidebar-label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    padding: 0 8px;
+  }
+
+  .tool-btn {
+    width: 100%;
+    padding: 10px 12px;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: var(--radius);
+    color: var(--text-secondary);
+    font-family: var(--mono);
+    font-size: 12px;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 2px;
+  }
+
+  .tool-btn:hover {
+    background: var(--bg-hover);
+    color: var(--text-primary);
+    border-color: var(--border);
+  }
+
+  .tool-btn.active {
+    background: var(--accent-glow);
+    color: var(--accent);
+    border-color: rgba(59, 130, 246, 0.3);
+  }
+
+  .tool-icon {
+    width: 28px; height: 28px;
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+
+  .tool-btn.active .tool-icon { background: rgba(59, 130, 246, 0.15); }
+
+  .tool-meta { font-size: 10px; color: var(--text-muted); margin-top: 2px; }
+
+  /* Request Panel */
+  .request-panel {
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .panel-header {
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+  }
+
+  .panel-title {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text-muted);
+  }
+
+  .method-badge {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 4px;
+    background: rgba(59, 130, 246, 0.12);
+    color: var(--accent);
+  }
+
+  .panel-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+  }
+
+  /* Form Elements */
+  .form-group { margin-bottom: 16px; }
+
+  .form-label {
+    display: block;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .form-label .required { color: var(--accent-red); }
+
+  .form-input, .form-textarea, .form-select {
+    width: 100%;
+    padding: 10px 14px;
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-family: var(--mono);
+    font-size: 13px;
+    transition: all 0.15s;
+    outline: none;
+  }
+
+  .form-input:focus, .form-textarea:focus, .form-select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-glow);
+  }
+
+  .form-textarea {
+    min-height: 100px;
+    resize: vertical;
+    line-height: 1.6;
+  }
+
+  .form-hint {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 4px;
+    line-height: 1.5;
+  }
+
+  .form-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5l5 5 5-5' stroke='%2364748b' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 36px;
+    cursor: pointer;
+  }
+
+  /* Action Bar */
+  .action-bar {
+    padding: 14px 20px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+
+  .btn-send {
+    flex: 1;
+    padding: 11px 20px;
+    background: linear-gradient(135deg, var(--accent), #2563eb);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .btn-send:hover { filter: brightness(1.1); transform: translateY(-1px); }
+  .btn-send:active { transform: translateY(0); }
+  .btn-send:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+  .btn-send.loading {
+    background: var(--bg-hover);
+    color: var(--text-muted);
+  }
+
+  .btn-clear {
+    padding: 11px 16px;
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text-secondary);
+    font-family: var(--mono);
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .btn-clear:hover { border-color: var(--text-muted); }
+
+  /* Response Panel */
+  .response-panel {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .response-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 20px;
+    padding-top: 10px;
+  }
+
+  .status-badge {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 4px;
+  }
+
+  .status-badge.success { background: rgba(16, 185, 129, 0.12); color: var(--accent-green); }
+  .status-badge.error { background: rgba(239, 68, 68, 0.12); color: var(--accent-red); }
+  .status-badge.pending { background: rgba(245, 158, 11, 0.12); color: var(--accent-amber); }
+
+  .response-time {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  .response-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px 20px;
+  }
+
+  .response-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--text-muted);
+    text-align: center;
+    gap: 12px;
+  }
+
+  .response-empty-icon {
+    width: 56px; height: 56px;
+    border-radius: 14px;
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px;
+  }
+
+  .response-empty p { font-size: 13px; max-width: 240px; line-height: 1.6; }
+
+  /* JSON Display */
+  pre.json-output {
+    font-family: var(--mono);
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    white-space: pre-wrap;
+    word-break: break-word;
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+  }
+
+  .json-key { color: #7dd3fc; }
+  .json-string { color: #86efac; }
+  .json-number { color: #fbbf24; }
+  .json-bool { color: #c084fc; }
+  .json-null { color: var(--text-muted); }
+
+  /* History Log */
+  .history-list { display: flex; flex-direction: column; gap: 4px; }
+
+  .history-item {
+    padding: 8px 12px;
+    border-radius: 6px;
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .history-item:hover { border-color: var(--accent); }
+
+  .history-tool {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+
+  .history-time {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-muted);
+  }
+
+  .history-status {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+
+  .history-status.ok { background: var(--accent-green); }
+  .history-status.fail { background: var(--accent-red); }
+
+  /* Tabs */
+  .tab-bar {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .tab {
+    padding: 10px 18px;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-muted);
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.15s;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .tab:hover { color: var(--text-secondary); }
+  .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* Spinner */
+  .spinner {
+    width: 16px; height: 16px;
+    border: 2px solid rgba(255,255,255,0.2);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Scrollbars */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+  /* Quick action chips */
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+
+  .chip {
+    padding: 5px 12px;
+    font-family: var(--mono);
+    font-size: 11px;
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .chip:hover { border-color: var(--accent); color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="app">
+  <!-- Header -->
+  <header class="header">
+    <div class="header-left">
+      <div class="logo">BVA</div>
+      <h1>MCP Playground <span>/ tool tester</span></h1>
+    </div>
+    <div style="display:flex; align-items:center; gap:12px;">
+      <div class="endpoint-url">https://bva-mcp-524576132881.us-central1.run.app/mcp</div>
+      <div class="connection-badge">
+        <div class="connection-dot"></div>
+        Connected
+      </div>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="main">
+    <!-- Sidebar: Tool List -->
+    <aside class="sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-label">Search & Discovery</div>
+        <button class="tool-btn active" onclick="selectTool('bva_search')" data-tool="bva_search">
+          <div class="tool-icon">🔍</div>
+          <div>
+            <div>bva_search</div>
+            <div class="tool-meta">Search BVA decisions</div>
+          </div>
+        </button>
+        <button class="tool-btn" onclick="selectTool('bva_batch_search')" data-tool="bva_batch_search">
+          <div class="tool-icon">📦</div>
+          <div>
+            <div>bva_batch_search</div>
+            <div class="tool-meta">Multi-query search</div>
+          </div>
+        </button>
+        <button class="tool-btn" onclick="selectTool('bva_list_years')" data-tool="bva_list_years">
+          <div class="tool-icon">📅</div>
+          <div>
+            <div>bva_list_years</div>
+            <div class="tool-meta">Available years</div>
+          </div>
+        </button>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">Case Details</div>
+        <button class="tool-btn" onclick="selectTool('bva_get_case')" data-tool="bva_get_case">
+          <div class="tool-icon">📋</div>
+          <div>
+            <div>bva_get_case</div>
+            <div class="tool-meta">Parsed case details</div>
+          </div>
+        </button>
+        <button class="tool-btn" onclick="selectTool('bva_get_case_text')" data-tool="bva_get_case_text">
+          <div class="tool-icon">📄</div>
+          <div>
+            <div>bva_get_case_text</div>
+            <div class="tool-meta">Full text of decision</div>
+          </div>
+        </button>
+        <button class="tool-btn" onclick="selectTool('bva_analyze_case')" data-tool="bva_analyze_case">
+          <div class="tool-icon">📊</div>
+          <div>
+            <div>bva_analyze_case</div>
+            <div class="tool-meta">Keyword frequency</div>
+          </div>
+        </button>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">38 CFR Regulations</div>
+        <button class="tool-btn" onclick="selectTool('bva_cfr_search')" data-tool="bva_cfr_search">
+          <div class="tool-icon">⚖️</div>
+          <div>
+            <div>bva_cfr_search</div>
+            <div class="tool-meta">Search Title 38 CFR</div>
+          </div>
+        </button>
+        <button class="tool-btn" onclick="selectTool('bva_cfr_section')" data-tool="bva_cfr_section">
+          <div class="tool-icon">§</div>
+          <div>
+            <div>bva_cfr_section</div>
+            <div class="tool-meta">Fetch CFR section</div>
+          </div>
+        </button>
+        <button class="tool-btn" onclick="selectTool('bva_cfr_structure')" data-tool="bva_cfr_structure">
+          <div class="tool-icon">🗂️</div>
+          <div>
+            <div>bva_cfr_structure</div>
+            <div class="tool-meta">CFR table of contents</div>
+          </div>
+        </button>
+        <button class="tool-btn" onclick="selectTool('bva_cfr_dc_lookup')" data-tool="bva_cfr_dc_lookup">
+          <div class="tool-icon">#</div>
+          <div>
+            <div>bva_cfr_dc_lookup</div>
+            <div class="tool-meta">Lookup DC by number</div>
+          </div>
+        </button>
+        <button class="tool-btn" onclick="selectTool('bva_cfr_dc_search')" data-tool="bva_cfr_dc_search">
+          <div class="tool-icon">🏥</div>
+          <div>
+            <div>bva_cfr_dc_search</div>
+            <div class="tool-meta">Search DC by condition</div>
+          </div>
+        </button>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">KnowVA Knowledge Base</div>
+        <button class="tool-btn" onclick="selectTool('bva_knowva_search')" data-tool="bva_knowva_search">
+          <div class="tool-icon">📚</div>
+          <div>
+            <div>bva_knowva_search</div>
+            <div class="tool-meta">Search KnowVA</div>
+          </div>
+        </button>
+        <button class="tool-btn" onclick="selectTool('bva_knowva_article')" data-tool="bva_knowva_article">
+          <div class="tool-icon">📖</div>
+          <div>
+            <div>bva_knowva_article</div>
+            <div class="tool-meta">Fetch article by ID</div>
+          </div>
+        </button>
+        <button class="tool-btn" onclick="selectTool('bva_knowva_popular')" data-tool="bva_knowva_popular">
+          <div class="tool-icon">🔥</div>
+          <div>
+            <div>bva_knowva_popular</div>
+            <div class="tool-meta">Popular articles</div>
+          </div>
+        </button>
+        <button class="tool-btn" onclick="selectTool('bva_knowva_topics')" data-tool="bva_knowva_topics">
+          <div class="tool-icon">🏷️</div>
+          <div>
+            <div>bva_knowva_topics</div>
+            <div class="tool-meta">All topics/categories</div>
+          </div>
+        </button>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">System</div>
+        <button class="tool-btn" onclick="selectTool('bva_health')" data-tool="bva_health">
+          <div class="tool-icon">💚</div>
+          <div>
+            <div>bva_health</div>
+            <div class="tool-meta">API health check</div>
+          </div>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Request Panel -->
+    <section class="request-panel">
+      <div class="panel-header">
+        <span class="panel-title">Request</span>
+        <span class="method-badge" id="methodBadge">POST</span>
+      </div>
+      <div class="panel-body" id="requestForm">
+        <!-- Dynamic form content injected here -->
+      </div>
+      <div class="action-bar">
+        <button class="btn-send" id="sendBtn" onclick="executeCall()">
+          <span>▶</span> Execute
+        </button>
+        <button class="btn-clear" onclick="clearResponse()">Clear</button>
+      </div>
+    </section>
+
+    <!-- Response Panel -->
+    <section class="response-panel">
+      <div class="panel-header">
+        <span class="panel-title">Response</span>
+        <div class="tab-bar" style="border:none; margin-left: auto;">
+          <button class="tab active" onclick="switchTab('pretty', this)">Pretty</button>
+          <button class="tab" onclick="switchTab('raw', this)">Raw</button>
+          <button class="tab" onclick="switchTab('history', this)">History</button>
+        </div>
+      </div>
+      <div class="response-meta" id="responseMeta" style="display:none;"></div>
+      <div class="response-body">
+        <div id="tab-pretty" class="tab-content active">
+          <div class="response-empty" id="emptyState">
+            <div class="response-empty-icon">⚡</div>
+            <p>Select a tool and hit Execute to see the response</p>
+          </div>
+          <pre class="json-output" id="prettyOutput" style="display:none;"></pre>
+        </div>
+        <div id="tab-raw" class="tab-content">
+          <pre class="json-output" id="rawOutput" style="font-size:11px; color: var(--text-muted);"></pre>
+        </div>
+        <div id="tab-history" class="tab-content">
+          <div class="history-list" id="historyList">
+            <div class="response-empty" style="padding:40px 0;">
+              <p style="font-size:12px;">No requests yet</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script>
+const MCP_ENDPOINT = 'https://bva-mcp-524576132881.us-central1.run.app/mcp';
+let currentTool = 'bva_search';
+let requestHistory = [];
+
+// Tool definitions with their parameters
+const TOOLS = {
+  bva_search: {
+    desc: 'Search BVA decisions by keyword. Returns case URLs, titles, snippets.',
+    params: [
+      { name: 'q', label: 'Search Query', type: 'text', required: true, placeholder: 'e.g. PTSD combat veteran', hint: 'Keywords to search BVA decisions' },
+      { name: 'year', label: 'Year', type: 'number', required: false, placeholder: '2024', hint: 'Filter by year (1992–2025)' },
+      { name: 'page', label: 'Page', type: 'number', required: false, placeholder: '1', hint: 'Pagination (default: 1)' }
+    ],
+    examples: ['PTSD combat veteran', 'TDIU unemployability', 'sleep apnea secondary', 'tinnitus bilateral', 'clear unmistakable error']
+  },
+  bva_batch_search: {
+    desc: 'Run multiple BVA searches in one call. Compare outcomes across conditions.',
+    params: [
+      { name: 'queries', label: 'Queries (one per line)', type: 'textarea', required: true, placeholder: 'PTSD combat\nsleep apnea\ntinnitus', hint: 'Enter each search query on a new line' },
+      { name: 'year', label: 'Year', type: 'number', required: false, placeholder: '2024' },
+      { name: 'page', label: 'Page', type: 'number', required: false, placeholder: '1' }
+    ],
+    examples: []
+  },
+  bva_list_years: {
+    desc: 'List all available BVA decision years and their collection IDs (1992–2025).',
+    params: [],
+    examples: []
+  },
+  bva_get_case: {
+    desc: 'Fetch parsed details of a BVA decision: case number, date, outcome, judge, issues, citations.',
+    params: [
+      { name: 'url', label: 'Case URL', type: 'text', required: true, placeholder: 'https://www.index.va.gov/search/va/bva_search.jsp?...', hint: 'Use bva_search first to find case URLs' },
+      { name: 'full_text', label: 'Include Full Text', type: 'select', required: false, options: ['false', 'true'], hint: 'Return complete decision text' }
+    ],
+    examples: []
+  },
+  bva_get_case_text: {
+    desc: 'Fetch raw plain text of a BVA decision. Full document for analysis.',
+    params: [
+      { name: 'url', label: 'Case URL', type: 'text', required: true, placeholder: 'https://www.index.va.gov/search/va/bva_search.jsp?...' }
+    ],
+    examples: []
+  },
+  bva_analyze_case: {
+    desc: 'Analyze keyword frequency in a BVA decision. Auto-counts TDIU, PTSD, service-connected, etc.',
+    params: [
+      { name: 'url', label: 'Case URL', type: 'text', required: true, placeholder: 'https://www.index.va.gov/search/va/bva_search.jsp?...' },
+      { name: 'keywords', label: 'Custom Keywords (comma-separated)', type: 'text', required: false, placeholder: 'nexus, remand, denied', hint: 'Optional additional terms to count' }
+    ],
+    examples: []
+  },
+  bva_cfr_search: {
+    desc: 'Search Title 38 CFR (VA regulations). Filter by Part 3, 4, 19, or 20.',
+    params: [
+      { name: 'q', label: 'Search Query', type: 'text', required: true, placeholder: 'e.g. benefit of the doubt', hint: 'Search within Title 38 CFR' },
+      { name: 'part', label: 'CFR Part', type: 'select', required: false, options: ['', '3', '4', '19', '20'], hint: 'Part 3=Adjudication, 4=Rating, 19/20=Appeals' },
+      { name: 'per_page', label: 'Results Per Page', type: 'number', required: false, placeholder: '20' },
+      { name: 'page', label: 'Page', type: 'number', required: false, placeholder: '1' }
+    ],
+    examples: ['benefit of the doubt', 'service connection', 'total disability', 'effective date', 'new and material evidence']
+  },
+  bva_cfr_section: {
+    desc: 'Fetch full text of a 38 CFR section as clean markdown.',
+    params: [
+      { name: 'part', label: 'Part', type: 'text', required: true, placeholder: '3', hint: 'CFR Part (3, 4, 19, 20, etc.)' },
+      { name: 'section', label: 'Section', type: 'text', required: true, placeholder: '102', hint: 'Section number (e.g. 102 for §3.102)' }
+    ],
+    examples: []
+  },
+  bva_cfr_structure: {
+    desc: 'Get full table of contents for Title 38 CFR. Discover regulation structure.',
+    params: [],
+    examples: []
+  },
+  bva_cfr_dc_lookup: {
+    desc: 'Look up a VA diagnostic code by number. Returns condition, CFR citation, rating schedule.',
+    params: [
+      { name: 'code', label: 'Diagnostic Code', type: 'text', required: true, placeholder: '9411', hint: 'e.g. 9411 = PTSD' }
+    ],
+    examples: ['9411', '6100', '5201', '8100', '6847']
+  },
+  bva_cfr_dc_search: {
+    desc: 'Search VA diagnostic codes by condition name.',
+    params: [
+      { name: 'q', label: 'Condition', type: 'text', required: true, placeholder: 'e.g. PTSD, knee, hearing loss', hint: 'Search by condition name' }
+    ],
+    examples: ['PTSD', 'sleep apnea', 'knee', 'hearing loss', 'migraine', 'tinnitus']
+  },
+  bva_knowva_search: {
+    desc: 'Search KnowVA, the VA official knowledge base. M21-1 manual guidance, policy, procedures.',
+    params: [
+      { name: 'q', label: 'Search Query', type: 'text', required: true, placeholder: 'e.g. TDIU requirements' },
+      { name: 'pagesize', label: 'Page Size', type: 'number', required: false, placeholder: '30' },
+      { name: 'page', label: 'Page', type: 'number', required: false, placeholder: '1' }
+    ],
+    examples: ['TDIU requirements', 'service connection', 'duty to assist', 'rating criteria', 'presumptive conditions']
+  },
+  bva_knowva_article: {
+    desc: 'Fetch full KnowVA article by numeric ID. Returns name, date, and full content.',
+    params: [
+      { name: 'article_id', label: 'Article ID', type: 'number', required: true, placeholder: '12345', hint: 'Get IDs from bva_knowva_search or bva_knowva_popular' }
+    ],
+    examples: []
+  },
+  bva_knowva_popular: {
+    desc: 'List most popular KnowVA articles ranked by popularity.',
+    params: [
+      { name: 'pagesize', label: 'Number of Results', type: 'number', required: false, placeholder: '10' }
+    ],
+    examples: []
+  },
+  bva_knowva_topics: {
+    desc: 'List all KnowVA topics and categories with article counts.',
+    params: [],
+    examples: []
+  },
+  bva_health: {
+    desc: 'Check BVA API health. Returns status and version.',
+    params: [],
+    examples: []
+  }
+};
+
+function selectTool(toolName) {
+  currentTool = toolName;
+  document.querySelectorAll('.tool-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`[data-tool="${toolName}"]`).classList.add('active');
+  renderForm();
+}
+
+function renderForm() {
+  const tool = TOOLS[currentTool];
+  const form = document.getElementById('requestForm');
+
+  let html = `<div style="margin-bottom:16px; padding:12px 14px; background:var(--bg-input); border:1px solid var(--border); border-radius:8px;">
+    <div style="font-family:var(--mono); font-size:13px; font-weight:600; color:var(--text-primary); margin-bottom:4px;">${currentTool}</div>
+    <div style="font-size:12px; color:var(--text-muted); line-height:1.5;">${tool.desc}</div>
+  </div>`;
+
+  // Quick example chips
+  if (tool.examples.length > 0) {
+    html += `<div class="chips">`;
+    tool.examples.forEach(ex => {
+      html += `<button class="chip" onclick="fillExample('${ex}')">${ex}</button>`;
+    });
+    html += `</div>`;
+  }
+
+  // Parameter fields
+  tool.params.forEach(p => {
+    html += `<div class="form-group">`;
+    html += `<label class="form-label">${p.label} ${p.required ? '<span class="required">*</span>' : ''}</label>`;
+
+    if (p.type === 'textarea') {
+      html += `<textarea class="form-textarea" id="param_${p.name}" placeholder="${p.placeholder || ''}">${p.default || ''}</textarea>`;
+    } else if (p.type === 'select') {
+      html += `<select class="form-select" id="param_${p.name}">`;
+      (p.options || []).forEach(o => {
+        html += `<option value="${o}">${o || '— Any —'}</option>`;
+      });
+      html += `</select>`;
+    } else {
+      html += `<input class="form-input" type="${p.type}" id="param_${p.name}" placeholder="${p.placeholder || ''}" value="${p.default || ''}">`;
+    }
+
+    if (p.hint) html += `<div class="form-hint">${p.hint}</div>`;
+    html += `</div>`;
+  });
+
+  if (tool.params.length === 0) {
+    html += `<div style="padding:30px 0; text-align:center; color:var(--text-muted); font-size:13px;">
+      This tool takes no parameters. Just hit Execute.
+    </div>`;
+  }
+
+  form.innerHTML = html;
+}
+
+function fillExample(text) {
+  const firstInput = document.querySelector('#requestForm .form-input, #requestForm .form-textarea');
+  if (firstInput) {
+    firstInput.value = text;
+    firstInput.focus();
+  }
+}
+
+function buildParams() {
+  const tool = TOOLS[currentTool];
+  const params = {};
+  tool.params.forEach(p => {
+    const el = document.getElementById(`param_${p.name}`);
+    if (!el) return;
+    let val = el.value.trim();
+    if (!val) return;
+
+    if (p.name === 'queries') {
+      params[p.name] = val.split('\n').map(s => s.trim()).filter(Boolean);
+    } else if (p.name === 'keywords') {
+      params[p.name] = val.split(',').map(s => s.trim()).filter(Boolean);
+    } else if (p.type === 'number') {
+      params[p.name] = parseInt(val, 10);
+    } else if (p.name === 'full_text') {
+      params[p.name] = val === 'true';
+    } else {
+      params[p.name] = val;
+    }
+  });
+  return params;
+}
+
+async function executeCall() {
+  const btn = document.getElementById('sendBtn');
+  btn.disabled = true;
+  btn.classList.add('loading');
+  btn.innerHTML = '<div class="spinner"></div> Executing...';
+
+  const params = buildParams();
+  const toolName = `bva:${currentTool}`;
+
+  const payload = {
+    jsonrpc: '2.0',
+    id: Date.now(),
+    method: 'tools/call',
+    params: {
+      name: toolName,
+      arguments: params
+    }
+  };
+
+  const startTime = performance.now();
+
+  try {
+    const response = await fetch(MCP_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+
+    const elapsed = Math.round(performance.now() - startTime);
+    const data = await response.json();
+
+    showResponse(data, response.status, elapsed);
+    addHistory(currentTool, response.ok, elapsed);
+  } catch (err) {
+    const elapsed = Math.round(performance.now() - startTime);
+    showResponse({ error: err.message }, 0, elapsed);
+    addHistory(currentTool, false, elapsed);
+  } finally {
+    btn.disabled = false;
+    btn.classList.remove('loading');
+    btn.innerHTML = '<span>▶</span> Execute';
+  }
+}
+
+function showResponse(data, status, elapsed) {
+  const meta = document.getElementById('responseMeta');
+  const pretty = document.getElementById('prettyOutput');
+  const raw = document.getElementById('rawOutput');
+  const empty = document.getElementById('emptyState');
+
+  empty.style.display = 'none';
+  pretty.style.display = 'block';
+  meta.style.display = 'flex';
+
+  const isOk = status >= 200 && status < 300;
+  meta.innerHTML = `
+    <span class="status-badge ${isOk ? 'success' : 'error'}">${status || 'ERR'}</span>
+    <span class="response-time">${elapsed}ms</span>
+  `;
+
+  const jsonStr = JSON.stringify(data, null, 2);
+  pretty.innerHTML = syntaxHighlight(jsonStr);
+  raw.textContent = jsonStr;
+
+  // Switch to pretty tab
+  switchTab('pretty', document.querySelector('.tab'));
+}
+
+function syntaxHighlight(json) {
+  return json.replace(/("(\\u[\da-fA-F]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false)\b|-?\d+(?:\.\d*)?(?:[eE][+-]?\d+)?|null)/g, match => {
+    let cls = 'json-number';
+    if (/^"/.test(match)) {
+      cls = /:$/.test(match) ? 'json-key' : 'json-string';
+    } else if (/true|false/.test(match)) {
+      cls = 'json-bool';
+    } else if (/null/.test(match)) {
+      cls = 'json-null';
+    }
+    // Escape HTML
+    match = match.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    return `<span class="${cls}">${match}</span>`;
+  });
+}
+
+function addHistory(tool, success, time) {
+  requestHistory.unshift({ tool, success, time, ts: new Date() });
+  renderHistory();
+}
+
+function renderHistory() {
+  const list = document.getElementById('historyList');
+  if (requestHistory.length === 0) return;
+
+  list.innerHTML = requestHistory.map(h => `
+    <div class="history-item" onclick="selectTool('${h.tool}')">
+      <div style="display:flex; align-items:center;">
+        <div class="history-status ${h.success ? 'ok' : 'fail'}"></div>
+        <span class="history-tool">${h.tool}</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:10px;">
+        <span class="history-time">${h.time}ms</span>
+        <span class="history-time">${h.ts.toLocaleTimeString()}</span>
+      </div>
+    </div>
+  `).join('');
+}
+
+function switchTab(tabId, clickedTab) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  clickedTab.classList.add('active');
+  document.getElementById(`tab-${tabId}`).classList.add('active');
+}
+
+function clearResponse() {
+  document.getElementById('prettyOutput').style.display = 'none';
+  document.getElementById('emptyState').style.display = 'flex';
+  document.getElementById('responseMeta').style.display = 'none';
+  document.getElementById('rawOutput').textContent = '';
+}
+
+// Init
+renderForm();
+</script>
+</body>
+</html>
