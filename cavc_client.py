@@ -107,19 +107,24 @@ def _parse_search_results(html: str) -> list[CaseSearchResult]:
     for row in soup.find_all("tr"):
         cells = row.find_all("td")
         if len(cells) >= 4:
-            case_num_cell = cells[0].get_text(strip=True)
-            title_cell = cells[1].get_text(strip=True) if len(cells) > 1 else ""
-            opening = cells[2].get_text(strip=True) if len(cells) > 2 else ""
+            # cells[0] concatenates case number (link) + title (inline text)
+            # e.g. "24-4591Karissa Wiggins v. Douglas A. Collins"
+            cell0 = cells[0].get_text(strip=True)
+            m = re.match(r"(\d{2}-\d+)(.*)", cell0)
+            if not m:
+                continue
+            case_num_cell = m.group(1)
+            title_cell = m.group(2).strip()
+            opening = cells[1].get_text(strip=True) if len(cells) > 1 else ""
             last_entry = cells[3].get_text(strip=True) if len(cells) > 3 else ""
             origin = cells[5].get_text(strip=True) if len(cells) > 5 else ""
-            if re.match(r"\d{2}-\d+", case_num_cell):
-                results.append(CaseSearchResult(
-                    case_number=case_num_cell,
-                    title=title_cell,
-                    opening_date=opening,
-                    last_docket_entry=last_entry,
-                    origin=origin,
-                ))
+            results.append(CaseSearchResult(
+                case_number=case_num_cell,
+                title=title_cell,
+                opening_date=opening,
+                last_docket_entry=last_entry,
+                origin=origin,
+            ))
     return results
 
 
