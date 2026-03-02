@@ -323,6 +323,50 @@ class FederalRegisterResponse(BaseModel):
     retrieved_at: str
 
 # -------------------------------------------------------------------
+# CAVC response models
+# -------------------------------------------------------------------
+class CavcSearchResult(BaseModel):
+    case_number: str
+    title: str
+    opening_date: str
+    last_docket_entry: str
+    origin: str
+
+class CavcParty(BaseModel):
+    name: str
+    role: str
+    attorneys: List[str]
+
+class CavcDocketEntry(BaseModel):
+    date: str
+    text: str
+    dls_id: Optional[str] = None
+    case_id: Optional[str] = None
+    doc_url: Optional[str] = None
+
+class CaseSummaryResponse(BaseModel):
+    case_number: str
+    title: str
+    docketed: str
+    appeal_from: str
+    fee_status: str
+    case_type: str
+    parties: List[CavcParty]
+    docket_entries: List[CavcDocketEntry]
+    internal_case_id: Optional[str] = None
+
+class CaseSummaryBriefResponse(BaseModel):
+    case_number: str
+    title: str
+    docketed: str
+    appeal_from: str
+    fee_status: str
+    case_type: str
+    parties: List[CavcParty]
+    docket_entries_count: int
+    internal_case_id: Optional[str] = None
+
+# -------------------------------------------------------------------
 # Regex patterns for decision parsing
 # -------------------------------------------------------------------
 DATE_RE     = re.compile(
@@ -1242,7 +1286,9 @@ def _dc_to_dict(obj):
 # CAVC endpoints
 # ---------------------------------------------------------------------------
 
-@app.get("/cavc/search", tags=["CAVC"])
+@app.get("/cavc/search", response_model=List[CavcSearchResult], tags=["CAVC"],
+         summary="Search CAVC cases by case number or party name",
+         description="Search the CAVC eFiling portal. Returns matching cases with case numbers, titles, and dates.")
 async def cavc_search(
     case_number: str = Query(""),
     party_name: str = Query(""),
@@ -1255,7 +1301,9 @@ async def cavc_search(
     )
     return [_dc_to_dict(r) for r in results]
 
-@app.get("/cavc/case/{case_number}", tags=["CAVC"])
+@app.get("/cavc/case/{case_number}", response_model=CaseSummaryBriefResponse, tags=["CAVC"],
+         summary="Fetch CAVC case summary",
+         description="Returns parties, counsel, case metadata, and docket entry count. Use /docket for full entries.")
 async def cavc_case(case_number: str):
     """Fetch CAVC case summary (parties, counsel, case info)."""
     loop = asyncio.get_running_loop()
@@ -1269,7 +1317,9 @@ async def cavc_case(case_number: str):
     d.pop("docket_entries", None)
     return d
 
-@app.get("/cavc/case/{case_number}/docket", tags=["CAVC"])
+@app.get("/cavc/case/{case_number}/docket", response_model=CaseSummaryResponse, tags=["CAVC"],
+         summary="Fetch full CAVC docket",
+         description="Returns all docket entries with dates, text, and document link IDs (dls_id) for PDF fetching.")
 async def cavc_docket(case_number: str):
     """Fetch full CAVC docket report with all entries and document links."""
     loop = asyncio.get_running_loop()
@@ -1298,7 +1348,9 @@ async def cavc_document(
         return PlainTextResponse(content=result, media_type="text/plain")
     return Response(content=result, media_type="application/pdf")
 
-@app.get("/cavc/case/{case_number}/find", tags=["CAVC"])
+@app.get("/cavc/case/{case_number}/find", response_model=CavcDocketEntry, tags=["CAVC"],
+         summary="Find docket entry by keyword",
+         description="Returns the first docket entry whose text contains the keyword. Use the returned dls_id and case_id to fetch the document.")
 async def cavc_find_entry(
     case_number: str,
     keyword: str = Query(...),
