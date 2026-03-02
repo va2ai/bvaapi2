@@ -433,6 +433,88 @@ async def bva_rag_status() -> str:
         return f"Error: {_err(e)}"
 
 
+# --- CAVC tools ---
+
+@mcp.tool(
+    description=(
+        "Search CAVC (Court of Appeals for Veterans Claims) cases by case number "
+        "or party name. Returns matching cases with case numbers, titles, opening "
+        "dates, last docket entries, and origin. Use open_closed to filter by case "
+        "status: 'open', 'closed', or 'both' (default)."
+    )
+)
+async def bva_cavc_search(
+    case_number: Optional[str] = None,
+    party_name: Optional[str] = None,
+    open_closed: str = "both",
+) -> str:
+    """Search CAVC cases. case_number=e.g. '23-5171', party_name=e.g. 'Smith', open_closed=open/closed/both."""
+    try:
+        data = await _get("cavc/search", case_number=case_number, party_name=party_name, open_closed=open_closed)
+        return json.dumps(data, indent=2)
+    except Exception as e:
+        return f"Error: {_err(e)}"
+
+
+@mcp.tool(
+    description=(
+        "Get full case summary and docket entries for a CAVC case number. "
+        "Returns parties, counsel, case metadata (docketed date, appeal origin, "
+        "fee status, case type), and all docket entries with document links. "
+        "Use bva_cavc_search first to find case numbers."
+    )
+)
+async def bva_cavc_case(case_number: str) -> str:
+    """Get CAVC case summary and docket. case_number=e.g. '23-5171'."""
+    try:
+        data = await _get(f"cavc/case/{case_number}/docket")
+        return json.dumps(data, indent=2)
+    except Exception as e:
+        return f"Error: {_err(e)}"
+
+
+@mcp.tool(
+    description=(
+        "Fetch a CAVC docket document as text given its dls_id and case_id. "
+        "Get dls_id and case_id from docket entries returned by bva_cavc_case. "
+        "Returns the extracted text content of the court document (PDF converted to text)."
+    )
+)
+async def bva_cavc_document(
+    dls_id: str,
+    case_id: str,
+    case_number: str,
+) -> str:
+    """Fetch a CAVC document as text. dls_id=document link ID, case_id=internal case ID, case_number=e.g. '23-5171'."""
+    try:
+        data = await _get(
+            f"cavc/case/{case_number}/document",
+            dls_id=dls_id, case_id=case_id, as_text="true",
+        )
+        return json.dumps(data, indent=2)
+    except Exception as e:
+        return f"Error: {_err(e)}"
+
+
+@mcp.tool(
+    description=(
+        "Search a CAVC case docket for the first entry matching a keyword. "
+        "Useful for quickly finding specific filings like 'brief', 'motion', "
+        "'order', 'mandate', or 'joint motion for remand' within a case docket."
+    )
+)
+async def bva_cavc_find_entry(
+    case_number: str,
+    keyword: str,
+) -> str:
+    """Find a docket entry by keyword. case_number=e.g. '23-5171', keyword=e.g. 'brief'."""
+    try:
+        data = await _get(f"cavc/case/{case_number}/find", keyword=keyword)
+        return json.dumps(data, indent=2)
+    except Exception as e:
+        return f"Error: {_err(e)}"
+
+
 # --- Health tool ---
 
 @mcp.tool(

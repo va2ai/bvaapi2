@@ -34,6 +34,11 @@ A high-performance FastAPI service for searching and analyzing Board of Veterans
 | `/case/text` | GET | Get raw text of a specific case |
 | `/batch/search` | POST | Search multiple queries in batch |
 | `/analyze/text` | GET | Analyze decision text for keywords and metrics |
+| `/cavc/search` | GET | Search CAVC cases by number or party name |
+| `/cavc/case/{case_number}` | GET | Get CAVC case summary with parties and counsel |
+| `/cavc/case/{case_number}/docket` | GET | Get full docket report with all entries |
+| `/cavc/case/{case_number}/document` | GET | Fetch a docket document as PDF or text |
+| `/cavc/case/{case_number}/find` | GET | Find first docket entry matching a keyword |
 | `/health` | GET | Health check endpoint |
 
 ## 🚀 Quick Start
@@ -559,6 +564,125 @@ gcloud run deploy bva-api `
 }
 ```
 
+### CAVC Endpoints
+
+The Court of Appeals for Veterans Claims (CAVC) endpoints provide access to public eFiling records including case searches, docket reports, and court documents.
+
+#### Search Cases
+
+**Endpoint:** `GET /cavc/search`
+
+**Query Parameters:**
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `case_number` | string | | Case number (e.g. `23-5171`) |
+| `party_name` | string | | Party name to search |
+| `open_closed` | string | `both` | Filter: `open`, `closed`, or `both` |
+
+**Response:**
+```json
+{
+  "results": [
+    {
+      "case_number": "23-5171",
+      "title": "Smith v. McDonough",
+      "opening_date": "10/15/2023",
+      "last_docket_entry": "03/01/2024",
+      "origin": "BVA"
+    }
+  ],
+  "total": 1
+}
+```
+
+#### Case Summary
+
+**Endpoint:** `GET /cavc/case/{case_number}`
+
+**Response:**
+```json
+{
+  "case_number": "23-5171",
+  "title": "Smith v. McDonough",
+  "docketed": "10/15/2023",
+  "appeal_from": "Board of Veterans' Appeals",
+  "fee_status": "ifp granted",
+  "case_type": "Original",
+  "parties": [
+    {
+      "name": "John Smith",
+      "role": "appellant",
+      "attorneys": ["Jane Doe, Esq."]
+    }
+  ]
+}
+```
+
+#### Full Docket Report
+
+**Endpoint:** `GET /cavc/case/{case_number}/docket`
+
+Returns the case summary plus all docket entries with document links.
+
+**Response:**
+```json
+{
+  "case_number": "23-5171",
+  "title": "Smith v. McDonough",
+  "docketed": "10/15/2023",
+  "parties": [...],
+  "docket_entries": [
+    {
+      "date": "10/15/2023",
+      "text": "NOTICE OF APPEAL filed by John Smith",
+      "dls_id": "01204214937",
+      "case_id": "92883",
+      "doc_url": "https://efiling.uscourts.cavc.gov/docs1/01204214937"
+    }
+  ]
+}
+```
+
+#### Fetch Document
+
+**Endpoint:** `GET /cavc/case/{case_number}/document`
+
+**Query Parameters:**
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `dls_id` | string | Yes | Document link ID from docket entry |
+| `case_id` | string | Yes | Internal case ID from docket entry |
+| `as_text` | bool | No | If `true`, extract text from PDF (default: returns PDF bytes) |
+
+**Response (as_text=true):**
+```json
+{
+  "dls_id": "01204214937",
+  "case_number": "23-5171",
+  "text": "UNITED STATES COURT OF APPEALS FOR VETERANS CLAIMS..."
+}
+```
+
+#### Find Docket Entry
+
+**Endpoint:** `GET /cavc/case/{case_number}/find`
+
+**Query Parameters:**
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `keyword` | string | Yes | Keyword to search in docket entry text |
+
+**Response:**
+```json
+{
+  "date": "01/15/2024",
+  "text": "JOINT MOTION FOR REMAND filed...",
+  "dls_id": "01204300123",
+  "case_id": "92883",
+  "doc_url": "https://efiling.uscourts.cavc.gov/docs1/01204300123"
+}
+```
+
 ## ⚙️ Configuration
 
 ### Environment Variables
@@ -600,6 +724,8 @@ The API includes a comprehensive year-to-DC mapping (1997-2025) for accurate yea
 ```
 bvaapi/
 ├── app.py              # Main FastAPI application
+├── cavc_client.py      # CAVC eFiling court records client
+├── mcp_server.py       # MCP server wrapping API for LLM tool use
 ├── requirements.txt    # Python dependencies
 ├── Dockerfile         # Container configuration
 ├── cloudbuild.yaml    # GCP Cloud Build configuration

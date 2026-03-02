@@ -5,7 +5,7 @@ Uses search.usa.gov JSON API (no HTML scraping) for reliable results.
 """
 
 from fastapi import FastAPI, HTTPException, Query, Body
-from fastapi.responses import PlainTextResponse
+from fastapi.responses import PlainTextResponse, Response
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 from typing import Optional, List, Dict, Any
@@ -16,6 +16,7 @@ import html2text as _html2text
 from urllib.parse import urlencode
 from concurrent.futures import ThreadPoolExecutor
 from textstat import flesch_kincaid_grade
+from cavc_client import CavcClient
 
 logging.basicConfig(
     level=logging.INFO,
@@ -38,6 +39,7 @@ app.add_middleware(
 )
 
 executor = ThreadPoolExecutor(max_workers=10)
+cavc_client = CavcClient()
 
 USER_AGENT = "VetAI-BVA-API/2.0"
 REQUEST_TIMEOUT = 15
@@ -1225,6 +1227,90 @@ async def rag_debug():
         "chroma_path": os.environ.get("CHROMA_PATH", "./data/chroma"),
         "bva_api_url": os.environ.get("BVA_API_URL", "http://localhost:8001"),
     }
+
+import dataclasses as _dc
+
+def _dc_to_dict(obj):
+    """Recursively convert a dataclass instance to a plain dict."""
+    if _dc.is_dataclass(obj) and not isinstance(obj, type):
+        return {k: _dc_to_dict(v) for k, v in _dc.asdict(obj).items()}
+    if isinstance(obj, list):
+        return [_dc_to_dict(i) for i in obj]
+    return obj
+
+# ---------------------------------------------------------------------------
+# CAVC endpoints
+# ---------------------------------------------------------------------------
+
+@app.get("/cavc/search", tags=["CAVC"])
+async def cavc_search(
+    case_number: str = Query(""),
+    party_name: str = Query(""),
+    open_closed: str = Query("both"),
+):
+    """Search CAVC cases by case number or party name."""
+    loop = asyncio.get_running_loop()
+    results = await loop.run_in_executor(
+        executor, lambda: cavc_client.search_cases(case_number, party_name, open_closed)
+    )
+    return [_dc_to_dict(r) for r in results]
+
+@app.get("/cavc/case/{case_number}", tags=["CAVC"])
+async def cavc_case(case_number: str):
+    """Fetch CAVC case summary (parties, counsel, case info)."""
+    loop = asyncio.get_running_loop()
+    summary = await loop.run_in_executor(
+        executor, lambda: cavc_client.get_case_summary(case_number)
+    )
+    if not summary:
+        raise HTTPException(status_code=404, detail=f"Case {case_number} not found")
+    d = _dc_to_dict(summary)
+    d["docket_entries_count"] = len(summary.docket_entries)
+    d.pop("docket_entries", None)
+    return d
+
+@app.get("/cavc/case/{case_number}/docket", tags=["CAVC"])
+async def cavc_docket(case_number: str):
+    """Fetch full CAVC docket report with all entries and document links."""
+    loop = asyncio.get_running_loop()
+    summary = await loop.run_in_executor(
+        executor, lambda: cavc_client.get_full_docket(case_number)
+    )
+    if not summary:
+        raise HTTPException(status_code=404, detail=f"Case {case_number} not found")
+    return _dc_to_dict(summary)
+
+@app.get("/cavc/case/{case_number}/document", tags=["CAVC"])
+async def cavc_document(
+    case_number: str,
+    dls_id: str = Query(...),
+    case_id: str = Query(...),
+    as_text: bool = Query(False),
+):
+    """Fetch a CAVC docket document (PDF or extracted text)."""
+    loop = asyncio.get_running_loop()
+    result = await loop.run_in_executor(
+        executor, lambda: cavc_client.get_document(dls_id, case_id, as_text)
+    )
+    if result is None:
+        raise HTTPException(status_code=404, detail=f"Document dls_id={dls_id} not found or restricted")
+    if as_text and isinstance(result, str):
+        return PlainTextResponse(content=result, media_type="text/plain")
+    return Response(content=result, media_type="application/pdf")
+
+@app.get("/cavc/case/{case_number}/find", tags=["CAVC"])
+async def cavc_find_entry(
+    case_number: str,
+    keyword: str = Query(...),
+):
+    """Search docket entries for a keyword, return first match."""
+    loop = asyncio.get_running_loop()
+    entry = await loop.run_in_executor(
+        executor, lambda: cavc_client.find_entry(case_number, keyword)
+    )
+    if not entry:
+        raise HTTPException(status_code=404, detail=f"No docket entry matching '{keyword}' in case {case_number}")
+    return _dc_to_dict(entry)
 
 def _shutdown(signum, frame):
     logger.info("Shutting down -- releasing ports...")

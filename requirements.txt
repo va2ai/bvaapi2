@@ -8,3 +8,4 @@ mcp>=1.25,<2.0
 httpx
 chromadb
 openai
+lxml
