@@ -366,6 +366,13 @@ class CaseSummaryBriefResponse(BaseModel):
     docket_entries_count: int
     internal_case_id: Optional[str] = None
 
+class CavcDocumentResponse(BaseModel):
+    dls_id: str
+    case_id: str
+    case_number: str
+    text: str
+    char_count: int
+
 # -------------------------------------------------------------------
 # Regex patterns for decision parsing
 # -------------------------------------------------------------------
@@ -1330,7 +1337,9 @@ async def cavc_docket(case_number: str):
         raise HTTPException(status_code=404, detail=f"Case {case_number} not found")
     return _dc_to_dict(summary)
 
-@app.get("/cavc/case/{case_number}/document", tags=["CAVC"])
+@app.get("/cavc/case/{case_number}/document", tags=["CAVC"],
+         summary="Fetch a CAVC docket document",
+         description="as_text=true returns JSON with extracted text. as_text=false returns raw PDF bytes.")
 async def cavc_document(
     case_number: str,
     dls_id: str = Query(...),
@@ -1345,7 +1354,13 @@ async def cavc_document(
     if result is None:
         raise HTTPException(status_code=404, detail=f"Document dls_id={dls_id} not found or restricted")
     if as_text and isinstance(result, str):
-        return PlainTextResponse(content=result, media_type="text/plain")
+        return CavcDocumentResponse(
+            dls_id=dls_id,
+            case_id=case_id,
+            case_number=case_number,
+            text=result,
+            char_count=len(result),
+        )
     return Response(content=result, media_type="application/pdf")
 
 @app.get("/cavc/case/{case_number}/find", response_model=CavcDocketEntry, tags=["CAVC"],
