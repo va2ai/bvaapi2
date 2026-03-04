@@ -6,6 +6,7 @@ A high-performance FastAPI service for searching and analyzing Board of Veterans
 
 - **Real-time BVA Decision Search**: Search through thousands of BVA decisions by query and year
 - **Case Detail Extraction**: Parse and extract structured data from decision texts
+- **Section-Aware Regex Search**: Search within case text using 9 built-in presets (CFR citations, nexus opinions, diagnostic codes, etc.) or custom regex, with section filtering and configurable context
 - **Batch Operations**: Search multiple queries simultaneously
 - **Text Analysis**: Analyze decisions for keywords, VA-specific terms, and readability metrics
 - **No Database Required**: Direct scraping and parsing without persistence layer
@@ -39,6 +40,8 @@ A high-performance FastAPI service for searching and analyzing Board of Veterans
 | `/cavc/case/{case_number}/docket` | GET | Get full docket report with all entries |
 | `/cavc/case/{case_number}/document` | GET | Fetch a docket document as PDF or text |
 | `/cavc/case/{case_number}/find` | GET | Find first docket entry matching a keyword |
+| `/case/search` | POST | Regex search within case text (presets or custom) |
+| `/case/search/presets` | GET | List available regex search presets |
 | `/health` | GET | Health check endpoint |
 
 ## 🚀 Quick Start
@@ -564,6 +567,89 @@ gcloud run deploy bva-api `
 }
 ```
 
+### Case Text Regex Search
+
+Search within BVA decision text using regex patterns or built-in presets. Supports section filtering, multiple context modes, and returns matches with surrounding context.
+
+#### List Presets
+
+**Endpoint:** `GET /case/search/presets`
+
+**Response:**
+```json
+{
+  "cfr_citation": "38 CFR regulatory citations (e.g., 38 CFR § 3.303)",
+  "diagnostic_code": "VA Diagnostic Codes (e.g., DC 9411 for PTSD)",
+  "nexus_opinion": "Nexus opinion probability language",
+  "secondary_sc": "Secondary service connection theories",
+  "effective_date": "Effective date references",
+  "cue": "Clear and Unmistakable Error (CUE) references",
+  "tdiu": "Total Disability / Individual Unemployability",
+  "imo": "Independent medical opinions/examinations and nexus letters",
+  "buddy_statement": "Buddy/lay statements and lay evidence references"
+}
+```
+
+#### Search Case Text
+
+**Endpoint:** `POST /case/search`
+
+**Request Body:**
+```json
+{
+  "url": "https://www.va.gov/vetapp25/Files8/A25069954.txt",
+  "preset": "nexus_opinion",
+  "section": "REASONS AND BASES",
+  "max_matches": 10
+}
+```
+
+Or with a custom regex:
+```json
+{
+  "url": "https://www.va.gov/vetapp25/Files8/A25069954.txt",
+  "q": "service.connected",
+  "max_matches": 5
+}
+```
+
+**Request Parameters:**
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `url` | string | required | Case URL from search results |
+| `preset` | string | | Preset name (mutually exclusive with `q`) |
+| `q` | string | | Custom regex pattern (mutually exclusive with `preset`) |
+| `section` | string | | Filter to a specific section (e.g. `REASONS AND BASES`) |
+| `before` | int | 400 | Characters of context before match (0-2000) |
+| `after` | int | 400 | Characters of context after match (0-2000) |
+| `max_matches` | int | 50 | Maximum matches to return (1-200) |
+| `context_mode` | string | `chars` | Context extraction mode: `chars`, `sentences`, or `paragraph` |
+
+**Response:**
+```json
+{
+  "url": "https://www.va.gov/vetapp25/Files8/A25069954.txt",
+  "total_matches": 4,
+  "truncated": false,
+  "preset_used": "nexus_opinion",
+  "pattern": "\\b(at\\s+least\\s+as\\s+likely\\s+as\\s+not|...)\\b",
+  "section_filter": "REASONS AND BASES",
+  "sections_found": ["PREAMBLE", "ORDER", "FINDINGS OF FACT", "CONCLUSIONS OF LAW", "REASONS AND BASES"],
+  "matches": [
+    {
+      "section": "REASONS AND BASES",
+      "start": 4466,
+      "end": 4486,
+      "match_text": "less likely than not",
+      "snippet": "...the Veteran's sleep apnea less likely than not results from his PTSD...",
+      "line": 45
+    }
+  ]
+}
+```
+
+**Detected Sections:** The parser recognizes standard BVA decision headings: `THE ISSUES`, `REPRESENTATION`, `WITNESSES`, `INTRODUCTION`, `FINDINGS OF FACT`, `CONCLUSIONS OF LAW`, `REASONS AND BASES`, `ORDER`, `REMAND`. Text before the first heading is labeled `PREAMBLE`.
+
 ### CAVC Endpoints
 
 The Court of Appeals for Veterans Claims (CAVC) endpoints provide access to public eFiling records including case searches, docket reports, and court documents.
@@ -767,7 +853,23 @@ For issues, questions, or suggestions, please open an issue on the [GitHub repos
 
 ## 🔄 Version History
 
-- **v1.1.0** (Current)
+- **v2.1.0** (Current)
+  - Section-aware regex search with 9 BVA-specific presets
+  - LRU-cached case text fetching (64 entries)
+  - Section parser for standard BVA decision headings
+  - MCP tools for case_search and case_search_presets
+  - Context modes: chars, sentences, paragraph
+  - User-supplied regex with 2-second timeout protection
+
+- **v2.0.0**
+  - CAVC eFiling integration (search, docket, documents)
+  - KnowVA knowledge base search
+  - 38 CFR regulation search and lookup
+  - Federal Register VA document search
+  - RAG semantic search over indexed content
+  - MCP server for LLM tool use
+
+- **v1.1.0**
   - Optimized text analysis with single-pass keyword scanning
   - Enhanced year-to-DC mapping (1997-2025)
   - Improved error handling and logging
