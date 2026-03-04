@@ -373,6 +373,34 @@ class CavcDocumentResponse(BaseModel):
     text: str
     char_count: int
 
+class CaseSearchRequest(BaseModel):
+    url: str
+    q: Optional[str] = None
+    preset: Optional[str] = None
+    section: Optional[str] = None
+    before: int = Field(default=400, ge=0, le=2000)
+    after: int = Field(default=400, ge=0, le=2000)
+    max_matches: int = Field(default=50, ge=1, le=200)
+    context_mode: str = Field(default="chars", pattern=r"^(chars|sentences|paragraph)$")
+
+class CaseSearchMatch(BaseModel):
+    section: str
+    start: int
+    end: int
+    match_text: str
+    snippet: str
+    line: int
+
+class CaseSearchResponse(BaseModel):
+    url: str
+    total_matches: int
+    truncated: bool
+    preset_used: Optional[str]
+    pattern: str
+    section_filter: Optional[str]
+    sections_found: List[str]
+    matches: List[CaseSearchMatch]
+
 # -------------------------------------------------------------------
 # Regex patterns for decision parsing
 # -------------------------------------------------------------------
@@ -447,6 +475,267 @@ def parse_decision_text(text: str) -> Dict[str, Any]:
     if m := JUDGE_RE.search(text):
         d["judge"] = m.group(1).strip()
     return d
+
+# -------------------------------------------------------------------
+# Section parsing for structured regex search
+# -------------------------------------------------------------------
+
+from dataclasses import dataclass, asdict
+from functools import lru_cache
+
+@dataclass
+class TextSection:
+    name: str
+    start: int
+    end: int
+
+# Headings found in BVA decisions (order roughly matches typical layout)
+_SECTION_HEADINGS = [
+    re.compile(r"^\s*THE\s+ISSUES?\s*$", re.I | re.M),
+    re.compile(r"^\s*REPRESENTATION\s*$", re.I | re.M),
+    re.compile(r"^\s*WITNESSES?\s*$", re.I | re.M),
+    re.compile(r"^\s*INTRODUCTION\s*$", re.I | re.M),
+    re.compile(r"^\s*FINDINGS?\s+OF\s+FACT\s*$", re.I | re.M),
+    re.compile(r"^\s*CONCLUSIONS?\s+OF\s+LAW\s*$", re.I | re.M),
+    re.compile(r"^\s*REASONS\s+AND\s+BASES\s+FOR\s+FINDINGS?\s+AND\s+CONCLUSIONS?\s*$", re.I | re.M),
+    re.compile(r"^\s*ORDER\s*$", re.I | re.M),
+    re.compile(r"^\s*REMAND\s*$", re.I | re.M),
+]
+
+# Canonical short names for each heading
+_SECTION_NAMES = {
+    "THE ISSUE": "THE ISSUES",
+    "THE ISSUES": "THE ISSUES",
+    "REPRESENTATION": "REPRESENTATION",
+    "WITNESS": "WITNESSES",
+    "WITNESSES": "WITNESSES",
+    "INTRODUCTION": "INTRODUCTION",
+    "FINDING OF FACT": "FINDINGS OF FACT",
+    "FINDINGS OF FACT": "FINDINGS OF FACT",
+    "CONCLUSION OF LAW": "CONCLUSIONS OF LAW",
+    "CONCLUSIONS OF LAW": "CONCLUSIONS OF LAW",
+    "REASONS AND BASES FOR FINDING AND CONCLUSION": "REASONS AND BASES",
+    "REASONS AND BASES FOR FINDINGS AND CONCLUSION": "REASONS AND BASES",
+    "REASONS AND BASES FOR FINDING AND CONCLUSIONS": "REASONS AND BASES",
+    "REASONS AND BASES FOR FINDINGS AND CONCLUSIONS": "REASONS AND BASES",
+    "ORDER": "ORDER",
+    "REMAND": "REMAND",
+}
+
+
+def parse_sections(text: str) -> list[TextSection]:
+    """Scan text for BVA decision headings, return list of sections with char offsets."""
+    hits: list[tuple[int, str]] = []
+    for pat in _SECTION_HEADINGS:
+        for m in pat.finditer(text):
+            raw_name = m.group(0).strip().upper()
+            canonical = _SECTION_NAMES.get(raw_name, raw_name)
+            hits.append((m.start(), canonical))
+
+    hits.sort(key=lambda h: h[0])
+
+    if not hits:
+        return [TextSection(name="FULL_TEXT", start=0, end=len(text))]
+
+    sections: list[TextSection] = []
+    # Preamble before first heading
+    if hits[0][0] > 0:
+        sections.append(TextSection(name="PREAMBLE", start=0, end=hits[0][0]))
+
+    for i, (offset, name) in enumerate(hits):
+        end = hits[i + 1][0] if i + 1 < len(hits) else len(text)
+        sections.append(TextSection(name=name, start=offset, end=end))
+
+    return sections
+
+
+def _build_newline_offsets(text: str) -> list[int]:
+    """Return list of char offsets where each line starts (0-indexed)."""
+    offsets = [0]
+    for i, ch in enumerate(text):
+        if ch == "\n":
+            offsets.append(i + 1)
+    return offsets
+
+
+def _offset_to_line(offset: int, newline_offsets: list[int]) -> int:
+    """Convert a char offset to a 1-based line number using binary search."""
+    import bisect
+    return bisect.bisect_right(newline_offsets, offset)
+
+
+@lru_cache(maxsize=64)
+def _fetch_and_parse(url: str) -> tuple[str, tuple, tuple]:
+    """Fetch case text and return (raw_text, sections_tuple, newline_offsets_tuple).
+
+    Uses tuples for LRU cache hashability. Caller should convert back to lists.
+    """
+    data = fetch_case_text(url)
+    raw = data["raw_text"]
+    sections = parse_sections(raw)
+    newline_offsets = _build_newline_offsets(raw)
+    return (
+        raw,
+        tuple((s.name, s.start, s.end) for s in sections),
+        tuple(newline_offsets),
+    )
+
+# -------------------------------------------------------------------
+# BVA-specific regex presets
+# -------------------------------------------------------------------
+
+SEARCH_PRESETS: dict[str, tuple[re.Pattern, str]] = {
+    "cfr_citation": (
+        re.compile(r"\b38\s*C\.?F\.?R\.?\s*§?\s*[\d\.]+[a-z0-9()]*", re.I),
+        "38 CFR regulatory citations (e.g., 38 CFR § 3.303)",
+    ),
+    "diagnostic_code": (
+        re.compile(r"\b(?:DC|Diagnostic\s*Code)\s*\d{4}\b", re.I),
+        "VA Diagnostic Codes (e.g., DC 9411 for PTSD)",
+    ),
+    "nexus_opinion": (
+        re.compile(
+            r"\b(at\s+least\s+as\s+likely\s+as\s+not"
+            r"|more\s+likely\s+than\s+not"
+            r"|less\s+likely\s+than\s+not)\b", re.I
+        ),
+        "Nexus opinion probability language",
+    ),
+    "secondary_sc": (
+        re.compile(
+            r"\b(secondary\s+service\s+connection"
+            r"|proximately\s+due\s+to"
+            r"|aggravated\s+by)\b", re.I
+        ),
+        "Secondary service connection theories",
+    ),
+    "effective_date": (
+        re.compile(r"\b[Ee]ffective\s+[Dd]ate\b"),
+        "Effective date references",
+    ),
+    "cue": (
+        re.compile(r"\b[Cc]lear\s+and\s+[Uu]nmistakable\s+[Ee]rror\b"),
+        "Clear and Unmistakable Error (CUE) references",
+    ),
+    "tdiu": (
+        re.compile(
+            r"\b(TDIU"
+            r"|[Tt]otal\s+[Dd]isability\s+.*?[Ii]ndividual\s+[Uu]nemployability)\b"
+        ),
+        "Total Disability / Individual Unemployability",
+    ),
+    "imo": (
+        re.compile(
+            r"\b(IMO|IME"
+            r"|[Ii]ndependent\s+[Mm]edical\s+(?:opinion|examination)"
+            r"|nexus\s+(?:letter|opinion))\b"
+        ),
+        "Independent medical opinions/examinations and nexus letters",
+    ),
+    "buddy_statement": (
+        re.compile(
+            r"\b([Bb]uddy\s+[Ss]tatement"
+            r"|[Ll]ay\s+[Ss]tatement"
+            r"|[Ll]ay\s+[Ee]vidence)\b"
+        ),
+        "Buddy/lay statements and lay evidence references",
+    ),
+}
+
+# -------------------------------------------------------------------
+# Case text regex search engine
+# -------------------------------------------------------------------
+
+def _extract_snippet(text: str, start: int, end: int,
+                     before: int, after: int,
+                     section_start: int, section_end: int,
+                     context_mode: str) -> str:
+    """Extract context around a match, bounded to section."""
+    budget = before + after
+
+    if context_mode == "paragraph":
+        # Find paragraph boundaries (double newline)
+        para_start = text.rfind("\n\n", section_start, start)
+        para_start = para_start + 2 if para_start != -1 else section_start
+        para_end = text.find("\n\n", end, section_end)
+        para_end = para_end if para_end != -1 else section_end
+        snippet = text[para_start:para_end].strip()
+        if len(snippet) > budget:
+            snippet = snippet[:budget] + "..."
+        return snippet
+
+    if context_mode == "sentences":
+        # Expand to sentence boundaries (period + space or newline)
+        sent_start = max(
+            text.rfind(". ", section_start, start),
+            text.rfind(".\n", section_start, start),
+        )
+        sent_start = sent_start + 2 if sent_start != -1 else max(start - before, section_start)
+        sent_end = min(
+            x for x in [
+                text.find(". ", end, section_end),
+                text.find(".\n", end, section_end),
+            ] if x != -1
+        ) if any(
+            text.find(p, end, section_end) != -1 for p in [". ", ".\n"]
+        ) else min(end + after, section_end)
+        sent_end = min(sent_end + 1, section_end)
+        snippet = text[sent_start:sent_end].strip()
+        if len(snippet) > budget:
+            snippet = snippet[:budget] + "..."
+        return snippet
+
+    # Default: chars mode
+    snip_start = max(start - before, section_start)
+    snip_end = min(end + after, section_end)
+    return text[snip_start:snip_end]
+
+
+def search_case_text(
+    raw_text: str,
+    sections: list[TextSection],
+    newline_offsets: list[int],
+    pattern: re.Pattern,
+    section_filter: str | None,
+    before: int,
+    after: int,
+    max_matches: int,
+    context_mode: str,
+) -> tuple[list, int, bool]:
+    """Run regex over case text, return (matches, total_found, truncated)."""
+    # Determine which sections to search
+    if section_filter:
+        target_sections = [s for s in sections if section_filter.upper() in s.name]
+    else:
+        target_sections = sections
+
+    all_matches: list = []
+    total = 0
+
+    for sec in target_sections:
+        region = raw_text[sec.start:sec.end]
+        for m in pattern.finditer(region):
+            total += 1
+            if len(all_matches) >= max_matches:
+                continue  # keep counting total but don't add more
+            abs_start = sec.start + m.start()
+            abs_end = sec.start + m.end()
+            snippet = _extract_snippet(
+                raw_text, abs_start, abs_end,
+                before, after,
+                sec.start, sec.end,
+                context_mode,
+            )
+            all_matches.append({
+                "section": sec.name,
+                "start": abs_start,
+                "end": abs_end,
+                "match_text": m.group(0),
+                "snippet": snippet,
+                "line": _offset_to_line(abs_start, newline_offsets),
+            })
+
+    return all_matches, total, total > max_matches
 
 def _search_json(query: str, year: Optional[int], page: int) -> Dict:
     """Call search.usa.gov JSON API and return raw response dict."""
@@ -541,6 +830,8 @@ async def root():
             "GET  /rag/search?q=":           "Semantic search over indexed CFR/KnowVA content",
             "GET  /rag/status":              "RAG index statistics",
             "POST /rag/reindex?source=":     "Re-index content into RAG",
+            "POST /case/search":             "Regex search within case text (presets or custom)",
+            "GET  /case/search/presets":     "List available search presets",
             "GET  /health":                  "Health check",
         }
     }
@@ -677,6 +968,98 @@ async def analyze_text(
         va_terms_found=va_terms,
         readability_grade=flesch_kincaid_grade(text),
         analysis_timestamp=datetime.now().isoformat(),
+    )
+
+@app.get("/case/search/presets")
+async def list_search_presets():
+    """List available BVA-specific regex search presets."""
+    return {
+        name: desc for name, (_, desc) in SEARCH_PRESETS.items()
+    }
+
+
+@app.post("/case/search", response_model=CaseSearchResponse)
+async def case_search(req: CaseSearchRequest):
+    """Search BVA case text with regex or preset, scoped to decision sections."""
+    # Validate: exactly one of q or preset
+    if not req.q and not req.preset:
+        raise HTTPException(400, "Provide either 'q' (regex) or 'preset'.")
+    if req.q and req.preset:
+        raise HTTPException(400, "Provide only one of 'q' or 'preset', not both.")
+
+    # Resolve pattern
+    if req.preset:
+        entry = SEARCH_PRESETS.get(req.preset)
+        if not entry:
+            raise HTTPException(400, f"Unknown preset '{req.preset}'. Available: {list(SEARCH_PRESETS.keys())}")
+        pattern, _ = entry
+        pattern_str = pattern.pattern
+    else:
+        # User-supplied regex with timeout protection
+        pattern_str = req.q
+        try:
+            pattern = re.compile(req.q, re.IGNORECASE)
+        except re.error as e:
+            raise HTTPException(400, f"Invalid regex: {e}")
+
+    # Fetch + parse case text (LRU cached)
+    loop = asyncio.get_running_loop()
+    try:
+        raw_text, sections_tuple, nl_offsets_tuple = await loop.run_in_executor(
+            executor, _fetch_and_parse, req.url
+        )
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(404, f"Could not fetch case text: {e}")
+
+    sections = [TextSection(name=s[0], start=s[1], end=s[2]) for s in sections_tuple]
+    newline_offsets = list(nl_offsets_tuple)
+
+    # Validate section filter
+    section_names = [s.name for s in sections]
+    if req.section:
+        matching = [s for s in sections if req.section.upper() in s.name]
+        if not matching:
+            raise HTTPException(
+                400,
+                f"Section '{req.section}' not found. Available: {section_names}"
+            )
+
+    # Run search with timeout for user-supplied patterns
+    from concurrent.futures import TimeoutError as FuturesTimeout
+
+    def _do_search():
+        return search_case_text(
+            raw_text, sections, newline_offsets,
+            pattern, req.section,
+            req.before, req.after,
+            req.max_matches, req.context_mode,
+        )
+
+    if req.q:
+        # User-supplied regex gets a 2-second timeout
+        future = executor.submit(_do_search)
+        try:
+            matches, total, truncated = future.result(timeout=2.0)
+        except FuturesTimeout:
+            future.cancel()
+            raise HTTPException(
+                408,
+                "Regex timed out (>2s). Use a preset or simplify your pattern."
+            )
+    else:
+        matches, total, truncated = _do_search()
+
+    return CaseSearchResponse(
+        url=req.url,
+        total_matches=total,
+        truncated=truncated,
+        preset_used=req.preset,
+        pattern=pattern_str,
+        section_filter=req.section,
+        sections_found=section_names,
+        matches=[CaseSearchMatch(**m) for m in matches],
     )
 
 @app.get("/years")

@@ -515,6 +515,54 @@ async def bva_cavc_find_entry(
         return f"Error: {_err(e)}"
 
 
+# --- Case Search tools ---
+
+@mcp.tool(
+    description=(
+        "Search within the text of a BVA decision using regex patterns or built-in presets. "
+        "Presets: cfr_citation, diagnostic_code, nexus_opinion, secondary_sc, effective_date, "
+        "cue, tdiu, imo, buddy_statement. Optionally filter by decision section (e.g. "
+        "'REASONS AND BASES', 'FINDINGS OF FACT', 'ORDER'). Returns matches with surrounding "
+        "context, section names, and line numbers."
+    )
+)
+async def case_search(
+    url: str,
+    preset: Optional[str] = None,
+    q: Optional[str] = None,
+    section: Optional[str] = None,
+    max_matches: int = 50,
+) -> str:
+    """Regex search within a BVA case. url=case URL, preset=preset name OR q=custom regex, section=optional section filter."""
+    try:
+        body: dict = {"url": url, "max_matches": max_matches}
+        if preset:
+            body["preset"] = preset
+        elif q:
+            body["q"] = q
+        if section:
+            body["section"] = section
+        data = await _post("case/search", body)
+        return json.dumps(data, indent=2)
+    except Exception as e:
+        return f"Error: {_err(e)}"
+
+
+@mcp.tool(
+    description=(
+        "List available regex search presets for BVA case text search. "
+        "Returns preset names and descriptions. Use preset names with case_search."
+    )
+)
+async def case_search_presets() -> str:
+    """List available BVA case search presets."""
+    try:
+        data = await _get("case/search/presets")
+        return json.dumps(data, indent=2)
+    except Exception as e:
+        return f"Error: {_err(e)}"
+
+
 # --- Health tool ---
 
 @mcp.tool(
