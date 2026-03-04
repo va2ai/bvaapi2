@@ -224,9 +224,16 @@ def add_chunks(chunks: List[Chunk]) -> int:
     if not chunks:
         return 0
     collection = get_collection()
-    ids = [c.id for c in chunks]
-    documents = [c.text for c in chunks]
-    metadatas = [c.metadata for c in chunks]
+    # Deduplicate by ID (keep last occurrence)
+    seen = {}
+    for c in chunks:
+        seen[c.id] = c
+    deduped = list(seen.values())
+    if len(deduped) < len(chunks):
+        logger.warning(f"Deduplicated {len(chunks) - len(deduped)} duplicate chunk IDs")
+    ids = [c.id for c in deduped]
+    documents = [c.text for c in deduped]
+    metadatas = [c.metadata for c in deduped]
     batch_size = 50  # smaller batches for Vertex AI embedding calls
     total = 0
     max_retries = 3
