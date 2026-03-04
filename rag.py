@@ -101,7 +101,12 @@ class VertexAIEmbeddingFunction(EmbeddingFunction[Documents]):
                     time.sleep(wait)
                     continue
                 if resp.status_code == 400:
-                    logger.error(f"Vertex AI 400 Bad Request: {resp.text[:500]}")
+                    error_detail = resp.text[:500]
+                    logger.error(f"Vertex AI 400 Bad Request: {error_detail}")
+                    # Log sample of problematic texts for debugging
+                    for j, t in enumerate(sanitized[:3]):
+                        logger.error(f"  text[{j}] len={len(t)} first100={repr(t[:100])}")
+                    raise RuntimeError(f"Vertex AI 400: {error_detail}")
                 resp.raise_for_status()
 
             predictions = resp.json().get("predictions", [])
