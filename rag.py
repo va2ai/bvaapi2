@@ -2,11 +2,13 @@
 """ChromaDB RAG layer for BVA API - vector search over CFR and KnowVA content."""
 
 import os
+import time
 import logging
 from typing import Any, Dict, List, Optional
 
+import httpx
 import chromadb
-from chromadb.utils.embedding_functions import OpenAIEmbeddingFunction
+from chromadb import Documents, EmbeddingFunction, Embeddings
 
 from chunker import Chunk
 
@@ -14,20 +16,126 @@ logger = logging.getLogger(__name__)
 
 CHROMA_PATH = os.environ.get("CHROMA_PATH", "./data/chroma")
 COLLECTION_NAME = "bva_rag"
-EMBEDDING_MODEL = "text-embedding-3-small"
+EMBEDDING_MODEL = "text-embedding-004"  # Vertex AI model
+VERTEX_BATCH_SIZE = 50  # Vertex AI limit per call is 250, stay conservative
+
+
+class VertexAIEmbeddingFunction(EmbeddingFunction[Documents]):
+    """Custom ChromaDB embedding function using Vertex AI REST API.
+
+    Uses Application Default Credentials (ADC) -- automatic on Cloud Run.
+    Falls back gracefully with clear error messages.
+    """
+
+    def __init__(
+        self,
+        project_id: Optional[str] = None,
+        location: str = "us-central1",
+        model: str = EMBEDDING_MODEL,
+    ):
+        self._model = model
+        self._location = location
+        self._project_id = project_id
+        self._credentials = None
+        self._init_credentials()
+
+    def _init_credentials(self):
+        """Initialize Google ADC credentials."""
+        try:
+            import google.auth
+            import google.auth.transport.requests
+
+            self._credentials, detected_project = google.auth.default(
+                scopes=["https://www.googleapis.com/auth/cloud-platform"]
+            )
+            if not self._project_id:
+                self._project_id = detected_project
+            logger.info(
+                f"Vertex AI embeddings initialized: project={self._project_id}, "
+                f"model={self._model}"
+            )
+        except Exception as e:
+            logger.warning(f"Google ADC not available: {e}. Vertex AI embeddings will fail.")
+
+    def _get_access_token(self) -> str:
+        """Get a fresh access token, refreshing if needed."""
+        import google.auth.transport.requests
+
+        if self._credentials is None:
+            raise RuntimeError("Google credentials not initialized")
+        request = google.auth.transport.requests.Request()
+        self._credentials.refresh(request)
+        return self._credentials.token
+
+    def _embed_batch(self, texts: List[str]) -> List[List[float]]:
+        """Embed a single batch via Vertex AI REST API."""
+        token = self._get_access_token()
+        url = (
+            f"https://{self._location}-aiplatform.googleapis.com/v1/"
+            f"projects/{self._project_id}/locations/{self._location}/"
+            f"publishers/google/models/{self._model}:predict"
+        )
+        instances = [{"content": t} for t in texts]
+        payload = {"instances": instances}
+
+        with httpx.Client(timeout=60.0) as client:
+            resp = client.post(
+                url,
+                json=payload,
+                headers={"Authorization": f"Bearer {token}"},
+            )
+            resp.raise_for_status()
+
+        predictions = resp.json().get("predictions", [])
+        return [p["embeddings"]["values"] for p in predictions]
+
+    def __call__(self, input: Documents) -> Embeddings:
+        """Embed documents in batches."""
+        if not input:
+            return []
+
+        all_embeddings: List[List[float]] = []
+        for i in range(0, len(input), VERTEX_BATCH_SIZE):
+            batch = input[i : i + VERTEX_BATCH_SIZE]
+            embeddings = self._embed_batch(batch)
+            all_embeddings.extend(embeddings)
+
+        return all_embeddings
+
+
+class OpenAIFallbackEmbeddingFunction(EmbeddingFunction[Documents]):
+    """Fallback to OpenAI embeddings if configured via RAG_EMBEDDINGS=openai."""
+
+    def __init__(self):
+        from chromadb.utils.embedding_functions import OpenAIEmbeddingFunction
+
+        api_key = os.environ.get("OPENAI_API_KEY", "")
+        if not api_key:
+            raise RuntimeError("OPENAI_API_KEY required when RAG_EMBEDDINGS=openai")
+        self._fn = OpenAIEmbeddingFunction(
+            api_key=api_key, model_name="text-embedding-3-small"
+        )
+
+    def __call__(self, input: Documents) -> Embeddings:
+        return self._fn(input)
+
+
+def _get_embedding_fn() -> EmbeddingFunction:
+    """Get the configured embedding function.
+
+    Default: Vertex AI (works on Cloud Run with ADC, no API key needed).
+    Override: set RAG_EMBEDDINGS=openai to use OpenAI instead.
+    """
+    provider = os.environ.get("RAG_EMBEDDINGS", "vertex").lower()
+    if provider == "openai":
+        logger.info("Using OpenAI embeddings (RAG_EMBEDDINGS=openai)")
+        return OpenAIFallbackEmbeddingFunction()
+    logger.info("Using Vertex AI embeddings (default)")
+    return VertexAIEmbeddingFunction()
+
 
 _client: Optional[chromadb.ClientAPI] = None
 _collection: Optional[chromadb.Collection] = None
-
-
-def _get_embedding_fn() -> OpenAIEmbeddingFunction:
-    api_key = os.environ.get("OPENAI_API_KEY", "")
-    if not api_key:
-        raise RuntimeError("OPENAI_API_KEY environment variable is required for RAG")
-    return OpenAIEmbeddingFunction(
-        api_key=api_key,
-        model_name=EMBEDDING_MODEL,
-    )
 
 
 def get_collection() -> chromadb.Collection:
@@ -101,23 +209,33 @@ def search(
 
 
 def add_chunks(chunks: List[Chunk]) -> int:
-    """Upsert chunks into ChromaDB. Returns count added."""
+    """Upsert chunks into ChromaDB with retry logic. Returns count added."""
     if not chunks:
         return 0
     collection = get_collection()
     ids = [c.id for c in chunks]
     documents = [c.text for c in chunks]
     metadatas = [c.metadata for c in chunks]
-    # Batch in groups of 100 to avoid API limits
-    batch_size = 100
+    batch_size = 50  # smaller batches for Vertex AI embedding calls
     total = 0
+    max_retries = 3
     for i in range(0, len(ids), batch_size):
         batch_ids = ids[i:i + batch_size]
         batch_docs = documents[i:i + batch_size]
         batch_meta = metadatas[i:i + batch_size]
-        collection.upsert(ids=batch_ids, documents=batch_docs, metadatas=batch_meta)
-        total += len(batch_ids)
-        logger.info(f"Upserted batch {i // batch_size + 1}: {len(batch_ids)} chunks")
+        for attempt in range(1, max_retries + 1):
+            try:
+                collection.upsert(ids=batch_ids, documents=batch_docs, metadatas=batch_meta)
+                total += len(batch_ids)
+                logger.info(f"Upserted batch {i // batch_size + 1}: {len(batch_ids)} chunks")
+                break
+            except Exception as e:
+                if attempt == max_retries:
+                    logger.error(f"Upsert failed after {max_retries} attempts: {e}")
+                    raise
+                wait = 2 ** attempt
+                logger.warning(f"Upsert attempt {attempt} failed: {e}. Retrying in {wait}s...")
+                time.sleep(wait)
     return total
 
 
@@ -126,18 +244,18 @@ def get_stats() -> Dict[str, Any]:
     collection = get_collection()
     total = collection.count()
 
-    # Sample metadata to get source/type breakdown
+    embedding_provider = os.environ.get("RAG_EMBEDDINGS", "vertex").lower()
     stats: Dict[str, Any] = {
         "total_chunks": total,
         "collection": COLLECTION_NAME,
-        "embedding_model": EMBEDDING_MODEL,
+        "embedding_model": EMBEDDING_MODEL if embedding_provider != "openai" else "text-embedding-3-small",
+        "embedding_provider": embedding_provider,
         "chroma_path": CHROMA_PATH,
         "by_source": {},
         "by_content_type": {},
     }
 
     if total > 0:
-        # Get all metadata to compute breakdowns
         try:
             all_data = collection.get(include=["metadatas"], limit=total)
             if all_data and all_data["metadatas"]:
@@ -158,7 +276,6 @@ def clear_collection() -> int:
     collection = get_collection()
     count = collection.count()
     if count > 0:
-        # Get all IDs and delete
         all_ids = collection.get(include=[])["ids"]
         if all_ids:
             collection.delete(ids=all_ids)

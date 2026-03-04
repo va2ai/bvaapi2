@@ -8,5 +8,6 @@ mcp>=1.25,<2.0
 httpx
 chromadb
 openai
+google-auth
 lxml
 pdfplumber>=0.11.0

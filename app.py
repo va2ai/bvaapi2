@@ -4,10 +4,11 @@ FastAPI BVA Search API v2.0
 Uses search.usa.gov JSON API (no HTML scraping) for reliable results.
 """
 
-from fastapi import FastAPI, HTTPException, Query, Body
-from fastapi.responses import PlainTextResponse, Response
+from fastapi import FastAPI, HTTPException, Query, Body, Request
+from fastapi.responses import PlainTextResponse, Response, JSONResponse
+from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 from typing import Optional, List, Dict, Any
 from datetime import datetime
 import logging, requests, asyncio, re, signal, sys, os
@@ -40,6 +41,88 @@ app.add_middleware(
 
 executor = ThreadPoolExecutor(max_workers=10)
 cavc_client = CavcClient()
+
+# -------------------------------------------------------------------
+# Structured error model + exception classes
+# -------------------------------------------------------------------
+class APIError(BaseModel):
+    code: str
+    message: str
+    field: Optional[str] = None
+    allowed: Optional[Any] = None
+    suggested_fix: Optional[str] = None
+
+
+class BVAAPIError(HTTPException):
+    def __init__(self, status_code: int, code: str, message: str,
+                 field: str = None, allowed: Any = None, suggested_fix: str = None):
+        self.error_code = code
+        self.error_message = message
+        self.error_field = field
+        self.error_allowed = allowed
+        self.error_suggested_fix = suggested_fix
+        super().__init__(status_code=status_code, detail=message)
+
+
+@app.exception_handler(BVAAPIError)
+async def bva_api_error_handler(request: Request, exc: BVAAPIError):
+    body = {
+        "code": exc.error_code,
+        "message": exc.error_message,
+    }
+    if exc.error_field:
+        body["field"] = exc.error_field
+    if exc.error_allowed is not None:
+        body["allowed"] = exc.error_allowed
+    if exc.error_suggested_fix:
+        body["suggested_fix"] = exc.error_suggested_fix
+    return JSONResponse(status_code=exc.status_code, content=body)
+
+
+def _suggest_fix(field: str, err: dict) -> str:
+    """Generate a suggested_fix string from a Pydantic validation error."""
+    ctx = err.get("ctx", {})
+    err_type = err.get("type", "")
+    input_val = err.get("input")
+
+    if "ge" in ctx or "le" in ctx:
+        lo = ctx.get("ge", ctx.get("gt", "?"))
+        hi = ctx.get("le", ctx.get("lt", "?"))
+        return f"{field} must be {lo}-{hi}, you sent {input_val}. Try {field}={lo}"
+
+    if "min_length" in ctx:
+        return f"{field} requires at least {ctx['min_length']} item(s)"
+
+    if err_type == "missing":
+        return f"{field} is required"
+
+    if "int_parsing" in err_type or "int_type" in err_type:
+        return f"{field} must be an integer, you sent '{input_val}'"
+
+    if err_type == "extra_forbidden":
+        return f"Unknown field '{field}'. Remove it from the request body"
+
+    if err_type == "string_pattern_mismatch":
+        pattern = ctx.get("pattern", "")
+        return f"{field} must match pattern {pattern}"
+
+    return f"Fix the value for {field}: {err.get('msg', 'invalid')}"
+
+
+@app.exception_handler(RequestValidationError)
+async def validation_error_handler(request: Request, exc: RequestValidationError):
+    errors = []
+    for err in exc.errors():
+        field = ".".join(str(loc) for loc in err["loc"] if str(loc) != "body")
+        fix = _suggest_fix(field, err)
+        errors.append({
+            "code": "validation_error",
+            "message": err["msg"],
+            "field": field,
+            "suggested_fix": fix,
+        })
+    return JSONResponse(status_code=422, content={"errors": errors})
+
 
 USER_AGENT = "VetAI-BVA-API/2.0"
 REQUEST_TIMEOUT = 15
@@ -204,6 +287,7 @@ class CaseDetail(BaseModel):
     fetch_timestamp: str
 
 class BatchSearchPayload(BaseModel):
+    model_config = ConfigDict(extra="forbid")
     queries: List[str] = Field(..., min_length=1)
     year: Optional[int] = None
     page: int = Field(1, ge=1, le=10)
@@ -374,6 +458,7 @@ class CavcDocumentResponse(BaseModel):
     char_count: int
 
 class CaseSearchRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
     url: str
     q: Optional[str] = None
     preset: Optional[str] = None
@@ -403,6 +488,7 @@ class CaseSearchResponse(BaseModel):
 
 # Search extract models
 class ExtractRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
     queries: List[str] = Field(..., min_length=1, description="Search queries to run")
     keywords: List[str] = Field(..., min_length=1, description="Keywords for proximity matching")
     year: Optional[int] = None
@@ -824,7 +910,8 @@ def fetch_case_text(url: str) -> Dict[str, Any]:
     resp.raise_for_status()
     text = resp.text
     if not text or len(text) < 100:
-        raise HTTPException(status_code=422, detail="Invalid or empty case content")
+        raise BVAAPIError(422, "empty_content", "Invalid or empty case content",
+                          field="url", suggested_fix="Verify the URL points to a valid BVA decision .txt file")
     return {
         "url": url,
         "year": extract_year_from_url(url),
@@ -1061,7 +1148,11 @@ async def root():
         }
     }
 
-@app.get("/search", response_model=SearchResponse)
+@app.get("/search", response_model=SearchResponse, tags=["Search"],
+    summary="Search BVA decisions by keyword",
+    description="Search BVA decisions by keyword. For multiple queries, use POST /batch/search instead. "
+                "Do NOT paginate beyond page=5 unless you need exhaustive results.",
+)
 async def search_get(
     q: str = Query(..., description="Search query"),
     year: Optional[int] = Query(None, ge=1992, le=2025),
@@ -1097,7 +1188,8 @@ async def search_post(request: SearchRequest):
 async def batch_search(payload: BatchSearchPayload = Body(...)):
     queries = [q.strip() for q in payload.queries if q.strip()]
     if not queries:
-        raise HTTPException(status_code=422, detail="`queries` cannot be empty.")
+        raise BVAAPIError(422, "empty_field", "queries list is empty after trimming whitespace",
+                          field="queries", suggested_fix="Provide at least one non-empty query string")
     loop = asyncio.get_running_loop()
     results = []
     for q in queries:
@@ -1115,15 +1207,23 @@ async def batch_search(payload: BatchSearchPayload = Body(...)):
             results.append(BatchSearchResult(query=q, total=0, count=0, results=[]))
     return results
 
-@app.post("/search/extract", response_model=ExtractResponse, tags=["Search"])
+@app.post("/search/extract", response_model=ExtractResponse, tags=["Search"],
+    summary="Search + extract keyword passages from BVA decisions",
+    description="Searches BVA decisions and extracts only passages where keywords appear near each other. "
+                "Use this BEFORE downloading full case text. Do NOT set max_cases above 100 unless you need "
+                "exhaustive coverage. Start with top_n=10 and increase only if needed.",
+    responses={422: {"model": APIError, "description": "Validation error with suggested fix"}},
+)
 async def search_extract(req: ExtractRequest = Body(...)):
     """Search BVA decisions and extract passages where keywords appear near each other."""
     queries = [q.strip() for q in req.queries if q.strip()]
     keywords = [k.strip() for k in req.keywords if k.strip()]
     if not queries:
-        raise HTTPException(status_code=422, detail="`queries` cannot be empty.")
+        raise BVAAPIError(422, "empty_field", "queries list is empty after trimming whitespace",
+                          field="queries", suggested_fix="Provide at least one non-empty query string")
     if not keywords:
-        raise HTTPException(status_code=422, detail="`keywords` cannot be empty.")
+        raise BVAAPIError(422, "empty_field", "keywords list is empty after trimming whitespace",
+                          field="keywords", suggested_fix="Provide at least one keyword for proximity matching")
 
     loop = asyncio.get_running_loop()
 
@@ -1185,7 +1285,11 @@ async def search_extract(req: ExtractRequest = Body(...)):
         timestamp=datetime.now().isoformat(),
     )
 
-@app.get("/case", response_model=CaseDetail)
+@app.get("/case", response_model=CaseDetail, tags=["Case"],
+    summary="Fetch parsed case details",
+    description="Fetch parsed case details. Do NOT set full_text=true unless you need the complete "
+                "decision text -- use /search/extract or /case/search for targeted extraction.",
+)
 async def get_case(url: str = Query(...), full_text: bool = Query(False)):
     loop = asyncio.get_running_loop()
     case_data = await loop.run_in_executor(executor, fetch_case_text, url)
@@ -1207,7 +1311,11 @@ async def get_case(url: str = Query(...), full_text: bool = Query(False)):
         fetch_timestamp=case_data["fetch_timestamp"],
     )
 
-@app.get("/case/text")
+@app.get("/case/text", tags=["Case"],
+    summary="Fetch raw case text",
+    description="Returns the FULL raw decision text (10-40 pages). Do NOT use this for keyword searching -- "
+                "use POST /search/extract or POST /case/search instead. Only use when you need the complete document.",
+)
 async def get_case_text(url: str = Query(...)):
     loop = asyncio.get_running_loop()
     case_data = await loop.run_in_executor(executor, fetch_case_text, url)
@@ -1273,20 +1381,31 @@ async def list_search_presets():
     }
 
 
-@app.post("/case/search", response_model=CaseSearchResponse)
+@app.post("/case/search", response_model=CaseSearchResponse, tags=["Case"],
+    summary="Regex or preset search within a BVA case",
+    description="Regex or preset search within a single BVA case. Do NOT use custom regex unless presets "
+                "are insufficient -- presets are faster and safer. Call GET /case/search/presets first.",
+    responses={422: {"model": APIError, "description": "Validation error with suggested fix"}},
+)
 async def case_search(req: CaseSearchRequest):
     """Search BVA case text with regex or preset, scoped to decision sections."""
     # Validate: exactly one of q or preset
     if not req.q and not req.preset:
-        raise HTTPException(400, "Provide either 'q' (regex) or 'preset'.")
+        raise BVAAPIError(400, "missing_param", "Provide either q (regex) or preset",
+                          field="q/preset", allowed=["q", "preset"],
+                          suggested_fix="Use preset='nexus_opinion' OR q='your regex'")
     if req.q and req.preset:
-        raise HTTPException(400, "Provide only one of 'q' or 'preset', not both.")
+        raise BVAAPIError(400, "exclusive_params", "q and preset are mutually exclusive",
+                          field="q/preset", allowed=["q", "preset"],
+                          suggested_fix="Use preset='nexus_opinion' OR q='your regex', not both")
 
     # Resolve pattern
     if req.preset:
         entry = SEARCH_PRESETS.get(req.preset)
         if not entry:
-            raise HTTPException(400, f"Unknown preset '{req.preset}'. Available: {list(SEARCH_PRESETS.keys())}")
+            raise BVAAPIError(400, "invalid_preset", f"Unknown preset '{req.preset}'",
+                              field="preset", allowed=list(SEARCH_PRESETS.keys()),
+                              suggested_fix=f"Use one of: {', '.join(SEARCH_PRESETS.keys())}")
         pattern, _ = entry
         pattern_str = pattern.pattern
     else:
@@ -1295,7 +1414,8 @@ async def case_search(req: CaseSearchRequest):
         try:
             pattern = re.compile(req.q, re.IGNORECASE)
         except re.error as e:
-            raise HTTPException(400, f"Invalid regex: {e}")
+            raise BVAAPIError(400, "invalid_regex", str(e), field="q",
+                              suggested_fix="Use a simpler pattern or try a preset: cfr_citation, nexus_opinion, tdiu")
 
     # Fetch + parse case text (LRU cached)
     loop = asyncio.get_running_loop()
@@ -1306,7 +1426,8 @@ async def case_search(req: CaseSearchRequest):
     except HTTPException:
         raise
     except Exception as e:
-        raise HTTPException(404, f"Could not fetch case text: {e}")
+        raise BVAAPIError(404, "fetch_failed", f"Could not fetch case text: {e}",
+                          field="url", suggested_fix="Verify the URL is a valid BVA decision URL from search results")
 
     sections = [TextSection(name=s[0], start=s[1], end=s[2]) for s in sections_tuple]
     newline_offsets = list(nl_offsets_tuple)
@@ -1316,10 +1437,9 @@ async def case_search(req: CaseSearchRequest):
     if req.section:
         matching = [s for s in sections if req.section.upper() in s.name]
         if not matching:
-            raise HTTPException(
-                400,
-                f"Section '{req.section}' not found. Available: {section_names}"
-            )
+            raise BVAAPIError(400, "invalid_section", f"Section '{req.section}' not found",
+                              field="section", allowed=section_names,
+                              suggested_fix=f"Use one of: {', '.join(section_names)}")
 
     # Run search with timeout for user-supplied patterns
     from concurrent.futures import TimeoutError as FuturesTimeout
@@ -1339,10 +1459,8 @@ async def case_search(req: CaseSearchRequest):
             matches, total, truncated = future.result(timeout=2.0)
         except FuturesTimeout:
             future.cancel()
-            raise HTTPException(
-                408,
-                "Regex timed out (>2s). Use a preset or simplify your pattern."
-            )
+            raise BVAAPIError(408, "regex_timeout", "Pattern took >2s",
+                              field="q", suggested_fix="Use a preset instead of custom regex, or simplify your pattern")
     else:
         matches, total, truncated = _do_search()
 
@@ -1689,7 +1807,8 @@ async def knowva_topics():
         return await loop.run_in_executor(executor, _knowva_topics_sync)
     except Exception as e:
         logger.error(f"KnowVA topics error: {e}")
-        raise HTTPException(status_code=502, detail=str(e))
+        raise BVAAPIError(502, "upstream_error", str(e),
+                          suggested_fix="Upstream service unavailable. Retry in a few seconds")
 
 @app.get("/knowva/search", response_model=KnowVASearchResponse, tags=["KnowVA"])
 async def knowva_search(
@@ -1707,7 +1826,8 @@ async def knowva_search(
         )
     except Exception as e:
         logger.error(f"KnowVA search error: {e}")
-        raise HTTPException(status_code=502, detail=str(e))
+        raise BVAAPIError(502, "upstream_error", str(e),
+                          suggested_fix="Upstream service unavailable. Retry in a few seconds")
 
 @app.get("/knowva/article/{article_id}", response_model=KnowVAArticle, tags=["KnowVA"])
 async def knowva_article(article_id: int):
@@ -1717,7 +1837,8 @@ async def knowva_article(article_id: int):
         return await loop.run_in_executor(executor, _knowva_article_sync, article_id)
     except Exception as e:
         logger.error(f"KnowVA article error: {e}")
-        raise HTTPException(status_code=502, detail=str(e))
+        raise BVAAPIError(502, "upstream_error", str(e),
+                          suggested_fix="Upstream service unavailable. Retry in a few seconds")
 
 @app.get("/knowva/popular", response_model=List[KnowVAArticleSummary], tags=["KnowVA"])
 async def knowva_popular(pagesize: int = Query(10, ge=1, le=50)):
@@ -1727,7 +1848,8 @@ async def knowva_popular(pagesize: int = Query(10, ge=1, le=50)):
         return await loop.run_in_executor(executor, _knowva_popular_sync, pagesize)
     except Exception as e:
         logger.error(f"KnowVA popular error: {e}")
-        raise HTTPException(status_code=502, detail=str(e))
+        raise BVAAPIError(502, "upstream_error", str(e),
+                          suggested_fix="Upstream service unavailable. Retry in a few seconds")
 
 # -------------------------------------------------------------------
 # 38 CFR endpoints
@@ -1740,7 +1862,8 @@ async def cfr_structure():
         return await loop.run_in_executor(executor, _ecfr_structure_sync)
     except Exception as e:
         logger.error(f"eCFR structure error: {e}")
-        raise HTTPException(status_code=502, detail=str(e))
+        raise BVAAPIError(502, "upstream_error", str(e),
+                          suggested_fix="Upstream service unavailable. Retry in a few seconds")
 
 @app.get("/cfr/section", response_model=CFRSectionResponse, tags=["38 CFR"])
 async def cfr_section(
@@ -1753,7 +1876,8 @@ async def cfr_section(
         return await loop.run_in_executor(executor, _ecfr_section_sync, part, section)
     except Exception as e:
         logger.error(f"eCFR section error part={part} section={section}: {e}")
-        raise HTTPException(status_code=502, detail=str(e))
+        raise BVAAPIError(502, "upstream_error", str(e),
+                          suggested_fix="Upstream service unavailable. Retry in a few seconds")
 
 @app.get("/cfr/search", response_model=CFRSearchResponse, tags=["38 CFR"])
 async def cfr_search(
@@ -1773,7 +1897,8 @@ async def cfr_search(
         )
     except Exception as e:
         logger.error(f"eCFR search error q={q}: {e}")
-        raise HTTPException(status_code=502, detail=str(e))
+        raise BVAAPIError(502, "upstream_error", str(e),
+                          suggested_fix="Upstream service unavailable. Retry in a few seconds")
 
 def _dc_to_model(dc: str, info: Dict[str, str]) -> DiagnosticCode:
     return DiagnosticCode(
@@ -1787,7 +1912,8 @@ async def cfr_diagnostic_code(code: str):
     """Look up a VA diagnostic code (e.g. 9411 for PTSD). Returns CFR citation and schedule."""
     info = DC_LOOKUP.get(code)
     if not info:
-        raise HTTPException(status_code=404, detail=f"Diagnostic code {code} not found in lookup table")
+        raise BVAAPIError(404, "not_found", f"Diagnostic code {code} not found in lookup table",
+                          field="code", suggested_fix="Use bva_cfr_dc_search to search by condition name, e.g. 'PTSD' or 'sleep apnea'")
     return _dc_to_model(code, info)
 
 @app.get("/cfr/dc", response_model=List[DiagnosticCode], tags=["38 CFR"])
@@ -1809,7 +1935,8 @@ async def cfr_diagnostic_search(
         if q_lower in info["condition"].lower() or q_lower in info["schedule"].lower():
             matched_dcs.add(dc)
     if not matched_dcs:
-        raise HTTPException(status_code=404, detail=f"No diagnostic codes matching '{q}'")
+        raise BVAAPIError(404, "not_found", f"No diagnostic codes matching '{q}'",
+                          field="q", suggested_fix="Try broader terms like 'knee', 'back', 'anxiety'. Use bva_cfr_dc_lookup if you know the DC number")
     results = [_dc_to_model(dc, DC_LOOKUP[dc]) for dc in sorted(matched_dcs)]
     return results
 
@@ -1832,7 +1959,8 @@ async def fr_va_documents(
         )
     except Exception as e:
         logger.error(f"Federal Register VA docs error: {e}")
-        raise HTTPException(status_code=502, detail=str(e))
+        raise BVAAPIError(502, "upstream_error", str(e),
+                          suggested_fix="Upstream service unavailable. Retry in a few seconds")
 
 @app.get("/federal-register/search", response_model=FederalRegisterResponse, tags=["Federal Register"])
 async def fr_search(
@@ -1855,7 +1983,8 @@ async def fr_search(
         )
     except Exception as e:
         logger.error(f"Federal Register search error: {e}")
-        raise HTTPException(status_code=502, detail=str(e))
+        raise BVAAPIError(502, "upstream_error", str(e),
+                          suggested_fix="Upstream service unavailable. Retry in a few seconds")
 
 # -------------------------------------------------------------------
 # RAG endpoints
@@ -1876,7 +2005,11 @@ class RAGStatusResponse(BaseModel):
     by_source: Dict[str, int]
     by_content_type: Dict[str, int]
 
-@app.get("/rag/search", response_model=RAGSearchResponse, tags=["RAG"])
+@app.get("/rag/search", response_model=RAGSearchResponse, tags=["RAG"],
+    summary="Semantic search over CFR and KnowVA content",
+    description="Semantic search over CFR and KnowVA content. Do NOT use for BVA case search -- "
+                "use GET /search for that. This searches regulations and VA policy guidance only.",
+)
 async def rag_search(
     q: str = Query(..., description="Semantic search query"),
     content_type: Optional[str] = Query(None, description="Filter: rating_criteria, adjudication, guidance"),
@@ -1900,7 +2033,8 @@ async def rag_search(
         )
     except Exception as e:
         logger.error(f"RAG search error: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+        raise BVAAPIError(500, "internal_error", str(e),
+                          suggested_fix="Internal error. Retry or try a different query")
 
 @app.get("/rag/status", response_model=RAGStatusResponse, tags=["RAG"])
 async def rag_status():
@@ -1916,7 +2050,8 @@ async def rag_status():
         )
     except Exception as e:
         logger.error(f"RAG status error: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+        raise BVAAPIError(500, "internal_error", str(e),
+                          suggested_fix="Internal error. Retry or try a different query")
 
 @app.post("/rag/reindex", tags=["RAG"])
 async def rag_reindex(
@@ -1944,18 +2079,30 @@ async def rag_reindex(
     except Exception as e:
         import traceback
         logger.error(f"RAG reindex error: {traceback.format_exc()}")
-        raise HTTPException(status_code=500, detail=f"{type(e).__name__}: {e}")
+        raise BVAAPIError(500, "internal_error", f"{type(e).__name__}: {e}",
+                          suggested_fix="Internal error. Retry or try a different query")
 
 @app.get("/rag/debug", tags=["RAG"])
 async def rag_debug():
     """Debug RAG configuration."""
-    key = os.environ.get("OPENAI_API_KEY", "")
-    return {
-        "openai_key_set": bool(key),
-        "openai_key_prefix": key[:8] + "..." if len(key) > 8 else "(empty)",
+    provider = os.environ.get("RAG_EMBEDDINGS", "vertex").lower()
+    openai_key = os.environ.get("OPENAI_API_KEY", "")
+    debug_info = {
+        "embedding_provider": provider,
+        "embedding_model": "text-embedding-004" if provider != "openai" else "text-embedding-3-small",
         "chroma_path": os.environ.get("CHROMA_PATH", "./data/chroma"),
         "bva_api_url": os.environ.get("BVA_API_URL", "http://localhost:8001"),
+        "openai_key_set": bool(openai_key),
     }
+    if provider == "vertex":
+        try:
+            import google.auth
+            _, project = google.auth.default()
+            debug_info["gcp_project"] = project
+            debug_info["vertex_status"] = "credentials_ok"
+        except Exception as e:
+            debug_info["vertex_status"] = f"error: {e}"
+    return debug_info
 
 import dataclasses as _dc
 
@@ -1996,7 +2143,8 @@ async def cavc_case(case_number: str):
         executor, lambda: cavc_client.get_case_summary(case_number)
     )
     if not summary:
-        raise HTTPException(status_code=404, detail=f"Case {case_number} not found")
+        raise BVAAPIError(404, "not_found", f"Case {case_number} not found",
+                          field="case_number", suggested_fix="Use bva_cavc_search to find valid case numbers first")
     d = _dc_to_dict(summary)
     d["docket_entries_count"] = len(summary.docket_entries)
     d.pop("docket_entries", None)
@@ -2012,7 +2160,8 @@ async def cavc_docket(case_number: str):
         executor, lambda: cavc_client.get_full_docket(case_number)
     )
     if not summary:
-        raise HTTPException(status_code=404, detail=f"Case {case_number} not found")
+        raise BVAAPIError(404, "not_found", f"Case {case_number} not found",
+                          field="case_number", suggested_fix="Use bva_cavc_search to find valid case numbers first")
     return _dc_to_dict(summary)
 
 @app.get("/cavc/case/{case_number}/document", tags=["CAVC"],
@@ -2030,7 +2179,8 @@ async def cavc_document(
         executor, lambda: cavc_client.get_document(dls_id, case_id, as_text)
     )
     if result is None:
-        raise HTTPException(status_code=404, detail=f"Document dls_id={dls_id} not found or restricted")
+        raise BVAAPIError(404, "not_found", f"Document dls_id={dls_id} not found or restricted",
+                          field="dls_id", suggested_fix="Get dls_id from docket entries via bva_cavc_case. Some documents may be sealed")
     if as_text and isinstance(result, str):
         return CavcDocumentResponse(
             dls_id=dls_id,
@@ -2054,7 +2204,8 @@ async def cavc_find_entry(
         executor, lambda: cavc_client.find_entry(case_number, keyword)
     )
     if not entry:
-        raise HTTPException(status_code=404, detail=f"No docket entry matching '{keyword}' in case {case_number}")
+        raise BVAAPIError(404, "not_found", f"No docket entry matching '{keyword}' in case {case_number}",
+                          field="keyword", suggested_fix="Try broader terms like 'brief', 'motion', 'order', 'mandate', or 'remand'")
     return _dc_to_dict(entry)
 
 def _shutdown(signum, frame):
