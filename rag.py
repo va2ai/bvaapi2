@@ -75,8 +75,15 @@ class VertexAIEmbeddingFunction(EmbeddingFunction[Documents]):
             f"projects/{self._project_id}/locations/{self._location}/"
             f"publishers/google/models/{self._model}:predict"
         )
-        # Sanitize: replace empty strings, truncate to 10k chars (Vertex AI limit ~20k tokens)
-        sanitized = [t[:10000] if t and t.strip() else "empty" for t in texts]
+        # Sanitize: strip null bytes/control chars, replace empty, truncate to 10k chars
+        sanitized = []
+        for t in texts:
+            if not t or not t.strip():
+                sanitized.append("empty")
+                continue
+            # Remove null bytes and control chars (keep newlines/tabs)
+            clean = "".join(c for c in t if c in "\n\t\r" or (ord(c) >= 32))
+            sanitized.append(clean[:10000] if clean.strip() else "empty")
         instances = [{"content": t} for t in sanitized]
         payload = {"instances": instances}
 

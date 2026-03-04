@@ -42,6 +42,28 @@ app.add_middleware(
 executor = ThreadPoolExecutor(max_workers=10)
 cavc_client = CavcClient()
 
+
+@app.on_event("startup")
+async def _startup_rag_reindex():
+    """Auto-reindex RAG on container startup (background task)."""
+    async def _reindex():
+        import rag as _rag
+        from ingest import ingest_cfr_part3, ingest_cfr_part4, ingest_knowva
+        api_url = os.environ.get("BVA_API_URL", "http://localhost:8001")
+        loop = asyncio.get_running_loop()
+        # Wait for server to be ready
+        await asyncio.sleep(5)
+        try:
+            all_chunks = []
+            all_chunks.extend(await loop.run_in_executor(executor, ingest_cfr_part4, api_url))
+            all_chunks.extend(await loop.run_in_executor(executor, ingest_cfr_part3, api_url))
+            all_chunks.extend(await loop.run_in_executor(executor, ingest_knowva, api_url))
+            indexed = _rag.add_chunks(all_chunks)
+            logger.info(f"Startup RAG reindex complete: {indexed} chunks indexed")
+        except Exception as e:
+            logger.error(f"Startup RAG reindex failed: {e}")
+    asyncio.create_task(_reindex())
+
 # -------------------------------------------------------------------
 # Structured error model + exception classes
 # -------------------------------------------------------------------
