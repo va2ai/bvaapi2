@@ -68,7 +68,7 @@ class VertexAIEmbeddingFunction(EmbeddingFunction[Documents]):
         return self._credentials.token
 
     def _embed_batch(self, texts: List[str]) -> List[List[float]]:
-        """Embed a single batch via Vertex AI REST API."""
+        """Embed a single batch via Vertex AI REST API with retry on 429."""
         token = self._get_access_token()
         url = (
             f"https://{self._location}-aiplatform.googleapis.com/v1/"
@@ -78,24 +78,35 @@ class VertexAIEmbeddingFunction(EmbeddingFunction[Documents]):
         instances = [{"content": t} for t in texts]
         payload = {"instances": instances}
 
-        with httpx.Client(timeout=60.0) as client:
-            resp = client.post(
-                url,
-                json=payload,
-                headers={"Authorization": f"Bearer {token}"},
-            )
-            resp.raise_for_status()
+        max_retries = 5
+        for attempt in range(1, max_retries + 1):
+            with httpx.Client(timeout=60.0) as client:
+                resp = client.post(
+                    url,
+                    json=payload,
+                    headers={"Authorization": f"Bearer {token}"},
+                )
+                if resp.status_code == 429:
+                    wait = min(2 ** attempt, 30)
+                    logger.warning(f"Vertex AI 429 rate limit, retry {attempt}/{max_retries} in {wait}s")
+                    time.sleep(wait)
+                    continue
+                resp.raise_for_status()
 
-        predictions = resp.json().get("predictions", [])
-        return [p["embeddings"]["values"] for p in predictions]
+            predictions = resp.json().get("predictions", [])
+            return [p["embeddings"]["values"] for p in predictions]
+
+        raise RuntimeError(f"Vertex AI embedding failed after {max_retries} retries (429 rate limit)")
 
     def __call__(self, input: Documents) -> Embeddings:
-        """Embed documents in batches."""
+        """Embed documents in batches with delay to avoid rate limits."""
         if not input:
             return []
 
         all_embeddings: List[List[float]] = []
         for i in range(0, len(input), VERTEX_BATCH_SIZE):
+            if i > 0:
+                time.sleep(0.5)  # pace requests to avoid 429s
             batch = input[i : i + VERTEX_BATCH_SIZE]
             embeddings = self._embed_batch(batch)
             all_embeddings.extend(embeddings)
