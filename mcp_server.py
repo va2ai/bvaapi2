@@ -93,6 +93,47 @@ async def bva_batch_search(
 
 @mcp.tool(
     description=(
+        "Search BVA decisions and extract passages where keywords appear near each other. "
+        "Returns ranked cases with relevant text snippets -- no full case text needed. "
+        "Use this to find specific discussion of topics across many cases efficiently. "
+        "Cases are scored by keyword proximity and coverage. "
+        "Example: queries=['ptsd secondary to tinnitus'], keywords=['ptsd','tinnitus','secondary']."
+    )
+)
+async def bva_search_extract(
+    queries: List[str],
+    keywords: List[str],
+    year: Optional[int] = None,
+    proximity: int = 500,
+    context_sentences: int = 2,
+    max_cases: int = 100,
+    top_n: int = 20,
+    max_passages: int = 5,
+) -> str:
+    """Search BVA decisions and extract keyword passages. queries=search terms, keywords=proximity match terms."""
+    try:
+        body = {
+            "queries": queries,
+            "keywords": keywords,
+            "proximity": proximity,
+            "context_sentences": context_sentences,
+            "max_cases": max_cases,
+            "top_n": top_n,
+            "max_passages": max_passages,
+        }
+        if year is not None:
+            body["year"] = year
+        async with httpx.AsyncClient() as c:
+            r = await c.post(f"{API_BASE}/search/extract", json=body, timeout=120.0)
+            r.raise_for_status()
+            data = r.json()
+        return json.dumps(data, indent=2)
+    except Exception as e:
+        return f"Error: {_err(e)}"
+
+
+@mcp.tool(
+    description=(
         "List all available BVA decision years and their search collection IDs. "
         "Use this to see which years have indexed decisions (1992-2025)."
     )

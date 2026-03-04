@@ -401,6 +401,41 @@ class CaseSearchResponse(BaseModel):
     sections_found: List[str]
     matches: List[CaseSearchMatch]
 
+# Search extract models
+class ExtractRequest(BaseModel):
+    queries: List[str] = Field(..., min_length=1, description="Search queries to run")
+    keywords: List[str] = Field(..., min_length=1, description="Keywords for proximity matching")
+    year: Optional[int] = None
+    proximity: int = Field(500, ge=50, le=2000, description="Max chars between keywords to form a cluster")
+    context_sentences: int = Field(2, ge=0, le=5, description="Sentences before/after each passage")
+    max_cases: int = Field(100, ge=1, le=500, description="Max cases to fetch and scan")
+    top_n: int = Field(20, ge=1, le=100, description="Return extracts for top N cases")
+    max_passages: int = Field(5, ge=1, le=20, description="Max passages per case")
+
+class Passage(BaseModel):
+    text: str
+    keywords_matched: List[str]
+    keyword_count: int
+    min_distance: int
+    offset: int
+
+class ExtractCase(BaseModel):
+    url: str
+    case_number: Optional[str]
+    year: Optional[int]
+    title: str
+    score: float
+    keyword_hits: Dict[str, int]
+    outcome: Optional[str]
+    passages: List[Passage]
+
+class ExtractResponse(BaseModel):
+    total_searched: int
+    total_matched: int
+    cases: List[ExtractCase]
+    keywords: List[str]
+    timestamp: str
+
 # -------------------------------------------------------------------
 # Regex patterns for decision parsing
 # -------------------------------------------------------------------
@@ -801,6 +836,195 @@ def fetch_case_text(url: str) -> Dict[str, Any]:
     }
 
 # -------------------------------------------------------------------
+# Extract helpers
+# -------------------------------------------------------------------
+def _find_keyword_positions(text: str, keywords: List[str]) -> Dict[str, List[int]]:
+    """Return sorted char positions for each keyword in text."""
+    positions: Dict[str, List[int]] = {}
+    text_lower = text.lower()
+    for kw in keywords:
+        kw_lower = kw.lower()
+        positions[kw] = [m.start() for m in re.finditer(re.escape(kw_lower), text_lower)]
+    return positions
+
+def _cluster_positions(positions_by_kw: Dict[str, List[int]], proximity: int):
+    """Group keyword positions into clusters where keywords are within proximity chars."""
+    # Collect all positions with their keyword
+    all_pos = []
+    for kw, positions in positions_by_kw.items():
+        for pos in positions:
+            all_pos.append((pos, kw))
+    if not all_pos:
+        return []
+    all_pos.sort(key=lambda x: x[0])
+
+    # Greedy clustering: merge positions within proximity
+    clusters = []
+    current_start = all_pos[0][0]
+    current_end = all_pos[0][0]
+    current_kws = {all_pos[0][1]}
+    current_positions = [all_pos[0]]
+
+    for pos, kw in all_pos[1:]:
+        if pos - current_start <= proximity:
+            current_end = max(current_end, pos)
+            current_kws.add(kw)
+            current_positions.append((pos, kw))
+        else:
+            # Calculate min distance between any two different keywords
+            min_dist = _min_inter_keyword_dist(current_positions)
+            clusters.append((current_start, current_end, list(current_kws), min_dist))
+            current_start = pos
+            current_end = pos
+            current_kws = {kw}
+            current_positions = [(pos, kw)]
+
+    min_dist = _min_inter_keyword_dist(current_positions)
+    clusters.append((current_start, current_end, list(current_kws), min_dist))
+    return clusters
+
+def _min_inter_keyword_dist(positions):
+    """Min distance between positions of different keywords."""
+    if len(set(kw for _, kw in positions)) < 2:
+        return -1
+    min_d = float('inf')
+    for i, (p1, k1) in enumerate(positions):
+        for p2, k2 in positions[i+1:]:
+            if k1 != k2:
+                min_d = min(min_d, abs(p2 - p1))
+    return int(min_d)
+
+def _expand_to_sentences(text: str, start: int, end: int, context_sentences: int) -> tuple:
+    """Expand char range to sentence boundaries with context. Returns (expanded_start, expanded_end)."""
+    # Find sentence boundaries using period/exclamation/question followed by whitespace
+    sentence_ends = [m.end() for m in re.finditer(r'[.!?]\s+', text)]
+    if not sentence_ends:
+        # No sentence boundaries found, use paragraph-ish boundaries
+        return max(0, start - 200), min(len(text), end + 200)
+
+    # Find the sentence boundary before start
+    exp_start = 0
+    for i, se in enumerate(sentence_ends):
+        if se <= start:
+            exp_start = se
+        else:
+            break
+    # Go back N more sentences for context
+    idx = sentence_ends.index(exp_start) if exp_start in sentence_ends else -1
+    if idx >= 0 and context_sentences > 0:
+        target_idx = max(0, idx - context_sentences)
+        exp_start = sentence_ends[target_idx] if target_idx > 0 else 0
+    elif exp_start > 0 and context_sentences == 0:
+        pass  # keep exp_start as is
+    else:
+        exp_start = 0
+
+    # Find the sentence boundary after end
+    exp_end = len(text)
+    for se in sentence_ends:
+        if se >= end:
+            exp_end = se
+            break
+    # Go forward N more sentences for context
+    if exp_end in sentence_ends:
+        idx = sentence_ends.index(exp_end)
+        target_idx = min(len(sentence_ends) - 1, idx + context_sentences)
+        exp_end = sentence_ends[target_idx]
+
+    return exp_start, exp_end
+
+def _score_case(clusters, num_keywords: int) -> float:
+    """Score 0-1 based on keyword coverage and proximity in best cluster."""
+    if not clusters or num_keywords == 0:
+        return 0.0
+    # Find best cluster by keyword coverage then proximity
+    best = max(clusters, key=lambda c: (len(c[2]), -c[3] if c[3] >= 0 else float('inf')))
+    coverage = len(best[2]) / num_keywords
+    # Proximity bonus: closer is better, normalize against 2000 char max
+    if best[3] > 0:
+        prox_bonus = max(0, 1.0 - best[3] / 2000.0)
+    else:
+        prox_bonus = 0.0
+    return round(coverage * 0.7 + prox_bonus * 0.3, 4)
+
+def _extract_passages(text: str, keywords: List[str], proximity: int,
+                      context_sentences: int, max_passages: int) -> List[dict]:
+    """Find keyword clusters, expand to sentences, return top passages."""
+    positions_by_kw = _find_keyword_positions(text, keywords)
+    if not any(positions_by_kw.values()):
+        return []
+
+    clusters = _cluster_positions(positions_by_kw, proximity)
+    if not clusters:
+        return []
+
+    # Sort: more keywords matched first, then closer proximity
+    clusters.sort(key=lambda c: (-len(c[2]), c[3] if c[3] >= 0 else float('inf')))
+
+    passages = []
+    seen_ranges = []
+    for start, end, matched_kws, min_dist in clusters[:max_passages * 2]:
+        exp_start, exp_end = _expand_to_sentences(text, start, end, context_sentences)
+        # Skip if overlaps significantly with an existing passage
+        overlap = False
+        for s, e in seen_ranges:
+            overlap_start = max(s, exp_start)
+            overlap_end = min(e, exp_end)
+            if overlap_end > overlap_start and (overlap_end - overlap_start) > (exp_end - exp_start) * 0.5:
+                overlap = True
+                break
+        if overlap:
+            continue
+        seen_ranges.append((exp_start, exp_end))
+        passages.append({
+            "text": text[exp_start:exp_end].strip(),
+            "keywords_matched": sorted(matched_kws),
+            "keyword_count": len(matched_kws),
+            "min_distance": min_dist,
+            "offset": exp_start,
+        })
+        if len(passages) >= max_passages:
+            break
+    return passages
+
+def _fetch_and_extract(url: str, title: str, keywords: List[str], proximity: int,
+                       context_sentences: int, max_passages: int) -> Optional[dict]:
+    """Fetch case text and extract keyword passages. Returns dict or None on failure."""
+    try:
+        session = requests.Session()
+        session.headers.update({"User-Agent": USER_AGENT})
+        resp = session.get(url, timeout=REQUEST_TIMEOUT)
+        resp.raise_for_status()
+        text = resp.text
+        if not text or len(text) < 100:
+            return None
+
+        passages = _extract_passages(text, keywords, proximity, context_sentences, max_passages)
+        if not passages:
+            return None
+
+        parsed = parse_decision_text(text)
+        positions_by_kw = _find_keyword_positions(text, keywords)
+        keyword_hits = {kw: len(pos) for kw, pos in positions_by_kw.items() if pos}
+
+        clusters = _cluster_positions(positions_by_kw, proximity)
+        score = _score_case(clusters, len(keywords))
+
+        return {
+            "url": url,
+            "case_number": extract_case_number(url),
+            "year": extract_year_from_url(url),
+            "title": title,
+            "score": score,
+            "keyword_hits": keyword_hits,
+            "outcome": parsed.get("outcome"),
+            "passages": passages,
+        }
+    except Exception as e:
+        logger.warning(f"Extract failed for {url}: {e}")
+        return None
+
+# -------------------------------------------------------------------
 # Endpoints
 # -------------------------------------------------------------------
 @app.get("/")
@@ -814,6 +1038,7 @@ async def root():
             "GET  /search":                  "Search BVA decisions (query params)",
             "POST /search":                  "Search BVA decisions (JSON body)",
             "POST /batch/search":            "Search multiple queries",
+            "POST /search/extract":          "Search + extract keyword passages from cases",
             "GET  /case":                    "Fetch parsed case details by URL",
             "GET  /case/text":               "Fetch raw case text by URL",
             "GET  /analyze/text":            "Analyze decision for keywords & VA terms",
@@ -889,6 +1114,76 @@ async def batch_search(payload: BatchSearchPayload = Body(...)):
             logger.error(f"Batch search error for '{q}': {e}")
             results.append(BatchSearchResult(query=q, total=0, count=0, results=[]))
     return results
+
+@app.post("/search/extract", response_model=ExtractResponse, tags=["Search"])
+async def search_extract(req: ExtractRequest = Body(...)):
+    """Search BVA decisions and extract passages where keywords appear near each other."""
+    queries = [q.strip() for q in req.queries if q.strip()]
+    keywords = [k.strip() for k in req.keywords if k.strip()]
+    if not queries:
+        raise HTTPException(status_code=422, detail="`queries` cannot be empty.")
+    if not keywords:
+        raise HTTPException(status_code=422, detail="`keywords` cannot be empty.")
+
+    loop = asyncio.get_running_loop()
+
+    # 1. Collect unique case URLs from search queries
+    seen_urls = set()
+    case_items = []  # (url, title)
+    for q in queries:
+        try:
+            data = await loop.run_in_executor(executor, search_bva, q, req.year, 1)
+            for r in data["results"]:
+                if r.url not in seen_urls and len(case_items) < req.max_cases:
+                    seen_urls.add(r.url)
+                    case_items.append((r.url, r.title))
+            await asyncio.sleep(0.5)
+        except Exception as e:
+            logger.error(f"Extract search error for '{q}': {e}")
+
+    if not case_items:
+        return ExtractResponse(
+            total_searched=0, total_matched=0, cases=[],
+            keywords=keywords, timestamp=datetime.now().isoformat(),
+        )
+
+    # 2. Fetch + extract in parallel
+    tasks = [
+        loop.run_in_executor(
+            executor, _fetch_and_extract,
+            url, title, keywords, req.proximity, req.context_sentences, req.max_passages,
+        )
+        for url, title in case_items
+    ]
+    results = await asyncio.gather(*tasks)
+
+    # 3. Filter and sort
+    matched = [r for r in results if r is not None]
+    matched.sort(key=lambda c: c["score"], reverse=True)
+    top = matched[:req.top_n]
+
+    # 4. Build response
+    cases = [
+        ExtractCase(
+            url=c["url"],
+            case_number=c["case_number"],
+            year=c["year"],
+            title=c["title"],
+            score=c["score"],
+            keyword_hits=c["keyword_hits"],
+            outcome=c["outcome"],
+            passages=[Passage(**p) for p in c["passages"]],
+        )
+        for c in top
+    ]
+
+    return ExtractResponse(
+        total_searched=len(case_items),
+        total_matched=len(matched),
+        cases=cases,
+        keywords=keywords,
+        timestamp=datetime.now().isoformat(),
+    )
 
 @app.get("/case", response_model=CaseDetail)
 async def get_case(url: str = Query(...), full_text: bool = Query(False)):
