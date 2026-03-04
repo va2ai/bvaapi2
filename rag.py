@@ -75,7 +75,9 @@ class VertexAIEmbeddingFunction(EmbeddingFunction[Documents]):
             f"projects/{self._project_id}/locations/{self._location}/"
             f"publishers/google/models/{self._model}:predict"
         )
-        instances = [{"content": t} for t in texts]
+        # Sanitize: replace empty strings, truncate to 10k chars (Vertex AI limit ~20k tokens)
+        sanitized = [t[:10000] if t and t.strip() else "empty" for t in texts]
+        instances = [{"content": t} for t in sanitized]
         payload = {"instances": instances}
 
         max_retries = 5
@@ -91,6 +93,8 @@ class VertexAIEmbeddingFunction(EmbeddingFunction[Documents]):
                     logger.warning(f"Vertex AI 429 rate limit, retry {attempt}/{max_retries} in {wait}s")
                     time.sleep(wait)
                     continue
+                if resp.status_code == 400:
+                    logger.error(f"Vertex AI 400 Bad Request: {resp.text[:500]}")
                 resp.raise_for_status()
 
             predictions = resp.json().get("predictions", [])
