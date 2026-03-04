@@ -257,6 +257,8 @@ class SearchResult(BaseModel):
     url: str
     title: str
     snippet: str
+    outcome: Optional[str] = None
+    decision_type: Optional[str] = None
     case_number: Optional[str]
     year: Optional[int]
     publication_date: Optional[str]
@@ -540,6 +542,13 @@ OUTCOME_PATTERNS = [
     ("Denied",   re.compile(r"\bDENIED\b",  re.I)),
     ("Remanded", re.compile(r"\bREMANDED\b", re.I)),
 ]
+
+def _extract_outcome_from_snippet(snippet: str) -> Optional[str]:
+    """Extract outcome from a search snippet using OUTCOME_PATTERNS."""
+    found = [label for label, pat in OUTCOME_PATTERNS if pat.search(snippet)]
+    if len(found) > 1:
+        return "Mixed"
+    return found[0] if found else None
 
 # -------------------------------------------------------------------
 # Helpers
@@ -888,10 +897,12 @@ def search_bva(query: str, year: Optional[int], page: int) -> Dict:
     results = []
     for r in raw_results:
         result_url = r.get("url", "")
+        snippet = clean_snippet(r.get("snippet", ""))
         results.append(SearchResult(
             url=result_url,
             title=r.get("title", "").replace(".txt", ""),
-            snippet=clean_snippet(r.get("snippet", "")),
+            snippet=snippet,
+            outcome=_extract_outcome_from_snippet(snippet),
             case_number=extract_case_number(result_url),
             year=extract_year_from_url(result_url),
             publication_date=r.get("publication_date"),
