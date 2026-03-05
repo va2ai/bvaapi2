@@ -2252,12 +2252,45 @@ signal.signal(signal.SIGTERM, _shutdown)
 
 # --- Static site serving (must be AFTER all API routes) ---
 STATIC_DIR = os.path.join(os.path.dirname(__file__), "static")
+
+
+class BlogPost(BaseModel):
+    title: str
+    body: str
+    category: str
+    excerpt: str
+    tags: List[str]
+    author: str = "Chris Combs"
+    readTime: Optional[str] = None
+    featured: bool = False
+    heroImage: Optional[str] = None
+    date: Optional[str] = None
+
+
 if os.path.isdir(STATIC_DIR):
     app.mount("/assets", StaticFiles(directory=os.path.join(STATIC_DIR, "assets")), name="static-assets")
 
     @app.get("/posts.json")
     async def serve_posts_json():
         return FileResponse(os.path.join(STATIC_DIR, "posts.json"), media_type="application/json")
+
+    @app.post("/site/posts", tags=["V2V Site"])
+    async def create_blog_post(post: BlogPost):
+        """Add a new blog post to posts.json. Auto-assigns id and date."""
+        import json as _json
+        posts_path = os.path.join(STATIC_DIR, "posts.json")
+        with open(posts_path, "r", encoding="utf-8") as f:
+            posts = _json.load(f)
+        max_id = max((p.get("id", 0) for p in posts), default=0)
+        new_post = post.model_dump()
+        new_post["id"] = max_id + 1
+        if not new_post.get("date"):
+            now = datetime.now()
+            new_post["date"] = f"{now.strftime('%b')} {now.day}, {now.year}"
+        posts.insert(0, new_post)
+        with open(posts_path, "w", encoding="utf-8") as f:
+            _json.dump(posts, f, indent=2, ensure_ascii=False)
+        return new_post
 
     @app.get("/guides.json")
     async def serve_guides_json():
