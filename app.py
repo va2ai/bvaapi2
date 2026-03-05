@@ -2301,6 +2301,10 @@ if os.path.isdir(STATIC_DIR):
     async def serve_news_json():
         return FileResponse(os.path.join(STATIC_DIR, "news.json"), media_type="application/json")
 
+    @app.get("/nexus-scout-data.json")
+    async def serve_nexus_scout_json():
+        return FileResponse(os.path.join(STATIC_DIR, "nexus-scout-data.json"), media_type="application/json")
+
     @app.get("/site")
     @app.get("/site/{full_path:path}")
     async def serve_site(full_path: str = ""):
