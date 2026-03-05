@@ -5,7 +5,8 @@ Uses search.usa.gov JSON API (no HTML scraping) for reliable results.
 """
 
 from fastapi import FastAPI, HTTPException, Query, Body, Request
-from fastapi.responses import PlainTextResponse, Response, JSONResponse
+from fastapi.responses import PlainTextResponse, Response, JSONResponse, FileResponse
+from fastapi.staticfiles import StaticFiles
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field, ConfigDict
@@ -2248,6 +2249,20 @@ def _shutdown(signum, frame):
 
 signal.signal(signal.SIGINT, _shutdown)
 signal.signal(signal.SIGTERM, _shutdown)
+
+# --- Static site serving (must be AFTER all API routes) ---
+STATIC_DIR = os.path.join(os.path.dirname(__file__), "static")
+if os.path.isdir(STATIC_DIR):
+    app.mount("/assets", StaticFiles(directory=os.path.join(STATIC_DIR, "assets")), name="static-assets")
+
+    @app.get("/site")
+    @app.get("/site/{full_path:path}")
+    async def serve_site(full_path: str = ""):
+        if full_path:
+            file_path = os.path.join(STATIC_DIR, full_path)
+            if os.path.isfile(file_path):
+                return FileResponse(file_path)
+        return FileResponse(os.path.join(STATIC_DIR, "index.html"))
 
 if __name__ == "__main__":
     import uvicorn

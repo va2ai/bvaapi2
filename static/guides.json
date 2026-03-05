@@ -1,0 +1,234 @@
+[
+  {
+    "id": "filing-first-claim",
+    "icon": "\ud83d\udccb",
+    "title": "Filing Your First Claim",
+    "desc": "Step-by-step from DD-214 to decision letter",
+    "readTime": "12 min",
+    "sections": [
+      {
+        "heading": "Before You Start",
+        "body": "Gather your DD-214 (Member 4 copy), service treatment records, and any private medical records related to your conditions. If you don't have your DD-214, request it through the National Personnel Records Center (NPRC) at eVetRecs. This is the single most important document in your claim."
+      },
+      {
+        "heading": "Step 1: Create Your VA.gov Account",
+        "body": "Go to VA.gov and create a Login.gov or ID.me account. This is your portal for filing, tracking, and managing your claim. Make sure your contact information and direct deposit details are current."
+      },
+      {
+        "heading": "Step 2: File an Intent to File",
+        "body": "Before you submit your full claim, file an Intent to File (ITF). This locks in your effective date -- the date from which VA will pay benefits if your claim is granted. You then have one year to submit the complete application. This is free insurance and costs you nothing."
+      },
+      {
+        "heading": "Step 3: Identify Your Conditions",
+        "body": "List every condition you believe is connected to your military service. Include both obvious injuries and conditions that developed over time. Don't self-eliminate -- let VA make the determination. Common overlooked conditions include tinnitus, sleep apnea, migraines, and mental health conditions."
+      },
+      {
+        "heading": "Step 4: Gather Supporting Evidence",
+        "body": "For each condition, you need three things:\n\n1. A current diagnosis from a medical provider\n2. An in-service event, injury, or exposure\n3. A nexus (medical opinion) connecting the two\n\nService treatment records showing complaints or treatment in service are powerful evidence. Buddy statements from fellow service members who witnessed your condition or the event that caused it are also valuable."
+      },
+      {
+        "heading": "Step 5: Submit VA Form 21-526EZ",
+        "body": "File online at VA.gov using the 526EZ form. List all conditions and upload your supporting evidence. Be specific about each condition and how it relates to your service. After submission, VA will schedule Compensation & Pension (C&P) exams for conditions that need evaluation."
+      },
+      {
+        "heading": "Step 6: Attend Your C&P Exam",
+        "body": "The C&P exam is where VA evaluates the severity of your conditions. Be honest and describe your worst days, not your best. Bring a list of all medications, any supporting documents, and don't minimize your symptoms. The examiner's report is often the most influential piece of evidence in your claim."
+      },
+      {
+        "heading": "Step 7: Track and Respond",
+        "body": "Monitor your claim status on VA.gov. If VA requests additional evidence, respond promptly. The average processing time is 3-6 months, but complex claims can take longer. If denied, you have multiple appeal options -- don't give up."
+      }
+    ]
+  },
+  {
+    "id": "cp-exam-guide",
+    "icon": "\ud83c\udfe5",
+    "title": "C&P Exam Survival Guide",
+    "desc": "What to expect, bring, and say at your exam",
+    "readTime": "10 min",
+    "sections": [
+      {
+        "heading": "What Is a C&P Exam?",
+        "body": "A Compensation & Pension exam is VA's way of evaluating your claimed conditions. It's not a treatment appointment -- the examiner's job is to document the current severity of your condition and whether it's connected to your service. The exam report goes directly to the VA rater who decides your claim."
+      },
+      {
+        "heading": "What to Bring",
+        "body": "Bring these items to every C&P exam:\n\n- Government-issued photo ID\n- List of all current medications and dosages\n- Any relevant private medical records not yet submitted\n- A written summary of how your condition affects your daily life\n- Your buddy statements (copies)\n- Notes about your worst symptoms and worst days"
+      },
+      {
+        "heading": "How to Describe Your Symptoms",
+        "body": "Describe your condition on your worst days, not your best. Many veterans unconsciously minimize their symptoms because of military culture. The examiner needs to understand the full impact.\n\nInstead of: \"My back hurts sometimes.\"\nSay: \"My back pain prevents me from sitting for more than 20 minutes. I have flare-ups 3-4 times a week where the pain is so severe I can't bend to tie my shoes. I wake up 2-3 times a night from the pain.\""
+      },
+      {
+        "heading": "Common Mistakes to Avoid",
+        "body": "Don't say \"I'm fine\" out of habit. Don't let pride prevent you from being honest about your limitations. Don't skip the exam -- this almost guarantees a denial. Don't argue with the examiner. Don't exaggerate -- be truthful but thorough about your worst days."
+      },
+      {
+        "heading": "After the Exam",
+        "body": "The examiner will submit their report to VA, usually within a few days. You can request a copy of the exam report through VA.gov. Review it carefully -- if it contains errors or doesn't reflect what you told the examiner, you can submit a rebuttal statement or request a new exam."
+      }
+    ]
+  },
+  {
+    "id": "va-math",
+    "icon": "\ud83d\udcca",
+    "title": "Understanding VA Math",
+    "desc": "How combined ratings actually work",
+    "readTime": "7 min",
+    "sections": [
+      {
+        "heading": "Why 50% + 30% Doesn't Equal 80%",
+        "body": "VA uses a \"whole person\" theory. Instead of adding percentages, each rating is applied to the remaining \"healthy\" portion of your body. Think of it this way: if you're 50% disabled, you have 50% of your body that's still healthy. The next rating is applied to that remaining 50%."
+      },
+      {
+        "heading": "The Formula",
+        "body": "Start with your highest rating. Apply it to 100%.\n\nExample: 50% and 30%\n\n1. Start: 100% healthy\n2. Apply 50%: 100 x 0.50 = 50% disability. Remaining: 50%\n3. Apply 30% to remaining: 50 x 0.30 = 15%\n4. Total disability: 50 + 15 = 65%\n5. Rounded to nearest 10: 70%\n\nSo 50% + 30% = 70% combined (not 80%)."
+      },
+      {
+        "heading": "Bilateral Factor",
+        "body": "If you have disabilities affecting both arms, both legs, or one of each (paired extremities), VA adds a 10% bilateral factor before combining. This slightly increases your combined rating. For example, if you have 20% for each knee, the bilateral factor bumps each up before combining."
+      },
+      {
+        "heading": "Strategic Implications",
+        "body": "Because of VA math, each additional rating gives you diminishing returns. That's why pursuing higher individual ratings (like getting a 50% increased to 70%) can be more impactful than adding small new ratings. Understanding this helps you prioritize which claims to pursue first."
+      }
+    ]
+  },
+  {
+    "id": "appeals-101",
+    "icon": "\u2696\ufe0f",
+    "title": "Appeals 101",
+    "desc": "HLR, Supplemental, or Board -- which lane to pick",
+    "readTime": "9 min",
+    "sections": [
+      {
+        "heading": "The Three Appeal Lanes",
+        "body": "After a VA decision, you have three options under the Appeals Modernization Act (AMA):\n\n1. Supplemental Claim -- submit new and relevant evidence\n2. Higher-Level Review (HLR) -- a senior reviewer re-examines the same evidence\n3. Board of Veterans' Appeals (BVA) -- a Veterans Law Judge reviews your case"
+      },
+      {
+        "heading": "When to File a Supplemental Claim",
+        "body": "Choose this lane when you have new evidence that wasn't previously considered. This could be a new medical opinion, updated treatment records, a buddy statement, or a nexus letter. The evidence must be \"new and relevant\" -- it has to address the reason your claim was denied."
+      },
+      {
+        "heading": "When to Choose Higher-Level Review",
+        "body": "Choose HLR when you believe VA made an error with the existing evidence. No new evidence is allowed. A senior reviewer will look at the same record with fresh eyes. HLRs can identify clear and unmistakable errors, duty to assist failures, or misapplication of regulations. You can also request an informal conference call."
+      },
+      {
+        "heading": "When to Go to the Board",
+        "body": "Choose the Board when your case involves complex legal issues or when the lower levels have already denied you. You can choose a direct review (evidence only), submit new evidence, or request a hearing with a Veterans Law Judge. Board decisions carry more weight and set precedent."
+      },
+      {
+        "heading": "Deadlines Matter",
+        "body": "You have one year from the date of your decision to file in any lane while preserving your effective date. After one year, you can still file a Supplemental Claim, but your effective date resets to the new filing date. Never let a deadline pass without action."
+      }
+    ]
+  },
+  {
+    "id": "increase-claims",
+    "icon": "\ud83d\udd04",
+    "title": "Increase Claims",
+    "desc": "When and how to file for a higher rating",
+    "readTime": "8 min",
+    "sections": [
+      {
+        "heading": "When to File for an Increase",
+        "body": "File for an increase when your service-connected condition has gotten worse since your last rating. Signs include: new symptoms, increased frequency or severity, new medications, additional treatment, or greater impact on your daily activities and work."
+      },
+      {
+        "heading": "Building Your Case",
+        "body": "Before filing, get current treatment records that document the worsening. A letter from your treating physician describing the decline is powerful evidence. Review the rating criteria for your condition in 38 CFR Part 4 to understand what the next higher rating requires."
+      },
+      {
+        "heading": "The C&P Exam for Increases",
+        "body": "VA will schedule a new C&P exam to evaluate the current severity. The same rules apply: describe your worst days, bring documentation, and don't minimize. The examiner will compare your current state against the rating criteria in the diagnostic code for your condition."
+      },
+      {
+        "heading": "Watch Out for Proposed Reductions",
+        "body": "Filing for an increase opens your entire rating to review. If the exam shows improvement, VA can propose a reduction. This is uncommon but possible. Ratings in place for 5+ years have additional protections, and ratings for 20+ years are essentially permanent."
+      }
+    ]
+  },
+  {
+    "id": "tdiu-explained",
+    "icon": "\ud83d\udcbc",
+    "title": "TDIU Explained",
+    "desc": "Getting 100% pay without a 100% rating",
+    "readTime": "11 min",
+    "sections": [
+      {
+        "heading": "What Is TDIU?",
+        "body": "Total Disability based on Individual Unemployability (TDIU) pays you at the 100% rate even if your combined rating is less than 100%. It's for veterans whose service-connected disabilities prevent them from maintaining substantially gainful employment."
+      },
+      {
+        "heading": "Eligibility Requirements",
+        "body": "There are two schedular thresholds:\n\n- One service-connected disability rated at 60% or higher, OR\n- A combined rating of 70% or higher, with at least one disability at 40%+\n\nIf you don't meet these thresholds, you can still be referred for extraschedular TDIU consideration."
+      },
+      {
+        "heading": "What 'Substantially Gainful Employment' Means",
+        "body": "This doesn't mean you can't work at all. It means your service-connected disabilities prevent you from earning above the federal poverty level through consistent employment. Marginal employment (such as a sheltered workshop or family business accommodation) doesn't count against you."
+      },
+      {
+        "heading": "Key Evidence to Submit",
+        "body": "File VA Form 21-8940 and include:\n\n- Employment history showing job losses or reduced hours due to disabilities\n- Statements from former employers about accommodations or limitations\n- Vocational expert opinion on your employability\n- Medical records documenting functional limitations\n- Buddy statements about your daily functional capacity"
+      },
+      {
+        "heading": "Recent Case Law: Euzebio v. McDonough",
+        "body": "The CAVC's Euzebio decision strengthened veterans' rights by requiring VA to consider ALL evidence of unemployability -- not just a single C&P exam. If you've been denied TDIU based primarily on one exam while other evidence supports unemployability, this case gives you strong grounds for appeal."
+      }
+    ]
+  },
+  {
+    "id": "nexus-letters",
+    "icon": "\ud83e\ude7a",
+    "title": "Nexus Letters",
+    "desc": "What makes a nexus letter actually work",
+    "readTime": "10 min",
+    "sections": [
+      {
+        "heading": "What a Nexus Letter Must Contain",
+        "body": "A nexus letter is a medical opinion connecting your current condition to your military service. Every effective nexus letter needs three elements:\n\n1. A clear current diagnosis\n2. Identification of the in-service event, injury, or exposure\n3. An opinion using the magic words: \"at least as likely as not\" (50% or greater probability)"
+      },
+      {
+        "heading": "The Standard of Proof",
+        "body": "VA uses the \"at least as likely as not\" standard -- a 50/50 probability or better. The doctor doesn't need to say it's certain or even probable. They just need to say it's at least as likely as not that your condition is connected to your service. This is a much lower bar than most people realize."
+      },
+      {
+        "heading": "What Makes a Nexus Letter Strong",
+        "body": "Strong nexus letters include:\n\n- Detailed rationale explaining WHY the conditions are connected\n- References to medical literature supporting the connection\n- Discussion of the veteran's specific service history and timeline\n- Acknowledgment and rebuttal of any negative evidence\n- The doctor's qualifications and relevant expertise"
+      },
+      {
+        "heading": "Common Reasons Nexus Letters Fail",
+        "body": "Weak nexus letters are often rejected because they: use speculative language (\"might be\" or \"could be\" instead of \"at least as likely as not\"), lack rationale, are too brief, come from unqualified providers, or fail to address contrary evidence like gaps in treatment."
+      },
+      {
+        "heading": "Who Should Write Your Nexus Letter",
+        "body": "Any licensed medical professional can write a nexus letter, but specialists carry more weight. A orthopedic surgeon's opinion on a joint condition is more persuasive than a general practitioner's. Your treating physician who knows your history is often ideal, but independent medical opinions from specialists are also effective."
+      }
+    ]
+  },
+  {
+    "id": "buddy-statements",
+    "icon": "\ud83d\udcdd",
+    "title": "Buddy Statements",
+    "desc": "How lay evidence can strengthen your claim",
+    "readTime": "6 min",
+    "sections": [
+      {
+        "heading": "What Is a Buddy Statement?",
+        "body": "A buddy statement (VA Form 21-10210) is a written declaration from someone who can attest to your condition, the event that caused it, or how it affects your daily life. This can be a fellow service member, family member, friend, coworker, or anyone with relevant firsthand knowledge."
+      },
+      {
+        "heading": "What to Include",
+        "body": "Effective buddy statements should:\n\n- Identify the writer and their relationship to you\n- Describe specific observations (not general impressions)\n- Include dates, locations, and circumstances when possible\n- Explain what they witnessed regarding your condition or the in-service event\n- Describe how your condition has changed over time\n- Be signed and dated"
+      },
+      {
+        "heading": "Types of Buddy Statements",
+        "body": "In-service buddy: A fellow service member who witnessed the event or your symptoms during service. These are powerful for establishing the in-service element.\n\nPost-service buddy: A family member, friend, or coworker who can describe how your condition affects your daily life now. These help establish current severity.\n\nContinuity buddy: Someone who has known you before, during, and after service who can attest to the change in your condition over time."
+      },
+      {
+        "heading": "Legal Weight of Lay Evidence",
+        "body": "Veterans and their witnesses are competent to testify about observable symptoms -- pain, limited mobility, sleep problems, mood changes. You don't need to be a doctor to describe what you see and experience. The Federal Circuit and CAVC have repeatedly affirmed that lay evidence must be considered and cannot be dismissed without adequate reasoning."
+      }
+    ]
+  }
+]
