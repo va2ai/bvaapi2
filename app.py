@@ -2255,6 +2255,14 @@ STATIC_DIR = os.path.join(os.path.dirname(__file__), "static")
 if os.path.isdir(STATIC_DIR):
     app.mount("/assets", StaticFiles(directory=os.path.join(STATIC_DIR, "assets")), name="static-assets")
 
+    @app.get("/posts.json")
+    async def serve_posts_json():
+        return FileResponse(os.path.join(STATIC_DIR, "posts.json"), media_type="application/json")
+
+    @app.get("/guides.json")
+    async def serve_guides_json():
+        return FileResponse(os.path.join(STATIC_DIR, "guides.json"), media_type="application/json")
+
     @app.get("/site")
     @app.get("/site/{full_path:path}")
     async def serve_site(full_path: str = ""):
