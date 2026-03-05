@@ -11,7 +11,7 @@
     "readTime": "6 min",
     "breaking": true,
     "tags": ["Policy", "Ratings", "Legislation"],
-    "heroImage": null,
+    "heroImage": "/images/news/va-medication-rule-withdrawal.png",
     "relatedPostId": 2
   },
   {
@@ -26,7 +26,7 @@
     "readTime": "5 min",
     "breaking": false,
     "tags": ["Claims Data", "PACT Act", "Processing"],
-    "heroImage": null,
+    "heroImage": "/images/news/va-claims-backlog-drop.png",
     "relatedPostId": null
   },
   {
@@ -41,7 +41,7 @@
     "readTime": "4 min",
     "breaking": false,
     "tags": ["COLA", "Rates", "Compensation"],
-    "heroImage": null,
+    "heroImage": "/images/news/cola-increase-2026.png",
     "relatedPostId": 7
   },
   {
@@ -56,7 +56,7 @@
     "readTime": "4 min",
     "breaking": false,
     "tags": ["GAO", "Rating Schedule", "Policy"],
-    "heroImage": null,
+    "heroImage": "/images/news/gao-outdated-criteria.png",
     "relatedPostId": null
   },
   {
@@ -71,7 +71,7 @@
     "readTime": "5 min",
     "breaking": false,
     "tags": ["PACT Act", "Toxic Exposure", "Presumptives"],
-    "heroImage": null,
+    "heroImage": "/images/news/pact-act-3-years.png",
     "relatedPostId": null
   }
 ]
