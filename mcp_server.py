@@ -52,7 +52,8 @@ def _err(e: Exception) -> str:
     description=(
         "Search Board of Veterans' Appeals (BVA) decisions by keyword. "
         "Returns case URLs, titles, snippets, case numbers, and years. "
-        "Filter by year (1992-2025) or paginate with page param."
+        "Filter by year (1992-2025) or paginate with page param. "
+        "For multiple queries, use bva_batch_search. For keyword extraction, use bva_search_extract."
     )
 )
 async def bva_search(
@@ -97,7 +98,8 @@ async def bva_batch_search(
         "Returns ranked cases with relevant text snippets -- no full case text needed. "
         "Use this to find specific discussion of topics across many cases efficiently. "
         "Cases are scored by keyword proximity and coverage. "
-        "Example: queries=['ptsd secondary to tinnitus'], keywords=['ptsd','tinnitus','secondary']."
+        "Example: queries=['ptsd secondary to tinnitus'], keywords=['ptsd','tinnitus','secondary']. "
+        "Do NOT use bva_get_case_text for keyword research -- use this tool instead."
     )
 )
 async def bva_search_extract(
@@ -154,7 +156,8 @@ async def bva_list_years() -> str:
         "Fetch parsed details of a BVA decision by its URL. "
         "Returns structured data: case number, docket, decision date, outcome, "
         "judge, regional office, issues, citations, and a text preview. "
-        "Use bva_search first to find case URLs."
+        "Use bva_search first to find case URLs. "
+        "Do NOT set full_text=true unless you need the complete document."
     )
 )
 async def bva_get_case(
@@ -172,8 +175,8 @@ async def bva_get_case(
 @mcp.tool(
     description=(
         "Fetch the raw plain text of a BVA decision. "
-        "Returns the complete decision text as written. "
-        "Use this when you need the full document for analysis."
+        "WARNING: Returns full 10-40 page text. Use bva_search_extract for keyword passages instead. "
+        "Only use when you need the complete document for full-text analysis."
     )
 )
 async def bva_get_case_text(url: str) -> str:
@@ -436,7 +439,8 @@ async def bva_fr_search(
         "Use for discovery queries like 'what conditions qualify for presumptive service connection', "
         "cross-reference questions like 'how does 3.102 interact with 4.3', or explanation requests "
         "like 'what does occupational impairment mean'. Filters: content_type (rating_criteria, "
-        "adjudication, guidance), part (3, 4), schedule (Mental Disorders, etc.), source (cfr, knowva)."
+        "adjudication, guidance), part (3, 4), schedule (Mental Disorders, etc.), source (cfr, knowva). "
+        "Do NOT use for BVA case search -- use bva_search for that. This searches regulations and VA policy only."
     )
 )
 async def bva_rag_search(
@@ -564,7 +568,8 @@ async def bva_cavc_find_entry(
         "Presets: cfr_citation, diagnostic_code, nexus_opinion, secondary_sc, effective_date, "
         "cue, tdiu, imo, buddy_statement. Optionally filter by decision section (e.g. "
         "'REASONS AND BASES', 'FINDINGS OF FACT', 'ORDER'). Returns matches with surrounding "
-        "context, section names, and line numbers."
+        "context, section names, and line numbers. "
+        "Prefer presets over custom regex. Call case_search_presets first to see available presets."
     )
 )
 async def case_search(
