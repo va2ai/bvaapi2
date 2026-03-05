@@ -2297,6 +2297,10 @@ if os.path.isdir(STATIC_DIR):
     async def serve_guides_json():
         return FileResponse(os.path.join(STATIC_DIR, "guides.json"), media_type="application/json")
 
+    @app.get("/news.json")
+    async def serve_news_json():
+        return FileResponse(os.path.join(STATIC_DIR, "news.json"), media_type="application/json")
+
     @app.get("/site")
     @app.get("/site/{full_path:path}")
     async def serve_site(full_path: str = ""):
