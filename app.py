@@ -2269,6 +2269,7 @@ class BlogPost(BaseModel):
 
 if os.path.isdir(STATIC_DIR):
     app.mount("/assets", StaticFiles(directory=os.path.join(STATIC_DIR, "assets")), name="static-assets")
+    app.mount("/images", StaticFiles(directory=os.path.join(STATIC_DIR, "images")), name="static-images")
 
     @app.get("/posts.json")
     async def serve_posts_json():
