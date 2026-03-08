@@ -1,0 +1,328 @@
+VETERAN SPACE
+REDDIT MARKET ANALYSIS
+VALIDATED PRODUCT OPPORTUNITIES
+AI-Powered Solutions for the U.S. Veteran Community
+Prepared by Veteran 2 Veteran LLC
+Generative AI Ohio
+March 2026
+
+# Table of Contents
+
+# Executive Summary
+This report presents the findings of a comprehensive Reddit-based market analysis of the U.S. veteran community. By mining thousands of posts and comments across veteran-focused subreddits, we identified 13 distinct product opportunities where AI can solve real, high-pain problems that veterans face daily.
+Each opportunity was validated against four dimensions: strategic alignment with the existing Veteran 2 Veteran tech stack, regulatory risk, realistic path to first revenue, and feasibility of a 2-week MVP build. The analysis produced a clear build roadmap that maximizes early revenue while leveraging existing BVA research infrastructure.
+
+## Verdict Summary
+
+## Methodology
+Data was collected from veteran-focused Reddit communities including r/VeteransBenefits, r/Veterans, r/VeteranWomen, and related subreddits. Posts and comments were analyzed using a multi-pass AI pipeline:
+- Phase 1: Need Extraction --- Each post was analyzed for primary need, pain points, current solutions, emotional intensity, and category.
+- Phase 2: Clustering & Ranking --- Extracted needs were grouped into opportunity clusters and scored on frequency, intensity, willingness to pay, and AI solvability.
+- Phase 3: Product Ideation --- Top clusters were mapped to specific AI product concepts with business models, TAM estimates, and build complexity assessments.
+- Phase 4: Validation --- Each concept was pressure-tested against the builder's existing platform, regulatory constraints, and realistic MVP feasibility.
+
+# Top 5 Opportunities
+These five products represent the highest-value intersections of veteran pain, market demand, AI capability, and alignment with the existing Veteran 2 Veteran platform. They are presented in recommended build order.
+
+## #1: Nexus Scout
+Product Concept: Nexus Scout: An AI tool that analyzes a veteran's primary service-connected disabilities and suggests potential secondary claims, backed by evidence from BVA decisions and medical literature.
+Business Model: Hybrid. A free D2C web tool to generate leads and build brand, with a $39 premium report. A professional version licensed to attorneys/agents for $199/mo as part of the Vet Dynamic platform.
+MVP Scope: A web app where a user selects one of the top 10 most common primary conditions from a dropdown. The backend returns a static list of the top 3-5 most common secondary conditions, each with a link to a relevant BVA case from the existing MCP server.
+Timeline: 2-3 weeks
+
+### Veteran Voices (Reddit Evidence)
+"I was told to not go to sick call as it would make me less of a soldier... What are the chances of me being able to report things now?"
+"60 years old... Belief that it might be too late to file due to age... Regret over not attempting to file sooner."
+"I just started my process yesterday but I don't feel like i deserve it."
+Competitive Landscape: Experienced VSOs/attorneys' tribal knowledge, random blog posts, and forum threads. There is no systematic, data-driven tool available to veterans or most professionals.
+
+## #2: Denial Decoder
+Product Concept: Denial Decoder: A web tool that allows a veteran to upload or paste their VA denial letter and receive an instant, plain-English summary of why they were denied and a clear, actionable plan for their next steps (e.g., HLR, Supplemental).
+Business Model: Freemium. A free basic analysis and a one-time $29 fee for a detailed report including links to specific regulations and a checklist for the recommended appeal path.
+MVP Scope: A single-page web app. A user pastes the text of their rating decision's narrative into a form. A Claude-powered API endpoint on the MCP server extracts key phrases, classifies the denial reason(s) (e.g., 'no nexus', 'not service-connected'), and returns a pre-written explanation and next-step template.
+Timeline: 2 weeks
+
+### Veteran Voices (Reddit Evidence)
+"They Denied all my claims. I feel so defeated."
+"Claim Denied - never contacted for C&P Exam... The VA already conceded the disability and service connection, making the denial especially frustrating."
+"Denied 100%... Repeatedly denied for TDIU since 2018."
+Competitive Landscape: Calling the VA, asking a VSO (with long delays), posting on Reddit, or paying a lawyer hundreds of dollars for an initial consultation. The moat is instant, affordable, and standardized analysis.
+
+## #3: Exam Ready
+Product Concept: Exam Ready: An AI-powered mobile and web coach that prepares a veteran for a specific C&P exam. It breaks down the official DBQ for their condition into simple terms, providing tips and exercises to help them accurately articulate their symptoms.
+Business Model: Per-use. A veteran pays a one-time fee of $25 to unlock the preparation module for their specific upcoming exam.
+MVP Scope: A web page for a single, high-volume condition (e.g., PTSD). The page lists the key questions from the public PTSD DBQ, and next to each one, an AI-generated explanation of what the question means in plain language and what aspects of daily life it relates to. No user input, just educational content.
+Timeline: 2 weeks
+
+### Veteran Voices (Reddit Evidence)
+"Decided to review my C&P examination opinion and what the actual f... the examiner accused them of malingering."
+"TDIU C&P exam for PTSD... Terrified that a new examiner could reduce their recently awarded PTSD rating."
+"What Happens At C&P Exams... Feeling like you are on trial and must prove your disability."
+Competitive Landscape: Predatory companies charging thousands for 'coaching', free but disorganized YouTube videos, and Reddit threads. The moat is providing trusted, structured, and affordable preparation based directly on the VA's own internal documents.
+
+## #4: Evidence Builder
+Product Concept: Evidence Builder: An AI-powered workflow tool that guides veterans without in-service records through the process of building a strong case using alternative evidence like buddy letters, personal statements, and non-medical records.
+Business Model: Freemium. The evidence-gathering checklist and guidance are free. A $29 one-time fee unlocks AI-assisted drafting tools for personal statements and buddy letters.
+MVP Scope: An interactive web-based checklist. The user selects their condition type (e.g., 'joint injury') and when they served. The app generates a customized list of alternative evidence to look for (e.g., 'performance reports showing a decline in physical fitness scores', 'photos from deployment'). Provides downloadable MS Word templates for buddy/spousal letters.
+Timeline: 3 weeks
+
+### Veteran Voices (Reddit Evidence)
+"I was told to not go to sick call as it would make me less of a soldier... What are the chances of me being able to report things now?"
+"60 years old... Belief that it might be too late to file due to age... Regret over not attempting to file sooner."
+"My husband is filing for PTSD... I am writing a buddy letter. What should I include?"
+Competitive Landscape: VSO advice, law firm intake paralegals, and DIY efforts. The moat is creating a structured, repeatable process that demystifies evidence gathering and empowers veterans to build a winnable case from the start.
+
+## #5: Vet-Verified
+Product Concept: Vet-Verified: A curated, trusted marketplace that connects veterans with vetted, VA-accredited attorneys and agents. The platform uses AI to match case complexity with professional expertise and provides transparent reviews.
+Business Model: Marketplace / Lead Gen. Professionals pay a subscription fee ($300-500/mo) or a per-lead fee ($50-100) to be listed and receive qualified, pre-screened clients.
+MVP Scope: A manually curated directory on the V2V website. It's a single page featuring profiles of 10-20 hand-picked, trusted, accredited professionals from the builder's personal network. Each profile has a bio, a link to their OGC accreditation, and a contact form that goes to them (with a cc to V2V).
+Timeline: 2 weeks
+
+### Veteran Voices (Reddit Evidence)
+"Was scammed by an organization that gave bad advice (skip C&P exam)... Claim was denied as a result."
+"The organization abandoned the veteran after the denial... Now facing an unexpected bill for an attorney."
+"Lack of time to manage the claims process alone... Unsatisfactory experience with a paid service (Veterans Guardian)."
+"How do I find a good VSO?"
+Competitive Landscape: Google Search ('VA claim help'), the VA's unhelpful accredited representative search tool, and word-of-mouth. The moat is trust, curation, and a focus on VA-specific accreditation.
+
+# Full Product Evaluations
+Detailed validation analysis for all 13 product concepts assessed during this research. Products are grouped by verdict category.
+
+## Category: Build Now
+These products have the highest combination of alignment, low regulatory risk, and fast path to revenue. They should be the immediate focus.
+
+## Denial Decoder
+Strategic Alignment: Good. Extends the MCP server's capabilities to a D2C audience. Requires building a user-friendly frontend but uses the same backend NLP/RAG principles. Expands market from B2B to B2C.
+Regulatory Risk: Medium. High risk of being perceived as providing legal advice. Must have extremely strong disclaimers stating it's 'for informational purposes only' and does not create an attorney-client relationship. Unauthorized Practice of Law (UPL) is the main concern.
+Path to Revenue: Freemium web app. A user can upload/paste their denial letter text. A free version gives a basic summary. A one-time payment ($29) unlocks a detailed report with links to relevant 38 CFR sections and BVA cases. First dollar comes from the first paid report.
+2-Week MVP: A single-page web app using React. User pastes denial letter text into a textarea. On submit, an API call to the MCP server with a Claude-powered backend identifies keywords, matches them to pre-defined denial reasons, and returns a templated explanation and action plan.
+
+## Nexus Scout
+Strategic Alignment: Excellent. This is a natural productization of the existing BVA research platform and 38 CFR navigator. It directly leverages the data and infrastructure already built, packaging it for a new use case.
+Regulatory Risk: Medium. Similar to Denial Decoder, this could be construed as providing medical or legal advice. It must be framed as an 'investigative tool' to discuss with a professional. The B2B version for pros has lower risk.
+Path to Revenue: Hybrid model. Launch a free D2C version that identifies potential secondaries. Offer a paid report ($39) with links to supporting BVA decisions. Simultaneously, license a pro version to the existing B2B audience via the Vet Dynamic app.
+2-Week MVP: A simple web app. User selects a primary condition from a dropdown list (initially limited to the top 10). The backend uses a pre-computed dictionary mapping to return a list of potential secondary conditions, each with a link to a relevant KnowVA page or a sample BVA decision.
+
+## Evidence Builder
+Strategic Alignment: Good. Aligns with the mission of helping veterans and uses LLMs for generation, but is less reliant on the core BVA/CFR data assets. It's more of a guided workflow and content generation tool.
+Regulatory Risk: Low. As long as it provides templates and guidance rather than definitive legal advice, the risk is minimal. It's an organizational and drafting tool, which is a safe position.
+Path to Revenue: Freemium SaaS. Offer the evidence checklist and basic templates for free to build a user base. Charge a one-time fee ($29) for AI-assisted drafting of a personal statement or buddy letters.
+2-Week MVP: An interactive checklist in React. User answers a few questions, and the app generates a custom list of evidence to gather (e.g., 'Find photos from your deployment showing you wore a knee brace'). Include downloadable Word templates for buddy letters.
+
+## Exam Ready
+Strategic Alignment: Good. Leverages the 38 CFR and diagnostic code expertise. It's a natural extension for the Vet Dynamic app for pros to use with their clients, or as a D2C tool.
+Regulatory Risk: Medium. Must be carefully positioned as 'educational preparation' and not 'coaching to say specific things'. The line between explaining what the DBQ asks and telling someone what to say is thin but crucial. UPL and fraud are potential risks if framed improperly.
+Path to Revenue: Per-use D2C model. Charge $25 for access to a prep module for a specific condition. The first dollar is earned when a veteran pays to unlock the PTSD module before their exam.
+2-Week MVP: Build out one module for a common condition like 'Back (Thoracolumbar)'. Create a single webpage that breaks down each section of the public DBQ form, with Claude-generated 'plain English' explanations and examples of how symptoms might relate to the questions.
+
+## Category: Build Next
+Strong concepts that require either more development time, stronger market traction from initial products, or specific infrastructure that isn't yet in place. Queue these for the next development cycle.
+
+## Appeal Armor
+Strategic Alignment: Excellent. Directly extends the existing BVA research platform and targets the established B2B customer base (legal professionals). Leverages all core tech stack components (RAG, GCP, FastAPI).
+Regulatory Risk: Low. As a tool for accredited professionals, it falls under the 'tools of the trade' category. The risk is on the professional to use the output correctly, not on the tool itself. Clear disclaimers are necessary.
+Path to Revenue: Direct B2B sales. Pilot with 3-5 friendly law firms from the existing network. Offer a free trial or a per-case analysis fee to demonstrate value, then convert to a monthly subscription.
+2-Week MVP: A 'concierge MVP'. Manually run an analysis for a partner firm using existing scripts and Claude. The 'product' is a detailed PDF report. The frontend is email. This validates the value of the output before building the UI.
+
+## DBQ Analyst
+Strategic Alignment: Excellent. A perfect B2B tool that leverages the existing tech stack (RAG, NLP) and targets the core customer. It's the logical follow-up to 'Appeal Armor' but focused on a specific document.
+Regulatory Risk: Low. It is a tool for accredited professionals, who are responsible for its use. The risk is reputational if the analysis is inaccurate.
+Path to Revenue: Concierge MVP first. Offer to analyze a DBQ for a partner firm for a flat fee ($250). Use manual processes and scripts to generate the report. Once the value is proven, build it into the B2B SaaS platform as a per-report charge or higher subscription tier.
+2-Week MVP: A 'Wizard of Oz' MVP. Create a simple upload form for a PDF. The backend simply emails the file to the builder, who manually performs the analysis using existing tools and Claude, then emails the resulting report back to the user.
+
+## Vet-Verified
+Strategic Alignment: Moderate. It's a departure from building AI tools to building a two-sided marketplace. However, it aligns with the overall mission and can serve as a powerful distribution channel for the B2B tools and a trusted referral source for the D2C tools.
+Regulatory Risk: Low to Medium. The main risk is liability for a bad actor on the platform. A strong vetting process and clear terms of service are essential. Must not be seen as 'fee-splitting' with attorneys.
+Path to Revenue: Lead generation fees for professionals. Start by offering free listings to a curated group of 50 trusted pros to build supply. The first dollar comes from the first pro who pays for a premium placement or a qualified lead.
+2-Week MVP: A simple, static directory built with a no-code tool like Webflow or a simple React site. Manually create profiles for 10-15 vetted professionals (with their permission). The 'product' is a curated list, not a complex platform.
+
+## P&T Guardian
+Strategic Alignment: Good. Aligns with the D2C mission. The content portion is straightforward. The AI correspondence scanner is a good extension of NLP capabilities.
+Regulatory Risk: Low. If positioned as an educational and monitoring tool, the risk is minimal. It's helping users stay compliant and informed, not providing advice on new claims.
+Path to Revenue: Low-cost subscription. Offer a free tier with basic articles. Charge $5/month for access to a full content library, checklists, and community. The first dollar comes from the first subscriber.
+2-Week MVP: A content-based MVP. Use React Native or a simple web app to build a library of 5-10 well-researched articles and checklists on topics like 'What can trigger a re-evaluation?' and 'Understanding the 5/10/20 year rules'. No AI needed initially.
+
+## Category: Shelf It
+Valid problems with real user needs, but either too far outside core competency, too niche for the current growth phase, or carrying unacceptable risk. Revisit when the core business is established.
+
+## StoryGuard
+Strategic Alignment: Poor. While it uses the tech stack (Conversational AI, LLM), it requires deep, non-existent domain expertise in clinical psychology and trauma-informed design. It's a significant departure from the current legal/data-centric positioning.
+Regulatory Risk: Very High. Beyond legal risks, there are profound ethical and safety risks. An AI malfunction could cause serious emotional distress or harm to a vulnerable user. This would attract intense scrutiny from the VA, OGC, and mental health communities.
+Path to Revenue: Hypothetically, a per-use fee. However, the development, insurance, and expert consultation costs would be enormous, making a realistic path to revenue extremely difficult and long.
+2-Week MVP: Not applicable. Building any version of this in two weeks would be irresponsible. A 'safe' MVP would require months of expert consultation, safety protocol design, and peer review before a single line of code is shown to a user.
+
+## Debt Defender AI
+Strategic Alignment: Moderate. While it's a B2B tool for legal pros, it's a very niche area of VA law that may not align with the general practice of all target customers. It requires specialized knowledge beyond general disability claims.
+Regulatory Risk: Low (for the tool), High (for the output). As a B2B tool, risk is low. However, the financial nature means any error in analysis could have severe consequences for the end client, creating high reputational risk.
+Path to Revenue: Niche B2B sales. Identify firms that specialize in VA debt and offer it as a specialized tool. Due to the high value of successfully waiving a large debt, a high per-case fee ($500+) is justifiable.
+2-Week MVP: Not feasible. The complexity and variability of VA debt letters and associated regulations make a reliable 2-week AI MVP impossible. An MVP would be a human-driven service, not a product.
+
+## RegWatch
+Strategic Alignment: Excellent. This is a high-end application of the existing Federal Register search and RAG capabilities, targeted at a high-value B2B audience.
+Regulatory Risk: Low. This is a data/intelligence product for sophisticated customers who understand its use. It's reporting on public information.
+Path to Revenue: Direct sales to large VA law firms and national VSOs. This is an enterprise sales model. The first dollar would come from a retainer agreement with a firm to provide custom weekly intelligence reports.
+2-Week MVP: A weekly newsletter. Manually curate the most important VA-related Federal Register and policy updates from the week, add analysis using Claude, and send it as a PDF to a list of 10 potential high-value customers.
+
+## Stipend
+Strategic Alignment: Poor. This is in the education benefits domain, which is entirely different from disability claims. It doesn't leverage the existing BVA, 38 CFR, or medical-legal expertise and infrastructure.
+Regulatory Risk: Low. The main risk is providing inaccurate payment information, causing user frustration.
+Path to Revenue: Ad-supported or affiliate revenue. The low price point makes direct revenue difficult. The path to the first dollar would likely be through display ads.
+2-Week MVP: A simple web-based calculator. User inputs school start/end dates, and a rule-based system (not AI) generates a table of estimated payment dates based on VA's stated processing times.
+
+## Mission Next
+Strategic Alignment: Poor. Like Stipend, this is a different domain (employment/transition) that doesn't leverage the core disability claims tech and expertise. It competes with a different set of established players.
+Regulatory Risk: Low. It's a planning and educational tool.
+Path to Revenue: Freemium D2C. The path to the first dollar is a user paying for a premium feature, like an AI-powered resume builder that translates their MOS skills.
+2-Week MVP: A dynamic checklist generator. User enters their separation date, and the app generates a reverse timeline with key milestones for BDD, TAP, etc. This is a logic-based tool, not AI-intensive.
+
+# Recommended Build Roadmap
+The following build order maximizes early revenue, validates D2C and B2B channels, and creates compound value as each product feeds into the next.
+
+## Strategic Logic
+- Phases 1--3 (Nexus Scout, Denial Decoder, Exam Ready): Fast D2C launches that validate demand, build brand trust, and generate first revenue. These are the top-of-funnel products that bring veterans into the ecosystem.
+- Phase 4 (Evidence Builder): Deepens the D2C relationship by helping veterans earlier in the claims process. Creates natural upsell to Denial Decoder and Exam Ready.
+- Phase 5 (Vet-Verified): Bridges D2C users to B2B professionals, creating a two-sided marketplace that generates lead-gen revenue and feeds the B2B pipeline.
+- Phases 6--8 (P&T Guardian, DBQ Analyst, Appeal Armor): Premium B2B tools for the Vet Dynamic platform, sold to the professional audience cultivated through Vet-Verified. These command higher price points and recurring revenue.
+
+# Risk Considerations
+
+## Regulatory Risk Matrix
+
+## Key Mitigations
+- All D2C tools must include prominent disclaimers stating they provide informational content only, not legal or medical advice.
+- B2B tools are lower risk because accredited professionals bear responsibility for how they use the output.
+- The Vet-Verified marketplace mitigates the single biggest trust problem: connecting veterans with legitimate, accredited help.
+- Concierge MVPs (manual process, product facade) validate value before building automated systems that could produce errors at scale.
+
+# Next Steps
+Immediate actions to move from analysis to execution:
+- Begin Nexus Scout MVP build. Start with the top 10 most common primary conditions. Use the existing BVA MCP server to source supporting case law. Target: functional prototype in 2 weeks.
+- Design the Denial Decoder landing page. Create a waitlist to validate demand before building the full product. Run targeted ads in r/VeteransBenefits (following sub rules) and veteran Facebook groups.
+- Map the Exam Ready content for one condition. Choose the PTSD DBQ as the first module. Draft plain-English explanations for each section. Test with 2--3 veteran volunteers for clarity.
+- Identify 5 pilot firms for B2B validation. From the existing professional network, select firms that would benefit from Nexus Scout's pro version. Offer free access in exchange for feedback and testimonials.
+- Log this analysis to Notion. Create entries in the Project Hub for each Build Now product. Set up task tracking for the Nexus Scout sprint.
+End of Report
+
+| Key Finding
+The three highest-impact opportunities --- Nexus Scout, Denial Decoder, and Exam Ready --- all target the disability claims lifecycle where veterans experience the most frustration, confusion, and willingness to pay for help. Each can be built as an MVP in 2--3 weeks using existing infrastructure. |
+| --- |
+
+
+| Product | Verdict |
+| --- | --- |
+| Nexus Scout | Build Now |
+| Denial Decoder | Build Now |
+| Evidence Builder | Build Now |
+| Exam Ready | Build Now |
+| Appeal Armor | Build Next |
+| DBQ Analyst | Build Next |
+| Vet-Verified | Build Next |
+| P&T Guardian | Build Next |
+| StoryGuard | Shelf It |
+| Debt Defender AI | Shelf It |
+| RegWatch | Shelf It |
+| Stipend | Shelf It |
+| Mission Next | Shelf It |
+
+
+| Problem Statement
+Veterans with existing disabilities don't know what secondary conditions they can claim, leaving significant, rightfully-earned benefits on the table. |
+| --- |
+
+
+| Problem Statement
+When the VA denies a claim, the decision letter is dense, confusing, and demoralizing, leaving veterans unsure of why they were denied or what to do next. |
+| --- |
+
+
+| Problem Statement
+Veterans are terrified of C&P exams, viewing them as adversarial trials. They don't know what to expect, how to talk about their symptoms in the context of the evaluation criteria (DBQs), and often leave feeling unheard, resulting in bad exams and denied claims. |
+| --- |
+
+
+| Problem Statement
+Many veterans lack in-service medical records for their injuries due to a 'suck it up' culture, making it incredibly difficult to service-connect their conditions years later. |
+| --- |
+
+
+| Problem Statement
+The market for paid claims assistance is a 'wild west' full of predatory, unaccredited companies and a few good, but hard-to-find, accredited professionals. Veterans don't know who to trust. |
+| --- |
+
+
+| VERDICT: Build Now. It directly addresses a high-pain, high-volume problem with a feasible MVP that can quickly test the D2C market and generate revenue. |
+| --- |
+
+
+| VERDICT: Build Now. This is the lowest-hanging fruit; it perfectly aligns with existing assets and expertise and has a clear path to both D2C and B2B revenue. |
+| --- |
+
+
+| VERDICT: Build Now. It solves a massive, early-stage problem for veterans with low regulatory risk and a clear freemium path that can serve as a great top-of-funnel product. |
+| --- |
+
+
+| VERDICT: Build Now. The need is universal and urgent for veterans facing exams. A modular build-out makes it easy to start small and expand. |
+| --- |
+
+
+| VERDICT: Build Next. The high complexity and data requirements make it a poor first choice, but it's a powerful long-term goal that leverages all existing assets. |
+| --- |
+
+
+| VERDICT: Build Next. It's a fantastic B2B concept but requires more robust OCR and fine-tuned analysis than a quick MVP allows. Follows naturally after initial D2C/B2B traction. |
+| --- |
+
+
+| VERDICT: Build Next. While not a core AI product, it's a strategic asset. Build it after establishing some brand trust with a D2C tool like Denial Decoder. |
+| --- |
+
+
+| VERDICT: Build Next. This is a great retention and long-term value product. It's better to build after acquiring users through claim-focused tools like Denial Decoder or Nexus Scout. |
+| --- |
+
+
+| VERDICT: Shelf It. The ethical and safety risks are too high and fall outside the builder's core expertise, despite the clear user need. |
+| --- |
+
+
+| VERDICT: Shelf It. The market is too niche, and the data/logic is too complex for the potential return, compared to broader opportunities like appeals or initial claims. |
+| --- |
+
+
+| VERDICT: Shelf It. It's a great idea but serves a very small, enterprise-level market that requires a different sales motion. Focus on products that serve the broader professional and veteran market first. |
+| --- |
+
+
+| VERDICT: Shelf It. It's a valid problem but a major strategic distraction from the core business of disability claims tools for veterans and professionals. |
+| --- |
+
+
+| VERDICT: Shelf It. Solves a real problem but is outside the builder's established niche and technical sweet spot. Stay focused on the disability claims ecosystem. |
+| --- |
+
+
+| Phase | Product | Channel | Est. Timeline |
+| --- | --- | --- | --- |
+| Phase 1 | Nexus Scout | D2C + B2B | Weeks 1--3 |
+| Phase 2 | Denial Decoder | D2C | Weeks 3--5 |
+| Phase 3 | Exam Ready | D2C | Weeks 5--7 |
+| Phase 4 | Evidence Builder | D2C | Weeks 7--10 |
+| Phase 5 | Vet-Verified | Marketplace | Weeks 10--12 |
+| Phase 6 | P&T Guardian | D2C Subscription | Weeks 12--15 |
+| Phase 7 | DBQ Analyst | B2B (Vet Dynamic) | Weeks 15--20 |
+| Phase 8 | Appeal Armor | B2B (Vet Dynamic) | Weeks 20--28 |
+
+
+| Compounding Value
+Each product in this sequence creates distribution and data advantages for the next. Nexus Scout users who hit denials become Denial Decoder users. Denial Decoder users preparing for re-exams become Exam Ready users. Veterans who need professional help become Vet-Verified leads. The entire funnel feeds into the B2B platform. |
+| --- |
+
+
+| Risk Category | Products Affected | Mitigation |
+| --- | --- | --- |
+| Unauthorized Practice of Law (UPL) | Denial Decoder, Nexus Scout, Exam Ready | Position as informational/educational tools. Strong disclaimers. Never frame output as legal advice. Recommend professional consultation. |
+| Medical Advice Liability | Nexus Scout, StoryGuard | Limit to identifying potential connections. Never diagnose. Always cite source regulations and direct to medical professionals. |
+| Ethical / Safety Concerns | StoryGuard | Shelved. Would require extensive clinical consultation, trauma-informed design review, and safety protocols before any development. |
+| Reputational Risk | All D2C products | Start with concierge MVPs. Get real veteran feedback before scaling. Partner with accredited professionals for credibility. |
+| Data Privacy | All products handling claim data | Never store PII. Process in-memory only. Clear data handling policies. SOC 2 compliance roadmap for B2B. |

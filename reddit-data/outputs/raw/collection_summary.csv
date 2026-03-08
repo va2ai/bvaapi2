@@ -1,0 +1,9 @@
+subreddit,priority,focus,window_months,post_count,file
+VeteransBenefits,Critical,"VA disability claims, ratings, appeals, C&P exams",12,154,outputs\raw\posts_veteransbenefits.json
+Veterans,Critical,"General veteran life, transition, healthcare, employment",12,205,outputs\raw\posts_veterans.json
+VeteranWomen,High,"Women-specific VA issues, MST claims, gender-specific care",12,45,outputs\raw\posts_veteranwomen.json
+MilitaryFinance,High,"GI Bill, TSP, VA loans, financial planning",12,162,outputs\raw\posts_militaryfinance.json
+Militaryfaq,Medium,"Pre-transition questions, general military info",12,147,outputs\raw\posts_militaryfaq.json
+VetTech,Medium,"Vet tech training, career transition into tech",12,197,outputs\raw\posts_vettech.json
+PTSD,Medium,"PTSD management, treatment, VA mental health services",12,172,outputs\raw\posts_ptsd.json
+disability,Low,General disability community (veterans subset),12,190,outputs\raw\posts_disability.json

@@ -1,0 +1,4601 @@
+# Prompt 1: Need Extraction
+
+You are a market research analyst specializing in the U.S. veteran community.
+I’m going to give you a batch of Reddit posts and comments from veteran subreddits.
+For each post, identify:
+1. PRIMARY NEED: What is the veteran trying to accomplish or solve?
+2. PAIN POINTS: What specific frustrations or blockers do they describe?
+3. CURRENT SOLUTION: What are they currently doing to solve this? (DIY, paid service, nothing?)
+4. EMOTIONAL INTENSITY: Rate 1–5 (1=mild inconvenience, 5=desperate/life-impacting)
+5. CATEGORY: Assign one: Claims/Ratings, Appeals, Healthcare, Mental Health,
+   Employment/Transition, Education/GI Bill, Housing/VA Loan, Financial, Legal,
+   Community/Social, Other.
+
+Output strictly as a JSON array, one object per post.
+
+## Input JSON
+
+```json
+[
+  {
+    "subreddit": "Militaryfaq",
+    "id": "1p2phca",
+    "title": "Enlisting in The Navy With a Family Member That Has Cancer",
+    "body": "I'm currently in the process of joining The Navy, I went to MEPs back in August and failed the drug test. I took another drug test with my recruiter a month later and failed that one too. I just took one earlier this week and was finally clean. I was supposed to go down to MEPs again today for the final drug test, and then ship out on December 3rd. Now, my grandmother has cancer, she was my guardian before I turned 18, and I'm currently her only caretaker. I told my recruiter yesterday that I had to drop out from the program after he told me my push out was denied. I talked to him again today, and he told me, because I failed my first drug test at MEPs, and I'm quitting right before going to MEPs for the second drug test, I'm going to be permanently disqualified from joining any United States armed forces. From all my research this isn't true, but he's my recruiter. I'm not sure if he's lying or not. I've already proven that my grandmother has cancer, and has surgery coming up. Will I be permanently disqualified from joining the Armed Forces or is he lying? He is known to lie to me, and he's tried to guilt me.\n\nEdit: I failed the drug tests because It was still in my system after almost 3 months. I wasn't smoking. I used to be a heavy user.",
+    "flair": "Joining w/Med issue",
+    "score": 14,
+    "comment_count": 9,
+    "created_at": "2025-11-21T04:39:12+00:00",
+    "top_comments": [
+      {
+        "id": "npz1ix0",
+        "score": 10,
+        "body": "I doubt most recruiters would speak to you after a few failed UAs and a last minute drop. I would seek other career opportunities that would afford you the time to care for grandma. The military can be a hard life, but it\u2019s impossible if your heart is somewhere else."
+      },
+      {
+        "id": "npz1mrh",
+        "score": 6,
+        "body": "If you can\u2019t stay sober now, you won\u2019t in the military."
+      },
+      {
+        "id": "npyzhth",
+        "score": 5,
+        "body": "The service may not be for you\n\nYou've had a couple chances already \n\nCheck out our subreddit specifically for joining over at /r/NewToTheNavy to connect with other recruiters"
+      },
+      {
+        "id": "npyygne",
+        "score": 3,
+        "body": "The military isn\u2019t for you."
+      },
+      {
+        "id": "npyzmrj",
+        "score": 3,
+        "body": "Not sure what you're asking. You failed drug tests. Yes, you will be DQed. Your grandmother doesn't give you grace against that."
+      },
+      {
+        "id": "npz56ij",
+        "score": 3,
+        "body": "That's not what I'm asking. There's only one logged drug test, and that's at MEPs. My recruiter decided to do more drug tests for me since I failed the drug test at MEPs, he wanted to track my progress. I wasn't using, but it was in my system for that long of a time, as I used to be a heavy user. And the question I'm asking, is if I drop out now, before going to MEPs a second time, will I be permanently disqualified."
+      },
+      {
+        "id": "npz0r2z",
+        "score": 2,
+        "body": "technically, a recruiter could take you up again but it would be extremely unlikely. assuming that does happen, the bigger issue is your priorities atm. yes, family issues suck especially serious ones like this, but those who go into the service are making a commitment to serve the people of the united states, not their family or friends. \n\nthink of it this way, you're on deployment across the world and you get news of this or a similar type of incident, you're not just going to be able to take leave whenever, your first and utmost priority is to the united states government. this isn't saying your wrong for prioritizing your grandmother, but that means the service probably isn't for you.\n\nask yourself what you're willing to do, go through, and sacrifice in order to serve in the military and what joining the military means for you. not being able to be with your family in their times of need is simply going to be a given if you join up, if you don't want that burden it's best you don't enlist."
+      },
+      {
+        "id": "npz4vmj",
+        "score": 2,
+        "body": "I'm sober now, I took a test with my recruiter last week on Monday and passed it. The other tests I failed, I wasn't smoking, but it was still in my system as I was a heavy user. I'm more than willing to quit for an opportunity to better myself."
+      },
+      {
+        "id": "npz5an4",
+        "score": 1,
+        "body": "I failed the drug tests cos it wasn't out of my system yet. I had stopped smoking and it took almost 3 months to get out of my system."
+      }
+    ]
+  },
+  {
+    "subreddit": "Militaryfaq",
+    "id": "1lz3h39",
+    "title": "Considering joining the military, anything I should note as a woman",
+    "body": "For context I\u2019m 21, currently a senior in college. Job prospects not too good but I\u2019m trying everything I can to get a full time job in my field.\n\nHowever if all else fails, I don\u2019t have a back up plan- my home life is abusive and I can\u2019t live with either of my parents, and realistically I don\u2019t know if I can continue my current job in food service to sustain myself financially (cost of living in my state is ridiculously expensive + bills + utilities).\n\nI was considering joining the military as an all-else-fails if I don\u2019t get anything by next May. I do weightlifting but I\u2019m not the most in shape, I know that it can be rough and I\u2019m also a bit worried about sexual assault/things like that as a woman. Any tips or things I should know before would be very highly appreciated.",
+    "flair": "Should I Join?",
+    "score": 13,
+    "comment_count": 44,
+    "created_at": "2025-07-13T20:48:53+00:00",
+    "top_comments": [
+      {
+        "id": "n2yp3vr",
+        "score": 16,
+        "body": "If you have a bachelors, DEFINITELY commission instead of enlisting"
+      },
+      {
+        "id": "n2yy302",
+        "score": 5,
+        "body": "Enlisting means your start out towards the bottom as a basic laborer, doing the hands-on work of your job. Like imagine working in a car repair garage and starting out sorting tools and dumping oil, and steadily learning more skills to learn to fix a car.\n\nOfficer means coming directly in as a manager, like ar the same business being hired as Parts Manager, or HR Manager, or Accounts Manager. And before you say \u201coh, I should start at the bottom and work my way up\u201d, do note the majority of officers never served enlisted, and the system is set up to accommodate that.\n\nOfficers get paid a lot more, generally get a housing allowance to live off-base once they hit their first unit, get treated more like an adult, but have a lot more responsibly, and since there are well more applicants than slots it can be competitive.\n\nEnlisting is easy: if you\u2019re not outright disqualified, you\u2019re in. Less pay, your peers will be as young as 17, often just out of high school, and you\u2019ll have superiors your age with just an HS degree. Though if you enlist, with your undergrad done you\u2019ll come in E-3 in most branches and E-4 in the Army. Basically something like you\u2019re 18-24+ months ahead in rank compared to a teenager who joins, with commensurate higher salary and being closer to being promoted to a sergeant-equivalent."
+      },
+      {
+        "id": "n2yq4xt",
+        "score": 3,
+        "body": "Your officer options will be determined first by GPA.  Length of time and competitiveness depends on branch, but all are competitive.  If your GPA is a lot lower than a 3.4 you are going to have a much harder time commissioning, but not impossible (the Air Force hay set the GPA bar much higher).  Be prepared for a bit of a wait on getting in if you are going the officer route, I've heard the Army moves pretty quick, the Air Force is 1-2 years (and that 2 years is not an anomaly).  These times all assume you make it through your first board.  You can talk to officer recruiters now, and you should.\n\nEnlisted options have no GPA requirement, some services will give you an accelerated E-4, most will just give you E-3.  Job availability depends on how close the service is to filling their quotas.  The Air Force is the least likely to give you a specific job unless it's MX or SF.  The Army is more likely to give you a specific job.\n\nTalk to all the recruiters, don't lock into a service until you talk to them all, remember the Coast Guard and Space Force exist.  Some services like the Air Force and Space Force have separate recruiters for officers, some recruiters like the Army will do both.  Your job is to figure out what you can do and what you want to do, it isn't to make the recruiters happy."
+      },
+      {
+        "id": "n2yr53t",
+        "score": 3,
+        "body": "Hi, thanks for the indepth answer. I currently have a 3.8 cumulative GPA so that is good to know. What\u2019s the biggest difference between commissioning vs. enlisting, and is there any specific fields that are more geared towards females? Thanks!"
+      },
+      {
+        "id": "n2yu70e",
+        "score": 3,
+        "body": "Commissioning you\u2019ll become an Officer. You\u2019ll go to  BCT, OCS and then BOLC. So you\u2019ll be an O1 once you join and finish your training! You\u2019d promote soon after though and become an O2. You get better pay and you are in leadership roles pretty much all the time in some degree. You\u2019ll be able to live OFF post and get BAH (Housing allowance)\n\nEnlisting you\u2019ll ofc do BCT and then AIT. YOU would be an E4 immediately. You\u2019ll basically start from the bottom, do lots of details, have to live in the barracks and not get paid super well.\n\nEdit: I am talking about the Army and not any other branch. They all vary in school names and if you can come in as an E4 immediately or not."
+      },
+      {
+        "id": "n30rwmy",
+        "score": 2,
+        "body": "Go airforce PLEASE"
+      },
+      {
+        "id": "n8hvhct",
+        "score": 2,
+        "body": "Be careful the military ain\u2019t safe for woman"
+      },
+      {
+        "id": "nchbpfv",
+        "score": 2,
+        "body": "Can you tell me what your experience was? I\u2019m a woman thinking of joining."
+      },
+      {
+        "id": "n2ywgmk",
+        "score": 2,
+        "body": "I'll speak more to the Air Force than any other service since that is my area of familiarity.  21% of the Air Force is Female (24% for officers) and I've had many Female commanders and worked with lot's of female officers.  I have never seen or known of any SA within any of my units, but I'm not stupid enough to think it doesn't happen somewhere in the Air Force.  I would do your research, I've never been sexually assaulted (but I'm male).  I wouldn't have any issue with either of my daughters joining the Air Force though.\n\nThe most obvious thing for O vs E life is the money.  You get paid more as an O.  You also may have leadership responsibilities early on, and most definitely later on (unless your someone like me).  A lot of Air Force O careers like intel or cyber may have you much more hands on for your first few years before you start commanding, while others like security forces or maintenance will have you leading a dozen airman very early on.  Then there are just scientific, engineering, or acquisition careers where you may work entirely with civilian federal employees all day.\n\nE side is a bit different, you are expected to be hands on for most of your early career.  There is larger focus on technical skill, and less focus on leadership.  This slowly shifts as you move up your career.  Unlike O, where there are educational barriers to some jobs, almost all E jobs are available provided you meet the pre-requisite (ASVAB score), with some technical jobs requiring EDPT, and special warfare requiring whatever hoo-ya hoo-rah physical thing they want.\n\nOther services tend to push officers into leadership a lot earlier over all jobs (much to the chagrin of all the Army peeps that jumped to the Space Force).\n\nEDIT:  Intel and Cyber aren't bad places to go and has no real requirement on degree.  I'm partial to 15 A if you have a math background, I've heard good things about acquisitions (63A).  BTW, the Air Force calls our jobs or careers AFSCs, the Army/USMC MOS, and the Navy/Coast Guard Rates (at least for enlisted, not sure about officer)."
+      },
+      {
+        "id": "n2ywpus",
+        "score": 2,
+        "body": "3.8 is solid, but if you want to go officer, you want to start talking to recruiters *now* because it\u2019s like a 7-12+ month application process for most branches, more like 18-24 months for Air Force or Space Force. An officer recruiter can meet with you, answer questions and assess your eligibility, and importantly can let you know what additional things you can do to make yourself more competitive.\n\nNote most branches have separate *officer* recruiters, and for them there is zero utility to meeting with an enlistment recruiter to talk officer stuff. Exceptions are Army and Coast Guard, where the same office does both (which can give them a mixed incentive, they may encourage you to enlist instead because that\u2019s a much easier win for them, so keep that in mind)."
+      }
+    ]
+  },
+  {
+    "subreddit": "Militaryfaq",
+    "id": "1lo7bcv",
+    "title": "14 waivers waiting to be approved",
+    "body": "I need 14 Medical waivers to get into navy, me and my recruiter submitted them after meps. I am good in every other aspect of joining. I had tricare growing up because my dad was in the army and they can see everything. The CMO said he doesn\u2019t think it will hold anything up and I\u2019ll be a Navy Sailer soon. Any thoughts anyone with experience can share? The medical waivers consists of depression, anxiety, atopic dermatitis, mental disorder(ADHD ODD). One of them was also for Marijuana abuse and alcohol abuse, and suicidal thoughts/attempts. I kind you my mom was a bit of a hypochondriac and my dad was never home. So her way of handling things was taking me to a psychiatrist and the dr would disagnose me with unnecessary stuff. I was a teenager\u2026.\n\n\nUPDATE: I got denied, my recruiter said I can go through congress or wait until the navy is hurting for people. That\u2019s my best shot. Thanks for all the help ",
+    "flair": "Joining w/Med issue",
+    "score": 14,
+    "comment_count": 44,
+    "created_at": "2025-06-30T13:18:49+00:00",
+    "top_comments": [
+      {
+        "id": "n0ko5ti",
+        "score": 22,
+        "body": "Not gonna lie you might be fried but why not try"
+      },
+      {
+        "id": "n0ko869",
+        "score": 14,
+        "body": "Respectfully you're a recruiters worse nightmare. I don't think you'll get approved because that is a very long list of waivers, BUT if it does go through then good for you."
+      },
+      {
+        "id": "n0kqhva",
+        "score": 6,
+        "body": "I was army recruiter back \u201898-\u201801 in no va\nI would have passed on working with u.\nI might have helped if you were ernest, honest & had several leads each time I spoke with u. \nSome of those leads would have to turn into contracts."
+      },
+      {
+        "id": "n0lot44",
+        "score": 4,
+        "body": "14?"
+      },
+      {
+        "id": "n0m9peh",
+        "score": 4,
+        "body": "I must have gotten lucky my recruiter helped me fill out all of the waivers even down to how to properly word them. I got approved for the non psych stuff and he is sending to counselor to get clearance letter"
+      },
+      {
+        "id": "n19k6p8",
+        "score": 3,
+        "body": "I wouldn\u2019t worry about it in the slightest. I had the exact same list of waivers including an inpatient stay after a suicide attempt as well as a few other miscellaneous drug abuse waivers ie: Shrooms, whippets, weed. Obviously, I did not get the good security clearance for the super dope jobs but I am shipping out as an ABE on the 15th. Waivers took 2 days to go through. My recruiter had me preemptively see a Psych for an eval and I think that really helped the process. Good luck brother and let us know how it turns out. Best I can tell you is that if you are given the chance to rewrite your written statements after the psych eval, write the fucking shit out of them. My recruiter wanted me to use chat gpt and I said fuck that. My mental health waiver for my suicide attempt was 3 pages long. Took about 6 hours of steady writing to transcribe the other boatload. Call me nuts but considering this is the only voice you get to have in the matter, use the fuck out of it."
+      },
+      {
+        "id": "n0m965u",
+        "score": 3,
+        "body": "My recruiter just called me and said half of them were approved and the psych were not. He is sending me to a counselor to get a clearance letter for the psych part"
+      },
+      {
+        "id": "n1gikno",
+        "score": 3,
+        "body": "The recruiters I\u2019m working with told me the recruiters who do that are losers. These guy shoot for recruiter of the year. They helped a guy out for 17 months straight and he had a juvenile felony. They got him in. These guys don\u2019t bs. Any other recruiter not like them is bad at there job. That says a lot about your character though no offense"
+      },
+      {
+        "id": "n0mks2m",
+        "score": 3,
+        "body": "Keep us updated on what happens"
+      },
+      {
+        "id": "n0kmnyf",
+        "score": 2,
+        "body": "**DQ standard(s) (requires waiver(s))**:\n\nAnxiety/Depressive disorder if:\n\n(1) Outpatient care including counseling required for longer than 12 cumulative months;\n\n(2) Symptoms or treatment within the last 36 months;\n\n(3) The applicant required any inpatient treatment in a hospital or residential facility;\n\n(4) Any recurrence; or\n\n(5) Any suicidality\n***\nHistory of suicidality, including: suicide attempt(s), suicidal gesture(s), suicidal ideation with a plan, or any suicidal ideation within the previous 12 months.\n***\nHistory of atopic dermatitis or eczema requiring treatment other than over-the-counter hydrocortisone or moisturizer therapy in the previous 36 months or with active lesions or residual hyperpigmented or hypopigmented areas at the time of the entrance examination.\n***\nADHD, if with:\n\n(1) A recommended or prescribed IEP, 504 Plan, or work accommodations after the 14^th birthday;\n\n(2) A history of comorbid mental disorders;\n\n(3) Prescribed medication in the previous 24 months or;\n\n(4) Documentation of adverse academic, occupational, or work performance.\n***\nHistory of recurrent or chronic non-specific dermatitis within the previous 24 months, including contact (irritant or allergic) or dyshidrotic dermatitis requiring treatment other than over-the-counter medication.\n***\nThis sub cannot definitively tell you whether you're eligible. Waivers are decided on a case-by-case basis. Contact your local recruiter.\n\n^(I'm a bot and can't reply.) [^(Message the mods)](https://www.reddit.com/message/compose?to=/r/Militaryfaq&subject=MilFAQBot) ^(with questions/suggestions.)"
+      }
+    ]
+  },
+  {
+    "subreddit": "Militaryfaq",
+    "id": "1lnhvum",
+    "title": "Am i better off joining the army or navy",
+    "body": "I'm 24 i work at UPS making shit money weekly and I'm tired of it. My uncle is a Navy vet and my grandad served in WW2 in the Navy both are encouraging me to join the Navy but I really don't want to live on a boat and share small rooms with people i don't know. My cousin in a SGT is the Army and told me to join the Army due to more jobs and opportunities but the leadership and lifestyle is kinda trash I dont know which one would be the best option for me or too just embrace the suck as a civilian and get my CDL.. I could really use some help on making the right decision that could possibly impact the rest of my life. Thank you",
+    "flair": "Which Branch?",
+    "score": 14,
+    "comment_count": 60,
+    "created_at": "2025-06-29T15:47:39+00:00",
+    "top_comments": [
+      {
+        "id": "n0fax0z",
+        "score": 21,
+        "body": "[removed]"
+      },
+      {
+        "id": "n0fh628",
+        "score": 10,
+        "body": "For the Air Force, if you have an account in collections, you need to have worked out a payment plan with the collection agency. Additionally, the new fiscal year begins in October and so do the recruitment needs. Food for thought."
+      },
+      {
+        "id": "n0ft0bw",
+        "score": 9,
+        "body": "Ive heard from another post that you cannot outrightly choose or really wait for your preferred job to open in the AF, so thats something to think about compared to Army/Navy"
+      },
+      {
+        "id": "n0gs41v",
+        "score": 7,
+        "body": "It\u2019s a tough decision, but no matter what you\u2019ll end up sharing small living quarters with strangers. But those same strangers will become the people you talk about the most when you are no longer serving. \n\nI served in the Army, but don\u2019t let that stop you from checking out the Navy and talking to a Navy recruiter. Look at \u201cgoarmy.com\u201d and look at the job skills (MOS\u2019).\n\nGood luck."
+      },
+      {
+        "id": "n0fbk9w",
+        "score": 7,
+        "body": "Ive tried the AF but the lady told me that my credit isn't good enough I only have 1 thing in my collections though. She said they don't want to waste time doing waivers right now due to them already meeting their recruitment goals for the year already unfortunately,\u00a0 so it's only thin pickings for them"
+      },
+      {
+        "id": "n0ge7pr",
+        "score": 7,
+        "body": "No branches want anything in collections. Get it taken care of, doesn\u2019t need to be paid off just on a repayment plan."
+      },
+      {
+        "id": "n0fbu89",
+        "score": 6,
+        "body": "Always aim for the Air Force. Much better quality of life, while getting the same benefits as everyone else. \n\nBut with your atrocious grammar, I don\u2019t think you\u2019d even get in, but it\u2019s worth a try. \n\nI\u2019m in the Army, and it\u2019s the best thing I\u2019ve ever done in my life. Full stop. \n\nBut again, it\u2019s worth engaging with an Air Force recruiter. They\u2019re snobby and dismissive if you aren\u2019t impressive, but it\u2019s worth the shot."
+      },
+      {
+        "id": "n0gv133",
+        "score": 5,
+        "body": "Brother I\u2019m in the Airforce and my Grammer is bad. But I\u2019m maintenance so I guess that doesn\u2019t really matter to much lol"
+      },
+      {
+        "id": "n0hionr",
+        "score": 5,
+        "body": "No matter what branch you join there will always be \u201csomething\u201d. You got to balance it all out and challenging yourself outside of your comfort zone is part of growing up."
+      },
+      {
+        "id": "n0hlgnb",
+        "score": 5,
+        "body": "Just watch some YouTube videos and visit a pool nearby to practice. It\u2019s not that hard. Boot camp is designed for you to pass. If you practice and for some reason still fail the swim they will put you in remedial swim classes in a tiny pool and teach you. I wouldn\u2019t rely on that because it\u2019s still a higher stress environment than if you just went and practiced on your own. The swim is literally one day and it doesn\u2019t even take long it\u2019s really quick."
+      }
+    ]
+  },
+  {
+    "subreddit": "Militaryfaq",
+    "id": "1la0a15",
+    "title": "What is the reality of the 11Bravo mos that recruiters don\u2019t tell you?",
+    "body": "I was recently talking to a recruiter about 11 bravo and he was saying that it really isn\u2019t bad, and that\u2019s its days in the field to get prepared for anything. He says that it\u2019s not really something to worry about and that most people succeed, but I fell like he isn\u2019t telling the full truth. I was wondering if I could get a little more guidence on training and deployments for 11 Bravos if some people can help me please.",
+    "flair": "MOS/AFSC/Rate Specific",
+    "score": 13,
+    "comment_count": 10,
+    "created_at": "2025-06-12T22:46:06+00:00",
+    "top_comments": [
+      {
+        "id": "mxgv9l7",
+        "score": 20,
+        "body": "You're gonna clean the barracks, mow lawns, guard gates, and whatever other details need doing.\n\nWhen those things don't need doing you'll go to the field, go to the range, or go hide in your barracks and play Xbox. You're not at risk of failing the training if you don't quit.\n\nThere are no foreign deployments to go on right now. Try not to kill any Americans when you're deployed to whatever city doesn't get in line next.\n\nMaybe if you're lucky you'll do a rotation in Europe, if we still support our allies over there."
+      },
+      {
+        "id": "mxgvyy9",
+        "score": 10,
+        "body": "Boring as shit"
+      },
+      {
+        "id": "mxgwrtu",
+        "score": 9,
+        "body": "You can't fail training unless you're literally refusing to train. \n\nIts only hard if you don't care about fitness a little bit"
+      },
+      {
+        "id": "mxh0iik",
+        "score": 5,
+        "body": "When you aren\u2019t training it\u2019s boring as fuck"
+      },
+      {
+        "id": "mxhw806",
+        "score": 5,
+        "body": "Damn, this is accurate. And depressing."
+      },
+      {
+        "id": "mxi6n0y",
+        "score": 3,
+        "body": "Acronyms."
+      },
+      {
+        "id": "mxm6bt6",
+        "score": 3,
+        "body": "There's no war going on. Do something that will get you a good job when you get out. If not you're just cosplaying for 4 years"
+      },
+      {
+        "id": "mxqu94f",
+        "score": 3,
+        "body": "You'll wanna kys everyday"
+      },
+      {
+        "id": "mxgrq12",
+        "score": 1,
+        "body": "You probably haven't included a branch which may make answering difficult. Edit if needed (waiver/DQ questions *must* be edited), including component (AD/NG/Reserve).\n\n*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/Militaryfaq) if you have any questions or concerns.*"
+      },
+      {
+        "id": "mxhr9qg",
+        "score": 1,
+        "body": "Wow\u2026go 03 in the marines. You will be challenged and you won\u2019t be bored."
+      }
+    ]
+  },
+  {
+    "subreddit": "Militaryfaq",
+    "id": "1kx72b4",
+    "title": "is this not the dumbest thing i could do? continuing to join when i\u2019m unsure.",
+    "body": "Call me an idiot if need be, but I\u2019m about to join and I may be sort of in over my head here. This isn\u2019t a case of not knowing what branch or something\u2014 I\u2019m not sure if I want to be in the military at all. I\u2019m a 17f and thought this could be an idea to get my college paid for. I have no idea what I wanna pursue as a career (NOT A SINGLE CLUE), but just thought that if I ever do figure it out and it MAYBE was a bit costly, it would be very nice to not pay for it at all. There would be other reasons too (probably none that would justify such a decision) like toughing me up a bit or making me a bit smarter as I fear I lack a lot in those departments, but I could just get those in a regular 9-5. Back to the career part, I would like one that makes me very financially stable, but at the moment, none of the military jobs the national guard offers to teach, appeal to me very strongly. \n\nThe national guard seemed like a very good fit because its not like I\u2019m doing this for 4 years and doing intense work. I\u2019d only be doing one or two weeks at boot camp, then 2 days a month for 2-3 years. Even if I do end up not going to college or somehow regretting this, it still wouldn\u2019t be that big of a deal, right? ",
+    "flair": "Should I Join?",
+    "score": 14,
+    "comment_count": 18,
+    "created_at": "2025-05-28T03:29:29+00:00",
+    "top_comments": [
+      {
+        "id": "muna0zf",
+        "score": 13,
+        "body": "Alright there's a lot wrong here so let's just go top down.\n\n> Call me an idiot\n\nSelf deprication is not a healthy habit.\n\n> thought this could be an idea to get my college paid for\n\nIt's a GREAT route for college. And money. And healthcare. Etc.\n\n> i have no idea what i want to pursue as a career\n\nA 4 year contract exposes you to different lines of work, and gives you plenty of time to figure out what work you wanna go into or study for.\n\n> i would like one that makes me financially stable\n\nCan't get much more stable then a guaranteed paycheck, backed by big ol federal government, with insurance, food and housing.\n\n> none of the jobs the national guard offer are appealing\n\nDon't go NG then. Go active duty. Travel. Live. Get paid more then 200 dollars a month.\n\n> I'd only be doing two to three weeks at boot camp\n\nLmao no. You will do the full 10 weeks at basic, followed by your full AIT time. Just like the people who are active duty. Instead of working on that job you learned though, you only get to *maybe* do it once a month.\n\nHonestly, go talk to an active duty recruiter. Look into the branches and the bonuses, bases, and jobs they can offer you. Do more research."
+      },
+      {
+        "id": "mupj5cn",
+        "score": 4,
+        "body": "Active duty. \nGet tfu and go do something.\nFormer Army recruiter,  don\u2019t be so scared of the unknown. After u complete your training you are left to your devices for rest of day normally,,,Occasionally a training exercise or 24 hour duty will require more time. \nThere are many expatriates throughout the world that had tried a culture and couldn\u2019t wait to return.\n\nAlso you could get a job that you\u2019ve dreamed of or get experience in field that you\u2019re interested . \nPersonally I joined out of HS, aircraft mechanic. Completed FAA A&P before retired from Army @38yo, am now retired in Fl, living on that pension ($3kmonth).\ud83e\udd17"
+      },
+      {
+        "id": "muqawul",
+        "score": 2,
+        "body": "Research all the branches and try to reach out to people who served for their unbiased opinions (not just recruiters, lol). Also boot camp for the NG depending if you go Air or Army will either be 7? Weeks or 10 haha + Tech School/AIT which may be longer. \n\nBut don\u2019t sweat not knowing what to do, nobody knows what the hell is going on at 17."
+      },
+      {
+        "id": "mv69709",
+        "score": 2,
+        "body": "\n\nFew things:\n\n1. What comes natural to you? You should find out what you naturally excel at... - Think of group projects with friends... hobbies you have... things that you find easy that others in your circle seem to struggle with. - If you naturally excel at a certain task or ability, it's often worth pursuing a career in something that lines up with that... even if it's something you hate. If you excel at it... that alone will open up doors for opportunities that you do enjoy.\n2. Make sure you don't allow you passion for something cannibalize itself. - Often people lay out a career path that lines up perfectly with their hobbies. This isn't really a bad thing, but imagine you love working with computers (hardware and/or software) so you join the military to work on computer systems. You may be fine at first but imagine dealing with computer problems all day and lost that main interest you had outside of work.\n3. No matter where you go in life, know that the best version of you is far better than you acting like someone else. - If you don't embrace who you are (this does not mean avoid growth and maturity), it is likely that you will constantly seek acceptance from individuals and social circles that will use that weakness to take advantage of you. Simply joining the military will not improve your ability to critically think at a high level, but that is not something you need the military for. Tons of ways to improve yourself"
+      },
+      {
+        "id": "muqgd1f",
+        "score": 2,
+        "body": "nice to know that i'm not the only one. i posted this in the national guard subreddit and got more replies to this if you wanna check it out to help yourself. :)"
+      },
+      {
+        "id": "mvbew72",
+        "score": 2,
+        "body": "I feel the same way as both of you! I feel a little overwhelmed by all the options and as a 19f who has struggled in school I just want to see if it\u2019s the right path for me. Made me feel much better knowing I\u2019m not the only one who feels this way."
+      },
+      {
+        "id": "mupnm95",
+        "score": 1,
+        "body": "It\u2019s ok I\u2019m literally on the EXACT same boat"
+      },
+      {
+        "id": "mus191y",
+        "score": 1,
+        "body": "Just go active.  That 4 years will give you some direction a lot if benefits and a chance to be exposed to some new shit.  I' d recommend try to become an AD Air Force linguist."
+      },
+      {
+        "id": "muuxctb",
+        "score": 1,
+        "body": "Everyone is unsure about joining, well at least most people.\n\nThe the goals your describing active duty is what you should be looking at though. The national guard will pay for some school, give you some insurance, but it\u2019s NOT going to pay your bills."
+      },
+      {
+        "id": "muwfmk4",
+        "score": 1,
+        "body": "OP, go active duty. Study a lot for the ASVAB, get the best score you can. If you don't do as well as you want, take it again after some more studying. Take a little time to read about careers that are in demand, future trends, related military MOSs. Really, dig in and think about it. This can really set your life on a great course. Many of my Soldiers bought homes in their 20's. One guy is a young real estate mogul in Hawaii, another already owns three houses. \n\nGood luck, go do some great stuff with your life!"
+      }
+    ]
+  },
+  {
+    "subreddit": "Militaryfaq",
+    "id": "1piejf0",
+    "title": "Enlisting at 24 years old with degree Army.",
+    "body": "title says it. Going in April as a 12 Yankee (sort of intel related). Got degree, floated through college and have just been flailing about in shit sales jobs since I graduated. Want a real path towards higher education in something that can allow me to better myself. any advice for me? Specifically towards people who used the military to further their education and careers? how did you do this? Did it work out? What did you end up doing?",
+    "flair": null,
+    "score": 13,
+    "comment_count": 25,
+    "created_at": "2025-12-09T18:04:53+00:00",
+    "top_comments": [
+      {
+        "id": "nt5h376",
+        "score": 6,
+        "body": "I got my degree. Enlisted. Honestly there's a lot of people who enlist after college or later on in life. Honestly, do your time, get your benefits and if you want to stay in then stay in but after six years the Army felt like a waste of time so I got out and moved on with my life."
+      },
+      {
+        "id": "ntejxsy",
+        "score": 3,
+        "body": "I\u2019m literally in the same boat, i\u2019ll be 25 by april but I got a degree, floated and wanting to not end up sales lol. I\u2019m going in as a 17C."
+      },
+      {
+        "id": "nt5hnz6",
+        "score": 3,
+        "body": "What do you do now?"
+      },
+      {
+        "id": "nt5jnsw",
+        "score": 3,
+        "body": "I work in Law"
+      },
+      {
+        "id": "nt7yri1",
+        "score": 3,
+        "body": "I got a degree in Political Science. Enlisted at 24 and became an Airborne Combat Medic. I don't regret serving but it wasn't a positive experience either. It's like you're always chasing your tail training for the next big war that never happens so I was like this is dumb and pointless. I did an additional 4yrs in the Navy reserves but I got to busy with my real job."
+      },
+      {
+        "id": "nt5jzyp",
+        "score": 2,
+        "body": "thanks for replying. I assume you took all the advantages you earned and used them to assist you in your new vocation. That\u2019s what I aim to do."
+      },
+      {
+        "id": "nthajts",
+        "score": 2,
+        "body": "Thanks for the input. Is this what you did?"
+      },
+      {
+        "id": "ntenzxk",
+        "score": 2,
+        "body": "I just graduated this year, had 2 sales internships. Honestly hated them and now those are the only types of recruiters that reach out/jobs I\u2019m getting actual interviews for. I wanna join for 17C to get Cybersecurity experience and the ability to get a masters paid for."
+      },
+      {
+        "id": "nteo7ds",
+        "score": 2,
+        "body": "not bad. You can make good money in sales. I just hate it."
+      },
+      {
+        "id": "nteoao5",
+        "score": 2,
+        "body": "Seems like we both hate the profession \ud83d\ude02"
+      }
+    ]
+  },
+  {
+    "subreddit": "Militaryfaq",
+    "id": "1rl46w5",
+    "title": "considering dropping out of college to go active duty",
+    "body": "I am currently in my first year of college and am seriously considering dropping out to go active duty Navy. College is really not what I thought it was, and I'm struggling to keep up with some of my classes. I don't have a declared major yet, but originally, I wanted to go down the premed path, but I've come to realize that it's not something that I want to do anymore.\n\n  \nAt this point, I would like to take a leave of absence or withdraw from college to go active duty as a HM in the Navy because I really don't know where I'm going with college. Plus the pace of the Navy is something I think I would like to do full time. The policy at my college does state that a leave of absence can be extended as long as needed to fulfill military obligations. Would I be making a mistake dropping out of college to go active duty?",
+    "flair": "Enlisting",
+    "score": 4,
+    "comment_count": 17,
+    "created_at": "2026-03-05T01:33:52+00:00",
+    "top_comments": [
+      {
+        "id": "o8phr58",
+        "score": 1,
+        "body": "Finish college and go in as an officer "
+      },
+      {
+        "id": "o8pdaqe",
+        "score": 1,
+        "body": "I think you should totally go the rotc route and do nursing. "
+      },
+      {
+        "id": "o8psckq",
+        "score": 1,
+        "body": "ROTC is made for you."
+      },
+      {
+        "id": "o8qcpd6",
+        "score": 1,
+        "body": "Don\u2019t make a last-minute decision, get more information to be fully informed. Visit a Navy recruiter for their input and visit their website at [www.navy.com](http://www.navy.com) for a list of enlisted specialties."
+      },
+      {
+        "id": "o8pk0i9",
+        "score": 1,
+        "body": "What does your gpa look like? Are you still going to class and passing?\u00a0"
+      },
+      {
+        "id": "o8texan",
+        "score": 1,
+        "body": "If you are struggling with current classes, do not take the ROTC recommendation. It will add more workload and you will struggle more. If you can get a handle on coursework and find a major you find passion/interest in, then ROTC can be a feasible option. \nOtherwise you can always consider college later on in life if you do plan on going active Navy. "
+      },
+      {
+        "id": "o8pbk36",
+        "score": 1,
+        "body": "**Jobs mentioned in your post**\n\nNavy ratings: [HM (Hospital Corpsman)](https://www.navy.com/careers-benefits/careers/medical/hospital-corpsman)\n\n^(I'm a bot and can't reply.) [^(Message the mods)](https://www.reddit.com/message/compose?to=/r/Militaryfaq&subject=MilFAQBot) ^(with questions/suggestions.)"
+      },
+      {
+        "id": "o8pyarz",
+        "score": 1,
+        "body": "I\u2019d personally do ROTC and join as an officer. As an enlisted peasant of 13 years, I can say I\u2019d rather get paid more for the same suffering. (They do get more of a different stress, though)"
+      },
+      {
+        "id": "o8q5sm1",
+        "score": 1,
+        "body": "I am an enlisted in the navy. It\u2019s ass. I\u2019d rather be an officer than an enlisted. Officers get paid appropriately. My first  year I got 700 paychecks and then 850 the second\n"
+      },
+      {
+        "id": "o8sce4b",
+        "score": 1,
+        "body": "Honestly, if you can hang in there - join the National Guard, and ROTC while in college.  Then when you graduate, you can commission as an officer.  Otherwise, you can certainly just join the military straight away, but you will be starting at the bottom."
+      }
+    ]
+  },
+  {
+    "subreddit": "Militaryfaq",
+    "id": "1rkt3mj",
+    "title": "Does anyone train mma while active duty army?",
+    "body": "I\u2019m joining up as a 25h.  I really want to keep training mma while active duty.  Hopefully 1-2x per week and once on the weekend.  Is this realistic, or will I be too busy for this?  ",
+    "flair": "MOS/AFSC/Rate Specific",
+    "score": 2,
+    "comment_count": 15,
+    "created_at": "2026-03-04T18:20:31+00:00",
+    "top_comments": [
+      {
+        "id": "o8mybk1",
+        "score": 1,
+        "body": "After work? Sure. As long as it\u2019s not during duty hours. If you get injured though (like a serious injury), I\u2019d expect them to tell you to discontinue it."
+      },
+      {
+        "id": "o8mxd7q",
+        "score": 1,
+        "body": "**Jobs mentioned in your post**\n\nArmy MOS: [25H (Network Communication Systems Specialist)](https://www.goarmy.com/careers-and-jobs/signal-intelligence/languages-code/25h-network-communication-systems-specialist)\n\n^(I'm a bot and can't reply.) [^(Message the mods)](https://www.reddit.com/message/compose?to=/r/Militaryfaq&subject=MilFAQBot) ^(with questions/suggestions.)"
+      },
+      {
+        "id": "o8n58wk",
+        "score": 1,
+        "body": "Does the Army not have a martial arts program similar to the Marines MCMAP? For some reason I was thinking they did. I understand it's not MMA but it's a martial arts program that would help you train."
+      },
+      {
+        "id": "o8nmeii",
+        "score": 1,
+        "body": "After you finish the initial entry training and get settled into your duty station, you should have the time and ability to find a local place to train.\n\nWhen I was a company commander, I had a soldier doing MMA local matches and it was fine until we got notified of an upcoming deployment. I made him stop because the risk of injury was too high before deployment. Once we got back, he was free to continue."
+      },
+      {
+        "id": "o8plwxa",
+        "score": 1,
+        "body": "I heard and seen on social media 101st has a decent following for combative. To bad you weren't offered opt 19 because Campbell pops up pretty often."
+      },
+      {
+        "id": "o8na6oy",
+        "score": 1,
+        "body": "MACP, but it's not as widely practiced as Marines do. "
+      },
+      {
+        "id": "o8nb4cm",
+        "score": 1,
+        "body": "I just like having an mma gym as a third place for socializing and meeting new people. \u00a0It\u2019s a big part of my civilian life. \u00a0Obviously i would have to be stationed in a place near a city"
+      },
+      {
+        "id": "o8nbac5",
+        "score": 1,
+        "body": "Oh ok I thought the army had something like that, I'm sure that's what I was thinking of. Is MACP not a requirement for all soldiers or is it not something that has times daily where you can show up with a group of guys and workout? I'm sure it would have to be after work hours from the way it sounds. \n I'm out of the Corps now but I'm kinda interested in MACP, does it have levels or belts like MCMAP?"
+      },
+      {
+        "id": "o8nueh9",
+        "score": 1,
+        "body": "It is pretty widely practiced, pretty much every installation has a fight house. It\u2019s just not advertised so people don\u2019t even know it exists.\n\nI spent a huge portion of 20\u2019s hanging around them. It\u2019s crazy competitive though so most don\u2019t stick around."
+      },
+      {
+        "id": "o8nbpfb",
+        "score": 1,
+        "body": "It's not like Marines where everyone gets trained and certified. Combat arms a decent number will. Otherwise it's rare. \n\n>does it have levels or belts like MCMAP?\n\nThere used to be four levels, then three, now I think there's only two. "
+      }
+    ]
+  },
+  {
+    "subreddit": "Militaryfaq",
+    "id": "1rkbs8m",
+    "title": "Marine Corps DEP Discharge Not Showing Up, Now Recruiter Is Ignoring Me",
+    "body": "I was in the Marine Corps Reserve DEP and decided I wanted to switch to the Air National Guard because of the better benefits.\n\nI texted my Marine recruiter about getting a DEP discharge and they told me to come in, sign something, and drop off a shirt they gave me. I went in on February 6th, dropped off the shirt, and in person they told me I did not need to sign anything after all, so I left.\n\nFast forward to last week, I went to the Air National Guard and got my enlistment contract. They said they could not find anything showing I was discharged from the Marines DEP. I reached out to my old recruiter yesterday asking for a copy of my DEP discharge, and now they are ignoring me.\n\nWhat should I do in this situation? Has anyone dealt with something like this before?",
+    "flair": "Enlisting",
+    "score": 10,
+    "comment_count": 15,
+    "created_at": "2026-03-04T04:23:43+00:00",
+    "top_comments": [
+      {
+        "id": "o8kz4dk",
+        "score": 4,
+        "body": "The issue you're not understanding is when you join the Reserve or NG, you immediately become a member of the military the day you signed your contract. So now you need to be completely discharged from the Marine Reserve, which can take months to process. "
+      },
+      {
+        "id": "o8jj6pb",
+        "score": 3,
+        "body": "Sadly it is a thing, they own his social / SPF. It's kind of a pain in the ass. Especially for the reserves."
+      },
+      {
+        "id": "o8jn5ck",
+        "score": 3,
+        "body": "I mean yes, but if he doesn't ship and such they're just going to have to discharge him. The reality of it is they're just going to keep him for the 365 and then let him go."
+      },
+      {
+        "id": "o8jia8v",
+        "score": 2,
+        "body": "Being that the DEP is for all branches and you actually never was in the Corps, I'm not sure that a DEP discharge is an actual thing. You just changed branches before you ever actually shipped out for any branch. It's just my opinion but I've never heard of a DEP discharge."
+      },
+      {
+        "id": "o8jkn5d",
+        "score": 2,
+        "body": "But doesn\u2019t Reserve not even technically have a DEP, he\u2019s technically obligated to his local Marine unit?"
+      },
+      {
+        "id": "o8lxn83",
+        "score": 2,
+        "body": "But it\u2019d be a discharge from the Reserves for OP, not a \u201cDEP discharge,\u201d right?"
+      },
+      {
+        "id": "o8jj0p5",
+        "score": 1,
+        "body": "It's really annoying, especially as reserve. See if your Air National Guard command can do anything about it. They can hold you for up to 365 days and the Marines seem to be the ones that usually stick to that.\n\nBest of luck \ud83e\udd1e"
+      },
+      {
+        "id": "o8mfijm",
+        "score": 1,
+        "body": "Go into his office ? And ask in person."
+      },
+      {
+        "id": "o8met3c",
+        "score": 1,
+        "body": "Oh wow things have changed for sure. I joined back in 1994 and if I'm not mistaken you were not part of the fleet Marine Corps or the Marine Reserves until bootcamp graduation. If anything happened in the DEP it was just a quick clerical fix. I went too MEPS with the army and got a ship date, but during my time in the DEP I had a change of heart and decided to become a Marine. I talked to my Marine recruiter and told him about the army and already having a ship date and he just told me don't worry about it I gotcha taken care of. That was the last I ever heard about it. I went back to MEPS with the Marines, joined up and the rest is history. That was long ago though and I understand things change all the time within the DOD in general."
+      },
+      {
+        "id": "o8qg63q",
+        "score": 1,
+        "body": "I told my Air National Guard recruiter about the situation, and she said she would reach out to my Marine recruiter and the station commander to get the information. She later told me she contacted them and that they said they would send something over to her. "
+      }
+    ]
+  },
+  {
+    "subreddit": "Militaryfaq",
+    "id": "1rk83kv",
+    "title": "Testing Positive for THC at MEPS",
+    "body": "If you test positive for THC, do you have to do the whole process over again or just the drug test? Do they give you the results the same day or a few days later? ",
+    "flair": "Enlisting",
+    "score": 0,
+    "comment_count": 13,
+    "created_at": "2026-03-04T01:32:37+00:00",
+    "top_comments": [
+      {
+        "id": "o8iqzy2",
+        "score": 11,
+        "body": "You go to MEPS 90 days later and redo the drug test. If you fail the second drug test you\u2019re permanently disqualified"
+      },
+      {
+        "id": "o8ir9gv",
+        "score": 8,
+        "body": "Or just don\u2019t go if yk ya gone test positive \ud83d\ude2ddon\u2019t eeen risk it fr just wait it out "
+      },
+      {
+        "id": "o8j42zn",
+        "score": 5,
+        "body": "If you think you may pop then just dont even go "
+      },
+      {
+        "id": "o8mtz5v",
+        "score": 4,
+        "body": "Your recruiter does not want you to piss hot. Literally just tell your recruiter that you think you won't pass and they'll do whatever they can to delay your processing. There's a reason that recruiters ask you like 400 times if you think you'll pass. Failing the piss test at MEPS is one of the dumbest and most preventable disqualifications you could get hit with."
+      },
+      {
+        "id": "o8io8od",
+        "score": 4,
+        "body": "From what I was told if you pop for anything at meps then you're disqualified forever. Not sure if things have changed since 2018 or especially since the Iranians have been acting up again lately"
+      },
+      {
+        "id": "o8ir8e0",
+        "score": 3,
+        "body": "Positive results will take about a week to come back. You are disqualified for 90 days depending on the branch. You will only have to redo the drug test and for the Army will require a waiver."
+      },
+      {
+        "id": "o8m9xjv",
+        "score": 3,
+        "body": "lol stop risking  your future over weed. Smoke your smoke once you\u2019re out."
+      },
+      {
+        "id": "o8megv0",
+        "score": 3,
+        "body": "Don\u2019t go if you\u2019re going to piss hot. "
+      },
+      {
+        "id": "o8lp0h2",
+        "score": 2,
+        "body": "It's been two DAT failures for quite awhile."
+      },
+      {
+        "id": "o8lw236",
+        "score": 2,
+        "body": "Dang. I always got told all it takes is once. That's why recruiters are super adamant about making sure you're clean. I got tested each time before I went to meps "
+      }
+    ]
+  },
+  {
+    "subreddit": "Militaryfaq",
+    "id": "1rjcdu8",
+    "title": "Want to Join ASAP After SSRI Use",
+    "body": "I had SSRI's prescribed from 24NOV2025 to 02FEB2026 for diagnosed MDD. However, my Nurse Practitioner listed it as fully situational. When I went in on 02FEB I told my NP that everything was going way better now and that I wanted to officially end my prescription. She agreed and deemed everything to be in full remission. \n\nIn the time before I had the SSRI I also had a suicidal ideation incident, but I was never medically diagnosed with anything relating to that. This incident was due to a combination of a suicide of a family member and a complex hand fracture I was still healing from (doesn't affect me anymore).\n\nAnyway, I am a Junior in college and I want to commission upon my graduation via OCS/OTS. How do I best move forward to try to get my required waivers? What type of documents will I need to gather to move this process along and prove to a doctor who will never see me, only read my file, that I am better?\n\nIf I am honest, I will have to get waivers for Suicidal Ideation and Major Depressive Disorder. Possibly my hand injury too?\n\nLast thing, how does MEPS work and what do I need to know before going?\n\nI have been talking to a Navy officer recruiter the last couple of days, but wanted to get opinions from the masses.\n\n",
+    "flair": "Joining w/Med issue",
+    "score": 3,
+    "comment_count": 23,
+    "created_at": "2026-03-03T01:53:58+00:00",
+    "top_comments": [
+      {
+        "id": "o8cmisr",
+        "score": 4,
+        "body": "And plenty of people do all of those things, never get on SSRIs, and don\u2019t have suicidal ideation or MDD. You\u2019re competing against those people for a OTS spot and with your history you are not competitive nor eligible. If you couldn\u2019t handle life with 4 days of ROTC why would MEPS think you can handle being an officer 24/7?\n\nThe military will do their own psych consult. The standard is the standard. Your case isn\u2019t special or  compelling and you\u2019ll need more time off meds regardless of what a civilian provider says. Full stop."
+      },
+      {
+        "id": "o8coh48",
+        "score": 3,
+        "body": "It depends on the branch. I was off of SSRIs for 18 months and had a favorable psych eval and the Air Force just denied me saying I need 36 months. "
+      },
+      {
+        "id": "o8civv5",
+        "score": 3,
+        "body": "The military has a vested interest in making sure the officers they are commissioning to lead enlisted aren\u2019t so stressed out by civilian life (which is inherently easier than military life) that they have suicidal ideation or need SSRIs, no matter how briefly.\n\nIt might suck for you but seems like you may need additional time to learn resiliency if you have extreme overreactions serious enough to require medical interventions."
+      },
+      {
+        "id": "o8ce0x1",
+        "score": 2,
+        "body": "You are not going to commission upon graduation with SSRI use less than 30 days ago. You can\u2019t even start the process with less than a year of stability off of them. Navy is most lenient and I\u2019d still highly doubt they want to commission someone with use that recent and suicidal ideation and a head injury as well. \n\nYour recruiter will be your best resource, not a subreddit. He or she will likely come back and say you need more time and stability before going through the process."
+      },
+      {
+        "id": "o8eefvy",
+        "score": 2,
+        "body": "Feeling bad for yourself isn\u2019t going to help your situation either."
+      },
+      {
+        "id": "o8c6k5o",
+        "score": 1,
+        "body": "**DQ standard(s) (requires waiver(s))**:\n\nAnxiety/Depressive disorder if:\n\n(1) Outpatient care including counseling required for longer than 12 cumulative months;\n\n(2) Symptoms or treatment within the last 36 months;\n\n(3) The applicant required any inpatient treatment in a hospital or residential facility;\n\n(4) Any recurrence; or\n\n(5) Any suicidality\n***\nHistory of suicidality, including: suicide attempt(s), suicidal gesture(s), suicidal ideation with a plan, or any suicidal ideation within the previous 12 months.\n***\nThis sub cannot definitively tell you whether you're eligible. Waivers are decided on a case-by-case basis. Contact your local recruiter.\n***\n***\n**Jobs mentioned in your post**\n\nArmy MOS: [66P (Family Nurse Practitioner)](https://www.goarmy.com/careers-and-jobs/science-medicine/general-care/66p-family-nurse-practitioner.html)\n\n^(I'm a bot and can't reply.) [^(Message the mods)](https://www.reddit.com/message/compose?to=/r/Militaryfaq&subject=MilFAQBot) ^(with questions/suggestions.)"
+      },
+      {
+        "id": "o8cleie",
+        "score": 1,
+        "body": "Regardless of how acute the likelihood of a waiver right off the meds is just about impossible"
+      },
+      {
+        "id": "o8cyhcm",
+        "score": 1,
+        "body": "Enlisted won\u2019t even get the chance until up to 2yrs off of meds and since the incident, at least from my experience. I can\u2019t even imagine going as officer definitely not lenient."
+      },
+      {
+        "id": "o8eidnv",
+        "score": 1,
+        "body": "When was the SI incident and what exactly occurred? A waiver could be possible in a year for the medication, depending on the circumstances. However, the SI could impact that. "
+      },
+      {
+        "id": "o8coy77",
+        "score": 1,
+        "body": "I am just trying to find a branch that will let me commission in \\~16 months. If Air Force won't take me I will just find someone else."
+      }
+    ]
+  },
+  {
+    "subreddit": "Militaryfaq",
+    "id": "1rjc2qz",
+    "title": "Thinking about dropping ROTC and going Enlisted",
+    "body": "I\u2019m currently an MS1 in Army rotc and I\u2019m thinking about going the enlisted route instead of Officer. I\u2019ve found myself not really enjoying rotc and as ive been doing my research on what officers actually do, I\u2019m not too thrilled to be going that route. I know everyone says that going officer is the smarter option for both money and quality of life but I\u2019m wanting to do the military to make friends and experience something new, I\u2019m not necessarily trying to build a career. Plus I have to travel far distances in order to do rotc and I would like it if I could go to a school that\u2019s near me while maybe doing the reserves to pay for school. Idk, if anyone has anything to say about my situation, advice or not, I\u2019d be happy to hear it .",
+    "flair": "Enlisting",
+    "score": 6,
+    "comment_count": 4,
+    "created_at": "2026-03-03T01:40:14+00:00",
+    "top_comments": [
+      {
+        "id": "o8csapj",
+        "score": 1,
+        "body": "If you're thinking seriously about reserves/guard, ask yourself what you want your relationship with the military to be after you graduate from college. \n\nAre you ok going on extended training and deployments, *in the context of your career*? \n\nYou may not want to make the military a career, but the reserves/guard absolutely will interfere with many career paths. \n\nThis is not to be a doomer, some careers mesh much better than others with reserves.  But you need to be thoughtful so that you don't inadvertently box yourself out of the career progress you do want.\n\nThe other gut check I'd do is ask why you don't like rotc:\n\n1) some answers to this may suggest the military is not a good fit, in general; \n\n2) and on the completely opposite side, training is not reality and I'd make sure not to over index on short term suck"
+      },
+      {
+        "id": "o8dvsqg",
+        "score": 1,
+        "body": "I am enlisted and would recommend staying in ROTC"
+      },
+      {
+        "id": "o8f7lyr",
+        "score": 1,
+        "body": "I'm Enlisted and never want to do what Officers do. I have met to many Officers that did it for the \"Better Pay\", and not so much for the responsibility. Those people make the worse Officers. \n\nEnlisted- you work harder, you do you job, get promoted based off YOUR performance, honestly you have better relationships.\n\nOfficer- you stand off to the side, give orders, work in an office, plan, plan, plan again, sit in meetings, sit in more meetings, get told your plan sucks, but hey, at least your pay is good.\n\n  \nOne of my good friends was an Officer, got out before picking up CPT, came back in as an E5/ Sergeant. He was more of a hands on worker and Leader. He went to Ranger & Sapper School. Has been in SF for the last 7 years. Doesnt regret his decision. \n\n  \nEnlisted isn't for everyone, neither is Officer, but just depends on what you want to do. \n\n  \nAnd, if you decide after enlisting you want to commission, you can do the Green to Gold Program as long as you have a AA and 3.8 GPA. the Army will pay for your BA at a college, in return you give service as an Officer. Prior enlisted Officers make great ones IMO."
+      }
+    ]
+  },
+  {
+    "subreddit": "Militaryfaq",
+    "id": "1rj4gad",
+    "title": "Dq from arng for \u201cheart problems\u201d",
+    "body": "My recruiter informed me I was disqualified after my medical consult for my heart. For context I\u2019m 18 years old, I\u2019ve played football all my life, and have never been told anything in the past about having heart problems other than white coat syndrome. I told them I had recorded my bp at home for two weeks before my consult visit and it was normal. They said it is more serious but won\u2019t tell me exactly what is wrong with me. I asked my recruiter if he could figure out and he said he had no clue how to go about that. I wish this were easier than a heart problem but what can I do? I\u2019m so disappointed but I\u2019m not giving up, yet at least.\n\nUPDATE:\n\nSo my recruiter got the information regarding my consult. My ekg/echocardiogram showed no abnormalities, normal sinus rhythm with 73bpm, but my bp was high when they checked before and after my exam. They said that my heart may be affected with \u201cstrenuous military activity.\u201d I plan to get a second opinion from my doctor.",
+    "flair": "Joining w/Med issue",
+    "score": 5,
+    "comment_count": 15,
+    "created_at": "2026-03-02T20:37:43+00:00",
+    "top_comments": [
+      {
+        "id": "o8ayp8g",
+        "score": 3,
+        "body": "Your recruiter can see the consults results"
+      },
+      {
+        "id": "o8cuyvp",
+        "score": 3,
+        "body": "Yeah he had to talk to a counselor or something like that from meps, he said he\u2019ll let me know by tomorrow. Hopefully I can get this bs over with and actually join."
+      },
+      {
+        "id": "o8b0m8e",
+        "score": 2,
+        "body": "Okay I can speak from experience because I was recently discharged from the Missouri ARNG for the same thing but pertaining to white coat syndrome thanks to a Annual Medical Retention/Readiness Exam. I have white coat syndrome but MEPS and Big Army as well as the NGB thought that I would die even though I had a waiver for that anyway. I never even got a chance to go to Basic because of liability possibilities thanks to a over reaction from Big Army after two people had died in basic. I signed on the dotted line and volunteered to serve my country, not be a exercise in how to handle nonsense for them. If you want to try again wait the 6 months and get clear and concise documentation from your doctor that shows what is truly the problem, even go as far if you can to get a ELG and maybe a ultrasound of your heart. If you wanna try another branch, do as prescribed above and submit it for a waiver through whatever branch you go to. I say this as someone who has tried since I was 18 and I didn't take the Oath of Enlistment until I was 36 because I was finally successful. Don't let this discourage you if you truly want to serve!"
+      },
+      {
+        "id": "o8cusc6",
+        "score": 2,
+        "body": "Thank you for the advice, I\u2019m honestly so lost now. I definitely put all my eggs in one basket with this one and don\u2019t know what to do if I can\u2019t join."
+      },
+      {
+        "id": "o8ct62q",
+        "score": 2,
+        "body": "they told me that my ekg looked fine, but they didn\u2019t tell me how my echocardiogram went."
+      },
+      {
+        "id": "o8hqoy1",
+        "score": 2,
+        "body": "Definitely if this doesn\u2019t work out I\u2019ll try another branch"
+      },
+      {
+        "id": "o8b9s8o",
+        "score": 1,
+        "body": "What did the consult say "
+      },
+      {
+        "id": "o8h7lps",
+        "score": 1,
+        "body": "Maybe try the Navy or AF? I hope it works out for you. "
+      },
+      {
+        "id": "o8cv7sv",
+        "score": 1,
+        "body": "I get it brother, and it's going to be okay. Just keep your head up and take your time if you need to! What's important is that you don't stress yourself out too much. You got this, I believe in you and I know that if you keep trying it will work out for you. Just don't get discouraged or give up!"
+      },
+      {
+        "id": "o8i25sz",
+        "score": 1,
+        "body": "I\u2019m assuming that went bad then "
+      }
+    ]
+  },
+  {
+    "subreddit": "Militaryfaq",
+    "id": "1rj2hpy",
+    "title": "Black women experience in the army ( especially those in medical roles)",
+    "body": "Hello , I was recently dq\u2019d from the Air Force for asthma (I passed the pft just didn\u2019t get in. I\u2019m considering other branches now . As far as as the army goes I wounded what he quality of life is like.  Hows your work life balance especially as 68p and 68c . Do you feel unsafe ? Overall how would you rate it .  Also bonus question does anyone have experience joining the marine corps with asthma ( the time period would have been 3 years ago) thank  you",
+    "flair": "Branch-Specific",
+    "score": 3,
+    "comment_count": 9,
+    "created_at": "2026-03-02T19:26:43+00:00",
+    "top_comments": [
+      {
+        "id": "o8bj9ai",
+        "score": 4,
+        "body": "I am a Black woman, my mother is Puerto Rican but is mistaken for an indigenous or mixed race woman outside of areas where Taino features in the Army. She was medical, 68W, OR tech, ended as a LPN then RN. I was not medical but was also in the Army. She made 6 figures towards the middle of her civilian career thanks to the training and experience she had in the Army. She\u2019s now retired, happy, and doing well.\n\nThe Army has the highest concentration of Black women out of all of the services. You will have peers and some leadership that will look like you, especially in a medical MOS which generally have more women there. I rarely felt unsafe, I was in more sketchy situations in college than I was at my unit. I was treated respectfully in general and was no more micro aggressed than I would\u2019ve been in the civilian world. \n\nThe adage of working twice as hard to be perceived as half as good will follow you everywhere, but if you\u2019re good at PT and at your job you will generally be respected and seen as competent. If you ruin that reputation, it will follow you until your PCS or ETS.\n\nI\u2019m thankful I was in a service where I had BW friends and leaders with my best interests at heart who wanted the best for me and still was exposed to a wide range of cultures and backgrounds."
+      },
+      {
+        "id": "o8bkkyv",
+        "score": 3,
+        "body": "Thank you for your sharing and best wishes to you and yours"
+      },
+      {
+        "id": "o8a4zrn",
+        "score": 1,
+        "body": "**DQ standard(s) (requires waiver(s))**:\n\nHistory of airway hyper responsiveness including asthma, reactive airway disease, exercise-induced bronchospasm or asthmatic bronchitis, after the 13^th birthday.\n\n(1) Symptoms suggestive of airway hyper responsiveness include but are not limited to cough, wheeze, chest tightness, dyspnea or functional exercise limitations after the 13^th birthday.\n\n(2) History of prescription or use of medication (including but not limited to inhaled or oral corticosteroids, leukotriene receptor antagonists, or any beta agonists) for airway hyper responsiveness after the 13^th birthday.\n***\nThis sub cannot definitively tell you whether you're eligible. Waivers are decided on a case-by-case basis. Contact your local recruiter.\n***\n***\n**Jobs mentioned in your post**\n\nArmy MOS: [68C (Practical Nursing Specialist)](https://www.goarmy.com/careers-and-jobs/science-medicine/general-care/68c-practical-nursing-specialist.html), [68P (Radiology Specialist)](https://www.goarmy.com/careers-and-jobs/science-medicine/general-care/68p-radiology-specialist.html)\n\n^(I'm a bot and can't reply.) [^(Message the mods)](https://www.reddit.com/message/compose?to=/r/Militaryfaq&subject=MilFAQBot) ^(with questions/suggestions.)"
+      },
+      {
+        "id": "o8albc7",
+        "score": 1,
+        "body": "I cannot speak as a black woman and safety, but I am a female 68P and can speak to the work life balance. A lot of it will depend on the unit you end up in. 68Ps can end up in a Role 2 field hospital, a Role 3 field hospital, or a hospital. You do not get to choose where you go for your first assignment and will be there for 4.5 years roughly (initial contract for active duty 68p is 6 years due to training length).\n\nHospitals tend to be best in terms of work/life balance. You work a set schedule in a radiology clinic, PT on your own or by department, and few opportunities for deployments and TDY (but can be hospital dependent). If you get your registry, you may cross train into other modalities.\n\nRole 3 hospitals tend to have more rotations overseas and TDY in my experience. Almost everyone in the unit will be some sort of medical. You will go to the field and do CTC rotations. You will have a section of radiology that usually has a handful of papas.\n\nRole 2 is much more traditional Army. You are part of a sole  medical company surrounded by other support companies. Your job is more mobile, expect to do plenty of field time. You will shoot X-rays in the field. There will only be 1-2 x-ray techs there."
+      },
+      {
+        "id": "o8coehj",
+        "score": 1,
+        "body": "The PFT did it include methacholine challenge? When was  last inhaler prescription filled? Did they say why waiver was denied? Army & Navy are best chances for approval."
+      },
+      {
+        "id": "o8bkfd2",
+        "score": 1,
+        "body": "Thank you for your insight you\u2019ve been very helpful"
+      },
+      {
+        "id": "o8ev3nb",
+        "score": 1,
+        "body": "Not it did not include a methocoline challenge"
+      },
+      {
+        "id": "o8ev6g6",
+        "score": 1,
+        "body": "Last prescription would be 9/20/23"
+      },
+      {
+        "id": "o8fd1la",
+        "score": 1,
+        "body": "That\u2019s why it probably got disapproved. For Army that\u2019s the PFT they want to see with pharmacy records and an applicant statement detailing your physical ability. We could get it approved."
+      }
+    ]
+  },
+  {
+    "subreddit": "Militaryfaq",
+    "id": "1rir9dn",
+    "title": "Is army military intelligence a good job?",
+    "body": "So a little background I\u2019m 17 a senior in highschool and I took the asvab through my highschool and a few weeks later had a recruiter with the army approach me and talk to me about military intelligence never mentioned a specific mos but he said based on my scores I\u2019d be good at it which I got a 77 which I think is good? I was already planning on joining the military but wanting to do infantry but everyone I\u2019ve talked to has told me it\u2019s stupid or it\u2019d be a waste of my potential. But is military intelligence through the army a good alternative? I\u2019m completely clueless and have many questions about everything and I don\u2019t really wanna go talk to the recruiter again yet cause I can\u2019t pass a drug test for probably around 3 months so I could use some advice on how to proceed and maybe some insight on what military intelligence might be like ",
+    "flair": "Should I Join?",
+    "score": 3,
+    "comment_count": 12,
+    "created_at": "2026-03-02T12:15:53+00:00",
+    "top_comments": [
+      {
+        "id": "o87ufa7",
+        "score": 8,
+        "body": "17 and can\u2019t pass a drug test. Man, I\u2019m getting old.\n\n35-series is going to be way better for most people than 11B.\n"
+      },
+      {
+        "id": "o88xxdv",
+        "score": 5,
+        "body": "As person who was an Infantryman and now Intel Analyst do not let your recruiter pressure you to physical until you are 100% drug free, if you are positive during the UA you can kiss the Intel job goodbye. Better to be safe than sorry."
+      },
+      {
+        "id": "o88dym0",
+        "score": 3,
+        "body": "Military intel experience will set you up with a career for life, if you want it. The clearance alone opens a ton of doors, but practical experience takes it several steps farther if you want to go work for a 3-letter agency or a contractor.\n\n\nInfantry does not do this."
+      },
+      {
+        "id": "o893lsh",
+        "score": 2,
+        "body": "Intel and infantry are two very different jobs. You already know what infantry is. Intel is sitting in a SCIF, looking at satellite images, reading a ton, and putting together power points daily. It\u2019s not for everyone but it definitely has more long term career value than infantry."
+      },
+      {
+        "id": "o8kcgqc",
+        "score": 1,
+        "body": "Yeah it\u2019s honestly concerning how easy it is to get your hands on that stuff"
+      },
+      {
+        "id": "o8hxzbb",
+        "score": 1,
+        "body": "I honestly haven\u2019t told my recruiter about my use and should I? It was never hard drugs just carts but it was heavy use for around a year"
+      },
+      {
+        "id": "o8kcng1",
+        "score": 1,
+        "body": "Thanks I think that\u2019d be an good option to have once I\u2019m out"
+      },
+      {
+        "id": "o8kd3uw",
+        "score": 1,
+        "body": "Thank you I\u2019ve been trying to find some insight on what daily life might look like"
+      },
+      {
+        "id": "o8k9do8",
+        "score": 1,
+        "body": "hard drugs or not if u pop hot on UA ur done "
+      },
+      {
+        "id": "o8klafr",
+        "score": 1,
+        "body": "That's going to be hard to answer without knowing the specific job. Even within the same MOS, the day-to-day can vary dramatically based on what unit you are assigned to.\n\n\nI'm an Air Force 1N1, a rough equivalent to an Army 35G, and people with my AFSC can and up doing anything from maintaining an ArcGIS dashboard to processing dozens of still images from satellites or planes to performing an active role in a live MQ-9 mission, just to name a handful of examples, and that's not even including the myriad AFSC-neutral tasks that we end up doing."
+      }
+    ]
+  },
+  {
+    "subreddit": "Militaryfaq",
+    "id": "1ria8xk",
+    "title": "Schools for Active Duty in Columbia SC?",
+    "body": "I\u2019m currently in AIT and will be stationed at Fort Jackson, SC next month. Once I get to my duty station, I\u2019d like to start taking advantage of Tuition Assistance and begin working toward a bachelor\u2019s degree in finance.\n\nI\u2019m looking for recommendations on good, military-friendly programs that offer flexible or online options so I can work on my degree while serving on active duty. My long-term plan is to complete my bachelor\u2019s using Tuition Assistance and then use my GI Bill afterward to pursue an MBA.\n\nDoes anyone have recommendations for schools or finance programs that work well for active-duty service members? Any advice or personal experiences would be appreciated.",
+    "flair": "In Service College",
+    "score": 2,
+    "comment_count": 10,
+    "created_at": "2026-03-01T21:50:38+00:00",
+    "top_comments": [
+      {
+        "id": "o84lzxq",
+        "score": 3,
+        "body": "The school you select can be quite dependent on what you want to study. What\u2019s your major?"
+      },
+      {
+        "id": "o89y9w0",
+        "score": 2,
+        "body": "Also look into colleges that accept Sophia learning, study.com etc."
+      },
+      {
+        "id": "o85u37y",
+        "score": 2,
+        "body": "No, as I did not attend the university, but I have heard good things about the school itself. I used to live near Columbia. Sorry I can't give any info."
+      },
+      {
+        "id": "o84j391",
+        "score": 1,
+        "body": "You likely haven't included a branch which makes answering difficult. Edit if needed (waiver/DQ ?s *must* be edited), including component (active/guard/reserve). If your post is locked, this is why.\n\n*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/Militaryfaq) if you have any questions or concerns.*"
+      },
+      {
+        "id": "o84oxsa",
+        "score": 1,
+        "body": "Btw, make sure you also read up on CLEP/CSST. They\u2019re \u201cfinal exams\u201d you can skip to for a given course, and if passed give you credit like you took a whole class.\n\nYour main school will have policies/limits/caveats how you can apply those credits, so make sure you plan out how a given credit applies to your degree plan before investing time into it. But I\u2019ve known guys who knocked out most of an AA on CLEP."
+      },
+      {
+        "id": "o85jbwm",
+        "score": 1,
+        "body": "If you are going to be in Columbia, SC you have the University of South Carolina. They have a finance program and business school. "
+      },
+      {
+        "id": "o84ueec",
+        "score": 1,
+        "body": "working towards bachelors in finance, then I want to be business major."
+      },
+      {
+        "id": "o84v0di",
+        "score": 1,
+        "body": "Ohh dang thank you, I was unaware of CLEP."
+      },
+      {
+        "id": "o85n2ij",
+        "score": 1,
+        "body": "That is one that I was looking at, can you speak from experience on their online program?"
+      },
+      {
+        "id": "o8e6a4b",
+        "score": 1,
+        "body": " CLEP is awesome, the education center on post can line them up.\n\nBetween CLEP, Sophia, and your JST you can cut literal years off of a degree plan. \n\nMost of us opt for online schooling for the flexibility though."
+      }
+    ]
+  },
+  {
+    "subreddit": "Militaryfaq",
+    "id": "1rhhs7r",
+    "title": "How soon could my nephew be deployed?",
+    "body": "My nephew just enlisted in the army infantry earlier this week. I\u2019m very worried with all of the news right now. I know he will be at Boot Camp for awhile before he gets deployed anywhere, but how long is it from someone joining the infantry until their first potential deployment?",
+    "flair": "Branch-Specific",
+    "score": 0,
+    "comment_count": 29,
+    "created_at": "2026-02-28T23:44:16+00:00",
+    "top_comments": [
+      {
+        "id": "o7yud84",
+        "score": 42,
+        "body": "This isn\u2019t the Iraq or Afghanistan War of early 2000s, highly unlikely your nephew will go anywhere."
+      },
+      {
+        "id": "o7yvqde",
+        "score": 23,
+        "body": "99% chance this whole thing will be over before he even hits family day."
+      },
+      {
+        "id": "o7ysbbo",
+        "score": 11,
+        "body": "He's not being deployed to Iran."
+      },
+      {
+        "id": "o7yx3up",
+        "score": 10,
+        "body": "Nephew Is fine"
+      },
+      {
+        "id": "o7z7dcw",
+        "score": 6,
+        "body": "He\u2019s more likely to be deployed with a mop to clean up the rain"
+      },
+      {
+        "id": "o7ysp4m",
+        "score": 6,
+        "body": "The Iran thing isn't going to get him deployed ASAP... Once he's at his first unit and inprocessed, that's when he can be deployed. It's pretty rare to have it happen that quick but it can happen."
+      },
+      {
+        "id": "o81guqq",
+        "score": 6,
+        "body": "It\u2019s not like this doesn\u2019t happen every 6 years or so lol"
+      },
+      {
+        "id": "o81pyqy",
+        "score": 5,
+        "body": "If he just enlisted. It could be over before he goes to boot camp bro. Relax."
+      },
+      {
+        "id": "o7zkavk",
+        "score": 5,
+        "body": "It is rare but does happen. We had 3 guys who completed Osut, go to our unit, get 2 weeks of in processing and then flew to Iraq to join us."
+      },
+      {
+        "id": "o7yti8m",
+        "score": 4,
+        "body": "We are not invading Iran"
+      }
+    ]
+  },
+  {
+    "subreddit": "Militaryfaq",
+    "id": "1rhf265",
+    "title": "What is the best military branch for someone with poor opportunity at home?",
+    "body": "I'm a 21m, who has been forced to drop out of University. I'm simply looking for a direction when it comes to the military. Frankly, my main reason for seeking it out is my poor home life and lack of support from my parents.\n\n\n\nI don't care much for traveling, and I am not a particularly patriotic person. What I'm looking for is a stable foothold of benefits to get me out of Mississippi and to be immediately independent. When I was in college, I was going for computer science. I'd like to have a desk job.",
+    "flair": "Which Branch?",
+    "score": 12,
+    "comment_count": 25,
+    "created_at": "2026-02-28T21:48:56+00:00",
+    "top_comments": [
+      {
+        "id": "o7yclop",
+        "score": 15,
+        "body": "Brooooadly the easiest overall *branch* for \u201cI just want to be housed/fed/paid in exchange for minimal hassle\u201d tends to be the Air Force. Huge \u201chowever\u201d: the AF makes you list ~10 jobs you\u2019re willing to take, and they offer you *one* of them, take it or leave it. So that\u2019s a lot more random roll of the dice, and AF needs a *lot* of SecFo guys to stand around outdoors with weapons, or Maintainers working a grueling schedule to fix aircraft.\n\nArmy can sign you the precise job of your choice, so a less cushy branch but far more exact control of what your workday looks like. Army for some jobs also offers Option 19, so you can choose what base or country you\u2019ll be stationed at. So if you\u2019re looking for the most \u201cslacker\u201d solution to get benefits, Army and choosing a chill job in a nice place to live is reasonably strategic.\n\nAlternative option: just sack/labe up a little and sign Coast Guard."
+      },
+      {
+        "id": "o7ympom",
+        "score": 9,
+        "body": "You sound very Air Force."
+      },
+      {
+        "id": "o7y9d8s",
+        "score": 7,
+        "body": "Join the AF."
+      },
+      {
+        "id": "o7y9jqk",
+        "score": 6,
+        "body": "Coast guard"
+      },
+      {
+        "id": "o7ycn5n",
+        "score": 4,
+        "body": "Benefits are the same across branches.\n\n\nArmy lets you pick your exact job, and it's the biggest branch. So if you go into a recruiter's office and say \"how soon can you get me out the door as a 42A Human Resources Specialist\" they should have some slots.\u00a0"
+      },
+      {
+        "id": "o7y9u03",
+        "score": 3,
+        "body": "Definitely not the Marines"
+      },
+      {
+        "id": "o7zhbhy",
+        "score": 2,
+        "body": "Air Force for quality of life and IT. Heard good things and had good experiences working Coast Guard cyber. Navy also a good option for IT and QOL. Air Force is more corporate and business like. https://discord.gg/usafshippers if you're on Discord for Air Force/Space Force and want to actively communicate with those who are in. \n\nBig question besides getting out what else do you want? Do you need to get a stricter structure to help get you going with life and have strict support/rules so the military teaches you how to adult and holds your hand more? Do you feel like you got a fair amount of life skills to support yourself if giving a new place to move to, stable job, and ability to live in dorms then apartment with minimal supervision after hours? \n\nWhat life goals do you have? Just want to survive without struggling too much, want to be well off, just want to have supportive friends around you, want to be \"well off and successful\"? Learning more about you can help find the right branch."
+      },
+      {
+        "id": "o7y70f4",
+        "score": 1,
+        "body": "You likely haven't included a branch which makes answering difficult. Edit if needed (waiver/DQ ?s *must* be edited), including component (active/guard/reserve). If your post is locked, this is why.\n\n*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/Militaryfaq) if you have any questions or concerns.*"
+      },
+      {
+        "id": "o7ywyva",
+        "score": 1,
+        "body": "Army duh"
+      },
+      {
+        "id": "o7yzfku",
+        "score": 1,
+        "body": "I would recommend the Army based on my experience with both the Army (3.5 years) and Navy (16.5 years). I am stating this as mentioned by others that you can select the job (MOS) you want. Pick an MOS that might be of some interest to you to last the three/four years of enlistment. Get out, get an education, and then determine where to go in life."
+      }
+    ]
+  },
+  {
+    "subreddit": "Militaryfaq",
+    "id": "1rhcr2f",
+    "title": "Going to MEPS tomorrow and I don\u2019t have a drivers license, a state ID card, passport.",
+    "body": "I only have a school ID. But ill be looking around my house. Do you think MEPS will accept school ID? I texted my recruiter about this and he hasn\u2019t gotten back to me",
+    "flair": "Enlisting",
+    "score": 3,
+    "comment_count": 10,
+    "created_at": "2026-02-28T20:14:52+00:00",
+    "top_comments": [
+      {
+        "id": "o7xpxn7",
+        "score": 4,
+        "body": "Call your recruiter and tell them this."
+      },
+      {
+        "id": "o7xqy0z",
+        "score": 4,
+        "body": "As long as it has current school year on it you fine."
+      },
+      {
+        "id": "o7xpin6",
+        "score": 1,
+        "body": "You likely haven't included a branch which makes answering difficult. Edit if needed (waiver/DQ ?s *must* be edited), including component (active/guard/reserve). If your post is locked, this is why.\n\n*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/Militaryfaq) if you have any questions or concerns.*"
+      },
+      {
+        "id": "o7xrl7r",
+        "score": 1,
+        "body": "U have ur SSN?"
+      },
+      {
+        "id": "o7y9u5l",
+        "score": 1,
+        "body": "Idk man my recruiter got all my stuff before I even went to Meps."
+      },
+      {
+        "id": "o81h5m5",
+        "score": 1,
+        "body": "Your school ID is fine as long as it\u2019s current (school year must be on it) and your social security card."
+      },
+      {
+        "id": "o8ex99t",
+        "score": 1,
+        "body": "Nope.  You need an actual id card to do adult stuff.  Go get one."
+      },
+      {
+        "id": "o7xrukv",
+        "score": 1,
+        "body": "yes and my birth certificate"
+      },
+      {
+        "id": "o8jzb8p",
+        "score": 1,
+        "body": "dont worry i went through the process and im a high schooler so they accepted it"
+      },
+      {
+        "id": "o7xv36s",
+        "score": 0,
+        "body": "U have uru should be good"
+      }
+    ]
+  },
+  {
+    "subreddit": "Militaryfaq",
+    "id": "1rgt6g9",
+    "title": "Women in the military, would you recommend service to another girl?",
+    "body": "Basically what the title asks. I'm in 9th grade, and for a couple months I was considering military, either army or Marines. But as time went on, I started changing my mind because I've heard stories about SA or severe sexism, or whatever is going on currently (or in the recent past. idk) about trying to exclude women even more. My main career option that I had been considering the most was becoming a veterinarian. But a part of me has always wanted to do something combat. Dont know if it makes much difference, but I've almost earned my eagle scout rank, though there is drama going on about government and scouting right now. I don't have as much muscle as I should for joining the military, but I feel like I could build it up fairly easily before it would be time to enlist. I just need motivation. \n\nBut all of that aside, would you recommend a girl join the military, ideally Marines, or is the military not as friendly towards women as one would hope? I really dont want to join if I'm met with hostility the entire time",
+    "flair": "Should I Join?",
+    "score": 8,
+    "comment_count": 13,
+    "created_at": "2026-02-28T04:33:08+00:00",
+    "top_comments": [
+      {
+        "id": "o7tupja",
+        "score": 10,
+        "body": "I\u2019m in the AF. I\u2019m also an officer. I will say there are lots of good in the AF, and there\u2019s also still bad. We\u2019re like the highest percentile women, we have some decent programs in place to deal with harassment and whatnot. It still exists but only in some realms\n\nWe\u2019re the least combat focused with overall careers, but the odds of transferable skills is pretty solid.\n\nI\u2019m a big proponent of go to AFROTC, get a degree in something sciencey, do something interesting in the AF for 4 years and then get out and use your Gi bill for vet school."
+      },
+      {
+        "id": "o7uax8u",
+        "score": 6,
+        "body": "2nd least combat focused. :p"
+      },
+      {
+        "id": "o7wpik0",
+        "score": 5,
+        "body": "Yes, but you either join tough or get tough. I would never tell a woman to NOT join. I hate seeing the military as a boy's club. The longer we keep women out of the service the longer this toxic male dominated culture continues to thrive. Women will probably be the minority in the service for a long time, even in a field like mine (medical) where there's a LOT of women, we're still outnumbered by men. They need to know we're here to stay and aren't going anywhere if we expect them to respect us."
+      },
+      {
+        "id": "o7txgsl",
+        "score": 4,
+        "body": "Go officer route and get a scholarship -come out of college debt free or minimal debt. Combat role will be very different experience than veterinary corps. AMEDD has significantly higher ratio of women so the sexism is lower IMHO."
+      },
+      {
+        "id": "o7vaih0",
+        "score": 4,
+        "body": "You gotta like love and breathe the USMC. They\u2019re like a cult. If that\u2019s what you truly want, then go for it. But if not, join the Air Force. Army, you can pick your job tho, so something to think about. One enlistment, you can leave then if it\u2019s not for you. Then use the gi bill to pay for school. And I\u2019m sure you know vet school is expensive! Look into all the branches, write down the pros and cons of each. Luckily you have time. Plus so many folks who vlog about being in the military obviously take all of what they say with a grain of salt. Regardless of what you do, after high school, I recommend you read The Gift of Fear. Learn to be aware and more safe of your surroundings.\u00a0"
+      },
+      {
+        "id": "o7w7pol",
+        "score": 2,
+        "body": "I served 91-99 Army in a career field that was relatively balanced male-female, however still slightly more male. You gotta be self assured and ready to brush off some minor harassment and know when and how to speak up constructively when it crosses a line. It happens in college and the real world too. Being in the military was the best decision of my life and I wouldn't trade it for the world."
+      },
+      {
+        "id": "o8b33vk",
+        "score": 2,
+        "body": "Something to consider: Join the National Guard (you can do this between your junior and senior year if you really wanted to) but my daughter joined the Army National Guard out of high school, went to college & joined ROTC.  She was just going to stop there and use her degree, but she decided to commission when she graduated.  When she did that, she became an officer (2nd Lt).  She's traveling the world, makes great money and couldn't be happier!  Now, its not for everyone, which is why going in as National Guard would be the best way for you to get a taste of it without FULL TIME commitment.  Best of luck!"
+      },
+      {
+        "id": "o7tsto5",
+        "score": 1,
+        "body": "**Jobs mentioned in your post**\n\nArmy MOS: [64A (Field Veterinary Service)](https://www.goarmy.com/careers-and-jobs/science-medicine/general-care/64a-field-veterinary-service.html)\n\n^(I'm a bot and can't reply.) [^(Message the mods)](https://www.reddit.com/message/compose?to=/r/Militaryfaq&subject=MilFAQBot) ^(with questions/suggestions.)"
+      },
+      {
+        "id": "o80obkb",
+        "score": 1,
+        "body": "Yes."
+      },
+      {
+        "id": "o831q2t",
+        "score": 1,
+        "body": "you are in 9th grade, when you finish, graduate or whichever comes first, come back"
+      }
+    ]
+  },
+  {
+    "subreddit": "Militaryfaq",
+    "id": "1rgqmr6",
+    "title": "is it worth telling leadership abt infidelity?",
+    "body": "I have been seeing this guy (24m) for about a year. I have recently found out he is married with a child on the way.\n\nSome people have told me to report it is to his Staff Sergeant, but I\u2019m not sure if it is worth it. His wife knows about it as I have reached out to her and told her about it. I\u2019m not 100% sure if she told his leadership or not, but she did mention it.\n\nI\u2019m just wondering if it would be worth it. I know i am not the only one he has cheated on her with, it seems to be a habit for him. I have his Staff Sergeant\u2019s phone number so it would be easy for me to contact him.\n\nHas anyone here done this before? Can anyone tell me if it is realistically worth it? any advice?\n\ncross posting and using a burner as i want all the advice i can get on this.\n\nedited to add he is in the Army.",
+    "flair": null,
+    "score": 2,
+    "comment_count": 14,
+    "created_at": "2026-02-28T02:30:05+00:00",
+    "top_comments": [
+      {
+        "id": "o7tamry",
+        "score": 6,
+        "body": "Honestly if it makes you feel better you can, but it\u2019s so difficult to actually punish someone in the service for it that it\u2019s often a waste of time. If the spouse knows you have probably done enough already.\n\nIf you haven\u2019t already you should drop that individual like a bad habit too."
+      },
+      {
+        "id": "o7tcgip",
+        "score": 3,
+        "body": "How about you let the spouse decide that? You have already informed the spouse. Leave it be, and don't give this person anymore of your time and energy."
+      },
+      {
+        "id": "o7th1if",
+        "score": 2,
+        "body": "I would encourage you to report it, but I\u2019d also encourage you to mange your expectations regarding any potential outcomes. It\u2019s not likely that anything will actually come of him being \u201couted\u201d, unfortunately. It\u2019s very difficult for commands to investigate and punish in many cases, as others have said. Best case scenario his wife leaves him and finds someone better, but that\u2019s on her and not the army. I\u2019d still appreciate it being reported if I were his supervisor, because I like to know when my soldiers are shitty people off duty. It speaks to their character.\n\nFor whatever reasons that are totally inexplicable to me, far too many people see this as not a big deal. Like a guy who can\u2019t be trusted not to cheat on the woman he married can somehow be trusted to have your back when you need it most \ud83e\udd37\ud83c\udffc\u200d\u2642\ufe0f"
+      },
+      {
+        "id": "o7ybgup",
+        "score": 2,
+        "body": "Drop this guy like a hot potato. Not a real man there if he can\u2019t control himself. I hope you were using birth control. You don\u2019t want his child .."
+      },
+      {
+        "id": "o838f8u",
+        "score": 2,
+        "body": "Why? What do you want to achieve from this?"
+      },
+      {
+        "id": "o7tpi53",
+        "score": 2,
+        "body": "thanks! i\u2019ve recently learned that he has done it multiple times, even going as far as visiting other women in different states. it has become a regular thing for him."
+      },
+      {
+        "id": "o7ta4wy",
+        "score": 1,
+        "body": "You likely haven't included a branch which makes answering difficult. Edit if needed (waiver/DQ ?s *must* be edited), including component (active/guard/reserve). If your post is locked, this is why.\n\n*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/Militaryfaq) if you have any questions or concerns.*"
+      },
+      {
+        "id": "o7z5p5j",
+        "score": 1,
+        "body": "The nice thing about not reporting it and him not getting punished is he will have more money for his ex wife/baby momma to take in child support."
+      },
+      {
+        "id": "o8agy1c",
+        "score": 1,
+        "body": "When my husband was in Iraq a friend of his there became separated from his wife who was also a soldier deployed there. This wife screwed so many soldiers it was disgusting, reason for the separation. Sadly, my husband\u2019s friend was killed there. Wife got all the life insurance and the local paper back home in the states wrote an article about it making her out to be the loyal, loving, grieving widow. It was sick."
+      },
+      {
+        "id": "o7zu8im",
+        "score": 1,
+        "body": "definitely dropped him right away! she did ask me to go to his leadership together, so we did"
+      }
+    ]
+  },
+  {
+    "subreddit": "Militaryfaq",
+    "id": "1rgjz5a",
+    "title": "Curious if enlisting at 33 is worth considering or not",
+    "body": "To be fair i'm not even really sure what i'd be able to do, so I'm looking for a little bit of insight into how a career might go for me if I did enlist. I have a bachelors degree in Environmental Science, i've worked in the field quite a bit as a botanist and surveyor but have more recently been in the compliance side of things. I have an interest in tech and have done some coding in my spare time, and through my job so I was thinking of possibly trying my hand at cybersecurity. I'm really just looking for something new, whether that be new experiences or obtaining new skills. Additionally serving my country has always been in the back of mind.",
+    "flair": "Enlisting",
+    "score": 6,
+    "comment_count": 10,
+    "created_at": "2026-02-27T21:47:09+00:00",
+    "top_comments": [
+      {
+        "id": "o7s332c",
+        "score": 5,
+        "body": "I enlisted at roughly the same age. No degree though. Also used it as an opportunity to pivot into cybersecurity from a completely unrelated career field. Its given me stability and a new set of skills. I\u2019m roughly 75% through a degree that I never could have invested the time or money into under different circumstances. I'm in better shape physically than I've been in my life, and I have a level of access to health care that I've never had before and I am abusing it mercilessly. All things considered I'm in a significantly better place than I ever could've hoped for before joining, and I still hate every moment of it and am actively counting down days until it can finally be over."
+      },
+      {
+        "id": "o7tc6ht",
+        "score": 5,
+        "body": "The average age of person enlisting has been creeping up every year, and it\u2019s getting real close to 30. If you set your mind to it you can absolutely do it."
+      },
+      {
+        "id": "o7scztx",
+        "score": 3,
+        "body": "Truly only you can answer that. No one knows your situation better than you. \nFactor in what you can gain versus what you will lose. \n\nBut, my experience - I did it at 31. Spent all of my civ life in IT. Wanted to scratch that itch finally and took the leap. I regret it sometimes but majority of the time, I feel like this was the best decision. Sure the money and QOL is dog water but .. I\u2019m not here for that. Set yourself up on the outside first so when you do enlist the drastic pay cut doesn\u2019t burden you or your family all that much."
+      },
+      {
+        "id": "o7sd6ih",
+        "score": 3,
+        "body": "If you want to do Cyber security, go Navy or Army. They'd have the best shot at guaranteeing you the job *and* actually doing said job."
+      },
+      {
+        "id": "o7sx2md",
+        "score": 2,
+        "body": "Why not commission"
+      },
+      {
+        "id": "o83kfxi",
+        "score": 2,
+        "body": "define \"worth it\". I went in at age 38, as a part timer because covid put me out of business. I dont regret it but i dont recommend it. Either go Active, or have a very detailed reason why you're going in. I thought it would  be a financial tie over and honestly I thought wrong, that was on me. the military is what you make it."
+      },
+      {
+        "id": "o7rx9gv",
+        "score": 1,
+        "body": "You likely haven't included a branch which makes answering difficult. Edit if needed (waiver/DQ ?s *must* be edited), including component (active/guard/reserve). If your post is locked, this is why.\n\n*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/Militaryfaq) if you have any questions or concerns.*"
+      },
+      {
+        "id": "o7s63q0",
+        "score": 1,
+        "body": "Go for it"
+      },
+      {
+        "id": "o8f55ny",
+        "score": 1,
+        "body": "Army Recruiter here,\n\nI went to Basic Training in 2014 at the age of 22. One of my good friends I met there was 32 when he enlisted. Now, this dude owned 2 landscaping businesses, had a bachelors degree, and a good chunk of annual income. So we questioned why he was there with us. He enlisted because he wanted to serve, and that was it, It was something he always wanted to do until his dad took the responsibility to run his businesses while he was away. He ended up liking the Army and decided this is the path he wanted  to keep. So, back in 2017, when his contract was ending, he sold one of his businesses, used his degree to commission as an officer, and he is now a Captain getting looked at for Major. All started with \"wanted to serve\".\n\n  \nI never salute him, I love telling his enlisted stories to his subordinates, dude was party animal in Korea lol."
+      },
+      {
+        "id": "o8nkax8",
+        "score": 1,
+        "body": "Send it \ud83d\udc4d"
+      }
+    ]
+  },
+  {
+    "subreddit": "Militaryfaq",
+    "id": "1rgiirl",
+    "title": "Recruiter showed me that MEPS cancelled my projection - tells me to go anyway",
+    "body": "I first learned it was cancelled for next Monday yesterday. Am I supposed to go even though it's cancelled? I have my DD Form 680-3A (driving myself) but my recruiter has been out and unreachable for me to ask. This will be my second time going to MEPS and I'm still not sure if I'll be cleared to sign a contract yet.\n\nDo I just go because I'm told to?",
+    "flair": "Enlisting",
+    "score": 2,
+    "comment_count": 12,
+    "created_at": "2026-02-27T20:51:22+00:00",
+    "top_comments": [
+      {
+        "id": "o7rnng1",
+        "score": 3,
+        "body": "Recruiter sounds like a idiot. You don't just show up to MEPS, especially if projection was canceled. And why isn't recruiter replying back to you? Terrible service. What branch is this for?"
+      },
+      {
+        "id": "o7vz849",
+        "score": 2,
+        "body": "Rethink going all together the pay sucks and they all lie"
+      },
+      {
+        "id": "o7romlm",
+        "score": 2,
+        "body": "Army. My recruiter got sick with the flu and apparently went to critical care. And to be fair, I did have him upload docs that the MEPS might not have seen yet. The process has been mighty slow. I've been waiting to be cleared by MEPS since October last year."
+      },
+      {
+        "id": "o7rm392",
+        "score": 1,
+        "body": "You likely haven't included a branch which makes answering difficult. Edit if needed (waiver/DQ ?s *must* be edited), including component (active/guard/reserve). If your post is locked, this is why.\n\n*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/Militaryfaq) if you have any questions or concerns.*"
+      },
+      {
+        "id": "o7s9yei",
+        "score": 1,
+        "body": "If they cancelled you and you go they're just going to tell you to go away. What MEPS is it?"
+      },
+      {
+        "id": "o7ta4fs",
+        "score": 1,
+        "body": "Yeah that sounds like a huge waste of time. They might have put a new projection on and the home screen on recruiter zone is still showing cancelled though."
+      },
+      {
+        "id": "o7td87p",
+        "score": 1,
+        "body": "Heard back from my recruiter shortly after making this thread, he told me not to go.\n\nLeaving this up just in case this happens to someone else."
+      },
+      {
+        "id": "o7xyu8m",
+        "score": 1,
+        "body": "I\u2019m a MEPS liaison for the Marines and you ain\u2019t getting in if you aren\u2019t projected unless  an exemption to policy request is ran by your service liaison. Your recruiter is wasting your time."
+      },
+      {
+        "id": "o7z84d3",
+        "score": 1,
+        "body": "Yes they do last minute cancellation literally all the time everywhere. I\u2019ve worked applicants out of Miami, they aren\u2019t a bad MEPS they are just terrible at picking up the phone. Do you want someone to protect you and follow up, I can definitely do that."
+      },
+      {
+        "id": "o7snqik",
+        "score": 1,
+        "body": "Miami MEPS. And I'm thinking I'm not supposed to show up."
+      }
+    ]
+  },
+  {
+    "subreddit": "Militaryfaq",
+    "id": "1rfhzsh",
+    "title": "Marine Sister to a new Warrant Officer",
+    "body": "Hi! I need someone to explain this to me like I'm five, please -- and also please just give me some grace on understanding:) I am an incredibly proud sister to a Marine, but I need a little context or \"translate this to civilian\" from you folks, if you wouldn't mind. \n\nMy brother is a Marine, Staff Sergeant. He joined when he was 20 without rank, completed his associates degree while he was in the Marines and has been promoted a few times and is now Staff Sergeant. He put in his package (application?) to become a Warrant Officer and was accepted -- he's currently completing his school/training and will be attending his pinning soon (along with our whole family!).\n\nI \\*know\\* this is a big deal, and everyone says it is, but this seems like a BIGGER deal than any of his other promotions. Him having to attend dedicated training and schooling for it indicates this as well. My brother is a humble man, and uses a lot of military language when he explains this promotion to me...so could someone explain this is civilian terms? The gravity, the importance, the honor, the future etc? I am so excited and incredibly proud of him, but I want to REALLY understand.\n\n  \nI'd really appreciate it!",
+    "flair": "Officer",
+    "score": 9,
+    "comment_count": 8,
+    "created_at": "2026-02-26T18:22:56+00:00",
+    "top_comments": [
+      {
+        "id": "o7k5ddg",
+        "score": 7,
+        "body": "Yes, this is a much bigger deal than any of his other promotions. Think of it as going from the factory floor assembling something, to overseeing the operations of a team on the floor. As a warrant officer, he's been recognized as being an expert in his field, and is now expected to continue doing his job, but also guiding and mentoring others to try to bring them up to his level. It's highly competitive, and really awesome than he's been able to get there! His ability to lead and impact operations will be going up significantly, and he will have a lot more influence on how things go.\n\nDoes that make sense? And answer your question?"
+      },
+      {
+        "id": "o7kb6c2",
+        "score": 4,
+        "body": "Honestly, I got a little teary eyed reading the bit about \"recognized as an expert in his field...guiding and mentoring\"...what a guy :) Okay I think my last civilian question is what the HELL is \"commissioned\" and \"non-commissioned\" mean? It seems like there's a lot of pride in that?"
+      },
+      {
+        "id": "o7kc198",
+        "score": 3,
+        "body": "Non-commissioned officers are your enlisted sergeants. Commissioned officers are above them, on a whole different payscale"
+      },
+      {
+        "id": "o7kn4p4",
+        "score": 2,
+        "body": "Warrant Officers even in the Army are a big deal, so I\u2019d assume Marines are even more of a big deal. They\u2019re experts in their field and the ones everyone goes to for help or problems. They also outrank a ton of other ranks, meaning he is sitting at a high status. We consider them \u201crare\u201d lol because there\u2019s few of them you\u2019ll run into, but they are also some of the most loved because they are so chill and fun. It\u2019s a difficult job and it takes a LOT of work to get to where he is. Even being accepted into Warrant Officer school itself is a huge accomplishment. Congratulations to him and thank YOU for being such a great supporter and wanting to learn more!!"
+      },
+      {
+        "id": "o7k6dgh",
+        "score": 1,
+        "body": "Warrant Officers are commissioned officers. They are recognized technical experts in their field and fill in very niche responsibilities and roles that require that expertise. They get much more pay than Enlisted members and more responsibility and generally more respect. But they don't always have to deal with the huge amounts of leadership that \"standard\" commissioned officers frequently are given.\n\nWarrants are often considered to be in that sweet spot in the military hierarchy because of all these factors. Good pay, good respect, interesting duty stations and often (though I suppose it depends on which community he's going to) a little more independence than everyone else. Like. Still beholden to all the military and command rules and requirements but not micromanaged as much.\n\nEvery branch is a little different so mileage may vary.\n\nAnd yes it's a really big move to be selected, for any Officer accession program really."
+      },
+      {
+        "id": "o7obxlz",
+        "score": 1,
+        "body": "This is a huge deal. Warrant officers in the Marine Corps are really rare. They are by far the most respected by enlisted Marines. At least through the years I served they were highly respected. \n  If I was starting a new career as a Marine, becoming a warrant officer would be what I would want the most. After that I guess becoming a mustang would be my choice."
+      },
+      {
+        "id": "o7ldgzh",
+        "score": 1,
+        "body": "Yes, WOs are also a massive deal in the Marine Corps. While technically regular officers outrank WOs, as a lieutenant or even captain I was always very appreciative to WOs, since clearly they had an impressive career to get to that point."
+      },
+      {
+        "id": "o7lg9z0",
+        "score": 1,
+        "body": "I was an infantryman, so let me explain it in those terms. \n\nEnlisted people are the ones doing the work. When they enter a leadership role (sergeant) they become a \"Non-Commissioned officer.\" That just means they themselves dont have a commission from the US government, but the officers in your chain of command recognize you can be trusted with leadership. \n\nIn the infantry, the pay grade of E-1 to E-4 is spent on a fire team. The E-5 you become a fire team leader, E-6 is squad leader, and E-7 is platoon sergeant. All 7 of those paygrades are in the field. \n\nNow commissioned officers go to a special school and their first job is to be placed in charge of platoon. So O-1 and O-2 are spent as a platoon leader. \n\nPlatoons are largely the opporational element of the infantry, so after you leave the platoon level, its sort of seen as largely being taken out of the field. Don't get me wrong, O-3 up through O-6's may be physically in a battle space, but they are largely issuing commands and controlling the movements of the elements in contact. \n\nNow, warrant officers are some kind of middle ground that I honestly still dont understand after my 10 years, but the short of it is they outrank enlisted personal, but not officers."
+      }
+    ]
+  },
+  {
+    "subreddit": "Militaryfaq",
+    "id": "1rfhiwz",
+    "title": "25M considering enlistment \u2014 looking for guidance",
+    "body": "I\u2019ll try to keep this concise.\n\nI\u2019m 25 and have held a steady job for about 5 years as a custodian for my local school district (started on 10pm\u20136am shift). I attempted college while working but decided taking on significant student loan debt wasn\u2019t the direction I wanted to go.\n\nAt this point I don\u2019t have major obligations tying me down. My vehicle should be paid off within the next year. I tend to keep to myself and am mainly focused on figuring out the next step in life.\n\nI understand that once you enlist you\u2019re committed, and I\u2019m trying to approach this realistically. I feel like I\u2019m capable of doing more long-term than staying in custodial work.\n\nRight now I\u2019m considering:\n\n* Army\n* Navy\n* Air Force\n\nCareer-wise I\u2019m most interested in:\n\n* Aircraft maintenance\n* IT / technical fields\n\nI have not spoken to a recruiter yet and am still in the fact finding phase.\n\nFor those who enlisted in a similar situation:\n\n* Anything you wish you knew beforehand?\n* Anything I should do now before contacting a recruiter?\n\nAppreciate any insight.",
+    "flair": "Should I Join?",
+    "score": 6,
+    "comment_count": 11,
+    "created_at": "2026-02-26T18:06:01+00:00",
+    "top_comments": [
+      {
+        "id": "o7kn0ru",
+        "score": 2,
+        "body": "I dont think theres really anything you need to know before contacting a recruiter. Really, to my mind, best practice is probably just knowing the details of what you want somewhat precisely, knowing pathways you can access once your in, the stuff you can get in your contract before you go in, look into what could be beneficial for you, but ofc, be realistic. Position yourself well to access those opportunities, but beyond that, just go for it man."
+      },
+      {
+        "id": "o7lmili",
+        "score": 2,
+        "body": "Let us caution you on Aviation Mechanic: it is a very demanding job, you gotta be \u201cin it to win it.\u201d If you don\u2019t have a massive hard-on for wrenching on birds, but just mildly think it sounds fun and/or you hear it pays good money on the outside, you\u2019re gonna be miserable.\n\nNot saying don\u2019t do it, saying research extensively what being an AvMech is like before choosing it."
+      },
+      {
+        "id": "o7m7eun",
+        "score": 2,
+        "body": "https://www.goarmy.com/careers-and-jobs/browse-jobs\nMy advice is to go through all the mos in this list and whichever ones initially interest you search on YouTube. There\u2019s so many people who make videos on their experiences in all the different mos. Also khan academy is good for learning the math for the asvab. Take it seriously since it pretty significantly affects your career. If you\u2019re interested in the gi bill ask about the gi kicker(if you\u2019re going reserves). It a little extra money. Plus the gi bill isn\u2019t the only education benefit just the most widely known. Start running now cuz imo it\u2019s the hardest part of the pt test to improve. That\u2019s all I got but feel free to ask questions"
+      },
+      {
+        "id": "o7z4ocl",
+        "score": 2,
+        "body": "I joined the Army at 24. I wish I had done it sooner because I would be over 20-years if I had. But for me, it was the best decision I ever made. I was a General Manager of a restaurant; I just ended a 2-year relationship on bad terms and wanted to get out of my hometown. I wish I could say I joined for noble causes but it was because my heart was broken and I wanted to leave. I originally signed as a 35F in the Military Intelligence community but circumstances forced me to change that. I joined as a 19D - Cavalry Scout - and it was up-and-down. It had its hard days but the things I gained were far more valuable. I was unhappy in Combat Arms because I started a family and was always gone, but the Army has a lot of programs and opportunities that allow you to grow and develop, and transition to fields and areas you ant to be in. I am not a Medical Officer. \n\nThe military is a great option, even beyond the college tuition and skills they teach; there are so many programs it is ridiculous. Then there are the other things it does for you; purpose, direction, discipline, structure, so many things like that. The military is a microcosm of society so it has a lot of the same issues, but there are some major differences that are sometimes good and sometimes bad. So, if it is a path you choose, I would say to be adaptable, be open to learn and grow, and just embrace the experience."
+      },
+      {
+        "id": "o7l1yjs",
+        "score": 2,
+        "body": "Yeah, we can set up a virtual appointment where we can discuss some options.And I can even set you up with a practice test"
+      },
+      {
+        "id": "o7kunuy",
+        "score": 1,
+        "body": "Army here I can help you out with any questions you might have"
+      },
+      {
+        "id": "o7nuttt",
+        "score": 1,
+        "body": "You\u2019re actually in a pretty clean spot to consider it .. 25, steady work history, no heavy obligations. Biggest thing before you ever step into a recruiter\u2019s office: study for the ASVAB like it matters, because it does. If you want aircraft maintenance or IT, your line scores will determine what\u2019s even on the table. A high score gives you options. A mediocre score means you take what\u2019s available."
+      },
+      {
+        "id": "o7pcsuw",
+        "score": 1,
+        "body": "Dude, I\u2019m pretty much you just a plumber instead of custodian. \u00a0I was between 15t and 25 series, and I chose 25H in the army. \u00a0The way I see it, it gives me a chance to build a career and start a new life away from my hometown. \u00a0I\u2019m sure it will suck, but there are things that suck about civilian life too. \u00a0I fully intend on taking full advantage of the army and using the benefits to the max. \u00a0If you don\u2019t have anything holding you back, I say do it. \u00a0\n\nLook up practice ASVAB questions and study them. \u00a0I did this and some of them were literally on the test\ud83d\ude02\n"
+      },
+      {
+        "id": "o7tdd9o",
+        "score": 1,
+        "body": "The whole point of contacting a recruiter is to learn the benefits and what that individual service can offer, you can just call us anytime and we will happily talk your ear off about it lol."
+      },
+      {
+        "id": "o7kxw4o",
+        "score": 1,
+        "body": "So as far to my knowledge of the process. Have a meeting with one such as yourself, or any of your counter parts in the Navy or Airforce about enlisting and career options. ASVAB?"
+      }
+    ]
+  },
+  {
+    "subreddit": "Militaryfaq",
+    "id": "1rfb4f5",
+    "title": "Mortars in modern combat?",
+    "body": "As we\u2019ve seen drone technology increasingly dominate the modern combat zone, becoming ever more versatile,  from laying mines to dropping mortar shells directly overhead. I\u2019m curious how manned weapon systems like the Infantry Mortar (60,81,120, etc) would still hold up in a future war. \n\nI am a veteran of the Marine corps where I was trained as an Infantry Mortarman, leaving service as the team\u2019s Fire direction Controller. These systems are operated by multiple soldiers manipulating the weapon while working adjacent to a forward observer on the front. \n\nIt\u2019s unfortunate to me that it seems many of these roles are widely obsolete with the use of drones now. Hand one man a iPad with a drone loaded with 6 HE mortars and you\u2019ve replaced the need for a FO, a 3 man team, etc. \n\nI\u2019m happy to not be boots on the ground, but sad to see another MOS die potentially.",
+    "flair": null,
+    "score": 3,
+    "comment_count": 12,
+    "created_at": "2026-02-26T14:09:05+00:00",
+    "top_comments": [
+      {
+        "id": "o7j4slq",
+        "score": 4,
+        "body": "I\u2019m curious to see just how completely the drones can replace or fill that role. As someone who was able to appreciate having mortar support while I was chilling \ud83e\udd23 in the wide open Argandahb river, I think there are some advantages to using a crew in more secure location that drones can\u2019t quite fill.\n\nFor slow and accurate delivery of rounds on target, the drones seem to have an obvious advantage. Hitting individual targets like we\u2019ve seen from Ukraine videos is not something that I think is easily done with indirect fire. And the FPV drone\u2019s ability to chase someone into their fighting position is far outside the mortar\u2019s capabilities.\n\nDrones have an almost fixed rate of fire, and can\u2019t match the higher fire rate of a crew aiming for a mass of troops in the open, though.\n\nThere is also an advantage in using illumination rounds or smoke or (for organizations less held to treaties) chemical rounds. \n\nIt makes sense to me to upgrade the mortar section to replace a couple of tubes with piles of drones, and to add drones to the basic infantry squad or platoon (perhaps replace the grenades launcher with a drone launcher?). I think the company level will still want the flexibility and firepower of at least a couple 120mm tubes."
+      },
+      {
+        "id": "o7jlrns",
+        "score": 3,
+        "body": "Mountainous terrain, weather, and defilade are all obvious considerations to mortars on the modern day battlefield where drones have significant limitations.\n\nAs you already know, in the offensive, mortars support maneuver by suppressing enemy positions while layered and synchronized with with combined arms. I don't foresee the utility in this changing due to the use of drones.\n\nQuite the opposite actually. I could see drones being integrated and synchronized in combined arms. Aircraft, drones, arty, mortars, machine guns, more drones. Then finally send in the infantry with small arms and frags to clean up the mess. Seizing an objective through mass of fires. Etc.\n\nIn the defense, I see drones being utilized more in an ISR role, in favor of providing indications and warnings. Then switching to serving as a forward observer for either lethal drone employment or indirect fires with arty, mortars, and 40mms.\n\nLong story short, drones are just another tool for the tool kit."
+      },
+      {
+        "id": "o7ka7ya",
+        "score": 3,
+        "body": "I don\u2019t remember which one was Ware, and lots of them got new names in 2011 to 2012.\n\nI was building roads and COPs in 2011 basically from where the Argandahb and Dari Rud meet (near Helmland border) to Zangabad. \n\nIt was an exciting neighborhood at the time \ud83d\ude01"
+      },
+      {
+        "id": "o7kaij0",
+        "score": 3,
+        "body": "Yeah, it was pretty spicy. I stepped on a landmine and got an early exit. Pretty lucky compared to some."
+      },
+      {
+        "id": "o7kch5h",
+        "score": 3,
+        "body": "Ouch! Glad you are alive! (It\u2019s difficult to communicate in Reddit messages the seriousness and sincerity that I mean that. I still can feel the intense anticipation of walking out there.)\n\n\nI was insanely lucky and twice stepped on something that waited to blow until I was safely past it. There were so many mines and IEDs out there that my higher command at KAF didn\u2019t believe my initial reports until the 25th ID guys with us corroborated them.\n\nLower leg amputations were happening at least weekly while I was there."
+      },
+      {
+        "id": "o7iln05",
+        "score": 2,
+        "body": "**Jobs mentioned in your post**\n\nArmy MOS: [13F (Joint Fire Support Specialist)](https://www.goarmy.com/careers-and-jobs/ground-forces/explosives-artillery/13f-joint-fire-support-specialist.html)\n***\nMarines MOS: 0341 (Mortarman)\n\n^(I'm a bot and can't reply.) [^(Message the mods)](https://www.reddit.com/message/compose?to=/r/Militaryfaq&subject=MilFAQBot) ^(with questions/suggestions.)"
+      },
+      {
+        "id": "o7k5ihg",
+        "score": 2,
+        "body": "Where were you in the ARV? I was at COP Ware for a bit in '10."
+      },
+      {
+        "id": "o7kdwdx",
+        "score": 2,
+        "body": "Thanks, sincerely. The secondary charge didn't go off, otherwise I'd be fertilizing a pomegranate orchard out there.\n\nOddly enough, when I was enlisted, I came from 2-27 Wolfhounds (25th ID) and my old battalion XO was now the BC when I got banged up. I knew they were deploying soon and asked him if I could heal up fast enough to not be a weak link, I'd come back and deploy with them. He was all about it but I couldn't make the timeline. My right lower leg was pretty well shattered. It was just a carrot held in front of me to work hard in rehab to get back to the fight. \n\nI did eventually go back in 2014."
+      },
+      {
+        "id": "o7l0llk",
+        "score": 2,
+        "body": "I was working with the 25th guys from Alaska, maybe 1/25? I was a PL for an Army engineer company under the Navy Construction Regiment, so I got sent to live with the 25th teams while we did our thing. I didn\u2019t pay too much attention to their numbers beyond the BN command.\n\nNow that it\u2019s all done, I get a kick out of talking to people who were in country at the same time but in a different location. It was really an obnoxiously dangerous place. The absolute best advice I\u2019ve ever received was from an engineer NCO in the 25th when I first got there. He flat out said: LT, if you look up when you walk here, you will die. \n\nAfter a couple of weeks, I remember the young kid on the radio calling in the 9-line when his team leader lost his leg. The kid listed the urgency as \u201cnormal\u201d or something. I decided to reinforce to my team that if I ever lost an arm or a leg, they better call it in as URGENT and get me a ride out fast! \ud83e\udd23\n\nIf you find yourself crossing Iowa, drop me a line. I\u2019ll gladly buy the beer (or nonalcoholic beverage) \ud83d\ude01"
+      },
+      {
+        "id": "o7lhq5m",
+        "score": 2,
+        "body": "I got to call my own 9 line. That's a story in itself. Unfortunately, my minesweeper stepped on one a few minutes after mine. We had 8 singles, a double, and a triple amputee during that deployment. \n\nDefinitely appreciate engineers for what y'all do. Same goes if you're passing through VA/DC."
+      }
+    ]
+  },
+  {
+    "subreddit": "Militaryfaq",
+    "id": "1rf3tnr",
+    "title": "I\u2019m pretty underweight can I join the military?",
+    "body": "I\u2019m 5,9 115 (17yo) btw my bmi is sadly a 17 so I\u2019m pretty underweight just wondering if the military will tell me no. (Air force)",
+    "flair": "Enlisting",
+    "score": 3,
+    "comment_count": 10,
+    "created_at": "2026-02-26T07:29:18+00:00",
+    "top_comments": [
+      {
+        "id": "o7hn1jj",
+        "score": 2,
+        "body": "Your ship out date wouldnt be a for a while considering how many people are joining, id try to pack on a few pounds before meps if i were you though just to be safe. A pound of fat is about 3,500 calories so unless you wanna go die hard at the gym go crazy on your favorite caloric dense foods for a bit lol."
+      },
+      {
+        "id": "o7i19d6",
+        "score": 2,
+        "body": "I can't speak for any other branch. But the Navy will take you, unless you have other medical issues,  and you will leave end of next month for most jobs."
+      },
+      {
+        "id": "o7h7hww",
+        "score": 1,
+        "body": "You likely haven't included a branch which makes answering difficult. Edit if needed (waiver/DQ ?s *must* be edited), including component (active/guard/reserve). If your post is locked, this is why.\n\n*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/Militaryfaq) if you have any questions or concerns.*"
+      },
+      {
+        "id": "o7ikeho",
+        "score": 1,
+        "body": "I have a bmi of 16 something and the navy took me in"
+      },
+      {
+        "id": "o7kqu7u",
+        "score": 1,
+        "body": "Army here how much do you weight?"
+      },
+      {
+        "id": "o7y1fc1",
+        "score": 1,
+        "body": "army takes anyone lol"
+      },
+      {
+        "id": "o80oc5v",
+        "score": 1,
+        "body": "No"
+      },
+      {
+        "id": "o7lv076",
+        "score": 1,
+        "body": "Yeah it\u2019s seeming like the navy is the route I will have to take"
+      },
+      {
+        "id": "o7luwqi",
+        "score": 1,
+        "body": "I usually sit between 115 - 120"
+      },
+      {
+        "id": "o7lw3bn",
+        "score": 1,
+        "body": "Ask recruiters first before deciding. If that\u2019s your only concern then you\u2019ll likely be fine with all branches"
+      }
+    ]
+  },
+  {
+    "subreddit": "Militaryfaq",
+    "id": "1reulhx",
+    "title": "What does the Peanut Butter shot feel like?",
+    "body": "What does the Peanut Butter Shot feel like? Does it hurt? Is it as painful as people say it is? People say it hurts when they inject it so what does that feel like?",
+    "flair": "BCT/BMT/Boot camp",
+    "score": 2,
+    "comment_count": 16,
+    "created_at": "2026-02-26T00:05:07+00:00",
+    "top_comments": [
+      {
+        "id": "o7fcoa7",
+        "score": 5,
+        "body": "I\u2019ll report back to you in 4 months"
+      },
+      {
+        "id": "o7fkyxc",
+        "score": 2,
+        "body": "I don't think they give the Bicillin Vaccination as a standard shot any longer."
+      },
+      {
+        "id": "o7g6pnm",
+        "score": 2,
+        "body": "i dont remember it being THAT painful but walkin was harder for like 2 days. like the name suggests imagine being filled with peanut butter on your side \n\n"
+      },
+      {
+        "id": "o7gbunl",
+        "score": 2,
+        "body": "I feel like I need to come clean. When I went through in 2018, it was a pill form, not a shot.\n\nI talk about the peanut butter shot, but I was never given it"
+      },
+      {
+        "id": "o7fascg",
+        "score": 1,
+        "body": "You likely haven't included a branch which makes answering difficult. Edit if needed (waiver/DQ ?s *must* be edited), including component (active/guard/reserve). If your post is locked, this is why.\n\n*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/Militaryfaq) if you have any questions or concerns.*"
+      },
+      {
+        "id": "o7fathd",
+        "score": 1,
+        "body": "**DQ standard(s) (requires waiver(s))**:\n\nHistory of acute allergic reaction to fish, crustaceans, shellfish, peanuts, or tree nuts including the presence of a food-specific igE antibody if accompanied by a correlating clinical history.\n***\nThis sub cannot definitively tell you whether you're eligible. Waivers are decided on a case-by-case basis. Contact your local recruiter.\n\n^(I'm a bot and can't reply.) [^(Message the mods)](https://www.reddit.com/message/compose?to=/r/Militaryfaq&subject=MilFAQBot) ^(with questions/suggestions.)"
+      },
+      {
+        "id": "o7g4dt2",
+        "score": 1,
+        "body": "It's not that bad, but it is uncomfortable afterward for a few days. Kinda feels like a bruise. "
+      },
+      {
+        "id": "o7g65o7",
+        "score": 1,
+        "body": "Doesn\u2019t feel like anything to me \ud83e\udd37\u200d\u2640\ufe0f"
+      },
+      {
+        "id": "o7gdle7",
+        "score": 1,
+        "body": "Like a painful shot? It\u2019s not a big deal."
+      },
+      {
+        "id": "o7gxoy6",
+        "score": 1,
+        "body": "Feels like someone\u2019s pulling the muscle and twisting it. Not that bad, I wasn\u2019t sore. Just know when they count down from 3, they\u2019re pushing the shot at 2."
+      }
+    ]
+  },
+  {
+    "subreddit": "Militaryfaq",
+    "id": "1renaq3",
+    "title": "Want to join the military but don\u2019t think that my cognitive function would let me",
+    "body": "So I want to join the military due to personal reasons because it does seem like the only option left for me as I\u2019ve been applying for jobs to get away from my toxic and abusive household but I don\u2019t get a call back for an interview or anything and I\u2019ve been applying for months and I can\u2019t stay in this household for another 6 months. However I do admit that I\u2019m mentally slow and I don\u2019t process things the same way that others process things. I\u2019m that person who you would say is book smart but lacks common sense and critical thinking skills. Even my peers make comments about how mentally slow I am and I\u2019ve even been called \u201c dumb \u201c a few times before. I can learn but the thing is I\u2019m one of those people who learn on a slow pace and it might take me a while to get it but after enough exposure and practice I\u2019ll get it eventually. I don\u2019t want to join the military and then get  kicked out for \u201c failure to adapt \u201c should I even try ? What do you guys think?",
+    "flair": "Enlisting",
+    "score": 9,
+    "comment_count": 18,
+    "created_at": "2026-02-25T19:32:06+00:00",
+    "top_comments": [
+      {
+        "id": "o7dtj0i",
+        "score": 12,
+        "body": "If you are fit and have no health issues, the marines will take you."
+      },
+      {
+        "id": "o7dyddg",
+        "score": 9,
+        "body": "The bar for junior enlisted is really, really low because its designed for teenagers, and espeically teenagers who come from shitty environments.\n\nShow up at the right time to the right place in the right uniform and do what you are told when told to do it without talking back or arguing. Bonus points if you can work in a team well enough to not pawn work on others or piss them off so they would rather do more work than have you around.\n\nOh and don't commit any major crimes (theft, sexual assault, etc)\n\nIt really is that simple. But apparently really hard for some people"
+      },
+      {
+        "id": "o7esqbl",
+        "score": 7,
+        "body": "Book smart?\nNo common sense?\n\nWelcome to intel!"
+      },
+      {
+        "id": "o7e2wl1",
+        "score": 6,
+        "body": "Sounds like you're actually not \"slow\" at all. And instead your environment has led you to believe otherwise. \n\nThat's not \"real\" you're not dumb, you just live with people that mistreat you and make you feel like you are.\n\nIt's not your \"last\" shot either, but you should go ahead and do it. You'll be alright."
+      },
+      {
+        "id": "o7dsxrf",
+        "score": 5,
+        "body": "I think you should give it a shot. If you can just follow directions you\u2019ll be fine"
+      },
+      {
+        "id": "o7fbwkr",
+        "score": 4,
+        "body": "I\u2019d rather have a \u201cslow\u201d dude with a good attitude over a smart dude with a bad attitude when it comes to my team. \n\nAll day, every day."
+      },
+      {
+        "id": "o7du5t8",
+        "score": 4,
+        "body": "I\u2019m fit with no health issues"
+      },
+      {
+        "id": "o7e3836",
+        "score": 4,
+        "body": "Give it a shot. You may enjoy some of our tech roles that require a lot of smarts and working with small teams. I know I did"
+      },
+      {
+        "id": "o7dvlu2",
+        "score": 3,
+        "body": "Were you ever diagnosed with anything? A lot of failure to adapt are people who don\u2019t do well working with others and taking orders, with a lot of push back."
+      },
+      {
+        "id": "o7m5lds",
+        "score": 2,
+        "body": "Keep a good attitude, be respectful, and be willing to do whatever someone else tells you to do. You\u2019ll be fine. Give it a try!"
+      }
+    ]
+  },
+  {
+    "subreddit": "Militaryfaq",
+    "id": "1rek5u4",
+    "title": "Meps didn\u2019t disqualify me but recruiter is saying different",
+    "body": "At meps I got all the way done even gave them my fingerprints. All the doctor said was she couldn\u2019t see the paperwork stating that my cyst removal surgery came back as benign. She said \u201cyou pass but I need that paperwork to clear you\u201d. \n\nI sent in the paperwork but I\u2019m going to resend it to my recruiter. \n\nI let my recruiter know and she told me \u201cit\u2019s because your medical came back for a lot of things and they need to review it\u201d. I\u2019m confused because no one at meps said anything to me. \n\nWouldn\u2019t i have been told at meps that i need waivers or that im disqualified?",
+    "flair": "Enlisting",
+    "score": 5,
+    "comment_count": 7,
+    "created_at": "2026-02-25T17:44:39+00:00",
+    "top_comments": [
+      {
+        "id": "o7d71b9",
+        "score": 4,
+        "body": "No not necessarily, they don\u2019t always tell you that. You are probably left Open in your PULHES for what you described. If that\u2019s the case you would have to give your recruiter the medical docs to submit to MEPS for them to review them clear you."
+      },
+      {
+        "id": "o7demhp",
+        "score": 2,
+        "body": "We don\u2019t submit medical records with your prescreen anymore it slowed down the process."
+      },
+      {
+        "id": "o7d3a7i",
+        "score": 1,
+        "body": "You likely haven't included a branch which makes answering difficult. Edit if needed (waiver/DQ ?s *must* be edited), including component (active/guard/reserve). If your post is locked, this is why.\n\n*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/Militaryfaq) if you have any questions or concerns.*"
+      },
+      {
+        "id": "o7d3bmu",
+        "score": 1,
+        "body": "**DQ standard(s) (requires waiver(s))**:\n\nCysts, if:\n\n(1) The current cyst (other than pilonidal cyst) is of such a size or location as to reasonably be expected to interfere with properly wearing military equipment.\n\n(2) The current pilonidal cyst is associated with a tumor mass or discharging sinus, or is a surgically resected pilonidal cyst that is symptomatic, unhealed, or less than 6 months post-operative. A pilonidal cyst that has been simply incised and drained does not meet the military accession medical entrance standard.\n***\nThis sub cannot definitively tell you whether you're eligible. Waivers are decided on a case-by-case basis. Contact your local recruiter.\n\n^(I'm a bot and can't reply.) [^(Message the mods)](https://www.reddit.com/message/compose?to=/r/Militaryfaq&subject=MilFAQBot) ^(with questions/suggestions.)"
+      },
+      {
+        "id": "o7d8osw",
+        "score": 1,
+        "body": "Hopefully she submits them this time. I sent it to her already and just resent them to her. I was lost when the doctor couldn\u2019t see the paperwork when I brought it to my first meeting with my recruiter."
+      },
+      {
+        "id": "o7qt6y0",
+        "score": 1,
+        "body": " This hillsrecruiter a great dude, was talking to him when i had my troubles with first recruiter, and than i found one that was going above and beyond for me, if u do not feel comfortable with your recruiter and feel like she/he doesn\u2019t do it for you switch for another one, \nEven this recruiter he is a great guy and has helped me out with some of my personal questions. \nMy first recruiter didnt not submit any of my medical tests and documents, which i had to obtain all over again and was pain in my ass."
+      },
+      {
+        "id": "o7qvi88",
+        "score": 1,
+        "body": "Luckily I have all my medical paperwork in my email so I can easily forward to her when she asks for it again. I\u2019m going to give her the 10 business days but if she doesn\u2019t follow up then I will look for another recruiter."
+      }
+    ]
+  },
+  {
+    "subreddit": "Militaryfaq",
+    "id": "1rehic0",
+    "title": "Enlisting at 26\u201327 Year Old Considering Option 40, 18X, or Marine Infantry - Realistic?",
+    "body": "I'm a 24-year-old male considering enlisting around age 26-27 after spending the next 20 months preparing physically and mentally. \n\nI've thought about military service since was a kid, but earlier in life i didn't have the maturity or discipline to pursue it seriously. Over the past few years I've gained more life experience, dealt with setbacks, and developed a much stronger sense of accountability and direction. If I pursue this, want to do it the right way. \n\nOne major factor: had bilateral patellar (knee injuries) fractures in 2021 and surgeries on both knees one in late 2024 and the other in early 2025. I deal with some stiffness and mild pain, but I'm not debilitated. \n\nI'm currently following a structured PT and strength program rebuilding durability. My plan is 20 months overall first 8 months of low-impact strengthening and base conditioning, then gradually introducing running and rucking if my knees tolerate it and from there a year of high intensity training. If my body can't handle it, won't enlist. I'm trying to approach this realistically.\n\n Right now I'm 174 Ibs, training 5-6 days per week (strength + PT + conditioning), keeping my diet structured (160-180g protein/day), prioritizing sleep, and studying for the ASVAB. I'm primarily drawn to:\n\n Army Rangers for the high standards, discipline, and structured professionalism.\n\n Special Forces for the expectation of maturity, autonomy, and problem-solving (and understand candidates tend to be older). \n\nMarine Corps infantry- for the culture, identity, and small-unit focus, even if not pursuinga special operations route.\n\n I understand these are very different pipelines and commitments. I also understand attrition is high and nothing is guaranteed. \n\nLong term, I do plan to transition back to civilian life at some point to focus on family and building a stable life outside the service. That said, if earn the opportunity to serve in any of these capacities, my intention would be to fully commit during my time in.\n\n Questions: Realistically, how viable is RASP, SF or Marine corps at 26-27 with prior knee surgeries (assuming strong recovery and no limitations)? \n\nWhat does day-to-day Ranger life look like currently?\n\nWhat does day-to-day marine infantry life look like currently?\n\nWhat does day-to-day SF life look like currently?\n\n appreciate blunt feedback.",
+    "flair": "Enlisting",
+    "score": 2,
+    "comment_count": 10,
+    "created_at": "2026-02-25T16:12:44+00:00",
+    "top_comments": [
+      {
+        "id": "o7comk1",
+        "score": 3,
+        "body": "Currently you won\u2019t be able to do either because Infantry branch is not approving ETPs for certain preexisting injuries. Because you have had surgery on both knees you wouldn\u2019t be able to do Op4, Op40 or 18X. Things may change by then but right now it would be a no."
+      },
+      {
+        "id": "o7crzt3",
+        "score": 3,
+        "body": "With prior injuries it might be harder to get the op40 or 18x contracts but, you can enlist as a regular joe and send up a packet when you get to your unit. Marines also get picky with injuries so be ready for that"
+      },
+      {
+        "id": "o7g1blf",
+        "score": 3,
+        "body": "To add on, you can apply to opt 40 or 18x later on. The standards are different once you're in, compared to initial enlistment as a civilian."
+      },
+      {
+        "id": "o7jrsva",
+        "score": 2,
+        "body": "Go on YouTube search up Jake zweig. Watch his videos and lives. Tones of answers for your needs\u00a0"
+      },
+      {
+        "id": "o7d6jzp",
+        "score": 2,
+        "body": "Correct, so for those contracts if you require a medical waiver you need what\u2019s call a ETP, exception to policy for Airborne school. Previously they would approve these ETPs. The last 6 or so months they have stopped approving them for certain medical waivers, ie Mental health, surgeries etc."
+      },
+      {
+        "id": "o7cncih",
+        "score": 1,
+        "body": "**Jobs mentioned in your post**\n\nArmy MOS: [18X (Special Forces Candidate)](https://www.goarmy.com/careers-and-jobs/ground-forces/firearms-ammunition/18x-special-forces-candidate.html)\n\n^(I'm a bot and can't reply.) [^(Message the mods)](https://www.reddit.com/message/compose?to=/r/Militaryfaq&subject=MilFAQBot) ^(with questions/suggestions.)"
+      },
+      {
+        "id": "o7cvwzx",
+        "score": 1,
+        "body": " I appreciate you replying to my Reddit post just to clarify what you're saying, are you saying that? For those specific contracts that I mentioned, the option forty and the 18x they're not offering any waivers basically or exceptions right now?"
+      },
+      {
+        "id": "o7cvqdr",
+        "score": 1,
+        "body": "Appreciate the reply and knowledge thanks boss."
+      },
+      {
+        "id": "o7pe2kf",
+        "score": 1,
+        "body": "Awesome this might be the move."
+      },
+      {
+        "id": "o7pe5ro",
+        "score": 1,
+        "body": "Thank you I'll go check him out now."
+      }
+    ]
+  },
+  {
+    "subreddit": "Militaryfaq",
+    "id": "1reeliq",
+    "title": "Can I join as a trans man?",
+    "body": "Hi, I'm a brazilian 17 year old boy currently in college, but I planned on enlisting right after I graduate, not just to earn a citizenship and leave Brazil, but also because I've always admired the discipline and dedication it takes to be a soldier; the idea of serving, being someone people look to for safety, is invaluable to me.\n\nI personally wanted to be a marine, and I think there's a lot I could offer and learn equally: I'm relatively fit, fluent in english, and have great resistance, not to mention I want to work hard and see action. The only problem is I was assigned female at birth, which means I'm a trans man, and doing research I've gotten mixed messages; some sources say the US military won't take trans folks at all, while other say they will but it's an awful ambient.\n\nI'm used to being underestimated because of who I am and never opposed to having to prove myself, but I guess this particular \"no\" stings more because of where it's coming from. I'm not more or less than any other boy or girl that wants to serve, I'm not even on hormones at the moment and if I had to refrain from doing HRT while in service, I can do that. I just wanted honest input from people who actually have contact with that world: do I have any chance of getting to be a marine at all?\n\nEDIT: Thanks everybody that answered in here, I did not honestly expect people to be so helpful. It's pretty heartbreaking to be denied even a chance, but hey, that's life. For any other trans folks with the same question, no, under the current administration, there is a ban on openly trans people in the armed forces. I can only hope that changes some day.",
+    "flair": "Joining w/Med issue",
+    "score": 0,
+    "comment_count": 19,
+    "created_at": "2026-02-25T14:25:02+00:00",
+    "top_comments": [
+      {
+        "id": "o7c27z1",
+        "score": 8,
+        "body": "Trans woman that did (almost) 10 years in the AF here: no you cannot. I joined in 2016, transitioned while active duty, then got forcibly discharged by the current admin at the end of 2025. Gender dysphoria is a disqualifying condition under the current admin and they are wrapping up a complete purge of trans service members as we speak. If you never received a diagnosis or didn\u2019t do anything to transition (no hormones, surgeries, or legal document changes), you could theoretically fly under under the radar but you\u2019d have serve in your birth gender the entire time or until a friendly administration takes over and reverses the current policy. Even just mentioning you\u2019re trans to someone could be grounds for you to be forced out right now if they report you. Also, every year you have to fill out a medical questionnaire and some of the questions on it now explicitly ask if you\u2019re trans. If you say yes: you get kicked out, if you say no and then someone finds out that isn\u2019t true, you get kicked out and potentially tried for making a false official statement. \n\nAs someone that just spent the last ten years dealing with policy flip flopping every 4 years, I strongly advise against it. Maybe you\u2019d have a chance once policy changes under a new administration, but as long as it remains under the control of the White House rather than a guarantee under law, every election is potentially going to result in the abrupt end of your career for the foreseeable future.\n\nEDIT: as for why you\u2019re finding mixed info online, I\u2019ll give you a summarized timeline.\n\nPre-1950s: there was no policy explicitly banning trans service members but those who tried were discharged upon discovery anyway. Some managed to successfully serve under the radar as far back as the civil war.\n\n1950s-2015: trans people are officially banned via presidential order. Gay people are also banned until 2011, with some restrictions being lifted in 1993 under the \u201cDon\u2019t ask, don\u2019t tell\u201d policy.\n\n2015-2017: trans people may serve openly per a presidential order from Obama.\n\n2017-2021: Trump signs an order banning trans people again. Court battles delay the policy from taking effect until 2019. Trans people that already began transitioning prior to 2019 are allowed to continue but any service members attempting to join or transition after that date are officially banned from service. Anecdotally, very few people are actually kicked out under this ban.\n\n2021-2025: Biden reverses the Trump policy and restores open service. This is when I began my transition.\n\n2025-present: Trump orders a new stricter ban. This one is still actively being fought in the courts. Unlike the 2017 ban, the courts allow it to take effect almost immediately. There are also no exceptions for already transitioning service members. Virtually all openly trans service members are purged by early-mid 2026. Only those who have not attempted to transition remain in service, provided that they keep their transness a secret from their fellow service members."
+      },
+      {
+        "id": "o7c3p0b",
+        "score": 7,
+        "body": "Can\u2019t join as a trans man"
+      },
+      {
+        "id": "o7cf9j4",
+        "score": 7,
+        "body": "No they are literally kicking people out for that right now."
+      },
+      {
+        "id": "o7c8dfk",
+        "score": 7,
+        "body": "This right here is the facts of the matter, op. This right here."
+      },
+      {
+        "id": "o7c53x2",
+        "score": 6,
+        "body": "1. Citizenship isn't required to enlist. \n\n2. Gender dysphoria or treatment is currently not waivable."
+      },
+      {
+        "id": "o7bym0s",
+        "score": 4,
+        "body": "That is the bigger hurdle though. This administration will only last until early 2029. You won't have a green card by then."
+      },
+      {
+        "id": "o7cmfqf",
+        "score": 3,
+        "body": "I see. Thanks for the help, it means a lot that I even got so many polite and helpful answers even if the result is pretty heartbreaking"
+      },
+      {
+        "id": "o7pwcct",
+        "score": 2,
+        "body": "I see. Thanks for being helpful and honest, it's really heartbreaking that this is happening. I don't understand what is the issue with just letting people who want to serve do it."
+      },
+      {
+        "id": "o7by0nl",
+        "score": 2,
+        "body": "Yeah, I know that, but as I said, I planned on enlisting after I graduate, so I still have a few years to figure that out. The only real problem is the whole identity thing. Thanks for the advice anyway \\^\\^"
+      },
+      {
+        "id": "o7c5qvy",
+        "score": 2,
+        "body": "you\u2019re exactly right, it didn\u2019t used to be when i was in but it is now"
+      }
+    ]
+  },
+  {
+    "subreddit": "Militaryfaq",
+    "id": "1re6n7r",
+    "title": "Air Force really that much better than Army?",
+    "body": "I leave to Fort Jackson April 21st as a 25U and I\u2019m very excited but then I get on here and see the posts of how much better the Air Force is and it gets me second guessing. Is it really that much better? Should I switch to Air Force? (I know I would be an asshole for that)",
+    "flair": "Which Branch?",
+    "score": 2,
+    "comment_count": 10,
+    "created_at": "2026-02-25T07:23:06+00:00",
+    "top_comments": [
+      {
+        "id": "o7b3ixb",
+        "score": 7,
+        "body": "Not a problem. With that said, you're going to have to deal with the job selection being very different and while the amenities tend to be nicer some of the bases are in even more remote places than the army."
+      },
+      {
+        "id": "o7af2uj",
+        "score": 3,
+        "body": "You're not an asshole for looking out for yourself when making a big commitment like this, and yes, Air Force is generally better for QOL and letting you focus on your job for 90% of the jobs out there. Unless you really have some specific goal in mind like manning artillery or driving tanks, Air Force is a generally recommended path."
+      },
+      {
+        "id": "o7bbsoq",
+        "score": 3,
+        "body": "Go check the Army sub for a recent thread on this.\n\nShort answer-usually.\n\nThe major reasons to join the Army are: 1) job selection you can get contracts with signal, intel, cyber, pilot, etc. 2) wanting to do Army stuff like drive a tank, kick down doors, sleep in the dirt 3) guaranteed career opportunities such as Airborne, 75th Ranger, SF, 160th, etc contracts.\n\nIf you are 25U and want to jump start a career in the field Army might actually be your best bet vs risking working a gate a Minot.\n\nNote that I was Army National Guard, now retired near an AFB."
+      },
+      {
+        "id": "o7cr7qs",
+        "score": 3,
+        "body": "Most of this notion is from perceptions we have when we go to the other branches base or dining facilities or what you hear from ppl in the other branches. Unless you\u2019ve been in both no one can speak on the real differences. \n\nAs a former 25U I can say it\u2019s a good choice, you gain a lot of good experiences. You can get any IT certification, work in every type of unit, special assignments like White House is a little harder for us to get but possible. We have joint assignments where we work with other branches communications Sailors/Marine/ Airmen. It\u2019s a good field to be in, now we do work and alot of times it\u2019s by yourself. So you will be the single point of success or failure for your units communication. If I went back and did it again I wouldn\u2019t change anything."
+      },
+      {
+        "id": "o7bopmo",
+        "score": 2,
+        "body": "Yes"
+      },
+      {
+        "id": "o8a5fcv",
+        "score": 2,
+        "body": "I\u2019m active duty in the Army now and I can tell you from MY perspective, the Air Force has better dfacs. every time my friends and I see something made/built for the Air Force at our Army base, it always looks better (from the outside looking in). It\u2019s like the Chair Force has class or something. Made an Airman friend at MEPS and chatted about our experiences, very very different. They stay at really nice hotels, he\u2019s never been to the field. ALSO, this is BIG to me, he does PT on his own \ud83e\udee9\ud83d\ude2d note: this is all just my perspective, never been in the Air Force, but personally, I envy them. However, I still prefer the Army. It\u2019s the struggle with your battle buddies that make the experience great, lifelong friendships."
+      },
+      {
+        "id": "o7ftzds",
+        "score": 1,
+        "body": "The QOL argument only holds up if you comparing apples to oranges. Overall they are generally comparable.\n\nPeople in the Army say that nonsense due to limited experience with USAF facilities typically overseas and paint the whole service like that."
+      },
+      {
+        "id": "o7cy2ns",
+        "score": 1,
+        "body": "Good to know thank you !!"
+      },
+      {
+        "id": "o7e18nt",
+        "score": 0,
+        "body": "Hey man can I ask for some specific advice cordially? I am looking into the af as well as"
+      },
+      {
+        "id": "o7ep1oi",
+        "score": 0,
+        "body": "Sure, so long as it's not a dm"
+      }
+    ]
+  },
+  {
+    "subreddit": "Militaryfaq",
+    "id": "1rdyg8b",
+    "title": "I cheated and got caught on the asvab what can I do",
+    "body": "So i cheated on the asvab because my recruiter told me i had to take this test. I got caught and now i got sent home, idk what to do and im mad at my recruiter for even making me take this stupid test. I want to be a soldier so what should i do?",
+    "flair": "ASVAB/PiCAT",
+    "score": 0,
+    "comment_count": 18,
+    "created_at": "2026-02-25T00:47:04+00:00",
+    "top_comments": [
+      {
+        "id": "o78qnin",
+        "score": 11,
+        "body": "Start by owning your own mistakes and not blaming someone else."
+      },
+      {
+        "id": "o78sq8t",
+        "score": 8,
+        "body": "Please don\u2019t join"
+      },
+      {
+        "id": "o78rr7s",
+        "score": 6,
+        "body": "\u201cI\u2019m mad at my recruiter for making me take this stupid test\u201d\n\nDid you recruiter say \u201ccheat on the test\u201d? Did your recruiter provide you with a means to cheat? No?\n\nTake responsibility for your own actions."
+      },
+      {
+        "id": "o78rt7m",
+        "score": 6,
+        "body": "You cheated because you made the decision to cheat, not because of anything your recruiter did. Every single person in the military has taken that test; I don\u2019t think you\u2019ll find much sympathy about a basic entry requirement. Is your plan to cheat throughout your whole career? This is a character issue that you need to reflect on and get over.\n\nTalk to your recruiter, they\u2019ll tell you what your options are."
+      },
+      {
+        "id": "o78ufv1",
+        "score": 6,
+        "body": ">So i cheated on the asvab because\n\n...of you.  It's your fault.  Nobody made you cheat.\n\n>because my recruiter told me i had to take this test.\n\nHe told you that because you have to take the ASVAB to join the military.\n\n>I got caught and now i got sent home, idk what to do and im mad at my recruiter\n\nWhat you do is stop blaming your recruiter for making you take a test you had to take to join the military and maybe try your luck at McDonald's.\n\n>I want to be a soldier so what should i do?\n\nStop wanting to be a soldier."
+      },
+      {
+        "id": "o78qssb",
+        "score": 5,
+        "body": "Learn to be an adult and understand that there are standards that you have to meet, one of which is passing the test. The only person you should be mad at is yourself."
+      },
+      {
+        "id": "o78raip",
+        "score": 5,
+        "body": "You have to take it. And you have to not cheat. It's not your recruiter's fault you have no integrity"
+      },
+      {
+        "id": "o78qnfa",
+        "score": 5,
+        "body": "If you want to be a solider, you need to pass the ASVAB, and you need to not cheat on the ASVAB.\n\nIt\u2019s pretty straightforward, I\u2019m not sure what other answer you hope to hear."
+      },
+      {
+        "id": "o78tpau",
+        "score": 4,
+        "body": "How is this the recruiter's fault...."
+      },
+      {
+        "id": "o78r7sa",
+        "score": 3,
+        "body": "I can confidently inform you that you were gonna score lowwwwww."
+      }
+    ]
+  },
+  {
+    "subreddit": "Militaryfaq",
+    "id": "1rdc6l6",
+    "title": "Smartwatches In A SCIF?",
+    "body": "Hi, I just signed a 35L contract. I wanted to buy a smart watch to help me track my runs and was looking for recs. The only thing is that for my MOS, I was told I might have to work in a SCIF, so I want one that is compliant. I have seen some posts and even an NSA approved list but it was out of date and the posts were conflicting. I was looking at a Garmin Instinct 3 Solar Tactical, or the Tactix 8. If anyone has any guidance it would be appreciated. ",
+    "flair": null,
+    "score": 0,
+    "comment_count": 20,
+    "created_at": "2026-02-24T09:59:33+00:00",
+    "top_comments": [
+      {
+        "id": "o74dydm",
+        "score": 4,
+        "body": "I wear a Garmin in my scif. The process was pretty quick but YMMV may very. Your space could say \"no smart devices\" and that would be the end of that."
+      },
+      {
+        "id": "o74qpkb",
+        "score": 3,
+        "body": "It's good to think ahead, but you could get one you think is approved, but leadership says no. Some other SCIF might say the same watch is fine.\n\nI wouldn't worry about it that much. You won't be tracking any runs inside a secure building."
+      },
+      {
+        "id": "o75sh57",
+        "score": 2,
+        "body": "How in the world did you get lucky enough for 35L contract? Are you prior enlisted?"
+      },
+      {
+        "id": "o77h343",
+        "score": 2,
+        "body": "He mentioned elsewhere he just graduated with a data science degree and is going in as an E-4. That was probably the deciding factor. Although he also wants Rangers to SOF, so he\u2019s all over the place."
+      },
+      {
+        "id": "o7804qq",
+        "score": 2,
+        "body": "To be clear, SOF is all special operations and SF is only green berets. Or am I misunderstanding?"
+      },
+      {
+        "id": "o740e1r",
+        "score": 1,
+        "body": "**Jobs mentioned in your post**\n\nArmy MOS: [35L (Counterintelligence Agent)](https://www.goarmy.com/careers-and-jobs/signal-intelligence/languages-code/35l-counterintelligence-agent.html)\n\n^(I'm a bot and can't reply.) [^(Message the mods)](https://www.reddit.com/message/compose?to=/r/Militaryfaq&subject=MilFAQBot) ^(with questions/suggestions.)"
+      },
+      {
+        "id": "o758rdj",
+        "score": 1,
+        "body": "I lived in SCIFs and SAPFs for years and while there's some variance, more often than not devices that talk out are not authorized in a high side space."
+      },
+      {
+        "id": "o7cc17f",
+        "score": 1,
+        "body": "Read the sign on the door, that will lead to the instructions with answers\u2026\u2026\u2026"
+      },
+      {
+        "id": "o77nl8w",
+        "score": 1,
+        "body": "which one do you use?"
+      },
+      {
+        "id": "o77nb4r",
+        "score": 1,
+        "body": "been waiting since november for a 35M contract but found out about a month ago they arent giving any for AD till next yr"
+      }
+    ]
+  },
+  {
+    "subreddit": "Militaryfaq",
+    "id": "1rc6zjy",
+    "title": "\"Commissioning into Army with glaucoma suspect and benin polyp throat surgery a year ago\"",
+    "body": "I am 39 female with master in Education GPA 3,49. Passed ASVAB with 50th percentile and after physical at the MEPS, l submitted clearance letters for glaucoma suspect and throat surgery a year ago. What are my chances?",
+    "flair": "Joining w/Med issue",
+    "score": 3,
+    "comment_count": 14,
+    "created_at": "2026-02-23T03:49:38+00:00",
+    "top_comments": [
+      {
+        "id": "o6xv84f",
+        "score": 8,
+        "body": "That is a shockingly low ASVAB score for someone with a college degree. "
+      },
+      {
+        "id": "o6wkjcw",
+        "score": 4,
+        "body": "Your ASVAB score is not high enough to even try for OCS, unless you some how have a 110 GT."
+      },
+      {
+        "id": "o6w9nz9",
+        "score": 3,
+        "body": "The mid range ASVAB and your age isn\u2019t helping much. In my opinion your biggest hurdle is going to be the age waiver"
+      },
+      {
+        "id": "o6z09o4",
+        "score": 3,
+        "body": "Yeah you don\u2019t qualify for OCS with that."
+      },
+      {
+        "id": "o6w7t57",
+        "score": 2,
+        "body": "**DQ standard(s) (requires waiver(s))**:\n\nHistory of glaucoma, ocular hypertension, pre-glaucoma, or glaucoma suspect.\n***\nThis sub cannot definitively tell you whether you're eligible. Waivers are decided on a case-by-case basis. Contact your local recruiter.\n\n^(I'm a bot and can't reply.) [^(Message the mods)](https://www.reddit.com/message/compose?to=/r/Militaryfaq&subject=MilFAQBot) ^(with questions/suggestions.)"
+      },
+      {
+        "id": "o6w8zt3",
+        "score": 2,
+        "body": "You will probably be fine as far as the waivers go, suspect is just that."
+      },
+      {
+        "id": "o6w90xs",
+        "score": 2,
+        "body": "I contacted my recruiter and we submitted clearance letters. Trying to picture if any possibilities to be commissioned with my profile."
+      },
+      {
+        "id": "o6w9gba",
+        "score": 2,
+        "body": "Praying for it. And with my ASVAB score, can l still qualify for OCS?"
+      },
+      {
+        "id": "o6wa8em",
+        "score": 2,
+        "body": "Ooh Lord! So my college degree and 12 years of teaching experience could not help?"
+      },
+      {
+        "id": "o6wabuj",
+        "score": 2,
+        "body": "It absolutely helps, but you are quite a ways over"
+      }
+    ]
+  },
+  {
+    "subreddit": "MilitaryFinance",
+    "id": "1ot7eb0",
+    "title": "TSP 2026 Max $24,500 & Get Full 5% BRS Match Chart",
+    "body": "Other formats: [PDF](https://militarymoneymanual.com/wp-content/uploads/2025/11/2026-Max-BRS-TSP-Contributions-Monthly-Match-_-Military-Money-Manual.pdf) and [Excel](https://militarymoneymanual.com/wp-content/uploads/2025/11/2026-Max-BRS-TSP-Contributions-Monthly-Match-_-Military-Money-Manual.xlsx)\n\nThis chart assumes that Congress will enact the 3.8% pay raise starting 1 January 2026. The House of Representatives passed the 2026 NDAA on 10 Sep 2025 and Senate passed the same pay increase on 9 October 2025.\n\nThese charts also assume that the IRS will increase the 401k limit to $24,500 in 2026, which is [estimated but not confirmed](https://www.milliman.com/en/insight/2026-irs-limits-forecast-final-estimates).\n\nEven if the final pay numbers are slightly off, this is close enough and you can adjust your contributions half way through the year to make sure you leave at least 5% in December. Make the contribution change in [myPay now](https://mypay.dfas.mil/mypay.aspx) if you want the contribution to adjust in January 2026.\n\nThese are the monthly percentages to contribute to the TSP (Roth or Traditional) to receive the full 5% matching every month AND maximize your 2026 contributions of $24,500 elective deferral limit. You can set your contribution through myPay.\n\n# Why not just max out the TSP as quickly as possible?\n\nIf you go all out and max out your TSP by August of the year, like I used to when I was in the High-3 Legacy retirement plan before the Blended Retirement System (BRS), then you miss out on the 5% match for the rest of the year. The 5% match is paid monthly so you need to leave at least 5% to contribute in December.\n\nYou must calculate how much to contribute each month to max $24,500 for 2026 ([TSP](https://www.tsp.gov/making-contributions/contribution-limits/) source) and contribute 5% in December. You can try to gnat's ass it by over contributing and leaving exactly 5% to contribute in December, but trust dollar cost averaging and contribute the same amount every month and you will be fine.\n\n# Calculate Your Personal TSP Contribution Percentage\n\nYou don't need this chart. You can calculate your own contribution percentage.\n\nThe formula for 2026 is $24,500/12 = $2,041.67 / your base pay = percentage to contribute (round up to nearest whole percentage).\n\nMatching does not count against your personal elective deferral limit of $24,500. So YOU can put in $24,500 AND, in my case as a 10 year O-4, I get 5% matched annually = $5,651.\n\nI can contribute $24,500 and the gov't throws in another $5,651. The total amount of money flowing into my TSP in 2026 is $30,151.\n\nThat is beneath the [annual additions limit of $72,000](https://www.tsp.gov/making-contributions/contribution-limits/?tab=composition), so we're all good. By the way, growing at 10% per year for 30 years that $30,151 becomes $526,116.\n\nThe government match counts against your \"annual addition limit,\" which is $72,000 in 2026. This is also the limit you will run into if you are deployed and trying to super-max out your TSP.\n\nThe TSP/DFAS computers *should* stop you before exceeding any limits. The TSP/DFAS computers failed to stop over contributing in 2021 and 2022, but apparently the glitch is fixed now.\n\nIf you do exceed limits, you can un-screw the situation with a [contribution refund](https://www.tsp.gov/making-contributions/contribution-refunds/). It's not a big deal and you won't go to TSP jail, so don't stress too hard about it.\n\nPlease check my math and let me know if I made any errors and I will post the correction.\n\nAlso, please note that I do not account for promotions or time in service increases, but it should be negligible for most servicemembers. If you have a big pay bump (like O-2 to O-3) you may need to decrease your contributions a percentage or 2 so you do not max out too early, but probably not.\n\nYou could gnats ass it and max out as early as possible and then change your contributions to 5% for the rest of the year or over contribute in January - November leaving only 5% of the $24,500 limit remaining in December... but this chart is a good enough solution. The TSP and myPay are notoriously slow to respond and adjust contributions, so don't risk it by making contribution changes often.\n\n# Frequently Asked Questions\n\n**Are these the actual pay charts?** At the time of this post, the 2026 paychart has not been signed into law by POTUS. This is an estimate based on the House and Senate versions of the NDAA.\n\n**Does this work for Roth and Traditional contributions?** Yes\n\n**Should I contribute to Roth or Traditional?** Roth. Unless you are in the 24% bracket or higher. Which you are probably not.\n\n**Is a Roth TSP the same as a Roth IRA?** No, a Roth IRA is not a Roth TSP. You can contribute $24,500 to your Roth TSP and also $7,500 to your Roth IRA. You\u2019ll need to set up a Roth IRA at Vanguard, Schwab, or Fidelity or a similar brokerage or financial institution.\n\n**Why can\u2019t I specify a dollar amount for my contribution?** I don\u2019t know.\n\n**Does this chart work for High 3?** Yes, but as a High-3 can max out early and it doesn\u2019t matter, so you can set a higher percentage than the chart.\n\n**What if I get a promotion or time in service pay increase in the middle of the year?** It probably doesn\u2019t matter. But you can run the numbers to check.\n\n**What fund should I invest my TSP in?** Probably a Lifecyle Fund, your year of birth + 65 and round up. So if you were born in 2000, Lifecycle 2065.\n\n**When should I make the change of TSP contribution in MyPay to reflect in the new calendar year?** The latest day to make the change is probably somewhere between 1 - 10 December. I would make the change in November just to be sure.\n\n**How many servicemembers max out their TSP?** [A Vanguard study](https://corporate.vanguard.com/content/dam/corp/research/pdf/how_america_saves_report_2025.pdf) estimated in 2024 that 14% of all Vanguard 401k participants maxed out their 401ks.\n\n49% of 401k participants with income over $150,000 maxed out their 401k contributions, so if you are an O-4 or higher that\u2019s you.\n\nFor those earning less than $100,000, it drops to 2% or less. $100,000 - $149,999 11% maxed out. Rates for maxing out in the military are probably similar.\n\nHere are the [2025](https://www.reddit.com/r/MilitaryFinance/comments/1haifyi/max_tsp_2025_23500_get_full_5_brs_match_chart/), [2024](https://www.reddit.com/r/MilitaryFinance/comments/185isgd/max_tsp_2024_23000_get_full_5_brs_match/),\u00a0 [2021](https://www.reddit.com/r/MilitaryFinance/comments/jjh57s/max_your_tsp_contributions_2021_percent_of_pay_to/), [2020](https://www.reddit.com/r/MilitaryFinance/comments/fv42we/how_much_to_contribute_to_tsp_monthly_to_get_full/), and [2019](https://www.reddit.com/r/MilitaryFinance/comments/9vicff/how_much_to_contribute_to_the_tsp_and_receive_the/) posts for posterity.",
+    "flair": null,
+    "score": 344,
+    "comment_count": 47,
+    "created_at": "2025-11-10T07:18:36+00:00",
+    "top_comments": [
+      {
+        "id": "no46e1c",
+        "score": 44,
+        "body": "Absolutely sends me that I have to choose a percentage, and can not specify in terms of FIXED DOLLAR AMOUNTS. Makes it awfully hard to pin the match exactly, especially if you have a TIS bump or a promotion, and even though I can round, I like precision."
+      },
+      {
+        "id": "no2nw7k",
+        "score": 37,
+        "body": "As someone still on my first contract, does congress consistently give raises each year?\n\nThank you for the chart btw much appreciated"
+      },
+      {
+        "id": "no2m8ye",
+        "score": 33,
+        "body": "GOAT"
+      },
+      {
+        "id": "no2pg07",
+        "score": 29,
+        "body": "There has been an annual increase every year since the 1960s except, I believe, in 1986. There have been a few times that pay has been frozen at the top levels, but that is usually limited to O-7 and above."
+      },
+      {
+        "id": "no3o9qu",
+        "score": 22,
+        "body": "For those wondering, this years pay increase should be 3.8% for base pay. BAH comes out mid December but is usually the more significant pay increase as you don\u2019t lose 20% to taxes."
+      },
+      {
+        "id": "no4isow",
+        "score": 20,
+        "body": "I get why it's not a flat number. 5% when in basic is like $100. Somebody sets it and forgets it, and suddenly they're contributing $100 forever."
+      },
+      {
+        "id": "no57zz2",
+        "score": 16,
+        "body": "I bet you have a podcast called Military Money Manual\u00a0"
+      },
+      {
+        "id": "no2pk6i",
+        "score": 15,
+        "body": "We are supposed to get a minimum raise in line with inflation (specifically the employment cost index) by law. However, it's typically 2 years behind. So we should get a raise this year with the ECI from 2023. \n\nNote, we may get a larger or smaller raise depending on politics."
+      },
+      {
+        "id": "no51hbs",
+        "score": 15,
+        "body": "Should be able to put in either field, percentage or number, and it auto populate the other."
+      },
+      {
+        "id": "no4ba9s",
+        "score": 15,
+        "body": "Instructions were very clear. You just couldn\u2019t be bothered to take the time to read. \n\n>The TSP/DFAS computers *should* stop\n**When should I make the change of TSP contribution in MyPay to reflect in the new calendar year?** The latest day to make the change is probably somewhere between 1 - 10 December. I would make the change in November just to be sure."
+      }
+    ]
+  },
+  {
+    "subreddit": "MilitaryFinance",
+    "id": "1pva6yv",
+    "title": "Enlisted Military millionaire",
+    "body": "Merry Christmas to you all.\n\nOriginal post here. \n\nhttps://www.reddit.com/r/MilitaryFinance/s/Ki6MD50sxC\n\nCurrently. \n18YOS (E7) single income, 4kids.\nHit the million $ mark yesterday, made for a Merry Christmas.\n\nChanges I made over the last year to gain $100k+. \n\n- Moved money from going into CD\u2019s (4+ % interest) to my brokerage account. I still\nHave a large chunk of money (450k+) in CDs with the expectation to buy a house in the next 2 years. \n\n- Brokerage (270k+) had some good wins with a couple individual stocks I bought (Google, Rocket lab, defense stocks) but a majority goes into VOO. \n\n- Increased my Roth TSP (70k+) contributions to 12%. My plan is to roll it over after service into my Roth IRA (180k+) to have easy access to it earlier in life if needed and no minimum distribution if I want it to sit longer. \n\nCurrently planning to go past 20yrs of service. Enjoying my job, I make 6 figures, and have the potential to serve an enjoyable tour after this one along buy a house in a lower cost area.\nThis gets me to 23-24YOS where I will retire on High3 system, collect some VA disability and be able to watch my kids grow up living comfortably doing some part time job if I need. ",
+    "flair": null,
+    "score": 297,
+    "comment_count": 69,
+    "created_at": "2025-12-25T10:00:06+00:00",
+    "top_comments": [
+      {
+        "id": "nvunwtj",
+        "score": 127,
+        "body": "Great stuff. Love reading successes like this. Don\u2019t forget each year past 20 for you is an extra 2.5% on the pension which really adds up.\u00a0"
+      },
+      {
+        "id": "nvv90o7",
+        "score": 49,
+        "body": "Don\u2019t forget every day past 20 and you\u2019re working for 1/2 of your pay."
+      },
+      {
+        "id": "nvvjgys",
+        "score": 38,
+        "body": "That seems pretty simplistic.  It doesn\u2019t take into account the larger pension with more years of service/increased rank and the fact that 50% of base pay is not 50% of total pay."
+      },
+      {
+        "id": "nvux0b3",
+        "score": 31,
+        "body": "Congratulations!  You've done great.  Please share your experience with junior enlisted and new officers to help them get started on the right path and to appreciate what is possible.  I suspect you will also find out how quickly the second million comes - compounding is awesome once your money starts really working for you.  Thanks for being a role model for others!"
+      },
+      {
+        "id": "nvut3lk",
+        "score": 29,
+        "body": "Zero stress with saving. Luckily for me my wife and I are on the same page with material things and both of us are low maintenance. \n\nLiving overseas has helped a lot, owning pre owned cars and being able to walk/bike and reliable public transportation saves a lot. As covered in the last post, we make the most of base resources (theater/gym/events). We get to go out and see/do things unique from the states as well. \n\nOutside of food, Most our expenses go to our kids things. Clothes, toys, activities. Overall we are pretty happy with the things we can control, and buy/spend on what we want. Hope that helps"
+      },
+      {
+        "id": "nvuqn9j",
+        "score": 17,
+        "body": "You covered it a bit in the linked original post but how is your quality of life? Are you guys able to enjoy life or is there a lot of stress in day-to-day life in an effort to save money? \n\nLegitimately asking because a lot of people get trapped into thinking you have to have a miserable existence to save this kind of money.\n\nExtremely impressive achievement though, especially as enlisted with a single income. Congratulations."
+      },
+      {
+        "id": "nvuyfvx",
+        "score": 14,
+        "body": "Nothing in IRAs? You should be maxing those out (for you and spouse) long before you contribute to a taxable brokerage account."
+      },
+      {
+        "id": "nvvou70",
+        "score": 14,
+        "body": "Trying to \u201cget\u201d 100% disability shouldn\u2019t be the goal.\u00a0"
+      },
+      {
+        "id": "nvuvaqc",
+        "score": 12,
+        "body": "Amazing, I\u2019m currently at 12 YOS and looking to accomplish the same goal of retiring a millionaire. This is motivation for sure. Congratulations \ud83c\udf89"
+      },
+      {
+        "id": "nvwy38h",
+        "score": 12,
+        "body": "I see people say this, but I don\u2019t get it. What do you mean? I\u2019m considering going past 20 myself depending on the rank I hit. If E-7 by 18-19 TIS with no hope of E-8, I\u2019m cutting at 20. If E-8 by then or looking at E-8 close to 18-19 TIS, I\u2019m going past 20 for the higher high-three."
+      }
+    ]
+  },
+  {
+    "subreddit": "MilitaryFinance",
+    "id": "1l994dy",
+    "title": "23, E5, just crossed 100k!",
+    "body": "I\u2019ve been in for ~2.5 years and my aggressive saving has paid off! Officially hit the Munger milestone. \n\nGot roughly 36k in TSP, 22k in ROTH IRA, 37k in my brokerage and 6k in my checking. Thank you to DFAS for pushing me over the hump lol. \n\nAnd thank you to the people of this sub for the secondary advice. ",
+    "flair": "Success Story",
+    "score": 214,
+    "comment_count": 53,
+    "created_at": "2025-06-12T00:44:01+00:00",
+    "top_comments": [
+      {
+        "id": "mxavm3p",
+        "score": 51,
+        "body": "Savings rate? Budget? Asset allocation? Did you come in with any savings?\u00a0\n\n\nThat's an impressive amount for 2.5 years. Is that maxing TSP for 2 years straight plus Roth IRA max on an E-5 salary?"
+      },
+      {
+        "id": "mxaw0jq",
+        "score": 32,
+        "body": "3 year ROTH IRA max, been doing 60% base pay contributions to ROTH TSP as well for the past year and half. Prior to that it was 20% since boot. No savings prior, but ~25k bonus and good (lucky) investing in my brokerage helped as well. Been heavily outperforming the S&P which will likely return to the mean. \n\nAlso a great command that let me get BAH at E3. Big part of it."
+      },
+      {
+        "id": "mxb0lgf",
+        "score": 21,
+        "body": "Roommates and eating a commute to live in a more LCOL area"
+      },
+      {
+        "id": "mxba6ie",
+        "score": 13,
+        "body": "yvan eht nioJ"
+      },
+      {
+        "id": "mxcdolz",
+        "score": 12,
+        "body": "I separated at 12 years active duty 3 years ago. The Air Force will let you retire as an O-4 if you're medically retired or you manage to make it to 20 years as an O-4."
+      },
+      {
+        "id": "mxbayat",
+        "score": 7,
+        "body": "Day trading? Swing trading? Picking stocks based on price action or a stock list?"
+      },
+      {
+        "id": "mxdu6v6",
+        "score": 7,
+        "body": "What branch are you in? For many job roles in the Navy 2.5 years to E5 is quick but totally reasonable"
+      },
+      {
+        "id": "mxb48ha",
+        "score": 6,
+        "body": "Do you live on rice and beans?"
+      },
+      {
+        "id": "mxb4szm",
+        "score": 6,
+        "body": "No, I actually spend way too much on 7-11 and fast food and such. If I\u2019m being real the market has been very, very kind to me. Averaging 120% YOY returns off of informed but lucky stock picks.\n\nEdit: the math is wrong but I\u2019m +320% over 2.5 years in my brokerage. Don\u2019t want to bust out the calculator but that\u2019s probably not 120% returns YOY"
+      },
+      {
+        "id": "mxbckmo",
+        "score": 6,
+        "body": "Smaller-cap high upside growth stocks, and \u201cgood idea\u201d companies where I personally know satisfied customers have been my big winners. \n\nASTS and HIMS respectively are some examples of each. \n\nI don\u2019t day-trade and my personal opinion is PE is near meaningless when picking stocks, but I do chose my entry time based on recent price action and 30-day volume weighted moving averages."
+      }
+    ]
+  },
+  {
+    "subreddit": "MilitaryFinance",
+    "id": "1prcha5",
+    "title": "Trump\u2019s $1,776 \u201cWarrior Dividend\u201d Is Just Housing Relief Congress Already Approved",
+    "body": "",
+    "flair": null,
+    "score": 206,
+    "comment_count": 27,
+    "created_at": "2025-12-20T11:42:59+00:00",
+    "top_comments": [
+      {
+        "id": "nv0p75o",
+        "score": 136,
+        "body": "You are talking to a brick wall man"
+      },
+      {
+        "id": "nv1ds6d",
+        "score": 56,
+        "body": "The level of outrage people are displaying on this sub for getting unexpected money is hilarious. Whats the right move here? Do you give it to charity in protest of the current president? No. Do you cash it out and burn it on camera to display defiance for a corrupt system? No. You\u2019ll complain online and then happily spend it on nice things and a fancy dinner for Christmas."
+      },
+      {
+        "id": "nv135nv",
+        "score": 48,
+        "body": "1. I don\u2019t know that I buy that we were all going to see that money anyway. The NDAA signed by congress authorizes some pay that we don\u2019t receive. For example, the 2024 NDAA authorized cold weather pay, the Army never got it for locations like Alaska or Ft. Drum. \n\n2. If the last Shutdown told me anything, The Trump Admin found the person at DFAS who pushes the money button. There were the same nay sayers (and I believed them) who said we wouldn\u2019t be getting paid on such short notice when a decision hadn\u2019t been made. But somehow we got paid."
+      },
+      {
+        "id": "nv0x0j5",
+        "score": 24,
+        "body": "Time value of money, you want a lump sum every time if there is no interest. Budget yourself, and earn interest all year."
+      },
+      {
+        "id": "nv1spog",
+        "score": 23,
+        "body": "We weren't going to see this money either way. I'm currently stuck in a dorm. I don't get BAH. Thanks to this \"dividend\" I'm getting paid. Think how many junior enlisted there are, like me, who never would have seen any of this money because we're stuck in on base housing."
+      },
+      {
+        "id": "nv1j9e8",
+        "score": 19,
+        "body": "Breaking the law to pay soldiers, while a good move for us, is still illegal. That\u2019s why the nay sayers were saying nay. They assumed the law would be followed. \n\nWe were going to see this money either way. Now it\u2019s a lump sum to every soldier rather than going towards making BAH closer to covering rent. All that was done here is that Trump put his name to it, had a big show about it to say \u201csee look how cool I am\u201d, and left 300M in the pot to go into a slush fund (perhaps)."
+      },
+      {
+        "id": "nv12iqo",
+        "score": 17,
+        "body": "Then you are bad with money. A lump sum is always better than a payout over months. If you can\u2019t control your spending and budgeting that\u2019s on you. Even putting it in a savings account will get you something in interest"
+      },
+      {
+        "id": "nv1unuw",
+        "score": 16,
+        "body": "I\u2019m maxing my Roth IRA out earlier than expected now"
+      },
+      {
+        "id": "nv1feqj",
+        "score": 12,
+        "body": "This guy gets it. Enjoy your bonus... Go take your political opinions to the top of a hill and see who cares."
+      },
+      {
+        "id": "nv106w2",
+        "score": 11,
+        "body": "Bah rates have already been posted. If your rate goes down you are grandfathered in your current place. If they go up great you get extra. Getting paid money up front that could have been an increase isn\u2019t softening the blow, it\u2019s getting your savings larger. If you can\u2019t afford your current house or apartment unless bah goes up your can\u2019t afford your current housing condition."
+      }
+    ]
+  },
+  {
+    "subreddit": "MilitaryFinance",
+    "id": "1o5zfwm",
+    "title": "Military discounts becoming less and less",
+    "body": "I feel like military discounts are becoming more scarce.  Dicks sporting good stopped doing military discounts so as Academy sports. When I go to outlet malls the discount is about 10% off only which just cover the taxes- before I remember 20%-30% off at Underarmour , Nike, etc. \nHome Depot has a cap at $400 off / year\nLowes wants you to spend a certain amount before they give you the military discount \nAnyone else noticed this as well?\n\n\n",
+    "flair": null,
+    "score": 169,
+    "comment_count": 83,
+    "created_at": "2025-10-13T23:14:44+00:00",
+    "top_comments": [
+      {
+        "id": "njczvcd",
+        "score": 254,
+        "body": "Epic Pass military discount is still insane. \n\nAnd I always tell people about using the Home Depot embedded in the exchange website. You get the 10% military discount, plus the no sales tax  from on post purchases - ends up being ~17% off which is nice"
+      },
+      {
+        "id": "njcxjpa",
+        "score": 114,
+        "body": "The discounts were never about your service, they're about engendering goodwill and buying a client base (if you spent 4 years going to Lowes for the discount, you'll keep going to Lowes after you get out- even if there is no discount) \n\nHaving established that, companies tightening up or removing their discounts is a weak indicator of the economy. Ever since Covid discounts for everyone (except college students) have been reduced or eliminated. This is because of Covid, inflation, and of course the Trump administration. There just isn't enough free flow of money to justify these discounts (from the business's POV)."
+      },
+      {
+        "id": "njcyxnp",
+        "score": 106,
+        "body": "I tell Veterans all the time, use whatever discounts and benefits you can because eventually they will not be there. When I joined the military a few decades ago, there weren\u2019t many discounts."
+      },
+      {
+        "id": "njcxcr9",
+        "score": 84,
+        "body": "There was a fever pitch of patriotism and supporting The Troops\u2122\ufe0f during GWOT. \n\nFor plenty of reasons, I think that sentiment is correcting back towards normal and there is less social pressure to offer discounts."
+      },
+      {
+        "id": "njd5v5q",
+        "score": 50,
+        "body": "How. Teach me your ways. I need to buy 2800 sgft of flooring"
+      },
+      {
+        "id": "njd7rhr",
+        "score": 49,
+        "body": "Login to your exchange and it *should* be right on the home page. Mine has always been on the top banner, so you might have to wait to cycle thru. \n\nIt\u2019ll take you straight to the HD website and you fill your cart like normal. When you go to checkout it will automatically go back to the exchange checkout and you just pay from there. \n\nPro tip: make sure you know exactly what you want because the exchange has a fairly small window of time before you logout. I think somewhere in the realm of 10-15 min, so don\u2019t take a ton of time or you will get logged out when you go to checkout and have to refill your cart all over again. \n\nI\u2019ve only ever had the option for shipping to my house, not pickup. But returns can be done in store and I haven\u2019t had any difficulties."
+      },
+      {
+        "id": "njd44w2",
+        "score": 36,
+        "body": "Same, take it if offered but just realize you are not going to find a military discount around a base unless its a national discount that business cannot turn off. But as soon as you go somewhere else, a number of businesses will suddenly offer discounts because they may get 1 or 2 military each month instead of 100s a day near a base., and if you in the middle of no where they may even comp a meal etc.. It just is what it is. At the end of the day they are saving you money out of their profit, but never expect anything."
+      },
+      {
+        "id": "njdii5r",
+        "score": 34,
+        "body": "Never felt entitled to any of that. I take advantage of it with bigger companies, never with the smaller. We all know the Thank Me For My Service types and that stuff is quite embarrassing to me."
+      },
+      {
+        "id": "njdd07s",
+        "score": 28,
+        "body": "If you talk to old vets you will find military discounts are relatively recent. \u00a0As a matter of fact being enlisted up until WW II in peace time meant you were probably a drunk or a loser\u2026even worse if you were career (so the public thought). \u00a0Seaside near Fort Ord seemed to exist to screw people coming out of basic between the bars, hookers, car dealers, jewelry shops and loan places even during Vietnam days.\n\nAs far as how the government treated you. \u00a0My family moved to Camp Lejune in about 1953. \u00a0My Father was an O-2 (mustang\u2026in from 1937 to 1958) and we lived in a single wide trailer for \u2018base housing\u2019\u2026three kids).\n\nSooo, in addition to understanding that the \u2018love\u2019 businesses have for you is just a business deal\u2026keep in mind the government (like most businesses) actually views you as a cog, easily replaced, in a rather big machine and the general public \u201c thank you for your service\u201d is an admission they have no idea what your life is like\u2026and don\u2019t really care."
+      },
+      {
+        "id": "njcy46h",
+        "score": 24,
+        "body": "Yep. I was just about to say that too. Economy is contracting, so discounts start to stack up after a year, giving a loss of hundreds to thousands of dollars mattering on products and area."
+      }
+    ]
+  },
+  {
+    "subreddit": "MilitaryFinance",
+    "id": "1owghso",
+    "title": "Yes, you will get paid this pay cycle. Any more posts about it will be removed.",
+    "body": "Most people are seeing it pending in their account already. If you are not, relax, it's not even supposed to be paid until tomorrow.\n\nThe government is funded via a Continuing Resolution until 30 Jan. This means, without a full spending and/or additional CR, you will not be paid on 15 Feb. **PLAN ACCORDINGLY.**",
+    "flair": null,
+    "score": 165,
+    "comment_count": 27,
+    "created_at": "2025-11-13T23:26:52+00:00",
+    "top_comments": [
+      {
+        "id": "nopx324",
+        "score": 78,
+        "body": "ITS MY MONEY AND I NEED IT NOW\n\n877-CASH-NOW"
+      },
+      {
+        "id": "nopxlcz",
+        "score": 42,
+        "body": "Slight clarification, 1st of February is end of month pay for January.  We should get paid 1 Feb.  If the shutdown returns, we would miss the 15th pay."
+      },
+      {
+        "id": "nopxqgu",
+        "score": 21,
+        "body": "Good catch, thank you."
+      },
+      {
+        "id": "noq6td3",
+        "score": 11,
+        "body": "USAA was paid alrwady"
+      },
+      {
+        "id": "noq766e",
+        "score": 7,
+        "body": "Got paid today, SoFi"
+      },
+      {
+        "id": "noqubj3",
+        "score": 7,
+        "body": "Ahhh. Damn you for putting this in my head. \ud83d\ude06 I\u2019ll probably be singing it all night.\n\nCall J.G. Wentworth. 877-cash-now. Eight sevenn sevenn cash nooooowwwww!!!!!!! \ud83c\udfb6"
+      },
+      {
+        "id": "noqhczk",
+        "score": 5,
+        "body": "My neighbor said navy fed was pending earlier for tomorrow"
+      },
+      {
+        "id": "noqjsle",
+        "score": 5,
+        "body": "Lol yeah my rate went from +5% to 3.6% this year. But its not just them almost every HYSA has gone down"
+      },
+      {
+        "id": "noqh9cr",
+        "score": 4,
+        "body": "Navy Fed hasn't \ud83d\ude2d"
+      },
+      {
+        "id": "noqiymq",
+        "score": 4,
+        "body": "SoFi lowered my interest rate AGAIN this week they better count their fuckin days"
+      }
+    ]
+  },
+  {
+    "subreddit": "MilitaryFinance",
+    "id": "1q45b31",
+    "title": "TSP Roth In-Plan Conversions: How to Become a Tax-Free Military Millionaire in 1 Year",
+    "body": "Starting 28 Jan 2026, you'll be able to convert a portion of money from your Traditional TSP to your Roth TSP. This is known as an in-plan Roth conversion. [https://www.tsp.gov/making-contributions/traditional-and-roth-contributions/roth-in-plan-conversions/](https://www.tsp.gov/making-contributions/traditional-and-roth-contributions/roth-in-plan-conversions/)\n\nAnyone in the Blended Retirement System (BRS) has money in the Traditional TSP since the 1% automatic agency contribution and 4% matching contributions go into the Traditional TSP.\n\nWhere this opportunity gets very interesting is CZTE or Combat Zone Tax Exclusion areas. [https://www.irs.gov/individuals/military/combat-zones](https://www.irs.gov/individuals/military/combat-zones)\n\n# 12 month deployment = $87,000 of Tax Free Money\n\nLet's say a servicemember is in a CZTE January to December and earns $100,000 in base pay, or $8,333 per month. This would be about a 22 year E-9 or 8 year O-3. $100k per year is below the CZTE income limit of the highest ranking enlisted position, so it's all federal income tax free.\n\nThe TSP contribution limits are $24,500 for 2026 elective deferral and $72,000 annual additions limit. [https://www.tsp.gov/making-contributions/contribution-limits/](https://www.tsp.gov/making-contributions/contribution-limits/)\n\nYou can go up to the annual additions limit with Traditional TSP contributions that are tax-exempt, aka contributions made to the Traditional TSP while you are CZTE eligible.\n\nHere's the setup:\n\n* 24% contributions to your Roth TSP\n* 43% contributions to your Traditional TSP + 5% from automatic matching = 48% total Traditional contribution\n* $15,000 into you and your spouses Roth IRA ($7,500 each)\n\nEvery month, you convert the tax-exempt Traditional TSP contribution to your Roth TSP. The money is converted \"pro-rata,\" meaning that if there is $10,000 in the account and $5,000 is tax-exempt, and $5,000 taxable, when you move $1,000 over it's a 50/50 split between tax-exempt and taxable. In other words, you can't just move the tax-exempt portion.\n\nBy the end of the year, you've paid $0 in federal income taxes on your $100,000 of base pay. You've managed to build:\n\n* $72,000 in to your Roth TSP (the $24k of contribution and the $48k of tax-exempt conversions)\n* $15,000 of Roth IRA contributions\n* $87,000 of Roth contributions in a single year for a married filing jointly O-3\n\nOh, and you're probably receiving BAH, BAS, etc as well.\n\n**Let that $87,000 grow for 30 years at 10%: $1.5 million**\n\nPull 4% a year off of that = $60,000 per year for life. Tax free.\n\n# 6 Month Deployment = $74k tax free\n\nLet's say you only deploy to CZTE for 6 months of the year, January to June.\n\nYou can still get a good chunk of money into your Roth TSP and Roth IRA:\n\n* 24% contributions to your Roth TSP throughout the year to hit elective deferral limit\n* 70% total contributions to your Traditional TSP while in CZTE (turn off before you get back in June/July) 65% of your contribution + 5% automatic agency match\n* $15,000 into you and your spouses Roth IRA ($7,500 each)\n\nEnd of the year:\n\n* \\+ $24,000 into Roth TSP\n* \\+ $35,000 tax-exempt contributions into Traditional TSP, convert monthly to Roth TSP\n* = $59,000 total into TSP, well below $72k limit\n* \\+ $15,000 into Roth IRA\n\n**= $74,000 into Roth accounts for a 6 month deployment**, grows to $1.3mm over 30 years at 10%.\n\nTaxable income for the year is $50,000 minus MFJ standard deduction of 32,200 = $17,800 you're in the 10% bracket. You'll probably get a savers credit too.\n\nLess than $1,780 of income taxes on $100,000 of income. 1.78% effective tax rate. And that's not even including BAH, BAS, COLA.\n\nMilitary pay is very low taxed.\n\n# Bonus Info\n\nIf you know the year before you are deploying, you could make Traditional IRA and Traditional TSP contributions, take the tax deduction in that prior year at 12%, and then convert them during your CZTE year at a very low tax rate, say you pay 10% or lower.\n\nYou can make 26 conversions per year, so you probably want to do a conversion every month to clear money out of the Traditional TSP so there is no growth balance that you'll have to pay taxes on.\n\nBut even if you wait until December to just make the conversion once, let's say the market rips and is up 30% for the year, you'll have to pay a bit of taxes on $14,000 of growth. (0.3 x $48,000. And the $48 wasn't all in there at the start of the year, so not much to worry about).\n\nYou'll also need to leave $500 behind in the Traditional TSP account, because of rules.\n\n*Edit: Doh, completely forgot about the 5% match. Edited the traditional contribution above to account for the 5% automatic match.*",
+    "flair": null,
+    "score": 164,
+    "comment_count": 71,
+    "created_at": "2026-01-04T23:33:53+00:00",
+    "top_comments": [
+      {
+        "id": "nxpxbd6",
+        "score": 56,
+        "body": "I am absolutely stunned that it took so long for tsp to allow for in-service conversions. The CZTE aspect of these conversions is absolutely tantalizing. People who are career service members are almost guaranteed to have months upon months in CZTE qualifying service time. The potential for massive growth here is unbelievable and cannot be understated. Put very simply people are going to be getting money that's likely to grow at 12 or higher that would never be taxed. This is a huge win"
+      },
+      {
+        "id": "nxqbr27",
+        "score": 53,
+        "body": "I need to read this 5 more times and more slowly. Thanks for putting it together."
+      },
+      {
+        "id": "nxrbhgl",
+        "score": 29,
+        "body": "Contribute to TSP. If/when you deploy to combat zone, convert to Roth while in a tax free status up to the CZTE limit. \n\nThe rest is just nonsense."
+      },
+      {
+        "id": "nxq4rvi",
+        "score": 24,
+        "body": "You don't have another choice if you're active duty though. The 5 funds are great and low cost."
+      },
+      {
+        "id": "nxq1309",
+        "score": 16,
+        "body": "Not when you're in a CZTE area\n\n[https://www.tsp.gov/making-contributions/contribution-limits/](https://www.tsp.gov/making-contributions/contribution-limits/)\n\n\"Elective deferral limit: This limit applies to the combined total of\u00a0[**traditional and Roth contributions**](https://www.tsp.gov/making-contributions/traditional-and-roth-contributions/). For uniformed services members, this does not apply to traditional contributions from combat-zone pay.\"\n\nClick on the $72,000 Annual additions limit box:  \n  \n\"The annual additions limit affects mostly members of the uniformed services who can exceed the annual elective deferral limit. The excess contributions go into the traditional portion of your account from tax-exempt pay earned in a combat zone.\""
+      },
+      {
+        "id": "nxqd1sn",
+        "score": 13,
+        "body": "Great write-up and very applicable to an SM able to dedicate those high % contributions. Single deployers should be able to meet these; those with families might be able to do so. \n\nAs I'm in year 3 of 4 in a czte (embassy jobs like this are a hidden gem and generally accompanied with cola), I've got some conversions to run this year from the pre-Roth days (I'm old) and the growth from OIF deployment tax-exempt contributions, not to mention getting the tax-exempt balance to zero if possible. \n\nOnly thing is add is for readers to take the situational assumptions and ensure they factor in any additional income from a working spouse or other income sources, and the 6 month deployment option. As long as they're moving the fresh contributions, there should be no tax worry; I'm more concerned for those like me who shift longer-term traditional contributions. \n\nFor your audience here, it's unlikely they're going much higher than 12%, but it's still worth knowing the tax brackets to avoid busting a bracket by accident."
+      },
+      {
+        "id": "nxqc3gb",
+        "score": 9,
+        "body": "ChatGPT... please explain this like I'm 5.\n\n# For uniformed services members with tax-exempt contributions\n\nIf your traditional balance includes a nontaxable amount, such as tax-exempt contributions from serving in a combat zone, your conversion amount will include a nontaxable amount in the same proportion as taxable and nontaxable amounts in your traditional balance. For example, if your traditional balance is $100,000 with a $10,000 nontaxable amount, then 10% of your traditional balance is nontaxable. If you convert $10,000 to your Roth TSP balance, then $9,000 of the conversion amount would be from the taxable portion and $1,000 would be from the nontaxable portion.\n\nSo this is saying that the TSP folks track when we contribute in combat zones and label it as nontaxable amounts. Then we can only convert part of that over to Roth?"
+      },
+      {
+        "id": "nxqeaa2",
+        "score": 7,
+        "body": "I'll let you know how this works in the coming weeks. I've got a chunk in both traditional and nontaxable. Some of the traditional is growth from the nontaxable (OIF years), and some is traditional prior to Roth years and one year in which I avoided entering the 32% bracket. I'll do a small chunk initially."
+      },
+      {
+        "id": "nxqdc5q",
+        "score": 5,
+        "body": "I don't know man. This place is insane and people just want to fight."
+      },
+      {
+        "id": "nxqlvl5",
+        "score": 5,
+        "body": "I get it, I just don't think the lack of being able to factor tilt has deterred TSP from becoming millionaires. Usually it's lack of savings and getting stuck in the G fund.\n\nPlenty of TSP millionaires without being able to factor tilt.\n\n[https://www.kitces.com/blog/review-fact-fiction-factor-investing-aghassi-asness-fattouche-moskowitz-swedroe-persistence-timing/](https://www.kitces.com/blog/review-fact-fiction-factor-investing-aghassi-asness-fattouche-moskowitz-swedroe-persistence-timing/)"
+      }
+    ]
+  },
+  {
+    "subreddit": "MilitaryFinance",
+    "id": "1kft5zz",
+    "title": "You should NEVER work a day over 20 years if maximizing finances is your goal.",
+    "body": "Not a single day. Not to make rank. Not to hit or maximize your high three. You will always end up WAY ahead If you can invest in a disciplined way and maintain the lifestyle/expense you leave the military at.\n\nFirstly, I am a firm believer that if you get out of the military after 20 years and don\u2019t have 100% disability, you more than likely did not document properly/are not being honest about your health. I\u2019m not saying lie to your doctor. But be honest with yourself and to yourself. \n\nThe majority of people who do 20 years should get to 100%. This is backed up by the 2023 congressional report that says the most common disability rating is 100%. \n\n24% of EVERY vet living have a rating of 100% that\u2019s the people that do 2 years and the people that do 44. Logic dictates that the majority of people who do 20+ will be at 100%.\n\nEdit ***this isn\u2019t a post about disability so take this part out if you want.***\n\nSo let\u2019s take 4400 a month.\n\n+$52,000 a year\n\nYou have 20 years. If you know you\u2019re getting out at 20, take your last 3 years to find a job. A GOOD job. 100k take home should be doable. \n\n+$100,000 a year\n\nSay you are an E7 retiring with your top 3 as E7. Your retirement is 40k. \n\n+$40,000 a year\n\nYour current take home in the service with BAH and BAS as an E7 is probably~ 100k and that\u2019s your expenses a year as well. And we will say you want to maintain exactly that. Currently you\u2019re at 192k and only need 100k. \n\nAll you need is 5 years to change your life. 5 years of maintaining that life style and investing ~80k a year. You\u2019re 5 years from done forever so it\u2019s time to invest for income. So let\u2019s make a high dividend yield income portfolio. (You can make any portfolio you want! Put it all in VOO and in 5 years you will have 521k that you can take 4% of a year and get 21k a year)\n\n50% JEPQ \n20% JEPI \n20% SCHD\n10% cash in a high yield account(4.2%)\n\nOverall approximate yield-8.6%\nRiskier than bonds with some built in down side protection. Most importantly, every asset except for the cash has the ability to appreciate. Unlike bonds\u2026\n\nOnce again, I like an income portfolio like the one above but you can put it anywhere! As long as it\u2019s appreciating.\n\nTwo situations. Plug and play it any way you want but I\u2019ll take the most common.\n\n1-you retire at 20 years in E7, work for five years after, taking home ~100k. Invest 80k in the above portfolio \n2-retire at 25 with 2 promotions. \n\nFactor\nE-7 @ 20 YOS\nE-9 @ 25 YOS\nMilitary Pension\n$40,134\n$66,480\nVA Disability (tax-free)\n$44,844\n$44,844\nInvestment Dividends\n$38,327\n$0\nPortfolio Value\n$443,283\n$0\nTotal Annual Income\n$123,305\n$111,324\nTaxable Income\n$78,461\n$66,480\n\n\nAt the end of 5 years you have next to half a million and an income above or about equal to that of a retired E9. And\u2026\n\nThat 443k can still appreciate. Increasing your income every year.\n\nThe only way it works is with discipline. 5 more years of discipline and you\u2019re free for life.\n\nRun the calculations out as far after retirement as you want and retiring at 20 is always the call when deciding for income.\n\n\nEdit: one scenario to work a bit bast 20 would be to avoid the Cola Trap. Thank you for the advice!\n\nLots of people upset about me saying the majority of people serving 20 years get 100% disability. This is from the congressional budget of 2023 and every year before that. The most common disability rating is 100%. Has been for some time. \n\nI hate that people do 3 years and get 100% for \u201cheadaches\u201d and because they got fat. I\u2019m right there with you. But I\u2019m making a post about the average person at 20. Is your body and mind in the same condition as it was when you went through basic 20 years ago? No? You are owed a rating. But this isn\u2019t a post about disability. It\u2019s about money and the quickest way to give yourself the opportunity to retire.\n\nFinally, I love my service. I love the people I work with. I don\u2019t want to retire at 20. I\u2019d be happy to go another 10. But I won\u2019t kid myself. It will be because I want to. Not because \u201cit makes sense to stay in longer\u201d or \u201cthe retirement is better\u201d.\n\nIt\u2019s not.",
+    "flair": null,
+    "score": 149,
+    "comment_count": 101,
+    "created_at": "2025-05-06T01:54:35+00:00",
+    "top_comments": [
+      {
+        "id": "mqteccf",
+        "score": 228,
+        "body": "Meh, I did 20 and have no VA money. I\u2019ve also seen an Army retired E8 tell others how to purposely not bend knees as far to get more disability money.\nI\u2019m 59 and my health is good. I hear great and sleep fine. \nSaying all 20 year people should get 100% seems like a stretch."
+      },
+      {
+        "id": "mqtloo1",
+        "score": 109,
+        "body": "No, the majority of people should not get 100% disability. And statements like this are the reason why VA ratings are going to be looked deeper into by the feds trying to reign in spending. Id like to know where you\u2019re pulling this from."
+      },
+      {
+        "id": "mqtfanh",
+        "score": 85,
+        "body": "Be glad for your health. The military wrecked me. It\u2019s very job dependent."
+      },
+      {
+        "id": "mqtefyt",
+        "score": 63,
+        "body": "Jokes on you, in order to retire - at least from AD Enlisted - you HAVE to work to the first day of the month following your 20.  The USG has me for ~15 days once my 20!\n\nI know it's splitting hairs, just yanking your chain!  I agree there is little financial benefit to staying longer.  Cool assignments maybe, secure paycheck sure, but a lot of folks are only thinking about that next paycheck and have only ever known the military so getting out scares them.\n\nIf also offer to the point of your post a member living frugally may not even have to go back to work.  I'm an E6 punching at 20 aiming to never work again."
+      },
+      {
+        "id": "mqttiks",
+        "score": 53,
+        "body": "Had to stop reading when you suggested 50% JEPQ. \n\nJEPQ past 5 years: +2.59%\n\nSPY past 5 years: +100.19%\n\nVTO past 5 years: +96.46%\n\n\nYou can\u2019t just ballpark numbers and ignore real factors because you don\u2019t like them, as your other replies indicate you are doing. \n\nThere are great reasons to work past 20 years. For example: \nHealthcare for your dependents could save you 10s of thousands of dollars, depending on the situation. \nOn base childcare could save additional thousands, depending on kid\u2019s ages. \nAn extra couple years active duty could mean you never *need* a job again. \n\nIt could mean a guaranteed job during a recession, if your 20 year mark falls during a bad time for your profession and you have the retainability to stick it out another couple years. \n\nThe difference in civilian pay for jobs that are head-hunting O-6 / O-7 types can wildly outpace the civilian pay for an O-5 type job. \n\nYou also seem to be completely ignoring TSP contributions and their tax benefits in your fantasy scenarios. \n\nGood on you for planning for the future and thinking critically about this, but your post is naive at best, and misguided at worst to suggest folks should NEVER work a day over 20 years to maximize financials."
+      },
+      {
+        "id": "mqte576",
+        "score": 53,
+        "body": "You forgot about taxes, and woof, they hit you hard after the military!"
+      },
+      {
+        "id": "mqtglao",
+        "score": 52,
+        "body": "Prior Enlisted, retiring as an Officer.  In real terms the retirement pay out doubles between retiring as an O5 at 20 and an O6 at 30.  That can be the difference between having to have a second career and being entirely financially independent.  I\u2019m retiring at 81.25% of my high 3 average as an 06 with 32.5 years.  I\u2019m thankful that anything I do from here on out is because I want to do it."
+      },
+      {
+        "id": "mqtpnvx",
+        "score": 47,
+        "body": "Potential misuse of numbers here. If the mode is 100, that doesn\u2019t mean the median is 100."
+      },
+      {
+        "id": "mqtfilc",
+        "score": 40,
+        "body": "Totally agree; I meant no disrespect. I\u2019ve certainly seen vets with less than 20 that are worn out."
+      },
+      {
+        "id": "mqtlpbf",
+        "score": 36,
+        "body": "You should definitely work more than 20 if your retirement date would be in Q1 of the fiscal year.  Read the COLA Trap.  Basically, you forfeit your first year COLA adjustment if you retire in the first quarter due to the formula for calculating your COLA for the first year of retirement.  For years like 2023 where the pension COLA was 8.7% , this is massive."
+      }
+    ]
+  },
+  {
+    "subreddit": "MilitaryFinance",
+    "id": "1or9351",
+    "title": "Just got back from Al Udeid and I\u2019m about to lose my goddamn mind over contractor pay",
+    "body": "Just got back from Al Udeid and I\u2019m about to lose my goddamn mind over contractor pay\n\n\n\nI\u2019m an E-5 cyber troop, single, been in 7 years. Just rotated home from the Deid and I need to scream into the void because WHAT THE ACTUAL FUCK IS THIS PAY GAP.\n\nContractors out there are clearing $150k TAX-FREE doing *maybe* 25% of the work I do. That\u2019s $190k equivalent in the real world. Meanwhile I\u2019m pulling $72k before Uncle Sam takes his cut, barely enough to give my family the life they deserve.\n\nLet\u2019s break down my \u201csingle\u201d job, shall:\n\n1. Supervise 6 Airmen while writing EPRs that eat WEEKS of my life  \n2. Manage every network node on the entire base (yes, the same ones contractors are paid to maintain)  \n3. Update 3-year-old documentation because the contractors \u201caren\u2019t contracted for that\u201d  \n4. Track crypto keys like I\u2019m guarding the nuclear football  \n5. Fix DTS for my entire shop because God forbid anyone else learns how  \n6. Run helpdesk because their contract magically excludes \u201ctrouble tickets\u201d  \n7. Get called in at 0200 for emergencies while contractors sleep in their $0 rent dorms  \n8. Additional duties? I\u2019m everyone\u2019s backup plan.\n\nAnd what do I get for dinner? Contractors **bragging** about their new boats, Vegas trips, and \u201cearly retirement\u201d while I\u2019m rationing leave days to see my kid\u2019s birthday.\n\nThese same civilians have **never worn the uniform**, never dealt with a shirt telling them to \u201cjust make it work,\u201d never had to choose between fixing a router or finishing an LOC before COB. But they\u2019re out here living like **E-9s with 20** while I\u2019m scraping by on **E-5 with 4 side hustles worth of labor.**\n\nOh, and get this\u2014their contracts went up ~30% since 2021. My raise? 2. something percent and a participation trophy. Government shutdown? Their money\u2019s already in the bank. EU contractors? $130k+ tax-free now too.\n\nI\u2019m not saying contractors shouldn\u2019t make money. I\u2019m saying **I\u2019m doing THEIR job + MINE + 3 OTHERS** for **less than half** what they pocket. Who the hell writes these contracts? Because I\u2019d like to introduce them to the **real world** of 12-hour shifts, zero OT, and \u201cvoluntold\u201d details.\n\nI love the mission. I love my Airmen. But watching civilians cash in on our blood and weekends while leadership shrugs? That\u2019s a **slap in the face** with a tax-free paycheck.\n\nRant over. Back to rewriting 2022\u2019s cable inventory because the contractor \u201cwasn\u2019t told to.\u201d\n\n**TL;DR: E-5 doing 4 jobs for $72k, contractors do 1 for $150k tax-free. Cool system.**\n\nUpvote if you\u2019ve ever fixed a contractor\u2019s mess at 3am.\n\n  \nDownvote if you\u2019re a contractor reading this on your yacht.\n\nEdit 1\n\nOh yeah, almost forgot the cherry on this shit-sundae: we lost our SRB too.\nUsed to be a 1x, then they bumped it to a 2x like they were doing us a favor\u2026 now? Zero. Nada. Zilch.\nLeadership: \u201cWe need to retain talent!\u201d\nAlso leadership: takes away the one financial carrot we had\nEverything\u2019s gatekept just enough to dangle hope\u2014\u201cwork hard, make rank, get the bonus!\u201d\u2014then YOINK, gone. Feels like a rigged game to keep enlisted grinding while the exit door\u2019s welded shut.\nAt this point? Eject button\u2019s looking real shiny. Why bleed for a system that won\u2019t even pretend to value you?\n\n\nEdit 2\n\nAnd don\u2019t even get me started on EITaaS\u2014that corporate circle-jerk disguised as \u201cinnovation.\u201d\nGo look at their LinkedIn. It\u2019s cringe on steroids. A parade of greedy-ass companies posting glossy graphics bragging about \u201crevolutionary\u201d capabilities that enlisted have been doing with duct tape and spite since 2012.\n\u201cWe\u2019ve integrated remote desktop!\u201d \u2192 Bro, it\u2019s 2025, not 2003.\n\u201cOur AI chatbot resolves tickets 47% faster!\u201d \u2192 Cool, meanwhile I\u2019m the 24/7 human chatbot for free.\nThen you\u2019ve got the try-hard corporate bootlickers flooding the comments:\n\u201cSo grateful to partner with EITaaS\u2014truly transforming the mission! \ud83d\ude4f\ud83d\udcbc\u201d\nTranslation: \u201cPlease renew our $400M contract, here\u2019s my tongue, sir.\u201d\nThey\u2019re out here vendor-locking the Air Force with million-dollar slide decks while we\u2019re cheaper than the coffee budget and still expected to unfuck their \u201csolutions\u201d at 0200.\nEITaaS? More like Eat It Ass.",
+    "flair": "Air Force",
+    "score": 139,
+    "comment_count": 113,
+    "created_at": "2025-11-07T22:58:35+00:00",
+    "top_comments": [
+      {
+        "id": "nnohkqy",
+        "score": 349,
+        "body": "So get out and make more as a contractor\u2026"
+      },
+      {
+        "id": "nnojv6z",
+        "score": 180,
+        "body": "OP thinks they are writing something people don't know. \n\nBeing a contractor has lots of pitfalls. Specifically medical, retirement, and job security. Most people who understand contracts know it isn't all sunshine and rainbows."
+      },
+      {
+        "id": "nnomyis",
+        "score": 88,
+        "body": "Zero job security"
+      },
+      {
+        "id": "nnokz6w",
+        "score": 65,
+        "body": "OP, You're not looking at the whole picture. A lot of these \"contractors\" already did their 20 and retired. They don't have to worry about medical insurance, job security etc etc.\n\nI'm not sure about that  72k deployed. You might want to check that. Are you including your free medical care (about 700 a month) The fact that you get twice as much leave as any contractor plus every federal holiday plus every training day? Or the fact that you are completely tax-free and they're not? You need to look at the whole benefits package.  \n\nYour pay will start to go up as you put the years in, especially once you hit E7. \n\nPeople always think the grass is greener being a contractor and till September comes and it's time to renew the contract and you're out of a job because your PM didn't do a good job in the recompete. \n\nAnd  this coming from someone who made 350k in one year doing CIED, and actually went back to active duty after that. \nBeing a contractor sucks. It's not a career, it's just a temporary gig. Once they're done with you, they're done with you. The Air Force is a career. Finish it first, then chase the money."
+      },
+      {
+        "id": "nnoo1kp",
+        "score": 51,
+        "body": "Yup. I've been a COR and around contracting for nearly two decades.\n\nCustomer doesn't like you? You're gone and off task. Maybe the company will reassign you or maybe they cut you loose.\n\nCompany loses the recompete? You may or may not have a job in a few months and it probably will be a lower salary.\n\nHave an incompetent customer? Hope you like doing their work and your work since company leadership wants the higher up gov't people happy.\n\nThere's a reason so many contractors eventually want to flip to a gov't badge."
+      },
+      {
+        "id": "nnovkyt",
+        "score": 45,
+        "body": "I went to Al Udeid for a year about 6 months after returning from Kunar Province, Afghanistan. It was heaven. I couldn\u2019t believe people could deploy like that.\n\nI was in a basketball league with scoreboard/referees, drank 3 beers a day, and had my own dorm. It blew my mind as an Army NCO. 6 months earlier I didn\u2019t have internet got a shower every 2-3 weeks and was under constant indirect fire living in a hesco barrier outpost and slightly better FOB.\n\nThis was 15 years ago. I can only imagine how sweet Al Udied is now.\n\nEdit: I forgot about the OUTDOOR POOL. That deployment was so much better than my stateside assignment at the time. I deployed to better living conditions."
+      },
+      {
+        "id": "nnork1w",
+        "score": 38,
+        "body": "You feel better now bud?"
+      },
+      {
+        "id": "nnonxcx",
+        "score": 22,
+        "body": "You don\u2019t know what you are talking about lol."
+      },
+      {
+        "id": "nnohchg",
+        "score": 21,
+        "body": "I don't understand why you wouldn't get out then. If the money is causing this big of a problem for you, it's not like cyber isn't hiring right now. There are countless TS/SCI cyber positions EVERYWHERE hiring with absurd salaries."
+      },
+      {
+        "id": "nnohb0w",
+        "score": 19,
+        "body": "Where are contractors getting paid tax-free?"
+      }
+    ]
+  },
+  {
+    "subreddit": "MilitaryFinance",
+    "id": "1nuwbib",
+    "title": "Government Shutdown Megathread",
+    "body": "NOTE: All basic questions regarding the shutdown must be posted here. As bigger issues come up, we will update this thread with information. All other posts will be removed. Please read through this before posting additional questions. If you have data to share, either post it here or message the mod team.\n\n**CAO 13 November:**\n\nThe government is now funded until Jan 30th. You will be paid until then. If this wasn't a wakeup call, then plan to not be paid on Feb 1st. Have a plan. If you get paid, awesome! But have a plan.\n\n**CAO 1 October:**\n\nThe government is shutdown.\n\n**CAO 30 September:**\n\nChances of a government shutdown are almost a certainty. If that changes, this post will be locked.\n\n**Will I be paid?**\n\nIf you are a military member, you will be paid 1 October. This is work that was done and processed in FY25, and thus will be paid. Without ANY further guidance from Congress, you will NOT be paid 15 October. There could be a budget passed, a CR, or a special act on their part to pay the military. We will see if/when that happens.\n\nDo note that some banks (namely, USAA and NFCU) may be willing to pay you on time via a loan. That is their choice, and you will likely have correspondence from them. This does not mean that the military/government is paying you.\n\nhttps://mobile.usaa.com/support/government-shutdown-program/\n\nhttps://www.navyfederal.org/about/government-shutdown.html\n\n**Do I have to go to work?**\n\nAlmost certainly. *Refer to your leadership and commander.*\n\n**Military aid or relief society loans** \n\nUse these before any kind of personal loan, pay day loan, auto title loan, or credit card debt that you can't pay off before the due date. The loans listed below are interest free and have generous repayment schedules:\n\n\u2022\tAir Force Aid Society\u00a0\u2013 Falcon Loans and Standard Assistance, up to 24 months of repayment. Space Force also eligible.\n\n\u2022\t\u2060Navy-Marine Corps Relief Society\u00a0\u2013 Quick Assist Loan and Financial Assistance available\n\n\u2022\t\u2060Army Emergency Relief\u00a0\u2013 Normally assistance available same day but no later than 48 hours\n\n\u2022\t\u2060Coast Guard Mutual Assistance\u00a0\u2013 Quick Loan program up to $1,000\n\nLinks for all of the above are in the comment section courtesy of u/AFmoneyguy.\n\nFirst option should always be your emergency fund. This is why it pays to hold some cash, usually 1-6 months of expenses in cash. You have one of those, right?\n\nIf you don't have an emergency fund, take this as a lesson learned and build one before the next government shutdown.",
+    "flair": null,
+    "score": 137,
+    "comment_count": 62,
+    "created_at": "2025-10-01T02:20:23+00:00",
+    "top_comments": [
+      {
+        "id": "nh4guyg",
+        "score": 125,
+        "body": "Coast Guard: \u201cFirst time?\u201d"
+      },
+      {
+        "id": "nh592kh",
+        "score": 61,
+        "body": "Will the gym/bx/commissary/X place be open? \n\nActivities that are generally 'self' funded and/or military staffed *should* be open.\n\nBX/PX - AAFES is self-funded/NAF and will be open\n\nCommissary - Will be open up to \\~60 days\n\nGym - Check with installation; it is likely to open, but un or under-staffed. \n\nStarbucks/Express/Gas station - Tornados, monsters, and alcohol are mission critical (also NAF) and will be open."
+      },
+      {
+        "id": "nh4wv55",
+        "score": 47,
+        "body": "Military pay is almost always saved at the 11th hour. Plan to not be paid, but I would expect military pay to be carved out and protected in the next 2 weeks.\n\n\nUSAA prepared to loan members if necessary:\n\n\nhttps://mobile.usaa.com/support/government-shutdown-program/\n\n\nhttps://newsroom.usaa360.com/news/usaa-prepares-financial-assistance-to-serve-members-impacted-by-potential-government-shutdown\n\n\nNFCU Navy Federal as well:\n\n\nhttps://www.navyfederal.org/about/government-shutdown.html\n\n\nhttps://www.navyfederal.org/about/press-releases/2025-press-releases/government-shutdown-member-support.html"
+      },
+      {
+        "id": "nh4g3ei",
+        "score": 32,
+        "body": "The Coast Guard is not locally based, they PCS like every other branch. During the last shutdown the DOD branches of the military were funded and thus paid, but the Coast Guard went without pay for 35 days."
+      },
+      {
+        "id": "nh4hkew",
+        "score": 19,
+        "body": "The coast guard is under DHS, not DoD. Last time there was a NDAA that funded DoD but not the rest of the government, so other 4 branches were paid, but the coast guard didn\u2019t get paid, because they aren\u2019t/weren\u2019t included in the NDAA. \n\nWhat this means is that if there is some kind of last minute thing to pay the military, they still won\u2019t get paid."
+      },
+      {
+        "id": "nh4e7fp",
+        "score": 18,
+        "body": "That is not accurate."
+      },
+      {
+        "id": "nh62sij",
+        "score": 11,
+        "body": "Thoughts on Retirement actions, medically retired officially 15Oct?\n-DFAS processing converting AD to Retired\n-VA completing my rating certificate for 100%"
+      },
+      {
+        "id": "nh4gka8",
+        "score": 9,
+        "body": "Depending on your bank, you may still get paid. In the past, USAA has given service members a 0% \"loan\" for their usual pay amount, and then taken the back pay when the government figures out their shit. I believe Navy Fed does the same."
+      },
+      {
+        "id": "nh6lwrk",
+        "score": 6,
+        "body": "For AD Air Force or Title 10 Guardsmen and Reservists:\n\nhttps://afas.org/military-loans/\n\nAir Force Aid Society provides up to $1000 in interest-free loans if paychecks get delayed or paused. Also just a useful resource in general."
+      },
+      {
+        "id": "nh784bt",
+        "score": 6,
+        "body": "Does anyone know if childcare cost-supplement programs are paused currently as well? We just started our kids at Daycare and were expecting the reduced rate in our budget. I\u2019m assuming no but don\u2019t know where that pot of money is or where it comes from."
+      }
+    ]
+  },
+  {
+    "subreddit": "MilitaryFinance",
+    "id": "1lm1rwx",
+    "title": "Tell me your most obscure piece of military finance advice.",
+    "body": "No basic saving/investing/debt order of operations. No standard bogglehead philosophy (or Wallstreet bets). No Amex card fee waived. Tell me things you never see people talk about that apply to military members financial success.",
+    "flair": "Question",
+    "score": 136,
+    "comment_count": 246,
+    "created_at": "2025-06-27T18:47:39+00:00",
+    "top_comments": [
+      {
+        "id": "n049von",
+        "score": 187,
+        "body": "Leveraging tax free status while deployed, such as maxing Roth TSP, cashing in on capital gains in investments, and - definitely niche - converting a traditional IRA to Roth."
+      },
+      {
+        "id": "n04jk2z",
+        "score": 169,
+        "body": "[deleted]"
+      },
+      {
+        "id": "n04x8ws",
+        "score": 137,
+        "body": "[deleted]"
+      },
+      {
+        "id": "n04p2tq",
+        "score": 90,
+        "body": "Become a Texas resident, join the military. Do a minimum of 4 years, HAZELWOOD act gives you free tuition to any state school."
+      },
+      {
+        "id": "n04d44j",
+        "score": 85,
+        "body": "Make your state of legal residence a no income tax state without question."
+      },
+      {
+        "id": "n04aoxz",
+        "score": 59,
+        "body": "Min max this. Go your entire career putting money into traditional ira/tsp then near the end volunteer for a combat zone station and convert into Roth tsp/ira"
+      },
+      {
+        "id": "n0490tm",
+        "score": 57,
+        "body": "Use TA to get a Bachelor's. Then use your GI Bill for a top tier MBA"
+      },
+      {
+        "id": "n054jca",
+        "score": 56,
+        "body": "If you plan on staying in, emergency funds aren't quite as realistic compared to most finance subs. You don't need 6 months of money (this is an absurd amount of money not doing anything anyways) you have a guranteed 1st and 15th. Keep 5-10k liquid this is enough to cover majority of any vehicle or home issues. Once you have that saved invest like fucking crazy. You should be able to have 2-5 million easily in tsp by just throwing 20% in your entire career and then letting it sit for 20 years before you collect."
+      },
+      {
+        "id": "n04cfvx",
+        "score": 52,
+        "body": "Join ROTC for undergrad for premed, Then go HPSP for med school. Super long contract but you can also start investing earlier. Better yet go USUHS and get paid during residency. Long as hell obligation but again, you will have serious money in the bank hella young."
+      },
+      {
+        "id": "n04w3ev",
+        "score": 51,
+        "body": "As someone who has been in military medicine for 17 years, DO NOT join the military as a physician for the $. While residency pay in the military used to be 2x civilian residency (no idea what civilian residents get paid now) the pay as an attending is SIGNIFICANTLY less than in the civilian world for most specialties."
+      }
+    ]
+  },
+  {
+    "subreddit": "MilitaryFinance",
+    "id": "1prn06e",
+    "title": "Retired O-5+, what career did you pursue post-retirement & what was your total income? (Civilian, Retirement, Disability)",
+    "body": "Curious what career opportunities senior officers pursue into retirement, would love to know what you did in the military & if that was at all close to what you did post retirement? Thanks !!",
+    "flair": "Question",
+    "score": 133,
+    "comment_count": 134,
+    "created_at": "2025-12-20T19:48:45+00:00",
+    "top_comments": [
+      {
+        "id": "nv30jmv",
+        "score": 207,
+        "body": "Got my MBA at Naval Postgraduate while active.  Learned SQL and advanced statistics.  I've been a Data Scientist since I got out, combined income $310K.  I'm about to retire again."
+      },
+      {
+        "id": "nv35uvr",
+        "score": 94,
+        "body": "Retired 05.  PM on a contract for the Navy.  Similar to what I did while still in.  Way less stress.  Way more money.  Way more time off."
+      },
+      {
+        "id": "nv36i9o",
+        "score": 64,
+        "body": "Retired Marine O5. Freelance writer, sometimes contractor. Combined income has been anywhere from $175k-300k. Happy to have very little to do with my old job that I loved very much, other than I\u2019m in the woods a lot and frequently holding a gun."
+      },
+      {
+        "id": "nv3mkyz",
+        "score": 53,
+        "body": "They usually go to the majors. We pilots typically have a lot of alimony and child support to pay and need the money."
+      },
+      {
+        "id": "nv3s8iy",
+        "score": 50,
+        "body": "Retired from the Navy at 47 as O5 with 22 years.  Broken service for ROTC.  \n\nAgeism is a real thing, I can attest to that.  I applied to some smaller companies (I could have been manager's dad age wise), didn't get much love there.  I applied to a couple of large Fortune 500 companies and got them in a bidding war.  They saw my Mil background as a plus.  So some companies do appreciate knowledge and experience."
+      },
+      {
+        "id": "nv3ks77",
+        "score": 45,
+        "body": "Retired as an ORSA at O4. Intentionally walked away before O5 list came out. Went to work at a bank doing ORSA stuff. Combined income is about $220,000 plus VA disability. \n\n2026 is my last year. Retiring for good at age 56"
+      },
+      {
+        "id": "nv4q6sy",
+        "score": 44,
+        "body": "Retired Army O6 with 32 years of service, so 80% high 36 average plus VA made work optional.  Working as a State Park Ranger 20 to 30 hours per week at $15.00 an hour.  I love it!  The trodden path of GS-15 or contractor, while much more lucrative, held no attraction for me.  I get to work outside in a beautiful location and interact with terrific co-workers and visitors.  The job is a blast and absolutely zero stress."
+      },
+      {
+        "id": "nv37t7v",
+        "score": 39,
+        "body": "What was your age when u retired? I\u2019m on track to be an 03E retirement at 49 working IT, but concerned about ageism within IT/Cyber."
+      },
+      {
+        "id": "nv39gct",
+        "score": 39,
+        "body": "Allow myself to introduce... myself."
+      },
+      {
+        "id": "nv3ne7b",
+        "score": 38,
+        "body": "I'm still active, but adding my dad's data. Was a AF Mx O-5, O+E time totaled up to 25yrs. Ended up getting medically retired for an above the knee amputation he got from an accident w/ a drunk driver colliding with him. VA rated him 100%. Got hired as a GS-13 doing comptroller stuff at the wing he retired out of. Sometimes teaches courses at the local community and state colleges, maybe 4-5k/course, does maybe 6 a year. \n\n\nVA Disability: 48.5\n\nMedical retirement: 101.3\n\nGS-13: 122\n\nAdjunct: 25\n\nEstimated taxes: -$31k on federal GS pay + teaching + medical\n\nTotal: ~$250k"
+      }
+    ]
+  },
+  {
+    "subreddit": "MilitaryFinance",
+    "id": "1p9or0a",
+    "title": "Anyone on track to retire from the military with $1M in net worth?",
+    "body": "Title says it all, but I'm curious how much y'all have had to save/invest to be able to have $1M in net worth after 20ish years in the military. Anybody have this amount or more in net worth? Or, if you were able to achieve this after you retired, how much longer after retirement did it take for you to reach that number?\n\nThanks for the discussion!",
+    "flair": null,
+    "score": 132,
+    "comment_count": 139,
+    "created_at": "2025-11-29T13:17:50+00:00",
+    "top_comments": [
+      {
+        "id": "nrdk56u",
+        "score": 154,
+        "body": "Yeah man E7 at 14 years TIS, planning on doing another 8-10 currently sitting on 600k in roth IRA, TSP, and taxable combined and I put about 20-25k a year in now, so I should get there by retirement but I plan on working after retiring anyway.\u00a0"
+      },
+      {
+        "id": "nrdn7s7",
+        "score": 77,
+        "body": "E7. 18 years in. Just hit 1M net worth to include equity in a house. Went through a divorce so that set me back. But overall very happy. Mainly SP500 C Fund in TSP and SCHG in Roth and Brokerage."
+      },
+      {
+        "id": "nrdk8fs",
+        "score": 76,
+        "body": "Probably loads of people right now TBH. \n\nHypothetically, someone joins in 2007. They start investing in unremarkable S&P500 ETFs immediately and don\u2019t stop. Uses a VA loan to buy a house in 2009. Doesn\u2019t sell, rents when they leave or sells and buys another. Repeat until 2020 and locks in a sub 3.5 rate on the house they\u2019re in. Without running the math, but I\u2019d be floored if that wasn\u2019t a 7 figure portfolio and I\u2019d bet there are more than a few on this subreddit who fit that description."
+      },
+      {
+        "id": "nrdks6n",
+        "score": 69,
+        "body": "On track, yes. 700k Net worth, 10 years in. Enlisted to warrant. \n\nSaved 40-70 percent of after tax income depending on the year. Closer to 40 percent the past couple years and the first couple years, closer to 70 percent in years 4-8. \n\nAll I did was put all extra cash into TSP/IRA/Brokerage account and let it grow. \n\nI'm hoping my net worth is between 1.5-2 million upon retiring."
+      },
+      {
+        "id": "nrdsz7h",
+        "score": 50,
+        "body": "At 20 years we were at about 1.8M, had just pinned O5. ~5 years later... Look at the market over that time and you can guess. \n\nMustang O who spent just over 3 on the E side and now am probably a terminal O5 for another 3.75 years for my ADSO. Dinks until 2015 (9 years), but she never made more than 45k, usually 35-40k. Her entire paycheck went into paying down rentals and her 401k. \n\nBut on a note, 1M is a nice target, but it means little if you've not analyzed your spend plans/budget needs long term and in retirement."
+      },
+      {
+        "id": "nrdsgpv",
+        "score": 41,
+        "body": "All that despite a divorce? Good for you"
+      },
+      {
+        "id": "nrdofn5",
+        "score": 29,
+        "body": "\n2025: TSP $558k, Roth IRA $190k, Brokerage $200k, HYSA $67k\n\n2018: TSP $145k, Roth IRA $40k, Brokerage $31k\n\n2010: TSP $17k\n\nI\u2019m retiring in ~2 years, at 26 years, hindsight is always 20/20. Spent 8 years enlisted then commissioned. Didn\u2019t realize my (small) TSP was sitting in G fund until my 10 year mark. Started maxing TSP in 2017. \n\nWhat Helped:\n\n-Talking about investing more, learning what has worked & not worked for others.\n\n-Started reading/researching to include A Simple Path to Wealth, Bogleheads, Military FIRE, Mr Money Mustache, Military Money Manual. \n\n-Finding a trusted fiduciary fee-only financial advisor we hire for a few sessions occasionally when needed to help give us a temp check on our financial planning/goals. \n\n-Marrying someone who was open to setting financial goals and investing at the same rate as me. \n\n-Dual income, no children \n\nWhat Hurt: \n\n-Buying a property in Hawaii in 2007 before the big crash put me 100k upside down on it. Held onto it for ten years before selling for $17k profit..of which Hawaii took $15k nonresident tax. In those ten years I was covering anywhere from $300-$700 gap a month between the rent and my mortgage/HOA. Still hurts.\n\n-Not taking advantage of deployments to significantly increase TSP contributions earlier in my career. \n\n-Not starting my TSP and IRA early in my career."
+      },
+      {
+        "id": "nrr4xg7",
+        "score": 18,
+        "body": "It\u2019s laughable to me people think joining the military is a pleb fuck up job when actually it\u2019s the easiest most guaranteed way to be a millionaire and retire early"
+      },
+      {
+        "id": "nrebqgy",
+        "score": 16,
+        "body": "I\u2019m on the opposite side of this:\n\n\nDivorced mustang mostly terminal O5 (IZ this year) with over 23 years Active Duty. After paying divorce off and starting from -$120K in 2014, finally positive net worth in 2023 and hit $132k this year (11 years on to gain $250k is a positive way of looking at it). \n\n\nI plan on going till my MRD living in spartan conditions to accelerate to $500k by 2032. Then with retirement and my kid out of collage I\u2019ll finally be able to live in a van down by the river. Joking aside - looking to build my savings to $60k, and forever home savings to $200k\n\nEdit: Currently TSP $92k, Roth $23k, brokerage $19k, Savings 1: $7500, savings 2: $4000, HYSA: $1100, Checking: $7500, Checking 2: $3500"
+      },
+      {
+        "id": "nrf1us5",
+        "score": 15,
+        "body": "Good job man.\n\nI began casually investing as a PFC, long before TSP.  Basic mutual funds, and CD nothing fancy.  Survived buying and selling a house during the crash was a tiny stumble.  \n\nWe were consistent investors for years.  Toward retirement I was so far ahead of my peers I thought I was a financial genius.  \n\nThen I looked at my investment returns, consistent, not great but the true discriminator was all my S/R NCO peers had gone though divorces.\n\nMilitary marriages are tough. Good on you for navigating that and still coming out on top.\n\nI once gave some crazy financial advice to a recently divorced peer.  Classic Brag guy, married young to a girl he barely knew, popped out two kids and left her there while he went back to the single S/R NCO life.  Dude was well on track for E-9 and did in fact make it.  \n\nAnyway, over a brief coffee he complained she was asking him to transfer his GI bill to her as part of the divorce negotiations.\n\nI thought for a moment and politely said it was probably a good long term investment.  He already a degree, and was unlikely to use his own GI Bill.  He left his wife with two kids under under ten with a HS diploma in a place she had never been to. The GI Bill and stipend would be extra income for her raising his kids, and possibly lead to higher long term earnings for her, better quality of life for them.  \n\nWe never talked again after that."
+      }
+    ]
+  },
+  {
+    "subreddit": "MilitaryFinance",
+    "id": "1kgpq4k",
+    "title": "Single Income (Enlisted) getting to 1 Million.",
+    "body": "Seen a few of these lately and asking how, so thought I\u2019d map my journey. \n\nSingle income (E7/high3, 18 YOS), wife and 3 kids Closing in on 1 million.\n\nJoined at 18, no bills or debt, got a bonus put it in savings. Lived in barracks for first 4 years due to schools and station. Opened Roth IRA at 3 YOS and have maxed it out since. \n\n-4YOS, E5 got BAH and roommate/s. I only ever used half saved the rest living in San Diego.\n\n-8 YOS got married and made E6. I finally start contributing to TSP (3%). wife had no debt, but a financially struggling college student. She Worked enough to pay car gas/insurance and phone bill. \n\n-9YOS Bought house (SD) VA loan (430k). Used $15k of savings (had about 100k).  Also opened brokerage account. \n\n-10YOs Wife stopped working, focus college. Start using savings to DIY upgrade house. \n\n-12YOS wife completed degree and gave birth to first child. Stay at home mom.\n\n-14YOS, sold house (700k) during Covid and stationed overseas Japan and had second child. \n\n-16YOS had 3rd child. \n-17YOs made E7.\n\nNow still overseas and saving. I currently contribute 5% to TSP. IRA has gotten maxed each year for the last 15 years. \nMy house was a big windfall making us $250k. I put $100k in the brokerage and the rest in CD/T-bill for when we buy another house. I pyramid CDs for the last 3 years all at 4.5 or higher due to expectations to buy a house, then got another tour overseas. I\u2019ve generally saved half my paycheck most my career, when deployed even more. \n\nTSP (Roth) - $60,000\nRoth IRA - $160,000.  \nBroker account - $200,000\nCD\u2019s/T-bill - $450,000\nChecking and savings - $8,000\n\nI really didn\u2019t do much with my money the first 8years sadly. Then bought a house (great windfall). Got heavier into investing once we sold during Covid. \nI\u2019ve made some extra money on the side with Art to help supplement some but very inconsistent. \n\nWe use military resources to the max extent (gym/entertainment/food) Base thrift shop/s for almost all our kids clothes/needs and toys, this has been such a huge help in maintaining budget. \nMaximize any sales (running is a hobby for both, so buy whenever we see 25-50% off on the clearance rack and stock up a few pairs). We live on base, use pool, theater, bowling alley and such to entertain our kids in day to day. They play sports on base. We drive minimally, I bike primarily everyday as long as the weather allows.\n\nWe have taken our kids to multiple destinations while overseas to make the most out of our time while being frugal where we can. I fully expect to hit 1 million before 20YOS.\n\n\n\n\n\n\n",
+    "flair": null,
+    "score": 134,
+    "comment_count": 28,
+    "created_at": "2025-05-07T05:27:42+00:00",
+    "top_comments": [
+      {
+        "id": "mr0y06p",
+        "score": 51,
+        "body": "Great job seriously. I wonder how many people were in the right position during the COVID housing inflation to cash in on it."
+      },
+      {
+        "id": "mr107e2",
+        "score": 30,
+        "body": "[deleted]"
+      },
+      {
+        "id": "mr19zlh",
+        "score": 25,
+        "body": "Wow, congrats man!! you need to teach them E4s and below to start early. I wish I had someone to tell me this 22 years ago. I just retired with only two properties to my name, but hey, at least I have monthly income coming in along with my retirement, VA and GI bill. Am blessed to hand joined the military."
+      },
+      {
+        "id": "mr1nwh6",
+        "score": 14,
+        "body": "He had liquidity. Liquidity gives you the chance to capitalize when everything's cheap. People will typically say cash is trash, but these are the moments in which the flexibility of having cash is what can make you wealther.\n\nLuck is the intersection of opportunity and time.."
+      },
+      {
+        "id": "mr0znrb",
+        "score": 11,
+        "body": "Thank you! \nHindsight I probably could have made more keeping the house and renting it out and selling now but you can never be to sure with renters and maintenance."
+      },
+      {
+        "id": "mr32d40",
+        "score": 10,
+        "body": "[removed]"
+      },
+      {
+        "id": "mr15lmx",
+        "score": 9,
+        "body": "I understand my house was a windfall and stated it.\n\nHousing market was at its lowest 3 years prior to when I bought. The previous owner made around 90k off it when I bought from them after owning 3 years. And everyone was waiting for the housing market to drop again because of how expensive it had gotten.\nAdditionally I didn\u2019t sell at the top. It\u2019s currently estimated to be worth 900k. \n\nI stated I didn\u2019t invest in TSP till year 8 at 3%. If I had today\u2019s BRS system match I would have been inclined to use tsp more, but it\u2019s never been a priority for me. I never intended to do more than 6yrs, then 10... My IRA should cover my needs once I get to 60 on top of the pension. I only contribute now because I\u2019m meeting other savings goals, saving for another house (400k+ as stated). It\u2019s worked for me. \n\nI save about 30-50% of my paychecks. $250k from a house was a big deal, but a lot of other things going to that almost 900k total."
+      },
+      {
+        "id": "mr1ano4",
+        "score": 5,
+        "body": "Two properties is great! Best of luck in your retirement endeavors. I look forward to being able to own again and retirement. \nI try to help my juniors with healthy financial goals. I got a lucky break with my house. BAH in SD can do wonders if you can handle roommates or get individuals to rent from you. Always preach to get the BRS match, open an IRA and squeeze every dime from all resources."
+      },
+      {
+        "id": "mr3a9rk",
+        "score": 3,
+        "body": "Great work! Do you have a plan for the $450K in CD/Tbills? If this is long-term money, consider investing it. If you expect to buy a house when you leave the military, consider keeping the down payment and an emergency fund amount in the cash equivalents and invest the rest. While the stock market is certainly more volatile than CDs, it generally increases in value over the long-term more than the \u201csafer/more conservative\u201d options."
+      },
+      {
+        "id": "mr4ltdi",
+        "score": 3,
+        "body": "I\u2019m happy I stayed High 3. I was around the 10/11 year mark when I could have transitioned to BRS. \nWorking on getting all my health stuff documented/taken care of these next few years for VA benefits"
+      }
+    ]
+  },
+  {
+    "subreddit": "MilitaryFinance",
+    "id": "1ovj8z8",
+    "title": "Don't sleep on the NAPA military discount",
+    "body": "NAPA has a military discount that is not exactly like other auto parts stores. For basic low markup necessities like oil, it usually comes out to nothing or very minute. For some things it's a typical 10% off, but for many parts, they give you what I believe to be the shop account pricing, i.e. the price that they would charge an auto shop BEFORE the shop marks it up again to sell to  their customer.\n\nI got a cooling fan assembly and radiator for an 04 Jetta, and the military discount literally knocked about 25% or more of the total price. Pricing even beat online options like FCP Euro (which albeit has better quality parts than NAPA but that's another conversation)",
+    "flair": null,
+    "score": 132,
+    "comment_count": 15,
+    "created_at": "2025-11-12T22:11:52+00:00",
+    "top_comments": [
+      {
+        "id": "nojgxfn",
+        "score": 70,
+        "body": "You Napa know now."
+      },
+      {
+        "id": "nojbpel",
+        "score": 54,
+        "body": "Didn\u2019t know Napa did that."
+      },
+      {
+        "id": "nojkowx",
+        "score": 17,
+        "body": "Napa please."
+      },
+      {
+        "id": "nok8ojf",
+        "score": 13,
+        "body": "I doute it, rock auto is hard to beat, specially if you watch the warehouse and shipping. Plus Reddit usually has a 5% off code. Every year I\u2019ll make one large bulk order from rock auto for consumables ie. wiper blades, cabinets filter, air filter, for all our new cars. \n\nIf I need a part NOW, autozone is my favorite. They have a 10% military discount plus $20 off after 5 purchases of $20 or more. (Yes I\u2019ll make separate trips over several days to stack those transactions, it\u2019s on my way home from work :) )"
+      },
+      {
+        "id": "nojmykg",
+        "score": 10,
+        "body": "Think it beats rock auto?"
+      },
+      {
+        "id": "nojmlbp",
+        "score": 5,
+        "body": "Great. Now that song's in my head."
+      },
+      {
+        "id": "nomy8nj",
+        "score": 3,
+        "body": "[removed]"
+      },
+      {
+        "id": "noj65yq",
+        "score": 1,
+        "body": "Welcome to r/MilitaryFinance! \n\nPlease check out our [\"Start Here: Military Money 101 & Prime Directive\"](https://www.reddit.com/r/MilitaryFinance/comments/1oksn2s/start_here_military_money_101_prime_directive/) thread for essential information and resources.\n\nYou may also find these helpful:\n- [Credit Cards & Military Benefits (SCRA, MLA, Annual Fee Waivers)](https://www.reddit.com/r/MilitaryFinance/comments/1ola48e/credit_cards_military_benefits_scra_mla_annual/)\n- [Tax & State Residency (MSRRA) Questions & Discussion](https://www.reddit.com/r/MilitaryFinance/comments/1oksnru/tax_state_residency_msrra_questions_discussion/)\n\n\n*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/MilitaryFinance) if you have any questions or concerns.*"
+      },
+      {
+        "id": "noktclm",
+        "score": 1,
+        "body": "RockAuto.com your welcome"
+      },
+      {
+        "id": "nq29sb8",
+        "score": 1,
+        "body": "I purchased alot of parts from RockAuto recently and the items arrived in 3 days and the order was perfect.  I saved more than $500 using RockAuto rather than the Stealer.  I would much rather use OEM parts for my vehicles but the Stealer price is always so high.  What I did was, I went to the GMC online store and looked up the part numbers to verify the exact parts that I needed.  I then went to RockAuto and searched the part numbers and purchased them from RockAuto.  I saved so much money by doing that."
+      }
+    ]
+  },
+  {
+    "subreddit": "MilitaryFinance",
+    "id": "1pwa4mj",
+    "title": "Arguments for doing over 20 years",
+    "body": "You see the constant point about staying in any time over 20 is a bad idea because you are doing 100% of the work for half the pay. However, I do think that this shouldn't be looked at the same for everyone. Only for those who NEED to work/want to work after their time. \n\nI.e., if someone wants to fire after military retirement, I think it's a great idea to do OVER 20 so they can secure more pension. Doing 4 more years will add close to another $1k/mo to your pension depending on your rank, another $12k/yr. A good amount of money to pad retirement plans, especially if you are a young retiree and need access to money instantly.  \n  \nI bring up this point because I see a lot of people shitting on staying after 20 without bringing up the pros.",
+    "flair": null,
+    "score": 126,
+    "comment_count": 118,
+    "created_at": "2025-12-26T17:42:58+00:00",
+    "top_comments": [
+      {
+        "id": "nw20ki0",
+        "score": 162,
+        "body": "If you are an officer and you are an O-5 in a career field that doesn\u2019t have a lot of earning potential out of the military, then staying in and making almost 200k would probably be worth it. Maybe if you are still an O-4 too."
+      },
+      {
+        "id": "nw1zyaj",
+        "score": 105,
+        "body": "another argument is the amount of people that say they kicked theirselves in the ass during their 40s for not doing 20"
+      },
+      {
+        "id": "nw20u55",
+        "score": 83,
+        "body": "The economy is a good reason to stay in past twenty.  There's no guarantee you'll find a job after you retire so at least you'll have one if you stay in."
+      },
+      {
+        "id": "nw264ay",
+        "score": 73,
+        "body": "I realize this is from a financial lens but the main reason to stay in past 20 is that you enjoy your job. \n\nBeyond that, senior enlisted are paid pretty well. An E-8 at 22YOS is making 7k per month base plus another 2-3k in BAH/BAS. Plus free medical insurance, tons of benefits for their family like the GI bill. All while adding 2/2.5% to your pension every year. Officers even more so. \n\nPeople have this misconception that every job on the outside is going to start them at 100k+ just for existing when they get out. The vast majority of the country isn\u2019t earning nearly that much.  Hearing about the people who get out and do super well is selection bias."
+      },
+      {
+        "id": "nw20djv",
+        "score": 70,
+        "body": "I was just having this conversation with one of the guys in my church. I\u2019m just over six years in. He did ten in the Navy and got out, ten years ago. He was mildly lamenting how if he\u2019d stayed in, he would be retiring now"
+      },
+      {
+        "id": "nw20trv",
+        "score": 57,
+        "body": "That half pay argument is kinda weak in my opinion. Half of my base pay isn't half my pay. Additionally, the amount you'd have to save from your post retirement salary to get guaranteed inflation adjusted income equivalent to additional years of pension is not small."
+      },
+      {
+        "id": "nw2mfgk",
+        "score": 38,
+        "body": "This is probably gonna sound fuckin dumb to a lot of you, but a few years ago I really got into credit card points, and not having 7k+ in annual fees waived every year will be missed. \n\nI added it up the other day, and if we\u2019d paid cash for our 3 international trips this year it would have added up to roughly 30k. We\u2019ve been doing this a few years now, and have two more planned out for next year as well, and will probably do a third. I realize people churn and do the points game without getting the annual fees waived too, but having 5 aspire cards and all the rest without even thinking about it really puts this in easy mode."
+      },
+      {
+        "id": "nw2lhqw",
+        "score": 37,
+        "body": "I agree, though I'll just add that you may very well earn more than that even as an O4 depending on where you're located.  My after tax take-home pay as an O4 over 10 years in Hawaii is more than $144k (at 2025 rates), which is the same as a Hawaii resident earning $215k pre-tax: [https://smartasset.com/taxes/hawaii-tax-calculator](https://smartasset.com/taxes/hawaii-tax-calculator)\n\nAll of this is to say that there can be very good financial reasons to stay in longer than 20 years.\n\nI can't say whether I'll do more than 20 years. If I can easily get another job paying the same amount (or increasing my total compensation when salary and pension are combined), then it's an easier decision. But that's not a given."
+      },
+      {
+        "id": "nw289bw",
+        "score": 35,
+        "body": "Yeah. Retired as an E-7 at 20 years in 2021. I wasn\u2019t enjoying my job anymore and my family was more important than receiving more in pension. Some things in life are priceless. \n\nI started off making $72k in my next career and didn\u2019t get that six figure paycheck until this summer."
+      },
+      {
+        "id": "nw27k6e",
+        "score": 34,
+        "body": "I\u2019m willing to bet the disability system as we know it will not exist in 10 years. Too many people milking it and not enough wars going on to justify the fugazee fugazi"
+      }
+    ]
+  },
+  {
+    "subreddit": "MilitaryFinance",
+    "id": "1q0benz",
+    "title": "Start Here: Military Money 101, Prime Directive, Flow Chart, Updates Monthly",
+    "body": "Welcome to the getting started thread for military money. This will cover 90% of what you need to know to be successful with your military paycheck and build wealth in the military.\n\nSome of the most frequent questions in on this subreddit goes:\n\n* **\"I have $X, what should I do with it?\"**\u00a0or\n* **\"How should I handle my debt/finances/money?\"**\n\nMilitary Personal Finance and Investing Flow Chart: [https://imgur.com/a/akrEcUS](https://imgur.com/a/akrEcUS)\n\n# Step 1: Budget and reduce expenses, set realistic goals\n\nFundamental to a sound financial footing is knowing where your money is going. Budgeting helps you see your sources of income less your expenses. You should minimize your required expenses to the extent practical. Housing costs, utilities, and basic sustenance are harder to eliminate than entertainment, eating out, or clothing expenses.\n\nThere are many great apps available to discover what you're spending money on and where there are opportunities to save money. Monarch Money, YNAB, Copilot Money, EveryDollar are just a few of the apps available.\n\nOnce your budget is figured out, you need to figure out what your goals are. Financial independence? Retire early? Military retirement? Buy a house? Save for a car?\n\nSetting SMART goals - Specific, Measurable, Achievable, Relevant, and Timely goals can mean the difference between financial success and failure. For example, you might want to finish your first enlistment with a $100,000 net worth or achieve early retirement after 20 years of service. These are SMART goals.\n\n# Step 2: Build an emergency fund\n\nAn emergency fund should be a relatively liquid sum of money that you don't touch unless something unexpected comes up. Unexpected travel, essential appliance replacement, and cars breaking down are all real world examples of emergency funds in action.\n\nIf you need to draw from your emergency fund at any time, your first priority as soon as you get back on your feet should be to replenish it. Treat your emergency fund right and it will return the favor.\n\nStart with a $1,000 emergency fund. Eventually build it up to 3-6 months of expenses or a few of months of expenses plus\n\n**How should I size my emergency fund?**\n\nFor most people, 3 to 6 months of expenses is good. Or maybe you want to cover a few months of expenses, plus a roundtrip airfare for you and your family to go back to your home stateside.\n\n**What if I have credit card debt?**\n\nCredit cards generally have very high interest rates (typically 15-25% APR) and that is a pretty big deal. If this applies to you, you should prioritize paying down the debt first.\n\nA smaller emergency fund of $1,000 (or 1 month of expenses) is temporarily acceptable while paying off credit card debt or other debts with interest rates above 10%.\n\n**What kind of account should I hold my emergency fund in?**\n\nA checking account, savings account, or a high yield savings account (HYSA). Something FDIC insured and accessed in a few days.\n\n# Step 3: 5% Into the Thrift Savings Plan\n\nThe Thrift Savings Plan (TSP) is the military and government's version of a 401(k) retirement savings plan. All servicemembers enlisting since 2018 are covered by the Blended Retirement System (BRS). The BRS has 3 primary components to help servicemembers save for retirement:\n\n1. 5% matching contribution to the TSP\n2. Continuation pay bonus between the 8th and 12th year of service (depends on branch)\n3. Military pension. A 2% mutliplier is used for each year of service. So if you retire after 20 years of active duty service, you'll earn an inflation adjusted, lifetime pension of 40% of your base pay. (20 years \\* 2 = 40%)\n\nAfter 60 days of service, the Department of Defense (DOD) will automatically contribute 1% of your base pay to the Traditional TSP.\n\nStarting in the 25th month of service, your contributions are matched, up to 5%. So if you contribute 5%, the DOD will contribute 5%. This is a risk free, 100% return on your contributed funds.\n\nThe default investment for anyone in the BRS is a Lifecycle fund with their birth year + 65. For example, if you were born in 2005, you'll be placed in the Lifecycle 2070 Fund.\n\nThe Lifecycle Funds are a mix of the 5 TSP Funds, designed by professional fund managers.\n\nThe 5 TSP Funds are:\n\n* C Fund - Tracks S&P 500, made up of the 500 largest companies in America. You can use the ETF SPY or VOO to track it.\n* S Fund - Tracks Dow Completion index, basically all the mid- and small- capitalization companies in America outside of the S&P500. ETF equivalent VXF.\n* I Fund - International stocks. MSCI ACWI IMI ex USA ex China ex Hong Kong Index. 5,500 companies in this index. representing 90% of the investable world market cap outside the US. Similar to ETF VXUS but without Chinese or Hong Kong stocks.\n* F Fund - Fixed income. Corporate bonds. Use ETF AGG to see performance.\n* G Fund - Lowest risk, lowest long term return fund. The G Fund invests in a special\u00a0non-marketable\u00a0treasury security issued specifically for the\u00a0TSP\u00a0by the U.S. government. This fund is the only one in the\u00a0TSP\u00a0that guarantees the return of the investor\u2019s principal. No comparable ETF.\n\n# Step 4: Pay down high interest debts\n\nOnce you're taking advantage of the 5% BRS TSP match, you should use your extra money to pay down your high interest debt (e.g., debts much over 4% interest rate).\n\nIn all cases, you should make the minimum payments on all of your debts before paying down specific debts more quickly.\n\nThere are two main methods of paying down debt:\n\n* With the\u00a0**avalanche**\u00a0method, debts are paid down in order of interest rate, starting with the debt that carries the highest interest rate. This is the financially optimal method of paying down debt, and you will pay less money overall compared to the snowball method.\n* With the\u00a0**snowball**\u00a0method, popularized by Dave Ramsey, debts are paid down in order of balance size, starting with the smallest. Paying off small debts first may give you a psychological boost and improve one's cash flow situation, as paid off debts free up minimum payments. The downside is that larger loans (that may be at higher interest rates) are left untouched for longer, costing more in the long run.\n\nAs an example, Debtor Dan has the following situation:\n\n* Loan A: $1,100 with a minimum payment of $100/month, 5% interest\n* Loan B: $3,300 with a minimum payment of $300/month, 10% interest\n* Sudden windfall: $2,000\n\nDan needs to first pay $100 + $300 = $400 to make the minimum payments on loans A and B so the payments are recorded as \"on time.\" The extra $1,600 can either go towards Loan A (smallest balance, snowball method), eliminating it with $600 left to go towards Loan B, or Loan B entirely (highest interest rate, avalanche method).\n\nWhat's the best method?\u00a0\u00a0tends to favor the avalanche method, but do not underestimate the psychological side of debt payments. If you think that the psychological boost from paying off a smaller debt sooner will help you stay the course, do it! You can always switch things up later. The important thing is to start paying your debts as soon as you can, and to keep paying them until they're gone. You can use\u00a0[unbury.me](http://unbury.me/)\u00a0to help you get an idea of how long each method will take, and how much interest you'll be paying overall.\n\n**Should I be in a hurry to pay off lower interest loans? What rate is \"low\" enough to where I should just pay the minimum?**\n\nDepending on your attitude towards debt, you may want to stop paying more than the minimum payment on loans with low interest rates once you have paid all other loans above that threshold. A common argument is that the long-term return from investments in the stock market will likely exceed the interest rate from a low-interest loan. While this has been true in the past, keep in mind that paying down a loan is a guaranteed return at the loan's interest rate. Stock performance is anything but guaranteed. The rough consensus is that loans above 4% interest should be paid off early in the debt reduction phase, while anything under that can be stretched out.\n\n# Step 5: Max out Retirement Accounts - Roth IRA and Roth TSP\n\nThe next step is to contribute to a Roth IRA for the current tax year. You can also contribute for the previous tax year if it's between January 1st and April 15th. See\u00a0[the IRA wiki](http://www.reddit.com/r/personalfinance/wiki/iras)\u00a0for more information on IRAs.\n\nRoth IRA and Roth TSP contribution limits are different and do not cross over. You can contribute the maximum out your Roth IRA and your Roth TSP. Matching contributions do not count against your personal TSP contribution limit.\n\n* [Roth and Traditional IRA limits on IRS.gov](https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-ira-contribution-limits)\n* [Roth and Traditional TSP limits on TSP.gov](https://www.tsp.gov/making-contributions/contribution-limits/)\n\nThe most often recommended places to open a Roth IRA are at Vanguard, Fidelity, or Schwab. Most banks offer substandard Roth IRA products and you should not open Roth IRA accounts there.\n\n**Should I do Roth or Traditional?**\n\nRead\u00a0[Roth or Traditional](https://www.reddit.com/r/personalfinance/wiki/rothortraditional).\n\nFor most servicemembers (O-3 and below), **you'll be better off contributing to the Roth IRA**, since military pay is so low taxed. Much of our military pay is untaxable allowances, such as Basic Allowance for Housing (BAH), Overseas Housing Allowance (OHA), and Basic Allowance for Sustenance (BAS).\n\n**Why contribute to an IRA if I have the TSP?**\n\nRoth IRA's have access to low cost investments similar to what you'll find in the TSP. However, you can always withdraw Roth IRA\u00a0*contributions*\u00a0at any time, tax and penalty free.\n\nAfter you've fully funded your Roth IRA, you can look at maxing out your Roth TSP.\n\nBefore saving for other goals, you should save at least 15% and up to 20% of your gross income for retirement. If you are\u00a0[behind on retirement savings](https://www.fidelity.com/viewpoints/retirement/how-much-money-do-i-need-to-retire), you should try to save more than 15% if you can. If you can't save 15%, start with 10% or any other amount until you are able to save more.\n\n**Where should I open my Roth IRA?**\n\nVanguard, Fidelity, or Schwab. Read up about the Bogleheads 3 Fund Portfolio before selecting an investment option.\n\n# Step 6: Save for other goals\n\nMilitary servicemembers and spouses covered by TriCare are\u00a0**not**\u00a0eligible for Health Savings Accounts (HSA0.\n\n* If you wish to save for college for your kids, yourself, or other relatives, consider a\u00a0[529 fund in your state](http://www.clark.com/clarks-529-plan-guide).\n* Save for more immediate goals. Common examples include saving for down payments for homes, saving for vehicles, paying down low interest loans ahead of schedule, and vacation funds.\n* Save more so you can potentially retire early (also see \"advanced methods\", below), only using taxable accounts after maxing out tax-advantaged options.\n* Make an impact through giving. One of the rewards of practicing a sound financial lifestyle is that giving becomes easier. If you're on top of your health care costs, future education costs, and you've made it to this step, you can help\u00a0[make a difference for others by giving](https://www.reddit.com/r/personalfinance/wiki/charity). If you can't afford to make monetary donations, there are other ways to give.\n* Maybe you're interested in financial independence or retiring early, also known as FIRE? There are many resources out there on military financial independence and early retirement.\n\nThe time frame for these goals will dictate what kind of account you save in. For short-term goals (under 3-5 years), you'll want to use an FDIC-insured savings account, CDs, or I Bonds. If your time horizon is longer or you can afford to adjust your plans, you might consider something riskier like a balanced index fund or a three-fund portfolio (both are a mix of stocks and bonds). The best savings or investment vehicle will vary depending on time frame and risk tolerance.\n\nKeep in mind that (especially for a young person) the more time your money has to grow, the more powerful the effects of compounding will be on your savings. If the goal is early retirement (even before the age of 59\u00bd), you should definitely maximize the use of any available tax-advantaged accounts (IRA, 401(k) plans, HSA accounts, etc.) before using a taxable account because there are\u00a0[ways to get money out of tax-advantaged accounts before 59\u00bd without penalty](https://www.reddit.com/r/personalfinance/comments/434ey1/psa_retirement_funds_are_not_locked_up_until_age/).\n\nIf you are using a taxable account for any goal, you'll want to have a decent grasp on\u00a0[asset allocation in multiple accounts](http://www.bogleheads.org/wiki/Asset_allocation_in_multiple_accounts)\u00a0and\u00a0[tax-efficient fund placement](http://www.bogleheads.org/wiki/Principles_of_tax-efficient_fund_placement).\n\n# Military State Taxes\n\nYour\u00a0**home of record**\u00a0is the place you enlisted or commissioned from. This cannot be changed unless there was an error.\n\n**State of legal residence**\u00a0is the state that you claim as your residence. If you only have military income, you will pay state income tax only to this state.\n\nYou can establish residency several ways:\n\n* Registering to vote in that state\n* Obtaining a driver\u2019s license in that state\n* Titling and registering your vehicle in that state\n* Drafting a Last Will and Testament naming that state as your domicile\n* Purchasing residential property in that state\n* Changing your military and finance records to reflect residency in that state.\n\nThe simplest way to establish residency is to PCS to that state and establish residency while you are a resident.\n\nState with no income tax include: Alaska, Florida, Nevada, South Dakota, Tennessee, Texas, Washington, and Wyoming. Many other states have no tax for military servicemembers stationed outside the state.\n\nSimply engaging in one of the above acts alone will not likely render you taxable by a state; however, the more points of contact you make with a state increases your chances of becoming a taxpayer to that state. It is important to concentrate the majority of your points of contact in the one state where you intend to pay state taxes; otherwise, you may find yourself owing taxes to more than one state as a part-year resident.\n\nSource:\u00a0[Fort Knox Legal Assistance Office](https://home.army.mil/knox/application/files/5915/6623/5548/Legal_Residency.pdf)\n\n# Military Spouse Residency Relief Act\n\nThanks to the Military Spouse Residency Relief Act, Veterans Auto and Education Improvement Act of 2022, and Servicemembers Civil Relief Act:\n\n(A) The residence or domicile of the servicemember.\u201c\n\n(B) The residence or domicile of the spouse.\n\n\u201c(C) The permanent duty station of the servicemember.\u201d\n\nMilitary spouses and military servicemembers can pick 1 of 3 options for their state of legal residence:\n\n(A) The residence or domicile of the servicemember.\n\n(B) The residence or domicile of the spouse.\n\n(C) The permanent duty station of the servicemember.\n\nSo either match the servicemember, keep your old state, or change to the current state you're in.\n\n# Military Bonuses\n\nMilitary bonuses have federal income taxes withheld automatically at 22%. You may have state taxes withheld as well. Because your marginal tax rate is often much lower than this, you will receive a large portion of that withheld tax back when you file your tax return the following year.\n\nIf you don't know what to do with a military bonus, directing some of it to your Roth TSP is a great place to park it.\n\nAfter reading all that, go ahead with any other questions you have about getting started with your military money.",
+    "flair": null,
+    "score": 123,
+    "comment_count": 11,
+    "created_at": "2025-12-31T12:00:27+00:00",
+    "top_comments": [
+      {
+        "id": "nwwrzdn",
+        "score": 8,
+        "body": "Fantastic overview!"
+      },
+      {
+        "id": "nwx8f3v",
+        "score": 8,
+        "body": "No. You can get the bonus 1 Jan, 31 Dec, or any date between, and the tax treatment will be the same with respect to the tax rate."
+      },
+      {
+        "id": "nwzela7",
+        "score": 3,
+        "body": "Saving this. Great info for my troops and I. Thanks for posting this!"
+      },
+      {
+        "id": "nx20kp4",
+        "score": 2,
+        "body": "The flow chart? Right click, select \"Save image.\""
+      },
+      {
+        "id": "nwwgn7d",
+        "score": 1,
+        "body": "Welcome to r/MilitaryFinance! \n\nPlease check out our [\"Start Here: Military Money 101 & Prime Directive\"](https://www.reddit.com/r/MilitaryFinance/comments/1oksn2s/start_here_military_money_101_prime_directive/) thread for essential information and resources.\n\nYou may also find these helpful:\n- [Credit Cards & Military Benefits (SCRA, MLA, Annual Fee Waivers)](https://www.reddit.com/r/MilitaryFinance/comments/1ola48e/credit_cards_military_benefits_scra_mla_annual/)\n- [Tax & State Residency (MSRRA) Questions & Discussion](https://www.reddit.com/r/MilitaryFinance/comments/1oksnru/tax_state_residency_msrra_questions_discussion/)\n\n\n*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/MilitaryFinance) if you have any questions or concerns.*"
+      },
+      {
+        "id": "nwx4o1u",
+        "score": 1,
+        "body": "Does the timing of when during the year you get bonus matter for marginal tax rate?"
+      },
+      {
+        "id": "nwzmd16",
+        "score": 1,
+        "body": "Is there a way I can save that picture? The website is full of ads."
+      },
+      {
+        "id": "nx38q6q",
+        "score": 1,
+        "body": "Savings accounts at USAA and the other military banks are garbage.  HYSA all the way!"
+      },
+      {
+        "id": "o1h8xsv",
+        "score": 1,
+        "body": "Is the BRS Lump Sum at retirement considered a Bonus and will it have taxes withheld at 22% from DFAS? Thanks"
+      },
+      {
+        "id": "nx65kuv",
+        "score": 1,
+        "body": "[https://i.imgur.com/OUeJkvJ.png](https://i.imgur.com/OUeJkvJ.png)"
+      }
+    ]
+  },
+  {
+    "subreddit": "MilitaryFinance",
+    "id": "1omei0o",
+    "title": "20 years in. Three sustains and three improves.",
+    "body": "The milestone is a an opportunity to look back on the last couple of decades and see what I did right, while looking at things to improve on going forward. \n\nTLDR\nImprove: didn\u2019t max tsp, too much active trading, missed out on life events\nSustain: no fancy cars, intentional spending and no debt, no expensive divorces \n\nImproves:\n\n1. Waited too long to get into TSP. Thinking I didn\u2019t want that money \u201clocked away\u201d, I didn\u2019t max TSP until I was a Major, well into my career. Even if I didn\u2019t get matching, I wish I had started from day 1. It\u2019s a forced savings mechanism, and if I had never been used to getting that extra money, I never would have missed it. Now if you\u2019re BRS, it\u2019s a no brainer. \n\n2. Too much active trading and market timing. Like most humans, I believed in my own exceptionalism and left a lot of money on the table. I estimate I would have 2x my current net worth if I had done VTI/VXUS the entire way through. I mostly don\u2019t touch individual stocks these days. \n\n3. Focused too much on career\u2026maybe. I missed some key life events that I deeply regret now, in the name of not being absent from work or looking \u201cbad\u201d to my supervisors. In hindsight, my bosses/peers wouldn\u2019t have thought twice about it and those work events I\u2019ve completely forgotten about now.\n\nWhen in doubt, lean towards choosing the life stuff, then hustle at work to make it up later. I only say maybe because it\u2019s easy to say that now at this remove and not so easy as a new company grade or Major trying to make his mark.  \n\nSustains:\n\n1. Never bought fancy cars. I like cars but I realized very early that tying your self worth to the value of your car was a fools game and the biggest annihilator of wealth for most Americans. Financing a depreciating asset is like burning a candle at both ends, with the candle being your future life and options. My biggest splurge was a brand new Honda civic. \n\nIn my last job we had an off post PT thing and I remarked to my O6 boss that he and I had the crappiest cars in the lot (and his was way worse than mine lol) while the company grades had the Benz\u2019s and BMWs. I\u2019m sure there was a lesson to be learned there. \n\n2. Intentional spending, zero credit card debt and maximizing rewards benefits. I was frugal in most areas but spent intentionally on the things I valued. I enjoy fancy hotels, flying business class, drinking good wine, etc. I kept daily and unconscious spending low, but balled out when I\u2019d go on vacation. \n\nCredit card rewards were super generous in the 2010s, and I made use of those as well but have never paid a penny in finance charges. I\u2019m not one of the abusers with 10 Amex plats but I made good use of rewards within the spirit of the programs. After all, life is about balancing both the present and the future and not taxing one excessively in service of the other. \n\n3. No expensive divorces. I have several peers now who had or are going through divorces at O-5 and O-6. Choice of life partner is the most important decision you will make and will affect every aspect of your life. And as hard as marriage is, doing it in the military amps it up another level. \n\nThese friends of mine, after having deployed numerous times and serving 20+ years will be receiving half their pension. Sure they knew it going in, but I\u2019m sure it felt purely theoretical at 22. Not so much now. Understand your rights and obligations and make a conscious, knowing choice. \n",
+    "flair": null,
+    "score": 114,
+    "comment_count": 34,
+    "created_at": "2025-11-02T11:03:20+00:00",
+    "top_comments": [
+      {
+        "id": "nmotyoy",
+        "score": 24,
+        "body": "Thanks for sharing, guessing no kids? Any additional advice for those of us halfway there?"
+      },
+      {
+        "id": "nmp5pw6",
+        "score": 22,
+        "body": "Thanks! Expecting good news on the O6 results and excited for the opportunity to lead. Will probably do two more assignments at minimum and see from there.\n\nStretch goal is to meet someone in the next 1-2 years, have two kids with neither my wife nor I having to work. We spend time as a family and raise the kids in some idyllic coastal European city with zero financial stress. \n\nOtherwise be a happy single guy, travel the world and do things I\u2019ve been putting off like learning the piano, guitar and learning a few languages. I also have my gi bill so I may do programs in thing I\u2019m interested in like paleontology purely for personal development."
+      },
+      {
+        "id": "nmpehz3",
+        "score": 18,
+        "body": "Great advice. My nephew recently enlisted and I convinced him to do 15% into TSP, and he gets the top up of 5% BRS. Also convinced him to do a monthly 1% increase until he \u201cfeels\u201d the missing $. Wish I had started sooner too, but at the O3E level, I\u2019m driving a 12 year old car with no bills. After I showed my nephew what $1000 saved today could multiply by in the next 20-40 years, he was all in."
+      },
+      {
+        "id": "nmowx5t",
+        "score": 18,
+        "body": "Yes no kids. I think I\u2019d adhere to the same as I listed above but it would have definitely affected my access to compounding over the last 20.\n\nI\u2019ve been ambivalent about having kids, but I am still holding out hope that I\u2019ll meet someone who will completely change my mind on the subject.\n\nThe middle years are the hardest, like being in the middle of the pool. You are furthest away from safety of not having too much time invested and being able to envision retirement. O4 is the most challenging rank because everyone is trying to make O5 and rater profiles sre the most constrained. If you have a spouse, especially non mil, warn them ahead of time that what you do as a major will dictate opportunities going forward so they will be on board with buckling down those 4-5 years ."
+      },
+      {
+        "id": "nmpej7z",
+        "score": 12,
+        "body": "If you end up having kids, (I am childfree) but I think it would be awesome if you retire just to have that option to homeschool if you choose to, or have that time to be more involved with their lives. Sometimes I tell myself maybe I\u2019ll get into fostering after retirement. I remember I bumped into this O6 who was getting ready to retire and I asked her, what is she gonna do next? Her reply was just spend time with her son who was six at the time. I thought that was an amazing response.\u00a0"
+      },
+      {
+        "id": "nmoxqtt",
+        "score": 10,
+        "body": "Are you retiring at 20 or doing more? What is your plan after retirement? Great write up."
+      },
+      {
+        "id": "nmpj1l3",
+        "score": 10,
+        "body": "The car thing.....good lord, that strikes a chord with me like nothing else. The amount of money I just burned throughout my time in, cycling through new cars. I have changed my ways, but will never forgive myself for that."
+      },
+      {
+        "id": "nmq5lei",
+        "score": 10,
+        "body": "Great post, O3 with 6 years TIS and needed this as I was looking at making some of these mistakes."
+      },
+      {
+        "id": "nmqfrre",
+        "score": 8,
+        "body": "I know your buddies are doing it but don\u2019t buy that entry level BMW. The biggest flex these days is a paid off car!"
+      },
+      {
+        "id": "nmqa1i6",
+        "score": 6,
+        "body": "Id go one step farther and say lock in your standard of living at a certain range and invest the difference. If you can live on O3 pay comfortably as an O6 you're able to save 50 percent of your salary without even feeling it."
+      }
+    ]
+  },
+  {
+    "subreddit": "MilitaryFinance",
+    "id": "1ozx88u",
+    "title": "Dad is asking for $14K. Anyone else in the military cover for their parents bad financial decisions?",
+    "body": "My mom is trying to flip a home she bought nearly a year ago, but nobody wants to buy it. Hell nobody even wants to look at it. Its a newer home, but the neighborhood is extremely rural and far from the city. \n\n\n\nMom + Dad prbably spent 10s of thousands in renovations and my dad was saying how he owes Home Depot 14k. He's asking me to lend him $14k so he can avoid paying interest to Home Depot and that he'll pay me back in monthly installments and once (IF) they sell the house. \n\nOh, and his savings was dwindled to $5k and he's approaching 60 years old.\n\nSorry, I just needed to rant.",
+    "flair": null,
+    "score": 114,
+    "comment_count": 139,
+    "created_at": "2025-11-18T00:20:02+00:00",
+    "top_comments": [
+      {
+        "id": "npesjxm",
+        "score": 300,
+        "body": "You\u2019ll never get that money back"
+      },
+      {
+        "id": "npetj0e",
+        "score": 189,
+        "body": "Only give what you are willing to gift."
+      },
+      {
+        "id": "nperzj9",
+        "score": 99,
+        "body": "absolutely not. do not lend them $14k. let them take their own hits"
+      },
+      {
+        "id": "npet724",
+        "score": 96,
+        "body": "You\u2019re never seeing that money again. They will be back for more."
+      },
+      {
+        "id": "npez1jr",
+        "score": 85,
+        "body": "Never.\n\nI\u2019ve \u201cloaned\u201d thousands to my parent, but knew damn well it wouldn\u2019t be paid back. And I was okay with that."
+      },
+      {
+        "id": "npes9du",
+        "score": 77,
+        "body": "I had to learn this the hard way but don't make your parents problems your problem."
+      },
+      {
+        "id": "npeug6q",
+        "score": 45,
+        "body": "If you have over 50k in checking thats a large problem"
+      },
+      {
+        "id": "npev29l",
+        "score": 44,
+        "body": "OP, we understand your loyalty to your parents. But it\u2019s not going to make them homeless. You said it\u2019s to avoid interest.\n\nSpeaking frankly.\nIn the worst case, this 60 year old can drown in debt interest and declare bankruptcy. AND still live with you. When they die, the debt becomes Home Depot's problem.\n\nDo not get dragged down with the drowning. You can still support your parents but don't get tied into bad financial decisions."
+      },
+      {
+        "id": "npewpb3",
+        "score": 42,
+        "body": "That\u2019s great that you have 30k in TSP but you still shouldn\u2019t have that much in a checking account. You\u2019re just losing money to inflation. I would immediately take out 7k and max out an IRA and then do it again January 1st"
+      },
+      {
+        "id": "npeya0k",
+        "score": 34,
+        "body": "first off, you should not have $50k in a checking account. better placed in investments or hysa. second, do you live with them? if you do, you should get your own place. you give them that $14k, you open yourself up for them to grab more from you to cover their dumb mistakes. if don\u2019t live them, not your problem. focus on yourself please\ud83d\ude4f\ud83c\udffd"
+      }
+    ]
+  },
+  {
+    "subreddit": "MilitaryFinance",
+    "id": "1ossapa",
+    "title": "Helly Hansen\u2019s 50% for military sale just went live. What other Veteran\u2019s Day sales are notable?",
+    "body": "My household waits for this sale every year. Our whole family wears nice Helly Hansen gear for skiing and I even have a puffy down jacket from them. It\u2019s no Arcteryx but for 50% off their prices it\u2019s sweet cold weather gear, good enough for all the Vail resorts lift operators and ski patrol. Combined with the Epic military passes, my military status surprisingly makes skiing a viable family activity for us, which wasn\u2019t the case for me growing up.\n\nHere\u2019s a list of other Veteran\u2019s Day deals I have gathered through various unit group chats and friends. The Helly Hansen one is still my favorite. Anyone got other hidden gems to share?\n\nColorado specific:\n\nColorado Parks and Wildlife \u2014  Active duty and veterans are admitted free to Colorado state parks on Veteran\u2019s Day. Barr Lake is also serving veterans a free bowl of chili.\n\nHistory Colorado Center \u2014  Veterans are offered free admission on Veterans Day. They also provide a complimentary admission fee for up to five family members.\n\nWings Over the Rockies \u2013 Veterans, active and retired military get free admission on Monday, November 11, 2024 at both Wings Over the Rockies Air & Space Museum in Denver and their Wings Over the Rockies Exploration of Flight location in Centennial.\n\nAmerican Museum of Western Art - The Anschutz Collection - Free self-guided and guided Tours on Veteran's Day.\n\nFlight Club Denver - On November 11, veterans are invited to enjoy a complimentary food item, valued up to $20, with the purchase of a Social Darts\u00ae experience. Simply present a valid military ID to redeem this offer.\n\nVeterans Day discounts and meals at restaurants:\n\n7-Eleven \u2014 Veterans and active duty military members can get a free coffee or Big Gulp. Sign in or register with 7Rewards. Note, 7-Eleven stores are independently owned. Please inquire with your local store to see if they\u2019re participating.\n\nApplebee\u2019s \u2014\u00a0Active-duty military, veterans, reserves, and National Guard receive a free meal when dining in from a special menu on November 11.\n\nBad Daddy's Burger Bar \u2014 Veterans and active-duty military get a free 5 oz. BD\u2019s All American Burger with cheese and choice of side on November 11.\n\nBJ\u2019s Restaurant and Brewhouse \u2014 On November 11, veterans can dine in and enjoy a free Chocolate Chunk Pizookie with no minimum food purchase. In addition, veterans will receive a bounce back coupon for a free appetizer. Valid between November 12 and December 31, 2024, the bounce back can be used for dine in or take out.\n\nCalifornia Pizza Kitchen \u2014 Veterans and active-duty military receive a complimentary meal from a special menu. They will also receive a BOGO offer to redeem for a pizza, pasta or salad that can be redeemed for a future visit between November 12 through November 25, 2024.\n\nChili\u2019s Grill & Bar \u2014\u00a0All veterans and active-duty military personnel can get a free meal from a special menu on Veteran\u2019s Day, Monday, November 11, 2024, at all participating Chili\u2019s Grill and Bar restaurants.\u00a0\n\nDenny\u2019s \u2014\u00a0All Veterans and active duty service members with a valid military ID or DD 214 receive a free Grand Slam at participating Denny\u2019s locations on November 11, from 5 am to noon. Not all Denny\u2019s are participating, verify with your local restaurant.\n\nDunkin\u2019\u00a0Donuts \u2014\u00a0Veterans and active duty military will receive a free donut of their choice, no purchase necessary, at participating locations.\u00a0\n\nFreddy's Frozen Custard and Steakburgers\u00a0\u2014 Veterans and active-duty military personnel who visit participating locations on November 11 will receive a meal card valid for a free combo meal of their choice. Cards may be redeemed through December 31, 2024.\n\nGolden Corral \u2014\u00a0Golden Corral is hosting their Military Appreciation Night on November 11 from 5pm to close. This includes a free \u201cthank you\u201d meal when dining in.\n\nGood Times Burgers & Frozen Custard\u00a0\u2014 Veterans and active-duty military get a free Deluxe Cheeseburger Combo on November 11. Offer available with valid military ID from 11am to 3pm for dine-in only.\n\nHopdoddy Burger Bar\u00a0\u2014 Veterans and active-duty military get a free classic burger on November 11. Available for dine-in only.\n\nIHOP \u2014\u00a0Veterans and active-duty military get a free Red, White, and Blueberry Pancake Combo on November 11 from 7am to 7pm. Dine-in only, at participating restaurants.\n\nIn-N-Out Burger\u00a0\u2014 On November 11, veterans, active-duty military, reserves and National Guard receive a complimentary meal, including any burger, fries, and beverage on In-N-Out Burger\u2019s menu. Present proof of military service.\n\nLaMar\u2019s Donuts \u2014 Veterans and active duty military get a free donut and 12 oz. coffee (in-store) at participating locations.\u00a0\n\nOlive Garden\u00a0\u2014 To thank members of the military for their service, Olive Garden is offering those that dine-in on November 11 a complimentary entr\u00e9e from a special menu.\n\nRed Lobster \u2014 Veterans, active-duty military and reservists get free printed meal vouchers for Veterans Shrimp & Chips on November 11. Guests need to show a valid military ID or proof of service.\n\nRed Robin \u2014 Veterans and active-duty military get a complimentary Red's Big Tavern Burger and Bottomless side on November 11 with valid ID. Dine-in only, not valid for online or to-go orders.\n\nStarbucks \u2014 Starbucks is honoring those who have served with a free tall (12-ounce) hot or cold brewed coffee for veterans, military service members and military spouses who visit participating U.S. stores on November 11.\n\nTorchy's Tacos\u00a0\u2014 Torchy\u2019s Tacos will be offering veterans/active military members a Free Taco and fountain drink when they dine-in or pick-up orders at the restaurant.\n\nVeterans Day discounts in retail and services:\n\nAARP \u2013 AARP salutes you for your service to our country with a special membership offer. Join for only $9 per year with a 5-year term and save up to 43% off. Or join for 1 year for just $12 and save 25% off the standard annual rate.\n\nCarhartt \u2013 Verified members of the military receive 15% off. Please visit their website for details.\n\nKohl's \u2013 Veterans, active and former military personnel, and their immediate families get 30% off in-store purchases from November 11 through 13.\n\nMacy\u2019s \u2014 Veterans Day deals on select items in-store and online.\n\nReebok \u2014 Reebok is offering a 40% off discounted price to Veterans, active duty service members, first responders, health care workers and more. Verify with ID.Me to claim discount.\n\nSamsung \u2014 Veterans, active duty service members and their families can save up to 30% off.\n\nSports Clips \u2013 On November 11, participating locations will provide free haircuts to veterans and active-duty service members with valid proof of service.\u00a0\n\nTarget \u2013\u00a0Target is offering a 10% military discount from October 27 through November 11 to all active-duty military personnel, veterans, and their families. The discount can be used on two separate transactions and applies to all in-basket items, online and in-store.\n\nWalgreens \u2013\u00a0On November 8 through 11, veterans, active-duty military, and their families receive 20% off regular price eligible store items at any Walgreens or Duane Reade drugstore nationwide.",
+    "flair": null,
+    "score": 113,
+    "comment_count": 18,
+    "created_at": "2025-11-09T19:28:50+00:00",
+    "top_comments": [
+      {
+        "id": "no0r853",
+        "score": 22,
+        "body": "5,000 brothers lining up for applebees and a free burger annually like they handing out gold bricks"
+      },
+      {
+        "id": "nnzzlgv",
+        "score": 21,
+        "body": "Do you have to be a member of theirs to get the 50%? Or do they use ID.me at checkout?"
+      },
+      {
+        "id": "nnzmlv1",
+        "score": 15,
+        "body": "I went to their website, but it says military membership is only a year?"
+      },
+      {
+        "id": "no0ipum",
+        "score": 15,
+        "body": "A complete list of restaurants to avoid in Veterans Day"
+      },
+      {
+        "id": "no1cx0q",
+        "score": 14,
+        "body": "I think it's meant more that the lines will be out the door."
+      },
+      {
+        "id": "no0m2qh",
+        "score": 9,
+        "body": "SheerIDs full list of probably 100+ stores offering Veterans Day Discounts \n\n[SheerID Veterans Day List](https://www.sheerid.com/press-releases/veterans-day-exclusive-discounts-verified-by-sheerid/)"
+      },
+      {
+        "id": "no03k9q",
+        "score": 7,
+        "body": "Sitka's pro program gives 40% off year round to military and veterans. For veterans day they give an additional 15% off. Picked up a new hunting pack, couldn't afford not to"
+      },
+      {
+        "id": "no3eaos",
+        "score": 2,
+        "body": "Free Car Wash at Tommy\u2019s Express Car Wash."
+      },
+      {
+        "id": "no8s02g",
+        "score": 2,
+        "body": "I just signed up for their pro account with military status .   \nMaxmium I am getting is 20%, not 50%"
+      },
+      {
+        "id": "no1rw7u",
+        "score": 2,
+        "body": "Can\u2019t wait to tell my husband this in the morning lol"
+      }
+    ]
+  },
+  {
+    "subreddit": "MilitaryFinance",
+    "id": "1p7a6gq",
+    "title": "Just hit $100k. Thankful for this sub",
+    "body": "29, O-3, single, no dependents. I just started paying more attention to my finances in September of last year, extremely grateful for all the help and advice on this sub. \n\nSep 2024 -  \nTSP: $19k. \nRoth IRS: $12k. \nChecking: $2.5k. \nSavings: $2.7k. \nHYSA: $10k. \nDebt: -$5k (car loan). \nTotal: $41k\n\nNovember 2025 -  \nTSP: $46k. \nRoth IRA: $23k. \nChecking: $7.5k. \nSavings: $4k. \nHYSA: $20k. \nDebt: $0 \nTotal: $100k\n\nDid anyone switch up what they were doing when they hit this milestone? Or take on the \u201cif it ain\u2019t broke don\u2019t fix it\u201d mindset \n\nI know I\u2019m not really confident in my Roth IRA growth/portfolio right now",
+    "flair": null,
+    "score": 104,
+    "comment_count": 27,
+    "created_at": "2025-11-26T15:11:32+00:00",
+    "top_comments": [
+      {
+        "id": "nqxf1sq",
+        "score": 43,
+        "body": "Maxing TSP, IRA, and 10-30k into a brokerage a year is probably overkill for an O-3. That\u2019s in the 4-5k saved per month. Yes saving is important and If you\u2019re underway and can\u2019t spend money on other things, sure that\u2019s fine. But stashing away 50k+ a year eats up the budget in a hurry. I\u2019m not saying it can\u2019t be done, but it\u2019s saying no to a lot of other things in the now for later retirement. \n\nIf you\u2019re a 29 year old single LT, don\u2019t just forget to enjoy this time too. You won\u2019t have the youth and freedom to enjoy things forever."
+      },
+      {
+        "id": "nqw99zi",
+        "score": 30,
+        "body": "You should be maxing your IRA and TSP and contributing $10-30K (depending on your career field and bonuses) to a brokerage account every year. Just do that with a like 50% us stock, 30% intl, 20% bond or whatever strategy and you\u2019ll be a millionaire by O5."
+      },
+      {
+        "id": "nqylxnm",
+        "score": 10,
+        "body": "Agreed. If you\u2019re OCONUS, travel as much as you can. If not, use credit card points/free Hilton Aspire nights to travel. Your youth is just as important as retirement. Youre doing awesome for your age. Keep it up. But maxing TSP and Roth IRA at O3 is solid and better than most (this sub is just cherry picked people who over save)"
+      },
+      {
+        "id": "nqwhaw4",
+        "score": 7,
+        "body": "Congrats! I\u2019m in a similar situation to you. Big thing is to avoid lifestyle creep and up the contributions as you promote/receive higher pay for time in service."
+      },
+      {
+        "id": "nqxyrvo",
+        "score": 7,
+        "body": "Thank you for this. I\u2019m trying to do better about using my time to actually do things rather than just working \n\nI definitely want to look out for the future but I also want to live life too"
+      },
+      {
+        "id": "nqwtagy",
+        "score": 6,
+        "body": "Why have a savings and a HYSA? Just merge both into HYSA?"
+      },
+      {
+        "id": "nqxyz6q",
+        "score": 5,
+        "body": "Just merge em. Move anything you need to checking to cover either the debit purchase of Credit Card charge. \n\nBuild 6 months of savings for your emergency fund and then start investing."
+      },
+      {
+        "id": "nqxmkbs",
+        "score": 4,
+        "body": "Stay the course. There's nothing to change at $100,000 or $1,000,000. Bogleheads strategy works just fine up to $100 million. \n\nThere's a pull to complexity as your net worth grows. You need to fight to keep things simple. Simplicity wins everyday over complexity. Simplicity reduces stress and over analyzing.\n\nNow that you've got some net worth, fees matter even more. Fight to keep your investments low-cost, automated, diversified, and simple.\n\nThe first $100k took my wife and me 4 years to get to. The next $100k took 1 year and 8 months. Compounding interest and the flywheel of simple index fund investing starts to take off rapidly after the first $100,000."
+      },
+      {
+        "id": "nqxxu9k",
+        "score": 4,
+        "body": "I guess that\u2019s kind of where I put the extra money when I\u2019m saving for things coming up soon, like Christmas presents and money for flights. When it fills up too much I move it to my HYSA"
+      },
+      {
+        "id": "nqycbuh",
+        "score": 4,
+        "body": "There are a variety of ways to get money out of the TSP before age 59.5 if need, some of them penalty free.\u00a0\n\nI\u2019m super glad that my spouse and prioritized maxing out our tax protected accounts early on. 10+ years later we can work on dialing in exactly which accounts we want money in as we actually get closer to retirement.\u00a0"
+      }
+    ]
+  },
+  {
+    "subreddit": "MilitaryFinance",
+    "id": "1k9htnd",
+    "title": "Slipping the Golden Handcuffs before they get too tight",
+    "body": "TL/DR: Recently retired after 20 years, transitioned into the banking industry in corporate America, but thinking about giving it up and living the retired life. I need help getting out of the golden handcuffs. \n\nMy transition out of the military was the smoothest that could've been asked for. My command gave me an entire year and half to prepare. Because of that, I walked into a corporate job with a nice salary on day one of terminal leave. I received 100% disability right away. My retirement and Disability check pays for all household bills and the corporate job check goes majority to saving and the reminder to discretionary spending. \n\nAfter a year of working in corporate America, I'm realizing that the 9-5 is not the life for me. I have made peace with leaving. Without the civilian job, I would have roughly $1,500 leftover monthly for groceries and gas for the family. While this is doable, nothing would be added to savings or investments. I will be using the GI bill soon and that will take the number up to $2,500 leftover monthly. \n\nMy problem is that while I plan to take a few months off and decompress, I have no other outlook for future careers once I decide to get back into the work force. The military gave me the fulfillment I needed and checked that life box. Is this a bad move financially? Anyone have a similar story of living off their military retirement and disability?",
+    "flair": null,
+    "score": 103,
+    "comment_count": 42,
+    "created_at": "2025-04-27T23:39:52+00:00",
+    "top_comments": [
+      {
+        "id": "mpef6ix",
+        "score": 110,
+        "body": "Thousands of military servicemembers living off of retirement and disability.\n\n\nhttps://militaryfinancialindependence.com/start-here/\n\n\nTake some time off. Figure out what to do next. Even if it's just living. Give yourself time and space. You don't need to earn money by working to secure your right to exist.\n\n\nYou have inflation adjusted income and healthcare for life. You've done the work. Now take the time off. If your heart isn't in the 9-5, don't do the 9-5. You've earned that ability through your 20 years of military service.\n\n\nYou only get 1 chance at this life. This is not an exercise, this is real world.\n\n\nRead Die with Zero by Bill Perkins and 4,000 Weeks by Oliver Burkeman for some perspective. It's later than you think."
+      },
+      {
+        "id": "mpefab1",
+        "score": 38,
+        "body": "If you can live off the disability, work a job doing something you enjoy that probably pays like shit. I look forward to going back into sales, or being like a Walmart door greeter, or an RSO at a gun range."
+      },
+      {
+        "id": "mpegg9z",
+        "score": 35,
+        "body": "My XO about a decade ago routinely would talk about all he wanted to do is get out and drive a UPS truck. Sadly, that dream didn't pan out and he is a Zumba instructor, and quite content with that."
+      },
+      {
+        "id": "mpejpow",
+        "score": 20,
+        "body": "Self employment. Insurance, real estate, whatever. The fact that you don't NEED to close any deals will make you effective."
+      },
+      {
+        "id": "mpei9km",
+        "score": 16,
+        "body": "Thanks for the feedback!!! I just ordered both books on Amazon and will read them this week!"
+      },
+      {
+        "id": "mpewjch",
+        "score": 14,
+        "body": "I Finished a degree and started on a masters. I built a network in the area I retired in and attend veterans events and networked with people in the industry I wanted to get into. Beefed up the resume with a certification. Worked on my disability package for the VA. I did a lot of things that put me into this position."
+      },
+      {
+        "id": "mpezf8x",
+        "score": 14,
+        "body": "I'm personally debating between being a dog walker or selling screws at home depot..."
+      },
+      {
+        "id": "mpeyrr6",
+        "score": 12,
+        "body": "When i retire all i want to do is drive a forklift."
+      },
+      {
+        "id": "mpf3r61",
+        "score": 11,
+        "body": "Networking got me there!!! General studies bachelors degree and a management masters degree. I was able to get involved with their trainee program. BOA and Wells have great programs for military."
+      },
+      {
+        "id": "mpfow9e",
+        "score": 10,
+        "body": "What rank did you retire? O or E? \n\nHonestly a 50% base pay pension + 100% disability pay pretty easily puts you into the $100K salary range (when factoring in taxes).\n\nA huge portion of the American population would not be working if they made that much passive income."
+      }
+    ]
+  },
+  {
+    "subreddit": "MilitaryFinance",
+    "id": "1pj6bzz",
+    "title": "BAH 2026 Published",
+    "body": "Edit: DTMO website tool has updated. \nhttps://www.travel.dod.mil/Allowances/Basic-Allowance-for-Housing/BAH-Rate-Lookup/\n\nThe DTMO website had it published for a bit, but it has since vanished.\n\nBAH RATES 2026 PDF spreadsheet:\n\nhttps://drive.google.com/drive/folders/1fPPV1jY0XT6NfJtpxKh8cGdF47O1kkvO",
+    "flair": null,
+    "score": 101,
+    "comment_count": 86,
+    "created_at": "2025-12-10T16:02:26+00:00",
+    "top_comments": [
+      {
+        "id": "ntb5ioy",
+        "score": 53,
+        "body": "Lmao mountain home went down for E-5 by more than $100; what a fucking joke. (Yesni know im grandfathered in the older rate, just saying it\u2019s still wrong as fuck)"
+      },
+      {
+        "id": "ntb8rh7",
+        "score": 42,
+        "body": "10 dollar increase for me lol wow"
+      },
+      {
+        "id": "ntbfvfl",
+        "score": 32,
+        "body": "Lol mine is down. Tell my landlord so they can stop fleecing me"
+      },
+      {
+        "id": "ntc5nt8",
+        "score": 27,
+        "body": "Increase of $100 nice.\n\nUtilities has increased by $100-200 in 2025 with forecasted increases in 2026.\n\nMy rent is increasing $150 from January.\nIt increased by $50 last year when I got a  $4 increase in Bah.\n\nHeck yeah. \n\n3.8% pay bump will make up for all of it, especially since the dollar has devalued by 11-13%\n\nBlessed to have a 2nd job on my weekends and am able to work 7 days a week \ud83e\udd74."
+      },
+      {
+        "id": "ntd8exx",
+        "score": 22,
+        "body": "Your BAH won't go down, you're grandfathered in."
+      },
+      {
+        "id": "ntbecmy",
+        "score": 12,
+        "body": "$8 increase is crazy \ud83d\ude2d"
+      },
+      {
+        "id": "ntd9nd9",
+        "score": 12,
+        "body": "Luckily for you you\u2019re grandfathered in. If BAH is lower than your current BAH then you keep the old rate until you PCS to a new location based on zip code"
+      },
+      {
+        "id": "ntceimq",
+        "score": 11,
+        "body": "$3 in San Diego. Ridiculous"
+      },
+      {
+        "id": "ntbbw1u",
+        "score": 10,
+        "body": "A whopping $54 increase for me in FL. Not even close to covering 95% of a single family home that isn't a shit hole."
+      },
+      {
+        "id": "ntbg0d0",
+        "score": 10,
+        "body": "BAH rates are based on the average rent/utility costs for the area. Edit: for clarification it is 95% of the average.. Current rules for BAH is to cover 95% rent/utlity costs.\n\nThe BAH Primer explains it all: https://media.defense.gov/2022/Jun/23/2003023204/-1/-1/0/BAH-PRIMER.PDF"
+      }
+    ]
+  },
+  {
+    "subreddit": "MilitaryFinance",
+    "id": "1px330p",
+    "title": "I don't understand how leaving the military is a better choice financially.",
+    "body": "After reading responses from my [post ](https://www.reddit.com/r/MilitaryFinance/comments/1pwp8zq/would_you_make_more_money_in_this_scenario/)from yesterday, it makes no sense to leave the Military in hopes of making more money on the outside. Is this incorrect?\n\nHard to beat out a retirement with free or reduced cost healthcare with a guaranteed pension. ",
+    "flair": "Question",
+    "score": 97,
+    "comment_count": 166,
+    "created_at": "2025-12-27T17:17:44+00:00",
+    "top_comments": [
+      {
+        "id": "nw81bg1",
+        "score": 179,
+        "body": "[deleted]"
+      },
+      {
+        "id": "nw7xot9",
+        "score": 126,
+        "body": "Most people with a useful degree/trade can make more money on the outside than in the military.\n\nNote I said *most* and *can*. Doesn't mean all and will.\n\nIf you fall into that bucket, then it absolutely makes sense."
+      },
+      {
+        "id": "nw7yt7r",
+        "score": 66,
+        "body": "Can, doesn't mean will. Both of your posts seem to be talking in absolutes. There is no such thing when it comes to jobs and finances."
+      },
+      {
+        "id": "nw84d79",
+        "score": 45,
+        "body": "Very well said. For reference I\u2019m still in the military but I absolutely agree with you. I think looking at this situation just purely financial for the majority of military jobs it\u2019s harder to find a civilian equivalent that might pay as much. But that\u2019s also discounting things you stated. No duty, no deployment, not having to shave, not having to worry about your fellow soldier getting a dui or being in debt.\n\nCivilian life is a lot less stressful that I would gladly take a small pay cut to have a higher quality of life at home"
+      },
+      {
+        "id": "nw82h4q",
+        "score": 41,
+        "body": "I think when you look at it in a vacuum military sounds like the no brainer. Then when you have a military job that\u2019s all but guaranteeing two deployments in 3 years, sleeping on the ship every 4 days, multiple underways, and getting a phone call in the middle of the night cause your sailor got a DUI that\u2019s somehow your fault you start to see the other side.\n\nI will gladly take a pay cut to never sleep on a ship again, never deploy to the Middle East for 10 months, and spend time with my family. Also with my career field I can easily make more than what the military gives me. I\u2019m still happily doing 20 but not a second more"
+      },
+      {
+        "id": "nw7yt5u",
+        "score": 33,
+        "body": "Because your post generally assumed a static salary for the civ side and we didn't have a location to go off of which heavily influences bah rates.\n\nA Civ after being in for 6 years would also get reduced healthcare from tricare select. \n\nLastly, 20 years is a long time and people can get injured to just straight up be unfit to serve and get separated early and there goes your 20 yr retirement. It's pretty hard to make it to 20."
+      },
+      {
+        "id": "nw83k02",
+        "score": 30,
+        "body": "17% of enlisted make it to retirement and the system needs it to be that low. It\u2019s one thing I don\u2019t like about these \u201cjust stay for 20\u201d posts. Shit is complicated."
+      },
+      {
+        "id": "nw93gyi",
+        "score": 24,
+        "body": "I think the next 5 years are really going to separate the \"it's a job\" folks from the \"it's a lifestyle\" folks.\n\n  \nChina can declare war tomorrow and legally kill me. That's not a job. We can declare war on Iran tomorrow and I could be told to pack my shit and go. That's not a job. If I leave the country and stop going to work, I get my name on a website and go to prison if anybody ever finds me. That's not a job. I get paid to do what I do, which is cool, but a job wouldn't move me and my family every 3 years to different parts of the world without giving me any choice in the matter. I can quit a job, but I can't quit this until my time is up."
+      },
+      {
+        "id": "nw80wn5",
+        "score": 22,
+        "body": "While I generally agree with this, a big part is getting started on the civilian career earlier. If you *start* at $120k, that 10 year head start or whatever can have a huge impact on your total civilian earning potential. The military has a ticking clock, everyone runs out of time."
+      },
+      {
+        "id": "nw7xie1",
+        "score": 21,
+        "body": "Just depends on how good of a plan you have/how marketable you are for high paying, in demand fields\n\nThere are far too many individual variables at play to be able to accurately say \u201cstaying in the military is always better than getting out.\u201d Everyone\u2019s situation is gonna be different."
+      }
+    ]
+  },
+  {
+    "subreddit": "MilitaryFinance",
+    "id": "1n533qc",
+    "title": "Anyone in over 10 years and decided to leave? (Legacy Hi-3 retirement plan)",
+    "body": "I\u2019ve (O-4) been in for 13 years and just hit a plateau; I know hitting the 20-year mark will give me a nice cushion but the work/community politics has taken its toll. ",
+    "flair": "Question",
+    "score": 98,
+    "comment_count": 115,
+    "created_at": "2025-08-31T19:05:44+00:00",
+    "top_comments": [
+      {
+        "id": "nbpvc3v",
+        "score": 128,
+        "body": "I\u2019m in the exact same position (O4, 12.5 years).\n\nI\u2019ve done the math hundreds of times. It does not make any sense to leave at this point. \n\nNPV of the pension is 2.25M at O-5/20 years (2.5 discount rate). Run the numbers to see how much you would need to save to make up for that. (I would not walk for anything less than 275k, which I would not be competitive for on civilian side).\n\nUNK if O5 is in your cards (KD complete), OERs, etc.\n\nBut, I get it, if you are miserable, 7 years is a long time.\n\nPersonally, I let off the gas from going 90% all the time to 50% all the time. Worked wonders for me and the family. \n\nPrioritize and drop non essentials, say no to anything you can that isn\u2019t readiness focused."
+      },
+      {
+        "id": "nbpoaec",
+        "score": 69,
+        "body": "[When my fellow officer talks about not enjoying their job...](https://quaggapedia.afrikaburn.com/images/4/46/First-time-james-franco-hanging-meme.jpg)"
+      },
+      {
+        "id": "nbpttig",
+        "score": 53,
+        "body": "I did. Realized I messed up while working on terminal leave. Joined the Air Guard and stumbled into an AGR position eventually. Retired and very glad I did. Healthcare and a pension are so freeing. My advice is to stay in and retire asap. Set up your next career."
+      },
+      {
+        "id": "nbqn7zb",
+        "score": 42,
+        "body": "Just also need to consider the opportunity cost of staying in. A lot of career doors start to close the older you get. Its an unfortunate truth.\n\n\nId also say 2.5% is too low of a discount rate, but a perpetual annuity of $84k/year discounted at 4% is worth about $2.1 million, so same ballpark.\u00a0"
+      },
+      {
+        "id": "nbpu9cg",
+        "score": 34,
+        "body": "Stay in.  I should have and regretted it now."
+      },
+      {
+        "id": "nbpuime",
+        "score": 32,
+        "body": "I left as an O4 at 11 years and jumped to the guard. I enjoyed my active duty time, but I had nothing left i was looking forward to or wanted to do. Joined the guard and now I\u2019m in law school\n\nIt has honestly been amazing and I haven\u2019t looked back\n\nHere\u2019s a financial look at getting out I used\n\nhttps://youtu.be/7ffC33h0364"
+      },
+      {
+        "id": "nbpn538",
+        "score": 31,
+        "body": "Maybe go reserves? Look at the military comp calculator. Also, what about just switching units? Iron major is tough for sure."
+      },
+      {
+        "id": "nbq057c",
+        "score": 31,
+        "body": "I\u2019ve never met anyone who regretted staying in but have definitely met a lot of people who regretted getting out. \n\nIs there a different path that you can take? Like in my designator the goal is to make O-5 and take command of a ship. But you can just choose to not do that and stay a O-4 and do some random staff job. But way less stress and less sea time."
+      },
+      {
+        "id": "nbq26ht",
+        "score": 27,
+        "body": "I know its harder as an officer to do this than enlisted but let up on the gas. Get creative with how you do that. Don't let your people or the mission down obviously but take that leave, make that medical appt you put off earlier in your career, say \"no\" to a stupid volunteer event. 7 years may feel like a long time but if you get to 18, you're seeing the light at the end of the tunnel with skillbridge, terminal leave, VA medical appts, etc."
+      },
+      {
+        "id": "nbq4awo",
+        "score": 24,
+        "body": "Job is too easy and pay is way better than if I went civilian as a nurse. However, I understand the politics and work life balance may different between positions.\n\nAt 13 years in as an O-4, you\u2019re too close to 20 to walk away. The lifetime pension + Tricare for your family is worth millions, and O-5 is very realistic. Civilian politics exist too, but only the military gives you guaranteed income for life\u2014gut it out and cash in brother - try to coast along and step off the gas , leave the politics to the younger guys IMO"
+      }
+    ]
+  },
+  {
+    "subreddit": "MilitaryFinance",
+    "id": "1jo1igl",
+    "title": "Start Here: Military Money 101, Prime Directive, Flow Chart, Updates Monthly",
+    "body": "Welcome to the getting started thread for military money. This will cover 90% of what you need to know to be successful with your military paycheck and build wealth in the military.\n\nSome of the most frequent questions in on this subreddit goes:\n\n* **\"I have $X, what should I do with it?\"**\u00a0or\n* **\"How should I handle my debt/finances/money?\"**\n\nMilitary Personal Finance and Investing Flow Chart: [https://imgur.com/a/akrEcUS](https://imgur.com/a/akrEcUS)\n\nhttps://preview.redd.it/8lb1mvuuymge1.png?width=960&format=png&auto=webp&s=3e601c59fea9d34ea938ce5c033dd68ad41f222c\n\n# Step 1: Budget and reduce expenses, set realistic goals\n\nFundamental to a sound financial footing is knowing where your money is going. Budgeting helps you see your sources of income less your expenses. You should minimize your required expenses to the extent practical. Housing costs, utilities, and basic sustenance are harder to eliminate than entertainment, eating out, or clothing expenses.\n\nThere are many great apps available to discover what you're spending money on and where there are opportunities to save money. Monarch Money, YNAB, Copilot Money, EveryDollar are just a few of the apps available.\n\nOnce your budget is figured out, you need to figure out what your goals are. Financial independence? Retire early? Military retirement? Buy a house? Save for a car?\n\nSetting SMART goals - Specific, Measurable, Achievable, Relevant, and Timely goals can mean the difference between financial success and failure. For example, you might want to finish your first enlistment with a $100,000 net worth or achieve early retirement after 20 years of service. These are SMART goals.\n\n# Step 2: Build an emergency fund\n\nAn emergency fund should be a relatively liquid sum of money that you don't touch unless something unexpected comes up. Unexpected travel, essential appliance replacement, and cars breaking down are all real world examples of emergency funds in action.\n\nIf you need to draw from your emergency fund at any time, your first priority as soon as you get back on your feet should be to replenish it. Treat your emergency fund right and it will return the favor.\n\nStart with a $1,000 emergency fund. Eventually build it up to 3-6 months of expenses or a few of months of expenses plus\n\n**How should I size my emergency fund?**\n\nFor most people, 3 to 6 months of expenses is good. Or maybe you want to cover a few months of expenses, plus a roundtrip airfare for you and your family to go back to your home stateside.\n\n**What if I have credit card debt?**\n\nCredit cards generally have very high interest rates (typically 15-25% APR) and that is a pretty big deal. If this applies to you, you should prioritize paying down the debt first.\n\nA smaller emergency fund of $1,000 (or 1 month of expenses) is temporarily acceptable while paying off credit card debt or other debts with interest rates above 10%.\n\n**What kind of account should I hold my emergency fund in?**\n\nA checking account, savings account, or a high yield savings account (HYSA). Something FDIC insured and accessed in a few days.\n\n# Step 3: 5% Into the Thrift Savings Plan\n\nThe Thrift Savings Plan (TSP) is the military and government's version of a 401(k) retirement savings plan. All servicemembers enlisting since 2018 are covered by the Blended Retirement System (BRS). The BRS has 3 primary components to help servicemembers save for retirement:\n\n1. 5% matching contribution to the TSP\n2. Continuation pay bonus between the 8th and 12th year of service (depends on branch)\n3. Military pension. A 2% mutliplier is used for each year of service. So if you retire after 20 years of active duty service, you'll earn an inflation adjusted, lifetime pension of 40% of your base pay. (20 years \\* 2 = 40%)\n\nAfter 60 days of service, the Department of Defense (DOD) will automatically contribute 1% of your base pay to the Traditional TSP.\n\nStarting in the 25th month of service, your contributions are matched, up to 5%. So if you contribute 5%, the DOD will contribute 5%. This is a risk free, 100% return on your contributed funds.\n\nThe default investment for anyone in the BRS is a Lifecycle fund with their birth year + 65. For example, if you were born in 2005, you'll be placed in the Lifecycle 2070 Fund.\n\nThe Lifecycle Funds are a mix of the 5 TSP Funds, designed by professional fund managers.\n\nThe 5 TSP Funds are:\n\n* C Fund - Tracks S&P 500, made up of the 500 largest companies in America. You can use the ETF SPY or VOO to track it.\n* S Fund - Tracks Dow Completion index, basically all the mid- and small- capitalization companies in America outside of the S&P500. ETF equivalent VXF.\n* I Fund - International stocks. MSCI ACWI IMI ex USA ex China ex Hong Kong Index. 5,500 companies in this index. representing 90% of the investable world market cap outside the US. Similar to ETF VXUS but without Chinese or Hong Kong stocks.\n* F Fund - Fixed income. Corporate bonds. Use ETF AGG to see performance.\n* G Fund - Lowest risk, lowest long term return fund. The G Fund invests in a special\u00a0non-marketable\u00a0treasury security issued specifically for the\u00a0TSP\u00a0by the U.S. government. This fund is the only one in the\u00a0TSP\u00a0that guarantees the return of the investor\u2019s principal. No comparable ETF.\n\n# Step 4: Pay down high interest debts\n\nOnce you're taking advantage of the 5% BRS TSP match, you should use your extra money to pay down your high interest debt (e.g., debts much over 4% interest rate).\n\nIn all cases, you should make the minimum payments on all of your debts before paying down specific debts more quickly.\n\nThere are two main methods of paying down debt:\n\n* With the\u00a0**avalanche**\u00a0method, debts are paid down in order of interest rate, starting with the debt that carries the highest interest rate. This is the financially optimal method of paying down debt, and you will pay less money overall compared to the snowball method.\n* With the\u00a0**snowball**\u00a0method, popularized by Dave Ramsey, debts are paid down in order of balance size, starting with the smallest. Paying off small debts first may give you a psychological boost and improve one's cash flow situation, as paid off debts free up minimum payments. The downside is that larger loans (that may be at higher interest rates) are left untouched for longer, costing more in the long run.\n\nAs an example, Debtor Dan has the following situation:\n\n* Loan A: $1,100 with a minimum payment of $100/month, 5% interest\n* Loan B: $3,300 with a minimum payment of $300/month, 10% interest\n* Sudden windfall: $2,000\n\nDan needs to first pay $100 + $300 = $400 to make the minimum payments on loans A and B so the payments are recorded as \"on time.\" The extra $1,600 can either go towards Loan A (smallest balance, snowball method), eliminating it with $600 left to go towards Loan B, or Loan B entirely (highest interest rate, avalanche method).\n\nWhat's the best method?\u00a0\u00a0tends to favor the avalanche method, but do not underestimate the psychological side of debt payments. If you think that the psychological boost from paying off a smaller debt sooner will help you stay the course, do it! You can always switch things up later. The important thing is to start paying your debts as soon as you can, and to keep paying them until they're gone. You can use\u00a0[unbury.me](http://unbury.me/)\u00a0to help you get an idea of how long each method will take, and how much interest you'll be paying overall.\n\n**Should I be in a hurry to pay off lower interest loans? What rate is \"low\" enough to where I should just pay the minimum?**\n\nDepending on your attitude towards debt, you may want to stop paying more than the minimum payment on loans with low interest rates once you have paid all other loans above that threshold. A common argument is that the long-term return from investments in the stock market will likely exceed the interest rate from a low-interest loan. While this has been true in the past, keep in mind that paying down a loan is a guaranteed return at the loan's interest rate. Stock performance is anything but guaranteed. The rough consensus is that loans above 4% interest should be paid off early in the debt reduction phase, while anything under that can be stretched out.\n\n# Step 5: Max out Retirement Accounts - Roth IRA and Roth TSP\n\nThe next step is to contribute to a Roth IRA for the current tax year. You can also contribute for the previous tax year if it's between January 1st and April 15th. See\u00a0[the IRA wiki](http://www.reddit.com/r/personalfinance/wiki/iras)\u00a0for more information on IRAs.\n\nRoth IRA and Roth TSP contribution limits are different and do not cross over. You can contribute the maximum out your Roth IRA and your Roth TSP. Matching contributions do not count against your personal TSP contribution limit.\n\n* [Roth and Traditional IRA limits on IRS.gov](https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-ira-contribution-limits)\n* [Roth and Traditional TSP limits on TSP.gov](https://www.tsp.gov/making-contributions/contribution-limits/)\n\nThe most often recommended places to open a Roth IRA are at Vanguard, Fidelity, or Schwab. Most banks offer substandard Roth IRA products and you should not open Roth IRA accounts there.\n\n**Should I do Roth or Traditional?**\n\nRead\u00a0[Roth or Traditional](https://www.reddit.com/r/personalfinance/wiki/rothortraditional).\n\nFor most servicemembers (O-3 and below), **you'll be better off contributing to the Roth IRA**, since military pay is so low taxed. Much of our military pay is untaxable allowances, such as Basic Allowance for Housing (BAH), Overseas Housing Allowance (OHA), and Basic Allowance for Sustenance (BAS).\n\n**Why contribute to an IRA if I have the TSP?**\n\nRoth IRA's have access to low cost investments similar to what you'll find in the TSP. However, you can always withdraw Roth IRA\u00a0*contributions*\u00a0at any time, tax and penalty free.\n\nAfter you've fully funded your Roth IRA, you can look at maxing out your Roth TSP.\n\nBefore saving for other goals, you should save at least 15% and up to 20% of your gross income for retirement. If you are\u00a0[behind on retirement savings](https://www.fidelity.com/viewpoints/retirement/how-much-money-do-i-need-to-retire), you should try to save more than 15% if you can. If you can't save 15%, start with 10% or any other amount until you are able to save more.\n\n**Where should I open my Roth IRA?**\n\nVanguard, Fidelity, or Schwab. Read up about the Bogleheads 3 Fund Portfolio before selecting an investment option.\n\n# Step 6: Save for other goals\n\nMilitary servicemembers and spouses covered by TriCare are\u00a0**not**\u00a0eligible for Health Savings Accounts (HSA0.\n\n* If you wish to save for college for your kids, yourself, or other relatives, consider a\u00a0[529 fund in your state](http://www.clark.com/clarks-529-plan-guide).\n* Save for more immediate goals. Common examples include saving for down payments for homes, saving for vehicles, paying down low interest loans ahead of schedule, and vacation funds.\n* Save more so you can potentially retire early (also see \"advanced methods\", below), only using taxable accounts after maxing out tax-advantaged options.\n* Make an impact through giving. One of the rewards of practicing a sound financial lifestyle is that giving becomes easier. If you're on top of your health care costs, future education costs, and you've made it to this step, you can help\u00a0[make a difference for others by giving](https://www.reddit.com/r/personalfinance/wiki/charity). If you can't afford to make monetary donations, there are other ways to give.\n* Maybe you're interested in financial independence or retiring early, also known as FIRE? There are many resources out there on military financial independence and early retirement.\n\nThe time frame for these goals will dictate what kind of account you save in. For short-term goals (under 3-5 years), you'll want to use an FDIC-insured savings account, CDs, or I Bonds. If your time horizon is longer or you can afford to adjust your plans, you might consider something riskier like a balanced index fund or a three-fund portfolio (both are a mix of stocks and bonds). The best savings or investment vehicle will vary depending on time frame and risk tolerance.\n\nKeep in mind that (especially for a young person) the more time your money has to grow, the more powerful the effects of compounding will be on your savings. If the goal is early retirement (even before the age of 59\u00bd), you should definitely maximize the use of any available tax-advantaged accounts (IRA, 401(k) plans, HSA accounts, etc.) before using a taxable account because there are\u00a0[ways to get money out of tax-advantaged accounts before 59\u00bd without penalty](https://www.reddit.com/r/personalfinance/comments/434ey1/psa_retirement_funds_are_not_locked_up_until_age/).\n\nIf you are using a taxable account for any goal, you'll want to have a decent grasp on\u00a0[asset allocation in multiple accounts](http://www.bogleheads.org/wiki/Asset_allocation_in_multiple_accounts)\u00a0and\u00a0[tax-efficient fund placement](http://www.bogleheads.org/wiki/Principles_of_tax-efficient_fund_placement).\n\n# Military State Taxes\n\nYour\u00a0**home of record**\u00a0is the place you enlisted or commissioned from. This cannot be changed unless there was an error.\n\n**State of legal residence**\u00a0is the state that you claim as your residence. If you only have military income, you will pay state income tax only to this state.\n\nYou can establish residency several ways:\n\n* Registering to vote in that state\n* Obtaining a driver\u2019s license in that state\n* Titling and registering your vehicle in that state\n* Drafting a Last Will and Testament naming that state as your domicile\n* Purchasing residential property in that state\n* Changing your military and finance records to reflect residency in that state.\n\nThe simplest way to establish residency is to PCS to that state and establish residency while you are a resident.\n\nState with no income tax include: Alaska, Florida, Nevada, South Dakota, Tennessee, Texas, Washington, and Wyoming. Many other states have no tax for military servicemembers stationed outside the state.\n\nSimply engaging in one of the above acts alone will not likely render you taxable by a state; however, the more points of contact you make with a state increases your chances of becoming a taxpayer to that state. It is important to concentrate the majority of your points of contact in the one state where you intend to pay state taxes; otherwise, you may find yourself owing taxes to more than one state as a part-year resident.\n\nSource:\u00a0[Fort Knox Legal Assistance Office](https://home.army.mil/knox/application/files/5915/6623/5548/Legal_Residency.pdf)\n\n# Military Spouse Residency Relief Act\n\nThanks to the Military Spouse Residency Relief Act, Veterans Auto and Education Improvement Act of 2022, and Servicemembers Civil Relief Act:\n\n>\n\n**Military spouses can pick 1 of 3 options for their state of legal residence:**\n\n>\n\nSo either match the servicemember, keep your old state, or change to the current state you're in.\n\n# Military Bonuses\n\nMilitary bonuses have federal income taxes withheld automatically at 22%. You may have state taxes withheld as well. Because your marginal tax rate is often much lower than this, you will receive a large portion of that withheld tax back when you file your tax return the following year.\n\nIf you don't know what to do with a military bonus, directing some of it to your Roth TSP is a great place to park it.\n\nAfter reading all that, go ahead with any other questions you have about getting started with your military money.",
+    "flair": null,
+    "score": 97,
+    "comment_count": 14,
+    "created_at": "2025-03-31T12:02:15+00:00",
+    "top_comments": [
+      {
+        "id": "mkp4a5n",
+        "score": 10,
+        "body": "I thought the savings deposit program was something else. Can you really just use it as a guaranteed 10% emergency fund location and withdraw the money ar any time?\n\nEdit: I see now that you have to be deployed to a combat zone to use it, that's why it's not the standard emergency fund location for most military."
+      },
+      {
+        "id": "mkq98bi",
+        "score": 8,
+        "body": "With our healthcare included it\u2019s such a waste imo. That money could be put towards normal or Roth tsp where more growth could happen."
+      },
+      {
+        "id": "mkqf8hq",
+        "score": 5,
+        "body": "This is a Flexible Spending Account, not a Health Savings Account.\n\n\nThis is not a good deal for military servicemembers. The maximum tax savings is very minimal due to low military tax rates."
+      },
+      {
+        "id": "mkq8x7i",
+        "score": 4,
+        "body": "There's been an update to HSA; military are now able to enroll in an Health Care FSA. https://www.fsafeds.gov/explore/hcfsa\n\nCan contribute up to $3,300/year, $660 can roll over. Special enrollment period (since this is new) for AD ends 3/31. I just enrolled last week with $1,000 to give it a test run, there's a lot of things covered but you have to do a whole receipt submission process. The money is split between your pay checks but the full amount is available once you enroll.\n\nhttps://www.fsafeds.gov/explore/hcfsa\n\nhttps://www.fsafeds.gov/explore/hcfsa/expenses"
+      },
+      {
+        "id": "mkqa3xi",
+        "score": 3,
+        "body": "It's another option and will depend on individual situations. For example, orthodontics were not covered when we took our oldest in last time. There's a chance they will have to do more work on her teeth so if anything this reduces our tax burden a little bit as well as the initial sticker shock when that bill comes through.\n\nAnd if not, there's plenty of stuff we can buy OTC with $340 to get under the $660 and use that until it runs out."
+      },
+      {
+        "id": "mkrs4r4",
+        "score": 2,
+        "body": "They changed it so you have to wait for it to clear. After the ATM scam they made it weeks to wait for it to deposit. It is annoying."
+      },
+      {
+        "id": "mmc33a6",
+        "score": 2,
+        "body": "Holy shit you weren't kidding,  it settled within 2 business days this time"
+      },
+      {
+        "id": "mko7097",
+        "score": 1,
+        "body": "Welcome to r/MilitaryFinance! \n\nPlease check out our [\"Start Here: Military Money 101 & Prime Directive\"](https://www.reddit.com/r/MilitaryFinance/comments/1hqdbse/start_here_military_money_101_prime_directive/) thread for essential information and resources.\n\n\n*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/MilitaryFinance) if you have any questions or concerns.*"
+      },
+      {
+        "id": "mkstlf6",
+        "score": 1,
+        "body": "To add, today was the last day of the special enrollment period for the HCFSA. You'll need a qualifying life event (birth or a child, change in status, etc.) to sign up between now and the beginning of 2026 \"open season\" in November."
+      },
+      {
+        "id": "mntquoc",
+        "score": 1,
+        "body": "Can this go towards plastic surgery"
+      }
+    ]
+  },
+  {
+    "subreddit": "MilitaryFinance",
+    "id": "1n188ki",
+    "title": "TSP news",
+    "body": "This is big news. Regardless of your politics, I think everyone here can see why this is a potential win for our community. The TSP is very low cost and has helped people build a lot of wealth. I ask everyone to write their congress person in support of this.\n\n\nhttps://kiggans.house.gov/posts/reps-kiggans-bell-introduce-bipartisan-bill-to-help-veterans-save-for-retirement",
+    "flair": "PSA",
+    "score": 93,
+    "comment_count": 87,
+    "created_at": "2025-08-27T05:05:19+00:00",
+    "top_comments": [
+      {
+        "id": "nawe4dk",
+        "score": 78,
+        "body": "While having the option to keep your money in the TSP could be helpful to some, I look forward to the day I retire and can transfer it to my IRA that has waaaay more flexibility of funds.\n\nThe only real potential benefit I see is if they are able to code pension income as earned income, so I can continue to contribute with it.  Though since cash is fungible, I could just contribute more from a post mil retirement job."
+      },
+      {
+        "id": "nawgobr",
+        "score": 30,
+        "body": "It's only for 20 year retirees and 100% disabled. Which is cool but what about everyone else who served honorably but didn't do 20? They would still need to start over. Still a step in the right direction at least."
+      },
+      {
+        "id": "nawgp58",
+        "score": 19,
+        "body": "Concur. After retirement from AD, rolled my Roth TSP balance to my civilian Roth IRA. I'd have rolled my traditional TSP balance out, too, had I not gotten a GS job. Figured I'd leave it there and avoid the tax hit since I'd be getting TSP match in the new job."
+      },
+      {
+        "id": "naxgi2f",
+        "score": 19,
+        "body": "Well those people still get VA home, VA small business, education, and whatever else. Why does everyone want the perks (or potential) of 20 without doing the 20"
+      },
+      {
+        "id": "nax41yz",
+        "score": 16,
+        "body": "The C and the S funds of other brokerages are pretty much identical to the TSP. There\u2019s no special sauce with the TSP other than lower fees compared to other 401k plans. But for IRA\u2019s there\u2019s plenty of free options out there.\n\nWhile this bill adds additional flexibility and lets less financially savvy people to just continue investing in the system they are comfortable with it\u2019s not a game changer."
+      },
+      {
+        "id": "nawbbf6",
+        "score": 15,
+        "body": "Feel like it should be for those who didn't retire and don't have 100% disability. Those guys already have money coming in."
+      },
+      {
+        "id": "naxrtrx",
+        "score": 13,
+        "body": "I'm really interested in *how* this would be implemented. TSP is, for all meaningful purposes, a 401k. If you're not employed by the government, how exactly do you make payroll contributions to TSP?  \n\nI'd guess the answer is \"you don't, you have to make manual contributions and might have to wait until tax time to get over-withheld taxes back\". I can see why the government might want to do this....many people will contribute and give them a tax-free loan that those people don't get back till tax season."
+      },
+      {
+        "id": "nawjl8a",
+        "score": 7,
+        "body": "Also, you can write your congressman and ask to add this to the bill"
+      },
+      {
+        "id": "nawaxw0",
+        "score": 6,
+        "body": "This would be huge."
+      },
+      {
+        "id": "naxfics",
+        "score": 6,
+        "body": "Not sure I get it. If you\u2019re retired won\u2019t you just be contributing to an IRA and post-military employer retirement accounts? What is special about continuing to invest in the TSP, specifically?\u00a0"
+      }
+    ]
+  },
+  {
+    "subreddit": "MilitaryFinance",
+    "id": "1pagnft",
+    "title": "Start Here: Military Money 101, Prime Directive, Flow Chart, Updates Monthly",
+    "body": "Welcome to the getting started thread for military money. This will cover 90% of what you need to know to be successful with your military paycheck and build wealth in the military.\n\nSome of the most frequent questions in on this subreddit goes:\n\n* **\"I have $X, what should I do with it?\"**\u00a0or\n* **\"How should I handle my debt/finances/money?\"**\n\nMilitary Personal Finance and Investing Flow Chart: [https://imgur.com/a/akrEcUS](https://imgur.com/a/akrEcUS)\n\n# Step 1: Budget and reduce expenses, set realistic goals\n\nFundamental to a sound financial footing is knowing where your money is going. Budgeting helps you see your sources of income less your expenses. You should minimize your required expenses to the extent practical. Housing costs, utilities, and basic sustenance are harder to eliminate than entertainment, eating out, or clothing expenses.\n\nThere are many great apps available to discover what you're spending money on and where there are opportunities to save money. Monarch Money, YNAB, Copilot Money, EveryDollar are just a few of the apps available.\n\nOnce your budget is figured out, you need to figure out what your goals are. Financial independence? Retire early? Military retirement? Buy a house? Save for a car?\n\nSetting SMART goals - Specific, Measurable, Achievable, Relevant, and Timely goals can mean the difference between financial success and failure. For example, you might want to finish your first enlistment with a $100,000 net worth or achieve early retirement after 20 years of service. These are SMART goals.\n\n# Step 2: Build an emergency fund\n\nAn emergency fund should be a relatively liquid sum of money that you don't touch unless something unexpected comes up. Unexpected travel, essential appliance replacement, and cars breaking down are all real world examples of emergency funds in action.\n\nIf you need to draw from your emergency fund at any time, your first priority as soon as you get back on your feet should be to replenish it. Treat your emergency fund right and it will return the favor.\n\nStart with a $1,000 emergency fund. Eventually build it up to 3-6 months of expenses or a few of months of expenses plus\n\n**How should I size my emergency fund?**\n\nFor most people, 3 to 6 months of expenses is good. Or maybe you want to cover a few months of expenses, plus a roundtrip airfare for you and your family to go back to your home stateside.\n\n**What if I have credit card debt?**\n\nCredit cards generally have very high interest rates (typically 15-25% APR) and that is a pretty big deal. If this applies to you, you should prioritize paying down the debt first.\n\nA smaller emergency fund of $1,000 (or 1 month of expenses) is temporarily acceptable while paying off credit card debt or other debts with interest rates above 10%.\n\n**What kind of account should I hold my emergency fund in?**\n\nA checking account, savings account, or a high yield savings account (HYSA). Something FDIC insured and accessed in a few days.\n\n# Step 3: 5% Into the Thrift Savings Plan\n\nThe Thrift Savings Plan (TSP) is the military and government's version of a 401(k) retirement savings plan. All servicemembers enlisting since 2018 are covered by the Blended Retirement System (BRS). The BRS has 3 primary components to help servicemembers save for retirement:\n\n1. 5% matching contribution to the TSP\n2. Continuation pay bonus between the 8th and 12th year of service (depends on branch)\n3. Military pension. A 2% mutliplier is used for each year of service. So if you retire after 20 years of active duty service, you'll earn an inflation adjusted, lifetime pension of 40% of your base pay. (20 years \\* 2 = 40%)\n\nAfter 60 days of service, the Department of Defense (DOD) will automatically contribute 1% of your base pay to the Traditional TSP.\n\nStarting in the 25th month of service, your contributions are matched, up to 5%. So if you contribute 5%, the DOD will contribute 5%. This is a risk free, 100% return on your contributed funds.\n\nThe default investment for anyone in the BRS is a Lifecycle fund with their birth year + 65. For example, if you were born in 2005, you'll be placed in the Lifecycle 2070 Fund.\n\nThe Lifecycle Funds are a mix of the 5 TSP Funds, designed by professional fund managers.\n\nThe 5 TSP Funds are:\n\n* C Fund - Tracks S&P 500, made up of the 500 largest companies in America. You can use the ETF SPY or VOO to track it.\n* S Fund - Tracks Dow Completion index, basically all the mid- and small- capitalization companies in America outside of the S&P500. ETF equivalent VXF.\n* I Fund - International stocks. MSCI ACWI IMI ex USA ex China ex Hong Kong Index. 5,500 companies in this index. representing 90% of the investable world market cap outside the US. Similar to ETF VXUS but without Chinese or Hong Kong stocks.\n* F Fund - Fixed income. Corporate bonds. Use ETF AGG to see performance.\n* G Fund - Lowest risk, lowest long term return fund. The G Fund invests in a special\u00a0non-marketable\u00a0treasury security issued specifically for the\u00a0TSP\u00a0by the U.S. government. This fund is the only one in the\u00a0TSP\u00a0that guarantees the return of the investor\u2019s principal. No comparable ETF.\n\n# Step 4: Pay down high interest debts\n\nOnce you're taking advantage of the 5% BRS TSP match, you should use your extra money to pay down your high interest debt (e.g., debts much over 4% interest rate).\n\nIn all cases, you should make the minimum payments on all of your debts before paying down specific debts more quickly.\n\nThere are two main methods of paying down debt:\n\n* With the\u00a0**avalanche**\u00a0method, debts are paid down in order of interest rate, starting with the debt that carries the highest interest rate. This is the financially optimal method of paying down debt, and you will pay less money overall compared to the snowball method.\n* With the\u00a0**snowball**\u00a0method, popularized by Dave Ramsey, debts are paid down in order of balance size, starting with the smallest. Paying off small debts first may give you a psychological boost and improve one's cash flow situation, as paid off debts free up minimum payments. The downside is that larger loans (that may be at higher interest rates) are left untouched for longer, costing more in the long run.\n\nAs an example, Debtor Dan has the following situation:\n\n* Loan A: $1,100 with a minimum payment of $100/month, 5% interest\n* Loan B: $3,300 with a minimum payment of $300/month, 10% interest\n* Sudden windfall: $2,000\n\nDan needs to first pay $100 + $300 = $400 to make the minimum payments on loans A and B so the payments are recorded as \"on time.\" The extra $1,600 can either go towards Loan A (smallest balance, snowball method), eliminating it with $600 left to go towards Loan B, or Loan B entirely (highest interest rate, avalanche method).\n\nWhat's the best method?\u00a0\u00a0tends to favor the avalanche method, but do not underestimate the psychological side of debt payments. If you think that the psychological boost from paying off a smaller debt sooner will help you stay the course, do it! You can always switch things up later. The important thing is to start paying your debts as soon as you can, and to keep paying them until they're gone. You can use\u00a0[unbury.me](http://unbury.me/)\u00a0to help you get an idea of how long each method will take, and how much interest you'll be paying overall.\n\n**Should I be in a hurry to pay off lower interest loans? What rate is \"low\" enough to where I should just pay the minimum?**\n\nDepending on your attitude towards debt, you may want to stop paying more than the minimum payment on loans with low interest rates once you have paid all other loans above that threshold. A common argument is that the long-term return from investments in the stock market will likely exceed the interest rate from a low-interest loan. While this has been true in the past, keep in mind that paying down a loan is a guaranteed return at the loan's interest rate. Stock performance is anything but guaranteed. The rough consensus is that loans above 4% interest should be paid off early in the debt reduction phase, while anything under that can be stretched out.\n\n# Step 5: Max out Retirement Accounts - Roth IRA and Roth TSP\n\nThe next step is to contribute to a Roth IRA for the current tax year. You can also contribute for the previous tax year if it's between January 1st and April 15th. See\u00a0[the IRA wiki](http://www.reddit.com/r/personalfinance/wiki/iras)\u00a0for more information on IRAs.\n\nRoth IRA and Roth TSP contribution limits are different and do not cross over. You can contribute the maximum out your Roth IRA and your Roth TSP. Matching contributions do not count against your personal TSP contribution limit.\n\n* [Roth and Traditional IRA limits on IRS.gov](https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-ira-contribution-limits)\n* [Roth and Traditional TSP limits on TSP.gov](https://www.tsp.gov/making-contributions/contribution-limits/)\n\nThe most often recommended places to open a Roth IRA are at Vanguard, Fidelity, or Schwab. Most banks offer substandard Roth IRA products and you should not open Roth IRA accounts there.\n\n**Should I do Roth or Traditional?**\n\nRead\u00a0[Roth or Traditional](https://www.reddit.com/r/personalfinance/wiki/rothortraditional).\n\nFor most servicemembers (O-3 and below), **you'll be better off contributing to the Roth IRA**, since military pay is so low taxed. Much of our military pay is untaxable allowances, such as Basic Allowance for Housing (BAH), Overseas Housing Allowance (OHA), and Basic Allowance for Sustenance (BAS).\n\n**Why contribute to an IRA if I have the TSP?**\n\nRoth IRA's have access to low cost investments similar to what you'll find in the TSP. However, you can always withdraw Roth IRA\u00a0*contributions*\u00a0at any time, tax and penalty free.\n\nAfter you've fully funded your Roth IRA, you can look at maxing out your Roth TSP.\n\nBefore saving for other goals, you should save at least 15% and up to 20% of your gross income for retirement. If you are\u00a0[behind on retirement savings](https://www.fidelity.com/viewpoints/retirement/how-much-money-do-i-need-to-retire), you should try to save more than 15% if you can. If you can't save 15%, start with 10% or any other amount until you are able to save more.\n\n**Where should I open my Roth IRA?**\n\nVanguard, Fidelity, or Schwab. Read up about the Bogleheads 3 Fund Portfolio before selecting an investment option.\n\n# Step 6: Save for other goals\n\nMilitary servicemembers and spouses covered by TriCare are\u00a0**not**\u00a0eligible for Health Savings Accounts (HSA0.\n\n* If you wish to save for college for your kids, yourself, or other relatives, consider a\u00a0[529 fund in your state](http://www.clark.com/clarks-529-plan-guide).\n* Save for more immediate goals. Common examples include saving for down payments for homes, saving for vehicles, paying down low interest loans ahead of schedule, and vacation funds.\n* Save more so you can potentially retire early (also see \"advanced methods\", below), only using taxable accounts after maxing out tax-advantaged options.\n* Make an impact through giving. One of the rewards of practicing a sound financial lifestyle is that giving becomes easier. If you're on top of your health care costs, future education costs, and you've made it to this step, you can help\u00a0[make a difference for others by giving](https://www.reddit.com/r/personalfinance/wiki/charity). If you can't afford to make monetary donations, there are other ways to give.\n* Maybe you're interested in financial independence or retiring early, also known as FIRE? There are many resources out there on military financial independence and early retirement.\n\nThe time frame for these goals will dictate what kind of account you save in. For short-term goals (under 3-5 years), you'll want to use an FDIC-insured savings account, CDs, or I Bonds. If your time horizon is longer or you can afford to adjust your plans, you might consider something riskier like a balanced index fund or a three-fund portfolio (both are a mix of stocks and bonds). The best savings or investment vehicle will vary depending on time frame and risk tolerance.\n\nKeep in mind that (especially for a young person) the more time your money has to grow, the more powerful the effects of compounding will be on your savings. If the goal is early retirement (even before the age of 59\u00bd), you should definitely maximize the use of any available tax-advantaged accounts (IRA, 401(k) plans, HSA accounts, etc.) before using a taxable account because there are\u00a0[ways to get money out of tax-advantaged accounts before 59\u00bd without penalty](https://www.reddit.com/r/personalfinance/comments/434ey1/psa_retirement_funds_are_not_locked_up_until_age/).\n\nIf you are using a taxable account for any goal, you'll want to have a decent grasp on\u00a0[asset allocation in multiple accounts](http://www.bogleheads.org/wiki/Asset_allocation_in_multiple_accounts)\u00a0and\u00a0[tax-efficient fund placement](http://www.bogleheads.org/wiki/Principles_of_tax-efficient_fund_placement).\n\n# Military State Taxes\n\nYour\u00a0**home of record**\u00a0is the place you enlisted or commissioned from. This cannot be changed unless there was an error.\n\n**State of legal residence**\u00a0is the state that you claim as your residence. If you only have military income, you will pay state income tax only to this state.\n\nYou can establish residency several ways:\n\n* Registering to vote in that state\n* Obtaining a driver\u2019s license in that state\n* Titling and registering your vehicle in that state\n* Drafting a Last Will and Testament naming that state as your domicile\n* Purchasing residential property in that state\n* Changing your military and finance records to reflect residency in that state.\n\nThe simplest way to establish residency is to PCS to that state and establish residency while you are a resident.\n\nState with no income tax include: Alaska, Florida, Nevada, South Dakota, Tennessee, Texas, Washington, and Wyoming. Many other states have no tax for military servicemembers stationed outside the state.\n\nSimply engaging in one of the above acts alone will not likely render you taxable by a state; however, the more points of contact you make with a state increases your chances of becoming a taxpayer to that state. It is important to concentrate the majority of your points of contact in the one state where you intend to pay state taxes; otherwise, you may find yourself owing taxes to more than one state as a part-year resident.\n\nSource:\u00a0[Fort Knox Legal Assistance Office](https://home.army.mil/knox/application/files/5915/6623/5548/Legal_Residency.pdf)\n\n# Military Spouse Residency Relief Act\n\nThanks to the Military Spouse Residency Relief Act, Veterans Auto and Education Improvement Act of 2022, and Servicemembers Civil Relief Act:\n\n(A) The residence or domicile of the servicemember.\u201c\n\n(B) The residence or domicile of the spouse.\n\n\u201c(C) The permanent duty station of the servicemember.\u201d\n\nMilitary spouses and military servicemembers can pick 1 of 3 options for their state of legal residence:\n\n(A) The residence or domicile of the servicemember.\n\n(B) The residence or domicile of the spouse.\n\n(C) The permanent duty station of the servicemember.\n\nSo either match the servicemember, keep your old state, or change to the current state you're in.\n\n# Military Bonuses\n\nMilitary bonuses have federal income taxes withheld automatically at 22%. You may have state taxes withheld as well. Because your marginal tax rate is often much lower than this, you will receive a large portion of that withheld tax back when you file your tax return the following year.\n\nIf you don't know what to do with a military bonus, directing some of it to your Roth TSP is a great place to park it.\n\nAfter reading all that, go ahead with any other questions you have about getting started with your military money.",
+    "flair": null,
+    "score": 86,
+    "comment_count": 11,
+    "created_at": "2025-11-30T12:01:06+00:00",
+    "top_comments": [
+      {
+        "id": "nrm892f",
+        "score": 5,
+        "body": "There's also a traditional to Roth conversion coming soon to the TSP. Probably more for the older community but still, it's exciting stuff."
+      },
+      {
+        "id": "nrm0lmz",
+        "score": 5,
+        "body": "I\u2019m confused by the HSA bit. Isn\u2019t that the new program run by FSAFEDS? We got one this year - AD member and tricare covered spouse."
+      },
+      {
+        "id": "nrmfomg",
+        "score": 5,
+        "body": "Active duty US military has access to a Healthcare Flexible Spending Account (HC FSA) and Dependent Care Flexible Spending Account (DCFSA).\n\n\nThere's no HSA Health Savings Account under Tricare."
+      },
+      {
+        "id": "nrj0998",
+        "score": 1,
+        "body": "Welcome to r/MilitaryFinance! \n\nPlease check out our [\"Start Here: Military Money 101 & Prime Directive\"](https://www.reddit.com/r/MilitaryFinance/comments/1oksn2s/start_here_military_money_101_prime_directive/) thread for essential information and resources.\n\nYou may also find these helpful:\n- [Credit Cards & Military Benefits (SCRA, MLA, Annual Fee Waivers)](https://www.reddit.com/r/MilitaryFinance/comments/1ola48e/credit_cards_military_benefits_scra_mla_annual/)\n- [Tax & State Residency (MSRRA) Questions & Discussion](https://www.reddit.com/r/MilitaryFinance/comments/1oksnru/tax_state_residency_msrra_questions_discussion/)\n\n\n*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/MilitaryFinance) if you have any questions or concerns.*"
+      },
+      {
+        "id": "nrwhphx",
+        "score": 1,
+        "body": "I feel like I know the answer, but I spoke with someone who gave me a conflicting answer. For next year I can contribute $24,500 of my own money to the TSP, then the government can still match on top of that? The $24,500 is not our combined contributions?"
+      },
+      {
+        "id": "nry0nx6",
+        "score": 1,
+        "body": "Can someone explain in simpler terms what\u2019s being said in the \u201cMilitary Spouse Residency Relief Act\u201d\n\nI\u2019m not very financially savvy or military savvy yet as an e1 lol. Thank you"
+      },
+      {
+        "id": "nscqncc",
+        "score": 1,
+        "body": "Correct. $24500 that is made up of your base pay. I made that mistake this year and had to contribute >40% of my base pay in the latter half of the year to make up for it."
+      },
+      {
+        "id": "nwjrya5",
+        "score": 1,
+        "body": "they match 24,500?"
+      },
+      {
+        "id": "nrmioq4",
+        "score": 1,
+        "body": "Ahh, I\u2019m getting my acronyms mixed up. Thank you!"
+      },
+      {
+        "id": "nscqxtp",
+        "score": 1,
+        "body": "Sweet thanks. Next year I\u2019ll actually be maxing out :)"
+      }
+    ]
+  },
+  {
+    "subreddit": "MilitaryFinance",
+    "id": "1qs0kex",
+    "title": "Start Here: Military Money 101, Prime Directive, Flow Chart, Updates Monthly",
+    "body": "Welcome to the getting started thread for military money. This will cover 90% of what you need to know to be successful with your military paycheck and build wealth in the military.\n\nSome of the most frequent questions in on this subreddit goes:\n\n* **\"I have $X, what should I do with it?\"**\u00a0or\n* **\"How should I handle my debt/finances/money?\"**\n\nMilitary Personal Finance and Investing Flow Chart: [https://imgur.com/a/akrEcUS](https://imgur.com/a/akrEcUS)\n\n# Step 1: Budget and reduce expenses, set realistic goals\n\nFundamental to a sound financial footing is knowing where your money is going. Budgeting helps you see your sources of income less your expenses. You should minimize your required expenses to the extent practical. Housing costs, utilities, and basic sustenance are harder to eliminate than entertainment, eating out, or clothing expenses.\n\nThere are many great apps available to discover what you're spending money on and where there are opportunities to save money. Monarch Money, YNAB, Copilot Money, EveryDollar are just a few of the apps available.\n\nOnce your budget is figured out, you need to figure out what your goals are. Financial independence? Retire early? Military retirement? Buy a house? Save for a car?\n\nSetting SMART goals - Specific, Measurable, Achievable, Relevant, and Timely goals can mean the difference between financial success and failure. For example, you might want to finish your first enlistment with a $100,000 net worth or achieve early retirement after 20 years of service. These are SMART goals.\n\n# Step 2: Build an emergency fund\n\nAn emergency fund should be a relatively liquid sum of money that you don't touch unless something unexpected comes up. Unexpected travel, essential appliance replacement, and cars breaking down are all real world examples of emergency funds in action.\n\nIf you need to draw from your emergency fund at any time, your first priority as soon as you get back on your feet should be to replenish it. Treat your emergency fund right and it will return the favor.\n\nStart with a $1,000 emergency fund. Eventually build it up to 3-6 months of expenses or a few of months of expenses plus\n\n**How should I size my emergency fund?**\n\nFor most people, 3 to 6 months of expenses is good. Or maybe you want to cover a few months of expenses, plus a roundtrip airfare for you and your family to go back to your home stateside.\n\n**What if I have credit card debt?**\n\nCredit cards generally have very high interest rates (typically 15-25% APR) and that is a pretty big deal. If this applies to you, you should prioritize paying down the debt first.\n\nA smaller emergency fund of $1,000 (or 1 month of expenses) is temporarily acceptable while paying off credit card debt or other debts with interest rates above 10%.\n\n**What kind of account should I hold my emergency fund in?**\n\nA checking account, savings account, or a high yield savings account (HYSA). Something FDIC insured and accessed in a few days.\n\n# Step 3: 5% Into the Thrift Savings Plan\n\nThe Thrift Savings Plan (TSP) is the military and government's version of a 401(k) retirement savings plan. All servicemembers enlisting since 2018 are covered by the Blended Retirement System (BRS). The BRS has 3 primary components to help servicemembers save for retirement:\n\n1. 5% matching contribution to the TSP\n2. Continuation pay bonus between the 8th and 12th year of service (depends on branch)\n3. Military pension. A 2% mutliplier is used for each year of service. So if you retire after 20 years of active duty service, you'll earn an inflation adjusted, lifetime pension of 40% of your base pay. (20 years \\* 2 = 40%)\n\nAfter 60 days of service, the Department of Defense (DOD) will automatically contribute 1% of your base pay to the Traditional TSP.\n\nStarting in the 25th month of service, your contributions are matched, up to 5%. So if you contribute 5%, the DOD will contribute 5%. This is a risk free, 100% return on your contributed funds.\n\nThe default investment for anyone in the BRS is a Lifecycle fund with their birth year + 65. For example, if you were born in 2005, you'll be placed in the Lifecycle 2070 Fund.\n\nThe Lifecycle Funds are a mix of the 5 TSP Funds, designed by professional fund managers.\n\nThe 5 TSP Funds are:\n\n* C Fund - Tracks S&P 500, made up of the 500 largest companies in America. You can use the ETF SPY or VOO to track it.\n* S Fund - Tracks Dow Completion index, basically all the mid- and small- capitalization companies in America outside of the S&P500. ETF equivalent VXF.\n* I Fund - International stocks. MSCI ACWI IMI ex USA ex China ex Hong Kong Index. 5,500 companies in this index. representing 90% of the investable world market cap outside the US. Similar to ETF VXUS but without Chinese or Hong Kong stocks.\n* F Fund - Fixed income. Corporate bonds. Use ETF AGG to see performance.\n* G Fund - Lowest risk, lowest long term return fund. The G Fund invests in a special\u00a0non-marketable\u00a0treasury security issued specifically for the\u00a0TSP\u00a0by the U.S. government. This fund is the only one in the\u00a0TSP\u00a0that guarantees the return of the investor\u2019s principal. No comparable ETF.\n\n# Step 4: Pay down high interest debts\n\nOnce you're taking advantage of the 5% BRS TSP match, you should use your extra money to pay down your high interest debt (e.g., debts much over 4% interest rate).\n\nIn all cases, you should make the minimum payments on all of your debts before paying down specific debts more quickly.\n\nThere are two main methods of paying down debt:\n\n* With the\u00a0**avalanche**\u00a0method, debts are paid down in order of interest rate, starting with the debt that carries the highest interest rate. This is the financially optimal method of paying down debt, and you will pay less money overall compared to the snowball method.\n* With the\u00a0**snowball**\u00a0method, popularized by Dave Ramsey, debts are paid down in order of balance size, starting with the smallest. Paying off small debts first may give you a psychological boost and improve one's cash flow situation, as paid off debts free up minimum payments. The downside is that larger loans (that may be at higher interest rates) are left untouched for longer, costing more in the long run.\n\nAs an example, Debtor Dan has the following situation:\n\n* Loan A: $1,100 with a minimum payment of $100/month, 5% interest\n* Loan B: $3,300 with a minimum payment of $300/month, 10% interest\n* Sudden windfall: $2,000\n\nDan needs to first pay $100 + $300 = $400 to make the minimum payments on loans A and B so the payments are recorded as \"on time.\" The extra $1,600 can either go towards Loan A (smallest balance, snowball method), eliminating it with $600 left to go towards Loan B, or Loan B entirely (highest interest rate, avalanche method).\n\nWhat's the best method?\u00a0\u00a0tends to favor the avalanche method, but do not underestimate the psychological side of debt payments. If you think that the psychological boost from paying off a smaller debt sooner will help you stay the course, do it! You can always switch things up later. The important thing is to start paying your debts as soon as you can, and to keep paying them until they're gone. You can use\u00a0[unbury.me](http://unbury.me/)\u00a0to help you get an idea of how long each method will take, and how much interest you'll be paying overall.\n\n**Should I be in a hurry to pay off lower interest loans? What rate is \"low\" enough to where I should just pay the minimum?**\n\nDepending on your attitude towards debt, you may want to stop paying more than the minimum payment on loans with low interest rates once you have paid all other loans above that threshold. A common argument is that the long-term return from investments in the stock market will likely exceed the interest rate from a low-interest loan. While this has been true in the past, keep in mind that paying down a loan is a guaranteed return at the loan's interest rate. Stock performance is anything but guaranteed. The rough consensus is that loans above 4% interest should be paid off early in the debt reduction phase, while anything under that can be stretched out.\n\n# Step 5: Max out Retirement Accounts - Roth IRA and Roth TSP\n\nThe next step is to contribute to a Roth IRA for the current tax year. You can also contribute for the previous tax year if it's between January 1st and April 15th. See\u00a0[the IRA wiki](http://www.reddit.com/r/personalfinance/wiki/iras)\u00a0for more information on IRAs.\n\nRoth IRA and Roth TSP contribution limits are different and do not cross over. You can contribute the maximum out your Roth IRA and your Roth TSP. Matching contributions do not count against your personal TSP contribution limit.\n\n* [Roth and Traditional IRA limits on IRS.gov](https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-ira-contribution-limits)\n* [Roth and Traditional TSP limits on TSP.gov](https://www.tsp.gov/making-contributions/contribution-limits/)\n\nThe most often recommended places to open a Roth IRA are at Vanguard, Fidelity, or Schwab. Most banks offer substandard Roth IRA products and you should not open Roth IRA accounts there.\n\n**Should I do Roth or Traditional?**\n\nRead\u00a0[Roth or Traditional](https://www.reddit.com/r/personalfinance/wiki/rothortraditional).\n\nFor most servicemembers (O-3 and below), **you'll be better off contributing to the Roth IRA**, since military pay is so low taxed. Much of our military pay is untaxable allowances, such as Basic Allowance for Housing (BAH), Overseas Housing Allowance (OHA), and Basic Allowance for Sustenance (BAS).\n\n**Why contribute to an IRA if I have the TSP?**\n\nRoth IRA's have access to low cost investments similar to what you'll find in the TSP. However, you can always withdraw Roth IRA\u00a0*contributions*\u00a0at any time, tax and penalty free.\n\nAfter you've fully funded your Roth IRA, you can look at maxing out your Roth TSP.\n\nBefore saving for other goals, you should save at least 15% and up to 20% of your gross income for retirement. If you are\u00a0[behind on retirement savings](https://www.fidelity.com/viewpoints/retirement/how-much-money-do-i-need-to-retire), you should try to save more than 15% if you can. If you can't save 15%, start with 10% or any other amount until you are able to save more.\n\n**Where should I open my Roth IRA?**\n\nVanguard, Fidelity, or Schwab. Read up about the Bogleheads 3 Fund Portfolio before selecting an investment option.\n\n# Step 6: Save for other goals\n\nMilitary servicemembers and spouses covered by TriCare are\u00a0**not**\u00a0eligible for Health Savings Accounts (HSA0.\n\n* If you wish to save for college for your kids, yourself, or other relatives, consider a\u00a0[529 fund in your state](http://www.clark.com/clarks-529-plan-guide).\n* Save for more immediate goals. Common examples include saving for down payments for homes, saving for vehicles, paying down low interest loans ahead of schedule, and vacation funds.\n* Save more so you can potentially retire early (also see \"advanced methods\", below), only using taxable accounts after maxing out tax-advantaged options.\n* Make an impact through giving. One of the rewards of practicing a sound financial lifestyle is that giving becomes easier. If you're on top of your health care costs, future education costs, and you've made it to this step, you can help\u00a0[make a difference for others by giving](https://www.reddit.com/r/personalfinance/wiki/charity). If you can't afford to make monetary donations, there are other ways to give.\n* Maybe you're interested in financial independence or retiring early, also known as FIRE? There are many resources out there on military financial independence and early retirement.\n\nThe time frame for these goals will dictate what kind of account you save in. For short-term goals (under 3-5 years), you'll want to use an FDIC-insured savings account, CDs, or I Bonds. If your time horizon is longer or you can afford to adjust your plans, you might consider something riskier like a balanced index fund or a three-fund portfolio (both are a mix of stocks and bonds). The best savings or investment vehicle will vary depending on time frame and risk tolerance.\n\nKeep in mind that (especially for a young person) the more time your money has to grow, the more powerful the effects of compounding will be on your savings. If the goal is early retirement (even before the age of 59\u00bd), you should definitely maximize the use of any available tax-advantaged accounts (IRA, 401(k) plans, HSA accounts, etc.) before using a taxable account because there are\u00a0[ways to get money out of tax-advantaged accounts before 59\u00bd without penalty](https://www.reddit.com/r/personalfinance/comments/434ey1/psa_retirement_funds_are_not_locked_up_until_age/).\n\nIf you are using a taxable account for any goal, you'll want to have a decent grasp on\u00a0[asset allocation in multiple accounts](http://www.bogleheads.org/wiki/Asset_allocation_in_multiple_accounts)\u00a0and\u00a0[tax-efficient fund placement](http://www.bogleheads.org/wiki/Principles_of_tax-efficient_fund_placement).\n\n# Military State Taxes\n\nYour\u00a0**home of record**\u00a0is the place you enlisted or commissioned from. This cannot be changed unless there was an error.\n\n**State of legal residence**\u00a0is the state that you claim as your residence. If you only have military income, you will pay state income tax only to this state.\n\nYou can establish residency several ways:\n\n* Registering to vote in that state\n* Obtaining a driver\u2019s license in that state\n* Titling and registering your vehicle in that state\n* Drafting a Last Will and Testament naming that state as your domicile\n* Purchasing residential property in that state\n* Changing your military and finance records to reflect residency in that state.\n\nThe simplest way to establish residency is to PCS to that state and establish residency while you are a resident.\n\nState with no income tax include: Alaska, Florida, Nevada, South Dakota, Tennessee, Texas, Washington, and Wyoming. Many other states have no tax for military servicemembers stationed outside the state.\n\nSimply engaging in one of the above acts alone will not likely render you taxable by a state; however, the more points of contact you make with a state increases your chances of becoming a taxpayer to that state. It is important to concentrate the majority of your points of contact in the one state where you intend to pay state taxes; otherwise, you may find yourself owing taxes to more than one state as a part-year resident.\n\nSource:\u00a0[Fort Knox Legal Assistance Office](https://home.army.mil/knox/application/files/5915/6623/5548/Legal_Residency.pdf)\n\n# Military Spouse Residency Relief Act\n\nThanks to the Military Spouse Residency Relief Act, Veterans Auto and Education Improvement Act of 2022, and Servicemembers Civil Relief Act:\n\n(A) The residence or domicile of the servicemember.\u201c\n\n(B) The residence or domicile of the spouse.\n\n\u201c(C) The permanent duty station of the servicemember.\u201d\n\nMilitary spouses and military servicemembers can pick 1 of 3 options for their state of legal residence:\n\n(A) The residence or domicile of the servicemember.\n\n(B) The residence or domicile of the spouse.\n\n(C) The permanent duty station of the servicemember.\n\nSo either match the servicemember, keep your old state, or change to the current state you're in.\n\n# Military Bonuses\n\nMilitary bonuses have federal income taxes withheld automatically at 22%. You may have state taxes withheld as well. Because your marginal tax rate is often much lower than this, you will receive a large portion of that withheld tax back when you file your tax return the following year.\n\nIf you don't know what to do with a military bonus, directing some of it to your Roth TSP is a great place to park it.\n\nAfter reading all that, go ahead with any other questions you have about getting started with your military money.",
+    "flair": null,
+    "score": 84,
+    "comment_count": 14,
+    "created_at": "2026-01-31T12:00:58+00:00",
+    "top_comments": [
+      {
+        "id": "o2use5d",
+        "score": 14,
+        "body": "Can we talk about the newly implemented Traditional to Roth conversion within the TSP?"
+      },
+      {
+        "id": "o2tafxq",
+        "score": 10,
+        "body": "HCFSA is not an HSA. \n\nOne is a savings account the other is an investment vehicle. One is use it or lose it each year, the other stays with you over your life."
+      },
+      {
+        "id": "o2u156f",
+        "score": 10,
+        "body": "Hey, you\u2019re right, -this-guy-fucks-. It isn\u2019t an HSA! We\u2019ve been erroneously calling it that. \n\nLeaving my original comment up in case anyone else conflates the two. (Also to show that adults can handle being corrected without getting angry.)"
+      },
+      {
+        "id": "o2wp640",
+        "score": 5,
+        "body": "Of course you can, SoFi and AMEX are pretty good"
+      },
+      {
+        "id": "o2vtu0s",
+        "score": 4,
+        "body": "https://old.reddit.com/r/MilitaryFinance/comments/1q45b31/tsp_roth_inplan_conversions_how_to_become_a/"
+      },
+      {
+        "id": "o32urnv",
+        "score": 3,
+        "body": "Sure, but that's a Level 2 military money discussion, not 101"
+      },
+      {
+        "id": "o2wbqob",
+        "score": 2,
+        "body": "Military noob here, can you have a HYSA as Active duty?"
+      },
+      {
+        "id": "o2wpu1t",
+        "score": 2,
+        "body": "Yes"
+      },
+      {
+        "id": "o31t1ky",
+        "score": 2,
+        "body": "I noticed this too, they\u2019re also .25% below a bunch of others. I use SoFi rn"
+      },
+      {
+        "id": "o2ryqfs",
+        "score": 1,
+        "body": "Welcome to r/MilitaryFinance! \n\nPlease check out our [\"Start Here: Military Money 101 & Prime Directive\"](https://www.reddit.com/r/MilitaryFinance/comments/1oksn2s/start_here_military_money_101_prime_directive/) thread for essential information and resources.\n\nYou may also find these helpful:\n- [Credit Cards & Military Benefits (SCRA, MLA, Annual Fee Waivers)](https://www.reddit.com/r/MilitaryFinance/comments/1ola48e/credit_cards_military_benefits_scra_mla_annual/)\n- [Tax & State Residency (MSRRA) Questions & Discussion](https://www.reddit.com/r/MilitaryFinance/comments/1oksnru/tax_state_residency_msrra_questions_discussion/)\n\n\n*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/MilitaryFinance) if you have any questions or concerns.*"
+      }
+    ]
+  },
+  {
+    "subreddit": "MilitaryFinance",
+    "id": "1r3dnaj",
+    "title": "I've made zero investments after 15 years of service. Where to go from here?",
+    "body": "I'll be honest, I've lived everyday in my career to the fullest and purchased anything I want. Both of my dream cars payed off and all I pay for now are for rent, gas, Internet, phone, insurance, and food. \n\nI'm not married, no kids, just dogs. I'm an E7(35yr old) with $12,000 on my checking account & $20,000 on my savings. I have zero clue on what to do or how to invest my money. You're wondering where did u spend all my money? The answer is traveling. I've seen every continent around the world and visited almost every single country u can think besides the dangerous ones. I've used it on first class/business class tickets & fine dining. I do not regret every single one of those experiences. \n\n\nI just sold my house in California last month & after all the fees from seelling, I was able to get around $300,000 back as profit. When I still owned my previous house, my mortgage was only $1600 a month for 12 years. \nI do not know what to do with this lump sump of money and Idk where to start. \n\nPart of me want to start planning where to live after retirement. My family is from a 3rd world country & with this amount of money, I can live like a king for the rest of my life only paying $5 daily for a feast 3x a day. \n\n\nWhat would you do if your were in my shoes? ",
+    "flair": null,
+    "score": 83,
+    "comment_count": 33,
+    "created_at": "2026-02-13T02:52:30+00:00",
+    "top_comments": [
+      {
+        "id": "o542j0s",
+        "score": 72,
+        "body": "My first recommendation based off a recent event in my shop...\n\nLogin to your tsp account asap and make sure your tsp contributions are not going in the G Fund."
+      },
+      {
+        "id": "o53p7ud",
+        "score": 30,
+        "body": "The best time to invest was when you were 18. The 2nd best time is today.\n\nJust start investing. follow the \"start here\" the bot linked. Note that you are behind, so you'll need more than 15% of your income invested for retirement to catch up."
+      },
+      {
+        "id": "o55fodu",
+        "score": 26,
+        "body": "Being in 15 years it's likely he's on high 3, and I'm going to fathom has little if anything in his TSP based on the description."
+      },
+      {
+        "id": "o53zi19",
+        "score": 18,
+        "body": "What I would do personally is. \n\n1- you\u2019re 5 years out from retirement if you plan on clicking the button right at 20 make sure you are being seen and treated for any and everything that you need as that time approaches. Mental Health, any pains go to PT, little things like GERD, Allergies, etc can add up for VA and that will help supplement retirement needed for military. \n\n\nThis is what I\u2019d shoot for \n\n2- you have a good income and only have to provide for yourself I would go into your TSP and you should start maxing it there\u2019s charts but for you an E7 at 15 years it looks like 35% would max you and that would cost you $2,042 a month, max your Roth IRA you can still fund 2025 for $7k and 2026 Roth IRA is $7500.\n\nIf the $2k a month into TSP plus trying to contribute $625 a month to IRA seems like too much and isn\u2019t feasible for the lifestyle you want. I\u2019d say atleast to 20% to TSP, max your ROTH IRAs (can use the $300k to max 2025 and 2026), or start a habit of doing $625 a month that would lead you to max over the year for 2026.\n\n3- if you can max your TSP and IRAs off of your monthly income then with the $300k I would throw it into a brokerage account into something like VTI it\u2019s a tax efficient ETF and just let it sit and grow, when you decide to retire if you stay in the U.S. you could likely use a portion of this after it\u2019s grown some for a downpayment on a house if you decide to settle here and continue to work some. \n\nRoth IRA you\u2019ll open up one with Schwab or Fidelity is what I would recommend (I use Schwab). Whoever you pick then open a taxable brokerage account too. \n\n4- for the $20k in savings make sure that\u2019s over in a HYSA at least if you pay state taxes to your taxed state then you can put it into your brokerage account into something like SGOV that don\u2019t have state taxes on it.   \n\n\u2014\u2014\u2014-\n\nThis is all as if you\u2019re planning on living in the US. I haven\u2019t done tax research on moving to another country so idk how tax benefits would work if you can keep a brokerage here or if you\u2019d be giving up US Citizenship so idk anything about that. \n\nDon\u2019t stress too much about this all you\u2019re already extremely ahead compared to civilians, because you\u2019re going to be 40 with your pension and VA and if you end up with a higher VA rating likely be able to live extremely comfortably off of just that depending on retirement location too."
+      },
+      {
+        "id": "o53m936",
+        "score": 17,
+        "body": "Start here:\n https://reddit.com/r/personalfinance/w/windfall?utm_medium=android_app&utm_source=share\n\nMaybe take a look on FIRE Financial Independence  Retire Early"
+      },
+      {
+        "id": "o53rkfe",
+        "score": 7,
+        "body": "Retirement &  VA can soften this curve, given OPs country of origin he could be well ahead. \n\nAll depends on what direction OP wants to go & the lifestyle they wish to lead.\n\nOP answer the above \u2b06\ufe0f . With what you have currently, there are plenty options on what you can do or what you \u201cwant\u201d or May be comfortable doing"
+      },
+      {
+        "id": "o544x5w",
+        "score": 6,
+        "body": "Nice, from there though I\u2019d move out whatever you do not need in savings as an emergency fund, so for you I\u2019d keep maybe $15k in savings with all the shutdowns and stuff to cover rent off base, food, and bills. \n\nThen max 2025 Roth IRA -$7k (can\u2019t after 15 April 2026), max 2026 Roth IRA -$7500. \nKey note: once you contribute that money to the Roth IRA you then also have to go and purchase a fund within the Roth IRA. \n\nA contribution IS NOT an investment in your Roth IRA or Brokerage. \n\nThe TSP will be auto put into L funds (yours may not be since you\u2019ve been in 15 years) go to TSP.gov and request a login TSP will mail you a onetime log in and then you can create a log in. A lot of people recommend all C fund or a split with C and S. \n\nYou should still have $285k I would put that into your Taxable Brokerage account (I\u2019d open it through Schwab) and put it in VTI personally.\n\n\u2014\u2014\n\nThis will seem like overload but search things like this on Google. \u201cWhat fund to invest in my Roth IRA reddit\u201d the r/bogleheads reddit page is pretty solid and here as well. \n\n\u201cWhat TSP funds should I pick militaryfinance reddit\u201d\n\n\u201cShould I invest in my brokerage account militaryfinance reddit\u201d\n\nA lot of finance topics vary for civilians but they are a lot different for us IMO since we have totally different things most civilians don\u2019t. A pension, VA, and a hefty tax free income while active and retired.\n\nI would 100% recommend you go and watch The Money Guys on YouTube. Also Erin Talks money has solid financial advice but mostly for true retirement age at 59+ but she has like 1-2 videos that go through military retirees too"
+      },
+      {
+        "id": "o54499d",
+        "score": 4,
+        "body": "I put all $300k in a hysa account ASAP and this month I received $1,100 in interest."
+      },
+      {
+        "id": "o53vzrl",
+        "score": 3,
+        "body": "If you like to read:\n\n\u201cThe Little Book of Common Sense Investing\u201d by John Bogle \n\n\u201cA Random Walk Down Wall Street\u201d by Burton Malkiel.\n\nYou can skip some of intro chapters that goes through the history of bubbles and recessions."
+      },
+      {
+        "id": "o54b29s",
+        "score": 3,
+        "body": ">I\u00a0just sold my house in California last month & after all the fees from seelling, I was able to get around $300,000 back as profit.\n\n\nSounds like you actually invested about half a million dollars in Californian real estate, if that's really profit and not just you getting $300k of principle back. Even then, that's $300k invested in a house and available liquid to invest now.\n\n\nTalk to a military financial counselor, to figure out your goals and general ideas how to get more money and safety with your money, then a planner to sort out the specifics. Don't pay for either, or pay a flat fee, NOT commissions or for percents of assets. $300k invested at 35, planning to hit 20 years in at age 40, and a real plan to retire somewhere with a very low cost of living is pretty amazing. Though I struggle to imagine the E7 with two dream cars, binging on first class seats, and fine dining actually retiring to $5 a day.\n\n\nBasically if I was you, I would: figure out what to invest for(counselor), how to do it(planner), and what in (planner). Even if you're on a surprisingly good route now, a bit of investment to grow what you've got even more and in tax advantaged ways. While you're in, there's tons of professionals you can talk to about this for free."
+      }
+    ]
+  },
+  {
+    "subreddit": "MilitaryFinance",
+    "id": "1k0e6kt",
+    "title": "Stay in for 20 or get out at 10",
+    "body": "I'm a military spouse and my spouse and I are debating whether or not she should stay in the full 20. At the end of her current contract she'll be a little over 10 years in.\n\nRunning the numbers, if she gets out at 20 she'd be making at least $50k/year for life, and she'd only be 40. She'd also make more money as active duty than on the outside in her career field (about $150-$170k compared to $130k). Plus all other benefits military comes with.\n\nThe challenge is we have two young kids, the oldest would be starting kindergarten at the end of her current contract. We are lucky enough to be stationed where all our family lives, and would just stay here if my wife gets out at the end of her current contract.\n\nWe were originally planning on her getting out at 10 years. After running the numbers and realizing ten more years of sacrifice equals a guaranteed $50k/year for life makes this decision a bit difficult. We'd really like to have the stability for our kids of staying in one place and being around family, but $50k/year is a lot of additional income to have. I'd love to hear from those that have gone through a similar decision process and how you arrived at your decision one way or the other.",
+    "flair": null,
+    "score": 84,
+    "comment_count": 151,
+    "created_at": "2025-04-16T06:56:53+00:00",
+    "top_comments": [
+      {
+        "id": "mne79xt",
+        "score": 154,
+        "body": "The pension is nice, but the healthcare is the icing on the cake. \n\nThat is the big carrot on the stick believe it or not."
+      },
+      {
+        "id": "mndcqg3",
+        "score": 139,
+        "body": "I changed my mind and stayed. I have 5 left. Will be so worth it looking any numbers and benefits"
+      },
+      {
+        "id": "mndqej6",
+        "score": 68,
+        "body": "Stay in. \n\n10 years will go by fast."
+      },
+      {
+        "id": "mndkfwc",
+        "score": 51,
+        "body": "What job doesn't have toxic people?"
+      },
+      {
+        "id": "mnddoej",
+        "score": 42,
+        "body": "Run the retirement calculator as well as TSP if she contributes. If she stays in for another 10 start pumping those numbers up. Then estimate disability calculator, based on job start conservative 50% range.\n\nRealistically 10 years could net you 2 or 3 moves? 3-4 years per station and honestly it's normal to have 5 or 6 at one station, AFSC or branch dependent.\n\nPrepare for retiring young, get a BS, masters if you can manage. Save money, avoid CC debt, transfer post 9/11 benefits to your kids if she signs up for another contract and get any certs the military will pay for. Document everything with hard copies for records.\n\nA lot of volatility in the job market and as shitty as the government can be the benefits and pay are hard to beat in a nonprofessional setting.\n\nIf I stay in until 20 and retire as an E7 with a 50-80% rating i make around $60k a year by breathing. Most states also don't tax military retirement income. Getting a part-time job or full time if desired means I have more options. \n\nAll up to you though as you know what's best for your family."
+      },
+      {
+        "id": "mne7pwt",
+        "score": 40,
+        "body": "See if she can join the reserves or guard. If she gets full time orders, there will be no change to her pay/benefits and you\u2019ll be able to stay in the same place."
+      },
+      {
+        "id": "mne8sym",
+        "score": 36,
+        "body": "I retired last year, it was definitely the right decision for us to do 20+. We moved to HCOL area to be closer to her side of the family. We are exempted from the property tax due to my VA status. This year it was about 8K, but that number goes up every year.\n\nTricare has already covered over 200K of medical bills for one of my children. We expect that number will continue to go up significantly over the next few years. Yes, you can get insurance as a civilian, but in a situation like ours there would be the concern of inflated premiums and copays. \n\nThe benefit that I was not expecting was how much time I have. I\u2019m basically a stay at home dad for now. While my wife went back to work full time, I\u2019m able to be with the kids more. After being gone so much there\u2019s nothing more I enjoy more than walking the kids to the bus stop and being there when they get back.\n\nMy skills in the Army don\u2019t translate well to any civilian work that I\u2019m interested in doing anymore. I have the time to back to school without the pressure of having to be the provider.\n\nI have a long list of reasons why it\u2019s been worth the grind and I\u2019m sure the list will grow with more time. The point is that numbers made sense, but there are many more that are invaluable.\n\nHope this helps, and good luck on whichever you guys decide."
+      },
+      {
+        "id": "mnddc1x",
+        "score": 25,
+        "body": "watching your kids grow up >>> dealing with toxic people. Which one matters more."
+      },
+      {
+        "id": "mndexb7",
+        "score": 23,
+        "body": "A few questions to consider:\n1. Does she like her job?\n2. Will she continue to do the same job after she retires?\n3. Will she continue to do the same job if she gets out at 10 years and will that make enough money to meet your goals?\n\n\nIf the job she goes with after getting out 10 can still achieve your long term financial goals and you value your family time, then the additional money may not be worth it. If you only need 2 million in retirement but the military pension will get you guys to 3/4 million then who cares? You don\u2019t need the extra money and will have lost out on who knows what memories with your family. If you value having that difference as a contingency buffer then it could make sense. \n\nAs you already implied, it\u2019s very difficult to balance money vs family, but if she\u2019s making 150,000 right now but could make 120,000 on the outside (and you like where you\u2019re at and there is job availability and all that) then you may be happier on the other side. \n\nBtw there\u2019s always the guard or reserves which could meet both goals. In that retirement you only have to account for 20 years of lost pension which you could make up for in other places like investments and May only \u201cneed\u201d the pension after 60 anyways. \n\nGood luck!"
+      },
+      {
+        "id": "mneglol",
+        "score": 22,
+        "body": "Such a common answer, but so, so true."
+      }
+    ]
+  },
+  {
+    "subreddit": "MilitaryFinance",
+    "id": "1kktzds",
+    "title": "Overpaid 107k for last paycheck",
+    "body": "So I just got out a couple days ago and I am waiting for my last paycheck to hit my account, and when I looked in my bank account it says that I have a whopping 110k pending transfer, obviously this is wrong. I don\u2019t see how this could be right unless it was backpay with interest? Or GI bill (never heard of getting paid out in full before, so probably not this)? Does anyone know what that could be or is it just a straight up major fuck up. I\u2019m going to call finance office when they open to see what\u2019s going on here. But does anyone know what this could be? \n\nEdit: Called finance office, not legit, but they won\u2019t ask for it for a while, so like a lot of you said HYSA and collect that interest. ",
+    "flair": "Question",
+    "score": 81,
+    "comment_count": 49,
+    "created_at": "2025-05-12T14:31:20+00:00",
+    "top_comments": [
+      {
+        "id": "mrx61sw",
+        "score": 271,
+        "body": "put it in a high yield savings account and dont touch it. At least get interest on it until they want it back. (I have no clue what im talking about)"
+      },
+      {
+        "id": "mrx9kou",
+        "score": 97,
+        "body": "Spend it all on hookers and blow immediately. The DoD HATES this loophole\n\n/s for legal purposes"
+      },
+      {
+        "id": "mrxjogf",
+        "score": 93,
+        "body": "All on black"
+      },
+      {
+        "id": "mrx6sx4",
+        "score": 81,
+        "body": "They would not take the interest you make. They would only take back what they gave you by mistake."
+      },
+      {
+        "id": "mrx6f26",
+        "score": 45,
+        "body": "That\u2019s what I\u2019m thinking too, but I don\u2019t know if that money that I would be making off of it would be collected too? Since it\u2019s not mine? (I also have no idea what I am talking about)"
+      },
+      {
+        "id": "mrxpglx",
+        "score": 44,
+        "body": "I bought a car in January. The dealership fucked up and sent my bank the wrong account number for the loan funds via an ACH transaction. Long story short, 100+ days later, my bank still hasn\u2019t recovered those funds. It\u2019ll probably be a while until the funds can be taken from you, so yes HYSA would be smart."
+      },
+      {
+        "id": "mrx6ffr",
+        "score": 35,
+        "body": "Bank error in your favor. Pass go, collect $200"
+      },
+      {
+        "id": "mry7muc",
+        "score": 33,
+        "body": "Slap in into a brokerage and use it all to buy short term options on high risk stocks.\n\nEither you win it big or just file for bankruptcy and start over"
+      },
+      {
+        "id": "mrz41at",
+        "score": 29,
+        "body": "HYSA now!! There is a huge back log.  They won\u2019t ask for it back until 2030"
+      },
+      {
+        "id": "mrxv3ko",
+        "score": 24,
+        "body": "Well considering he\u2019s getting out the amount of paychecks remaining for him is 0."
+      }
+    ]
+  },
+  {
+    "subreddit": "MilitaryFinance",
+    "id": "1ppfnoo",
+    "title": "$1776 warrior dividend?",
+    "body": "Thoughts?",
+    "flair": null,
+    "score": 80,
+    "comment_count": 275,
+    "created_at": "2025-12-18T02:39:24+00:00",
+    "top_comments": [
+      {
+        "id": "numghf9",
+        "score": 348,
+        "body": "Saving it for the next shutdown\u2026"
+      },
+      {
+        "id": "numk5a0",
+        "score": 130,
+        "body": "Sorry folks, it's actually going to be a one year membership to the \"Jelly of the Month\" Club"
+      },
+      {
+        "id": "numnbbf",
+        "score": 108,
+        "body": "Definitely illegal but no one is going to fight it.  I\u2019ll gladly accept the cash, but I fear the executive getting involved directly with our pay incentivizes loyalty to a person and not the constitution.  Not unlike the late Roman Republic."
+      },
+      {
+        "id": "numjqxb",
+        "score": 94,
+        "body": "Per the New York Times:\n\n\u201cThe \"warrior dividend\" for military service members is supposed to come from tariff revenues, the president says. But those revenues are not for the president to spend; that's the purview of Congress.\u201d"
+      },
+      {
+        "id": "nun22uf",
+        "score": 65,
+        "body": "Well I just PCS\u2019d to Vegas, so BET IT ALL ON BLACK BAYBAYYYYY \ud83c\udf89"
+      },
+      {
+        "id": "nums14o",
+        "score": 60,
+        "body": "Take it and invest it or pay off a debt. Money is money and getting more of it, especially unexpectedly, is a good thing. Don\u2019t hate on it, be thankful for it. It\u2019s not often that the military gets an unexpected \u201cpay bonus\u201d like this."
+      },
+      {
+        "id": "numi6sl",
+        "score": 47,
+        "body": "Yes, just funny and crazy that we even have to think of that.\n\nI\u2019ll be throwing ours in savings too."
+      },
+      {
+        "id": "numh0xf",
+        "score": 45,
+        "body": "You understand that current authorizations only guarantee pay through the end of January 2026, correct?"
+      },
+      {
+        "id": "nup427c",
+        "score": 43,
+        "body": "The $1,776 \u201cWarrior Dividend\u201d payments are being certified by DFAS this morning and will be sent to the Treasury later today\u2026service members will receive payments shortly afterwards, with some potentially seeing the payments as early as tomorrow"
+      },
+      {
+        "id": "nums1b2",
+        "score": 41,
+        "body": "\u201cIt\u2019s the gift that keeps on giving the whole year.\u201d\n\n\u2013 Cousin Eddie"
+      }
+    ]
+  },
+  {
+    "subreddit": "MilitaryFinance",
+    "id": "1qajzkk",
+    "title": "Active duty - Debt",
+    "body": "I am 26yr old active duty military member and extremely embarrassed to be writing this. My debt has reached a point that I don\u2019t know what to do. I haven\u2019t accrued any more debt in 6months but I still feel like im drowning. \n\nI have the following debts with minimum payments:\n\n20084.00 @ 17.74 / 485.36\n\n9594.73 @ 18% / 241.13\n\n6419.39 @ 10.55 / 494 (car)\n\n3892.77 @ 27.49 / 184\n\n2936.22 @ / 39.04\n\n2696.52 @ 18 / 30\n\n1841 @ 28.99 / 67.37\n\n1731.15 @ 18% / 44.34\n\n1692.62 @ 29.49 / 53\n\n1231.04 @ 29.49 / 95\n\n603.06 @ 27.49 / 35 (paying off this month) \n\n384.90 @ 27.49 / 27 (paying off this month)\n\nPrivate Student loans:\n\n14300 \n\n6500\n\nI obviously have 0 financial literacy and would like some help on if filing is the right thing to do.",
+    "flair": "Navy",
+    "score": 78,
+    "comment_count": 87,
+    "created_at": "2026-01-12T03:24:06+00:00",
+    "top_comments": [
+      {
+        "id": "nz3msd7",
+        "score": 151,
+        "body": "Well, all debts you got before joining the military you can use the SCRA benefit and lower the interest rates to 6%. If you are in the Army or Navy look into the Student Loan Repayment Program. Get approval for a second job, if you can.\n\nReach out to a on base financial counselor to help make a budget. Not to scare you but I supervised an individual that hide his debts and when he went to do his security clearance renewal, it was denied and he was the separated from the military."
+      },
+      {
+        "id": "nz3xylr",
+        "score": 84,
+        "body": "Im active duty e7. If you want a sit down im willing to help.\nWe can build you a budget and get you back on track. We can do monthly meetings to make sure you stay committed.\n\nThis is for free. I just love teaching finances and I been wayyyy worse than what you just described.  Remember the hard part is realizing you have a problem. Just dm me and we will get you right."
+      },
+      {
+        "id": "nz3oysb",
+        "score": 51,
+        "body": "Also a deployment would help alot for your income, but that's another story."
+      },
+      {
+        "id": "nz3lb91",
+        "score": 48,
+        "body": "Go to your base Fleet and Family Support Center as soon as possible and go see a financial advisor. They are there to help and will give you resources on how to dig yourself out of the hole you are in."
+      },
+      {
+        "id": "nz3ow4a",
+        "score": 47,
+        "body": "Here to add to this-\n\neven if some of the debts weren\u2019t prior to some creditors will still honor this- in addition to refunding anything over 6%. This was the case for me with both discover and capital one.\n\nOP- if you use FB search for SCRA military group. Lots of good info and ways to navigate with different creditors"
+      },
+      {
+        "id": "nz3rqlm",
+        "score": 47,
+        "body": "...which starts with a budget."
+      },
+      {
+        "id": "nz40s17",
+        "score": 31,
+        "body": "That would be great- really embarrassed I have to do this but I\u2019m tired of scraping by getting no where"
+      },
+      {
+        "id": "nz3md03",
+        "score": 26,
+        "body": "What's your budget? You listed the debts which is step 1. Step 0 is a budget."
+      },
+      {
+        "id": "nz42w2y",
+        "score": 24,
+        "body": "No reason to be embarrassed. I will ask what got you into this much debt. Need to correct the issue. Easy day."
+      },
+      {
+        "id": "nz3p3ov",
+        "score": 22,
+        "body": "It makes the most financial sense, but it also demands more discipline up front, from someone in a problem owing to lacking financial discipline.\n\nKnocking out the smallest debts first creates momentum, a mental \"snowball\" like they mentioned earlier. You pay it off, and you allocate what you were using to pay off the small debt to the next one, plus whatever you're now saving on interest. As you knock out more debts, your payments get bigger and your financial situation gets more manageable, which encourages sticking to the plan."
+      }
+    ]
+  },
+  {
+    "subreddit": "MilitaryFinance",
+    "id": "1kqryjg",
+    "title": "First Command",
+    "body": "Reply to earlier thread, but this company is an absolute scam.  They should have been shut down years ago.  Client advisors are not certified financial planners which means there is really no regulation on what they do.  ",
+    "flair": null,
+    "score": 75,
+    "comment_count": 24,
+    "created_at": "2025-05-20T00:41:23+00:00",
+    "top_comments": [
+      {
+        "id": "mt8vr7c",
+        "score": 48,
+        "body": "I deep dived this company when I found out  a troop was using them. It's all bad. What's even better is they are at all the military newcomers briefings during lunch hour slinging their trash. You see all these young bright eyed E-3s who want to be fiscally responsible but don't know how, walk into the lions den. Completely ridiculous they are allowed on bases."
+      },
+      {
+        "id": "mt8wj2e",
+        "score": 18,
+        "body": "100%. Our commander tried to bring them on for a brief (I'd like to believe through no fault of his own, but idk). Walked straight into his office and put a stop to that. Luckily, in our culture, a young O can do that to a commander. Others certainly can't. \n\nJust educating more people to the basics is better. Preach that to your airmen/soldiers/marines as much as you can, as long as it's receptive.\n\nThis was also just a general comment, not necessarily directed at you who I'm replying to."
+      },
+      {
+        "id": "mt9v395",
+        "score": 16,
+        "body": "Better Option: USAA conducts educational presentations.  When serving as an ROTC PMS, I was approached by a USAA educational representative to speak to my Cadets.  I was reluctant and told him that it would be unethical to have my Cadets sit through a USAA sales pitch.  He assured me that other than introducing himself as an employee of USAA, not one word would be used to promote the company or its specific products.  True to his word, he provided an excellent presentation on personal finance that was completely devoid of company specific recommendations.  It was a great experience for my Cadets and cadre."
+      },
+      {
+        "id": "mt7zf1w",
+        "score": 14,
+        "body": "Bro just use gpt chat. Save some money"
+      },
+      {
+        "id": "mtbb1pk",
+        "score": 11,
+        "body": "Good for you. My own PMS brought in a First Command rep, and half of his presentation was a damn sales pitch for an investment approach that started with 50% (!?!) commissions for the first couple of years. \n\nIt boggles my mind the access to young impressionable officers that First Command leverages. I rather wish DoD would ban them from military installations and activities."
+      },
+      {
+        "id": "mtbo0vm",
+        "score": 8,
+        "body": "At Air Force BMT, they used to allow these people to try and sell trainees swords and shields and other garbage during week 7 before graduation. It was absolutely predatory."
+      },
+      {
+        "id": "mt8p8rl",
+        "score": 8,
+        "body": "First command is the company name"
+      },
+      {
+        "id": "mtcmrjx",
+        "score": 7,
+        "body": "Is there anything the military community can do to get them slowly ousted from post? \n\nI see them everywhere--CIE monthly meetings, spouse social connections meetings, hiring events, etc."
+      },
+      {
+        "id": "mtdte96",
+        "score": 5,
+        "body": "[DoDI 1344.07](https://www.esd.whs.mil/Portals/54/Documents/DD/issuances/dodi/134407p.pdf) prohibits commercial financial services to come on post and sell products. Unfortunately, there are certain eligibilities and exceptions, and the people who should be policing them often don\u2019t realize they aren\u2019t meeting the requirements in the instruction."
+      },
+      {
+        "id": "mtajr49",
+        "score": 5,
+        "body": "Pull an excel from your banks website for the last year. I prompted that I was looking to cut costs and increase investments into my 401k/ira. Then loaded it up and it identified areas of high spending, subscriptions, etc. Then I just sat with my wife and whatever she was curious about we prompted it doe answers"
+      }
+    ]
+  },
+  {
+    "subreddit": "MilitaryFinance",
+    "id": "1r5sv8p",
+    "title": "Active Navy E-9 looking to possibly retire at 27.5 years. Should I push to 30?",
+    "body": "Hello, as the title states I'm an active Navy Master Chief that will hit 26 years this May, and by the end of my current tour will hit 27.5 years.  My Wife is also an active Chief (E-7) and will retire this August. She is tracking to also receive a100% disability rating (though not guaranteed), but is pressuring me to just get out after this tour, saying it's not worth the extra $600-700 per month in retirement. I kind of disagree. I have $240k in my TSP, and other assets including an IUL, stocks and about $50k in crypto. If I can manage to get 80-100% in disability too, do you think it's worth going the extra 2.5 years to get to 30 years? I'm torn... I'll also be eligible for shore duty then too, but again...not a guarantee.\n\nThoughts?",
+    "flair": null,
+    "score": 74,
+    "comment_count": 90,
+    "created_at": "2026-02-15T23:00:32+00:00",
+    "top_comments": [
+      {
+        "id": "o5laetw",
+        "score": 338,
+        "body": "If your wife wants you to retire, it's time to retire."
+      },
+      {
+        "id": "o5l9ydy",
+        "score": 93,
+        "body": "In my opinion, this has more to do with your duty station and job choice than anything else.\n\n\nThe job market right now is whack and finding a job is tough. So I'd consider if you plan to start another career or just retire into your choice.\u00a0"
+      },
+      {
+        "id": "o5lftou",
+        "score": 80,
+        "body": "2.5 years of relaxation is worth more than 700 bucks a month extra. You gave a lot of your life for the service, now enjoy the rest of it."
+      },
+      {
+        "id": "o5lnxbg",
+        "score": 70,
+        "body": "u/CryptoProQB_330\n\n\nIf your wife wants you to retire, it's time to retire."
+      },
+      {
+        "id": "o5lexp1",
+        "score": 53,
+        "body": "Yeah but two senior enlisted with disability AND retirement? That is at least 150k a year just breathing. But, the job market is whack/tough depending on what sector OP would try to go into if he even plans to work after.\u00a0"
+      },
+      {
+        "id": "o5la7dz",
+        "score": 25,
+        "body": "Only you can answer that. Do you have a post career job lined up or are you going to retire retire. If you\u2019re going to walk into a 6 figure job, no, it doesn\u2019t financially make sense to delay that 2.5 years. \n\nHowever if you have nothing lined up, that extra 600-700 a month is a big difference."
+      },
+      {
+        "id": "o5mfwmy",
+        "score": 24,
+        "body": "It's definitely not worth it. Should be able to make that a week with a good side hustle or investments. Could just get an investment property and make that each month. Time is more valuable than money."
+      },
+      {
+        "id": "o5o6rf6",
+        "score": 23,
+        "body": "Yes. If your wife says it is time, listen to her, unless you want to be one of those folks who wife leaves/resents them because they put always put the military first. Also, don't be selfish. Make room for someone else. Those E-9 positions are limited. The longer you hold it, that's one less person that gets to make the jump to E-9. \n\nI've seen a few 20 year mil to mil retired E-7 couples that lived just fine on their pensions and 100% VA disability comp. That's around $160K a year (in the first year) and most of that is tax free. This is despite what they had saved elsewhere. Most of those couples don't have to work for money. Some work part time, some don't work at all. "
+      },
+      {
+        "id": "o5laowd",
+        "score": 19,
+        "body": "Should reframe the question to \u201cwhat will the extra $600/month get me that I wasn\u2019t going to be able to afford before?\u201d. Is it worth putting off joining your wife in retirement for two whole years you\u2019ll never get back? None of us are guaranteed tomorrow. And it sounds like if you punched out today you\u2019d be set anyway. An E7 + E9 + disability x2\u2026. \n\nIdk your situation but I totally see why your wife would push you to punch out sooner than later. Especially considering you\u2019re already an E9 and have achieved the pinnacle of your career. If you have a serious passion and love of the job/service than it\u2019s not crazy to want to stay in. But I\u2019d lean to getting out personally. Doubly so if you plan on working more. That $600 would be peanuts then."
+      },
+      {
+        "id": "o5mjtbb",
+        "score": 18,
+        "body": "Can\u2019t agree more. The older I got, the more you realize time is your most valuable asset an money comes and goes"
+      }
+    ]
+  },
+  {
+    "subreddit": "MilitaryFinance",
+    "id": "1kjo0l4",
+    "title": "I am 18 years old and I am in the military. I need advice about money and life in general",
+    "body": "I am 18 years old and I am in the military. I need advice about money and life in general. Lately I have been stressed a lot about money because I don't make much. I make 2k a month after tax, being an E-3 in the Marine Corps. I don't have bills. I put all my money in my savings. Right now I have 12k in a savings account. But right now I'm looking for a car and cars in this economy are very expensive.\n\nWhat should I do?",
+    "flair": "USMC",
+    "score": 70,
+    "comment_count": 57,
+    "created_at": "2025-05-11T00:04:34+00:00",
+    "top_comments": [
+      {
+        "id": "mrobg84",
+        "score": 106,
+        "body": "Carreer:\nDon't get in any f'ing trouble. Do not derail your advancement opportunities. U can get all the way to E6 by just doing what you're supposed to. Do ur MCIs, do extra, get promoted. Live in barracks, move out and get BAH when possible. Ur medical coverage is taken care of, ur living spaces as well. \n\nI know kids ur age, and much older, who make maybe $3K a month and are struggling like u have no idea. Stay in.\n\nFinances:\nDevelop a budget, stick to it. Open a TSP Roth. Max out ur contributions every month. What bills do u have?\n\nHave some play $. What you're embarking on will require discipline for many yrs to come. Reap the benefits here n there.\n\nDO NOT GET ANYONE PREGNANT. Don't be a f'ing idiot. Babies cost $. U get with someone, they have to make good $. \n\nCar:\nEvery car dealership in every town where there's a military base will know how much u make a month. They will prey on young enlisted like you. If possible, go to a farther away town to but a car. \n\nInterest rates are high right now. They'll check ur credit record a d how much u can afford. Add on that that you're a young enlisted and you're fresh fish to those people.\n\nGet a used vehicle, pick a Toyota something. Drop a big chunk as a down payment and don't pay for a car more than a couple of yrs. \n\nIf u could buy a decent one( low mileage, no recorded car wrecks, Toyota or Hunday) full cash, do it. \n\nRead this:\n\nI went in1996. I had no $ for college, no real idea as to what I wanted to do with my life. I retired at 20 yrs. \n\nThe military will pay for your college while you're in,free of charge. Being an enlisted man SHOULD NOT BE THE GOAL.\n\nWhen u get ur degree, go officer. Retiring as an enlisted will not ever pay as much as officer retirement pay.\n\nWhenever it is that you leave the service, put in for disability BUT, here's the trick:\n\nGo to medical and get seen for basically every little thing. Definitely the bigger thing, the recurrent things (knee pain, back pain) because all those recorded medical encounters will come in to play when u go get ur disability rating. The more it is recorded the more possibilities for u to get a higher disability percentage. \n\nDisability payments are tax free. You don't ever file taxes on them and if, God forbid, u were to get a divorce, ur disability checks can not be added to your overall income.\n\nAs a retiree, u get a good health coverage (TRICARE) and u pay pennies/month. I currently pay less than $70 for me and my kid.  Any other health insurance would charge hundreds of dollars.\n\nEach state has different benefits for veterans, retirees. Some offer no property taxes for high % disability vets. Others have a lot of tuition assistance (for u and whoever dependents u will have). \n\nThe economic upheaval that this country is going through is bad right now, it will get worse every so many years. U jave to basically sheltered in place and take FULL advantage of the fact that you're in the military. \n\nDo this shit right and you'll set yourself for life. That's what I did, inadvertently, by just doing my job, advancing in pay grades, and retiring after 20.\n\nBut don't do that, become an officer.\n\nGood luck Devil"
+      },
+      {
+        "id": "mroo5yn",
+        "score": 30,
+        "body": "OP listen to this guy. Especially the part about staying out of trouble. The military presents many unique opportunities, but one of them is the opportunity to uniquely ruin your life with one bad decision.\n\nI don\u2019t mean for that to sound negative. I loved my time in, I just saw a lot of decent people do stupid things that not only ended their military careers, but also destroyed their ability to recover in the civilian world. Don\u2019t be one of them."
+      },
+      {
+        "id": "mro6ydc",
+        "score": 29,
+        "body": "$2k/month isn\u2019t a ton, but you also don\u2019t need to pay for rent, most utilities, food, and medical. You have a lot more disposable income and savings than most people your age.\u00a0\n\nYour installation most likely has a car buying class. Go to that or set up an appointment with the financial counselor at MCCS or through Military One Source to discuss it. Do research on vehicle costs other than the purchase price such as maintenance, registration, gas, and insurance. Keep an eye on your local lemon lot. With $12k, you should be able to buy a decent car for car.\u00a0"
+      },
+      {
+        "id": "mro6n93",
+        "score": 23,
+        "body": "Talk to a financial advisor at fleet and family services."
+      },
+      {
+        "id": "mro8w3o",
+        "score": 13,
+        "body": "Contribute at least 10% of your pay into the TSP. (More if you can swing it).\n\nYou have the time as a young adult to watch your money grow and compound!\n\nIf you can, don't blow your money on stuff that will depreciate, ie a BRAND NEW car. (Used is cool).\n\nYou won't know if you're a lifer.  So maximize your time in; sign up for all the coolest schools/training that you can use if you get out the military (ie, cable splicing)."
+      },
+      {
+        "id": "mrore57",
+        "score": 10,
+        "body": "Stay in is not one size fits all advice\u2026 just saying. \nI got out as an E5 and I NEVER would have caught up to my current life place, income, position, or anything else had I stayed in. \n\nStay in VS get out is wildly variable depending on the person"
+      },
+      {
+        "id": "mronfe6",
+        "score": 9,
+        "body": "Stay out of debt.  \n\nCar?  Get something that you can pay cash with. \n\nGo listen to Dave Ramsey podcasts. \n\nAsking this at 18 shows your maturity.  Most of us never did but wish we did."
+      },
+      {
+        "id": "mrop2t4",
+        "score": 7,
+        "body": "If you\u2019re gonna drink any kool aid at 18 Ramsey\u2019s is the damn good option"
+      },
+      {
+        "id": "mro798q",
+        "score": 6,
+        "body": "Read *the simple path to wealth* by JL Collins. While the Fund it espouses is extremely solid (VTSAX), more importantly it provides you the philosophy behind conservative investing over time, a very simple and solid key to success in the future."
+      },
+      {
+        "id": "mro8c6n",
+        "score": 6,
+        "body": "Be aware of predatory salespeople. No, Chesty Puller or Jim Mattis did not drive the bright red 2011 Mustang in the front row of the used car lot. If you take a loan, I recommend using USAA or Navy Fed, good rate, good customer service, likely won\u2019t get gouged like you might at a dealer."
+      }
+    ]
+  },
+  {
+    "subreddit": "MilitaryFinance",
+    "id": "1k0vudj",
+    "title": "Tenant expects to leave for 2 months and keep belongings at the rental but not pay rent",
+    "body": "When i told him thats not possible he asked me if i knew about SCRA. I am ok with him breaking his lease but i cant lease my home for free for 2 months. What can i do ? ",
+    "flair": null,
+    "score": 73,
+    "comment_count": 55,
+    "created_at": "2025-04-16T21:22:18+00:00",
+    "top_comments": [
+      {
+        "id": "mnhaj0x",
+        "score": 167,
+        "body": "I assume this is a military member since they references SCRA. If I were you, I would point out that SCRA only allows them to break the lease early if they have relocation (PCS) orders to that effect. Then I would explain that barring PCS orders, they have an obligation to pay the rent per the lease agreement. If that doesn't wise them up, I would recommend stating that you will contact their chain of command about the failure to meet these obligations. I would also impress upon the member that failing to pay a debt such as rent could have lasting consequences on their security clearance, and therefor their ability to hold a job in the military. If they don't wise up to those statements, then contact their chain of command. Their Senior Enlisted Leader would probably exert much influence on their decision making."
+      },
+      {
+        "id": "mnhxgy8",
+        "score": 138,
+        "body": "He's trying to use your home as free storage for two months. He can move his things into an actual storage unit if he wants to utilize the SCRA to terminate the lease, otherwise he can continue to pay rent."
+      },
+      {
+        "id": "mnhrz1i",
+        "score": 82,
+        "body": "> *\"SCRA only allows them to break the lease early if they have relocation (PCS) orders to that effect\"*\n\n\nNot only.\n\n\nDeployment/TDY orders over a certain length, Title 10 orders for guard/reserve, etc all are eligible for SCRA protections, not just PCS orders, even though the servicemember will be returning to the same PDS after the deployment ends."
+      },
+      {
+        "id": "mnhnivx",
+        "score": 51,
+        "body": "I\u2019m a landlord, but also just retired from the military. Most JAG now recommends that commanders and staff stay out of problems with landlords or anything off base. The old \u2018find their CO\u2019 doesn\u2019t really work anymore. It\u2019s a civil matter. I have dealt with this from both sides."
+      },
+      {
+        "id": "mnj1zv8",
+        "score": 42,
+        "body": "Which is all fine and dandy, but they would still need to get their shit out of OP\u2019s property. Otherwise he could have a yard sale with their life\u2019s belongings."
+      },
+      {
+        "id": "mnhdeph",
+        "score": 34,
+        "body": "Your tenant is wrong. SCRA doesn't allow you to store you shit for free. SCRA protects you from being kicked out of your apartment while on orders/deployed. You still need to be paid up or in a situationwhere paying you is impossible, but have the expectation of fully paying rent after . If they're going on temporary orders for two months, they will still get money to pay their rent. \n\nGet your lawyer to write them a letter stating they need to pay."
+      },
+      {
+        "id": "mnhfz83",
+        "score": 27,
+        "body": "You can evict him for failing to pay, in accordance with your state laws."
+      },
+      {
+        "id": "mnhoxtt",
+        "score": 18,
+        "body": "It can still help optics wise and put pressure to act right.  If a landlord called me telling me my troop was not paying rent and straight up trying to screw someone by lying about a benefit I\u2019d want to know more about it.  Especially when it came to the whole airmen concept and maybe they just didn\u2019t understand how SCRA works, some people really don\u2019t know or had anyone explain it to them.  Try to figure out if it\u2019s a dirtbag situation or just an innocent misunderstanding of their benefits.\n\nHad some people at TAP trying to say SCRA gets you 0% on every debt you have even car loans you just applied for.  Said it confidently too."
+      },
+      {
+        "id": "mnhmgj6",
+        "score": 15,
+        "body": " his stuff would be outside with a print out of the scra\ud83d\ude02\ud83d\ude02"
+      },
+      {
+        "id": "mnhq9js",
+        "score": 15,
+        "body": "I would be very careful about contacting or threatening to contact chain of command. It is technically illegal for debt collectors to contact chain of command\nEdit: not sure why I\u2019m being downvoted, it\u2019s the law\n\nPer the Fair Debt Collection Practices Act (15 USC 1692), debt collectors cannot contact debtors at their place of business if they know or have reason to know the employer prohibits the consumer from receiving such communication."
+      }
+    ]
+  }
+]
+```

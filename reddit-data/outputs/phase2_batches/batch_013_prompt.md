@@ -1,0 +1,4615 @@
+# Prompt 1: Need Extraction
+
+You are a market research analyst specializing in the U.S. veteran community.
+I’m going to give you a batch of Reddit posts and comments from veteran subreddits.
+For each post, identify:
+1. PRIMARY NEED: What is the veteran trying to accomplish or solve?
+2. PAIN POINTS: What specific frustrations or blockers do they describe?
+3. CURRENT SOLUTION: What are they currently doing to solve this? (DIY, paid service, nothing?)
+4. EMOTIONAL INTENSITY: Rate 1–5 (1=mild inconvenience, 5=desperate/life-impacting)
+5. CATEGORY: Assign one: Claims/Ratings, Appeals, Healthcare, Mental Health,
+   Employment/Transition, Education/GI Bill, Housing/VA Loan, Financial, Legal,
+   Community/Social, Other.
+
+Output strictly as a JSON array, one object per post.
+
+## Input JSON
+
+```json
+[
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1numlwd",
+    "title": "Wanted to share!",
+    "body": "My",
+    "flair": "Headlines & News :rsz_21601:",
+    "score": 1223,
+    "comment_count": 112,
+    "created_at": "2025-09-30T19:25:52+00:00",
+    "top_comments": [
+      {
+        "id": "nh3hnxg",
+        "score": 152,
+        "body": "Put their salaries on pause and this will never ever happen again."
+      },
+      {
+        "id": "nh2s1m3",
+        "score": 144,
+        "body": "shutting the govt down should not be allowed to be a pawn for either political party period! this is bullshit. let them fight their shit out in a different way."
+      },
+      {
+        "id": "nh2fnxr",
+        "score": 131,
+        "body": "VA benefits will not be affected"
+      },
+      {
+        "id": "nh3u0fg",
+        "score": 99,
+        "body": "Bold of you to think they care about their $174k salary\u2026. Bet most of them don\u2019t even notice their paycheck."
+      },
+      {
+        "id": "nh29m1k",
+        "score": 78,
+        "body": "Thanks for sharing this."
+      },
+      {
+        "id": "nh2ine3",
+        "score": 40,
+        "body": "\u201cVA Benefits will continue to be processed and delivered, including compensation, pension, educations and housing benefits\u201d"
+      },
+      {
+        "id": "nh2wgyl",
+        "score": 35,
+        "body": "Pretty sure VR&E falls under the right side column of things impacted under \u201cVA will cease providing transition program assistance and career counseling.\u201d"
+      },
+      {
+        "id": "nh2b7hw",
+        "score": 31,
+        "body": "Sounds like it will impact VR&E?"
+      },
+      {
+        "id": "nh4jns2",
+        "score": 24,
+        "body": "I was just telling my wife this. The only way this hurts them is if their voters perception changes and they don\u2019t vote for them later on. But by then, they already built their wealth"
+      },
+      {
+        "id": "nh3p9k7",
+        "score": 19,
+        "body": "Just had my annual with vre he said if it shuts down they aren\u2019t working. So things would freeze until they reopen"
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1kqb793",
+    "title": "Don\u2019t be like me, take a vacation!",
+    "body": "If you receive VA benefits I\u2019d highly recommend taking some of your money and taking your family on a trip or doing something nice for them. I\u2019m 45, I\u2019m on hospice due to a TBI, most days I just lay in bed and think of things I wish I would have done with my family. don\u2019t be like me, take a trip make memories! ",
+    "flair": "VA Disability Claims :claim:",
+    "score": 1224,
+    "comment_count": 184,
+    "created_at": "2025-05-19T13:05:42+00:00",
+    "top_comments": [
+      {
+        "id": "mt47ado",
+        "score": 258,
+        "body": "This is great advice. I\u2019m sorry to hear about your condition. I promise to take my family on a vacation with my back pay because of this post. I have been wondering what to pay off but there will always be time for that. Thank you."
+      },
+      {
+        "id": "mt4h2hs",
+        "score": 95,
+        "body": "I never took vacations for the longest time, 8 years ago my colon ruptured and almost killed me. Once we got back on our feet financially we decided to stop waiting to enjoy life and now take 2-3 vacations a year. My health isn\u2019t the best still so no guarantee I\u2019ll make it to a retirement, live life while you can!"
+      },
+      {
+        "id": "mt4jmst",
+        "score": 51,
+        "body": "Cosign, Im a beach guy, there is something to be said for standing on the beach and looking out to the horizon at sunset to recharge your batteries!"
+      },
+      {
+        "id": "mt5d229",
+        "score": 49,
+        "body": "I\u2019m gonna go against the spirit of this post and advise you pay off debt first.  Somewhat different situation here, but I\u2019m recently divorced, and with the sale of our marital home, I was able to completely clear myself of all debt with the exception of my current mortgage.  It\u2019s a great feeling, and I\u2019ll be back to saving money in no time as my only expenses are mortgage/utilities, and monthly expenses (car insurance, subscriptions, etc)."
+      },
+      {
+        "id": "mt4d3b5",
+        "score": 39,
+        "body": "I try to go at least once a year with the family. Money doesn't last forever, memories for the most part will though.\n\nI'm not sure your diagnosis or anything, but stay positive. I hope things can turn around for you"
+      },
+      {
+        "id": "mt4olbi",
+        "score": 30,
+        "body": "For sure, wish you the best"
+      },
+      {
+        "id": "mt4mgir",
+        "score": 25,
+        "body": "I have a TBI and am 45 also. I didn't think they TBI I got at age 24 while serving would get as bad as it does. Over time, it gets worse! I will pray for you to recover. There is still time to make memories. As long as you're breathing, there is always time."
+      },
+      {
+        "id": "mt5fn7n",
+        "score": 17,
+        "body": "If my claim sits in limbo for a few more months, I\u2019ll be able to do both \ud83e\udd23. ITF was Oct. 11\u2026filed first week of January."
+      },
+      {
+        "id": "mt4cdmo",
+        "score": 16,
+        "body": "Sorry to hear man. Hope you're doing as well as you can. I'll be 45 Wednesday going through a med board now at 23 years. Ultimate plan is retirement pay + VA disability  = not working for a while and traveling. Keep your head up bro! Hope all is well."
+      },
+      {
+        "id": "mt4mwtf",
+        "score": 16,
+        "body": "My family and I just came back from vacation. We went on a 7 night Disney Cruise. My girls and I loved it so much we're already planning the next cruise."
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1knpu6i",
+    "title": "All VA employees",
+    "body": "Thank you for everything you do ",
+    "flair": "VA Disability Claims :claim:",
+    "score": 1177,
+    "comment_count": 54,
+    "created_at": "2025-05-16T02:16:31+00:00",
+    "top_comments": [
+      {
+        "id": "mskczke",
+        "score": 118,
+        "body": "Thank you, we really do work hard to serve you all"
+      },
+      {
+        "id": "msk4d6n",
+        "score": 102,
+        "body": "Hell yes...."
+      },
+      {
+        "id": "msk4lft",
+        "score": 82,
+        "body": "Can\u2019t be stated enough"
+      },
+      {
+        "id": "mskbe46",
+        "score": 78,
+        "body": "Maybe post this in r/fednews\u2026 they could use the love."
+      },
+      {
+        "id": "msm930n",
+        "score": 43,
+        "body": "Thank you! We're not perfect, but nearly all of us know what our mission is."
+      },
+      {
+        "id": "msldmzi",
+        "score": 37,
+        "body": "[removed]"
+      },
+      {
+        "id": "msk62zm",
+        "score": 35,
+        "body": "Preach!"
+      },
+      {
+        "id": "msk9l0e",
+        "score": 16,
+        "body": "Yesss! I try to not take anything out on any of them. Ever. They are doing us all the proper work to get me everything I need. I do understand the hate the VA gets and don\u2019t ever want to be apart of that problem! \n\nThank you!"
+      },
+      {
+        "id": "msk94u0",
+        "score": 14,
+        "body": "I second that."
+      },
+      {
+        "id": "mslnzit",
+        "score": 14,
+        "body": "Just had my tinnitus denied despite 8 years of artillery, would you have any advise on the best way to proceed?"
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1mzpd28",
+    "title": "The wall is more understanding",
+    "body": "",
+    "flair": ":snoo_tongue:Meme Monday:snoo_joy:",
+    "score": 1154,
+    "comment_count": 53,
+    "created_at": "2025-08-25T12:39:47+00:00",
+    "top_comments": [
+      {
+        "id": "nakpweg",
+        "score": 339,
+        "body": "I just don't. It's none of their fucking business anyway."
+      },
+      {
+        "id": "nakpyt2",
+        "score": 106,
+        "body": "Explain?\nno, I don\u2019t think I will.\n\nPlay your cards close to the vest, people are fucking weird"
+      },
+      {
+        "id": "nakplyc",
+        "score": 97,
+        "body": "\u201cAre the \u2018toxic exposures\u2019 in the room with us right now?\u201d"
+      },
+      {
+        "id": "nakq7cv",
+        "score": 58,
+        "body": "My favorite is sister who asked \"Are military injuries genetic?\""
+      },
+      {
+        "id": "nald50h",
+        "score": 55,
+        "body": "People get pissed because they can't have it. Simple as that. The \"free money\" we sacrificed years of our youth for was earned the hard way by the majority of us"
+      },
+      {
+        "id": "nakxlqx",
+        "score": 49,
+        "body": "Personally, I think some people start to talk about it hoping for sympathy then get mad when people don't understand or sympathize."
+      },
+      {
+        "id": "naktuo7",
+        "score": 46,
+        "body": "\ud83d\udcaf\ud83c\udfaf"
+      },
+      {
+        "id": "nakta7t",
+        "score": 44,
+        "body": "The first rule of fight club is........"
+      },
+      {
+        "id": "nakqmjo",
+        "score": 43,
+        "body": "[deleted]"
+      },
+      {
+        "id": "nakyy81",
+        "score": 30,
+        "body": "Why is anyone discussing this with anyone? Stop doing that"
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1qyglj8",
+    "title": "Here we go again",
+    "body": "There's been a back and forth about this (and the old qualifications) being very limited by maximum income limitations, which may or may not include VA compensation benefits (which disqualifies disabled vets with high ratings, making it silly)...  \n\nIt was very hard to confirm allegedly because of how its usually written (separate paragraphs that thoroughly makes the rule very ambiguous). I'm just confused at this point",
+    "flair": "Headlines & News :rsz_21601:",
+    "score": 1151,
+    "comment_count": 197,
+    "created_at": "2026-02-07T15:25:48+00:00",
+    "top_comments": [
+      {
+        "id": "o43g3sf",
+        "score": 250,
+        "body": "In most circumstances, va compensation is not reportable as income."
+      },
+      {
+        "id": "o43ku02",
+        "score": 142,
+        "body": "New Mexico just started something similar this year.  It\u2019s proportional to your rating percentage and has no income limits."
+      },
+      {
+        "id": "o43pldv",
+        "score": 113,
+        "body": "I\u2019m in Texas and 100% veterans don\u2019t pay property tax regardless of income. Hopefully Arizona veterans get the same benefit. Good luck"
+      },
+      {
+        "id": "o43k8j4",
+        "score": 95,
+        "body": "In Pennsylvania it was for property taxes for a very long time and they only recently fixed that issue. It's best to write the law clearly up front."
+      },
+      {
+        "id": "o44e0qy",
+        "score": 59,
+        "body": "Yeah. That 100% only exemption sucks."
+      },
+      {
+        "id": "o43pzp0",
+        "score": 56,
+        "body": "Lawyers write the law clearly??  Nooooooooo. \ud83d\ude02\ud83d\ude02\ud83d\ude02\ud83d\ude02\ud83d\ude02\ud83d\ude02"
+      },
+      {
+        "id": "o440sz1",
+        "score": 49,
+        "body": "God i wish Florida could do something like this"
+      },
+      {
+        "id": "o44k0wv",
+        "score": 49,
+        "body": "Texas is the same way. 90% you\u2019re paying $5k a year, 100% you pay zero"
+      },
+      {
+        "id": "o43v2tx",
+        "score": 46,
+        "body": "Just don't tell them lmao\n\nIf the IRS doesn't think it counts as income then I don't give a shit what a utility company thinks"
+      },
+      {
+        "id": "o4411qs",
+        "score": 42,
+        "body": "I wish Texas would pass a law where it\u2019s related to your rating, I can\u2019t remember which state is in the process of maybe passing a law that would do that. In other words, if you\u2019re 90% disabled, you\u2019ll only pay 10% of your property taxes, 50% disabled you pay 50%, and so on."
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1rb60pu",
+    "title": "Ill never speak a bad word about the VA ever again",
+    "body": "",
+    "flair": "Health Care :caduceus:",
+    "score": 1128,
+    "comment_count": 37,
+    "created_at": "2026-02-21T23:31:54+00:00",
+    "top_comments": [
+      {
+        "id": "o6ouvru",
+        "score": 209,
+        "body": "Yes, I have Champ VA as my secondary and my husband uses all VA healthcare. I had a surgery that was billed all on total around $159,000 on 11/20 ($143K of that was just the hospital) I paid 0. The VA paid all my out pocket. They asked for $3500 the VA gave them $684. My primary insurance is very inexpensive, $23 a week. Champ VA picks up my OOP and my husband pays zero for care. This is how healthcare should be. I put off care for several years due to OOP costs."
+      },
+      {
+        "id": "o6opciv",
+        "score": 179,
+        "body": "I think the more crazier part is the VA said they will only pay 8k so that\u2019s how much they think it\u2019s worth. So they charged 32k over what the VA thought it was worth."
+      },
+      {
+        "id": "o6oz8i7",
+        "score": 150,
+        "body": "The whole health care and insurance system is designed to extract as much money as possible, they\u2019re constantly overcharging"
+      },
+      {
+        "id": "o6owmi0",
+        "score": 97,
+        "body": "My employer health insurance  is inexpensive becuse I work at a large company that has a footprint in all 50 states. Champ VA following Medicare reimbursement rates, taxes fund it. I would happily pay more taxes every paycheck for everyone to have access to care that covers people this way and for everyone to have access to college without loans. I\u2019m not  uneducated on how it\u2019s funded, but I am likely the oddball out that would pay a higher tax rate to not have to worry about this and so others don\u2019t have to."
+      },
+      {
+        "id": "o6orw6b",
+        "score": 75,
+        "body": "Government legislation sets special rates for Medicare and the VA."
+      },
+      {
+        "id": "o6p0o9r",
+        "score": 59,
+        "body": "It\u2019s standard practice to bill 3-5x the actually cost of the service than to have it negotiated down. Really scummy stuff happening in the insurance industry."
+      },
+      {
+        "id": "o6p2q7g",
+        "score": 57,
+        "body": "Seriously!!!! I was in a bad car accident, air-lifted, emergency femur repair.  At a non VA hospital for 3 days before being transferred to the VA.  The total bills were over 250k.  Took about a year but the VA took care of them all."
+      },
+      {
+        "id": "o6ouu0z",
+        "score": 50,
+        "body": "US Healthcare is such garbage, being able to charge upwards of $40k for surgery but it not even being worth nearly that much is outrageous."
+      },
+      {
+        "id": "o6ov5et",
+        "score": 29,
+        "body": "That\u2019s pretty typical for any healthcare billing situation/scenario."
+      },
+      {
+        "id": "o6ozcpx",
+        "score": 28,
+        "body": "My wife has CHAMPVA as her primary and had a similar hospital bill. Still only paid the annual max out of pocket\u2026 worth not paying a monthly premium.."
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1p5c1e5",
+    "title": "Check on your buddies",
+    "body": "Just found my best friend and battle buddy of almost 20 years with a self inflicted bullet wound to the head. He was at 100 p and t and was excited about getting his license back after squashing some warrants he had for 15 years . He was getting better . He was excited for the future . And now he\u2019s gone. I miss you James Kennedy.  Check on your buddies , guys . Tomorrow isn\u2019t promised ",
+    "flair": "VA Disability Claims :claim:",
+    "score": 1125,
+    "comment_count": 145,
+    "created_at": "2025-11-24T08:48:01+00:00",
+    "top_comments": [
+      {
+        "id": "nqi27lg",
+        "score": 313,
+        "body": "I don't have the words and I hate the usual platitudes. It's absolutely shit, man. I hope there was some peace somewhere in there for him."
+      },
+      {
+        "id": "nqiliju",
+        "score": 124,
+        "body": "\n\nI\u2019ve lost 7 since service.\n\nOne was a damn good NCO, bro found a solid job getting out and a fucking freak accident took him. Been messed up ever since \n\nOther 6 were drowning in trying to regulate back into civilian life\u2026too much for them. But I stg you couldn\u2019t tell. \n\nSometimes you just really can\u2019t tell. And that shit is really painful. Especially when all you can remember is how uplifting they were when you were on that same exact boat. \n\nI\u2019m sorry you are going through it man, genuinely"
+      },
+      {
+        "id": "nqi8hbp",
+        "score": 43,
+        "body": "Wait, James Kennedy?? Was he a combat engineer???"
+      },
+      {
+        "id": "nqj6n1o",
+        "score": 42,
+        "body": "This is a lonely time of year for many veterans. A phone call from a friend means a lot!"
+      },
+      {
+        "id": "nqi4vd4",
+        "score": 40,
+        "body": "I'm sorry you lost him, bro."
+      },
+      {
+        "id": "nqkmvy7",
+        "score": 36,
+        "body": "Really well said."
+      },
+      {
+        "id": "nqiro6x",
+        "score": 34,
+        "body": "Unfortunately with you with a big number. It was losing four in one year that led me to seek help and then later VA related help. \n\nFrom the outside each seemed good but they were all pushing it down. \n\nYes, do buddy checks"
+      },
+      {
+        "id": "nqj0t2t",
+        "score": 33,
+        "body": "No bro he was a cook"
+      },
+      {
+        "id": "nqkv1mj",
+        "score": 29,
+        "body": "I just wanted to make sure someone responded in the wee hours of the morning. I was too out of it to talk. You just can't leave someone alone with that. We've all been there, I think."
+      },
+      {
+        "id": "nqii6uy",
+        "score": 23,
+        "body": "Weird, I was going to ask the same question"
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1paymdy",
+    "title": "2026 pay chart",
+    "body": "",
+    "flair": "Headlines & News :rsz_21601:",
+    "score": 1113,
+    "comment_count": 247,
+    "created_at": "2025-12-01T00:44:41+00:00",
+    "top_comments": [
+      {
+        "id": "nrmsx47",
+        "score": 199,
+        "body": "Get birth certificates and marriage certificates in your records!!! ASAP!!!"
+      },
+      {
+        "id": "nrmwsbp",
+        "score": 112,
+        "body": "One thing to add:\n\nIf you\u2019re 100% and your kiddo is using CH 35 Benefits to attend school, you CANNOT claim them as part of your disability payment. Just food for thought as you\u2019re planning."
+      },
+      {
+        "id": "nrmrqr6",
+        "score": 93,
+        "body": "Less than inflation\u2026 great."
+      },
+      {
+        "id": "nrmvbld",
+        "score": 66,
+        "body": "Then wait 6 months \ud83e\udd23\ud83e\udd23. Had to call multiple times. They tried claiming her birth certificate had no birthdate. She was just added this month"
+      },
+      {
+        "id": "nrncjuj",
+        "score": 56,
+        "body": "I got married on the 18th, uploaded the certificate on the 20th at 8am and my wife was approved and added by 9am"
+      },
+      {
+        "id": "nrnbvtr",
+        "score": 33,
+        "body": "Thanks for this. I had no idea and was looking forward to having both, but I will adjust my plans so the kiddos get the stipend which is better than the extra disability compensation for a school aged dependent."
+      },
+      {
+        "id": "nrmtkg0",
+        "score": 32,
+        "body": "I believe it typically is"
+      },
+      {
+        "id": "nrn6ru6",
+        "score": 22,
+        "body": "Because 10 & 20 percent are fixed even if you have kids or parents support."
+      },
+      {
+        "id": "nrmsoun",
+        "score": 18,
+        "body": "You have to have that information in your file"
+      },
+      {
+        "id": "nrmym7e",
+        "score": 16,
+        "body": "[removed]"
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1q4dslc",
+    "title": "Phantom Beeps",
+    "body": "",
+    "flair": ":snoo_tongue:Meme Monday:snoo_joy:",
+    "score": 1092,
+    "comment_count": 78,
+    "created_at": "2026-01-05T05:59:25+00:00",
+    "top_comments": [
+      {
+        "id": "nxrvpgm",
+        "score": 115,
+        "body": "Then you get the little message, please only press the button when you hear the beep \ud83d\ude2d"
+      },
+      {
+        "id": "nxrweju",
+        "score": 64,
+        "body": "But I do hear a beep \ud83d\ude22"
+      },
+      {
+        "id": "nxrywwg",
+        "score": 54,
+        "body": "The beep is in the room with us right now! I swear!"
+      },
+      {
+        "id": "nxru3cd",
+        "score": 48,
+        "body": "I cannot hear shit, like my hearing is horrendous and my military record shows a decline from enlistment to separation yet it\u2019s the one thing the VA has refused to service connect lol I believe all these tests are rigged. I refuse to believe it\u2019s real."
+      },
+      {
+        "id": "nxsbwix",
+        "score": 28,
+        "body": "Bro! I will never forget. \u201cYou only have to press the button once\u201d \u201cyeah but you said every time I hear a beep\u201d \u201cyeah, we haven\u2019t started yet\u201d \u201cohhh, my bad\u201d"
+      },
+      {
+        "id": "nxs5mt5",
+        "score": 21,
+        "body": "Like I hear the letter e all the time! Like for 30 years now! And Beep has that sound! So, like yes I hear the beeeeeeeeeeeeeep! LOL"
+      },
+      {
+        "id": "nxrumvk",
+        "score": 17,
+        "body": "I love I got told I have severe hearing loss from when I joined.  But it\u2019s not service connected.   Huh? So getting blown up. Shooting 50 cal and tank rounds without hearing protection wouldn\u2019t have done that.  Got it."
+      },
+      {
+        "id": "nxth1d4",
+        "score": 16,
+        "body": "You do? I just hear the EEEEEeeeeeeeee....eeeeeEEEEEE"
+      },
+      {
+        "id": "nxu3d2n",
+        "score": 15,
+        "body": "\u201cYour hearing loss is due to aging\u2026 yet your degenerative arthritis is service connected\u2026\u201d"
+      },
+      {
+        "id": "nxrv0nt",
+        "score": 14,
+        "body": "No I think he is just referring to the phenomenon when the beeps get super faint and you can\u2019t 100% tell if you heard a beep or if it\u2019s the constant ringing in your ears that emulated the sound"
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1ou9y6g",
+    "title": "Happy Veterans Day",
+    "body": "",
+    "flair": "VA Disability Claims :claim:",
+    "score": 1088,
+    "comment_count": 56,
+    "created_at": "2025-11-11T13:50:25+00:00",
+    "top_comments": [
+      {
+        "id": "noadhog",
+        "score": 56,
+        "body": "Until they kill a hostile extraterrestrial I don't believe they exist"
+      },
+      {
+        "id": "noa7wte",
+        "score": 34,
+        "body": "No Space Force in the graphic?  I know, but they are legally an Armed Service."
+      },
+      {
+        "id": "noae5cj",
+        "score": 20,
+        "body": "May your free Dunkin and chilis be nourishing!\u2026 and tip your servers you animals\u2026"
+      },
+      {
+        "id": "nobdsgw",
+        "score": 17,
+        "body": "Thanks for including the Coast Guard\ud83e\udd72"
+      },
+      {
+        "id": "noafrc3",
+        "score": 16,
+        "body": "![gif](giphy|l1J3tMsNhweYArqOk)"
+      },
+      {
+        "id": "noandox",
+        "score": 14,
+        "body": "I want some booty for veterans Day!"
+      },
+      {
+        "id": "noarcxd",
+        "score": 12,
+        "body": "One day the space force will be our only hope against the aliens \ud83d\ude4f"
+      },
+      {
+        "id": "noawnyr",
+        "score": 8,
+        "body": "The unfortunate reality is that they'll just be checking IDs at the Stargate."
+      },
+      {
+        "id": "noarblr",
+        "score": 8,
+        "body": "To The Trough!!!"
+      },
+      {
+        "id": "nob6b2p",
+        "score": 7,
+        "body": "Not sure that\u2019s going to be free \ud83d\ude06\ud83e\udee2"
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1pohltz",
+    "title": "Stop telling people about disability",
+    "body": "Plain and simple. Don\u2019t brag to people and stop telling everyone who hasn\u2019t served about it. It\u2019ll be ripped from us before we know it. ",
+    "flair": "VA Disability Claims :claim:",
+    "score": 1046,
+    "comment_count": 78,
+    "created_at": "2025-12-16T23:51:38+00:00",
+    "top_comments": [
+      {
+        "id": "nufutww",
+        "score": 386,
+        "body": "First rule of VA club...."
+      },
+      {
+        "id": "nufh06b",
+        "score": 371,
+        "body": "I tell no one. I don't even like telling people I'm a vet. To many haters. But I drive a plain car, wear plain clothes, avoid large crowds, do my best to look and act like your average empty headed unknowing unprepared civilian."
+      },
+      {
+        "id": "nufru8d",
+        "score": 332,
+        "body": "The worst are the people making TikTok\u2019s about it"
+      },
+      {
+        "id": "nuff84t",
+        "score": 183,
+        "body": "I agree in most cases. I made the mistake of telling someone who i thought was a friend about it when they asked how i could afford to use my FMLA. Within days my entire work space knew about it, rumors started and multiple people started asking me to buy them shit. I ended up being targeted and fired.\nI also wont tell family specifics because a few members have shown jealousy or resentment towards me over it."
+      },
+      {
+        "id": "nufe0mj",
+        "score": 164,
+        "body": "For fuck sake, its not a secret. Politicians have you where they want you, afraid and begging them not to take something away you are entitled to. Inform those who need to know, encourage those who have a claim to apply, after that no need to broadcast it."
+      },
+      {
+        "id": "nufj0bg",
+        "score": 158,
+        "body": "The fact that the washington post is cracking down and putting out stories of va scammers makes this a real threat. Welfare vets. Rahhhh. They are coming for your disability. Keep your mouth shut"
+      },
+      {
+        "id": "nuflpem",
+        "score": 117,
+        "body": "Same, now a Full-time student who many don't even know served."
+      },
+      {
+        "id": "nufp7ob",
+        "score": 100,
+        "body": "Imagine asking someone to buy you something in general but a coworker because they get VA benefits is so nuts lol"
+      },
+      {
+        "id": "nufttrv",
+        "score": 85,
+        "body": "I\u2019ll probably diverge from most of the pack but never stop talking about your benefits!\n\nMy exception to that is of course, if it brings you personal issues in your workplace or with family or friends, it\u2019s not worth that much.\n\nThis country is approaching a dark place where the effects of the few hoarding everything away from the many is becoming harder to ignore. AI isn\u2019t a serious threat yet, but another 5/10 years from now and social safety nets will be the only answer. The VA is the best example of my mind of the good government can do. And I think the VA works because we as veterans cherish it and protect it. \n\nMost people are raised with the Reaganite belief that government = bad. But the benefits that Congress receives, as well as the benefits we receive as veterans dispel that narrative. If we served this country to protect it, for me, that also includes trying to better it and right now, I\u2019m only doing it in a small way just talking about these benefits and the good they do for so many. \n\nVeterans before us fought long and hard to get what is relatively easy for us to obtain. Not talking about it will never be the answer. We earned this shit. And if a random South African immigrant can loot our coffers to build billion dollar business subsidized by our tax dollars or if we can bail out every industry under the sun when they make a little boo boo when they get caught up in profit maxing, then every day Americans should benefit too."
+      },
+      {
+        "id": "nufo1lh",
+        "score": 82,
+        "body": "I hate making a big deal about my service. I really try not to talk about it unless I\u2019m asked."
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1l5609o",
+    "title": "Life as a Rater has came to an end",
+    "body": "*update: I made this post feeling defeated. I honestly assumed I would be attacked. I want to thank all of you. While I don\u2019t know any of you, you have helped me more than you could ever know with your positive comments and support. From the bottom of my heart, thank you.*\n\nI know and understand why some people hate raters. I was not always a rater. I am a veteran and have many friends that are veterans. Before I became a rater I worked different veteran related positions after the Army. \nI went to the VA thinking I could make a difference. That at least the claims I worked on would be done right.\nRating is stressful. That\u2019s the best way I can put it. Does it pay decent? Yes. At the benefits good? Yes. Am I shot at or out in physical harm\u2019s way? No.\nFor those that don\u2019t know, the training to be a rater is not fast and you\u2019re mentored typically for 6 months while working claims, after your training. There are \u201cproduction\u201d standards; meaning you get \u201cpoints\u201d every day more or less based on every issue you rated (I.e. left lower extremity sciatica (1 issue)) and for what kind of claim it is (original, supplemental, etc.) determines how much credit each issue is. And on top of that you are randomly audited, and those reviewing your claims don\u2019t always agree with each other on what is an error & what is not. I have a friend I came up with who is a \u201creviewer\u201d who has disagreed with almost every error ever called on me and literally wrote to me how to fight those errors; most of those errors still stand. I work for a division that disagrees with another divisions\u2019s entire quality review team on a large subject for errors. This is normal stress as a rater. \nNow there is a demand for more work to be done and for a while there was no overtime. Now mandatory overtime is back because VBA/VA realized without overtime less claims were being rated. \nHere\u2019s a \u201csecret\u201d that many don\u2019t know, nor realize. Many raters worked \u201cfree overtime\u201d to meet their standards (points and quality). Meaning, typically a rater can only get creditable transactions between 6 am to 6 pm. There are raters that would work outside this time frame, some rating to midnight or later\u2026and they wouldn\u2019t basically \u201chit enter\u201d so to speak, to take credit for their work until the next day between 6 to 6. Now with 100% return to office raters can\u2019t really work much, if any free overtime. So this backlog will persist. Management is aware this goes on and most don\u2019t care as long as the work gets done. A lot of the management at an RO were raters themselves and also worked free overtime when they were. Now, some raters will say they never worked free overtime but I assure you many do. Personally, I looked at is like \u201cI don\u2019t have to commute to work and back, so 2 hours free overtime is no big deal.\u201d So many days I\u2019d be working 1.5-2 hours free overtime..sometimes 3.\nLife as a rater meant I often times was taking my work home with me. I was thinking & worrying how I\u2019d rate a claim the next day and often times second guessing myself how I rated a claim. I would worry that I was screwing over a veteran.\nWhat many don\u2019t realize is there are many variables for many claims in how they\u2019re rated. I can tell you just about every day as a rater means I\u2019m looking at an exam that an examiner didn\u2019t do correctly. I have to somehow find a way to still salvage/use that exam or I delay the claim by sending it back to the examiner to fix it. Or order an entire new exam\u2026order medical opinions because who ordered the exams overlooked something, etc. On top of that, examiners often times don\u2019t like to admit they\u2019re wrong..usually don\u2019t. They will instead word their mistake very obscure or try to put the fault on who ordered the exam. Because examiners\u2019 exams somewhat get reviewed as well. \nMy favorite days as a rater are when I can grant 100% P&T to somebody. \nBut over the last year I took more and more of the stress and anxiety of the job home with me. I was considered a subject matter expert and constantly helping out others, other regional offices, divisions and so forth. My wife was asking me to quit my job. She asked me many times to quit. \nNow my marriage is over. Not just because of my job as a rater but it definitely is part of the reason. \nI went to VA inpatient health care for over a week. My wife, close friends, family, and every medical professional I am working with agree that quitting life as a rater makes sense. I can no longer, for my mental health continue being a rater. \n\nAm I saying every rater is a good person? No. But I am saying there are a lot of raters that do care. Many raters are also veterans. \n\nI predict there will be more quitting soon, if not RIF\u2019d/PIP\u2019d out. And for the record, I am not not ever was on a PIP. I just can\u2019t continue the mental crap\u2026I was happier in the military making less money. \n\n",
+    "flair": "VA Disability Claims :claim:",
+    "score": 1019,
+    "comment_count": 281,
+    "created_at": "2025-06-06T22:57:28+00:00",
+    "top_comments": [
+      {
+        "id": "mwegqce",
+        "score": 288,
+        "body": "My thoughts are with you, my heart is with you, and I want to thank you for your service both inside and out. I\u2019m sorry this process took its toll on you. \nEvery Vet, including myself appreciates you! \u2764\ufe0f\ud83d\ude4f"
+      },
+      {
+        "id": "mwehnsp",
+        "score": 132,
+        "body": "Brother, you went above and beyond. Take a load off, you deserve it. Us veterans will keep putting in the work and teaching the next generation that they too deserve to be compensated for being broken. You are leaving it better than you found it, by rating one vet 100% or 1000 vets 10% you have helped change lives for the better. Thank you."
+      },
+      {
+        "id": "mwejl8p",
+        "score": 91,
+        "body": "Thank you"
+      },
+      {
+        "id": "mweh02b",
+        "score": 88,
+        "body": "As a social security employee myself I agree with all of this. Keep your head up."
+      },
+      {
+        "id": "mwenwq5",
+        "score": 74,
+        "body": "I had a rater overrule the C&P examiner and give me a favorable decision. In my experience, the raters I've received have been excellent. Not one bad word to say about them.\n\nI hope you can get your wife and life back. You are deeply appreciated."
+      },
+      {
+        "id": "mwezizc",
+        "score": 60,
+        "body": "Brother, if I could buy you a beer I would. If you\u2019re in Alabama any time I\u2019ll make right on it. Thank you for your hard work and dedication to all of us."
+      },
+      {
+        "id": "mweo4ef",
+        "score": 58,
+        "body": "Sometimes I can override an examiner. Thanks but the marriage is over. Have future plans elsewhere for a far less stressful life. Thank you"
+      },
+      {
+        "id": "mwfsmbq",
+        "score": 42,
+        "body": "- \u201ctake a load off\u201d\n- \u201cteaching the next generation\u201d\n- \u201cleaving it better than you found it\u201d\n\nSound messaging right here, nothing to add from me."
+      },
+      {
+        "id": "mwegr8m",
+        "score": 38,
+        "body": "I\u2019m sorry to hear about all of this. I\u2019ve got to admit that this week my claim (at least to me) went in the wrong direction and went back a couple steps to step 3 with an exam review partially completed flag.. anyway, I was finding myself getting angry and nervous about this but you definitely opened my eyes that you are all people too"
+      },
+      {
+        "id": "mweh1j2",
+        "score": 38,
+        "body": "Man, I am so sorry to read this.\n\nI do want to push back against the \"free overtime\" thing.  I have never, and would never, work for free, for a couple of reasons:  I love what I do, but I also like money; and working OT without approval can be fireable. \n\nYou're 1,000% right about the stress, though.  \n\nI wish you well in the future.  I've got 18 months before I reach MRA, and I am hoping I can hold on until then."
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1jnus2q",
+    "title": "Why do vets dont give a shit?",
+    "body": "Welp!",
+    "flair": ":snoo_tongue:Meme Monday:snoo_joy:",
+    "score": 1020,
+    "comment_count": 105,
+    "created_at": "2025-03-31T04:05:04+00:00",
+    "top_comments": [
+      {
+        "id": "mkmwcwo",
+        "score": 285,
+        "body": "The military taught me how to take L\u2019s and keep it moving.. \n\nJust the other night, I woke up at 3AM with some crazy painful chest pain. I really thought I was gonna have a heart attack or something; my first reaction was \u201cfuck it\u201d; second reaction was to put some shorts on, I don\u2019t want the fire department finding me naked and making fun of me. I was already reading the news header..\u201cNaked Veteran found laying in his bed face down\u201d lol   \n\nTurns out, I just had heartburn from eating tacos the night prior"
+      },
+      {
+        "id": "mkmx0b7",
+        "score": 125,
+        "body": "*Drives up to Taco Bell*\n\n\u201cIf I die, I die. So be it.\u201d"
+      },
+      {
+        "id": "mknapbs",
+        "score": 99,
+        "body": "I learned, it can always be worse. \n\nYou could be sleeping in the rain.\n\nYou could be sleeping in the rain and then get shot at.\n\nYou could be sleeping in the rain and get shot.\n\nYou could be sleeping in the rain and have no bivy.\n\nYou could be sleeping in the rain and get a muscle spasm in your quad at 2 am from the 23km you just walked with 90 extra pounds.\n\nYou could be sleeping in the rain. \n\nYou know, sleeping in the rain might just be the shittiest thing there was."
+      },
+      {
+        "id": "mkmxhyb",
+        "score": 35,
+        "body": "As much as it sucked\u2026God do I miss it. I find the suck and love it every time I\u2019m in it, especially cold ass rain. A remembrance to my boys, and the suck!\n\nWhen the fuck does it rain in Afghanistan?? When grunts are there!\n\nSweeping cold as rain out of our FOB just so we don\u2019t drown is a memory I will always cherish."
+      },
+      {
+        "id": "mkn38qz",
+        "score": 35,
+        "body": "I woke up with chest pain the other night too. I tried to take some pepto for it but it turns out I was having a heart attack. Called an ambulance and had that corrected it with surgery. Around two hours later I had another heart attack, and they corrected that. A few hours after that I had an arterial bleed. Fun stuff."
+      },
+      {
+        "id": "mkmxcub",
+        "score": 30,
+        "body": "That was the day I  found out I was not the wicked witch of the west despite mostly being green."
+      },
+      {
+        "id": "mko4bkr",
+        "score": 27,
+        "body": "Bro i had to mop in the rain"
+      },
+      {
+        "id": "mkmx9ei",
+        "score": 26,
+        "body": "Not that first time we've come to that fork in the road!"
+      },
+      {
+        "id": "mknywya",
+        "score": 24,
+        "body": "I'm always like\n\n![gif](giphy|uvfEYoOq7HPAA|downsized)"
+      },
+      {
+        "id": "mkngkre",
+        "score": 23,
+        "body": "I'm 42. I had my first heart attack at 28. I was going for a run with my unit during morning PT when that one happened."
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1lp7cig",
+    "title": "Lifetime America The Beautiful Park Pass",
+    "body": "Got my Lifetime National Parks and Federal Rec Lands pass today. \nIt\u2019s free for vets. We just pay the shipping and handling fee ($10)\n\nAll it took to verify was for me to check off the veteran box and provide my birthday. Not much of an eligibility check but not much I can do about that. \n\nhttps://store.usgs.gov/MilitaryPass\n\n",
+    "flair": "Vet Discounts/Freebies :moneybags:",
+    "score": 992,
+    "comment_count": 136,
+    "created_at": "2025-07-01T17:11:10+00:00",
+    "top_comments": [
+      {
+        "id": "n0sn73r",
+        "score": 196,
+        "body": "Just a note, if you have ANY rated disability, the Access pass is a better option.  Free, good for life, and offers more  access and discounts."
+      },
+      {
+        "id": "n0slk9f",
+        "score": 99,
+        "body": "You can also pick one up at approved local sites for free. \n\nI picked a free one up from our local Corps of Engineers office.\n\nEdit: Link to how to get a pass. In the green box is a link to pick up the free pass.\n\nhttps://store.usgs.gov/access-pass"
+      },
+      {
+        "id": "n0sr0ax",
+        "score": 77,
+        "body": "Just got mine the other week... Here is the link for more information\nAccess Pass - Accessibility (U.S. National Park Service) https://share.google/D0lQkucODX9dqw9ve"
+      },
+      {
+        "id": "n0sn7aa",
+        "score": 45,
+        "body": "You can also get a free Veterans Pearl players card from MGM Casino. The Pearl players card gets you free parking to any MGM casino. So even for those who don't gamble and want to go to an event that's in and around a casino you can park there for free."
+      },
+      {
+        "id": "n0sr7xn",
+        "score": 41,
+        "body": "Used mine to go to Volcanos National Park a couple days ago. I got to see K\u012blauea erupt.\n\nhttps://preview.redd.it/qvc0uty0xaaf1.jpeg?width=2268&format=pjpg&auto=webp&s=aef6b72e4f70b9b4121bbb6d017e34a586d471ca"
+      },
+      {
+        "id": "n0so52h",
+        "score": 30,
+        "body": "Because it\u2019s all gonna get sold."
+      },
+      {
+        "id": "n0slm2m",
+        "score": 28,
+        "body": "Better get your passes and use them while you still can."
+      },
+      {
+        "id": "n0t24dx",
+        "score": 27,
+        "body": "The access pass basically gets you all the stuff as the military pass (basically access to parks and such) and you can get discounts with various things. They don't have a total list because the discount depends on which agency is actually running the site.\n\nhttps://store.usgs.gov/faq#Access-Pass"
+      },
+      {
+        "id": "n0srvj8",
+        "score": 24,
+        "body": "Not quite.\nPrivate interests can purchase the \"concessionaire\" rights to Fed Rec Sites and charge you. Locally to me, Lake of the Woods Oregon, a Federal Recreation Site within the Winema National Forest was purchased by a wealthy real estate developer and they charge a day use fee  even for \"America the Beautiful\" interagency pass holders, contrary to the Federal pass policies. \n\nBelieve it, our shared publically owned resources will be stolen from us and we will be charged in the future. And that price will stop creeping upward, it will skyrocket."
+      },
+      {
+        "id": "n0smh61",
+        "score": 23,
+        "body": "Until they\u2019re sold. Hopefully BlackRock honors the passes"
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1jmr2i6",
+    "title": "Got my parks pass",
+    "body": "Got my national park pass in today. Free lifetime access to all national parks in the US. Gotta pay a camping fee for the camper and all....but still gotta secure one of those. Any one that's served or a disabled veteran qualifies for the free national park access...just gotta go to USGS (they oversee parks apparently) and fill out the request and prove service. The pass is free, but there's a 10.00 processing fee for doing it online or you can go to a national park and get it in person for free (there's a list of them on the website that you can get your pass at as not all national parks can issue them but they all accept them). ",
+    "flair": "Vet Discounts/Freebies :moneybags:",
+    "score": 993,
+    "comment_count": 125,
+    "created_at": "2025-03-29T17:11:46+00:00",
+    "top_comments": [
+      {
+        "id": "mkdvany",
+        "score": 118,
+        "body": "Honestly, If you have any amount of service connection get the \u201cAccess\u201d pass instead of the military.    It\u2019s also free but unlike the \u201cveteran\\gold star\u201d, other federal and some state agencies recognize the \u201cAccess\u201d and \u201cSenior\u201d passes but not any of the other ones.  You\u2019ll regularly fine greatly reduced camping fees at many BLM, USFS, ACOE\u2019s, bureau of Reclamation, etc. that\u2019s why those 2 versions are often referred to as \u201cInteragency Pass\u201d. The other benefit that many also provide with it is handicap accessible campsite priority when available\u2026.\n\nWe\u2019ve camped in places like Moab for $7 bucks, FHU\u2019s at ACOE parks in Arkansas for $18 instead of $36."
+      },
+      {
+        "id": "mkeo8qg",
+        "score": 51,
+        "body": "NPS Ranger and retired Marine here, and willing to answer any questions folks have about these passes, how to get one, perks, etc.\n\nGold Star and Veterans Pass:  Show a military ID (active, reserve, retired DoD ID card, or an active dependents ID card), DD-214 (honestly we aren\u2019t supposed to even look at it because it has your SSN on it, more of a check in the box).  Ask at the entrance station or visitor center depending on the park.  ** while we can\u2019t take a tattoo, sticker or moto shirt as proof and issue a pass, we let folks in for free if they seem legit and just didn\u2019t know to bring proof of service.\n\nAccess Pass:  any veteran with a permanent disability (meaning a freaking 0% or above) can get this lifetime pass for free.  Also good for 50% off camping sites and some other discounts.  Due to privacy laws, no medical proof is required, you literally just show your proof of service and say you have a permanent disability and they will issue you the lifetime pass.  When my dad got his at Yosemite, they asked him if his disability was permanent and he tapped on his prosthetic leg and said it hadn\u2019t grown back yet\u2026LoL.\n\nEach person can have/use one pass (meaning you can\u2019t get a vet pass and an access pass and let your kid use one to get into a park in the car behind you) at a time, and can replace a lost or stolen one easily.\n\nA pass is good for the vehicle you\u2019re in (car, truck, RV\u2026no busses), or one motorcycle or up to four people on bicycles, or four people on foot."
+      },
+      {
+        "id": "mkdvkii",
+        "score": 48,
+        "body": "Heads up, that hanger WILL melt in the sun"
+      },
+      {
+        "id": "mkeitt8",
+        "score": 38,
+        "body": "Don\u2019t play my mixtape in your car while it\u2019s hanging"
+      },
+      {
+        "id": "mkeq77u",
+        "score": 37,
+        "body": "Just went to the grand canyon last week. I already had the veteran pass but I couldn't find it. As I pulled up he was already asking if anyone was military in the car. I gave him my va card and without even asking he gave me an access card because it said service-connected. \n\nHonestly very impressed that they push it so much. I was in rental car so there was no indicators of military service."
+      },
+      {
+        "id": "mkdz983",
+        "score": 33,
+        "body": "I had to check and I have the Access Pass. Definitely a great perk."
+      },
+      {
+        "id": "mke6pmd",
+        "score": 33,
+        "body": "https://store.usgs.gov/access-pass"
+      },
+      {
+        "id": "mke2lcu",
+        "score": 23,
+        "body": "Sure.  The Access pass will do everything that veteran one does but more.  There\u2019s no real benefit of the veteran one over the access or senior (aka golden age) pass.  Just be aware, that many of the staff giving them out may not know all the rules appropriately and may ask for proof of disability which they aren\u2019t really allowed to do.   \n\nWhen I gave them out at Land Between the Lakes, we weren\u2019t allowed to ask what your disability was.  We just wrote their basic info on a tracking sheet to track the cards given out and captured a signature from them attesting that they have some disabling condition.  Also note that the Access pass is not military exclusive, but anyone with disabilities\u2026.."
+      },
+      {
+        "id": "mkerokw",
+        "score": 18,
+        "body": "I just applied online for the Access pass. It prompted me to upload supporting documentation. So I uploaded a pic of my DL and my 100% P&T Benefit Summary Letter without pay showing."
+      },
+      {
+        "id": "mke4tfq",
+        "score": 14,
+        "body": "Thanks. Access pass you can also get online?"
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1jz5puc",
+    "title": "The all seeing eye!",
+    "body": "It be like that. ",
+    "flair": ":snoo_tongue:Meme Monday:snoo_joy:",
+    "score": 980,
+    "comment_count": 120,
+    "created_at": "2025-04-14T18:12:56+00:00",
+    "top_comments": [
+      {
+        "id": "mn44oj4",
+        "score": 143,
+        "body": "Hilarious lol. What\u2019s ironic is if u don\u2019t stay active, you\u2019ll be in far worst condition than u would just sittin around"
+      },
+      {
+        "id": "mn3yauj",
+        "score": 121,
+        "body": "Meh I was homeless when I got my disability rating. \n\nFor sure that money is helping look like I function normally, and i look physically healthy, but I still don't. that's what sucks about these mental issues. Mother fuckers always assuming you are malingering. \n\nThat being said I still tell people cause maybe one day it won't seem out of place."
+      },
+      {
+        "id": "mn3u14u",
+        "score": 110,
+        "body": "That's why I got an in-home gym lmao"
+      },
+      {
+        "id": "mn3zkkt",
+        "score": 71,
+        "body": "They can watch all they want... I had no clue what a murph time was till this post..."
+      },
+      {
+        "id": "mn4bleo",
+        "score": 62,
+        "body": "My back hurts like a motherfucker and I didn't leave my apartment for a year, and I still think about killing myself every other week. If I want to go to the gym to try and feel a little normal every so often I'm gonna go to the gym."
+      },
+      {
+        "id": "mn47wio",
+        "score": 58,
+        "body": "Correct!! \n\nI've had to explain to people that see my license plate that I'm not useless, I can still move around, play with my kids, even be \"ok\" at a contact sport, it's just everything is harder for me to do than if I hadn't given 20 years of my life slogging heavy shit for the army. \n\nPlus what am I supposed to do, sit on my ass and die sooner? I wish there was another word for 100% disabled vet, but its too late to go changing things I guess."
+      },
+      {
+        "id": "mn3v15h",
+        "score": 39,
+        "body": "Same, well, that and I can now blare Alice In Chains to my hearts content :)"
+      },
+      {
+        "id": "mn3zpuc",
+        "score": 30,
+        "body": "Same it\u2019s what I\u2019m constantly worried about. \n\nBut all someone has to do is talk to me to realize I\u2019m absolutely insane."
+      },
+      {
+        "id": "mn6dnm9",
+        "score": 30,
+        "body": "Best I can do is a jog and a nice bike ride."
+      },
+      {
+        "id": "mn62veu",
+        "score": 29,
+        "body": "Your time to complete the Murphy Challenge, coined for KIA Navy SEAL LT Michael Murphy.\n\n1 mile run, 100 pull ups, 200 push ups, 300 air squats, another 1 mile run.\n\nWe used to do it a few times a week as platoon PT. We had a high speed Cpl that was a recon drop and eventually we were doing it in full cammies, flak w/SAPIs, and sometimes a pig egg or whatever it was called for the run."
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1pj5pnb",
+    "title": "VA Canteen 5$ Breakfast Special",
+    "body": "My local VA canteen is amazing. Plus, you can not beat the prices.\n\nI got an omlete with American Cheese and French toast. You have to get American over cheddar because of the melt.\n\nSupport your local VA canteen!!\n\n\\*\\* Pensacola VA clinic, canteen!! Shout out to them, you rock!",
+    "flair": ":Spanish_question_mark: Other :VA_logo: Stuff :Question_mark:",
+    "score": 969,
+    "comment_count": 230,
+    "created_at": "2025-12-10T15:38:51+00:00",
+    "top_comments": [
+      {
+        "id": "ntb0a5l",
+        "score": 647,
+        "body": "That omelette screams former DFAC cook"
+      },
+      {
+        "id": "ntb0qa7",
+        "score": 220,
+        "body": "I've been out for over a decade and had zero fucking clue the VAs have a damn canteen. Next lab work there after fasting I'm hitting it up. So stupid to not realize it, like it just dawning on ya that hospitals have cafeterias, but alas I'm a dumb ass jarhead."
+      },
+      {
+        "id": "ntb2q8k",
+        "score": 212,
+        "body": "The folds are so perfect\u2026"
+      },
+      {
+        "id": "ntb40dq",
+        "score": 131,
+        "body": "I wonder if you can ask them to add crayons to your omelette."
+      },
+      {
+        "id": "ntbidzj",
+        "score": 118,
+        "body": "I've never been able to replicate a good military omelette."
+      },
+      {
+        "id": "ntbnx71",
+        "score": 95,
+        "body": "Add no milk and have a well oiled grill big enough for the omelette to expand to max thinness."
+      },
+      {
+        "id": "ntb1cp8",
+        "score": 76,
+        "body": "I thought I was looking at a breakfast plate at a chowhall."
+      },
+      {
+        "id": "ntbdob1",
+        "score": 69,
+        "body": "Ill get them in honor of your chair that fought valiantly to hold your non rec ass for 4. Good damn burn though lol."
+      },
+      {
+        "id": "ntcmr02",
+        "score": 63,
+        "body": "This guy DFACs!!!"
+      },
+      {
+        "id": "ntb766a",
+        "score": 55,
+        "body": "Man, for $5 bucks these days? I\u2019d order two and have a killer little breakfast. $5 bucks barely gets you a Redbull now."
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1othiid",
+    "title": "One of the greatest benefits ever...",
+    "body": "So, I have two daughters in elementary school, and they begged me to go to their Veteran's Day celebration that was held today.   I agreed, and went this morning.  They had all the veterans parade around the elementary school with their children with them.  They handed out small American flags and small Red/White/Blue pins.   We walked all around the halls and they were lined with all the school children waving, slapping hands, thanking, etc.  The teachers were all so sweet.   It filled me with such pride to be appreciated in this very simple way.  It felt great to see my daughters filled with pride that their dad served.  It was a wonderful event.\n\n  \nI know we all like to get on here and complain about this, that, or the other about the VA, backpay, exams, each other, etc.   I just thought I would share a small benefit to having served that meant/means the world to me.   Thank you for anyone who read this.  I just had to share it with someone.",
+    "flair": "VA Disability Claims :claim:",
+    "score": 949,
+    "comment_count": 80,
+    "created_at": "2025-11-10T15:57:37+00:00",
+    "top_comments": [
+      {
+        "id": "no4j7iu",
+        "score": 136,
+        "body": "How incredibly sweet! Your little girls are proud of their daddy. What an amazing honor."
+      },
+      {
+        "id": "no4l2vz",
+        "score": 67,
+        "body": "My 4th grade daughter interviewed me in front of her entire school on Friday for the schools veterans day celebration."
+      },
+      {
+        "id": "no4kn2z",
+        "score": 54,
+        "body": "The purity and joy of this... My heart may grow three sizes."
+      },
+      {
+        "id": "no4z9yn",
+        "score": 40,
+        "body": "OP literally said in the post \"It felt great to see my daughters filled with pride that their **DAD** served\"."
+      },
+      {
+        "id": "no57pi3",
+        "score": 33,
+        "body": "Can you get that service connected?"
+      },
+      {
+        "id": "no4ls7k",
+        "score": 30,
+        "body": "I went to one held at my cousins\u2019 high school on Friday. It really does recharge the batteries. Nice to be a part of something pure every now and again."
+      },
+      {
+        "id": "no4z7ah",
+        "score": 30,
+        "body": "I\u2019m in East Texas and my Grandson invited me to his school\u2019s Veterans Day celebration tomorrow. I really don\u2019t want to go but I just couldn\u2019t say no to him. My Daughter even got some old pictures and they were going to be placed on their Honor Wall. I usually don\u2019t wear a vet hat but I went and got one to wear tomorrow. Wish me luck!\ud83c\uddfa\ud83c\uddf8"
+      },
+      {
+        "id": "no4jy45",
+        "score": 28,
+        "body": "Well done, and a beautiful memory for you and your girls."
+      },
+      {
+        "id": "no4hjv3",
+        "score": 19,
+        "body": "Omg I love this !!!!"
+      },
+      {
+        "id": "no4j55h",
+        "score": 14,
+        "body": "I\u2019ve done this at my kids elementary school the last few years. It\u2019s super cute."
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1mnpv5r",
+    "title": "Made the mistake of telling a close friend about my veteran benefits\u2026",
+    "body": "I know the advice that\u2019s constantly preached is to never tell anyone about your va rating or benefits, even close family and friends. I\u2019ve been struggling a lot lately and recently had my rating increased. I fucked up and opened up to a close friend from high school and revealed everything I was getting.\n\nTheir entire attitude towards me has changed, to the point where their envy and judgement has pretty much dissolved our entire friendship. They acted supportive when I first told them, but quickly started comparing it to being on food stamps and receiving \u201cgovernment handouts for doing nothing\u201d.\n\nFeels bad, man\u2026",
+    "flair": "VA Disability Claims :claim:",
+    "score": 953,
+    "comment_count": 91,
+    "created_at": "2025-08-11T21:31:20+00:00",
+    "top_comments": [
+      {
+        "id": "n86lyrq",
+        "score": 1887,
+        "body": "Recruiter\u2019s door was open to everyone. Sucks for him \ud83d\udc80"
+      },
+      {
+        "id": "n872kff",
+        "score": 730,
+        "body": "When I went in for my first 10% for tinnitus, I sat next to a guy waiting in line at the VSO who was missing a leg. He seemed like a cool dude so I asked him jokingly \u201cwhatcha in for?\u201d\n\nHe laughed and said prosthetics. Said he lost his leg to an IED. He asked me the same question. I replied and also told him I felt like it was better for me to just bounce and save that money for his leg rather than for my tinnitus. \n\nHe got kinda pissed and said \u201cIt\u2019s veterans that think that way that are my problem and why there is no money for the things and care I need.\u201d I asked how could that be?\n\nHe said \u201cCongress appropriates funds based on needs and funds spent the quarter/year prior. If more people like you would come in and get rated for tinnitus or whatever instead of thinking you\u2019re helping me out by not applying, more money would be spent and more money would be appropriated. Just like the squadrons, if they didn\u2019t spend all they were given, they will get less on the next refill.\u201d\n\nHe gave me a more realistic mindset about it and I went ahead and filed for my disability claim.\n\nPerspective is everything."
+      },
+      {
+        "id": "n86p3a1",
+        "score": 561,
+        "body": "As a former recruiter for 18 years I can say this statement is 100% correct."
+      },
+      {
+        "id": "n86lp2b",
+        "score": 407,
+        "body": "They aren\u2019t friends if they cannot be supportive. Real friends will not judge you."
+      },
+      {
+        "id": "n86wo8x",
+        "score": 251,
+        "body": "And it's still open today for him"
+      },
+      {
+        "id": "n871urk",
+        "score": 243,
+        "body": "Perfect answer. We earned what we get point blank period. Also, remember your sacrifices and how blessed you are. Were literally less than 1% of America most pf which wouldn't have made the sacrifices you did."
+      },
+      {
+        "id": "n86n6lq",
+        "score": 231,
+        "body": "Bottom line....  You earned this.  It's part of signing up.  No other job says we have every right to use you any way we want, up to and including your death.\n\nSo yeah, he could have signed up.  Earned his benefits.\n\nThere's a bigger worrisome picture here, though.  If the majority of the public feels our benefits are excessive and unearned, that somehow paying for broken bodies constitute \"absurdly generous benefits\", our long term care is in trouble."
+      },
+      {
+        "id": "n86q2jy",
+        "score": 139,
+        "body": "Lmao and it's not even judgment, simple hypocrisy and envy\ud83d\ude02\ud83e\udd23"
+      },
+      {
+        "id": "n86seix",
+        "score": 131,
+        "body": "First rule of ~~fight club~~ VA ratings, is\u2026well, you know. I made the mistake one time of telling a friend what my net worth is (7 figures.) We were talking about investments and what we\u2019ve done, what\u2019s worked, what hasn\u2019t, etc. (We\u2019re old.) He told me what his net worth was (I did not ask.) His NW is great. But he believes he\u2019s rich (he isn\u2019t. Though he has done very well.) After telling me, he asked mine. I avoided answering and just said I was doing ok. He kept pushing. After several minutes, against my better judgement, I told him the number. My number is significantly higher than his. His entire attitude changed. He was genuinely upset. Since then, he often makes comments about needing a loan from me since \u201cI\u2019m so rich.\u201d He will comment how I won\u2019t even notice the money since \u201cI\u2019m so rich.\u201d To be clear, his NW is very high six figures. He *has* money. But it just upset him that I have more. That\u2019s on me. I knew better and did it anyway. Never again."
+      },
+      {
+        "id": "n86r6hr",
+        "score": 96,
+        "body": "Love this answer! \ud83d\udcaa\ud83c\udffe"
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1mzijta",
+    "title": "lol",
+    "body": "",
+    "flair": ":snoo_tongue:Meme Monday:snoo_joy:",
+    "score": 945,
+    "comment_count": 37,
+    "created_at": "2025-08-25T05:56:49+00:00",
+    "top_comments": [
+      {
+        "id": "najf98a",
+        "score": 47,
+        "body": "Yep.  My doctor...  \nDr:  Any pain today?  \nMe:  Yes.  I know I'm fat so that doesn't help, but it hurts every single morning.  \nDr:  \"Oh, okay.\"\n\n\\~The End\\~"
+      },
+      {
+        "id": "nakhzyf",
+        "score": 23,
+        "body": "Vet: walks in \"hello Doc\"\nDoc: I'm not a Doctor I'm a pyschians assistant\nVet: oh ok well my back hurts \nPA: yeah that's normal mines hurts too"
+      },
+      {
+        "id": "naldvcp",
+        "score": 21,
+        "body": "To make you feel better I did all the things people suggested to make my back not hurt.  I exercised and did weights.  Back still hurt.  I lost 50 lbs.  Back still hurts."
+      },
+      {
+        "id": "nak8wzq",
+        "score": 17,
+        "body": "\"Don't wake up then\" more likely. \n\nJk I use VA for all my care including MH. At my VA (!) I've only met a handful of staff who were dead inside. Everyone else has been caring and helpful."
+      },
+      {
+        "id": "nakcjnj",
+        "score": 15,
+        "body": "It's almost as if I shouldn't have to say that to a supposed medical professional.\n\n\nIt's almost as if they should refer me automatically, or offer that to me because I don't know that that is a thing."
+      },
+      {
+        "id": "nal703d",
+        "score": 14,
+        "body": "Vet:  God Doc, my back hurts more and more each day. I feel like I'm dying, it hurts so bad.\n\nDoc: Well Vet, you know we're actually all literally dying a little each day. \ud83e\udd13\n\nVet: ...\n\nDoc: So if that's it, looks like everything else is good. *turns to computer* \"Veteran has no complaints this visit, all concerns were discussed. Veteran is satisfied with outcome. Follow-up in 6 months.\""
+      },
+      {
+        "id": "najgcup",
+        "score": 12,
+        "body": "[deleted]"
+      },
+      {
+        "id": "najl5nu",
+        "score": 12,
+        "body": "https://preview.redd.it/2nu8io4v54lf1.jpeg?width=1046&format=pjpg&auto=webp&s=c67d93610fcee333bbf7a5643534abe2c3ce10f7"
+      },
+      {
+        "id": "nalo4s6",
+        "score": 8,
+        "body": "I told my doctor my back pain gets so bad that I had to shower on all fours because I can\u2019t support my weight when it gets too bad. \n\nShe told me to buy a shower chair.\n\nI will always be mad about the terrible care I got for my service related injuries."
+      },
+      {
+        "id": "najhfzl",
+        "score": 7,
+        "body": "\ud83e\udd23 that was funny! \ud83e\udd23"
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1o8g30k",
+    "title": "Huge Shout Out to the Raters and VHA workers working without pay.",
+    "body": "I know it\u2019s tough, and y\u2019all are being used as political pawns. But, at least, this veteran appreciates your sacrifice. Thank you!",
+    "flair": "VA Disability Claims :claim:",
+    "score": 939,
+    "comment_count": 102,
+    "created_at": "2025-10-16T19:41:36+00:00",
+    "top_comments": [
+      {
+        "id": "njuobml",
+        "score": 280,
+        "body": "We appreciate that. I\u2019m not a rater but I do work for the hotline and the amount of abuse I\u2019ve gotten in the last two weeks has been unreal. Meanwhile, I just sat down to figure out my budget as a single mom and am horrified that I can only cover my bills and daycare until Nov 3, then I\u2019m up a creek and have no savings to live off of because my divorce this year bankrupted me. I just tried to apply for unemployment through my state and was automatically rejected because I\u2019m still technically working, even though I\u2019m not being paid to work. So I\u2019m basically being punished for being forced to show up to work with no pay. If they furloughed us, we\u2019d be eligible for unemployment and be able to feed our families. It\u2019s a little hard to maintain composure to rudeness on the phone when not being able to feed our children. So your kindness means a lot.\n\n\nEdited to add: \nCame back on to so many kind thoughts and words. You\u2019re all amazing considering it\u2019s I who should be serving you. It\u2019s humbling and it reminds me why I love my job, even as a lowly GS 7 in a call center haha. You guys are all great and I wish you all the best of luck too."
+      },
+      {
+        "id": "njupand",
+        "score": 53,
+        "body": "Im so sorry, just so so sorry this is happening to you. Pressure needs to be put on our government to get going again!!!"
+      },
+      {
+        "id": "njuqj07",
+        "score": 49,
+        "body": "I am deeply, deeply sorry. Hotline workers have saved my life more than once. This is a damn shame."
+      },
+      {
+        "id": "njuq1a0",
+        "score": 28,
+        "body": "Damn I'm sorry, I didn't even think about the unemployment situation. I called earlier this week and was nice to them. Never know what someone is going through."
+      },
+      {
+        "id": "njunl9j",
+        "score": 27,
+        "body": "This veteran appreciates them as well, thank you!"
+      },
+      {
+        "id": "njuohmv",
+        "score": 27,
+        "body": "very much appreciated for real!"
+      },
+      {
+        "id": "njuqy16",
+        "score": 26,
+        "body": "This needs a go fund me"
+      },
+      {
+        "id": "njvfayo",
+        "score": 23,
+        "body": "Consider that you might not be entitled to service connection for whatever it is you think you are."
+      },
+      {
+        "id": "njv3j4e",
+        "score": 17,
+        "body": "Absolutely. The human cost of these little games is ridiculous. \n\nThey expect government employees to work while not getting paid. But they also made sure they get paid even when they refuse to do theirs.\n\nAll the finger pointing, and they all forget that they're playing with people's lives. All of them trying to make political points while the people taking the worst hit get ignored."
+      },
+      {
+        "id": "njuql6f",
+        "score": 17,
+        "body": "i\u2019m sorry to hear that. I recently called the benefits hotline to inquire about my Higher level review and afterwards, the hotline personnel and I exchanged good words and wishes to eachother especially during this time cause it sounded like they were struggling also. Praying something happens soon to get yall paid !"
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1jdgv9f",
+    "title": "Every.Single.Time.",
+    "body": "",
+    "flair": ":snoo_tongue:Meme Monday:snoo_joy:",
+    "score": 943,
+    "comment_count": 42,
+    "created_at": "2025-03-17T16:28:51+00:00",
+    "top_comments": [
+      {
+        "id": "mia8akz",
+        "score": 94,
+        "body": "My favorite is holding the entire unit hostage past close of business. Just waiting on the commander to come back from a meeting just to be told why are you waiting on me? release the guys now. Then it happens every week."
+      },
+      {
+        "id": "mia9zra",
+        "score": 52,
+        "body": "\u201cIf we stay late tonight (Thursday) we can go home early tomorrow\u201d was my favorite lie."
+      },
+      {
+        "id": "miai6rn",
+        "score": 22,
+        "body": "And then remedial PT for everyone who fails height/weight from 1800 til 1930"
+      },
+      {
+        "id": "miafmuz",
+        "score": 18,
+        "body": "My favorite part of being a squad leader was allowing my babies to run away at 1700 a few times a week while i and a few other NCO\u2019s finished up. Great leadership allowed us to make these decisions and it was nice being in a \u201ctrain to standard\u201d type of unit"
+      },
+      {
+        "id": "miajs6w",
+        "score": 17,
+        "body": "\u201cHead over to company area at 1400 for early Friday release\u201d\n\nGet to company area at 1345.  Finally be released by 1730."
+      },
+      {
+        "id": "miahq4g",
+        "score": 16,
+        "body": "At least my 1sg that I didn\u2019t even get along with wasn\u2019t for that bullshit. I was in charge of lawn maintenance and released all soldiers early once all 1sg directives were completed. An MSG came out of battalion bldg and said there was something\u2019s he wanted us to do and wanted me to call the soldiers back, I said no (long pissing match occurred) and if he had a problem he needed to take it to 1sg. This was Friday. On Monday after PT 1sg called me to stack back after dismissal. He basically said the MSG bitched to him about it but then he said that MSG never supports the company when requested so fuck him\u2026lmao"
+      },
+      {
+        "id": "mia9mj9",
+        "score": 14,
+        "body": "\"I need 5 bodies for this plane wash, and none of you other fuckers are going home until it's done!! Let's go, 5 bodies!!\"\n\n(I was always one of the voluntold bodies)"
+      },
+      {
+        "id": "mic590s",
+        "score": 13,
+        "body": "NAVY = Never Again Volunteer Yourself!"
+      },
+      {
+        "id": "mig65jl",
+        "score": 10,
+        "body": "Because one time, the CC came back, saw everyone was gone and went \"Why did you let everyone go? I had something.\"\n\nSo the folks don't let anyone go anymore because the CC blamed them for letting everyone go once, even though there was no notification that they should wait."
+      },
+      {
+        "id": "miaa9yl",
+        "score": 10,
+        "body": "\ud83e\udd2c\ud83d\ude2d\ud83e\udd23"
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1je7fy8",
+    "title": "Unlock Your VA Claim Secrets: Access Hidden Data via the VA API",
+    "body": "Hey brothers and sisters, thank you for all the love on my last post about static indicators using the VA API yesterday. I've been asked by a few vets if I knew of any other things they could see using this method and I compiled a list of a few things I found. This post will guide you on how to access estimated dates, disability details, and more.\n\n**What is the VA API?** The VA's Application Programming Interface (API) is a system that allows different software applications to communicate with each other. In this case, we'll use it to access data that powers the My VA website.\n\n**\\* Important Notes:** \\* You **must** be logged into [va.gov/my-va/](http://va.gov/my-va/) in the same browser session to access this data. (The data is returned in JSON format. I recommend using Google Chrome, as it offers a \"Pretty-print\" option for easier reading.)  Some data is displayed in the va-claims-tracker browser addon, but not all. This information is for educational purposes, and the API can change at any time.\n\n**How to Access the Data:** 1. **Log in:** Go to [va.gov/my-va/](http://va.gov/my-va/) and log in. 2. **Open a new tab:** In the same browser window, paste the following URLs into the address bar.\n\n**\\* API Endpoints and What They Reveal:** \\*\n\n\\* **All Claims:** \\* URL: [`https://api.va.gov/v0/benefits_claims`](https://api.va.gov/v0/benefits_claims) \\* Info: Lists all your claims, organized by claim ID.\n\n\\* **Specific Claim Details:** \\* URL: [`https://api.va.gov/v0/benefits_claims/#########`](https://api.va.gov/v0/benefits_claims/#########) (Replace \"#########\" with your claim ID) \\* Info: Provides detailed information about a specific claim, including `maxEstClaimDate` and `minEstClaimDate` for estimated phase completion dates.\n\n\\* **Appeals:** \\* URL: [`https://api.va.gov/v0/appeals`](https://api.va.gov/v0/appeals) \\* Info: Lists all your appeals, organized by the associated claim ID.\n\n\\* **Rated Disabilities:** \\* URL: [`https://api.va.gov/v0/rated_disabilities`](https://api.va.gov/v0/rated_disabilities) \\* Info: Shows all disabilities you've applied for, including diagnostic codes, disability rating IDs, and static indicators.\n\n\\* **User Information:** \\* URL: [`https://api.va.gov/v0/user`](https://api.va.gov/v0/user) \\* Info: Displays your authenticated user data.\n\n\\* **Maintenance Windows:** \\* URL: [`https://api.va.gov/v0/maintenance_windows/`](https://api.va.gov/v0/maintenance_windows/) \\* Info: information about current and upcoming maintenance windows.\n\n\\* **Backend Statuses:** \\* URL: [`https://api.va.gov/v0/backend_statuses`](https://api.va.gov/v0/backend_statuses) \\* Info: gets the current status of all external services (appeals caseflows, lighthouse, vbms, vre, etc).\n\n**\\*How to Read the JSON Data:** \\* After pasting a URL, your browser will display a page of JSON code. \\* In Chrome, look for a \"Pretty-print\" checkbox at the top to make the data easier to read. \\* Look for the key words mentioned in the \"info\" section of each API endpoint.\n\nIf you don't have a windows machine you can view this by copying and pasting here\u00a0[https://jsonviewer.stack.hu](https://jsonviewer.stack.hu/)\n\nThank you u/[ThatsHotHeiress](https://www.reddit.com/user/ThatsHotHeiress/)!\n\n**Disclaimer:** This information is based on the current state of the VA API and may change at any point. Use this information responsibly and understand that estimated dates are not guaranteed, for instance my max claim date is estimated to be 5 days ago and I'm still in Step 5 with no TJ. Keep in mind I'm not the VA and I don't know the answers to all of your questions, but I can try to help as much as I can. I can't fight for you but I can at least give you the ammo to do so yourself.",
+    "flair": "VA.gov/VA App :VA_logo:",
+    "score": 936,
+    "comment_count": 279,
+    "created_at": "2025-03-18T15:20:07+00:00",
+    "top_comments": [
+      {
+        "id": "migd8ml",
+        "score": 136,
+        "body": "2 things...  \n1) Thank you!   this is fantastic!   We all appreciate you sharing and supporting this community.     \n2) the VA is not the enemy.   This process can be frustrating, but treating the VA as an enemy is not productive.   (could go on a longer explanation here, but don't want to hijack the thread)"
+      },
+      {
+        "id": "migdoem",
+        "score": 53,
+        "body": "Fair and Valid, I let my personal frustration cloud my judgement. I'll reword the post."
+      },
+      {
+        "id": "migfqbl",
+        "score": 38,
+        "body": "LOL! As far as I know it is. It's pretty much just showing you your own data in a more raw form. And I believe everyone should be able to see all of their own data at any time."
+      },
+      {
+        "id": "mig8bac",
+        "score": 33,
+        "body": "Thanks for this !"
+      },
+      {
+        "id": "migsa7g",
+        "score": 32,
+        "body": "Yes,This is exactly how the extension retrieves the claim data, with nice UI formatting. \n\nNot all veterans understand APIs or even want to look at an API format so that why I developed the extension ."
+      },
+      {
+        "id": "mihuxh3",
+        "score": 24,
+        "body": "It's the systems and hurdles that the VA workers have to jump through that's problematic IMHO. Sure, there might be 1-3% of folks working that... aren't, but I believe the 97-99% are doing their best within the system they have (which is flawed)."
+      },
+      {
+        "id": "mighla2",
+        "score": 20,
+        "body": "The Static\\_Ind marker indicates whether the VA believes your condition will get better or not. If It is true, the disability is considered static or permanent and you will more than likely not be scheduled for a Routine Future Examination for your condition, if it's false, it's possible the VA could contact you in 3 to 5 years for a reexamination on that condition. However according to u/sleepinglucid , they revamped the RFE policy back in 2021 to eliminate unnecessary RFEs essentially getting rid of them."
+      },
+      {
+        "id": "mihz2e5",
+        "score": 18,
+        "body": "When you figure out one that shows what\u2019s on your C&P exams, let me know, please."
+      },
+      {
+        "id": "migmxjg",
+        "score": 17,
+        "body": "Here's the policy letter on that\n\nhttps://www.knowva.ebenefits.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001018/content/554400000183159/Policy-Letter-21-01"
+      },
+      {
+        "id": "mih1fq0",
+        "score": 13,
+        "body": "I sure hope my dates are wrong.  I'm already on day 243, but Feb of 2026???\n\nhttps://preview.redd.it/vc9zj9a6jhpe1.jpeg?width=368&format=pjpg&auto=webp&s=65a73da7f150d6c608eea62c1d60784dfc75cf84"
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1md5wz9",
+    "title": "Hilton Hotels: Free nights for disabled veterans",
+    "body": "Hilton Hotels does a really nice thing for disabled veterans. They provide 100,000 Hilton Honors points to any veteran who is in need of lodging for a job-related trip.\n\nIt's a simple application. Then 100,000 is deposited into your Hilton account to use at any Hilton. It's enough for 2-3 nights at most locations.\n\nI used mine for a job search and interview. Saved me about $500.\n\nSearch: Hilton Honors Military Program",
+    "flair": "VA Disability Claims :claim:",
+    "score": 915,
+    "comment_count": 59,
+    "created_at": "2025-07-30T12:58:18+00:00",
+    "top_comments": [
+      {
+        "id": "n5z4sbl",
+        "score": 153,
+        "body": "[https://www.naswa.org/partnerships/hilton-honors](https://www.naswa.org/partnerships/hilton-honors)\n\n>Anyone interested in applying for this program must live in or plan to move to one of these 33 participating states (eligibility varies by state):\n\n>Alabama, Alaska, Arizona, California, Colorado, Connecticut, Florida, Idaho, Indiana, Iowa, Kansas, Kentucky, Maine, Massachusetts, Maryland, Minnesota, Missouri, Montana, Nevada, New Hampshire, New Mexico, North Carolina, Ohio, Pennsylvania, Utah, Virginia, Texas, Tennessee, Vermont, Washington, West Virginia, Wisconsin, and Wyoming.\n\nFYI: Not available in all states. But good find!"
+      },
+      {
+        "id": "n5zberb",
+        "score": 61,
+        "body": "Yeah, they base the approval on the state where you are looking for work. Not where you currently live. \n\nMy application said something like: Where do you intend to apply for a position or do training for a position? I put down the city and state. A few days later, a coordinator from that state's office emailed me and said I was approved. They never asked for anything more than my proof of veteran status and my Hilton account number."
+      },
+      {
+        "id": "n60o3f8",
+        "score": 51,
+        "body": "Pleaseeeee dont abuse this"
+      },
+      {
+        "id": "n6121yp",
+        "score": 33,
+        "body": "Thankfully I do not need to use this program now, but because of this program I will stay at more Hiltons."
+      },
+      {
+        "id": "n5z14u1",
+        "score": 30,
+        "body": "They didn't ask me. I just submitted the application. A few days later 100,000 points were put into my account. I used them to book a hotel in the city where I was applying for a job. It went through like a normal points reservation."
+      },
+      {
+        "id": "n61vprn",
+        "score": 22,
+        "body": "Allowable Activities:\n\n    Travel for verifiable job interviews\n    Training needed to get or keep a job or leading to a certification\n    Pre-employment testing such as physicals, drug testing, and aptitude/agility tests\n\nNon-Allowable Activities:\n\nPoints cannot be used for:\n\n    attending conference and/or career fairs\n    job searching\n    relocation and/or house hunting\n    family visits\n    vacations\n    retirement\n    non-employment activities"
+      },
+      {
+        "id": "n60wcnd",
+        "score": 19,
+        "body": "No. Only veterans that are looking for work."
+      },
+      {
+        "id": "n5z0mja",
+        "score": 18,
+        "body": "How do you prove that it\u2019s job related?"
+      },
+      {
+        "id": "n5zvzm5",
+        "score": 17,
+        "body": "Now I'm curious if there's other similar services from other hotel chains."
+      },
+      {
+        "id": "n5z2xhj",
+        "score": 14,
+        "body": "I appreciate you sharing this. Never knew about it."
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1nqda7z",
+    "title": "Veteran parking",
+    "body": "For the love of all that is holy, can we please stop with making being a vet our entire identity?\n\nI was at the big orange store today. I had a few returns. I parked, *gasp* in the reserved veterans parking spot. The second reserved spot was empty. About halfway through my return, a guy came in fuming because someone \u201ctook his spot\u201d. You know the guy - all decked out in veteran hat, t-shirt, etc. his vehicle was also decked in veteran stickers/plates. He went on and on about how the person in the spot had \u201cno visual ID\u201d. \n\nI don\u2019t, my vehicle doesn\u2019t. Not because I don\u2019t care but the city I live in is not a military town. I\u2019ve received more negative about being a vet than positive since we\u2019ve moved here. I\u2019ve also been out for over 20 years, spouse has been retired military for almost 14 years. Even when I left, the second spot was still available. ",
+    "flair": ":Spanish_question_mark: Other :VA_logo: Stuff :Question_mark:",
+    "score": 908,
+    "comment_count": 441,
+    "created_at": "2025-09-25T17:39:48+00:00",
+    "top_comments": [
+      {
+        "id": "ng60wso",
+        "score": 306,
+        "body": "I usually don't park in them because i need to get my 10,000 steps in.  I had my MIL with me and she uses a walker and i did not have her disabled placard.  I got out of my car and I could see that guy you descirbe start marching toward me and yelling - \"That spot is for veterans!\"  I pointed at my military plates and he said \"It doesn't mean you can park here if your husband is a veteran.  He has to be with you for that.\"  I was like - welcome to 2025 where women can be veterans.  There are jerks everywhere.  I think he muttered that I did not look like a veteran. Lol.  What the heck does that even mean."
+      },
+      {
+        "id": "ng5zv6u",
+        "score": 291,
+        "body": "I use the spots and don\u2019t have any indicators that I\u2019m a vet. If someone wants to get bent out of shape that\u2019s their problem. If they want to say something to me I have no issue correcting their dumbass."
+      },
+      {
+        "id": "ng5ymvr",
+        "score": 246,
+        "body": "I park in that spot at least once a week. Its always open and have not had one single issue. The blue store has the same thing and haven't had issues there either. There is nothing in my truck that identifies me."
+      },
+      {
+        "id": "ng6450d",
+        "score": 139,
+        "body": "Yeah! I get this. I\u2019m also a woman. I tried joining the local American legion because I\u2019m not eligible for the VFW. The guy in charge does both. His solution was I could join the spouses auxiliary for the vfw. WTF DUDE?!?"
+      },
+      {
+        "id": "ng60ynq",
+        "score": 118,
+        "body": "Maybe they serve in two branches and that justifies using to spaces?"
+      },
+      {
+        "id": "ngb67na",
+        "score": 105,
+        "body": "Am I supposed to hang my DD214 off the rear-view?"
+      },
+      {
+        "id": "ng5zpg9",
+        "score": 102,
+        "body": "Never.\n\nhttps://preview.redd.it/4wokquxrmcrf1.png?width=2048&format=png&auto=webp&s=bbf38a0cca5299514ac09f2c8fb4677ce88eecf6"
+      },
+      {
+        "id": "ng5zmad",
+        "score": 66,
+        "body": "I normally park in pro parking but had returns. \n\nMaybe a fun experiment would be to hang out at the door and see how many come in whining about the spot being used. Again, the second spot was open when I parked and when I left."
+      },
+      {
+        "id": "ng63nj3",
+        "score": 63,
+        "body": "I spend what I feel is an ungodly amount of money at the Home Depot. I will take my veteran princess parking."
+      },
+      {
+        "id": "ng6a8qp",
+        "score": 60,
+        "body": "Imo AL and VFW dont seem like positive resources anyway.  With all we know now about ptsd, having a bar be the main meeting place for vets seems like a shitty idea in general."
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1mto64w",
+    "title": "lol",
+    "body": "",
+    "flair": ":snoo_tongue:Meme Monday:snoo_joy:",
+    "score": 910,
+    "comment_count": 37,
+    "created_at": "2025-08-18T14:49:32+00:00",
+    "top_comments": [
+      {
+        "id": "n9cynsh",
+        "score": 27,
+        "body": "![gif](giphy|3oEduPQqbpT1LqVOz6)\n\nI'm cackling \ud83e\udd23\ud83e\udd23\ud83e\udd23"
+      },
+      {
+        "id": "n9cwd0g",
+        "score": 13,
+        "body": "\ud83e\udd23\ud83e\udd23 I just popped one \ud83d\ude02."
+      },
+      {
+        "id": "n9fx0db",
+        "score": 13,
+        "body": "I'm not a prophet but I see stomach ulcers in your future."
+      },
+      {
+        "id": "n9d1ern",
+        "score": 9,
+        "body": "me after asking my wife how soon can I take another 800 mg \ud83d\ude02\ud83d\ude02"
+      },
+      {
+        "id": "n9e1z7r",
+        "score": 8,
+        "body": "Lol, this made my day. I just sent it to my brother who wrecked his motorcycle on Friday. He's got a few broken ribs but he survived to ride another day."
+      },
+      {
+        "id": "n9cwq9u",
+        "score": 7,
+        "body": "Fahk!\n\n\nI just spit coffee all over the place.\n\nYou lovely bastard!\n\n\nI hope you get what you deserve."
+      },
+      {
+        "id": "n9hbqv6",
+        "score": 7,
+        "body": "It's a joke...I bet you are a blast at parties.,"
+      },
+      {
+        "id": "n9cyht5",
+        "score": 6,
+        "body": "Me this weekend.  Lmao"
+      },
+      {
+        "id": "n9dhvzw",
+        "score": 5,
+        "body": "Best use of this meme I\u2019ve seen yet LMAO!"
+      },
+      {
+        "id": "n9db9zc",
+        "score": 5,
+        "body": "Just one? I am prescribed (400mg x3) 1200mg as needed."
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1riuzmh",
+    "title": "We as a whole need to get away from VA Disability and change it to what it is VA Compensation.",
+    "body": "We need to quit using the term VA Disability, start using VA Compensation. That is what it is any way. \n\nIf you get hurt a regular job you get Workers Compensation not workers Disability, correct?\n\nThe term VA Disability is turning into a bad term, it is making people think you are broken and cannot work or do other activates. Even though some go through years of therapy to get back to a life of some sort of activity they are not broken. When people here Disability they automatically think wheelchair or worse and do not think of Mental Disabilities that do not show on the outside. There are some of us that are 100% just from PTSD and are in perfect shape and can do any activity they want, but when you tell people you are 100% disabled, they look at you like you are cheating the system or lying.  \n\nSorry for the rant but just need to get this off my chest.\n\nWhat do you think?",
+    "flair": ":Spanish_question_mark: Other :VA_logo: Stuff :Question_mark:",
+    "score": 901,
+    "comment_count": 194,
+    "created_at": "2026-03-02T14:56:48+00:00",
+    "top_comments": [
+      {
+        "id": "o88mjdm",
+        "score": 416,
+        "body": "It\u2019s veterans disability compensation. It\u2019s intended to compensate a veteran for their loss of earnings capacity due to service-connected disabilities."
+      },
+      {
+        "id": "o88w7sy",
+        "score": 191,
+        "body": "I think it's a branding issue. People get vilified for \"collecting disability\" but like you said, in reality we are collecting compensation for the our degradation of mental and functional abilities."
+      },
+      {
+        "id": "o88m5mb",
+        "score": 85,
+        "body": "I usually say pension when I'm speaking to random people about it. Like for a car loan. I just said I get 2k a month in military pension and leave it at that."
+      },
+      {
+        "id": "o88ljzs",
+        "score": 65,
+        "body": "I agree that would be a more accurate description of the benefit"
+      },
+      {
+        "id": "o88nixa",
+        "score": 45,
+        "body": "Its workers comp. You break it you buy it."
+      },
+      {
+        "id": "o8973a5",
+        "score": 45,
+        "body": "Correct, a depreciating asset."
+      },
+      {
+        "id": "o88xsi7",
+        "score": 41,
+        "body": "[removed]"
+      },
+      {
+        "id": "o88smh1",
+        "score": 33,
+        "body": "Same, I just say medically retired."
+      },
+      {
+        "id": "o8aex8j",
+        "score": 32,
+        "body": "Hey I appreciate you."
+      },
+      {
+        "id": "o890g5a",
+        "score": 30,
+        "body": "Unless it's TDIU, it has nothing to do with earning capacity.  It's about compensating for chronic pain and suffering, both physical and mental, as well as loss of normal bodily functions.  "
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1lce6ux",
+    "title": "Don\u2019t Tell Anyone Your VA Rating",
+    "body": "I\u2019ve learned over the last year since I\u2019ve had my rating that instead of being happy for you other Vets will just be very jealous. They might pretend to be happy for you but they\u2019re very envious. \n\nObviously this isn\u2019t every person but it\u2019s what I see happen very often. Keep it to yourself. ",
+    "flair": "Ratings :UpvoteI:",
+    "score": 900,
+    "comment_count": 230,
+    "created_at": "2025-06-15T23:30:16+00:00",
+    "top_comments": [
+      {
+        "id": "mxzs947",
+        "score": 381,
+        "body": "Other vets may judge you the most."
+      },
+      {
+        "id": "mxztina",
+        "score": 197,
+        "body": "This^. Other vets that dont qualify. Get saltier than most civilians."
+      },
+      {
+        "id": "mxzt0nr",
+        "score": 129,
+        "body": "I\u2019ve preached this for years ! Only a select few know our rating . My father in law( who\u2019s rated at \ud83d\udcaf%) , my wife and a friend of the family who is also \ud83d\udcaf% , only because they understand and respect the process. Our kids don\u2019t even know. It\u2019s just not worth the hassle and we praise GOD for our rating  while keeping it under wraps!"
+      },
+      {
+        "id": "mxztvc7",
+        "score": 125,
+        "body": "I was in a non deployable unit. I volunteered half a dozen times, got beat out each time. Tried transferring out but was critical to the Unit. I'm 100% P&T now due to injuries sustained. I tell other vets that and they judge like crazy."
+      },
+      {
+        "id": "my05xyz",
+        "score": 82,
+        "body": "I work at the post office and lots of vets work there. A few of us have 100% and we try and help other vets with their claims. A few of them feel they don\u2019t even want to claim anything even though they clearly have issues because they are too proud, or don\u2019t like asking for help."
+      },
+      {
+        "id": "my069cm",
+        "score": 75,
+        "body": "Haters say that it's \"free money,\" but it's not; we paid for it with our physical/mental health."
+      },
+      {
+        "id": "mxzrpoc",
+        "score": 74,
+        "body": "Equivalent to winning the lottery. Hey, I won the lottery! Doesn\u2019t matter the amount. They hate that you won it and not them."
+      },
+      {
+        "id": "my00pr3",
+        "score": 65,
+        "body": "Bro same. I put in for a transfer a dozen times, but command figured out I could file paperwork like a machine so they killed it every time. \n\nEnded up going through a checklist of human rights work violations that had my councilor at behavioral health screaming at my command on the phone. \n\nOther vets still judge my service connection because I didn't take a bullet."
+      },
+      {
+        "id": "mxzvreq",
+        "score": 55,
+        "body": "I feel like we say this every 2 days on here. I don\u2019t even put the disabled vet plate on my car"
+      },
+      {
+        "id": "my04olb",
+        "score": 40,
+        "body": "A lot of dudes did what they were (implicitly) told and didn\u2019t go to medical. And, while they were in, they were rewarded for it. Not being branded a broke dick or a shitbag, seen as putting the mission first.\n\nThen they get out. They find out that the guy that got the sleep study, the guy that went to medical for that bum shoulder, the guy that went to those follow-up TBI/THI appointments\u2026 the light-duty warrior. They find out that *they* are getting paid out for the rest of their lives. Often a life-changing amount of money. \n\nAnd they look at this fellow vet, and they usually see the exact same pains and conditions that *they themselves* also have. The only difference was going to medical. And they know in their heart that they have been suckered. \n\nThat can\u2019t feel good. I understand the bitterness. Just know that the anger is really at themselves, not at you."
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1jbho8k",
+    "title": "Thank you VA",
+    "body": "I\u2019m fairly new to the VA as a whole but I\u2019ve also read a lot of complaints regarding it. Thank you VA, you guys are doing great things and looking out for veterans.",
+    "flair": "Health Care :caduceus:",
+    "score": 891,
+    "comment_count": 188,
+    "created_at": "2025-03-14T23:35:22+00:00",
+    "top_comments": [
+      {
+        "id": "mhu6lnr",
+        "score": 344,
+        "body": "Monday morning, VA inbox will be flooded with bidet requests \ud83d\ude02"
+      },
+      {
+        "id": "mhu5o7r",
+        "score": 187,
+        "body": "I\u2019m rated for back issues and I let them know that it\u2019s a struggle for me to twist and clean. Due to this my hygiene was becoming an issue and asked if they could order a bidet. I was expecting a Walmart one for like 20 bucks but nah, they went all out and got me this beast."
+      },
+      {
+        "id": "mhu6h9g",
+        "score": 156,
+        "body": "Heated seat and heated water for your tooshie"
+      },
+      {
+        "id": "mhu7ulm",
+        "score": 68,
+        "body": "Bidet to you good sir!"
+      },
+      {
+        "id": "mhuc1dj",
+        "score": 66,
+        "body": "Glad the VA got you sorted! When good things like this happen to fellow vets it makes me feel a little better about the system"
+      },
+      {
+        "id": "mhu8cn1",
+        "score": 44,
+        "body": "This made me bust out laughing \ud83d\ude02\ud83d\ude02"
+      },
+      {
+        "id": "mhu6vxy",
+        "score": 43,
+        "body": "I know right \ud83d\ude02 I got 3 toilets in my house. You think they'll pay for 3 hahah"
+      },
+      {
+        "id": "mhu5ct1",
+        "score": 35,
+        "body": "Wait, how did you get a bidet from the VA?"
+      },
+      {
+        "id": "mhu8asj",
+        "score": 30,
+        "body": "I have this exact bidet at home.\n\nFor those who don\u2019t know, you don\u2019t USE a bidet, you EXPERIENCE a bidet!\n\ud83e\udd23"
+      },
+      {
+        "id": "mhu6ba9",
+        "score": 30,
+        "body": "Got a heated seat ?"
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1lyic3r",
+    "title": "Secret VA Loans",
+    "body": "Hey Veterans did you guys know that the VA Has a Loan called the Va Construction Loan? Yes you can indeed get a one time construction loan and build a house on property you already own Go get that benefit if you don\u2019t know. All you need is a Certificate of Eligibility (COE) Log in to your VA account and apply for it under VA home loans. Both Va home loan is for a house that\u2019s already established and the construction loan is self explanatory. I\u2019m in the middle of taking advantage of this opportunity and would want to share with all my fellow Vets.\ud83e\udee1 ",
+    "flair": "Housing :house:",
+    "score": 882,
+    "comment_count": 215,
+    "created_at": "2025-07-13T02:59:11+00:00",
+    "top_comments": [
+      {
+        "id": "n2u6fzh",
+        "score": 163,
+        "body": "Yup I just learned about the OTC loan, only thing to watch out for is how much dirt the lenders will pay for. I live in California and there\u2019s not even land going for under 200k so I\u2019d probably have to pay a large portion of that myself but afterwards they\u2019ll fund a huge amount for construction and over see every phase of the build. You just have to find VA verified lenders and builders"
+      },
+      {
+        "id": "n2u6o99",
+        "score": 112,
+        "body": "That\u2019s the hard part is finding a VA approved lenders and builders but it\u2019s possible once I find them I will share."
+      },
+      {
+        "id": "n2ulznm",
+        "score": 91,
+        "body": "Lol\u2026it\u2019s not a secret dude. Never been a secret. Good luck finding the right opportunity to use it. You\u2019re better off finding a builder that\u2019ll buy the land and build to suit and then sell the home under a traditional VA contract after. It\u2019s quicker and easier. Did mine 3 years ago up here on 6 acres in Maine.\n\nhttps://preview.redd.it/l8ngvvq5rkcf1.jpeg?width=2000&format=pjpg&auto=webp&s=f82376d2001120ad9e8261d883ea8d1817ee2a4d"
+      },
+      {
+        "id": "n2u7di0",
+        "score": 85,
+        "body": "It\u2019s somewhat known but it\u2019s also known it\u2019s hard to find a lender that\u2019ll do it"
+      },
+      {
+        "id": "n2ud9v6",
+        "score": 67,
+        "body": "Correct. I'm about to start construction with a VA loan and it rolls over to a 30yr upon completion."
+      },
+      {
+        "id": "n2vluo8",
+        "score": 40,
+        "body": "That\u2019s exactly what I did. I was extremely lucky to stumble upon a guy building already but we got him before he started. We changed the plans up a little bit, gave him money for a down payment in cash then closed like a normal loan.\n\nhttps://preview.redd.it/jhxa3wddfmcf1.jpeg?width=3352&format=pjpg&auto=webp&s=b05428be7f13bb4a344586c9e396b4c7a7bda767"
+      },
+      {
+        "id": "n2ua88f",
+        "score": 37,
+        "body": "I recently used this, and it was VERY expensive.   TONS of fees baked in.  I used AFR, and they are completely incompetent, to say the least.  So much so they stopped funding these loans.\n\nWhat other lenders are funding these?"
+      },
+      {
+        "id": "n2umwaw",
+        "score": 36,
+        "body": "Good for you thanks for sharing my intent was to share with those who didn\u2019t know and to take advantage of it. Do what works for you and good luck to you as well."
+      },
+      {
+        "id": "n2uvl9y",
+        "score": 32,
+        "body": "Sure. Instead of you having to get a VA construction loan, which is a HUGE, pain in the ass, work with a realtor that specializes in new builds. Ours found us a builder that took out a construction loan himself, on the property we found, bought the property, and built the home we designed. When the home was finished he then sold us the home as a traditional VA loan. We did have to give him a down payment up front but that was returned to us when we closed on the home."
+      },
+      {
+        "id": "n2uovvy",
+        "score": 23,
+        "body": "[deleted]"
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1jov8by",
+    "title": "Pending FBI Action",
+    "body": "We have received notice that the sub will be taken down shortly.\n\nLooks like all those crazy people reporting the sub to the FBI and VA are winning today.\n\nhttps://preview.redd.it/xkws6xqi28se1.png?width=932&format=png&auto=webp&s=a81b45a045a13598ae323207d0fe186e38d83102\n\nWe hope this upsetting news does not ruin your April 1st plans.\n\n\\-Mod Team\n\nP.S. \n\nWe are currently assembling A Team of barracks lawyers to fight this action.",
+    "flair": "Sub/KB News :news_white:",
+    "score": 875,
+    "comment_count": 235,
+    "created_at": "2025-04-01T13:11:41+00:00",
+    "top_comments": [
+      {
+        "id": "mkunz4q",
+        "score": 630,
+        "body": "E-4 Mafia, ASSEMBLE !!!!!"
+      },
+      {
+        "id": "mkuo5x1",
+        "score": 266,
+        "body": "The VA has also scheduled me for reevaluations when the FBI reported my Onlyfans page, stating \"there's no way he can do that with a 50% back rating."
+      },
+      {
+        "id": "mkusrnp",
+        "score": 144,
+        "body": "As a Mafia member myself, this is a cool definition of E4-Mafia: The E4 Mafia are often seen as masters of navigating the military system, capable of both avoiding work and solving problems when needed.\u00a0They are also known for their loyalty to each other and to the lower ranks."
+      },
+      {
+        "id": "mkup14g",
+        "score": 144,
+        "body": "They find your service-connected loss of a gag-reflex should be rated -50%."
+      },
+      {
+        "id": "mkut3ky",
+        "score": 76,
+        "body": "The sham shield provides natural camouflage from high speed type leadership."
+      },
+      {
+        "id": "mkus58h",
+        "score": 72,
+        "body": "Everybody reading this post is about to file an increase for anxiety \ud83e\udd23"
+      },
+      {
+        "id": "mkuoxw4",
+        "score": 71,
+        "body": "It's because yall keep putting your hands in your pockets"
+      },
+      {
+        "id": "mkunrly",
+        "score": 57,
+        "body": "ahh well. I already got rated at 213%, so i dont need the sub anymore!!!!"
+      },
+      {
+        "id": "mkuwkvv",
+        "score": 40,
+        "body": "I would always say that \"The E-4 Mafia is the antidote to bureaucracy.\"\n\nWhen the stupidity of the system is getting in the way of mission success (whatever that may be), the E-4 Mafia will find a way around it."
+      },
+      {
+        "id": "mkv5b49",
+        "score": 36,
+        "body": "I sacrificed my gag reflex to make E5; I did it for my country and God dammit I\u2019d do it again."
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1nfm5yv",
+    "title": "My Mom has threatened to fight back if I try to file for VA disability benefits. Is there anything I can do?",
+    "body": "I know, I know. \u201cFuck her it doesn\u2019t matter what she thinks.\u201d The problem is my mom is a very scary and very well connected person. She is also extremely narcissistic (like seriously not exaggerating) and abusive. There have been times that I was afraid she would show up at my house despite living 1200 miles away. So, is there anything I can do about it? Is this considered a threat? I have severe mental health and physical health issues that stem directly from my military service (I was SA\u2019d while in tech school. She claims it wasn\u2019t SA because I wasn\u2019t r*ped which is obviously ridiculous) and I 100% am planning to file for disability. I\u2019m just worried she could actually do something. Can I file a restraining order or something?",
+    "flair": "VA Disability Claims :claim:",
+    "score": 872,
+    "comment_count": 346,
+    "created_at": "2025-09-13T02:37:35+00:00",
+    "top_comments": [
+      {
+        "id": "ndxhigm",
+        "score": 2854,
+        "body": "Ignore your mother. File for benefits and tell no one."
+      },
+      {
+        "id": "ndxhxxu",
+        "score": 1000,
+        "body": "Sounds like it's time to block her and do your own thing."
+      },
+      {
+        "id": "ndxjp4u",
+        "score": 853,
+        "body": "I agree with this. It\u2019s none of her business. File your claim and tell no one!"
+      },
+      {
+        "id": "ndxhkjb",
+        "score": 445,
+        "body": "If you have evidence, there's nothing they can do"
+      },
+      {
+        "id": "ndxmw3i",
+        "score": 427,
+        "body": "Talk to the DAV. They have free lawyers who are worth a damn. It seems like you have the documentation that would easily get you a rating. It would also appear that you need to have your carrier provide the text messages that have gone on between you two since she's obviously threatening you."
+      },
+      {
+        "id": "ndxilf6",
+        "score": 361,
+        "body": "Using trackers is a felony"
+      },
+      {
+        "id": "ndxifhx",
+        "score": 358,
+        "body": "Get a personal protection order against her, and if she attempts to interfere with your VA process, cite it. It will work to protect you legally in multiple ways."
+      },
+      {
+        "id": "ndxibn5",
+        "score": 353,
+        "body": "Oh trust me I don\u2019t talk to her. The conversation only happened because my grandfather passed so I\u2019ve allowed mild communication right now"
+      },
+      {
+        "id": "ndxiyw6",
+        "score": 330,
+        "body": "Sorry for your loss. But first of all, its none of her business whether you file or not. Second, I highly doubt she's going to be able to get your medical information because of HIPAA. If those people she claims to know at the VA are decent humans, they'll refuse to provide her with that info."
+      },
+      {
+        "id": "ndxi1z4",
+        "score": 266,
+        "body": "Sounds like a restraining order is needed damn"
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1qb92sy",
+    "title": "Not a meme, but this genuinely made my day.",
+    "body": "",
+    "flair": ":snoo_tongue:Meme Monday:snoo_joy:",
+    "score": 866,
+    "comment_count": 47,
+    "created_at": "2026-01-12T22:14:00+00:00",
+    "top_comments": [
+      {
+        "id": "nz8uk99",
+        "score": 186,
+        "body": "Grandpa is gonna be on the dark web looking for a switch \ud83d\ude02"
+      },
+      {
+        "id": "nz8t2rv",
+        "score": 130,
+        "body": "He just wanted to shoot the gun but didn\u2019t know how to talk to him."
+      },
+      {
+        "id": "nz8t6tk",
+        "score": 128,
+        "body": "This video made my day. Love seeing older people take a big societal exhale every once in a while, it adds color to life."
+      },
+      {
+        "id": "nz8ycr3",
+        "score": 58,
+        "body": "![gif](giphy|DXJk7iduhFCo2KOHl5)"
+      },
+      {
+        "id": "nz972cy",
+        "score": 23,
+        "body": "Spot on\u2026 probably"
+      },
+      {
+        "id": "nz93s1w",
+        "score": 20,
+        "body": "I mean, it also doesn\u2019t look like a California range, so it\u2019s entirely possible everything is registered and legal."
+      },
+      {
+        "id": "nz972ml",
+        "score": 19,
+        "body": "The berm lol"
+      },
+      {
+        "id": "nz90cfa",
+        "score": 15,
+        "body": "[deleted]"
+      },
+      {
+        "id": "nz8vpmd",
+        "score": 14,
+        "body": "Did they even have a target? \ud83e\udd23"
+      },
+      {
+        "id": "nz9gqov",
+        "score": 14,
+        "body": "The presence of the suppressor + full auto at what appears to be a public range with unknown RSOs would imply, to me at least, that everything is 100% legal and papered or the shooter is very very stupid. \n\nThey don\u2019t appear to be particularly stupid judging by properly decent shooting form and keeping the barrel pointed downrange better than the RSO when he gives them a fist bump, so\u2026"
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1n5p5y0",
+    "title": "Doesn\u2019t fix everything but makes life a little bit easier",
+    "body": "",
+    "flair": ":snoo_tongue:Meme Monday:snoo_joy:",
+    "score": 862,
+    "comment_count": 92,
+    "created_at": "2025-09-01T13:47:31+00:00",
+    "top_comments": [
+      {
+        "id": "nbu5wsd",
+        "score": 181,
+        "body": "All of the sudden work life balance is possible"
+      },
+      {
+        "id": "nbuiiov",
+        "score": 93,
+        "body": "[deleted]"
+      },
+      {
+        "id": "nbuu7hp",
+        "score": 66,
+        "body": "It goes beyond the monthly payment:\n\n-My husband is able to stay home with the kids, so no child care expenses. I work full time, so he\u2019s able to take care of our home as well. \n\n-I\u2019m working on my Master\u2019s degree, and here in CA it\u2019s pretty much covered at 100% (except admin fees). \n\n-One free disabled tag, so no registration fees. Again, very high here in CA.\n\n-Free entry to many parks and campgrounds \n\n-Some relief with property taxes.\n\nThe list goes on, but the above have been the most impactful for us, and I\u2019m very grateful for that."
+      },
+      {
+        "id": "nbv59an",
+        "score": 49,
+        "body": "The difference between 90 and 100 is insane and way out of balance."
+      },
+      {
+        "id": "nbuh2a1",
+        "score": 36,
+        "body": "Currently work part time delivery for Amazon lol just cruising the Midwest jamming 20 or less hours a week"
+      },
+      {
+        "id": "nbv1zit",
+        "score": 35,
+        "body": "And whoever is reading this and is at 100% i hope you know you all deserve every dollar. \n\nEven as a veteran (40% only), I can only imagine what it took to put you there, and im grateful for your service."
+      },
+      {
+        "id": "nbutaw9",
+        "score": 28,
+        "body": "Nice! I work at a golf course, mowing rough and tee boxes. It's not bad, but I still find it stressful. Mostly because of the high-school kids working in the summer, always asking me if I have killed someone."
+      },
+      {
+        "id": "nbuey7i",
+        "score": 26,
+        "body": "Agreed"
+      },
+      {
+        "id": "nbwb82m",
+        "score": 26,
+        "body": "Yes it is. Sitting at 90 now\u2026.. have some supplementals in but looked at 100 and it\u2019s pretty much double. Crazy"
+      },
+      {
+        "id": "nbuxfxu",
+        "score": 22,
+        "body": "With the exception of the stupid questions by idiots, working at a golf course mowing was my favorite job I've ever had. Well, second favorite now because I'm a stay at home dad to a 5 month old daughter and I'm having a blast spending all day with her."
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1qtvyc9",
+    "title": "Marines?",
+    "body": "I had to explain this to a few marine buddies already. There's a second bumper sticker there.",
+    "flair": ":snoo_tongue:Meme Monday:snoo_joy:",
+    "score": 863,
+    "comment_count": 55,
+    "created_at": "2026-02-02T14:06:13+00:00",
+    "top_comments": [
+      {
+        "id": "o35sk0f",
+        "score": 79,
+        "body": "Marine Intel Analyst here... I have both Autism and ADHD.  I got a waiver."
+      },
+      {
+        "id": "o35pkkm",
+        "score": 13,
+        "body": "Did you explain it with crayons ?"
+      },
+      {
+        "id": "o361jmo",
+        "score": 13,
+        "body": "You\u2019re right, it\u2019s hilarious."
+      },
+      {
+        "id": "o36ao7x",
+        "score": 13,
+        "body": "Where did you find my boot camp photo?"
+      },
+      {
+        "id": "o36b1fc",
+        "score": 11,
+        "body": "I'm still undiagnosed with Autism, but my son is diagnosed. While we were sitting there and the doctor was listing the behaviors and reasons why he was giving the diagnosis I was like \"Hey I do that too!\" for most of them."
+      },
+      {
+        "id": "o374x10",
+        "score": 10,
+        "body": "No need, I'm already 100% with several SMCs.  Only way I can raise my check is to start pumping out babies and I have no desire to do that.  One kid is enough for me."
+      },
+      {
+        "id": "o361dl1",
+        "score": 9,
+        "body": "\ud83e\udd23 I'd like to meet the mom and thank her for her cer...service."
+      },
+      {
+        "id": "o36cq4u",
+        "score": 8,
+        "body": "I'm here for the crayon."
+      },
+      {
+        "id": "o35tfdx",
+        "score": 8,
+        "body": "Same here as an army vet, was diagnosed in my unit"
+      },
+      {
+        "id": "o35uo6i",
+        "score": 6,
+        "body": "That\u2019s pretty damn good!!!!"
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1ozi35d",
+    "title": "When the military prepares you for life as a veteran",
+    "body": "",
+    "flair": ":snoo_tongue:Meme Monday:snoo_joy:",
+    "score": 851,
+    "comment_count": 70,
+    "created_at": "2025-11-17T14:43:53+00:00",
+    "top_comments": [
+      {
+        "id": "npbnztv",
+        "score": 48,
+        "body": "\ud83e\udd23\ud83d\ude02. The accuracy"
+      },
+      {
+        "id": "npbyn7r",
+        "score": 41,
+        "body": "Thats 50%"
+      },
+      {
+        "id": "npc5cwq",
+        "score": 20,
+        "body": "Yep.  Get those claims in.  Anyone who knows the change is coming and is too lazy to get it done now will be crying about it later."
+      },
+      {
+        "id": "npc37s4",
+        "score": 18,
+        "body": "For now lol"
+      },
+      {
+        "id": "npbqdv5",
+        "score": 14,
+        "body": "Yep. \n\nAnd it helped me later as we wear fresh air (SCBA) at times in my refinery. Being in MOPP level 4 so many times in the field, in Germany, this ain't shit."
+      },
+      {
+        "id": "npbqein",
+        "score": 14,
+        "body": "Sooooooo true!!! \ud83d\ude02\ud83e\udd23\ud83d\ude05"
+      },
+      {
+        "id": "npc709l",
+        "score": 13,
+        "body": "If you have the rating, you are safe.  I am rated as well and I use my bloody CPAP ever night, 100% compliance.  The compliance is not required, but my cardiologist scared the sand out of me after I developed AFib and told me my OSA was definitely a factor.  So I use it."
+      },
+      {
+        "id": "npc5jf8",
+        "score": 12,
+        "body": "I got mine in and have a CPAP. I just hope they grandfather it in."
+      },
+      {
+        "id": "npbvtzi",
+        "score": 9,
+        "body": "I'll be honest I'm allergic to cinnamon so I kind of want to were that full gas mask just to go into the grocery store this time of year."
+      },
+      {
+        "id": "npbt6ba",
+        "score": 9,
+        "body": "Well, yeah. The negative pressure systems suck."
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1px747i",
+    "title": "Just an FYI: if you take your claim to the Court of Appeals and select that you want a physical copy of your military records, they will not hesitate.",
+    "body": "",
+    "flair": ":Spanish_question_mark: Other :VA_logo: Stuff :Question_mark:",
+    "score": 844,
+    "comment_count": 74,
+    "created_at": "2025-12-27T20:02:27+00:00",
+    "top_comments": [
+      {
+        "id": "nw8vr0o",
+        "score": 146,
+        "body": "A list of all the times they went through SHARP."
+      },
+      {
+        "id": "nw8t029",
+        "score": 139,
+        "body": "What could possibly be in these records?"
+      },
+      {
+        "id": "nw8wbwu",
+        "score": 57,
+        "body": "One whole box was my cyber awareness certificates."
+      },
+      {
+        "id": "nw8st09",
+        "score": 55,
+        "body": "3 years and 5 months.\n\nI don't even want to think what 20 years looks like.\n\nEdit: it took two 12x12x12 boxes\n\nhttps://preview.redd.it/qof2qwrezs9g1.jpeg?width=3000&format=pjpg&auto=webp&s=24dbe66a9f0f631ba5b40f16d08bdc2c0e258c22\n\nEdit2: 250 pages per volume. Roughly 4,000 pages.\n\nEdit3: It looks like they included pre and post-active duty education stuff."
+      },
+      {
+        "id": "nw8ygrr",
+        "score": 55,
+        "body": "I think my C -file of 15 years Guard (5 terms of Active orders) was around 3500 pages. There's medical records in there from my childhood that were lost. There's shit in their about me I don't know where they got it from and I have no idea why it exists. No orders though, and only dd-214 copies I gave them.\u00a0"
+      },
+      {
+        "id": "nw966x3",
+        "score": 49,
+        "body": "As a reservist, I think there was a year when I was stuck on SHARP training every drill weekend for no reason other than \"SGT so and so was at school the last time we did the training, so we need to do it again\" and somehow I ended up running the slide deck or observing in some way or another while everyone else was on detail or doing some other training that I had already accomplished during one of the days I was already onsite because I was unemployed and always willing to come in for extra pay.\n\nIs possible 10/10. Also, didn't get laid for years afterwards due to fear of consequences of sexual assault. Mostly because I was assaulted. But also didn't want to assault anyone."
+      },
+      {
+        "id": "nw8ttqo",
+        "score": 42,
+        "body": "I had a claim for my lower back that getting denied despite doubt by the VA doctors and xray redos. Decided to take it to the last place possible. You get the option during the process to have a physical copy or a CD disk."
+      },
+      {
+        "id": "nw8tixe",
+        "score": 37,
+        "body": "What do you mean by taking it to the Court of Appeals? You went to where and did what to get them?"
+      },
+      {
+        "id": "nw9aqqa",
+        "score": 29,
+        "body": "Here is the official page for the court with more info.\nTLDR: no they did not walk into their local court\n\nhttp://m.uscourts.cavc.gov\n\nEdit: fixed the nonsensical dictation from voice to text"
+      },
+      {
+        "id": "nw9o04m",
+        "score": 27,
+        "body": "National Archives will get you a copy of all your records including medical records"
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1oa66wr",
+    "title": "I got my GI bill back!!",
+    "body": "I got into VR&E about 2 months ago and when I had my second convo with my counselor he told me that he would be sending me a paper for retroactive induction. I didn\u2019t know if I qualified since I started school a couple weeks before my disability started, but it still worked out. They did subtract a couple months, but it\u2019s still enough to get my doctorate degree! BA and MA will be paid by VR&E. I\u2019m really so blessed to have had an amazing counselor!",
+    "flair": "Veterans Readiness and Employment (VR&E) :mortarboard:",
+    "score": 841,
+    "comment_count": 279,
+    "created_at": "2025-10-18T20:19:15+00:00",
+    "top_comments": [
+      {
+        "id": "nk7cst2",
+        "score": 247,
+        "body": "https://preview.redd.it/cls99ywlrxvf1.jpeg?width=1080&format=pjpg&auto=webp&s=88145f258f4a743f9497640549100deeda9ed653"
+      },
+      {
+        "id": "nk747lz",
+        "score": 144,
+        "body": "JFC, you might as well buy lottery tickets too lol. Congrats on this for real. Being qualified for 1 degree is a blessing, but 2 plus retroactive GI Bill. You hit the triple crown or whatever, maybe we\u2019ll call this the Trifecta method lol. I\u2019m happy for you."
+      },
+      {
+        "id": "nk7ikhq",
+        "score": 52,
+        "body": "Retroactive induction is the best. \nHad 0 days left. Got 34 months back! Now going back for my masters!!"
+      },
+      {
+        "id": "nk761sj",
+        "score": 28,
+        "body": "lol thanks for that. My anxiety was getting the best of me but I\u2019m really things worked out."
+      },
+      {
+        "id": "nk73mql",
+        "score": 27,
+        "body": "Congratulations! \ud83e\udd73"
+      },
+      {
+        "id": "nk7j2mp",
+        "score": 14,
+        "body": "I love that for you!!! Congratulations"
+      },
+      {
+        "id": "nk7kis3",
+        "score": 14,
+        "body": "I had 18 months left. & I think that we should be each other\u2019s biggest supporters. I\u2019m planning on being a veterans counselor/ therapist so I want us to be better taken care of."
+      },
+      {
+        "id": "nk7672e",
+        "score": 13,
+        "body": "Did your counselor mention what the criteria to get it back is?"
+      },
+      {
+        "id": "nk8k0kr",
+        "score": 13,
+        "body": "How did you do it? My VR&E Rep hasn't been helpful at all told me I couldn't use my remaining GI. Bill and told me to apply for jobs with no direction and an old resume that is 17 years old. I'm 100% and P&T."
+      },
+      {
+        "id": "nk7jbop",
+        "score": 13,
+        "body": "What was your remaining balance before your retro?\nAnd appreciate the love, it\u2019s nice to hear, and nice when people aren\u2019t envious or jealous. A little effort goes a long way"
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1rcrdma",
+    "title": "BREAKING: Iran Revolutionary Guard has brought the USS Ford down to its knees by sneaking in 10 packs of Pampers non scented wet wipes to ship's head, disabling 24 toilets. The situation looks bleak as the nearest Navy Exchange to take a crap is 2000 miles away...",
+    "body": "",
+    "flair": ":snoo_tongue:Meme Monday:snoo_joy:",
+    "score": 833,
+    "comment_count": 179,
+    "created_at": "2026-02-23T19:33:48+00:00",
+    "top_comments": [
+      {
+        "id": "o709ksp",
+        "score": 323,
+        "body": "Was on a destroyer, one day I heard a bunch of commotion as I was getting ready for my watch. Someone ran out of the head screaming. Turns out VCHT was plugged up somewhere and had enough pressure built up that it exploded from out of the urinals right behind where someone was brushing their teeth, hard enough to leave a silhouette of the sailor on the mirror."
+      },
+      {
+        "id": "o70bgyd",
+        "score": 158,
+        "body": "I was the DCA on a destroyer, we had sailors flushing all sorts of dumb stuff down the toilets and clogging mains. We started back flushing with a fire hose into the berthing that caused it. Gotten tape balls, parts, wipes, and even someone\u2019s boot camp underwear with the name still stenciled on em. That was a fun one."
+      },
+      {
+        "id": "o70ks1a",
+        "score": 155,
+        "body": "VA:  Your Campylobacteriosis, Cryptosporidiosis, Escherichia coli Diarrhea, Encephalitis, Gastroenteritis, Giardiasis, Hepatitis,  Leptospirosis, Methaemoglobinaemia, Poliomyelitis, Salmonellosis, Shigellosis, Paratyphoid Fever, Typhoid Fever , and Yersiniosis is not service connected."
+      },
+      {
+        "id": "o70dxak",
+        "score": 109,
+        "body": "I couldn't live my life the same knowing my bootcamp underwear got caught like that"
+      },
+      {
+        "id": "o70aqme",
+        "score": 75,
+        "body": "They had to tell us to stop jerking off in the Cadillacs on our FOB because the plumbing cant take it."
+      },
+      {
+        "id": "o70awra",
+        "score": 46,
+        "body": "I use to work in the engine room operating the distilling plant, the higher ups were so organized they discharged sewage while we were distilling potable water.  You could taste of a whiff of shit, but it was deemed safe.  Also drank some jp5 potable water."
+      },
+      {
+        "id": "o70el72",
+        "score": 43,
+        "body": "Headline is not real, likely some sailor did in fact flush wipes. The joke is they are blaming it on some outside nefarious force. The shit is real though."
+      },
+      {
+        "id": "o719xz6",
+        "score": 40,
+        "body": "I remember some dude in boot camp had the shits and tried to hide his brown underwear in the trash. Our brave assigned master at arms guy somehow found it and threw it in the middle of berthing for all to witness."
+      },
+      {
+        "id": "o70r0gd",
+        "score": 34,
+        "body": "Yeah.. I\u2019ll shit in the woods, bury it and not worry about it coming back to haunt me with the force of a fire hose.."
+      },
+      {
+        "id": "o70eetc",
+        "score": 33,
+        "body": "No matter how many times you tell them, or send sewage into their berthing, they still can\u2019t accept standard issue single-ply."
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1kqpfgg",
+    "title": "This is me as a 23 year old veteran.",
+    "body": "",
+    "flair": ":snoo_tongue:Meme Monday:snoo_joy:",
+    "score": 834,
+    "comment_count": 134,
+    "created_at": "2025-05-19T22:38:55+00:00",
+    "top_comments": [
+      {
+        "id": "mt7hy54",
+        "score": 272,
+        "body": "Everyone\u2019s built different. I strode around in the pesh, jumping off boulders with full gear on, for about 7 months. Didn\u2019t so much as pull muscle, physically, all my years in the infantry, never really got \u201cinjured\u201d not too terribly. A little worn. Tons of friends broke off all the time\n\nwatched a guy slowly degrade his hips over a year and a half doing the same things, he uses a walker to get around now. \n\nSame deployment, same company, same job. I\u2019m good, he\u2019s a borderline cripple. \n\nI watched an EFP cut a truck in half, and kill everyone inside it, 50 feet from me. Saw an ANA murder a child, brutalize civilians, awful shit. \n\nI can\u2019t sleep at night and I\u2019ve lost complete control of my emotions. \n\nOther guy? Same guy. He sleeps like a baby, and doesn\u2019t feel a single negative emotion about any of it. \n\nWe all take damage differently, at different intensities, for different reasons. \n\nGet help, get well, the VA is here for us to use."
+      },
+      {
+        "id": "mt7rmp4",
+        "score": 76,
+        "body": "Always those \u201cthe new kids\u201d comments like a service connected injury isn\u2019t a service connected injury. Doesn\u2019t matter to me if op got hurt in basic training because they fell on a ruck march or they fell out of a plane, it still happened in service on duty. \nLet\u2019s do better vets."
+      },
+      {
+        "id": "mt7k8xa",
+        "score": 61,
+        "body": "So hard to explain how we all absorb damage differently physically and emotionally."
+      },
+      {
+        "id": "mt7snbm",
+        "score": 45,
+        "body": "[deleted]"
+      },
+      {
+        "id": "mt7t1vi",
+        "score": 27,
+        "body": "They have to make themselves feel better, and half of them don\u2019t even realize they have that set of mental problems."
+      },
+      {
+        "id": "mt7jy4z",
+        "score": 25,
+        "body": "All those fun 5-10+ mile hikes at Fort Bliss with heavy ruck, combat boots... and about 12-15 inches of sand. God I hated that shit. Wasn't hard really but all that sand with the weight really screws up the ankles and knees. My rucksack padding slipped and the metal part dug into my right shoulder and hurt like a bitch. Tore my labrum and I still have problems with today 24 years later."
+      },
+      {
+        "id": "mt7g0g3",
+        "score": 23,
+        "body": "Air Force?"
+      },
+      {
+        "id": "mt7u418",
+        "score": 23,
+        "body": " lol it reminds me of my parents describing how they used to hike 40 days and 40 nights to get to school. I will say this though, I truly do feel bad for those that are wronged by the VA and I understand the frustration but plz don\u2019t go taking it out on another veteran."
+      },
+      {
+        "id": "mt7eg74",
+        "score": 19,
+        "body": "Getting denied medical"
+      },
+      {
+        "id": "mt7q4nn",
+        "score": 18,
+        "body": "\"if you really had all these injuries, why didn't you complain, and tell all your buddies, your Chief and go to sick call all the time.....hmmmm?\""
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1jz5gdh",
+    "title": "Don\u2019t tell her at first!",
+    "body": "Somethings are left unsaid. ",
+    "flair": ":snoo_tongue:Meme Monday:snoo_joy:",
+    "score": 828,
+    "comment_count": 157,
+    "created_at": "2025-04-14T18:02:29+00:00",
+    "top_comments": [
+      {
+        "id": "mn3rcf2",
+        "score": 226,
+        "body": "I\u2019ve got a vasectomy and disability. Not once has it worked in my favor.\n\n![gif](giphy|UuBcRzWc6OdsMOpQv0)"
+      },
+      {
+        "id": "mn3omvw",
+        "score": 130,
+        "body": "spit on that 100%"
+      },
+      {
+        "id": "mn3std9",
+        "score": 113,
+        "body": "![gif](giphy|7ZaH8bE6pKZhe)"
+      },
+      {
+        "id": "mn3q8f5",
+        "score": 72,
+        "body": "[deleted]"
+      },
+      {
+        "id": "mn3ovg7",
+        "score": 72,
+        "body": "May 1st She\u2019ll say \u201chawk tuah, let me see that deposit\u201d \ud83d\ude05"
+      },
+      {
+        "id": "mn44iwp",
+        "score": 53,
+        "body": "VA Benefits: Your compensation/pension monthly payment of $HAWK.TUAH is being processed. Reply STOP to unsubscribe, HELP for link to access to VA Payment history."
+      },
+      {
+        "id": "mn3myy2",
+        "score": 45,
+        "body": "Don\u2019t tell her at all\u2026"
+      },
+      {
+        "id": "mn3qyiu",
+        "score": 39,
+        "body": "Time to get the viagra refill"
+      },
+      {
+        "id": "mn49kg0",
+        "score": 28,
+        "body": "[removed]"
+      },
+      {
+        "id": "mn3ziz8",
+        "score": 25,
+        "body": "My fiance had no idea I was actually getting money.. she just thought I was broken\ud83d\ude02 \n\nWhen I told her she said \u201coh wow that\u2019s cool\u201d"
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1ohaski",
+    "title": "Meme Monday",
+    "body": "",
+    "flair": ":snoo_tongue:Meme Monday:snoo_joy:",
+    "score": 812,
+    "comment_count": 82,
+    "created_at": "2025-10-27T10:27:21+00:00",
+    "top_comments": [
+      {
+        "id": "nlnmv29",
+        "score": 225,
+        "body": "They have the benefit of electronic record keeping and are educated on it before discharge."
+      },
+      {
+        "id": "nlo93x6",
+        "score": 122,
+        "body": "My FIL has 30% and was blown off an aircraft carrier and broke everything bellow his mid section. I told him to fix himself but he is stubborn and doesn't want admit to a doctor he is broken as bad as he is."
+      },
+      {
+        "id": "nlnku41",
+        "score": 112,
+        "body": "They were actively shamed by their leadership and peers and want to blame younger generations for not caving to peer pressure. Kinda weird"
+      },
+      {
+        "id": "nlofuty",
+        "score": 93,
+        "body": "Not service connected lol"
+      },
+      {
+        "id": "nlni70b",
+        "score": 90,
+        "body": "That\u2019s what happens when you don\u2019t go to the doc while in."
+      },
+      {
+        "id": "nlo7p53",
+        "score": 82,
+        "body": "Yes this is what I say as well. The SFL TAP program encourages filing for benefits and walks you through the steps. They even have VSO's come talk to the service members as part of a class. I was rated upon leaving servie"
+      },
+      {
+        "id": "nlml2xw",
+        "score": 66,
+        "body": "I feel this... In my knees... And my back"
+      },
+      {
+        "id": "nlof46y",
+        "score": 59,
+        "body": "Don\u2019t forget Facebook and Reddit are full of people that steer people to the right regulations and provide a ton of good information."
+      },
+      {
+        "id": "nlo9u61",
+        "score": 48,
+        "body": "Blown off an AC? Like into the water? And lived? Holy shit, I need to know more."
+      },
+      {
+        "id": "nlnlcxj",
+        "score": 46,
+        "body": "Wanting better for future generations? Pass, let me do unto them what was done unto me."
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1jte6zy",
+    "title": "Missing the bro's",
+    "body": "",
+    "flair": ":snoo_tongue:Meme Monday:snoo_joy:",
+    "score": 814,
+    "comment_count": 73,
+    "created_at": "2025-04-07T05:47:54+00:00",
+    "top_comments": [
+      {
+        "id": "mltkq1y",
+        "score": 178,
+        "body": "Someone needs to make one that ends in Thailand walking down the red light and attending ping pong shows."
+      },
+      {
+        "id": "mltl96f",
+        "score": 57,
+        "body": "Can we get one of guard duty in Kuwait transforming into having to clean up urinal shits in Fort Wayne Indiana (it\u2019s a problem there)"
+      },
+      {
+        "id": "mlto7t3",
+        "score": 50,
+        "body": "I mean, I lived it, and live it now. Suburbia is ass, and so are large crowds."
+      },
+      {
+        "id": "mlucbo5",
+        "score": 42,
+        "body": "The thought of the mortgage payment and HOA fees at :08, and dealing with Verizon customer service at :09, is pretty scary."
+      },
+      {
+        "id": "mltmto3",
+        "score": 33,
+        "body": "First time I saw grass after coming home was a big culture shock"
+      },
+      {
+        "id": "mlu7fje",
+        "score": 31,
+        "body": "Oki banana trick, Brazil live stage performance"
+      },
+      {
+        "id": "mluqeh6",
+        "score": 28,
+        "body": "I talk to a lot of veterans about how it's deceptively tough going from feeling like you're doing some very, very real shit to just...a very normal life. It's something I really struggled with. A lot of us did."
+      },
+      {
+        "id": "mltq1rn",
+        "score": 26,
+        "body": "After leaving the desert I landed in NC in the middle of summer. I swear I told myself I'd never take green for granted again."
+      },
+      {
+        "id": "mlverwq",
+        "score": 14,
+        "body": "Still do"
+      },
+      {
+        "id": "mlu5rjx",
+        "score": 13,
+        "body": "I feel like Urinal Shit duty is a problem set the Army has people uniquely prepared for\u2026"
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1jtmcl1",
+    "title": "Fight is over",
+    "body": "that feeling ",
+    "flair": ":snoo_tongue:Meme Monday:snoo_joy:",
+    "score": 808,
+    "comment_count": 66,
+    "created_at": "2025-04-07T14:18:24+00:00",
+    "top_comments": [
+      {
+        "id": "mlv8euk",
+        "score": 124,
+        "body": "Hanks is such an amazing actor"
+      },
+      {
+        "id": "mlvikgb",
+        "score": 103,
+        "body": "That's an actual active duty Navy corpsman treating Tom Hanks. She was told to process him as she would any person in a similar condition."
+      },
+      {
+        "id": "mlv8g5g",
+        "score": 71,
+        "body": "Me today after hitting step 7, and having a VERA call confirming 100% P&T."
+      },
+      {
+        "id": "mlvmllz",
+        "score": 50,
+        "body": "From what I read they had to do a couple of takes because she was kinda star struck. Tom talked with her for a few min, then she went into full triage mode. This scene wasnt really scripted as they wanted it as authentic as they could."
+      },
+      {
+        "id": "mlv98w6",
+        "score": 34,
+        "body": "[removed]"
+      },
+      {
+        "id": "mlve1ll",
+        "score": 25,
+        "body": "It\u2019s Captain Philips, about the Somali Pirate boarding of a Maersk ship and then the Seal Team operation to save Phillips (Hanks)"
+      },
+      {
+        "id": "mlvqf0g",
+        "score": 25,
+        "body": "New to military health care?"
+      },
+      {
+        "id": "mlvm15e",
+        "score": 17,
+        "body": "That's the way the movie was written. It's supposed to make the audience feel that way. \ud83d\udc4d"
+      },
+      {
+        "id": "mlv9p27",
+        "score": 15,
+        "body": "Land is definitely the plan."
+      },
+      {
+        "id": "mlvcgeq",
+        "score": 14,
+        "body": "what movie is this?"
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1n082es",
+    "title": "Combat Craig",
+    "body": "I just saw a video on YouTube that said combat Craig had died. Apparently he fell down the steps going to his studio. He will be missed. He did a lot of good and helped a lot of us through some tough times.",
+    "flair": null,
+    "score": 805,
+    "comment_count": 37,
+    "created_at": "2025-08-26T00:52:56+00:00",
+    "top_comments": [
+      {
+        "id": "naonxpk",
+        "score": 140,
+        "body": "His videos really helped me with my claims process getting to 100 p&t"
+      },
+      {
+        "id": "naowrmt",
+        "score": 129,
+        "body": "He provided detailed information in an entertaining way. RIP. He will be missed."
+      },
+      {
+        "id": "naoqo35",
+        "score": 80,
+        "body": "This is a tough loss. He will be missed."
+      },
+      {
+        "id": "naorys8",
+        "score": 75,
+        "body": "https://combatcraig.com/in-memoriam-louie-baur-aka-combat-craig/"
+      },
+      {
+        "id": "naos56p",
+        "score": 54,
+        "body": "So sad. I just watched some of his videos this weekend since I'm scheduled for a C&P and was looking for info about it. RIP"
+      },
+      {
+        "id": "naooktw",
+        "score": 53,
+        "body": "RIP CC."
+      },
+      {
+        "id": "naop2ll",
+        "score": 48,
+        "body": "Holy shit"
+      },
+      {
+        "id": "naop3hu",
+        "score": 47,
+        "body": "A good guy for us vets, he will be missed"
+      },
+      {
+        "id": "naos2sc",
+        "score": 41,
+        "body": "Damn this is hard to believe., He was such a great advocate for the veteran community.  He will be missed."
+      },
+      {
+        "id": "naowojv",
+        "score": 39,
+        "body": "That\u2019s awesome, I bet he would\u2019ve been stoked. \n\n\nCondolences to his loved ones. Dude seemed genuinely passionate in his pursuit to help vets."
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1r8n2xy",
+    "title": "VA Issued Warning Letters To Claim Sharks",
+    "body": "Attached is a list of all companies the VA identified as being claim sharks. If you used any of these companies for your claims you probably want to make sure that everything you claimed is legit. I see a few on here that rings a bell because a couple of my battle buddies suggested I should use them. I chose instead to do it on my own which now I\u2019m glad I did. God Speed Brothers! ",
+    "flair": "Headlines & News :rsz_21601:",
+    "score": 800,
+    "comment_count": 35,
+    "created_at": "2026-02-19T02:28:30+00:00",
+    "top_comments": [
+      {
+        "id": "o6692r6",
+        "score": 556,
+        "body": "you seriously expect me to believe a company named C&P Garage isnt trustworthy?"
+      },
+      {
+        "id": "o669lca",
+        "score": 464,
+        "body": "Cool.\u00a0 Now let's see a list of VA warnings to C&P Examiners.\u00a0 Bet it's like 4 people tops..."
+      },
+      {
+        "id": "o66bgcw",
+        "score": 354,
+        "body": "Investigate the damn C&P examiners "
+      },
+      {
+        "id": "o66bgm5",
+        "score": 309,
+        "body": "No shit!  What makes this worse is that you have the VA not giving DBQ's and Nexus to vets whom exclusivly use the VA, forcing them to use companies like this.  If you want them to stop seeking outside thelp then perhaps stop making the system lopsided. "
+      },
+      {
+        "id": "o66aexs",
+        "score": 152,
+        "body": "If you signed a contract, you need to contact an attorney not the vet bros here with YouTube law degrees"
+      },
+      {
+        "id": "o66bflg",
+        "score": 135,
+        "body": "They specialize in ED. Nicknamed \u201cThe Boner Garage.\u201d"
+      },
+      {
+        "id": "o66aon1",
+        "score": 121,
+        "body": "I googled it out of curiosity lol\n\nFunny enough, 4.9 out of 5 stars and lots of people defending the owner."
+      },
+      {
+        "id": "o66b15t",
+        "score": 110,
+        "body": "Sad part is a lot of these are Veteran owned!"
+      },
+      {
+        "id": "o66bers",
+        "score": 86,
+        "body": "*VA memo to C&P examiners:* Take your meds. Remember, empathy is bad for business."
+      },
+      {
+        "id": "o66bqot",
+        "score": 73,
+        "body": "Most intelligent Marine."
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1kvuub6",
+    "title": "Enjoy your Memorial Day",
+    "body": "Remember those we served with, but above all else, stay safe today and remember that we can honor those we miss by enjoying what we have. I will be spending my day frolicking through the flowers like a dirty hippy. ",
+    "flair": ":snoo_tongue:Meme Monday:snoo_joy:",
+    "score": 789,
+    "comment_count": 54,
+    "created_at": "2025-05-26T13:50:13+00:00",
+    "top_comments": [
+      {
+        "id": "muce5ii",
+        "score": 120,
+        "body": "It\u2019s a good thing I didn\u2019t lie on any of my exams and claimed pain instead of \u201cI can\u2019t walk or lift more than 5 pounds\u201d"
+      },
+      {
+        "id": "mude855",
+        "score": 98,
+        "body": "The VA prolly watched me go to the Home Depot 3 times this weekend and watch me move pea gravel and top soil."
+      },
+      {
+        "id": "mue9rvq",
+        "score": 70,
+        "body": "The VA encourages me to be in the gym working out and staying mobile."
+      },
+      {
+        "id": "mudqc35",
+        "score": 31,
+        "body": "I've just been gardening away all weekend. \ud83d\ude02 I saw someone mentioned you can use the online exchange to order stuff from Home Depot without sales tax."
+      },
+      {
+        "id": "mufa4fs",
+        "score": 29,
+        "body": "VA Pain management told me that they prefer to prescribe exercise over painkillers. Pick a lane guys."
+      },
+      {
+        "id": "mueptsd",
+        "score": 28,
+        "body": "100% true! I claimed pain, discomfort, injuries. Never once claimed I can't do stuff lol probably could have raised my rating some, but I'm glad I'm getting help for the issues I ACTUALLY have.\u00a0"
+      },
+      {
+        "id": "mudpvs3",
+        "score": 21,
+        "body": "[removed]"
+      },
+      {
+        "id": "mue87u8",
+        "score": 16,
+        "body": "VA definitely watches me in the gym moving weight every week."
+      },
+      {
+        "id": "mueo8cj",
+        "score": 13,
+        "body": "Not worth imho, usually have issues with pick up in store options alongside not being able to stack the 10% mil discount (which can be a greater discount than no sales tax in some states)."
+      },
+      {
+        "id": "mudr305",
+        "score": 12,
+        "body": "The Murph is more or a challenge and remembrance then it is cross fit."
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1r9jc3b",
+    "title": "Recent Events\u2026..",
+    "body": "Reinforce what many vets have already been saying. Please stop bragging about your Va compensation. I\u2019m not arguing whether or not you SHOULD be able to but we don\u2019t live in a fairy tale. There are people that hate us and think we are all leaches. There are people that are full of envy. There are people that watch your pockets. All of those people have voices and the people who make decisions about our benefits all have ears. Get your comp and please be quiet about it. The people around you making 40k a year don\u2019t need to know you\u2019re making 50k+ tax free.",
+    "flair": "VA Disability Claims :claim:",
+    "score": 780,
+    "comment_count": 117,
+    "created_at": "2026-02-20T02:35:38+00:00",
+    "top_comments": [
+      {
+        "id": "o6cufa8",
+        "score": 267,
+        "body": "Man I don\u2019t even want my disabled plate anymore. It\u2019s getting scary out here man, people need STFU."
+      },
+      {
+        "id": "o6e021r",
+        "score": 174,
+        "body": "Facts. And I don\u2019t know who needs to hear this, but please stop going on fucking caleb hammers show"
+      },
+      {
+        "id": "o6cxr3h",
+        "score": 125,
+        "body": "Stick together, but keep it discrete.\n\nBe a silent professional.\n\nFix your health and enjoy life."
+      },
+      {
+        "id": "o6facym",
+        "score": 105,
+        "body": "Caleb probably intentionally chooses the veterans that are open about their disabilities so he can put them on blast. Someone should sit down with Caleb, go over his diet and berate him for being a slob."
+      },
+      {
+        "id": "o6cukvh",
+        "score": 99,
+        "body": "I learned real quick to keep my mouth shut. I mentioned it to a guy I used to work with. He got kicked out of the military and his attitude toward me changed after he learned I got healthcare and a check every month. He thought I was playing the system. My care team at the VA would disagree."
+      },
+      {
+        "id": "o6d2epm",
+        "score": 65,
+        "body": "the types of people who attack disabled-veterans:\n\n1 - never served. don't understand what service is actually like on day-to-day basis and the dangers of training and duty. often overlaps (but not always) with the 'supporting the trendy social-media thing of the moment' crowd.\n\n2 - served or didn't serve. extreme-pro-corporate, often full anti-social-safety-net or just anti-va-benefits. believes that if they just cut out va-benefits then that will free-up money to go to other places, or just lower tax. they actually believe that (despite the money going to some other leadership pet-project 'cause' or 'foreign-aid' of some sort).\n\n3 - served. jealous. salty because someone else got something that the salty-one felt entitled to.\n\n4 - served. thinks their better than other veterans. thinks that attacking other veterans doesn't affect themselves. they think they're special. don't appreciate all of the efforts that went into making the system more favorable.\n\n-----\n\nthese are the heroes that attack disabled-veterans that got life-altering disabilities while trying to just serve and give back to the country.\n\namong other choice phrases to say to these people, the following might be added:\n\na - people with disabilities would gladly trade their monthly amount for their health back.\n\nb - you can be assaulted, shot, r*ped mangled, and put through all sorts of trauma in-service. but you can't sue for injuries once you sign the dotted line. this is how usa keeps their pet forever-wars going."
+      },
+      {
+        "id": "o6cvwst",
+        "score": 64,
+        "body": "10000%"
+      },
+      {
+        "id": "o6cufx1",
+        "score": 58,
+        "body": "Also the people who went to combat need to stop shitting on the guys that didn\u2019t. All of us signed up knowing we might die, most of us (though it doesn\u2019t matter) signed that contract while the longest war was going on\u2026like stop trying to appease people that hate you. All us vets need to stick together. Yes some shitbags will get through but IF YOU DONT TAKE WHAT YOU RATE. \n\nThe money will be spent, and you see how smart the govt is there: Somali day cares, Medicare fraud, govt contracts for friends, etc. \n\nYour tax dollars are being wasted you might as well take what you rate. \n\nIf you are too holy for benefits then STFU and don\u2019t take them."
+      },
+      {
+        "id": "o6df2nh",
+        "score": 53,
+        "body": "Screw that we earned it they can eat one\u2026 I agree though always keep mouth shut too much envy."
+      },
+      {
+        "id": "o6cw74d",
+        "score": 47,
+        "body": "If you're not rated now, you better get rated. Don't kick the can down the road saying you'll do it tomorrow. Get it down, even if it's 0%. I say this because it's only going to get worse. \n\nIt will still be easy for the malingerers but it will get harder for everyone else. That's a guarantee."
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1jv46nv",
+    "title": "Rule 1 of the VA Club\u2026.",
+    "body": "You don\u2019t talk about your rating.(original)\n(Edited) you don\u2019t talk about your rating to brag or show off, talk about it in a way that helps others or to people you trust(end of edit)(thank you slappy-sacks for pointing out my miscommunication)\n\nRule 2! You don\u2019t file after you\u2019re 100% PT(original)\n(Edit) unless there are special circumstances you need to apply for such as tdiu etc etc(thank you dangerous garage513)\n\nRule 3. Take care of yourself. (Edit) this is a very grey term that means a million different things to different people. \n\nIt breaks my heart to see people have reductions because they didn\u2019t follow these simple steps that seem so easy to do. \n\nAt this point it appears to be every other day that someone is asking for help because they are getting reduced to almost 0. \n\nYou, are your strongest advocate. Take care of yourself. If you are at 50 and deserve 70 and can prove it do so. If you\u2019re at 100 and think there\u2019s more\u2026. You need to stop and evaluate. Take care of yourself, take care of your families. Find the peace you deserve whether it\u2019s golf, underwater basket weaving, smoking weed, or being a stay at home parent\u2026 do something with what you got. Don\u2019t take it for granted, don\u2019t push for more than you deserve or have already maxed out. And for the love of all that is holy. LEAVE THE BEAR ALONE ",
+    "flair": "Headlines & News :rsz_21601:",
+    "score": 774,
+    "comment_count": 219,
+    "created_at": "2025-04-09T12:08:33+00:00",
+    "top_comments": [
+      {
+        "id": "mm788if",
+        "score": 257,
+        "body": "I\u2019m keeping my mouth shut. I\u2019m not 100, but my disability helps me live out in the middle of nowhere and take care of my grandmother. If I left her alone long enough to drive to town and work a full shift, I\u2019d come home to find her up on the roof tacking down shingles, even though she falls once every few days. I have been meaning to apply to for dependent support, but I\u2019m terrified of rocking this boat!"
+      },
+      {
+        "id": "mm79wb4",
+        "score": 65,
+        "body": "\ud83d\udc9c. I don't know why this made me tear up. Glad you have the opportunity to be there for her."
+      },
+      {
+        "id": "mm7btoe",
+        "score": 61,
+        "body": "My rule 1 has been don't have people in my \"circle\" or life that are shitty. Works great."
+      },
+      {
+        "id": "mm75zmf",
+        "score": 48,
+        "body": "I talk about my rating freely with other vets. It\u2019s nothing I\u2019m trying to hide or ashamed of. You experienced things most people can\u2019t fathom and if they do not like it or are jealous tough shit. I have helped WAY more vets get the compensation they are entitled to by freely talking about my rating rather than hiding it like a dirty secret."
+      },
+      {
+        "id": "mm7bdnp",
+        "score": 47,
+        "body": "Thank you \ud83d\ude4f \ud83d\udc9c We lost my aunt and grandfather within three months of each other in 2020. I am grateful every day I\u2019m in the position that I am to be there for her. I feel bad she has to put up with my cranky butt every day, though \ud83d\ude1c"
+      },
+      {
+        "id": "mm7puto",
+        "score": 40,
+        "body": "Another exception for rule #2: if you have a condition that has a good chance of killing you before the 10-year mark of hitting 100% and you have the evidence to prove service connection (either primary or secondary), then you should definitely file a claim to ensure your dependents get DIC benefits from it. Take care of yourself and your family."
+      },
+      {
+        "id": "mm7a40e",
+        "score": 38,
+        "body": "Rule 2 disregards Special Monthly Compensation (SMC) that a Vet may be eligible for."
+      },
+      {
+        "id": "mm82n81",
+        "score": 32,
+        "body": "I don\u2019t think adding dependents counts as poking the bear, I think only adding new claims but I could be wrong."
+      },
+      {
+        "id": "mm7czal",
+        "score": 30,
+        "body": "Funny stuff. I sit here with 100% P&T and statutory housebound. I don't hide my rating. No issues. It's almost like if people are shitting on you, you need new people.\n\n![gif](giphy|bkKvvzE9PEcTK)"
+      },
+      {
+        "id": "mm7x4qq",
+        "score": 26,
+        "body": "Correct. I have had DV plates for over a year. One person talked to me about it. Old vet, thanked me for my service, asked how I got the plates. I told him how you get the plate he said he never filed and wished he did. I offered him my phone number if he would like help and that I\u2019ve helped others he said it was too late for him and didn\u2019t care. Broke my heart. I said he should reach out to people if he changes his mind because there are benefits he deserves."
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1nbprtk",
+    "title": "lol",
+    "body": "",
+    "flair": ":snoo_tongue:Meme Monday:snoo_joy:",
+    "score": 770,
+    "comment_count": 49,
+    "created_at": "2025-09-08T14:49:29+00:00",
+    "top_comments": [
+      {
+        "id": "nd3e4e1",
+        "score": 56,
+        "body": "[deleted]"
+      },
+      {
+        "id": "nd3ergy",
+        "score": 35,
+        "body": "Not service connected but linked secondary to Alien STI's you can get 10% for painful motion of privates due to infections."
+      },
+      {
+        "id": "nd3jawl",
+        "score": 28,
+        "body": "Eye pro and masks would have prevented this."
+      },
+      {
+        "id": "nd3k9fu",
+        "score": 22,
+        "body": "Cmon Range of motion is still really good, that\u2019s zero percent."
+      },
+      {
+        "id": "nd4wnlr",
+        "score": 20,
+        "body": "Yeap... he can still breathe through his ass...lol. smdh"
+      },
+      {
+        "id": "nd5qsh9",
+        "score": 20,
+        "body": "Alien burst out of chest. Service connection denied"
+      },
+      {
+        "id": "nd3g418",
+        "score": 18,
+        "body": "Existed prior to service- this is obviously natural progression. Your acne you came in with grew this alien. You have no TERA."
+      },
+      {
+        "id": "nd3rzmt",
+        "score": 17,
+        "body": "\"While your records do indicate that you were stationed aboard the USCSS Nostromo during the time period of a xenomorphic outbreak, we find that you only display five of the six symptoms of xenomorph infestation. Service related disability is denied for this claim.\""
+      },
+      {
+        "id": "nd4a3iz",
+        "score": 16,
+        "body": "Continue with 4 Ibuprofen every 6hrs. If pain worsens, go fuck yourself."
+      },
+      {
+        "id": "nd67wvr",
+        "score": 12,
+        "body": "Aliens are NOT standard issue..."
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1otjkj1",
+    "title": "My Local VA is handing out edible Crayons for Veterans Day",
+    "body": "",
+    "flair": ":snoo_tongue:Meme Monday:snoo_joy:",
+    "score": 768,
+    "comment_count": 42,
+    "created_at": "2025-11-10T17:12:13+00:00",
+    "top_comments": [
+      {
+        "id": "no50ext",
+        "score": 156,
+        "body": "MARINES! Assemble!!!!\n\n![gif](giphy|dv01JuAyGK11zZKRv5|downsized)"
+      },
+      {
+        "id": "no55dzj",
+        "score": 61,
+        "body": "They know their clientele."
+      },
+      {
+        "id": "no5etkj",
+        "score": 34,
+        "body": "You mean the Marine Corps birthday! Get it straight!"
+      },
+      {
+        "id": "no53naw",
+        "score": 33,
+        "body": "Those look so delicious..."
+      },
+      {
+        "id": "no54yvm",
+        "score": 33,
+        "body": "If I get a pack I\u2019ll save them for a Marine who needs a snack. \ud83e\udd23"
+      },
+      {
+        "id": "no57hz5",
+        "score": 20,
+        "body": "They\u2019re all over this"
+      },
+      {
+        "id": "no6jtis",
+        "score": 17,
+        "body": "\"Edible crayons\"\n\nAs if there are any other types of crayons? \ud83e\udd37\u200d\u2642\ufe0f"
+      },
+      {
+        "id": "no6efgg",
+        "score": 13,
+        "body": "They a company that makes chocolate crayons they call them C.R.E.s. Crayons ready to eat. They are able to be used for coloring too."
+      },
+      {
+        "id": "no56960",
+        "score": 11,
+        "body": "Scooby snacks for Devil Dogs! I gotta get some of these for my brother."
+      },
+      {
+        "id": "no564ud",
+        "score": 11,
+        "body": "This is so great."
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1rfdhfs",
+    "title": "VA to formally rescind the interim rule on disability ratings & medication",
+    "body": "Expected to be published tomorrow in the Federal Register:\n\n[https://www.militarytimes.com/veterans/2026/02/26/va-to-formally-rescind-controversial-disability-ratings-rule/](https://www.militarytimes.com/veterans/2026/02/26/va-to-formally-rescind-controversial-disability-ratings-rule/)\n\n",
+    "flair": "Headlines & News :rsz_21601:",
+    "score": 767,
+    "comment_count": 133,
+    "created_at": "2026-02-26T15:41:29+00:00",
+    "top_comments": [
+      {
+        "id": "o7j5m3f",
+        "score": 774,
+        "body": "Always remember the organizations that put their foot down for you and speak up. Without these organizations it would be much harder to have our voices heard. Thank you to all of them and thank you to our fellow veterans and supporters for understanding we deserve our form of workers comp to be fair and just."
+      },
+      {
+        "id": "o7j7b3m",
+        "score": 192,
+        "body": "And yet many still speak ill about unions and the like.\n\nEdit: Didn\u2019t think I needed to point this out, yet here we are.\n\nVeteran Service Organizations, like those that helped this issue, take issues that concern the millions of veterans they represent and present them to those who have the power to make change in order to get those changes veterans want and to protect veterans from unfair changes to pay/benefits that the few inevitably try to push on the many.\n\nUnions take the issues that concern many employees they represent and present them to those who have the power to make change in order to get those changes the employees want and to protect employees from unfair changes to pay/benefits that the few inevitably try to push on the many.\n\nIt\u2019s the same picture."
+      },
+      {
+        "id": "o7j51zv",
+        "score": 137,
+        "body": "Glad to hear so many voices made them realize how stupid of a decision it was in the first place."
+      },
+      {
+        "id": "o7j9r4l",
+        "score": 84,
+        "body": "They can't decide what faucet to shut off. Medicare, food stamps or VA benefits. It's always musical chairs in this admin."
+      },
+      {
+        "id": "o7jb0pt",
+        "score": 65,
+        "body": "They knew"
+      },
+      {
+        "id": "o7jc6ue",
+        "score": 55,
+        "body": "Anyone else feel this is just a test, to judge our reactions, before they really do this on the future."
+      },
+      {
+        "id": "o7j6vuo",
+        "score": 53,
+        "body": "Not a mistake. A litmus test to see how far this regime can push Veterans. If they were wondering where the powder keg is they fucking found it."
+      },
+      {
+        "id": "o7jbw41",
+        "score": 52,
+        "body": "At least the billionaires are safe"
+      },
+      {
+        "id": "o7jfsur",
+        "score": 52,
+        "body": "Oh they were well aware, they were just hoping for less backlash."
+      },
+      {
+        "id": "o7jf61w",
+        "score": 52,
+        "body": "You Are not smooth brain.   You made a mistake with the knowledge you had.  You are good person because when you noticed you had it wrong, you took accountability and owned it.  You have my respect."
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1lgkw0t",
+    "title": "Tired of the \u201cNarrative\u201d",
+    "body": "I\u2019ve been here for a while now and keep seeing the messages from people showing that they don\u2019t know how people who weren\u2019t in combat can get high ratings, and questioning people scamming the system. \n\nI never deployed. I served 8 years. I was in the Air Force, as an intel analyst (so a \u201cdesk job\u201d). I was assaulted while I was in service. Went through trial, the whole nine. From that, has stemmed PTSD, IBS, sleep apnea, migraines and more.  \n\nAll I\u2019m saying as someone who\u2019s fed up with the narrative, is to please be considerate about what you\u2019re saying. You have people in here just like me, more recently removed from their trauma, that is watching you tell people that they shouldn\u2019t get anything because they weren\u2019t combat. That can put someone in an already fragile mental state in a hard spot, especially when they\u2019re coming here, to their brothers and sisters, for support. \n\nThe last thing we need is to attack each other. \n\nThat is all. ",
+    "flair": "VA Disability Claims :claim:",
+    "score": 761,
+    "comment_count": 61,
+    "created_at": "2025-06-21T01:40:26+00:00",
+    "top_comments": [
+      {
+        "id": "myx270c",
+        "score": 723,
+        "body": "Ill let you in on a little secret. Those were the same dudes telling you you couldn't go to medical while you were in..."
+      },
+      {
+        "id": "myx3wec",
+        "score": 243,
+        "body": "I was aircraft maintenance and after years of contortiing my body to get the mission done, the wear and tear is real. You don't have to see 'combat' to have sacrificed yourself for your country."
+      },
+      {
+        "id": "myx6ptg",
+        "score": 229,
+        "body": "I served for 6 years as a medic and was deployed during the Surge with  3rd ID. We lost 5% of our unit. I still have nightmares about doing body drag. No one questions me or my rating.\n\nAnd I don\u2019t care if you served under, over, or at a desk. If you got hurt in any way during your service through work or some of \u201cbest and the brightest\u201d hurting you, you rate and no one deserves to question you. They\u2019re just jealous they didn\u2019t go through the system to get what they rightfully earned because they think it makes them look hard and special.\n\nDon\u2019t let it get to you. When someone gives you shit about your rating or your MOS, just tell them \u201cit\u2019s not my fault you didn\u2019t make a claim or you got fucked during your C&P.\u201d Then give them the number to a VSO and walk away."
+      },
+      {
+        "id": "myx9hv0",
+        "score": 152,
+        "body": "Damn man it was always those guys"
+      },
+      {
+        "id": "myx20r5",
+        "score": 126,
+        "body": "There is a special place in our hearts for combat vets, no doubt. But even they will be interrogated about what their MOS was and where they were stationed, battles they were in, etc. It is an endless game some people play.\u00a0\n\nDon\u2019t sweat the knuckleheads. Just being in the military is the hardest job some people will ever have, and people get injured and assaulted stateside. Everyone knows that."
+      },
+      {
+        "id": "myx6kag",
+        "score": 121,
+        "body": "I was in combat.\n\nSo what?   I didn\u2019t ask for those orders.   You go where you are ordered and complete the mission combat or not.   It all breaks us down"
+      },
+      {
+        "id": "myxay3h",
+        "score": 107,
+        "body": "People should read \"Formation - a woman's memoir of stepping out of line\" by Ryan Dosty. And this coming from an Afghan combat vet. 1 in 3 female service members will experience SA while in the service. I believe it's 1 in 10 men. So chill with the rating judgment."
+      },
+      {
+        "id": "myx4gfd",
+        "score": 71,
+        "body": "Unfortunately, people don\u2019t realize there\u2019s a lot more to military than just combat. Plenty of evil people making their way through the ranks and sweeping things under the rug. I hope the VA is taking care of you and you\u2019re able to move forward with your life."
+      },
+      {
+        "id": "myx2gp5",
+        "score": 68,
+        "body": "[deleted]"
+      },
+      {
+        "id": "myxger2",
+        "score": 57,
+        "body": "Touch\u00e9!"
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1ongn6v",
+    "title": "Saw this and it gave me a good chuckle",
+    "body": "",
+    "flair": ":snoo_tongue:Meme Monday:snoo_joy:",
+    "score": 743,
+    "comment_count": 140,
+    "created_at": "2025-11-03T16:38:51+00:00",
+    "top_comments": [
+      {
+        "id": "nmxkdbk",
+        "score": 116,
+        "body": "*Brings paperwork of jp8 contaminated water bull*"
+      },
+      {
+        "id": "nmxcx2o",
+        "score": 102,
+        "body": "Raise your hand if you've worked in comm and had to burn hard drives and CDs and shit.\n\nI'm sure the CANCER will care what kind of burn pit I was working in \ud83e\udd37\ud83c\udffb\u200d\u2642\ufe0f"
+      },
+      {
+        "id": "nmx2ycn",
+        "score": 90,
+        "body": "They did find Agent Orange materials buried near the elementary school on Kadena, circa 2014."
+      },
+      {
+        "id": "nmxtrf7",
+        "score": 50,
+        "body": "I was exposed to them for almost 4 months in Iraq every single day and because my condition doesn't fall into a neat little group of checked boxes they told me to fuck off as well. It's not really all that funny I guess but the lying is stupid."
+      },
+      {
+        "id": "nmxo9em",
+        "score": 40,
+        "body": "JP8 and PFAS are in everything including me and I've had cancer twice because of them.  But I'm sure the cancer cares where my duty station was.  And I'm sure its a coincidence that all of my duty stations had PFAS contam.\n\nBut hey, at least your meme is accurate because VA doctors are in fact clowns."
+      },
+      {
+        "id": "nmwohk7",
+        "score": 39,
+        "body": "but it\u2019s all service-connected!! \ud83d\ude02"
+      },
+      {
+        "id": "nmzb9w7",
+        "score": 39,
+        "body": "I was a firefighter there for three years. I'm sure the ground water was either fuel or AFFF foam."
+      },
+      {
+        "id": "nmzy9am",
+        "score": 33,
+        "body": "[deleted]"
+      },
+      {
+        "id": "nmwq8ej",
+        "score": 31,
+        "body": "Camp Hansen Motor-T right behind the crematorium."
+      },
+      {
+        "id": "nmyccl9",
+        "score": 20,
+        "body": "29 plams. We had some sort of issue where it happened. Trust me. You'd fucking know based on the taste and never for getting it."
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1k9wwuq",
+    "title": "Yesterday my disabilities were \"So annoying!\".",
+    "body": "How the turn tables",
+    "flair": ":snoo_tongue:Meme Monday:snoo_joy:",
+    "score": 731,
+    "comment_count": 108,
+    "created_at": "2025-04-28T14:28:47+00:00",
+    "top_comments": [
+      {
+        "id": "mphmv9s",
+        "score": 327,
+        "body": "When she sees \u201cOUR\u201d backpay hit, comrade."
+      },
+      {
+        "id": "mpho0lo",
+        "score": 120,
+        "body": "To be fair, my decision making process is flawed, which is why I enlisted in the first place lol"
+      },
+      {
+        "id": "mpi6vel",
+        "score": 101,
+        "body": "I'm not sure if I'm in the minority but here goes.\n\nI give my wife $1,000 of my disability every month.\n\nShe became a stay at home mom in 2020 after our second kiddo was born.   We have 3 now and the youngest is 3 years old.  She is still a stay at home mom.\n\nPrior to her becoming a stay at home parent she was used to working for her own money since she was a teenager.\n\nAfter she started staying at home, well, she started relying on me. She absolutely hated that she lost her sense of self, at least the not having to rely on me for money. Back then, I was only at 20% disability. \n\nBetween when she became a SAHM and up until last November, when I was granted 100% P&T, we struggled financially a lot.\n\nWhen I started my claims in 2023, I legit made it my second job to gather my evidence, records, create appointments, and put together my claims.  I told my wife I would be largely ignoring them for a good reason.  And she took on even more burden at the start of 2023.\n\nWhen I was granted 100% last November I took 5k of the back pay and gave it to her.  I used the remaining 30k to pay off debt.  Now when it gets deposited every month I give her 1k of it so she can spend it however she wants.\n\nEven though we met after I was medically discharged she has helped me a ton over the years when I've thrown my back out and has been with me through all my flare-ups.  We hadn't met when I was medically discharged for my stroke but she has taken on the burden of sometimes having to assist me when my disabilities knock me on my fucking ass.  \n\nI was medically discharged in 2010. We met in 2015.\n\nWhen we started dating I told her about the stroke and how it affects me, she stuck around and now she's my best friend, wife and mother to our 3 kiddos."
+      },
+      {
+        "id": "mphx0p4",
+        "score": 69,
+        "body": "I know people are different but it still baffles me why people get married but keep financial shit separate or secret. If there is a need for that, then maybe marriage isn\u2019t a good idea!?!"
+      },
+      {
+        "id": "mphngmb",
+        "score": 68,
+        "body": "LOL Preach!"
+      },
+      {
+        "id": "mphzumm",
+        "score": 65,
+        "body": "Five years of back pay was the way my husband and I were able to afford buying a house."
+      },
+      {
+        "id": "mphm5rv",
+        "score": 49,
+        "body": "You told her???"
+      },
+      {
+        "id": "mphp013",
+        "score": 44,
+        "body": "[removed]"
+      },
+      {
+        "id": "mphra93",
+        "score": 41,
+        "body": "Walter White- who\u2019s this we \ud83d\ude2d\ud83d\ude2d"
+      },
+      {
+        "id": "mpjf32v",
+        "score": 29,
+        "body": "I'm not sure what you mean by reciprocating, but my wife and I have a solid relationship. \n\nI've helped her when she's had medical procedures done and she has gone above and beyond to help me during recovery of surgeries or lower back flare ups.\n\nGiven me sponge baths, seen me lose 40 lbs and looking like an absolute twig after a hernia repair surgery.   Did all the heavy house lifting when I have not been able to.\n\nI do my fare share of leg work on most days. \n\nWe meet in the middle on most things.   I got fucking lucky with her and to top it off, her mom and I get along so great, we honestly shoot the shit like Marine buddies. \n\nI'm her mom's favorite out of all the other son and daughter in laws."
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1juwwpi",
+    "title": "100% P/T to 0%",
+    "body": "So, I retired last year after my 20 and my BDD claim went pretty smoothly for the most part. Received my rating and the Only thing they got wrong was I submitted a diagnosis of Sleep Apnea and they rated me not service connected. I obviously got very bad advice from my VSO to submit a higher level review of my sleep apnea since we submitted the documents in the original claim and I was still on Active Duty when I was diagnosed.\n\nApparently they have reviewed everything all over again and now have determined I\u2019m all better for the listed conditions and are reducing my current ratings. HOWEVER, firstly, letter says taking me from 100% to 0% when the letter also says at the minimum I should be getting 10%. Secondly, I have MANY more conditions that aren\u2019t listed on this and would more than likely still grants me 100%. Like What in the actual F@&!?? \n\nI\u2019m obviously requesting a hearing but Just wondering if anyone else has received an absolute hack job of a letter like this?",
+    "flair": "Proposed Reduction! :snoo_scream:",
+    "score": 731,
+    "comment_count": 558,
+    "created_at": "2025-04-09T03:57:20+00:00",
+    "top_comments": [
+      {
+        "id": "mm6g3gm",
+        "score": 977,
+        "body": "The bear got gently poked and absolutely mauled you to death, then ate the remains"
+      },
+      {
+        "id": "mm72bh9",
+        "score": 572,
+        "body": "Rule 1. When you hit 100% pt. Never. Ever. File. Again. EVER. \nRule 2. Start to or continue to take care of yourself."
+      },
+      {
+        "id": "mm6l0gq",
+        "score": 237,
+        "body": "So idk what possessed you to file anything at 100% p&t. You got the max and then decide to poke the bear. This isn\u2019t a pt test with an extended scale. You hit the top. Let it be. With that said even with the proposed reduction you should be at 20%(19) with the 2 10% ratings so they have already made an error there. You will need to appeal this and have a c&p to try to keep all current ratings. If you are successful, leave it be.  The p in p&t is for permanent but that\u2019s only the case if you don\u2019t poke the bear."
+      },
+      {
+        "id": "mm7rwfe",
+        "score": 169,
+        "body": "That's not 100% always the 100% rule of being 100% P&T. My friend is 100% P&T and is mentally and physically disabled. Brain damage, brain cancer, lost control of the right side of his body. \n\nJust weeks ago, we won his case for multiple SMC conditions, remodeling of his home for ADA requirements, etc. They're even countersinking a fucking hot tub into the back porch they just built him. I say \"we\" as I like to help others, I'm retired, understand vernacular well, and can make a package like none other. \n\nPerson is 100% P&T? They're likely good. Don't be stupid. If you're going to file or appeal again, be educated and be sure you're doing it right and do your own damn research and do it correctly for your particular case. I'm not saying that OP was stupid. \n\nWhat I'm getting at is if you have additional issues that meet the requirements and you file properly and correctly with the proper verbiage and you have done your research and you know what the hell you are talking about, you have nothing to lose. \n\nMy own Dad has been 100% for years and years and STILL fighting the system for shit that's owed to him. We just got him an electric wheelchair AND scooter, plus a hardware-based knee brace and other things particular to his situation. \n\nFile smartly and with intent."
+      },
+      {
+        "id": "mm6fxcn",
+        "score": 134,
+        "body": "I can\u2019t lie. That would make me suicidal."
+      },
+      {
+        "id": "mm5tgy9",
+        "score": 132,
+        "body": "Jesus!\u00a0\n\nI know the rater who wrote this was crying sad tears. Why in the world did you do a HLR for?\u00a0"
+      },
+      {
+        "id": "mm7wwyv",
+        "score": 125,
+        "body": "\"File smartly and with intent.\"\n\nThis really is the case."
+      },
+      {
+        "id": "mm6id7i",
+        "score": 123,
+        "body": "And this is why i keep warning people every chance i get that these vso's arent as good as people think and that they just simply help too much people to give you the attention you can give yourself. Study the 3 c.f.r and be your own rep or get a strong accredited agent."
+      },
+      {
+        "id": "mm8fbp3",
+        "score": 92,
+        "body": "Do your own research these days is such a weird thing to tell people. There's a reason people fuck Shit Up all the time, because they have absolutely no idea how to research or interpret  what they find.  Sadly, a lot of people.are a lot dumber than they think they are."
+      },
+      {
+        "id": "mm6vl71",
+        "score": 89,
+        "body": "It absolutely baffles me that someone who is 100%, P&T no less, would ask if they should submit for something else.  This example right here is why you don\u2019t do it.  Unbelievable\u2026"
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1pt240n",
+    "title": "Just going to leave this here",
+    "body": "",
+    "flair": ":snoo_tongue:Meme Monday:snoo_joy:",
+    "score": 729,
+    "comment_count": 192,
+    "created_at": "2025-12-22T15:18:13+00:00",
+    "top_comments": [
+      {
+        "id": "nvdttpv",
+        "score": 181,
+        "body": "Gotta love going out on Convoy missions back in 07' and getting a Couple case of Red Rip It's, a couple box of muffins an a couple boxes of pop tarts for the road. Shit was like crack.  Also, pretty crazy when guys started getting kidney stones and the Docs just would kinda scratch their heads like \"How?\" \ud83d\ude02"
+      },
+      {
+        "id": "nvdx1ds",
+        "score": 59,
+        "body": "Facts, after the CLP brief I would load up on everything I could carry on the mission. Rip its and muffins was that shit!! OIF/OEF \ud83d\udcaf"
+      },
+      {
+        "id": "nve8qud",
+        "score": 54,
+        "body": "Don\u2019t forget a sleeve of the macadamia Otis spunkmeyer cookies"
+      },
+      {
+        "id": "nvdugdj",
+        "score": 42,
+        "body": "Citrus X was easily the best flavor"
+      },
+      {
+        "id": "nvdqqjk",
+        "score": 37,
+        "body": "Menards sells them by the case"
+      },
+      {
+        "id": "nve1x8m",
+        "score": 34,
+        "body": "Consuming them during deployments should be some sort of thing on its own like the TERA memorandum \ud83d\ude06"
+      },
+      {
+        "id": "nvdr7cm",
+        "score": 34,
+        "body": "I\u2019ve seen the tall cans at Dollar Tree."
+      },
+      {
+        "id": "nvemt3r",
+        "score": 28,
+        "body": "https://preview.redd.it/w60rgaxwos8g1.jpeg?width=600&format=pjpg&auto=webp&s=c11d689d807a0aebbd31a8ef694051af194e9e5d\n\nLeave this gem here"
+      },
+      {
+        "id": "nve1eqd",
+        "score": 28,
+        "body": "Those Rip-its tasted so good during convoys. The possibility of death enhanced whatever is in those drinks lol."
+      },
+      {
+        "id": "nvdt1iw",
+        "score": 28,
+        "body": "It's an energy drink that was on bases in Iraq Baghdad and Taji I know from 2007 2010"
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1ntzo83",
+    "title": "Oh Neptune",
+    "body": "",
+    "flair": ":snoo_tongue:Meme Monday:snoo_joy:",
+    "score": 722,
+    "comment_count": 61,
+    "created_at": "2025-09-30T01:06:16+00:00",
+    "top_comments": [
+      {
+        "id": "ngxjmnh",
+        "score": 69,
+        "body": "BLUF: people shouldnt be freaking out about ratings being up in the air.\n\n\nThe total impact is only in the order of magnitude of millions (article says 2.2 million). OIG thrives on saying they save money: if they could say they saved eleventy billion dollars, they would because thats how they get their atta boys. They didn't come close, therefore amounts are likely to be order of magnitude correct.\n\n\nThe relatively low amount implies that continuous payouts arent involved but only one time payments. For example a 35 year old getting 100% undeservedly would account for roughly a 2 million loss alone with average lifespan of 80 years.\n\n\nTherefore ratings aren't really involved (if at all) as much as effective dates. These amounts are far far lower and much less impact.\n\n\nEdit: from the OIG report itself, effective dates are identified as the main culprit for monetary loss.\n\n\n\n\nMonetary Impact Errors\n\n\nUsing results from the sample analysis, the team estimated that claims processing errors resulted in at least an estimated $2.2 million in improper payments during the review period. Monetary impact errors, which resulted in questioned costs, occurred when the senior VSR did not identify incorrect effective dates, review the claim application for a valid signature, or identify all entitled benefits.\n\n\nEdit 2, also from the OIG report:\n\n\n[Technical comment 2] Page 2, paragraph 1, lines 1 through 5:\n\u201cThe senior VSR is responsible for reviewing the award and decision notice for accuracy. Before\u00a0\nauthorizing a rating decision, the senior VSR must verify that everything involving the claim is\u00a0\ncorrect, such as whether the claim application was signed by the correct party, all benefits were\u00a0\naddressed in the decision, and the date of the claim is accurate, and also must ensure certain\u00a0\nVeterans Benefits Administration (VBA) systems are updated accurately.\u201d\nVBA Comment: This language implies that every facet of the adjudication process can be and is verifiable\u00a0\nby a senior VSR; however, senior VSRs are not trained in disability evaluations, the principles guiding the\u00a0\nestablishment of service-connection, and other determinations and responsibilities inherent to the Rating\u00a0\nVSR position."
+      },
+      {
+        "id": "ngyn4a8",
+        "score": 34,
+        "body": "I wonder if P&T in this (my) case actually means P&T.......? \ud83e\udd14 \ud83d\ude05\ud83e\udd14\ud83e\udee3\ud83d\ude36\ud83d\ude2c\ud83e\udd2e\n\n![gif](giphy|J1vUzqdZJlh5AqBWxt|downsized)"
+      },
+      {
+        "id": "ngzltfu",
+        "score": 28,
+        "body": "Thank you for being a factual person and reading the report .  This is almost certainly Effective dates having to do with back pay .  Like you said this person had nothing to do with assigning ratings  but like we all know this sub is filled with people who still ask \u201cwhen am I getting paid \u201c month after month so the fear and anxiety will only lead to more of the same questions being asked"
+      },
+      {
+        "id": "ngzme37",
+        "score": 26,
+        "body": "How would one know where their claim is processed? Is it loosely based on where you live?"
+      },
+      {
+        "id": "ngxsnzw",
+        "score": 18,
+        "body": "Yet the OIG didn't identify decisions involving erroneously granting ratings which should have been denied. The whole report is here:\n\n\nhttps://www.vaoig.gov/sites/default/files/reports/2025-09/vaoig-24-03608-203-final_0.pdf"
+      },
+      {
+        "id": "nh00fr1",
+        "score": 17,
+        "body": "Va tracker extension for chrome"
+      },
+      {
+        "id": "ngyukq6",
+        "score": 11,
+        "body": "Anyone know where the BDD cases go if you were stationed in Europe or for those in the Pacific?"
+      },
+      {
+        "id": "nh17iek",
+        "score": 10,
+        "body": "We should pitch in to bail him out if he is locked up. Doing the Lord's work lol"
+      },
+      {
+        "id": "ngxs5es",
+        "score": 8,
+        "body": "The senior VSR in question was at the end of the line, which means that he was singing decisions that already went through other levels of scrutiny (although with errors). Those other levels have much better training and competence at generating rating decisions than they do in effective dates.\n\n\nFrom the OIG report itself on p.15, the monetary impact portion is discussed.\n\n\nhttps://www.vaoig.gov/sites/default/files/reports/2025-09/vaoig-24-03608-203-final_0.pdf\n\n\nUsing results from the sample analysis, the team estimated that claims processing errors resulted\u00a0in at least an estimated $2.2 million in improper payments during the review period. Monetary\u00a0impact errors, which resulted in questioned costs, occurred when the senior VSR did not identify\u00a0incorrect effective dates, review the claim application for a valid signature, or identify all entitled\u00a0benefits."
+      },
+      {
+        "id": "nh03cl0",
+        "score": 7,
+        "body": "Edit/ReComment due to weird copy/paste: Hi there! over on the Chrome Web Store there is an extension \"VA Assistant\" that I maintain. In 1.0.7 (pending release) I added a button on the \"Claims Tab\" to do a basic check for possibly affected claims. Check it out, it's free! Use the email or DM me if there are problems or features you'd like to see!"
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1l8zz71",
+    "title": "Why Does Everyone Hate on VA Disability?",
+    "body": "I was watching Financial Audit with Caleb Hammer, and one of the guests said they\u2019re on disability. I\u2019ve noticed every time someone on the show gets VA disability, people in the comments start looking down on them or trying to act like investigators, like they\u2019re figuring out whether the person \u201cdeserves\u201d it or not. Just curious what people actually think about that.\n",
+    "flair": "VA Disability Claims :claim:",
+    "score": 697,
+    "comment_count": 755,
+    "created_at": "2025-06-11T18:18:33+00:00",
+    "top_comments": [
+      {
+        "id": "mx8upj8",
+        "score": 1008,
+        "body": "Man this past week I have read more post about Veterans not deserving or people complaining about veterans benefits that i care to read.  It\u2019s like some internet farm been pushing an agenda or something"
+      },
+      {
+        "id": "mx903dj",
+        "score": 477,
+        "body": "Service members make up less than 1% of the population, and even less for those who are receiving 100%.\u00a0"
+      },
+      {
+        "id": "mx8xfrj",
+        "score": 419,
+        "body": "r/Economics had several articles questioning why men were out of the workforce. Lots of people saying shit and talking about va disability. Pretty gross behavior if you ask me."
+      },
+      {
+        "id": "mx8uelk",
+        "score": 285,
+        "body": "Mechanic deployed to Iraq, exposed to burn pits everyday, develops cancer, asthma, maybe this guy is 11B but never leaves the states. Everyone\u2019s experience is different. This shit is just sad and pathetic honestly."
+      },
+      {
+        "id": "mx8s9f3",
+        "score": 253,
+        "body": "Yes!\n\nPeople are always concerned with the money you are getting if they aren\u2019t."
+      },
+      {
+        "id": "mxa5f69",
+        "score": 244,
+        "body": "If its a really, really, really big issue then maybe the US should stop getting involved in wars if they cant take care of those that stepped up and sacrificed. Just a thought."
+      },
+      {
+        "id": "mx8u3pv",
+        "score": 196,
+        "body": "It does not leave less for the rest of us. That's a myth used to perpetuate stigma. Suffering is not comparable since we all experience it individually. \n\nThat upset feeling you have is called **jealousy** that someone else was better at filing paperwork than you. This isn't a zero sum game. You get what's owed to you and so can they"
+      },
+      {
+        "id": "mx8ynf8",
+        "score": 160,
+        "body": "Yeah bro they act like you just go down to the VA and say I need my Rating now.."
+      },
+      {
+        "id": "mx8zmd7",
+        "score": 139,
+        "body": "[deleted]"
+      },
+      {
+        "id": "mx9a4k8",
+        "score": 135,
+        "body": "I think a better metric to put it in perspective would be the dollar amount/percentage. The federal government spent $260 billion of the mandatory spending budget on veterans benefits. It's 7th on the spending totem pole behind Social Security (21%), Medicare (14%), Interest (14%, this is a really, really, really big issue), Health (13%), National defense (13%), income security (11%), then VA benefits (5%).\n\nSo less than half of the next category up...and the same as the next 3 categories below it."
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1jit998",
+    "title": "Which one of you hard chargers is this lol? I spotted this in the wild, dude looked 30",
+    "body": "Don't forget to thank him for his service",
+    "flair": ":snoo_tongue:Meme Monday:snoo_joy:",
+    "score": 699,
+    "comment_count": 196,
+    "created_at": "2025-03-24T15:22:45+00:00",
+    "top_comments": [
+      {
+        "id": "mjhqwsn",
+        "score": 237,
+        "body": "This is what alcoholism,  2 divorces, and kids that won't return phone calls looks like.\n\nI'd bet ten bucks he owes $20k at 20% interest on that truck."
+      },
+      {
+        "id": "mjhptim",
+        "score": 236,
+        "body": "![gif](giphy|xHAjMWywlTg8gHMbhY)\n\nOh my brothers and sisters\u2026 you don\u2019t need to do this to yourselves\u2026"
+      },
+      {
+        "id": "mjhsybp",
+        "score": 107,
+        "body": "[deleted]"
+      },
+      {
+        "id": "mjhsnx0",
+        "score": 72,
+        "body": "Lots of undiagnosed autism in the armed forces I\u2019m telling y\u2019all"
+      },
+      {
+        "id": "mjhxag7",
+        "score": 52,
+        "body": "And probably recently commented on here that he\u2019s 90%, \u201ctrying to get to 100\u201d and the VA \u201cscrewed him over\u201d by giving him a \u201cbad CP examiner\u201d because he\u2019s only 289 pounds and they wouldn\u2019t say his OSA was caused by his service connected left toe sprain."
+      },
+      {
+        "id": "mjhwspt",
+        "score": 48,
+        "body": "![gif](giphy|W4hkwaYykZCsYarSMg)\n\nI agree"
+      },
+      {
+        "id": "mjhst7z",
+        "score": 46,
+        "body": "30 in grunt years is like 74 in civilian years"
+      },
+      {
+        "id": "mji771j",
+        "score": 40,
+        "body": "Hey, c'mon. Some of us were just emotionally unstable."
+      },
+      {
+        "id": "mjhzmkm",
+        "score": 37,
+        "body": "Let's be honest, you have to be somewhat mentally unstable to decide to join."
+      },
+      {
+        "id": "mjhpn94",
+        "score": 35,
+        "body": "Just a tad more cringe than the 9Line apparel"
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1r0hhda",
+    "title": "How it feel to open a good decision.",
+    "body": "",
+    "flair": ":snoo_tongue:Meme Monday:snoo_joy:",
+    "score": 689,
+    "comment_count": 55,
+    "created_at": "2026-02-09T21:39:39+00:00",
+    "top_comments": [
+      {
+        "id": "o4ii6bd",
+        "score": 45,
+        "body": "I was broke as F and had thousands in my bank account without knowing, brutal"
+      },
+      {
+        "id": "o4jb7ko",
+        "score": 37,
+        "body": "Was literally at my lowest point about to give up and move away from my son (me and the mom are separated) then like God himself commanded me I opened my bank to see I made it. Life has been good ever since"
+      },
+      {
+        "id": "o4itec4",
+        "score": 35,
+        "body": "![gif](giphy|P9hUbGR9bRNf2a0rxs|downsized)"
+      },
+      {
+        "id": "o4i83x8",
+        "score": 22,
+        "body": "What's the opposite of this when all the dudes that paid for their out of state nexus/DBQs get that notice that they're being investigated for fraud."
+      },
+      {
+        "id": "o4i90kq",
+        "score": 17,
+        "body": "![gif](giphy|v3rDPxacmwfN9mZ6cz)"
+      },
+      {
+        "id": "o4j99rk",
+        "score": 16,
+        "body": "Paper size envelope=good news.  Half size paper envelope=better luck next time."
+      },
+      {
+        "id": "o4iokn0",
+        "score": 11,
+        "body": "There\u2019s va companies like veterans guardians (i believe this is one of them) that used shady tactics to get people to 100% that didn\u2019t deserve it. They\u2019re investigating those companies and are going to potentially retract ratings from individuals that used those companies, so I\u2019ve heard"
+      },
+      {
+        "id": "o4ifadb",
+        "score": 9,
+        "body": "[deleted]"
+      },
+      {
+        "id": "o4jc6gj",
+        "score": 8,
+        "body": "And yet I can\u2019t get any fucking care without months long waits"
+      },
+      {
+        "id": "o4nigdn",
+        "score": 6,
+        "body": "I'm sorry if I offended anyone; that wasn't my intention. I separated in 2019, but what I put in a claim for happened in 2014. I didn't make a claim till 2024 and had to fight with HLRs for two years. I spent years not knowing how to look for help through the nightmares, numerous mental issues, chronic pain, medical bills, and other debts\u2014just looking for a little laugh to get a little enjoyment in life. So to see some of this hate is kind of crazy. I opened my decision letter last week and saw I finally got accepted. At the same time, I was scrolling through some reels, and this was the first video I saw, which made me bust out laughing. Also, is it Meme Monday? What's the point of being mad at a joke? I know most of us are fighting against true pain and fraud, but come on, can we lighten up a bit?"
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1jkrh79",
+    "title": "So long and Thanks for all the Fish.",
+    "body": "Today is my last day with this sub.  I spend entirely too much time here,  as some of you have pointed out I'm not exactly the best at presenting information and for the second time here my livelihood and my family have been threatened as a result of my bad communication skills. \n\nAppreciate the help you guys have given me,  I love helping you and I assure you I will continue to do so professionally as I have for the last 20 or so years.  You all mean so much to me. \n\nDo me a favor and take care of yourselves and each other. \n\n",
+    "flair": "Headlines & News :rsz_21601:",
+    "score": 685,
+    "comment_count": 235,
+    "created_at": "2025-03-27T00:37:07+00:00",
+    "top_comments": [
+      {
+        "id": "mjxmrhv",
+        "score": 493,
+        "body": "I'll see you back here next week bro \ud83d\udc4d"
+      },
+      {
+        "id": "mjxxhg4",
+        "score": 287,
+        "body": "You can take the private out of the Army, but you can\u2019t take the 29% interest Mustang loans out of the private."
+      },
+      {
+        "id": "mjxt0my",
+        "score": 231,
+        "body": "Just read the thread you're referring to. So many people are outraged do to you simply saying essentially \"If your worried about your paycheck every month, maybe fix your budget\". Which is crazy, I don't know how anyone is that upset with that statement."
+      },
+      {
+        "id": "mjxojrn",
+        "score": 144,
+        "body": "Damn, you're receiving threats? People need to lighten up, man. Sucks to have someone with your knowledge leave the sub. They're gonna miss you when they can't get answers to their questions."
+      },
+      {
+        "id": "mjxmx8n",
+        "score": 124,
+        "body": "Sir, This is an Anthony\u2019s Pizza"
+      },
+      {
+        "id": "mjxnlzi",
+        "score": 85,
+        "body": "Came here to say to say this lol"
+      },
+      {
+        "id": "mjxvykw",
+        "score": 84,
+        "body": "Because some people don't want to hear the truth. I understand that people have rent or mortgage to pay, food to buy, car notes, etc. but jumping on here every month asking if anybody got paid yet does get old. Not every bank is the same. Some pay today or tomorrow, like mine, others don't pay till the 1st. It's been pretty much like clockwork for years. I fuck off my money too sometimes so I don't pass judgement. I'm just sayin..."
+      },
+      {
+        "id": "mjxqb42",
+        "score": 39,
+        "body": "There's no way. People get mad at sleeping lucid? Dude does nothing but help everyone. See you around! Thanks for your help."
+      },
+      {
+        "id": "mjxut0g",
+        "score": 39,
+        "body": "Be not afraid. Those of us who pass on from this life into reality will lurk over you in this holy place."
+      },
+      {
+        "id": "mjxsirt",
+        "score": 35,
+        "body": "Wait, what if I read you some Vogon poetry???"
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1lu832v",
+    "title": "VA to reduce staff by nearly 30k by end of FY2025",
+    "body": "https://news.va.gov/press-room/va-to-reduce-staff-by-nearly-30k-by-end-of-fy2025/\n\nIn summary: VA is no longer considering widespread RIF (firing) of VA employees. Citing their current efforts have been sufficient to cull the herd enough.",
+    "flair": "Headlines & News :rsz_21601:",
+    "score": 667,
+    "comment_count": 76,
+    "created_at": "2025-07-07T22:29:08+00:00",
+    "top_comments": [
+      {
+        "id": "n1vvq3d",
+        "score": 398,
+        "body": "Again I fail to see how this \u201csavings\u201d benefits **us** either as Veterans or normal, regular, schmegular Americans."
+      },
+      {
+        "id": "n1vvvne",
+        "score": 341,
+        "body": "Except the secretary still can't state with any certainty what people in what positions they have/are \"reducing\" on the medical side. All he keeps saying is \"redundant medical staff\" without specifying what that means."
+      },
+      {
+        "id": "n1vwt18",
+        "score": 282,
+        "body": "This is what maga veterans voted for."
+      },
+      {
+        "id": "n1vwmvy",
+        "score": 235,
+        "body": "It doesn't and wasn't meant to."
+      },
+      {
+        "id": "n1vzehw",
+        "score": 225,
+        "body": "I can\u2019t tolerate the political slant of this press release:\n\n\u201cMeanwhile, VA performance continues to improve. Under President Trump and Secretary Collins:\n\n\u201cVA\u2019s disability claims backlog is already down nearly 30%, after it increased 24% during the Biden Administration.\u201d\n\nYeah, because the Pact Act passed during the Biden administration! It wasn\u2019t a bad thing the backlog was larger because it meant more vets were eligible for benefits and they were taking advantage of that. Metrics should measure outcomes, not WIP (work in process) anyway."
+      },
+      {
+        "id": "n1w77f3",
+        "score": 204,
+        "body": "Since March, my PCP left, her replacement left, the ENT Specialist left, last Friday I find out the Doctor from the Sleep Clinic has also left. This includes a few PA's, NP's, and RN's I used to see at my VA. The sad thing is, I don't see replacements being hired, or if they are, they are invisible. Where did the medical staff go, to civilian health care, all I had to do was Google their names. \n\nI want to see a plan, how is it IBM can tell their employees 6 months in advance, yet the VA can't give 6 hours of notice? I would like to apologize to all the great VA employees that have helped me, you deserve better."
+      },
+      {
+        "id": "n1w7uoa",
+        "score": 178,
+        "body": "They. Don\u2019t. Care."
+      },
+      {
+        "id": "n1vxpo2",
+        "score": 160,
+        "body": "I, for one, do not see how returning to pre-2020 staffing levels at the VA will have positive outcomes for veteran\u2019s health care. But America wanted this \u2026 so you make your bed, we sleep\n\nAlso, Mods, maybe we can keep this thread up + not lock the comments so we can actually discuss the happenings of the VA :)"
+      },
+      {
+        "id": "n1vyhgp",
+        "score": 139,
+        "body": "[removed]"
+      },
+      {
+        "id": "n1w81ks",
+        "score": 113,
+        "body": "Am I a 2 dollar hooker?  I feel like I'm getting @&$\u201ded like one."
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1k9xi1e",
+    "title": "Gramps is keepin up with his PPE and PPI still\u2026 \ud83d\udc74\ud83c\udffc",
+    "body": "",
+    "flair": ":snoo_tongue:Meme Monday:snoo_joy:",
+    "score": 668,
+    "comment_count": 39,
+    "created_at": "2025-04-28T14:53:48+00:00",
+    "top_comments": [
+      {
+        "id": "mphzkb7",
+        "score": 102,
+        "body": "Dont think it will be germany this time"
+      },
+      {
+        "id": "mpji408",
+        "score": 61,
+        "body": "If anything. We will be the Germany this time."
+      },
+      {
+        "id": "mpia0bt",
+        "score": 51,
+        "body": "\u201cHow many time must we teach you this lesson\u201d - Old Man"
+      },
+      {
+        "id": "mpi2pnt",
+        "score": 47,
+        "body": "Sorry gramps, the calls are coming from inside the house.."
+      },
+      {
+        "id": "mpjrg1h",
+        "score": 39,
+        "body": "We already are, unfortunately."
+      },
+      {
+        "id": "mpjdx2s",
+        "score": 33,
+        "body": "Somehow Nazis are illegal in Germany but not here..."
+      },
+      {
+        "id": "mpibe47",
+        "score": 32,
+        "body": "Germany? The Nazis are now your neighbors, high level government officials, he doesn\u2019t have to wait for Germany to do anything.."
+      },
+      {
+        "id": "mphtlvg",
+        "score": 29,
+        "body": "Gramps is standing on business\ud83d\udc4f\ud83c\udffe"
+      },
+      {
+        "id": "mpi9dnk",
+        "score": 25,
+        "body": "I don't think Germany's the problem. \n\n![gif](giphy|xUPGcGUKb0PfbqyGg8)"
+      },
+      {
+        "id": "mpjuugw",
+        "score": 24,
+        "body": "I came here to say all of this\ud83d\ude2d\ud83d\udc80\ud83d\udc80"
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1mwjngm",
+    "title": "I think I'll ask anyways",
+    "body": "",
+    "flair": "VA Disability Claims :claim:",
+    "score": 669,
+    "comment_count": 122,
+    "created_at": "2025-08-21T18:49:23+00:00",
+    "top_comments": [
+      {
+        "id": "n9xxbmf",
+        "score": 396,
+        "body": "https://preview.redd.it/o8sq02vw5fkf1.jpeg?width=959&format=pjpg&auto=webp&s=ac4828ff9326049b32f2adafc7d51a089fe0da8a"
+      },
+      {
+        "id": "n9ya5xb",
+        "score": 273,
+        "body": "Veteran pops head in...\n\n\"Pardon...quick question...\""
+      },
+      {
+        "id": "n9ybllr",
+        "score": 165,
+        "body": "\u201cYou uh,, you guys do disability paper work?\u201d \ud83d\ude02"
+      },
+      {
+        "id": "n9y61fp",
+        "score": 111,
+        "body": "They said no, but the neurologist did add a few more relevant diagnostic codes to my records when I asked her to."
+      },
+      {
+        "id": "n9ycfg3",
+        "score": 90,
+        "body": "I heard you had someone that specializes in helping disabled veterans with disability paperwork..."
+      },
+      {
+        "id": "n9y5anh",
+        "score": 86,
+        "body": "Yea...most will not. That's why you have to ask for a IMO (Independent Medical Opinion), and if the doctor believes that your disability is at least as likely as not due to (what you are claiming). Then ask them to put this blurb in their office visit notes, print out those notes and use them in your claim. Take this office visit note to your C&P and be sure to mention this to the examiner. The C&P examiner will fill out the DBQ and medical opinion (nexus). \n\nI did this and it worked out very well."
+      },
+      {
+        "id": "n9yc0k8",
+        "score": 64,
+        "body": "Did someone say shenanigans?"
+      },
+      {
+        "id": "n9y138e",
+        "score": 56,
+        "body": "Excellence in patient care? The sign determined that was a lie"
+      },
+      {
+        "id": "n9y4tpj",
+        "score": 48,
+        "body": "I just don\u2019t understand that after over three decades of computers and word processors being accessible to the general public people still don\u2019t know you can center align, make the font the same size and bold the applicable emphasized word without it looking like hot garbage.\n\nIf you can\u2019t do that effectively I really don\u2019t know if you can treat my conditions effectively either."
+      },
+      {
+        "id": "n9y04l9",
+        "score": 46,
+        "body": "[removed]"
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1qb6yca",
+    "title": "Maybe both?",
+    "body": "",
+    "flair": ":snoo_tongue:Meme Monday:snoo_joy:",
+    "score": 665,
+    "comment_count": 68,
+    "created_at": "2026-01-12T20:55:05+00:00",
+    "top_comments": [
+      {
+        "id": "nz8cizj",
+        "score": 64,
+        "body": "[deleted]"
+      },
+      {
+        "id": "nz8cjxs",
+        "score": 42,
+        "body": "yes"
+      },
+      {
+        "id": "nz8d3kh",
+        "score": 30,
+        "body": "If A then also B."
+      },
+      {
+        "id": "nz8dmqd",
+        "score": 19,
+        "body": "If someone wants everyone to know they retired from the Air Force to the point of getting a plate like this, then they are Retarded as Fuck."
+      },
+      {
+        "id": "nz8fwd8",
+        "score": 16,
+        "body": "![gif](giphy|3o7aCRloybJlXpNjSU)"
+      },
+      {
+        "id": "nz9xtbn",
+        "score": 12,
+        "body": "https://preview.redd.it/2812pjo3w0dg1.jpeg?width=308&format=pjpg&auto=webp&s=d07a9012f0f070202c0ac6d3371c655b674ea0d3\n\nAnyone know somewhere that\u2019ll make an AF version?"
+      },
+      {
+        "id": "nz8ot09",
+        "score": 8,
+        "body": "The frame says retired. The plate actually just says Retarded As F***"
+      },
+      {
+        "id": "nz8g2md",
+        "score": 8,
+        "body": "Most likely answer"
+      },
+      {
+        "id": "nzam6r8",
+        "score": 8,
+        "body": "Option 4: Retired As Fuck?"
+      },
+      {
+        "id": "nz8ck87",
+        "score": 7,
+        "body": "Both works"
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1ongwt9",
+    "title": "Scandalous. Who shows up on time?! It's 15 mins prior to the 15 mins! * Eye twitch *",
+    "body": "",
+    "flair": ":snoo_tongue:Meme Monday:snoo_joy:",
+    "score": 660,
+    "comment_count": 78,
+    "created_at": "2025-11-03T16:48:22+00:00",
+    "top_comments": [
+      {
+        "id": "nmwt3ue",
+        "score": 98,
+        "body": "Veteran: Shows up 15 minutes early.\n\n\nVA: Claims veteran was no call no show."
+      },
+      {
+        "id": "nmwp1sy",
+        "score": 60,
+        "body": "10 minutes early is 5 minutes late.  Drilled into my head since I was a kid.  Dad and grandfather are also veterans."
+      },
+      {
+        "id": "nmx3qcf",
+        "score": 60,
+        "body": "True Story. \n\nI checked in 20 minutes early. They never called my name... I go back up to the desk, ...same person mind you... ask how far behind they are\n\nDesk Person: \"you're checking more than 15 minutes after appt time, you will have to call in to get another appointment.\" \n\nI said I need speak with someone... they go to the back, and then says \"we'll, someone canceled so we can see you now.\" \n\nI still don't know what the hell they did"
+      },
+      {
+        "id": "nmwpbhg",
+        "score": 54,
+        "body": "My friend: You have serious time anxiety. You always show up early to things. \n\nMe: I do? \n\n\\*Me who recounts every event in the past few years\\*: Yeah I guess I do."
+      },
+      {
+        "id": "nmwurw6",
+        "score": 34,
+        "body": "But also it\u2019s not late at all and you\u2019ll be waiting 20 minutes."
+      },
+      {
+        "id": "nmwqcjm",
+        "score": 31,
+        "body": "I still do this because of traffic. \n\nMilitary instilled this anxiety into me and I\u2019m slowly distilling it. The best was 15 minutes to 15 minutes. Shoot, why even leave then? I\u2019ll never be late for a shift!"
+      },
+      {
+        "id": "nmyj0cc",
+        "score": 22,
+        "body": "I showed up to my 2:30 appointment. At 4:00 they started kicking people out and I was just sitting there in the lobby. I told them to fuck off that I was still waiting for my 2:30 and they looked at my confused as fuck that I was still there. I MADE them see me"
+      },
+      {
+        "id": "nmxl44u",
+        "score": 21,
+        "body": "Gotta get to the theater 30 mins early. Airport 2 hours. Meetings. 10 mins at least. \n\nThe civilian life is so strange now. People show up to the meeting on the dot. And no one cares."
+      },
+      {
+        "id": "nmwnknf",
+        "score": 16,
+        "body": "Glad I never cared about this lol yeah it got me yelled at a lot in the military but no one gives a shit in the real world."
+      },
+      {
+        "id": "nmxrarf",
+        "score": 16,
+        "body": "That happened to me on my first VA appointment before I retired. Showed up early and was in uniform since it was during the duty day, and had more work after. \"Oh the last guy never checked you in before he went to lunch\". I called the manager and went FGO on him. His boss called me and apologized profusely. Never had an issue after that lol"
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1r98y71",
+    "title": "Appears that interim ruling got alot of back lash.",
+    "body": "From VA Secretary Doug Collins:\n \nThis was posted today on 19FEB26\n\n\"Effective immediately, VA is halting enforcement of the interim final rule, Evaluative Rating: Impact of Medication.\n\nVA issued the rule to clarify existing policy and protect Veterans\u2019 benefits in the wake of an ongoing court action. But many interpreted the rule as something that could result in adverse consequences.\n\nWhile VA does not agree with the way this rule has been characterized, the department always takes Veterans\u2019 concerns seriously. To alleviate these concerns, VA will continue to collect public comments regarding the rule, but it will not be enforced at any time in the future.\n\nUnder my leadership, VA is ensuring that everyone applying for benefits receives everything they have earned as quickly and conveniently as possible. This includes reducing the backlog of Veterans waiting for benefits by more than 60 percent. We will continue these improvements on behalf of America\u2019s Veterans, families, caregivers and survivors.\"\n\nLink to original post on X. \nhttps://x.com/SecVetAffairs/status/2024555974862786684?s=20",
+    "flair": "VA Disability Claims :claim:",
+    "score": 658,
+    "comment_count": 0,
+    "created_at": "2026-02-19T19:34:28+00:00",
+    "top_comments": []
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1kt7evf",
+    "title": "10 People Arrested and Charged Today for Defrauding the VA.",
+    "body": "https://www.justice.gov/usao-pr/pr/veteran-affairs-employee-and-nine-others-indicted-defrauding-united-states-disability\n\nSAN JUAN, Puerto Rico \u2013 On May 21, 2025, a federal grand jury in the District of Puerto Rico returned a 49-count indictment charging 10 individuals with defrauding the government to obtain Veterans Affairs (VA) disability benefits. This criminal investigation was co-led by the United States Veterans Affairs Office of Inspector General and the Federal Bureau of Investigation.\n\nAccording to court documents, from 2020 to 2025, defendant \u00c1ngel Carrer-Rivera used his position as an employee of the VA to access the Veterans Benefits Management System (VBMS) and assign particular claims to VA employees that he supervised. At the same time, \u00c1ngel Carrer-Rivera communicated with a facilitator, defendant Richard Rivera-Maitin, regarding what false medical conditions should be claimed by specific veterans to fraudulently obtain disability benefits.",
+    "flair": "Headlines & News :rsz_21601:",
+    "score": 655,
+    "comment_count": 42,
+    "created_at": "2025-05-23T01:22:16+00:00",
+    "top_comments": [
+      {
+        "id": "mtrhym5",
+        "score": 218,
+        "body": "Good"
+      },
+      {
+        "id": "mtrdvhb",
+        "score": 176,
+        "body": "nice! fuck that guy and those involved! sucks for those that paid this man (without fraudulent intentions) and are gonna get re-evaled cause of it."
+      },
+      {
+        "id": "mtrmcui",
+        "score": 119,
+        "body": "\"This case is part of a nationwide initiative led by the Department of Veterans Affairs Office of Inspector General, the United States Attorney\u2019s Office for the District of Puerto Rico, and the Federal Bureau of Investigation to combat fraud and other unlawful conduct committed by predatory claims companies or individuals against veterans and VA,\u201d said David Spilker, Special Agent in Charge (SAC) of the US Department of Veterans Affairs Office of Inspector General, Southeast Field Office, Criminal Investigations Division (CID). \u201cEntities involved in these schemes often are unaccredited and make false or fraudulent promises to obtain or increase a veteran\u2019s VA benefits while demanding direct payment or a portion of the veteran\u2019s benefits in exchange. These indictments and arrests highlight the VA OIG\u2019s dedication to root out those who prey on veterans for financial gain, along with anyone who exaggerates or concocts a disability to receive or increase VA compensation benefits.\u201d\n\nGo after all those claim sharks and lock their asses up. \ud83e\udd23\ud83e\udd23"
+      },
+      {
+        "id": "mtrlpn1",
+        "score": 111,
+        "body": "Glad they're getting caught"
+      },
+      {
+        "id": "mtre6cu",
+        "score": 98,
+        "body": "Holy shit"
+      },
+      {
+        "id": "mtre9qn",
+        "score": 98,
+        "body": "Plenty of veterans that can't get a service connection already know that people take advantage of the system and they've never gone through anything traumatic."
+      },
+      {
+        "id": "mtrespu",
+        "score": 74,
+        "body": "These weren\u2019t just people trying to get benefits, these were VBA employees rigging their own benefits from what I read.\n\nEdit, see my correction below."
+      },
+      {
+        "id": "mtrfzei",
+        "score": 69,
+        "body": "No. I question if you read the press release at all. There was one VA employee in San Juan RO, a Coach (aka supervisor) and then one facilitator who was not a VA employee who would find non-100 Vets to apply fraudulently. The VA employee would then use his position to get their fraudulent claims approved, and the employee and facilitator would get paid.\n\nVA employee claims are worked at one office, iirc it's St. Paul, MN, under close supervision to prevent us from committing fraud to help one another."
+      },
+      {
+        "id": "mtrr4wg",
+        "score": 54,
+        "body": "You aren\u2019t IG, or VA, or FBI, so worry about yourself, don\u2019t worry about others, as you have no idea what they went through and how it affected them, nor are you in the position to know such things."
+      },
+      {
+        "id": "mtrmb0h",
+        "score": 50,
+        "body": "fuck these people. glad they were caught"
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1of46q0",
+    "title": "US court rejects Trump officials\u2019 effort to delay rulings on veterans benefits",
+    "body": "A panel of US judges has rejected an effort by the Trump administration to delay court rulings on claims by veterans who say they have been unfairly denied disability benefits and other compensation tied to their military service. \n\nWednesday\u2019s decision came after secretary of veterans affairs, Doug Collins, asked the court to halt work on nearly all cases until the government shutdown concludes.\n\n\u201cPausing VA\u2019s deadlines in nearly every case before the court is a significant and extreme request, and the secretary has failed to demonstrate that such sweeping relief is appropriate,\u201d the judges wrote.\n\n\nhttps://www.theguardian.com/us-news/2025/oct/23/court-trump-veterans-benefits-rulings?CMP=Share_iOSApp_Other",
+    "flair": "C&P Exams :stethoscope:",
+    "score": 657,
+    "comment_count": 35,
+    "created_at": "2025-10-24T17:38:09+00:00",
+    "top_comments": [
+      {
+        "id": "nl6cxf3",
+        "score": 483,
+        "body": "Really wish politics didn\u2019t matter in regards to our benefits."
+      },
+      {
+        "id": "nl6c7id",
+        "score": 341,
+        "body": "I hate Doug Collins, truly. He definitely takes the cake of being one of the worst things to come out of Georgia.\n\nEdited for the cro-magnon below me who couldn't be bothered to stay on topic or read the article without putting out some dumb zinger that has nothing to do with the thread."
+      },
+      {
+        "id": "nl6d31i",
+        "score": 289,
+        "body": "[deleted]"
+      },
+      {
+        "id": "nl6f1sj",
+        "score": 261,
+        "body": "Understood, and I do understand lines of money, but if we can give ice more money than the marines, they can find money for lawyers"
+      },
+      {
+        "id": "nl6h6oj",
+        "score": 125,
+        "body": "Sounds like all Republican politicians."
+      },
+      {
+        "id": "nl6fwwh",
+        "score": 119,
+        "body": "The GOP owns all three branches of the government at the moment. This isn\u2019t a Democratic government shutdown. \n\nThese assholes have been on a paid vacation."
+      },
+      {
+        "id": "nl6fd0n",
+        "score": 96,
+        "body": "[deleted]"
+      },
+      {
+        "id": "nl6ibj0",
+        "score": 96,
+        "body": "There are millions of veterans who disagree with you, bro. We are not bots."
+      },
+      {
+        "id": "nl6evar",
+        "score": 69,
+        "body": "Not defending either side. But my logic is that if the dems cave now they won\u2019t be able to fight for what they want in the new year after Texas redraws its congressional districts etc. it would show that if the republicans stall long enough they will cave and the dems are weak. It sucks that we Americans suffer due to a swinging dick competition and people\u2019s day to day lives can be affected due to a few people not agreeing on policies."
+      },
+      {
+        "id": "nl6frrg",
+        "score": 65,
+        "body": "For sure. Def think your comment was needed in the thread"
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1om7z9d",
+    "title": "Don't tell anyone at all what you are compensated, let alone post screenshots online",
+    "body": "It can certainly be life changing when you start getting compensated. Writhing in pain and suffering with depression, it can be exciting to get you claim letter. You can be a little more relaxed knowing you won't be totally homeless without anything. And it's totally normal to feel that way.\n\nMy family supported me through all my years of service. And I made the mistake of telling only my own wife, parents,  brother and sister that I'm receiving compensation. They told me that's great but I could tell by their lack of enthusiasm that for some reason, they weren't that happy for me. I've always been very supportive of them and if they get a raise, I'm elated.\n\nBut you never know how people will react when someone is getting something they don't get. My brother does manual labor for work and my parents have informed me that they've been talking behind my back. The conversation she says went:\n\n\"How come he gets DISABILITY. He still walks around and does some things. Maybe less than before but how come he gets paid more than I do a lot of days.\"\n\nApparently my sister chimed in: \"Yeah idk he is like scamming the system. He can still walk.\"\n\nMy mom tried to defend me she said but they are apparently resentful about me being compensated.\n\nI've explained to them the whole process a few times and they've seen me going to physical therapy and having issues. It's hurtful that even my own family that stood by me and said they're proud of me through my years of service get jealous and angry that I receive some compensation for the pain and limitations I deal with everyday. \n\nYou never know when people will hold your rating over your head or even try to report you out of sheer jealousy. Greed is very real and a sickness and can present itself when you least expect it. The billionaires and others in this country are so greedy that we're getting some compensation that they're making news articles about it.\n\nI have already informed my brother and sister that I had a disability reduction (I didn't). And I will never tell another person about it again. \n\nWhen I got the letter I thought I'd share the good news that I can't work but I'm getting helped. Obviously they weren't happy for me like I thought they would be. My wife, I will continue to keep her in the loop because she actually loves me. But I will never tell another person. And I advise you all to please stop posting screenshots about your reward. Just ask questions about the process and keep the results on the DL please. There are a lot of resentful, jealous people out there that want to see you homeless and suffering when you're done serving and they want to know that their choice to not serve was the better choice. \n\nSHUT THE FUCK UP FRIDAY EVERYDAY",
+    "flair": "VA Disability Claims :claim:",
+    "score": 649,
+    "comment_count": 104,
+    "created_at": "2025-11-02T04:13:41+00:00",
+    "top_comments": [
+      {
+        "id": "nmnqa0j",
+        "score": 168,
+        "body": "[deleted]"
+      },
+      {
+        "id": "nmo6b0t",
+        "score": 126,
+        "body": "My own mom tried to use me to buy a house using VA loan. I hate how money corrupts people."
+      },
+      {
+        "id": "nmnl9dg",
+        "score": 124,
+        "body": "My grandfather one day told me the government shouldnt be supporting me after getting out. I told him thats fuckin hilarious coming from a draft dodger."
+      },
+      {
+        "id": "nmnqpsw",
+        "score": 114,
+        "body": "I told them all to join when I did. They didn't and spent the years I was in smoking weed and getting drunk, in and out of low effort jobs. Now they're angry because I don't have to do construction everyday to get by. It's unbelievable people want to tear us down instead of trying to help themselves. Misery loves company."
+      },
+      {
+        "id": "nmoxtqw",
+        "score": 89,
+        "body": "\"Why do you get compensation??\" Because I joined the best union job with the most well known workman's comp program. Sorry you didn't do research into that."
+      },
+      {
+        "id": "nmnjqyj",
+        "score": 88,
+        "body": "I trust only 3 people. My wife, my son and... me."
+      },
+      {
+        "id": "nmp36x9",
+        "score": 77,
+        "body": "One of my parents tried this. Wanted me to use my VA loan to buy their house, which they would then rent out and collect the rent, while I made the mortgage payment. When I said \"no\" there were fireworks."
+      },
+      {
+        "id": "nmopp5s",
+        "score": 63,
+        "body": "My wife\u2019s grandfather was a Korea vet and was the one who pushed me to go through everything with the VA. He said you better go and get it, the government already got your time and soul, go get what you\u2019re owed and take care of his granddaughter. I miss that man."
+      },
+      {
+        "id": "nmo54no",
+        "score": 61,
+        "body": "Yeah I learned quickly to not tell people. If people ask, I just say \u201cYes, I earn benefits from my time in the military\u201d and leave it at that. I NEVER go into detail.\n\nEven other veterans get abrasive and rude if they find out you are getting a higher percentage than them when they feel like you don\u2019t \u201cdeserve\u201d it.\n\nIt\u2019s like the old fashioned idea that you should never ask or reveal what your salary is, or how much money you make at your job. It\u2019s personal, and nothing good comes from revealing it."
+      },
+      {
+        "id": "nmni4lo",
+        "score": 60,
+        "body": "Yes! It's well established everyone including your best family or friend will fuck you over on benefits."
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1oc3ro8",
+    "title": "Vet frauds the VA claiming paralysis, gets caught jumping on trampoline",
+    "body": "\"Iraq War vet Kinsley Kilpatrick, who showed up at the Atlanta VA Medical Center in a wheelchair, claiming to be paralyzed. He was awarded $7,900 a month in tax-free disability payments and a $20,000 specially equipped Jeep.\n\nHis scam fell apart when a whistleblower sent investigators video of Kilpatrick flipping on a trampoline and diving into a ball pit. He pleaded guilty to fraud and was sentenced to six months in prison. He and his wife had to repay $201,902 in restitution\"\n\nhttps://finance.yahoo.com/news/iraq-war-vet-faked-being-143000041.html",
+    "flair": "VA Disability Claims :claim:",
+    "score": 646,
+    "comment_count": 195,
+    "created_at": "2025-10-21T04:41:28+00:00",
+    "top_comments": [
+      {
+        "id": "nkjwm8q",
+        "score": 802,
+        "body": "Good, they deserved it.\n\nEdit: there are people on Instagram actively showing how to get false claims approved. This nonsense will do nothing but hurt legitimate disability claims."
+      },
+      {
+        "id": "nkk6g0c",
+        "score": 354,
+        "body": "What sucks is theres people in charge right now that would love notbing more than to cut veterans off from their disability payments. This type of shit gives them an excuse and allows them to paint the entire system as broken and needing reform."
+      },
+      {
+        "id": "nkjx2w9",
+        "score": 255,
+        "body": "I don't understand how you don't walk around everyday with extreme anxiety after making such egregious claims to the VA. That takes a special type of crazy."
+      },
+      {
+        "id": "nkjy1kk",
+        "score": 156,
+        "body": "That's part of the problem, he shouldn't have been walking around."
+      },
+      {
+        "id": "nkkkbb5",
+        "score": 146,
+        "body": "Knew a guy like this on active duty. Fort Polk, around 1989, SSG 12B had convinced the doctors his back was shot, went through an MEB/PEB and was being medically retired. Walked super slow with a cane - could barely move either leg - Cdr had him come in to sit in the orderly room each day to answer telephones as per his profiles, he couldn't really do anything else. He was allowed to park in a no parking zone by the back door/supply office so he didn't have to walk as far and it would take him over 5 minutes to walk from that back door to the front of the orderly room.\n\n1SG just knew the SSG was faking. Everything was set up for the SSG to out-process and medically retire - set for life. 1SG started driving by his house on base. Filmed the SSG playing basketball with his teenage sons - running, jumping, etc. SSG was court-martialled and separated without any retirement."
+      },
+      {
+        "id": "nkjwzwj",
+        "score": 120,
+        "body": "So this guy defrauded the VA while his wife defrauded SSA at the same time.  Smooth brained criminals."
+      },
+      {
+        "id": "nkkly3t",
+        "score": 86,
+        "body": "I believe a congressman got caught stealing and doing some shit and the President is letting him out and he\u2019s not paying restitution or anything to the victims. Fraud is something that happens in everything, for the clinically paranoid people here don\u2019t worry about the bad apples. IRS scams by large corporations is a number a million times higher than some shitbag collecting VA compensation without injuries."
+      },
+      {
+        "id": "nkl4mom",
+        "score": 80,
+        "body": "How did he pass the physical though? There are several ways to check for different levels of paralysis. The most simple is reflex testing. You literally cannot fake that. It sounds like these C&P providers aren\u2019t doing what they\u2019re supposed to be doing."
+      },
+      {
+        "id": "nkkrem2",
+        "score": 73,
+        "body": "On base housing, how incredibly stupid."
+      },
+      {
+        "id": "nkk1ug7",
+        "score": 57,
+        "body": "You\u2019re gonna piss off a lot of people here calling it out. Apparently we should just accept it since more people are getting the benefits they deserve instead of calling out our own who are being scum bags"
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1o62fdd",
+    "title": "At least they ask\u2026 \ud83e\udd37\u200d\u2642\ufe0f",
+    "body": "",
+    "flair": ":snoo_tongue:Meme Monday:snoo_joy:",
+    "score": 637,
+    "comment_count": 10,
+    "created_at": "2025-10-14T01:31:26+00:00",
+    "top_comments": [
+      {
+        "id": "njdm4hd",
+        "score": 47,
+        "body": "Service connection for not being okay is denied."
+      },
+      {
+        "id": "njdueug",
+        "score": 31,
+        "body": "\ud83e\udd23 Wake up you got duty."
+      },
+      {
+        "id": "njdkkc8",
+        "score": 23,
+        "body": "Me: I\u2019ll never be ok again!\nMilitary: Type shit"
+      },
+      {
+        "id": "njdwosm",
+        "score": 16,
+        "body": "NOOOOOOOO!!!!!"
+      },
+      {
+        "id": "njgzj2q",
+        "score": 7,
+        "body": "A huge problem is there are not easy ways to get (mental health) help. It\u2019s a long process and gets expensive. There are not enough counselors/therapists which cause very few available appointments both in person and virtual."
+      },
+      {
+        "id": "njjymwg",
+        "score": 6,
+        "body": "![gif](giphy|6OUXtjOffhjLgqGRY6|downsized)"
+      },
+      {
+        "id": "njlqdot",
+        "score": 5,
+        "body": "I think 99% of the problem is how ass backwards the army is. Bobs a dirt bag so you do pushups until bob is no longer a dirtbag. Bobs barracks room is disgusting. Let\u2019s get everyone up at 0500 hrs on a Saturday to clean his shit. Your wife has to go to the ER for something. Of course you can\u2019t go be there with her because we\u2019re doing nothing but sitting in the bay right now. You exercise and go way above and beyond with fitness? To bad, do the bend and reach instead of actually improving yourself further during a dedicated hour of your day where you do PT. Let\u2019s force you to lose another hour or more after work where you do actual fitness. You checked the duty roster on a Friday night to make sure you were good for the weekend? Get called at 0930 asking where you are for staff duty and getting told you were added to the list at 0830 and will be getting smoked for every minute you\u2019re now late past 9. \n\nIf the army fixed that stupid shit then the need for a lot more counselors wouldn\u2019t be a thing. But, that\u2019ll never happen so maybe you\u2019re right."
+      },
+      {
+        "id": "njj20uz",
+        "score": 3,
+        "body": "Drink WATER\u2026"
+      },
+      {
+        "id": "njmiq9g",
+        "score": 1,
+        "body": "So true"
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1ot8pa1",
+    "title": "It's not all bad in the Navy",
+    "body": "",
+    "flair": ":snoo_tongue:Meme Monday:snoo_joy:",
+    "score": 638,
+    "comment_count": 104,
+    "created_at": "2025-11-10T08:43:12+00:00",
+    "top_comments": [
+      {
+        "id": "no2vmck",
+        "score": 72,
+        "body": "I would say we do have the most acceptable duty stations.\nWe weren\u2019t  getting put in the dakotas(for sea duty at least)"
+      },
+      {
+        "id": "no2t8ys",
+        "score": 56,
+        "body": "But at least it\u2019s not gay when you\u2019re underway"
+      },
+      {
+        "id": "no39tua",
+        "score": 32,
+        "body": "21 years. Been retired for 10. It definitely could have been worse! Could have joined the Army!!"
+      },
+      {
+        "id": "no3iz67",
+        "score": 29,
+        "body": "I figured the worst place they could send me was Virginia Beach - beats the hell out of Minot ND or bumfuck Kansas."
+      },
+      {
+        "id": "no34vyc",
+        "score": 18,
+        "body": "Sometimes, I really miss it, and then I remember those bitter, cruel, miserable people who made it their business to spread that misery, salty bastards bitching nonstop, fist fights. And above all else, the must redundant unfunny gay jokes just so many infinite unfunny gay jokes. I never knew I could hate a human being the way I hated them so insecure ignorant and arrogant while simultaneously being total fucking worms childish morons undiagnosed idiots. But God forbid you say any of this cause you'll hurt THEIR feelings"
+      },
+      {
+        "id": "no40tws",
+        "score": 15,
+        "body": "Everyone told me Diego Garcia was the worst place, but I actually found it relaxing"
+      },
+      {
+        "id": "no3302m",
+        "score": 13,
+        "body": "Spend 1 day in the Air Force and it will change your mind lol"
+      },
+      {
+        "id": "no3ngwq",
+        "score": 13,
+        "body": "It\u2019s not queer if it\u2019s on the pier \ud83d\ude24\ud83d\ude4f"
+      },
+      {
+        "id": "no35k6z",
+        "score": 12,
+        "body": "I spent 3 years in Idaho Falls, not much better than the Dakotas and I have a nephew stationed in Oklahoma, which is worse.  So at least some navy locations suck."
+      },
+      {
+        "id": "no4bls7",
+        "score": 10,
+        "body": "\u261d\ufe0f\ud83d\udcaf. From an army guy. \ud83e\udd23\ud83e\udd23"
+      }
+    ]
+  },
+  {
+    "subreddit": "VeteransBenefits",
+    "id": "1jtqg4h",
+    "title": "\ud83d\ude05",
+    "body": "",
+    "flair": ":snoo_tongue:Meme Monday:snoo_joy:",
+    "score": 639,
+    "comment_count": 16,
+    "created_at": "2025-04-07T17:07:31+00:00",
+    "top_comments": [
+      {
+        "id": "mlwf9se",
+        "score": 38,
+        "body": "Started out his career at 100% SC ."
+      },
+      {
+        "id": "mlxvd52",
+        "score": 23,
+        "body": "That dude reminds of the cook at my reserve unit. \n\nDude was a career SP4. He wasn't in charge, but he sure as hell was the one running things."
+      },
+      {
+        "id": "mlwl8m2",
+        "score": 19,
+        "body": "![gif](giphy|l0IyajjbNiRvCr7RC)\n\nTold the recruiter\u2026."
+      },
+      {
+        "id": "mlwqhrm",
+        "score": 13,
+        "body": "That the wise old leader of the E4 Mafia"
+      },
+      {
+        "id": "mly9hpy",
+        "score": 9,
+        "body": "That guy is what we called, a career specialist."
+      },
+      {
+        "id": "mlz69a0",
+        "score": 7,
+        "body": "Busted his ass down to parade detail\ud83d\ude02"
+      },
+      {
+        "id": "mm17v8p",
+        "score": 6,
+        "body": "I never understood all the sleep depravation training we had to endure. When shit hits the fan, the adrenaline won't allow you to sleep. Also, you can train for sleep depravation all you want, and you're still going to fall asleep on guard duty. It was just unnecessary stress on the body."
+      },
+      {
+        "id": "mm4tzot",
+        "score": 4,
+        "body": "I did small team long range surveillance and reconnaissance.  You can train not to sleep, but you can\u2019t train sleep to come back."
+      },
+      {
+        "id": "mlxy7yh",
+        "score": 3,
+        "body": "\ud83e\udd23\ud83e\udd23\ud83e\udd23\ud83e\udd23"
+      },
+      {
+        "id": "mm11r1g",
+        "score": 3,
+        "body": "Lol sad but true"
+      }
+    ]
+  }
+]
+```

@@ -1,0 +1,109 @@
+{
+  "created_at": "2026-03-05T18:16:02.143234+00:00",
+  "batch_size": 75,
+  "total_posts": 1272,
+  "batches": [
+    {
+      "batch_id": "batch_001",
+      "post_count": 75,
+      "json_file": "outputs\\phase2_batches\\batch_001.json",
+      "prompt_file": "outputs\\phase2_batches\\batch_001_prompt.md"
+    },
+    {
+      "batch_id": "batch_002",
+      "post_count": 75,
+      "json_file": "outputs\\phase2_batches\\batch_002.json",
+      "prompt_file": "outputs\\phase2_batches\\batch_002_prompt.md"
+    },
+    {
+      "batch_id": "batch_003",
+      "post_count": 75,
+      "json_file": "outputs\\phase2_batches\\batch_003.json",
+      "prompt_file": "outputs\\phase2_batches\\batch_003_prompt.md"
+    },
+    {
+      "batch_id": "batch_004",
+      "post_count": 75,
+      "json_file": "outputs\\phase2_batches\\batch_004.json",
+      "prompt_file": "outputs\\phase2_batches\\batch_004_prompt.md"
+    },
+    {
+      "batch_id": "batch_005",
+      "post_count": 75,
+      "json_file": "outputs\\phase2_batches\\batch_005.json",
+      "prompt_file": "outputs\\phase2_batches\\batch_005_prompt.md"
+    },
+    {
+      "batch_id": "batch_006",
+      "post_count": 75,
+      "json_file": "outputs\\phase2_batches\\batch_006.json",
+      "prompt_file": "outputs\\phase2_batches\\batch_006_prompt.md"
+    },
+    {
+      "batch_id": "batch_007",
+      "post_count": 75,
+      "json_file": "outputs\\phase2_batches\\batch_007.json",
+      "prompt_file": "outputs\\phase2_batches\\batch_007_prompt.md"
+    },
+    {
+      "batch_id": "batch_008",
+      "post_count": 75,
+      "json_file": "outputs\\phase2_batches\\batch_008.json",
+      "prompt_file": "outputs\\phase2_batches\\batch_008_prompt.md"
+    },
+    {
+      "batch_id": "batch_009",
+      "post_count": 75,
+      "json_file": "outputs\\phase2_batches\\batch_009.json",
+      "prompt_file": "outputs\\phase2_batches\\batch_009_prompt.md"
+    },
+    {
+      "batch_id": "batch_010",
+      "post_count": 75,
+      "json_file": "outputs\\phase2_batches\\batch_010.json",
+      "prompt_file": "outputs\\phase2_batches\\batch_010_prompt.md"
+    },
+    {
+      "batch_id": "batch_011",
+      "post_count": 75,
+      "json_file": "outputs\\phase2_batches\\batch_011.json",
+      "prompt_file": "outputs\\phase2_batches\\batch_011_prompt.md"
+    },
+    {
+      "batch_id": "batch_012",
+      "post_count": 75,
+      "json_file": "outputs\\phase2_batches\\batch_012.json",
+      "prompt_file": "outputs\\phase2_batches\\batch_012_prompt.md"
+    },
+    {
+      "batch_id": "batch_013",
+      "post_count": 75,
+      "json_file": "outputs\\phase2_batches\\batch_013.json",
+      "prompt_file": "outputs\\phase2_batches\\batch_013_prompt.md"
+    },
+    {
+      "batch_id": "batch_014",
+      "post_count": 75,
+      "json_file": "outputs\\phase2_batches\\batch_014.json",
+      "prompt_file": "outputs\\phase2_batches\\batch_014_prompt.md"
+    },
+    {
+      "batch_id": "batch_015",
+      "post_count": 75,
+      "json_file": "outputs\\phase2_batches\\batch_015.json",
+      "prompt_file": "outputs\\phase2_batches\\batch_015_prompt.md"
+    },
+    {
+      "batch_id": "batch_016",
+      "post_count": 75,
+      "json_file": "outputs\\phase2_batches\\batch_016.json",
+      "prompt_file": "outputs\\phase2_batches\\batch_016_prompt.md"
+    },
+    {
+      "batch_id": "batch_017",
+      "post_count": 72,
+      "json_file": "outputs\\phase2_batches\\batch_017.json",
+      "prompt_file": "outputs\\phase2_batches\\batch_017_prompt.md"
+    }
+  ]
+}

@@ -1,0 +1,207 @@
+[
+  {
+    "product_name": "Appeal Armor",
+    "one_liner": "AI-powered analysis of VA denial letters and C-Files to generate winning appeal strategies for legal professionals.",
+    "cluster_name": "Appealing Denied & Under-rated Claims",
+    "ai_capabilities": [
+      "RAG",
+      "NLP",
+      "LLM"
+    ],
+    "target_user": "VA-accredited attorney, claims agent",
+    "business_model": "B2B SaaS",
+    "revenue_estimate": "TAM: ~4,000 accredited attorneys/agents. Pricing: $299/mo/seat. Annual TAM: ~$14.4M. Logic: Provides significant time savings and increases win rates, justifying the cost.",
+    "competitive_landscape": "Current process is manual review by paralegals/attorneys. Moat is a proprietary RAG system trained on successful appeal patterns and deep VA case law.",
+    "build_complexity": "High. Requires extensive, curated data for RAG (VA manuals, BVA decisions), robust NLP for document parsing, and a secure, compliant platform for PII/PHI.",
+    "mvp_potential": "No, an MVP would take 3-6 months. A 2-4 week prototype could parse a denial letter for key reasons but would lack strategic analysis."
+  },
+  {
+    "product_name": "Denial Decoder",
+    "one_liner": "Instantly translate your confusing VA denial letter into a clear action plan with AI-powered insights.",
+    "cluster_name": "Appealing Denied & Under-rated Claims",
+    "ai_capabilities": [
+      "NLP",
+      "LLM",
+      "RAG"
+    ],
+    "target_user": "Veteran",
+    "business_model": "Freemium",
+    "revenue_estimate": "TAM: ~300k denied claims/year. Pricing: $29 for a detailed report. Potential TAM: ~$8.7M/year, plus marketplace referral fees. Logic: Low-cost entry point for veterans seeking clarity.",
+    "competitive_landscape": "Reddit forums, VSOs, expensive lawyers. Moat is instant, affordable, and standardized analysis that empowers the veteran before they commit to a costly path.",
+    "build_complexity": "Medium. Focuses on parsing structured data from denial letters, which is more manageable than a full C-File. RAG system can be more focused.",
+    "mvp_potential": "Yes. A web app where a user pastes the text from their denial letter, and a fine-tuned LLM identifies key denial sentences and provides a templated explanation and next steps for common denial reasons."
+  },
+  {
+    "product_name": "StoryGuard",
+    "one_liner": "A secure, private AI companion that helps you write a powerful personal statement for your mental health or MST claim in a trauma-informed way.",
+    "cluster_name": "Mental Health & MST Claims",
+    "ai_capabilities": [
+      "Conversational AI",
+      "LLM",
+      "NLP",
+      "RAG"
+    ],
+    "target_user": "Veteran",
+    "business_model": "Low-cost SaaS",
+    "revenue_estimate": "TAM: Hundreds of thousands of MH claims/year. Pricing: $49/statement. Logic: A small price for a tool that provides immense emotional support and improves claim quality.",
+    "competitive_landscape": "Blank Word document, expensive therapists/lawyers helping write statements. Moat is the specialized, trauma-informed AI interaction model, which is the core IP. Trust and brand are paramount.",
+    "build_complexity": "High. Requires deep collaboration with clinical psychologists and trauma experts. The AI's tone and safety guardrails are mission-critical and hard to get right. High ethical and security burden.",
+    "mvp_potential": "No. A 2-4 week MVP is irresponsible for this use case. A prototype could be built, but launching it would be dangerous. An MVP would need 6+ months of careful design and expert review."
+  },
+  {
+    "product_name": "Nexus Scout",
+    "one_liner": "Discover potential secondary VA claims you might be eligible for based on your existing service-connected disabilities.",
+    "cluster_name": "Initial Claim Filing & Evidence Gathering",
+    "ai_capabilities": [
+      "RAG",
+      "Knowledge Graph",
+      "NLP"
+    ],
+    "target_user": "Veteran, VSO, Attorney",
+    "business_model": "Hybrid (B2B License & D2C Freemium)",
+    "revenue_estimate": "B2B: $199/mo for pros. D2C: $39/report. Logic: Unlocks significant new claim value for both vets and the pros who represent them.",
+    "competitive_landscape": "Experienced claims agents/attorneys do this manually. Some basic lists exist online. Moat is the dynamic, evidence-backed knowledge graph linking primary conditions, secondary conditions, and the BVA cases that support the link.",
+    "build_complexity": "Medium. Requires building a specialized knowledge graph and a robust RAG system. The user interface can be simple.",
+    "mvp_potential": "Yes. A web app where a user selects their primary condition from a dropdown. The backend uses a pre-computed map to show a list of common secondaries with links to supporting BVA cases."
+  },
+  {
+    "product_name": "Evidence Builder",
+    "one_liner": "An AI-powered tool to help veterans reconstruct their case and gather alternative evidence when in-service medical records are missing.",
+    "cluster_name": "Initial Claim Filing & Evidence Gathering",
+    "ai_capabilities": [
+      "LLM",
+      "NLP"
+    ],
+    "target_user": "Veteran",
+    "business_model": "Freemium SaaS",
+    "revenue_estimate": "TAM: Millions of veterans with undocumented injuries. Pricing: Free for basic guidance, $29 for AI-assisted buddy letter and personal statement drafting. Logic: Solves a foundational problem for a huge segment of the veteran population.",
+    "competitive_landscape": "DIY efforts, VSO guidance. Moat is a structured, guided process that prompts users for non-obvious evidence types (photos, journals, performance reviews) and helps them assemble it into a coherent package.",
+    "build_complexity": "Medium. The core is a guided workflow. The LLM assists with drafting and templating, which can be built on existing APIs with careful prompt engineering.",
+    "mvp_potential": "Yes. An interactive checklist that asks the user about their condition and service history, then generates a customized list of evidence to look for and provides downloadable templates for buddy letters."
+  },
+  {
+    "product_name": "Exam Ready",
+    "one_liner": "An AI-powered coach that prepares you for your C&P exam by breaking down the official DBQ form for your specific condition.",
+    "cluster_name": "Understanding & Navigating C&P Exams",
+    "ai_capabilities": [
+      "RAG",
+      "LLM",
+      "NLP"
+    ],
+    "target_user": "Veteran",
+    "business_model": "Per-use",
+    "revenue_estimate": "TAM: Over 1M C&P exams/year. Pricing: $25 per exam prep module. Logic: A small investment for peace of mind and to avoid a bad exam that could cost thousands in benefits.",
+    "competitive_landscape": "Predatory companies charging thousands, YouTube videos, Reddit threads. Moat is a comprehensive library of all DBQs, presented in a standardized, user-friendly, and affordable format.",
+    "build_complexity": "Medium. The core data (DBQs) is public. The main work is creating the LLM-based coaching layer and UI for each one. Requires legal review to ensure it's coaching, not advising.",
+    "mvp_potential": "Yes. An MVP could focus on the top 3 most common DBQs (e.g., PTSD, Back, Tinnitus). It would be a web page for each, showing the DBQ questions with AI-generated plain-language explanations."
+  },
+  {
+    "product_name": "DBQ Analyst",
+    "one_liner": "AI-powered analysis of completed C&P exam reports (DBQs) to identify errors, inconsistencies, and grounds for rebuttal for legal professionals.",
+    "cluster_name": "Understanding & Navigating C&P Exams",
+    "ai_capabilities": [
+      "RAG",
+      "NLP",
+      "Computer Vision (OCR)"
+    ],
+    "target_user": "VA-accredited attorney, claims agent",
+    "business_model": "B2B SaaS (per-report fee)",
+    "revenue_estimate": "TAM: ~4k pros. Pricing: $150 per report analysis. Logic: Quickly finds 'smoking guns' in bad exams that can win an appeal, saving hours of expert review time.",
+    "competitive_landscape": "Manual review by medical experts or highly trained paralegals. Moat is speed and comprehensiveness. Can cross-reference every statement against the entire C-File in seconds.",
+    "build_complexity": "High. Requires robust OCR and NLP to handle messy, scanned documents. The RAG system needs to be highly accurate to find subtle but legally significant errors.",
+    "mvp_potential": "No. A 2-4 week MVP would be too unreliable. An MVP would need to be a 'human in the loop' service first, where the AI assists a human reviewer."
+  },
+  {
+    "product_name": "Debt Defender AI",
+    "one_liner": "An AI tool for legal pros that analyzes VA debt letters, finds errors, and auto-generates dispute and waiver requests in minutes.",
+    "cluster_name": "Financial Crises & Back Pay Issues",
+    "ai_capabilities": [
+      "NLP",
+      "RAG",
+      "LLM"
+    ],
+    "target_user": "VA-accredited attorney, VSO",
+    "business_model": "B2B SaaS",
+    "revenue_estimate": "TAM: Niche but high value for specialized law firms. Pricing: $500 per case analysis/generation. Logic: Saves hours of paralegal/attorney time on a time-sensitive, high-stakes issue.",
+    "competitive_landscape": "Manual review by experts. This is a very specialized field. Moat is the highly specific RAG system and parser trained on obscure VA financial regulations and letter formats.",
+    "build_complexity": "High. Requires access to a variety of (anonymized) debt letters to train the parser. The regulations are complex and change. High need for accuracy.",
+    "mvp_potential": "No. The risk of giving incorrect financial/legal advice is too high for a quick MVP. A 2-4 week version could be a simple checklist for pros, but it wouldn't be AI-powered."
+  },
+  {
+    "product_name": "Vet-Verified",
+    "one_liner": "A trusted marketplace connecting veterans with AI-matched, vetted, and reviewed VA-accredited legal professionals.",
+    "cluster_name": "Legal Services & Protection from Predatory Actors",
+    "ai_capabilities": [
+      "NLP",
+      "Matching Algorithm",
+      "Sentiment Analysis"
+    ],
+    "target_user": "Veteran (user), Attorney/Agent (customer)",
+    "business_model": "Marketplace",
+    "revenue_estimate": "TAM: Thousands of pros. Pricing: $50-$100 per qualified lead, or a monthly subscription ($300-$500/mo). Logic: Provides a high-value, pre-screened client stream to professionals.",
+    "competitive_landscape": "Google searches, word-of-mouth, Avvo (not VA-specific). Moat is trust. A rigorous vetting process and a transparent, VA-specific review system. AI matching is a feature, but trust is the moat.",
+    "build_complexity": "Medium. The platform is a standard marketplace build. The AI matching is an enhancement. The real work is in the business process of vetting professionals and building the network.",
+    "mvp_potential": "Yes. The MVP doesn't need AI matching. It could be a curated directory of 50 vetted professionals with profiles, reviews, and a contact form. The 'AI' is the manual curation at first."
+  },
+  {
+    "product_name": "RegWatch",
+    "one_liner": "An AI-powered intelligence service that monitors VA policy changes and tells you exactly how they could affect your benefits.",
+    "cluster_name": "Navigating VA Policy & Political Threats",
+    "ai_capabilities": [
+      "RAG",
+      "NLP",
+      "LLM"
+    ],
+    "target_user": "Law firms, VSO leadership, policy organizations",
+    "business_model": "B2B License / Data Product",
+    "revenue_estimate": "TAM: Major VA law firms, national VSOs, media. Pricing: $1000/mo/org for real-time analysis and reports. Logic: This is high-value competitive intelligence for organizations.",
+    "competitive_landscape": "Law firm newsletters, trade publications. These are slow and manually produced. Moat is speed and personalization; the ability to instantly analyze a new rule and identify its impact.",
+    "build_complexity": "High. Requires a sophisticated pipeline to monitor government sources, an accurate RAG system, and the ability to handle complex legal language.",
+    "mvp_potential": "No. A weak version of this is worse than nothing, as it could create panic. A 2-4 week 'MVP' would be a human-curated newsletter, which is what exists now."
+  },
+  {
+    "product_name": "P&T Guardian",
+    "one_liner": "A monitoring and advisory service to help veterans with 100% P&T and TDIU ratings protect their benefits for life.",
+    "cluster_name": "Managing High-Level Ratings (100% P&T / TDIU)",
+    "ai_capabilities": [
+      "RAG",
+      "NLP"
+    ],
+    "target_user": "Veteran",
+    "business_model": "Low-cost SaaS",
+    "revenue_estimate": "TAM: ~1M vets at 100% P&T/TDIU. Pricing: $5/month. Annual TAM: ~$60M. Logic: Peace of mind for the price of a coffee. The value of the benefit being protected is immense.",
+    "competitive_landscape": "Reddit threads, VSO advice. No dedicated tech solution exists. Moat is the brand of trust and reliability, and an automated correspondence scanner as a unique feature.",
+    "build_complexity": "Medium. The educational content is the first part. The AI correspondence scanner is harder, requiring parsing of various VA letter formats. Security is key.",
+    "mvp_potential": "Yes. The MVP is a static website/app with well-researched content (articles, checklists) on how to protect your rating. The AI scanning feature can be added later."
+  },
+  {
+    "product_name": "Stipend",
+    "one_liner": "Forecast your GI Bill housing and tuition payment dates and get alerts on potential VA delays based on crowd-sourced data.",
+    "cluster_name": "GI Bill & Education Benefit Management",
+    "ai_capabilities": [
+      "Predictive Analytics",
+      "NLP"
+    ],
+    "target_user": "Veteran (student)",
+    "business_model": "Freemium",
+    "revenue_estimate": "TAM: ~700k GI Bill users/year. Pricing: Ad-supported or a $10/semester premium feature for alerts. Logic: Helps students budget and avoid financial panic.",
+    "competitive_landscape": "VA.gov (often lagging), school certifying officials, Reddit. Moat is a crowd-sourced data model that is more up-to-date than the VA's own systems.",
+    "build_complexity": "Medium. The predictive model is the core challenge. It relies on getting enough user-reported data to be accurate. Initial model could be rule-based.",
+    "mvp_potential": "Yes. The MVP is a simple calculator. User inputs their term start/end dates, and it spits out a static, rule-based schedule of estimated payment dates based on ideal VA processing."
+  },
+  {
+    "product_name": "Mission Next",
+    "one_liner": "A personalized, 24-month transition planner that guides you from active duty to a successful civilian life and career.",
+    "cluster_name": "Transition & Employment Support",
+    "ai_capabilities": [
+      "LLM",
+      "RAG"
+    ],
+    "target_user": "Active Duty service member",
+    "business_model": "Freemium D2C SaaS",
+    "revenue_estimate": "TAM: ~200k service members transition each year. Pricing: $50 for a premium one-time purchase. Potential TAM: ~$10M/year. Logic: A small price for a comprehensive plan.",
+    "competitive_landscape": "Official TAP program (ineffective), non-profits, LinkedIn Premium. Moat is the integration of VA benefits (BDD), career, and financial planning into a single, actionable timeline.",
+    "build_complexity": "Medium. The core is a project management template. The AI features (MOS translator, BDD guide) are layered on top. A better MOS translator would be a key feature.",
+    "mvp_potential": "Yes. A web app that generates a personalized, printable checklist based on a user's separation date. It would have key milestones for BDD, medical, and job searching. AI features can be added later."
+  }
+]

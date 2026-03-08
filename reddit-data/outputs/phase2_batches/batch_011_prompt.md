@@ -1,0 +1,4170 @@
+# Prompt 1: Need Extraction
+
+You are a market research analyst specializing in the U.S. veteran community.
+I’m going to give you a batch of Reddit posts and comments from veteran subreddits.
+For each post, identify:
+1. PRIMARY NEED: What is the veteran trying to accomplish or solve?
+2. PAIN POINTS: What specific frustrations or blockers do they describe?
+3. CURRENT SOLUTION: What are they currently doing to solve this? (DIY, paid service, nothing?)
+4. EMOTIONAL INTENSITY: Rate 1–5 (1=mild inconvenience, 5=desperate/life-impacting)
+5. CATEGORY: Assign one: Claims/Ratings, Appeals, Healthcare, Mental Health,
+   Employment/Transition, Education/GI Bill, Housing/VA Loan, Financial, Legal,
+   Community/Social, Other.
+
+Output strictly as a JSON array, one object per post.
+
+## Input JSON
+
+```json
+[
+  {
+    "subreddit": "Veterans",
+    "id": "1k9v8m6",
+    "title": "Anyone else?",
+    "body": "I don\u2019t have veteran/military decals on my truck. I don\u2019t have any of the hooah brand shirts and I don\u2019t wear any military hats. Mostly wanting to avoid conversations with people who did 4 years 20+ years ago and it\u2019s their entire personality. \n\n I\u2019m having such a terrible sciatica flare up that I\u2019m reconsidering the whole incognito thing. I\u2019m a fit and active 37/m and literally had a guy asking me if I was having heart attack at target yesterday. Anyone feel less judged by the general public if they\u2019re wearing a disabled veteran hat or something?",
+    "flair": "Question/Advice",
+    "score": 319,
+    "comment_count": 340,
+    "created_at": "2025-04-28T13:13:47+00:00",
+    "top_comments": [
+      {
+        "id": "mphplyx",
+        "score": 163,
+        "body": "I live in Texas. I am brown af. I only wear my OIF OEF hat when I\u2019m traveling thru backwoods ass hillbilly towns. They want to hate me so bad but the hat tells them im \u201cone of the good ones\u201d \ud83d\ude02 \ud83d\ude02"
+      },
+      {
+        "id": "mphbv8w",
+        "score": 146,
+        "body": "When I got out of the military, I went to college. First day of class, first fucking day. Everything was cool, everything was smooth. Until, this loud mouth, victim, \u201cthe world owes me something\u201d Veteran starts mouthing off in the back of the class, I\u2019m talking about disruptive behavior where the professor had to address it. \n\nTalking about, the desks are uncomfortable. \u201cI\u2019m a Veteran, I need a special chair\u201d. The font is too small in the books. Being loud and obnoxious type shit. \n\nI wish I was making this guy up. \n\nNow don\u2019t get me wrong, I\u2019ve been around people. I know people. I\u2019ve met people like him in the military, so I understood him to SOME degree. But this is college. \n\nIn the middle of class, people started leaning on me asking me \u201cyo what the fuck is this guys deal\u201d, absolutely not knowing that I was a Veteran too & they just kept ripping on him \u2014 at that moment, I knew. I knew that on the civilian side, the mass majority didn\u2019t care or want to care. \n\nPeople just wanted to go to school and move the fuck on. I knew I just needed to keep my mouth shut and head down and get this degree. \n\nFrom that moment in 2016. I told myself I would never lead with \u201cHey, I\u2019m a Veteran\u201d or make it my personality. Pretty much the LAST THING they know about me. \n\nIt\u2019s a weird conversation, so I just rather not."
+      },
+      {
+        "id": "mphgvag",
+        "score": 105,
+        "body": "My wife just got naturalized as a US Citizen, but she\u2019s still a woman with melanin with an accent. \n\nWe\u2019ve found that people talk to her very differently based on whether or not they\u2019re aware of me, her Marine Corps vet husband. Especially authority figures. With cops it\u2019s the difference between a polite \u201cma\u2019am\u201d and starting the interaction off with yelling. \n\nSo yes, I do keep USMC decals on my car."
+      },
+      {
+        "id": "mpikczb",
+        "score": 52,
+        "body": "I encountered this, blatant hate, only once, in Virginia.  Oil plug fell out and a car load of us were in a POV stuck on the side of the highway, in uniform, on our way to National guard AT.  tow truck took us to a back woods mechanic.  While we waited one of the guys asked for the restroom.  This redneck toothless mother fucker looked him straight in the eye and said white guys over there black guys out back.  Me as a white guy, first I'm shocked, then I'm getting hot.  My friends, one an e5, another an e6, both of color took it in stride.  The e6 saw what was brewing and looked at me and told me to leave it.  After we left I asked why, he broke it down and explained it in a way that stuck.  No matter what, that guy was never going to see things differently, nothing good would come from confrontation for any of us, the best possible outcome was to get fixed and out of inbredville as soon as possible.\n\nThat day was an education for me."
+      },
+      {
+        "id": "mple082",
+        "score": 51,
+        "body": "I have a sticker on my car, cuz I get the side eye when I park in veterans parking at lowes,  I'm a 5'4, 135 woman. So everyone assumes my husband is the vet. I plainly tell them his balls aren't as big as mine..lol. but yeah, I don't ever bring it up."
+      },
+      {
+        "id": "mph8k1k",
+        "score": 45,
+        "body": "I look like a homeless Jesus now. Long hair long beard. Most people don\u2019t know I did over 10yrs saves me from the awkward \u201cthank you for your service\u201d only person who even knows I have Va disability is my wife. Shit even told her she tells anyone else the divorce papers will be on the table in the morning lol. I think most guys just miss the camaraderie and shit, some may miss combat, I know I do. But for the most part I think it\u2019s that we felt apart of something bigger ya know."
+      },
+      {
+        "id": "mphbsx6",
+        "score": 44,
+        "body": "All I got is a few shirts that I wear to work as a cook.\n\nA USMC sticker on my back windshield (for the cops)\n\nI'm planning on getting a veteran license plate for my car\n(Again, for the cops)"
+      },
+      {
+        "id": "mpi2pl8",
+        "score": 42,
+        "body": "Other than the DV plate on my car. I don\u2019t have anything else in regards to the military. Only sticker on my car is the US flag\u2026\u2026.however, when I was younger, my mom had a USMC sticker on her car, one day on her way to work she broke down on the side of the road. A tow truck driver pulled over to help her. He told her the only reason why he pulled over was because he saw that USMC sticker and although he was off the clock, he couldn\u2019t just drive by without offering some help."
+      },
+      {
+        "id": "mpiov6p",
+        "score": 31,
+        "body": "I'm a mixed minority who has had to deal with the cops more than I care for in the past for some really bullshit reasons. The moment I put my veteran license plate on 8 years to this date, I have nerver been pulled over for anything."
+      },
+      {
+        "id": "mpi3168",
+        "score": 30,
+        "body": "I do not wear military related things nor do I really ever tell anyone that I served. It is the last thing people learn. I do have a service dog and people will ask questions related to the dog, and I still won\u2019t tell them I\u2019m a veteran. \n\nI honestly avoid everyone like the plague, especially veterans. As horrible as it sounds, I just can\u2019t handle talking with other veterans after being attacked by my own team. \n\nThe other reason is because there are some really annoying veterans that ruin it for everyone by being ridiculous in public and feeling entitled. People get jealous of you tell them anything about benefits. \n\nThere really just isn\u2019t much good that comes from wearing that stuff but to each their own."
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1oyjjck",
+    "title": "I lost my best friend and battle, buddy. 27 years of dreams and we built a paradise to have everything yet have nothing because he passed three weeks ago.",
+    "body": "My husband and I met in Fort Lewis, Washington. We would go through two lengthy deployments and we just had our shit together. We were like WD-40 and duct tape. I grew up Construction and would always be working on my house with my husband. We simply buried ourselves in our work and it really shows. Everything I could ever dream of he gave me. The night of his passing, he would complete his lifelong dream of building of 427 boss engine. Complete with all the planning and everything for his 86 Foxbody Mustang.  He was as humble as they came, but yet so proud. He could mill or machine anything that we needed. There was no stopping him. We were both very very determined and no matter what I did. He always kept me on that pedestal.\n\nI don\u2019t have any social media accounts, nor do I talk to anyone at all except for my sister and parents who I am exceptionally close to. \n\nWe will go to a hotel in Jacksonville, North Carolina to drop my daughter off who was 18 to be with her boyfriend who\u2019s in the active duty Marine Corps. My husband would pick up black fungus from the hotel. I had never seen my husband this sick and it came so fast. We drove home and he tried to rest it off a bit, but finally decided to go to the ER after his oxygen levels were dropping to 90. In the ER they administered IV prednisone here in New Hampshire and he would start blowing out chunks of tissue out of his sinuses. I decided to take those tissue samples and see if I can get pathology to tell me what they were as I was showing the doctors the stuff that was coming out of my husband. I would wake up at 4:20 in the morning to his last breath. Having to pull him out of bed and start CPR the electricity that came from him was so fierce. It\u2019s how our entire relationship worked we were that connected. We didn\u2019t even need to talk. We always talk to each other through our souls, and we didn\u2019t even need to say anything. \nThey would shock him seven times and he was gone by 6:30. Two days later pathology would call and advised us that it was black fungus. When they gave them the IV prednisone, it caused his brain to coagulate. He would be gone nine days later. \n\nThis man did absolutely everything for me ! He was 52 years old and I\u2019m 47.\nWe were doers . He wasn\u2019t a drunk. He wasn\u2019t a cheater. He was perfect.\n\nNow my responsibilities have grown tenfold.  \n\nWhere the heck do you meet people like this that keeps going even when life gets you down?  Where do you find people like-minded with some integrity? \n\nI have seen the best and the worst of people in the last three weeks . \n\nHe was my diesel mechanic and I was his operator . We were building this place for future veterans.  \n\nSocially, I talk to no one because I bury myself in work because that\u2019s how I cope . \nEveryone copes a little differently the night before he passed he told me I\u2019m going to need friends. And he thinks me profusely about having been such a great person and a wife and having been able to give him every dream he had ever wanted. \n\nBut what is life if you have no one to share with ? ",
+    "flair": "Discussion",
+    "score": 313,
+    "comment_count": 107,
+    "created_at": "2025-11-16T11:35:38+00:00",
+    "top_comments": [
+      {
+        "id": "np4vq6b",
+        "score": 44,
+        "body": "RIP. I\u2019m sorry for you heavy loss. Perfect soul! You are perfect."
+      },
+      {
+        "id": "np55cwc",
+        "score": 21,
+        "body": "Please accept my condolences.\n\nYour original post is like poetry...it echoes the emotion you two share."
+      },
+      {
+        "id": "np4vth1",
+        "score": 13,
+        "body": "I\u2019m sorry. You and he were so fortunate to have each other. Please, please take care of yourself. And your life now will continue- take it one day at a time, he will always be with you."
+      },
+      {
+        "id": "np4wyoy",
+        "score": 13,
+        "body": "Here\u2019s what I\u2019ve learned. Perfect is how you define it. It\u2019s what one is willing to tolerate and boy he could tolerate the shit out of me.\nI have an exceptionally great outlook on life and have always been pretty outgoing and I don\u2019t even know how to explain to people my situation because our entire story is so damn perfect. I can\u2019t even make it up like he didn\u2019t leave me desolate. He didn\u2019t leave me with any bills like he was perfect."
+      },
+      {
+        "id": "np55jq6",
+        "score": 12,
+        "body": "Oh, I absolutely love your comment. Completely captures my heart because that\u2019s exactly who we were."
+      },
+      {
+        "id": "np58qe5",
+        "score": 10,
+        "body": "Wow, this hits hard.  I am deeply saddened by your loss, much as I am happy you had those years together.\n\nMay you meet again in a better place."
+      },
+      {
+        "id": "np4x7xp",
+        "score": 10,
+        "body": "Yes, I feel him all the time and we were complete soulmates. It didn\u2019t get more perfect than what we had and he always promised me. I would feel him and I am forever. Grateful for that. A true gift."
+      },
+      {
+        "id": "np4woe3",
+        "score": 10,
+        "body": "I don\u2019t know if it gets easier. When he was gone for a month for a road trip with the boys, I decided to paint his Ford F250 with this Eastwood blue that I had purchased last year and I was tired of watching it on the shelf and I wanted him to see the blue truck so I decided to pull it in the shop and my 18-year-old daughter and I completely repainted it and sanded it And that man was laughing so hard because I told him there were a few spots that had some runs, and he was proud of those runs. When I showed him the pick up truck, he actually just looked at me and said I expect nothing less of you. It\u2019s because he knew I was capable of absolutely anything\u2026 funny how life is. He knew I was unstoppable and he made sure he would slow me down so I could stop to smell the roses."
+      },
+      {
+        "id": "np58xel",
+        "score": 9,
+        "body": "We will definitely meet again. I\u2019m 100% positive. I wouldn\u2019t wanna do it with anyone else."
+      },
+      {
+        "id": "np4up67",
+        "score": 8,
+        "body": "RIP"
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1po28cn",
+    "title": "I got a free service dog about 6 months ago (or longer) for PTSD because of MST",
+    "body": "Hi all, \n\nI wanted to share a resource I\u2019ve found to be extremely beneficial. I got my SD in April and since then, I\u2019ve found myself doing more. I went through K9s for warriors and they paired us based on personality/lifestyle. She\u2019s extremely hyper active so I can\u2019t isolate for very long and I found that she had a great foundation to build on from. She knows DPT and the command look (for hyper vigilance) from K9s. I taught her to interrupt my anxiety cues so I can take medication before I have an episode myself. If you\u2019re struggling at isolating, this may be something you want to look into. She goes with me everywhere- to my martial arts gym, lifting gym, grocery shopping, events and just about every where I go. You only have to pay for the travel to their campus (Florida or Texas) and they will pay for food, lodging and training. They also have an emergency vet bill fund for each veteran that goes through their program (2.5k) and will look into other options if the bills exceed that amount. There\u2019s other nonprofits out there but I figured I\u2019d share my experience to hopefully inspire some to also get an SD. \ud83e\udef6\ud83c\udffb if you have any questions, feel free to comment below. ",
+    "flair": "Discussion",
+    "score": 308,
+    "comment_count": 89,
+    "created_at": "2025-12-16T13:42:03+00:00",
+    "top_comments": [
+      {
+        "id": "nuc4rnw",
+        "score": 37,
+        "body": "that\u2019s really cool. i\u2019m glad you were able to be helped."
+      },
+      {
+        "id": "nuc83yj",
+        "score": 17,
+        "body": "Wanted to do this with my Great Dane. We just agoraphobe at home together."
+      },
+      {
+        "id": "nucmys5",
+        "score": 17,
+        "body": "They really do make the world better. Sometimes even though you cant take care of yourself you can pull it together to take care of someone else.  Caring for something else enough to get up, shower, and put on clothes to make sure they have food or get exercise can drastically improve your life. There are some days I probably wouldnt leave the house if my dog didn't come to nudge me to go on a walk."
+      },
+      {
+        "id": "nuc4v84",
+        "score": 17,
+        "body": "Thank you :) i feel really privileged to have her and couldn\u2019t imagine life without her now."
+      },
+      {
+        "id": "nucbhvm",
+        "score": 6,
+        "body": "Same with me and my bully"
+      },
+      {
+        "id": "nud3hms",
+        "score": 6,
+        "body": "Oooooo I\u2019ve never heard of them! I\u2019ll definitely remember this to pass it along to fellow veterans. \ud83e\udef6\ud83c\udffb"
+      },
+      {
+        "id": "nucsfht",
+        "score": 5,
+        "body": "I recommend 'Paws For Purple Hearts' placement and training program 1,000 times over for MST."
+      },
+      {
+        "id": "nudlgm0",
+        "score": 5,
+        "body": "Absolutely. Thank you for sharing your perspective :) on days where I can\u2019t even shower myself or over shower due my OCD, she\u2019s there all happy waiting for me to go on a walk or stops me from over showering. I can\u2019t even begin to comprehend what the next year for us will look like since it\u2019s only the beginning of our journey."
+      },
+      {
+        "id": "nud5vns",
+        "score": 5,
+        "body": "So true and well said."
+      },
+      {
+        "id": "nud3qqu",
+        "score": 5,
+        "body": "For the most part people leave me alone and sometimes they don\u2019t. It\u2019s a good opportunity to advocate for yourself and your dog though so I take it as a learning experience instead of being upset about it."
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1q33cq7",
+    "title": "Do you stand when veterans are asked to be recognized at public events?",
+    "body": "I\u2019m curious how other veterans feel about this.\n\nI was at a PBR Velocity Tour event last night. After the national anthem, the announcer asked all military members to stand so they could be recognized for their service. A lot of people stood up, and the crowd cheered.\n\nMy dad (Army vet) and I (USMC vet) both chose to stay seated. We didn\u2019t make a point of it or judge anyone who stood \u2014 we just never feel comfortable with the attention.\n\nI\u2019m proud of my service, and I genuinely appreciate the announcer\u2019s intent and the support from the crowd. I know it comes from a good place. I just personally don\u2019t like being singled out or publicly recognized like that.\n\nSo I\u2019m wondering:\n\n\t\u2022\tDo you usually stand or stay seated?\n\n\t\u2022\tHas your perspective changed over time?\n\n\t\u2022\tAm I the odd one out, or do other vets feel the same way?\n\nNot looking to start a debate about right or wrong \u2014 just interested in how others handle it.",
+    "flair": "Discussion",
+    "score": 309,
+    "comment_count": 483,
+    "created_at": "2026-01-03T19:17:22+00:00",
+    "top_comments": [
+      {
+        "id": "nxho2hu",
+        "score": 347,
+        "body": "No. My kids have noticed and asked my why over the years, I really don\u2019t have an answer. I just don\u2019t care for the attention I guess. Plus I\u2019ve been out for 3x as long as I was in for, let the young guys get the adoration lol."
+      },
+      {
+        "id": "nxhojul",
+        "score": 212,
+        "body": "No. The praise feels weird and I\u2019d rather be left alone"
+      },
+      {
+        "id": "nxhyp8k",
+        "score": 130,
+        "body": "Yeah my wife never pushes it, but my dad does, and I\u2019ll have to tell him no every time. \n\nI agree, I had fun while in, got all the TYFYS while in uniform, now I\u2019m just another person with a desk job trying to get by. It\u2019s weird holding on so tightly to a thing that I did when I was in my early 20\u2019s when I feel like I\u2019ve accomplished so much more since getting out. \n\nNow if they asked all the urban planners to stand, I guess I\u2019d do that because that\u2019s what I do now, but they never do."
+      },
+      {
+        "id": "nxhoys6",
+        "score": 120,
+        "body": "I do when my kids are with me, so they can see that Mom was cool once."
+      },
+      {
+        "id": "nxi1vat",
+        "score": 112,
+        "body": "I generally only stand when I'm there as a veteran.  Kids school usually does something for veteran parents on veterans day and my kids want me there."
+      },
+      {
+        "id": "nxhnula",
+        "score": 92,
+        "body": "I prefer not to, but if my wife is there, she pushes it."
+      },
+      {
+        "id": "nxhrnma",
+        "score": 85,
+        "body": "If my wife pushes me to stand up I do.  She was with me for 19 of the 21 years and gets to tell me what to do."
+      },
+      {
+        "id": "nxiafa2",
+        "score": 82,
+        "body": "I stand. Don\u2019t care about judgement, if any comes from it. I served proudly and honorably. I don\u2019t look for attention but if an opportunity presents itself, I\u2019m going to represent. First generation Mexican American, it hits me different because I\u2019m the first one in my bloodline to serve. Just me though."
+      },
+      {
+        "id": "nxifs4v",
+        "score": 78,
+        "body": "[deleted]"
+      },
+      {
+        "id": "nxibovr",
+        "score": 63,
+        "body": "Virtue signaling at its finest, just like veteran memorial bridges or highways. Take your money and intent and actually put it towards bettering the lives of veterans."
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1oxkru7",
+    "title": "VA Doctor joked and laughed about one of my service-connected conditions",
+    "body": "I\u2019m posting this because although this happened 6ish months ago, it still really, really bothers me. \n\nFor context, I\u2019m a woman, but not a lady. \ud83d\ude09 (haha) I am also married to a woman. She is definitely a lady. I have service-connected female sexual arousal disorder (FSAD) due to an in-service traumatic back injury. Yes, it\u2019s very real and it sucks just as much as ED does for the gents, I\u2019d imagine.\n\nSo about 6 months ago, I went to the local VA clinic to see the gynecologist. I had been seeing commercials about a new drug that treats FSAD. Hence the reason for the appointment. So I get there and the doctor says \u201cso you\u2019re here for bacterial vaginosis?\u201d and I said \u201cno. Where did you get that info from?\u201d The doctor said the nurse told her I have BV. (???? I definitely did not. So odd). Then I told her I was there to see about being prescribed a new medication for FSAD and she  LAUGHED at me. I was stunned. She proceeded to say, while laughing \u201cI saw that you wanted to see about that medication. Nope, I\u2019m not prescribing it. The reason you can\u2019t climax is because it\u2019s all in your head. Us females, it\u2019s all in our heads.\u201d I was absolutely stunned and speechless. Then she asked if I wanted a pelvic exam and I said yes. She proceeded to grab the device and said \u201clemme just shove this damn thing on up there.\u201d \n\nI truly felt ashamed leaving that appointment. None of us should be made to feel that way by the VA or anyone. I did some digging on this doctor and she has a HORRIBLE reputation with Google reviews mentioning that she has several baby daddies and constant DV incidents with them as well as the fact that she\u2019s an alcoholic! \n\nReally needed to vent and get this out, but also open to suggestions from anyone that\u2019s been in a similar situation. What would you do?",
+    "flair": "Question/Advice",
+    "score": 305,
+    "comment_count": 181,
+    "created_at": "2025-11-15T06:40:28+00:00",
+    "top_comments": [
+      {
+        "id": "noyxoo8",
+        "score": 418,
+        "body": "1. Don\u2019t take it personally because you weren\u2019t the problem \n2. File a report on her ass.\n3. If nothing was done, switch doctors.\n\nSorry you experienced this."
+      },
+      {
+        "id": "noyunnb",
+        "score": 107,
+        "body": "You can complain to the VA and also to the State licensing board\u2026 you can look up where she is licensed and then make a complaint to the state!"
+      },
+      {
+        "id": "noyuzmg",
+        "score": 98,
+        "body": "File a complaint against that doctor."
+      },
+      {
+        "id": "noyt8uu",
+        "score": 64,
+        "body": "Please file a complaint. It\u2019s the only way changes will be made."
+      },
+      {
+        "id": "np0b5k6",
+        "score": 64,
+        "body": "This is the right answer. There is no excuse for the way that Doctor behaved. Though I'm a guy, I've encountered similar attitudes for a different issue. A decade later, I kick myself for not reporting because that means someone else is getting the same \"treatment\" that I got."
+      },
+      {
+        "id": "np0gg91",
+        "score": 44,
+        "body": "Start with your VAMC patient advocate."
+      },
+      {
+        "id": "noz6dkz",
+        "score": 42,
+        "body": "I was going to say maybe the doc was having a bad day...  But after reading what she said, it's clear she deserves to be reported.  It's not you, it's her."
+      },
+      {
+        "id": "nozbabv",
+        "score": 41,
+        "body": "I am a lady and a veteran of the Air Force and Army - I can guarantee you every time I go to the VA I will get called Mr. At least once.  Notice I said at least?  Make a complaint.  It is inexcusable that we get humiliated and marginalized.  Did you know my hospital took years to get a gynecologist?  *Shakes head*. Feel better and do something.  Good luck!"
+      },
+      {
+        "id": "noyzact",
+        "score": 35,
+        "body": "Wow. I'd like to say I'm surprised, but the VA does have some terrible care at times. \n\nSorry you had to experience that."
+      },
+      {
+        "id": "nozt2p6",
+        "score": 30,
+        "body": "As a veteran and a provider myself, I am horrified. I\u2019m so, so sorry you experienced this. I can\u2019t stress this enough\u2014you need to file a complaint. There are a few ways you can go about this & I am very familiar with the process. I\u2019d be happy to help you to ensure your complaint is reviewed at the highest level possible."
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1j8dd84",
+    "title": "Army Basic Training",
+    "body": "My son joined the Army.  He shipped out last week.  I guess they put them into an admin platoon. They start basic training tomorrow.  I joined the Navy in 1990, so don't know a lot about basic in the Army.  He had access to his phone today, for a little bit.  His last text was \"These Drill Sargents seem like dicks.\"  I just had to laugh. If you think they are \"dicks\" now, wait until basic actually starts.",
+    "flair": "Discussion",
+    "score": 306,
+    "comment_count": 158,
+    "created_at": "2025-03-10T23:55:03+00:00",
+    "top_comments": [
+      {
+        "id": "mh48jby",
+        "score": 221,
+        "body": "[deleted]"
+      },
+      {
+        "id": "mh48tdj",
+        "score": 91,
+        "body": "Same here!  They gave us a chance to buy calling cards and once a week shot at using the pay phones in the breezeway"
+      },
+      {
+        "id": "mh48nb9",
+        "score": 51,
+        "body": "They go to what is called reception.  It\u2019s where all their uniforms are issued, paperwork filled out, etc.  Then they\u2019ll all be loaded onto a bus and driven over to their barracks (at the same base, usually down the road). \n\nWe used to have to check in all your personal items like phones, then make a pay phone call to your family to tell them you\u2019re alive, then 9 or 14 weeks or whatever of training with no phone calls."
+      },
+      {
+        "id": "mh4bkzw",
+        "score": 42,
+        "body": "LMAO exactly, I was like oh wow this ain't that bad, no ones really yelling at me, the NCO's seem pretty nice too. \n\nthen My Companies DS's came  over and were like \" It's gonna be fine guys nobody panic, it's not that bad, were just gonna take a little bus ride down the road\"\n\n  \n\"GET THE FUCK OFF OF MY BUS YOU PIECE OF SHIT\""
+      },
+      {
+        "id": "mh4aspg",
+        "score": 38,
+        "body": "It\u2019s just a holdover company. You get your first haircut, your uniforms issued to you, get your vaccinations, some incredibly basic level of \u201ctraining\u201d (more like army 101 classes), and whatnot. You could be there anywhere from a few days to a few weeks. \n\nPretty sure it was just called reception.\n\nI definitely didn\u2019t have my cellphone when I was there, but this was almost 20 years ago."
+      },
+      {
+        "id": "mh49p5v",
+        "score": 34,
+        "body": "Reception is a trap. I was there just long enough to believe that basic training wasn\u2019t that bad.. I\u2019m pretty sure I blacked out most of zero day."
+      },
+      {
+        "id": "mh4ay2k",
+        "score": 31,
+        "body": "WHAT!?!? Cell phones didn't exist when I was in boot camp. Widespread Internet usage either for that matter."
+      },
+      {
+        "id": "mh4shs9",
+        "score": 22,
+        "body": "I got to call for 5 seconds and say \u201cI arrived\u201d\u00a0\n\nGot to call home once more for like an hour at a pay phone during basic. and then once to say \u201cI passed battlestations and am graduating on X date\u201d"
+      },
+      {
+        "id": "mh4e7lr",
+        "score": 20,
+        "body": "It was chill until the doors closed and a DS materialized out of nowhere and fucking exploded."
+      },
+      {
+        "id": "mh48dap",
+        "score": 18,
+        "body": "lessons will be learned!"
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1lwftoq",
+    "title": "A Top Green Beret Influencer Says He Oversold His War Story. Vets See a Deeper Problem.",
+    "body": "",
+    "flair": "Article/News",
+    "score": 310,
+    "comment_count": 127,
+    "created_at": "2025-07-10T15:35:46+00:00",
+    "top_comments": [
+      {
+        "id": "n2dv82y",
+        "score": 269,
+        "body": "The quiet professionals have a lot of noisy people sometimes"
+      },
+      {
+        "id": "n2dtbie",
+        "score": 140,
+        "body": "He said he had a bronze star with a combat device when in fact he just had a bronze star \n\nFucking stupid mother fucker"
+      },
+      {
+        "id": "n2ei4lm",
+        "score": 111,
+        "body": "He also claimed to have\u2026\n\nPurple Hearts - he does not \n\n20+ combat deployments - he does not\n\nKilled women and children - he did not\n\nThrow a stupid # of grenades - he did not\n\nKill tens of people from a watch tower -he did not\n\nDude is upset his military career was not extraordinary so he just started making shit up."
+      },
+      {
+        "id": "n2dtwwn",
+        "score": 110,
+        "body": "Bro smashed his own pedestal, let him fall."
+      },
+      {
+        "id": "n2du31w",
+        "score": 67,
+        "body": "This guy was always such a douche."
+      },
+      {
+        "id": "n2ewqxc",
+        "score": 58,
+        "body": "I once got 25 kills in a row and they let me call in a nuclear strike."
+      },
+      {
+        "id": "n2du748",
+        "score": 54,
+        "body": "He already made his millions from being touted by Joe Rogan. Doesn\u2019t matter now."
+      },
+      {
+        "id": "n2dv7ma",
+        "score": 53,
+        "body": "\"Unintentionally\".  He still dodges the accusations."
+      },
+      {
+        "id": "n2dshew",
+        "score": 51,
+        "body": "It\u2019s fraud"
+      },
+      {
+        "id": "n2eklvl",
+        "score": 50,
+        "body": "There seems to be more 'Not-so-quiet\" professionals than there should be actual people who did the job."
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1leoj6c",
+    "title": "Just got back from a breakfast date with the VA. It was everything I dreamed of.",
+    "body": "\nHad a breakfast date with the VA this morning. We agreed on 8:30am\u2014I'm prompt, respectful, a real catch. I waited patiently. I made lunches for the kids. Drove them to camp. Grabbed myself a bagel and a drink. Drove home. Two full hours of foreplay. I thought we were building something.\n\nThen, just when I start to think \u201cmaybe this is the one\u2026\u201d they pick up the phone, but instead if whispering sweet nothings they hit me with the  \u201cWe\u2019re still waiting on that paperwork you sent a month ago.\u201d\n\nAnd then they left. No closure. No apology. Just cold silence and a metaphorical cigarette left burning in the ashtray of my soul.\n\nI didn\u2019t even get kissed. Just financially and emotionally raw-dogged before 11am.\n\n10/10 would recommend if you're into getting ghosted after being gaslit about forms you already sent.\n\nVA, call me. Or don't. You never do anyway.\n\n",
+    "flair": "Discussion",
+    "score": 299,
+    "comment_count": 41,
+    "created_at": "2025-06-18T18:23:14+00:00",
+    "top_comments": [
+      {
+        "id": "myi0enc",
+        "score": 77,
+        "body": "*sound of phone picking up*\n\n\u201cHi, this is Breadfruit, I was jus-\u201c\n\n\u201cThank you for waiting. Your call is important to us. Please continue to hold.\u201d"
+      },
+      {
+        "id": "myhstsq",
+        "score": 49,
+        "body": "Peak literary art. \ud83d\udd25"
+      },
+      {
+        "id": "myiml6v",
+        "score": 33,
+        "body": "I got sucked right into this reading, and by God, I enjoyed it.   \n\nThe VA can screw up a wet dream..."
+      },
+      {
+        "id": "myi479g",
+        "score": 16,
+        "body": "With that same hold music from the 80s."
+      },
+      {
+        "id": "myicmpd",
+        "score": 13,
+        "body": "I\u2019m dying \ud83d\ude02"
+      },
+      {
+        "id": "myid778",
+        "score": 13,
+        "body": "Yeah. I just got done with an appointment with my VR&E counselor this morning. They told me I should be getting transferred to another case manager since I\u2019m in the job hunt phase, but I might be stuck with them for a while since they have the lightest caseload in the office of 150 Vets. \n\nI count myself lucky this person is the one I was assigned to. They may not have time to cuddle, but I know they care."
+      },
+      {
+        "id": "myhvkq2",
+        "score": 11,
+        "body": "VERA? I just met her!"
+      },
+      {
+        "id": "myhxlbz",
+        "score": 11,
+        "body": "It was a joke, my friend."
+      },
+      {
+        "id": "mylgohz",
+        "score": 10,
+        "body": "Sorry man, VA can't help you with that \ud83e\udd37\u200d\u2640\ufe0f"
+      },
+      {
+        "id": "myk6f7g",
+        "score": 9,
+        "body": "Poetic\n\nI wish I could be poetic about them sending seven day referral letters that expire 10 days before they are received in the mail. Referral cancelled. Repeat. \n\nI don\u2019t talk to them because I can only scream now"
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1q0k159",
+    "title": "Veteran Status Handout",
+    "body": "I work at a job where we train a lot of civilians in military related psychology, especially as it relates to the National Guard. A common question from civilians is \u201cwhat is a veteran\u201d, and the answer of \u201cit depends on who\u2019s asking in what context\u201d doesn\u2019t help them much. I made these 3 pages as a starting point. \n\nI thought it would be helpful for some in this Reddit. I\u2019m a crusty old salt but happy to correct my mistakes if you spot any. ",
+    "flair": "Discussion",
+    "score": 304,
+    "comment_count": 71,
+    "created_at": "2025-12-31T18:33:37+00:00",
+    "top_comments": [
+      {
+        "id": "nwyvsme",
+        "score": 33,
+        "body": "I would be very careful providing information about what benefits someone gets from the VA. It\u2019s very fluid and you don\u2019t want to have to change them constantly. Or if you made a mistake (like no benefits for dishonorable discharge) you might lead someone astray. Maybe provide a QR code to the VA website or local point of contact for people that have questions about benefits as they apply to their situation?"
+      },
+      {
+        "id": "nwyn7pc",
+        "score": 27,
+        "body": "There is some outdated information."
+      },
+      {
+        "id": "nwynsff",
+        "score": 10,
+        "body": "During a\u00a0House Oversight and Government Reform Committee hearing, Braulio Castillo, an IRS contractor, was summoned to testify\u00a0for questionable IRS contracts.\u00a0Castillo, the owner of Strong Castle Inc., claimed that an injury to his left foot justified his IT company receiving special status as a service-disabled, veteran-owned small business (SDVOSB). Castillo sustained his injury while playing football at his military prep school,\u00a0The United States Military Academy Preparatory School (USMAPS), in 1984. While Castillo never entered active duty, the Veterans Benefits Administration\u00a0[stipulates](http://oversight.house.gov/wp-content/uploads/2013/06/Strong-Castle-IRS-Final-Report.pdf)\u00a0that if an individual is injured at preparatory\u00a0school, \u201che or she becomes a veteran due to the service-connected disability.\u201d [//www.nbcnews.com/id/wbna52336592](//www.nbcnews.com/id/wbna52336592)"
+      },
+      {
+        "id": "nwynvm9",
+        "score": 10,
+        "body": "General discharge = no GI Bill?"
+      },
+      {
+        "id": "nwyx8b6",
+        "score": 10,
+        "body": "Yes and no.\nGeneral during your first enlistment? No.\n\nGeneral during a second(or more) enlistment? Yes.\n\nIt was explained to me as that your first enlistment was completed honorably and that makes you eligible."
+      },
+      {
+        "id": "nwzs8hv",
+        "score": 9,
+        "body": "It was him indeed! He is now in jail for killing his wife!"
+      },
+      {
+        "id": "nx2pzrx",
+        "score": 9,
+        "body": "That\u2019s fucking batshit insane. \n\nIn the Army, the only way a Soldier ETSed without an honorable was if we did paperwork to administratively separate them or a court martial directed it. \n\nI would NEVER dock a Soldier for something that was already adjudicated. Everyone fucks up, whether that be performance or conduct. If they fuck up badly enough to warrant something other than an honorable discharge that fuck up needs to be adjudicated through a fair and impartial process. \n\nArmy Pubs hasn\u2019t been working for me, so I can\u2019t pull up the regulation for enlisted separations (AR 635-200, if you\u2019re curious). It has the allowable discharge characterization for each separation reason. If you finish your enlistment or retire, it\u2019s an honorable. If you\u2019re fat or fail PT, it\u2019s an honorable. You have to have some kind of documented misconduct. \n\nIIRC, anything other than an honorable has to go up to the local GCMA (aka first general officer in the chain of command with court martial authority), AND it gets reviewed by multiple JAGs, AND you get to have a trial defense attorney or hire your own to ensure your rights are protected. \n\nThe idea that someone can just throw your GI Bill away because you didn\u2019t get the equivalent of a B average is just batshit to me. I get y\u2019all have high standards, but changing your discharge characterization should be a deliberate action by a higher authority and protect the rights of the service member."
+      },
+      {
+        "id": "nwynd0j",
+        "score": 7,
+        "body": "Being a protected veteran w/ an honorable discharge has never helped"
+      },
+      {
+        "id": "nwz48iv",
+        "score": 7,
+        "body": "This fails to mention the most confusing of questions in the first place: Veteran status of guard/reserve if they\u2019ve never served any active time other than training"
+      },
+      {
+        "id": "nwzib5f",
+        "score": 7,
+        "body": "Was this the guy that Duckworth called out because he was lambasting the committee over a decision? It was brutal."
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1lauhf4",
+    "title": "Afghanistan Interpreter Detained, Facing Deportation, Likely To Result In Death.",
+    "body": "Afghan man was detained in San Diego Immigration Court Thursday after attending a routine hearing. \"I came here to make a better life,\" said the man. \"I worked with the U.S.military. I worked in a very dangerous part of Afghanistan with the U.S. military.\"\n\n",
+    "flair": "Moderator Approved",
+    "score": 308,
+    "comment_count": 59,
+    "created_at": "2025-06-13T23:36:04+00:00",
+    "top_comments": [
+      {
+        "id": "mxnpeku",
+        "score": 157,
+        "body": "We will not have allies for the next two decades. This is horrible."
+      },
+      {
+        "id": "mxny3p8",
+        "score": 112,
+        "body": "Our interpreters in Iraq initially worked for free and came to help us out of a belief for change, constantly at risk. Betraying our allies is unconscionable, and completely in line with this administration."
+      },
+      {
+        "id": "mxnpovk",
+        "score": 54,
+        "body": "Failing those that have given their everything for us. How does THIS, help the USA?"
+      },
+      {
+        "id": "mxnrpo3",
+        "score": 39,
+        "body": "Whatever adult we have to run shit next is gonna be so so so busy trying to mend the broken relationships we have/had."
+      },
+      {
+        "id": "mxon8sq",
+        "score": 32,
+        "body": "I had an Uber driver once with this exact story. He, his wife and 2 kids came to the US after he helped US Troops. He said if they were deported they would be killed. This was in 2017 when I met him, his wife and girls just recieved their green cards but he was still in the process. I still pray for him."
+      },
+      {
+        "id": "mxnsdiv",
+        "score": 31,
+        "body": "Won\u2019t be in our lifetimes. Fucking embarrassing."
+      },
+      {
+        "id": "mxnljsz",
+        "score": 28,
+        "body": "[Afghanistan Interpreter Detained](https://www.reddit.com/r/Military/s/j8ds1QrYCC)"
+      },
+      {
+        "id": "mxo59c8",
+        "score": 25,
+        "body": "It really is horrible. Those people don\u2019t deserve to be deported to death, basically. I\u2019m so angry and broken hearted"
+      },
+      {
+        "id": "mxoeo25",
+        "score": 21,
+        "body": "We\u2019ve got to save these guys. They did what we asked. They honored their obligations to become citizens. They\u2019ve saved lives of our troops. A Terp can make or break you. We are obligated to take care of our interpreters"
+      },
+      {
+        "id": "mxpbnvo",
+        "score": 21,
+        "body": "This is disgraceful. That man is more of a patriot to this country than half these dudes wearing grunt style and tactical hats. Our interpreters served this country and their own and put their families and lives in danger. This is how we repay them? I don\u2019t even know what to do but I gotta do something this can\u2019t happen we can\u2019t allow this we fought and lost too much"
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1jireq7",
+    "title": "Boston VA faces wrongful death lawsuit after veteran\u2019s \u2018premature and preventable death\u2019",
+    "body": "",
+    "flair": "Article/News",
+    "score": 297,
+    "comment_count": 48,
+    "created_at": "2025-03-24T14:03:57+00:00",
+    "top_comments": [
+      {
+        "id": "mjhf062",
+        "score": 74,
+        "body": "VA, various angels, various assholes.\n\nI'm so lucky I had a great doctor in Minnesota, Portland VA just ignored my high blood pressure and cholesterol.\n\nI would be dead before 31 if I stayed in Portland.\n\nyou really gotta educate and advocate for yourself too.  ( granted that's not unique to the VA, that's US healthcare in general)"
+      },
+      {
+        "id": "mjhj2wl",
+        "score": 62,
+        "body": "Around 2008 I was working as a coding educator at a hospital.  I was reviewing a clinic chart for a former patient.  I noticed there was a kidney ultrasound with a note about a large mass \u201cConcerning for Neoplasm\u201d.  As I read into the chart I found that was the only reference.\n\nI brought the report to the doctor and told him I saw no mention of it anywhere else.  To say he \u201cturned white\u201d would be an understatement.  The report was only a month old.  He grabbed the report from me and ran back into his office.  Later on he thanked me for spotting it.  \n\nThe guy ended up having a nephrectomy for kidney cancer.  They removed it in time.  I just imagine no one letting him know and it spreading into other systems.  \n\nThis is the big reason I review ALL my records after a test whether at the VA or anywhere else."
+      },
+      {
+        "id": "mjhcyj2",
+        "score": 27,
+        "body": "Got you! \n\nBoston VA faces wrongful death lawsuit after veteran\u2019s \u2018premature and preventable death\u2019\nHis VA doctors allegedly didn\u2019t tell him about his lung cancer\n\nRick Sobey\nMarch 22, 2025 at 4:54 PM EDT\nWilliam \u201cJoey\u201d Howard, 74, died from lung cancer and esophageal cancer in May of 2023 \u2014 a \u201cpremature and preventable death\u201d after his VA doctors reportedly didn\u2019t tell him about his positive cancer results. (Howard family photo)\nWilliam \u201cJoey\u201d Howard, 74, died from lung cancer and esophageal cancer in May of 2023 \u2014 a \u201cpremature and preventable death\u201d after his VA doctors reportedly didn\u2019t tell him about his positive cancer results. (Howard family photo)\nThe family of a Vietnam-era veteran who died after his VA doctors allegedly failed to tell him that he had cancer has filed a wrongful death lawsuit against the VA Boston Healthcare System.\n\nNatick man William \u201cJoey\u201d Howard, 74, died from lung cancer and esophageal cancer in May of 2023 \u2014 a \u201cpremature and preventable death\u201d after his VA doctors reportedly didn\u2019t tell him about his positive cancer results for nearly a year.\n\nHoward\u2019s early localized lung cancer in October 2021 grew and spread throughout the next year, resulting in metastatic disease. Howard also developed a local esophageal cancer during the same time period.\n\nMeanwhile, VA staff didn\u2019t inform Howard of his lung cancer diagnosis, leading to a major delay in treatment, according to the wrongful death suit. That lengthy delay led to his death, according to his family\u2019s federal lawsuit against the VA.\n\n\u201cLike any patient in any healthcare setting expects, our veterans should be able to expect they will receive good and proper, high quality, medical care and treatment from their doctors at the Veterans Administration,\u201d said the family\u2019s lawyer Adam R. Satin, of Lubin & Meyer, PC. \u201cIt\u2019s the least our government can do for those who served and sacrificed for this country.\n\n\u201cTragically, William Howard received the polar opposite from his doctors at the VA,\u201d the attorney added. \u201cThis veteran died because his doctors negligently failed to make a simple phone call and just tell him that they had found cancer on a test he\u2019d had.\u201d\n\nHoward, a veteran of the U.S. Marine Corps, serving during the Vietnam War era, worked as a handyman for many years in Natick and the surrounding areas.\n\nThe grandfather, who previously lived in Roslindale, died of esophageal adenocarcinoma in the setting of metastatic lung cancer on May 26, 2023. His smoking history included half a pack per day since he was a teenager.\n\n\u201cMr. Howard suffered a significant 11-month delay in treatment of lung cancer, and delay in the diagnosis and treatment of esophageal cancer, leading to his premature and preventable death as a direct result of the substandard care and treatment rendered to him by VA Boston Healthcare providers,\u201d the lawsuit reads.\n\nThe suit is being brought against the VA staff in West Roxbury.\n\n\u201cThey knew he had cancer, but he didn\u2019t know it because they failed to tell him,\u201d the family\u2019s lawyer said. \u201cIf they had just told him about it, the tragic pain and suffering and death that unfolded from that point forward would have been avoided. Mr. Howard deserved better from his doctors and the government to which he entrusted his healthcare.\u201d\n\nAccording to the suit, Howard in September of 2021 was admitted to the Boston VA Hospital with complaints of shortness of breath. He underwent a series of tests, and a doctor found that Howard had \u201cmultiple abnormalities\u2026 concerning for malignancy.\u201d\n\nA follow-up biopsy revealed that he was positive for malignant cells, consistent with non-small cell carcinoma. The doctors, however, failed to tell Howard about the lung cancer results \u2014 and didn\u2019t ensure that he was referred to oncology, according to the lawsuit.\n\nA year later, Howard went to the VA emergency department with complaints of chronic pain, shortness of breath, leg swelling, and generalized weakness. He had been suffering from leg swelling with oozing, and could barely walk without shortness of breath and had been sleeping on his side for relief.\n\nThe cell carcinoma had increased in size and spread, and he had developed a local esophageal cancer, according to tests.\n\nVA staff later held an \u201cinstitutional disclosure of an adverse event\u201d conference with Howard and his sons, according to the lawsuit.\n\nThe staff reportedly apologized to Howard and his family for the communication issues leading to the delay of his lung cancer treatment. The VA offered expedited consultations, arrangements for second opinions, and said an institutional investigation was underway.\n\n\u201cThe prognosis of a patient diagnosed with lung and/or esophageal cancer largely depends upon the extent of the disease at the time of diagnosis,\u201d the lawsuit reads. \u201cIf detected and diagnosed at an early stage, lung and esophageal cancers are treatable and amenable to cure.\n\n\u201cHowever, if the cancers are not diagnosed and treated for a significant period, and allowed to grow and spread, the patient\u2019s cancer becomes more difficult or impossible to surgically remove, the treatment options become more aggressive, the patient has an overall worsened prognosis, decreased chance of long-term survival, and more likely than not, will suffer a premature and preventable death, as in the case of William Howard,\u201d the suit states.\n\nHoward\u2019s family filed the lawsuit in federal court earlier this month.\n\nWinfield Danielson, VA Boston Healthcare System\u2019s public affairs officer, said in a statement, \u201cWhile we cannot discuss pending legal matters, we would like to share that our thoughts are with the Veteran\u2019s family, and everyone touched by this tragic loss.\u201d"
+      },
+      {
+        "id": "mji5cgx",
+        "score": 20,
+        "body": "No.  I use MyHealtheVet if they\u2019re VA clinic or hospital records.  All of my community care doctors are on Epic so I use MyChart patient portal.  If it\u2019s an independent imaging center I\u2019ll go back in a week and get a copy of the report."
+      },
+      {
+        "id": "mjjdlc3",
+        "score": 17,
+        "body": "I\u2019ve had the exact opposite experience. My VA healthcare has been phenomenal and the private sector has been a nightmare. I think the VA has come a LONG way in the past two decades and I wish everyone could experience what I have."
+      },
+      {
+        "id": "mjhc8hk",
+        "score": 15,
+        "body": "paywalled article."
+      },
+      {
+        "id": "mjj1x6v",
+        "score": 14,
+        "body": "I've always had borderline high cholesterol (~200-230) even when I don't eat anything high in cholesterol and don't really eat greasy or fried foods. Every year I would ask about medication to control it and my doctor refused because I was \"still young\" and in my 30s. He told me to exercise and eat healthier. I was already exercising regularly, so for my next blook work, I switched to a vegan diet for a few months before the test. It barely went down (~190).\n\nAfter 4 years I was like just give me the meds because I'm tired of hearing his speech about eating healthier and working out. He put me at the lowest dose, 10mg Atorvastatin, and I had a follow up blood work the next month. At the next appointment he acts surprised and tells me that my cholesterol is now below 100 and what else have I been doing to get it down. He then tells me that I won't building up all that plaque in my heart anymore. Literally nothing changed other than taking the medication. This fucker thought I was lying about exercising and eating healthy all these years."
+      },
+      {
+        "id": "mji6bz9",
+        "score": 12,
+        "body": "Went to the VA at least twice a year for 10 years for chronic bronchitis.  Same thing every time: drive 77 miles one way to have them throw some antibiotics at me after a cursory exam and drive 77 miles home.  \n\n10 years.\n\nMy **first** visit to my civilian doc for the exact same issue, and a nurse practitioner gets a bit curious and orders labs and imaging.\n\nA year and a half later, I'm officially diagnosed with Stage IV pulmonary sarcoidosis with fibrosis over 25% of my lung surfaces.  By the way, sarcoidosis is a presumptive condition under the PACT act.\n\nHad I stayed with the VA, my pulmonologist estimates I would've been dead in 18-36 months based on disease progression.  Thankfully I'm receiving treatment now and it's under control....and by that I mean it's not progressing.  Things aren't *improving*, per se, but they're not getting worse.\n\nThere's another story involving the orthopedic side of things, 3 MRIs in 18 months, and over 1500 miles of travel across the state of Michigan without resolving a single thing, but I just don't feel like typing it all out right now.\n\nI haven't been to the VA in almost 10 years now, and I doubt I'll ever return."
+      },
+      {
+        "id": "mji4bk0",
+        "score": 9,
+        "body": "You can pull all of your VA medical records through their blue button option.  You have to have a VA.gov login (now through login.gov or id.me). Then go to VA health, then medical records."
+      },
+      {
+        "id": "mjhzy7r",
+        "score": 8,
+        "body": "Pretty standard VA experience"
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1poj21v",
+    "title": "My last Letter to Everyone",
+    "body": "I feel awkward about writing this, but I'm truly on my last been out the military for about a year, and some change. Now, I went in at 19, got out at 25, and man, it's been a ride but recently I haven't been able to find a job after quitting my last one due to a panic attack I had so I've been jobless for about 3-4months now and man things are getting heavy when I got out I met this girl at work that I eventully started dating it was amazing at first but then man The constant feeling of being emasculated and disrrespeced took a toll on me I tried I tried so hard to make sure I could do any, and everything for her putting how I felt to the side but recently I just started seperating myself from people because I've learned out here arguing doesn't fix anything especially if whoever it is just doesn';t care man I've frained my savings trying to make others happy giving when I should'nt have. Felt so bad 3months ago I even tried taking a mix of sleeping pills and liquor, but ended up waking up as if nothing happened. I just can't do it anymore, especially after tonight, after a few days of me and my girl not talkling i went to her house, rang the doorbell with no response heared walking etc even i think a males voice which i hope it wasnt but when I facetimed her, she said she isn't opening the door because there is not point which I was confused on long story short i satin my car for a while cleared my eyes and just headed home where I am noe typing this. But hey, happy holidays to you guys, much Love. I didn't want to type this or even get to this point, I just wanted to be appreciated, you know, unconditionally. So to my last message on social media and to my family I Love you guys I truly do but I'm not okay I have to do what's best for me  Much Love Until we meet again and one more time IYAOYAS.. 1,4,3,7 .",
+    "flair": "Call for Help",
+    "score": 295,
+    "comment_count": 341,
+    "created_at": "2025-12-17T00:57:19+00:00",
+    "top_comments": [
+      {
+        "id": "nufqsgo",
+        "score": 321,
+        "body": "I don\u2019t know you but it sounds like you wrote this because you\u2019re not ready to give up yet. Maybe you don\u2019t want your life to end, you just want the strife to end.\n\n1) go to the ER, my friend. this is an emergency. \n2) f^ck her\n3) you are eligible for VA disability compensation if you qualify, that could ease your troubles financially\n4) there are programs out there to get you back on your feet."
+      },
+      {
+        "id": "nufp8ki",
+        "score": 175,
+        "body": "Call us, please!\n\n833.I.SAVE.22"
+      },
+      {
+        "id": "nufpz74",
+        "score": 151,
+        "body": "You don\u2019t fucking quit you fucking hear me!!"
+      },
+      {
+        "id": "nufq0lx",
+        "score": 87,
+        "body": "Dude. You've got people here that can talk to you.\n\nYou remind me of where I have been this time last year, when my divorce was still fresh.\n\nA lot of us have been where you are - you are not alone... we're right here"
+      },
+      {
+        "id": "nug01h6",
+        "score": 84,
+        "body": "If I can't quit he can't!"
+      },
+      {
+        "id": "nufq1vg",
+        "score": 82,
+        "body": "First step get to va"
+      },
+      {
+        "id": "nufrssw",
+        "score": 69,
+        "body": "You\u2019re here. That\u2019s a great first step.  Next step is just as easy. Call 988 then press 1. \n\nhttps://www.veteranscrisisline.net/get-help-now/chat/"
+      },
+      {
+        "id": "nufq93p",
+        "score": 66,
+        "body": "Nope.  You can't go!  There's miles to go before we sleep."
+      },
+      {
+        "id": "nufocdv",
+        "score": 56,
+        "body": "Brother, everyone here cares for you. Please please reach out to your local VA and talk.\n\nHell, I\u2019m here too, what did you have for lunch today man?"
+      },
+      {
+        "id": "nug4q7k",
+        "score": 47,
+        "body": "Damn right!"
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1pv3l7w",
+    "title": "Attention to orders!",
+    "body": "FOR OFFICIAL USE ONLY -\n\nThe Department of the Army issued orders today to COL S. Clause, recalling him to active duty, with a report date of 24 Dec 2025.\n\nA reservist, with 1,743 years of service, this airborne Soldier specializes in vertical delivery of high-value items. He is airborne and air assault qualified. He is also a 46Q, Public Affairs Specialist.\n\nAlso recalled, were LTC Dasher, 1SG Dancer, MSG Prancer, MAJ Vixen, MAJ Comet, Chaplain (LTC) Cupid, SGT Donner, and PO1 Blitzen, an Individual Augmentee from the Naval Reserve, assigned to the Army. 2LT Rudolph is also authorized to report for duty; however, he must first successfully complete Land Nav training, which he has failed three times.\n\nAlthough the above troops are on orders for only 24 hours, it is anticipated that they will submit a travel claim for 24,901 miles at .56/mile, using a POV. Suitable Government transportation is not available.\n\nAs a special operations unit, each member is granted a high level of uniform flexibility, as well as relaxed grooming standards. Per diem has been modified to include large quantities of hot cocoa and cookies.\n\nHooah!\n\n...and Merry Christmas!\n\nP.S. - Let's ALL remember the men and women of our Armed Forces, as they serve in far away lands during this Christmas Season.\n\nhttps://preview.redd.it/wqd1jjbkk99g1.png?width=621&format=png&auto=webp&s=799a84a3a2c4e07336b3b830f9ef914cdb5a8247",
+    "flair": "Discussion",
+    "score": 296,
+    "comment_count": 34,
+    "created_at": "2025-12-25T02:48:52+00:00",
+    "top_comments": [
+      {
+        "id": "nvteanf",
+        "score": 30,
+        "body": "2024"
+      },
+      {
+        "id": "nvtyjhw",
+        "score": 24,
+        "body": "When I was in, I used to work funeral details. \n\nSo that assignment is typically designated to reserve units, but I was stationed at a harrier base with an I&I staff of 2, so our active duty unit did them instead. I played trumpet in HS, and so I got pulled in to play taps. \n\nThis is not a joke. One day we get a call for a detail for Corporal Santa Clause. \n\nThis guy was a Vietnam era veteran, a Marine, who after he got out, legally changed his name to Santa, and went around the country doing charity events. His pallbearers were all Santa\u2019s. His funeral was just the oddest mix of people you\u2019d ever seen together, hippies and bikers and people from all walks of life in between. \n\nThe weirdest part to me was they clapped after I played taps. You just don\u2019t do that. \n\nAnyways\u2026sorry to break it to the Army, but Santa was a Marine, and he died somewhere around 2009-2012. I was there for the funeral. Nothing kills your childhood quite like that moment.\n\nETA: I found his obituary after I wrote this: https://www.legacy.com/us/obituaries/yumasun/name/santa-claus-obituary?id=22653125"
+      },
+      {
+        "id": "nvtf3vd",
+        "score": 24,
+        "body": "heh i caught that, and fixed it like seconds after i posted it.  damn you are fast lol."
+      },
+      {
+        "id": "nvtjp4z",
+        "score": 15,
+        "body": "Mileage is $0.70 these days."
+      },
+      {
+        "id": "nvwq8gl",
+        "score": 14,
+        "body": "Govt pays elves half price, half size."
+      },
+      {
+        "id": "nvtfjxo",
+        "score": 8,
+        "body": "lol. Fun post!"
+      },
+      {
+        "id": "nvts7iy",
+        "score": 6,
+        "body": "Haha it\u2019s still 2024"
+      },
+      {
+        "id": "nvu9914",
+        "score": 5,
+        "body": "Good post but Rudolph is 100% a SPC, everything else was spot on though."
+      },
+      {
+        "id": "nvwqjge",
+        "score": 4,
+        "body": "can confirm \\*(Not service connected lol)"
+      },
+      {
+        "id": "nvwzo43",
+        "score": 4,
+        "body": "elves handle logistics"
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1m78ewl",
+    "title": "VA loses 7,500 employees in veteran-facing roles as part of workforce cuts",
+    "body": "",
+    "flair": "Article/News",
+    "score": 289,
+    "comment_count": 124,
+    "created_at": "2025-07-23T12:51:16+00:00",
+    "top_comments": [
+      {
+        "id": "n4pjjir",
+        "score": 110,
+        "body": "When do we start winning?"
+      },
+      {
+        "id": "n4qdxz3",
+        "score": 93,
+        "body": "1700+ nurses and 600+ doctors gone. But don\u2019t worry, this won\u2019t affect your care."
+      },
+      {
+        "id": "n4pnoly",
+        "score": 42,
+        "body": "Didn't you hear? We already won. We are just reaping the benefits now. \ud83e\udee1 /s"
+      },
+      {
+        "id": "n4qo5e5",
+        "score": 40,
+        "body": "You\u2019ll have BETTER care with all those pesky doctors and nurses gone-always with the questions. Believe me, I know more than all the doctors combined."
+      },
+      {
+        "id": "n4qlthv",
+        "score": 37,
+        "body": "This is just infuriating. I am a retired VA employee, and along with my retirement, another person retired in our little department, and another transferred to another VA hospital. \n\nWe already were short, and now the department is critically short. I saw a former colleague last week, they FINALLY let my old chief hire 1 replacement respiratory therapist. They need at least 3. \n\nA part of me feels guilty about retiring, but I needed to for my mental health, I was burnt out and I was worried that veterans would be affected. \n\nThey can\u2019t afford to cut staff."
+      },
+      {
+        "id": "n4plqrd",
+        "score": 26,
+        "body": "The winning should start any day now. Just hang on!"
+      },
+      {
+        "id": "n4pm8sq",
+        "score": 23,
+        "body": "That's just it. We don't."
+      },
+      {
+        "id": "n4q4a6e",
+        "score": 22,
+        "body": "Like it wasn\u2019t hard enough already to get help."
+      },
+      {
+        "id": "n4ps9xo",
+        "score": 22,
+        "body": "So Doug Collins lied, surprising nobody."
+      },
+      {
+        "id": "n4qr3bo",
+        "score": 21,
+        "body": "No no, don\u2019t worry, someone on the internet assured me it was only the lazy doctors and nurses. Now without those lazy caretakers the rest can actually do their job\u2026this is a real thought process out there."
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1pagp6k",
+    "title": "Finally got a job!",
+    "body": "Well after 5 months out of the Navy, and 1 month of being sober (which got me my job through networking) I finally found a job! I had applied for more than 50 jobs in my area and not even Chilis or Home Depot got back to me! Who knew that getting sober would lead me to these opportunities! ",
+    "flair": "Employment",
+    "score": 280,
+    "comment_count": 47,
+    "created_at": "2025-11-30T12:03:47+00:00",
+    "top_comments": [
+      {
+        "id": "nrj0wfb",
+        "score": 35,
+        "body": "Congrats! And congrats on your sobriety."
+      },
+      {
+        "id": "nrj45mh",
+        "score": 18,
+        "body": "It\u2019s hard to find a job this year. It took me 6 months after my last job furloughed me for a month then unjustly fired me. I have a great resume and vet presence too."
+      },
+      {
+        "id": "nrj965j",
+        "score": 12,
+        "body": "Congratulations and that\u2019s wonderful news \ud83d\udc4d"
+      },
+      {
+        "id": "nrjzpd2",
+        "score": 10,
+        "body": "Awesome! \n\nI know when i went from drinking to sober it changed a whole lot of things in my life. One thing I messed up was everyone warns you about stress and bad things happening and wanting to drink. When things were going really well for me it led to relapse. Just wanted to share so you can hopefully learn from my experience.\n\nIt sounds like you are on a good path and hopefully the new job is just the start"
+      },
+      {
+        "id": "nrjgcnh",
+        "score": 6,
+        "body": "That's awesome!!!!! Congrats!!!! \ud83c\udf89\ud83c\udf89"
+      },
+      {
+        "id": "nrmdta0",
+        "score": 5,
+        "body": "Congrats!!! \ud83c\udf7e"
+      },
+      {
+        "id": "nrmtfm8",
+        "score": 5,
+        "body": "Congratulations!!!"
+      },
+      {
+        "id": "nrmlf85",
+        "score": 4,
+        "body": "Congrats, good for you, really, good for you."
+      },
+      {
+        "id": "nrjm2ub",
+        "score": 4,
+        "body": "Congrats and Congrats \ud83d\udc4f"
+      },
+      {
+        "id": "nrml5lk",
+        "score": 4,
+        "body": "Congratulations. Just don\u2019t drink today!!"
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1myjxj5",
+    "title": "CHECK YOUR TSP ACCOUNT!",
+    "body": "I got out about 3 years ago after a hectic deployment and at the time just wanted out. One of the things I forgot to check into was my TSP account. I opted into TSP back when I entered boot camp (like most of us did) and I just remembered it. It took me about 2 weeks to receive the access code the site mailed out to me to finally get into my account but lo and behold, I have thousands of dollars in there. Totally worth checking into if you forgot about it.\n\nLink to check: https://www.tsp.gov/access-your-account/",
+    "flair": "Discussion",
+    "score": 282,
+    "comment_count": 186,
+    "created_at": "2025-08-24T02:23:35+00:00",
+    "top_comments": [
+      {
+        "id": "nactu93",
+        "score": 246,
+        "body": "Retired Social Security worker and vet here.\n\nI invested 80 percent in the C fund and 20 percent in the S fund for the last 20 years at the highest contribution rate.\n\nFor the first 10 years, I just contributed the minimum across all funds.\n\nAnyway, I have 1.4 million in my TSP.\n\nI highly recommend not to touch your TSP or at least roll it over to a Roth IRA or 401k.\n\nGood luck!"
+      },
+      {
+        "id": "nacmo1u",
+        "score": 55,
+        "body": "And for the old timers who got in before BRS and life cycle funds, make sure it's hasn't just been sitting in the G fund!"
+      },
+      {
+        "id": "nacrdxs",
+        "score": 25,
+        "body": "Oh god are we the old timers"
+      },
+      {
+        "id": "naeb5an",
+        "score": 22,
+        "body": "I'm inspired by that, thank you"
+      },
+      {
+        "id": "nacnwgq",
+        "score": 21,
+        "body": "Hell, I had never made much out of it and I think I only contributed about 19 but I\u2019ve made $4000 just this year on that 19 I would say that\u2019s a win"
+      },
+      {
+        "id": "nadhzkh",
+        "score": 21,
+        "body": "2006-2010... Shit. Let me get my cane, I'm going on a rampage."
+      },
+      {
+        "id": "nacm25h",
+        "score": 19,
+        "body": "I literally just got a postcard in the mail yesterday about the TSP. I\u2019ve been out since 2011 and moved a dozen times. I\u2019m almost positive there is nothing in it, but thanks for the reminder to check!"
+      },
+      {
+        "id": "naed2y7",
+        "score": 19,
+        "body": "Thanks. I didn't get my stuff together until I got married. That is what motivated me.\n\nAlso, TSP has low management fees, and for me, I could start withdrawals at age 55 without penalty. So look into that if you decide to roll your TSP elsewhere.\n\nGood luck."
+      },
+      {
+        "id": "nacuias",
+        "score": 11,
+        "body": "Sounds like you\u2019re young with decades to invest your money so put it all in the \u201cC\u201d stock fund so it can grow.\u00a0"
+      },
+      {
+        "id": "naezk5e",
+        "score": 10,
+        "body": "29 in military years might as well be 59 in civilian years. Welcome to reality Boomer lol"
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1rc1gid",
+    "title": "Civilian Hiring Is Too Slow for Transitioning Troops",
+    "body": "The Sergeant Major of the Marine Corps says the hiring process for separating Marines is way too slow. He wants civilian employers to line up jobs before Marines get out so they\u2019re not stuck waiting on background checks and HR delays after EAS. Basically: stop making vets sit unemployed while paperwork crawls.",
+    "flair": "Article/News",
+    "score": 276,
+    "comment_count": 90,
+    "created_at": "2026-02-22T23:38:36+00:00",
+    "top_comments": [
+      {
+        "id": "o6v8rm0",
+        "score": 167,
+        "body": "How does it feel to 'want' something, Sarnt?"
+      },
+      {
+        "id": "o6v97bl",
+        "score": 105,
+        "body": "\u201cBasically: stop making vets sit unemployed while paperwork crawls.\u201d So he is describing the process to get a GS job?"
+      },
+      {
+        "id": "o6v8sm5",
+        "score": 65,
+        "body": "If I was still active I would paint so many rocks to avoid this job market\u00a0"
+      },
+      {
+        "id": "o6vcvv2",
+        "score": 50,
+        "body": "\u201cShit in one hand and want in the other. Which one weighs more?\u201d"
+      },
+      {
+        "id": "o6vcz84",
+        "score": 49,
+        "body": "\ud83d\ude02\u00a0\n\nOr maybe remove ridiculous requirements for low paying government jobs. I once saw an opening for a GS9- masters required, PhD preferred. \u00a0 What\u2019s the saying? Oh yea- go pound sand."
+      },
+      {
+        "id": "o6v9rla",
+        "score": 35,
+        "body": "He needs to tell that to congress to mandate time off for service members. Maybe being required to let them attend a base job fair. \n\nAs the article says the middle ranks don\u2019t want to support service members once you say that you are getting out."
+      },
+      {
+        "id": "o6vbvst",
+        "score": 35,
+        "body": "LOL. Active duty military is pretty out of touch with the rest of society. The rest of society DNGAF about you beyond \u201cTYFYS\u201d at the checkout line and using you to make themselves feel better.\u00a0"
+      },
+      {
+        "id": "o6w0oc0",
+        "score": 34,
+        "body": "My Hot take. Civilian Hiring is too slow for civilians."
+      },
+      {
+        "id": "o6vbfur",
+        "score": 32,
+        "body": "Got my CDL in August of last year. I\u2019ve had 3 jobs since then. Landed the last one after I got my hazmat and tanker endorsement. I\u2019ll be hauling for a fertilizer supply company. 21 days of paid vacation prorated for the first year and a 100% vested 401k at 9% company match."
+      },
+      {
+        "id": "o6v8nj5",
+        "score": 27,
+        "body": "Welcome to the last 7 years...."
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1r6pqbi",
+    "title": "I'm retired but found a part time job",
+    "body": "So, the holidays are shit for me. Both kids gone, my son (Army vet) died 8 years ago mid December, my daughter 1 year ago in January. So the holidays suck. (not flexing, just pointing out the reason for my mental health or lack of) I haven't left the house for three, almost four months except for groceries (which I don't shop for, they do that for me, I just pick it up, shopping stresses me out) to pick up my glasses. And the liquor store.  \n\nDuring this time a handyman I know suggested me for a job and when they called I was a firm no, I don't have the bandwidth. \n\nWell, last week she called again, she just needed someone every so often. It's a job I've got 14 years of experience in, so, I decided, f\\* it, I needed to get out and see another human. I worked Friday and Sun, and then today I hibernated. I barely saw a handful of people but I was so stressed out that I've hunkered down and just vegged. \n\nBut I'm proud of myself, I was out of the house twice, for long periods of time. And I didn't die, though I'm wrapped up in a fleece heated blanket and have music playing. It's like seeing a sliver of sun after the months of dark. (Like ICELAND, lol, never mind. I was stationed there for two years.) ",
+    "flair": "Discussion",
+    "score": 275,
+    "comment_count": 38,
+    "created_at": "2026-02-16T23:32:09+00:00",
+    "top_comments": [
+      {
+        "id": "o5s17pt",
+        "score": 48,
+        "body": "Congrats man. When I\u2019m going through a dark time I remember to seek discomfort. Looks like you challenged yourself and came out on top. Keep it up!"
+      },
+      {
+        "id": "o5s6e8k",
+        "score": 20,
+        "body": "Peopling is exhausting. I go outside instead and use the Merlin bird app. It\u2019s neat to have the birds singing nearby identified."
+      },
+      {
+        "id": "o5s50sp",
+        "score": 13,
+        "body": "Dude sometimes you gotta do it one tiny bit at a time and then circle back to recover. Totally OK. Super proud of you for trying! Keep doing that. You eat an elephant one bite at a time. Don't give up. After practicing the art of hermitsville for so long it is tough to venture out, it's actually super wise to not dump yourself out there all of a sudden. Shocks the system and then you nope out for good & close off the tunnel entrance. Keep the entrance cracked and do a lil bit of exploring once in a while. \ud83e\udd17"
+      },
+      {
+        "id": "o5s79vf",
+        "score": 11,
+        "body": "brother i wish i could give you a hug. you\u2019ve seriously endured a LOT. i am so sorry for the loss of your children. reading this seriously gave me goosebumps. \ud83e\udef6\ud83c\udffb"
+      },
+      {
+        "id": "o5savpu",
+        "score": 10,
+        "body": "Oh how I can relate...  I just wanted to say that you have given me inspiration to get out more.  Thank You for sharing this!  "
+      },
+      {
+        "id": "o5se0j8",
+        "score": 9,
+        "body": "I'll accept the virtual hug, thanks. It's been hell. Maybe the light at the end of the tunnel isn't a train this time. "
+      },
+      {
+        "id": "o5sr98h",
+        "score": 8,
+        "body": "Just remember that there are many of us like you out here. I loath the thought of being around others and how I might react.\n\nThis is always a good thread to reach out."
+      },
+      {
+        "id": "o5s1owd",
+        "score": 7,
+        "body": "You gotta just play it out man, this thing called life. Keep up the good work. Mingle!"
+      },
+      {
+        "id": "o5summi",
+        "score": 7,
+        "body": "I am finally started getting birds to my feeder. Apparently the bird flu locally was decimating. "
+      },
+      {
+        "id": "o5s4hi0",
+        "score": 6,
+        "body": "Nice job getting out there. Part time work is perfect for being active and a little social without the dread of a full time gig. Best of luck to ya!"
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1jen8yk",
+    "title": "What happened to me?",
+    "body": "Stupid quasi rant here. \n\nI retired as a Gunnery Sergeant. I could move mountains. No task was too big or complex. I was one of the absolute subject matter experts in my field. I created processes and procedures. I had more friends and professional acquaintances than I could possibly count. And then I retired.....\n\nI lost my purpose. I lost my community. I found out my wife of 18 years had been cheating since day 1 and we divorced. But I moved on. Somehow I got an amazing job, bought a house, and continue to raise my kids during my parenting time. \n\nBut I'm struggling on the inside and it's starting to affect my personal and professional life. I can't focus on anything. I can't retain anything. I'm not making any connections at work and I'm just not understanding the job. I'd quit if I could, but I can't begin to find anything else that I'm qualified for that pays what I need.\n\nWhat the hell happened to me? ",
+    "flair": "Question/Advice",
+    "score": 275,
+    "comment_count": 117,
+    "created_at": "2025-03-19T02:47:47+00:00",
+    "top_comments": [
+      {
+        "id": "mik230n",
+        "score": 122,
+        "body": "Brother because you have made it your entire identity. That's not bad just really self-limiting. You now need to get involved out side your current comfort zone. Don't trust your self to do it alone."
+      },
+      {
+        "id": "mikmo76",
+        "score": 100,
+        "body": "Right there with you...after 4 years of feeling like a zombie I got a new hobby.  I now raise egg laying chickens and I absolutely love it.  When people ask me how many chickens I have, I tell him I have 37 service animals, The are sooooo relaxing to work with and have flipped my life back rightside up."
+      },
+      {
+        "id": "mik1wd4",
+        "score": 48,
+        "body": "I went through the exact scenario as you just described. \n\nI found purpose in making things . Things that I , and others enjoy .  \n\nI would have bouts of depression because I felt liked nothing was meaningful. Like being on autopilot , just existing , no purpose in life . \n\nSo I started woodworking , and now have a healthy hobby that has become an obsession.  Haven\u2019t felt like a zombie walking aimlessly through life since . Hope you find your peace ."
+      },
+      {
+        "id": "mikmnxw",
+        "score": 35,
+        "body": "please don't advised retired gunnies to get back into skateboarding."
+      },
+      {
+        "id": "mik21s0",
+        "score": 20,
+        "body": "What you're describing is not uncommon. You might feel alone, but you're not alone in this experience. It might be time for you to talk to a therapist."
+      },
+      {
+        "id": "mil4gd2",
+        "score": 20,
+        "body": "There is a lot of truth in what you said."
+      },
+      {
+        "id": "mil2qmx",
+        "score": 18,
+        "body": "I\u2019m getting some chickens too."
+      },
+      {
+        "id": "mikjogc",
+        "score": 17,
+        "body": "You're finally dealing with yourself. Not only that but you're dealing with things you put off, internally. We have all done it. So can you."
+      },
+      {
+        "id": "min7hvs",
+        "score": 14,
+        "body": "I moved out to the California desert. My nearest neighbor is a mile away. I have 18 \"service animals\" (dogs)\n\nI roughed it the first 2 years but it was still perfect. \n\nGlad you found your joy. I wish it was easy to tell what that is instead of spending years miserable while you look for it. There are plenty of civilians who never find what gives them peace either though."
+      },
+      {
+        "id": "mil48lk",
+        "score": 13,
+        "body": "You are no longer in the military structure where there is comfort in knowing how things work. The civilian world is very complex, because of the lack of a standard structure and the sheer amount of different jobs and work sub cultures. Give yourself plenty of time to adjust and you will be fine. Don\u2019t beat yourself up. This is called transition stress. We didn\u2019t feel it too much going into the military because we were young and had guidance from manuals and our leaders. The civilian world does not have that. At least not at the level of the military."
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1r16ib3",
+    "title": "Income Requirements Changed",
+    "body": "Reposting this to benefit those affected. I decided to look through Arizona's county assessor site again for some info. It looks like the application and guidance now states veteran pensions are exempt from being reported as income (other income reporting is still there). I compared it to the form they sent me last year and it did just get updated to exempt it. Its very good news but does confuse me on how they can do so without the final governor approval?  If there's some process that allows them to do it early then its great.. IF they made a mistake in the past and just forgot to tell us that pensions arent really supposed to be included in applying, then thats very bad and is another can of worms. Anyway, I applied online and hoping to get some information soon.",
+    "flair": "Article/News",
+    "score": 267,
+    "comment_count": 65,
+    "created_at": "2026-02-10T17:07:03+00:00",
+    "top_comments": [
+      {
+        "id": "o4o93lv",
+        "score": 43,
+        "body": "Look like 60% disability rating or higher is required for some tax breaks, and 100% get the total tax break."
+      },
+      {
+        "id": "o4olsyq",
+        "score": 22,
+        "body": "I wish every state did this."
+      },
+      {
+        "id": "o4pxkne",
+        "score": 16,
+        "body": "Counterpoint: \n\nI wish every state had ***one*** standardized state tax with an actual federal tax program (see also: the rich pay their mf share) so that while everyone in the bottom 99% pays, it\u2019s only about $6 or $7 a year total per family. And we get roads, schools, hospitals, in a literal utopia for all the future generations we fought for \ud83e\udd37\u200d\u2642\ufe0f\ud83c\udff4\u200d\u2620\ufe0f"
+      },
+      {
+        "id": "o4ow89i",
+        "score": 14,
+        "body": "I, unfortunately like many, appear to make too much to get any exemptions. Maybe this will be raised or won\u2019t be a factor in the future. For those that do qualify, congratulations and spread the word to other Arizona vets."
+      },
+      {
+        "id": "o4owl0w",
+        "score": 13,
+        "body": "Is there still an income limit? Is the only change is they don't count compensation as income?"
+      },
+      {
+        "id": "o4oxbcr",
+        "score": 10,
+        "body": "Exempting the vets disability was the right thing to do."
+      },
+      {
+        "id": "o4qfgo3",
+        "score": 10,
+        "body": "Sounds like it is easier in my state (IL) for disabled veterans to get property tax reduction & VA disability check does not count as income.\nThree levels $2500, (10-20%) $5,000 (30-50%) and no Ptax at all if (70-100%) disability."
+      },
+      {
+        "id": "o4q8v9y",
+        "score": 6,
+        "body": "Called about this today and literally no veteran has yet been approved because the income is household based so everyone\u2019s income residing in the household counts toward abysmally low cap not just the veteran. This is window dressing at best with no real benefit. Complete sham of legislation."
+      },
+      {
+        "id": "o4qm7p3",
+        "score": 6,
+        "body": "I guess that\u2019s better than nothing but damn, I could sneeze and make $40k/year"
+      },
+      {
+        "id": "o4nogw9",
+        "score": 5,
+        "body": "Good news. Nice"
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1p89mfe",
+    "title": "Well it finally happened; I became my grandpa.",
+    "body": "I grew up in the generation where everybody\u2019s grandpa was a WWII veteran, and it seemed like the Thanksgiving tradition of sitting around watching old war docs on the History Channel (back when it was still good) was almost universal.\n\nMy grandpa would sit on the recliner and tell us all about where he was in the war, what he did, how cold it was, how his buddy caught a German artillery round to the face, etc. \n\nAnd if one of those docs happened to mention the Battle of the Bulge, grandpa would drop whatever he was talking about to point at the TV and shout \u201cThat\u2019s where I was! Right east of Bastogne!\u201d\n\nAnyway, Grandpa died years ago and I figured that was the end of Thanksgiving war stories.\n\n\nNow today I\u2019ve got my two kids at my place, and while the food was cooking I randomly decided to turn on one of those Netflix Afghanistan docs (for any Afghanistan vets who would like a little more context on that war we fought, I highly recommend both *American Manhunt* about the search for Bin Laden, or the *Turning Point* one about 9/11 and GWOT, they\u2019re really well done).\n\nAnyway, I was sitting on the couch watching the episode about the Invasion of Afghanistan with the kids, and before I even knew what I was doing I was pointing at the TV going \u201cHey! That\u2019s Bagram! That\u2019s where I was at!\u201d Or \u201cThe Kandahar Airport! I went through those doors!\u201d While the kids asked the same questions I used to ask Grandpa twenty years ago.\n\nWe really do go full circle.\n\nHope everyone is having a good holiday, wherever you are. Cheers, Battles!",
+    "flair": "Discussion",
+    "score": 265,
+    "comment_count": 25,
+    "created_at": "2025-11-27T18:36:56+00:00",
+    "top_comments": [
+      {
+        "id": "nr3m9tv",
+        "score": 33,
+        "body": "I love it. For me, it would be a great accomplishment to become my Grandpa. He was a good man and enjoyed telling me his WWII stories. He was one of the motivations for my joining the Army. \u00a0\n\nHappy Thanksgiving brother."
+      },
+      {
+        "id": "nr40glp",
+        "score": 10,
+        "body": "And there I was...."
+      },
+      {
+        "id": "nr4a3xz",
+        "score": 8,
+        "body": "Damn, I read every word, gripping! Love it! Every bit is relatable! Why is the History Channel such crap now? It helped make me more patriotic, and when 9/11 occurred, I had that same feeling they must have, and I was swept into recruitment. It\u2019s all changed,"
+      },
+      {
+        "id": "nr4m3he",
+        "score": 7,
+        "body": "About to be balls deep....\n-in UCMJ"
+      },
+      {
+        "id": "nr53xhw",
+        "score": 5,
+        "body": "Never went through that phase with my grandfather.  He was in Europe during WWII, and he refused to even talk about it.  We all knew he was over there, but he never ever wanted to talk about it, wouldn't even share any experiences.  It was a phase of his life he desperately wanted to keep away from his family.  One time my sister found some pictures he took while he was over there, and he ripped the pictures out of her hand and went outside and burned them.  He literally had nothing from his time over there.  Luckily I have probably the only thing he had kept from his time in, his Army uniform.\n\nHis son, my uncle was in Vietnam, and was the same way.  Never talked about it.\n\nI guess I am the same way.  I see things on TV and the net about Desert Storm, and refuse to talk about it with my kids."
+      },
+      {
+        "id": "nr5cwk5",
+        "score": 5,
+        "body": "Dude that's awesome your grandpa inspired you to serve. Those old timers had some serious stories - sounds like he was one of the good ones\n\n  \nHappy Thanksgiving to you too man"
+      },
+      {
+        "id": "nr5g90t",
+        "score": 4,
+        "body": "Oh it goes beyond him on the stories front. Most of his friends at Sunday school were WWII vets as well. One magnificent man survived the Batan death march.  Another was a B17 Pilot in Europe. My next door neighbor was a fighter pilot in a P-51\u2026 We\u2019re losing a lot as these men pass."
+      },
+      {
+        "id": "nr4stxf",
+        "score": 3,
+        "body": "Literally just added both of those docs to my list, thanks for the watching tips and Happy Thanksgiving dude!"
+      },
+      {
+        "id": "nr4y38y",
+        "score": 3,
+        "body": "Are you wearing socks with sandals yet?"
+      },
+      {
+        "id": "nr5i1n4",
+        "score": 3,
+        "body": "Standard winter wear in Florida"
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1kzqsqq",
+    "title": "We were kids",
+    "body": "I'm a middle aged GWOT kid.  I have a decent job, house, girlfriend.  And I still think about all the kids we left behind.\n\nI don't know what I'm trying to say, I'm drunk.  \n\nJust to say, I am 20 years older than some of the guys that didn't make it back.  And some that did.",
+    "flair": "Discussion",
+    "score": 267,
+    "comment_count": 77,
+    "created_at": "2025-05-31T06:54:03+00:00",
+    "top_comments": [
+      {
+        "id": "mv7iv6s",
+        "score": 132,
+        "body": "We definitely were. Sometimes, I miss that kid who went off to the desert. The person who came back was, is, different."
+      },
+      {
+        "id": "mv7kyjv",
+        "score": 54,
+        "body": "Yup.  I'll never be that kid again.  Part of me is glad because he didn't know a goddamn thing.  But part of me wonders where he would have ended up if he hadn't enlisted."
+      },
+      {
+        "id": "mv8i7pt",
+        "score": 34,
+        "body": "[deleted]"
+      },
+      {
+        "id": "mv836yh",
+        "score": 28,
+        "body": "I feel that. I want him back."
+      },
+      {
+        "id": "mv7h9p0",
+        "score": 23,
+        "body": "Sir thank you for your service, at 18 year old marine I wanted to deploy anywhere and you know to get some. Just to realize them shiny medals in your chest are not that shiny to you."
+      },
+      {
+        "id": "mv8511p",
+        "score": 20,
+        "body": "Me too."
+      },
+      {
+        "id": "mv8wobf",
+        "score": 19,
+        "body": "The only thing you can do, we can do, is move on, and don\u2019t look back"
+      },
+      {
+        "id": "mv8it91",
+        "score": 18,
+        "body": "This right here. I literally broke down yesterday thinking about this. That kid got left on that submarine. What came back\u2026. I don\u2019t even f\u2019n know."
+      },
+      {
+        "id": "mv7ui62",
+        "score": 15,
+        "body": "I think about that a lot. I was 18 years old my first deployment. Been in over 20 years now. Doesn't seem real sometimes."
+      },
+      {
+        "id": "mv8fya9",
+        "score": 12,
+        "body": "I feel this. Sometimes I wonder what I would\u2019ve been like had I accepted the scholarship instead of joining and ending up in the desert."
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1q7moi3",
+    "title": "I\u2019m so desperately lost right now, I thought coming to Reddit might be a good idea.",
+    "body": "20 year non-combat vet, retired, 100%. Life sucks. Three years into retirement and still struggling. Besides me, there is the Wife and two college aged kids. Moved back to home state to reap benefits for them. This move was the worst idea ever. The state and most residents don\u2019t hold the same values as my wife and I. My job is middle management at some warehouse. (You can\u2019t see it, but it just gave the jack-off simulation move, because that how invested I am there.) I also stopped seeing immediate family as I\u2019m not getting dragged into the family drama. \n\nSo, zero direction in life. Zero control. Zero friends or mentors to refer to. BTW: How the hell do you make friends at 50?? Can\u2019t move yet, and even if we could, who can afford the places we are interested in moving to. For the last 13 years I was told that \u201cyou are going to be highly desirable\u201d for a GS-13. Well, that was all bullshit too. Sent out 200+ resumes on USAJobs and I got one call. So eat shit to all of you who fed me that lie too. My Dad died during COVID, so no advice to be had there. There is so much more, I just don\u2019t feel like rehashing my shitty existence. \n\nNot actively planning anything, but if the world wanted to swallow me up, I wouldn\u2019t mind. So what do you do when you don\u2019t give a shit anymore? Do you dig down deep and give it another go in the morning? Well, been doing that song and dance for the past 8 years. I\u2019m tired and I want to be done. \n\nEdit: Thank you for your comments and, more importantly, your support. If I sounded shitty, I\u2019m sorry. It was a real bad, bad day. I have a therapist, seen them yesterday, I have another appointment next week and getting meds increased. ",
+    "flair": "Question/Advice",
+    "score": 265,
+    "comment_count": 269,
+    "created_at": "2026-01-08T20:16:16+00:00",
+    "top_comments": [
+      {
+        "id": "nygsdbo",
+        "score": 82,
+        "body": "Travel more. You earned your retirement. Enjoy it."
+      },
+      {
+        "id": "nygttk6",
+        "score": 75,
+        "body": "Yeah unfortunately the whole federal job train has left the station and exploded into a giant fire ball. My advice, get a hobby. Find something you want to direct your time and focus towards. It can be art, woodwork, music, etc. Just find something to make your new passion and focus. When I got out I got really into art and even found an online community to associate with, it really helped me get through the transition out."
+      },
+      {
+        "id": "nyhihrm",
+        "score": 46,
+        "body": "Do you have a dog?  A dog gets you out of the house, breathing fresh air, etc.  And a dog's love for life is absolutely infectious."
+      },
+      {
+        "id": "nyifml1",
+        "score": 34,
+        "body": "Crazy thought, have you been tested for AD-HD? I typed it weird because admin rules make no sense. Anyways, that could be a cause of a lot of the burnout you're feeling."
+      },
+      {
+        "id": "nyh4esw",
+        "score": 28,
+        "body": "If you travel to Thailand on that $4k a month you make, each ticket is $1000 right now from where im at in central florida, then airBnB for a month can be as low as $500 for the month in bangkok.  That still leaves you plenty.  Stay longer and just fly to vietnam for a few days and then come back to Bangkok or travel around Asia to keep within visa limits.  Some time away for a while might help brother.  \n\nCharles schwab has a checking account that refunds all ATM fees for cash..."
+      },
+      {
+        "id": "nygw3jq",
+        "score": 27,
+        "body": "Only living off one income makes it tough. Not sure that will bring back the \u201cdesire to live\u201d feelings."
+      },
+      {
+        "id": "nygxt7t",
+        "score": 24,
+        "body": "I got out at 24 years. Looked for jobs for a while and ultimately went back to college for a masters. Looked for work for over a year after getting that MS - still no luck. Finally gave up.\n\nI had over 100 applications in USA jobs on Jan 20th 2025. Needless to say, none of them called back.\n\nI\u2019m still sucking, but I did make one decision that I think was good. I looked at the one project I\u2019ve wanted to do for years (decades actually) and started a business doing that. It\u2019ll be a while until I see any revenue, and it\u2019s never going to make me rich, but it\u2019s something interesting to me that will be of value to others. \n\nI\u2019m still pretty sad about the job market. It blows my mind that the world can find no use for a retired naval officer with a very diverse career. \n\nAt least retirement and disability allow me the freedom to keep a roof over my head until the next opportunity opens. \n\nI really hope you find something. This aimlessness you\u2019re describing and I\u2019m also experiencing really sucks. \n\nFinal thought: I think the #1 best thing any of us can do for our mental health is to find a community. We desperately need third spaces and friends. I moved 20 times in my 23 years, so making new friends is something I stopped doing long ago. We need to start reaching out again. I keep paying dues at the VFW and AMVETS, then never getting around to actually going there\u2026 still there has to be something."
+      },
+      {
+        "id": "nyi5mjp",
+        "score": 21,
+        "body": "Couldn\u2019t agree more. Saved my life"
+      },
+      {
+        "id": "nygwqen",
+        "score": 21,
+        "body": "Yes. Seems very similar. Unfortunately I won\u2019t do the religious thing again. But that\u2019s awesome for you."
+      },
+      {
+        "id": "nygtbpv",
+        "score": 20,
+        "body": "I\u2019m in a similar boat. I\u2019m stuck in a state where I don\u2019t like, cannot move. I also have no drive to be around family. I cannot do drama. I\u2019m just burning through my education benefits and trying to figure out which way is up. Giving up isn\u2019t an option. The kids I have mean so much to me, they are my world. All 3 School aged. \n\nI do have zero mentors and \u201cfriends\u201d is just a loose term for people who blow out lies. It\u2019s one day to the next, just me and my two huskies that keep it fun.  \n\nNot even sure if I should touch on the resumes out, it\u2019s been over 100 out & 2 call backs with rest being rejections. \u201cNo experience\u201d and they don\u2019t even want to ask me about anything from my years in service. Yet it\u2019s paperwork positions I did in the military. \n\nJust try to keep your head up. Church has helped me with keeping sane, or what I think is sane."
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1qkt6pk",
+    "title": "Is it okay for a 100% disabled veteran to just say they're retired?",
+    "body": "2nd try. Not sure what happed to the first one. \n\nIs it okay for someone who didn't make it to retirement but is 100% p&t to just say they're retired? I know there's a difference but in some circles, especially when talking to civilians I think it's just easier, less judgment and questions. But I saw a retiree get really upset at someone for doing this. What do y'all think? \n\nBTW, not referring to myself. I'm old, no one cares LOL....Just something I witnessed and wondering what others think.",
+    "flair": "Discussion",
+    "score": 264,
+    "comment_count": 371,
+    "created_at": "2026-01-23T15:04:36+00:00",
+    "top_comments": [
+      {
+        "id": "o195hjj",
+        "score": 350,
+        "body": "Why do so many people think they have to justify so many personal details to randoms?"
+      },
+      {
+        "id": "o191jga",
+        "score": 234,
+        "body": "I just say medically retired because if you tell people you\u2019re a disabled vet, they think you shouldn\u2019t be working or that you shouldn\u2019t be paid disability because you \u2018look fine and healthy\u2019"
+      },
+      {
+        "id": "o19lr7t",
+        "score": 128,
+        "body": "Great question. It is nobody's business. Would you give out info on your bank balance, 401K, intimate details of your medical history? No? Then why tell people your status as a vet? You served, sacrificed, injured by what they told you to do when you were active duty. Now the VA is obligated to support veterans. Civilians don't get it."
+      },
+      {
+        "id": "o1909vh",
+        "score": 78,
+        "body": "I say I\u2019m retired all the time. It\u2019s not my problem if They get upset about it."
+      },
+      {
+        "id": "o1922dj",
+        "score": 75,
+        "body": "\nNo one owes anyone an explanation as to why they aren\u2019t working. \n\nI don\u2019t think I would ever say I\u2019m retired if I\u2019m not but to each their own."
+      },
+      {
+        "id": "o19o9z3",
+        "score": 61,
+        "body": "I had a buddy who is 100% disabled due to MH. He told me someone gave him shit because someone caught him smiling and that he doesn't deserve it. \n\nHe didn't have to remove himself from the world to show proof he did deserve it. Smh RIP SGT Dale"
+      },
+      {
+        "id": "o19cyyb",
+        "score": 47,
+        "body": "So true, especially for those of us with less visible wounds / disabilities. \n\nBut I'm usually up for the conversation, so I have no problem telling folks I'm a disabled vet (when relevant) and then answering questions about my disability and the challenges it brings."
+      },
+      {
+        "id": "o195g7q",
+        "score": 38,
+        "body": "I\u2019m retired from corporate America. Im never going back. That doesn\u2019t mean i wont work."
+      },
+      {
+        "id": "o19spjo",
+        "score": 37,
+        "body": "Someone at my old church accused me of faking it (to my wife) because I was always smiling.  I broke my neck and am quite happy not to be paralyzed from it.  Yes, the resulting nerve damage was (and sometimes still is) quite painful.  That doesn't mean I have to be all Debbie Downer about it all the time."
+      },
+      {
+        "id": "o19ayqs",
+        "score": 32,
+        "body": "I AM medically retired and people still look at me crazy. Especially when I\u2019m having a particularly bad day and need to use a disabled spot (I have disabled plates). I look fine, but I have \u201call the things,\u201d and am very much NOT fine. People are ignorant."
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1qkf60e",
+    "title": "I just got to 100 percent VA disability",
+    "body": "I just got to 100 percent for my VA disability. What should I do next?",
+    "flair": "Question/Advice",
+    "score": 264,
+    "comment_count": 185,
+    "created_at": "2026-01-23T02:59:05+00:00",
+    "top_comments": [
+      {
+        "id": "o16k8l3",
+        "score": 258,
+        "body": "Not tell anyone you know personally. Property tax deduction, if P&T and you have dependants sign up for CHAMPVA"
+      },
+      {
+        "id": "o16klrf",
+        "score": 134,
+        "body": "Delete this post and don't tell anyone you know."
+      },
+      {
+        "id": "o16jin1",
+        "score": 110,
+        "body": "Strip down and run naked around your neighborhood with an American flag taped between your cheeks. You\u2019re a disabled vet and free bud."
+      },
+      {
+        "id": "o16jyjr",
+        "score": 87,
+        "body": "Keep checking the VA Benefits website 10 times a day for two weeks. Don't tell anyone(sincerely)."
+      },
+      {
+        "id": "o16yxv2",
+        "score": 59,
+        "body": "help the next veteran"
+      },
+      {
+        "id": "o172ag9",
+        "score": 30,
+        "body": "This works. I\u2019ve been checking it compulsively for 2.5 years now."
+      },
+      {
+        "id": "o1849rm",
+        "score": 27,
+        "body": "This is something I need to do. I\u2019ve had 100% P&T for a few years now and still get insurance through our jobs"
+      },
+      {
+        "id": "o16w0n1",
+        "score": 24,
+        "body": "Check your state\u2019s benefits for veterans that are 100%, as others have said don\u2019t disclose this fact openly, continue going to the VA and receiving treatment for all your documented disabilities. Make sure to keep everything documented as well. Other than that follow your dreams and do what you can to be happy."
+      },
+      {
+        "id": "o16o3ns",
+        "score": 23,
+        "body": "[deleted]"
+      },
+      {
+        "id": "o16vbbp",
+        "score": 23,
+        "body": "i wish I did this. i told people that I thought would be happy for me"
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1p1h14m",
+    "title": "The Exchange - Home Depot - Bass Pro Shops",
+    "body": "For what it might be worth, The Exchange allows veterans to shop online.  No sales tax, and over a certain amount, free shipping.  I bought my Husqvarna riding mower that way years ago.\n\nNow they have an arrangement with Home Depot and Bass Pro Shops.  I've used it with Home Depot multiple times.\n\nYou log into The Exchange in the usual way, then click on the Home Depot link, which takes you to the Home Depot website.  You find something you want to buy, add it to your cart, and then it takes you back to the The Exchange where you pay.\n\nYou get the 10% veteran discount from Home Depot, then you get free shipping and no sales tax from The Exchange.  Best of both worlds.\n\nWith the holidays coming, I hope this might be of use to other veterans.",
+    "flair": "Discussion",
+    "score": 263,
+    "comment_count": 50,
+    "created_at": "2025-11-19T19:20:33+00:00",
+    "top_comments": [
+      {
+        "id": "nppzwdp",
+        "score": 47,
+        "body": "I bought a RTX5090 on exchange at MSRP and no sales tax. Was a steal."
+      },
+      {
+        "id": "npq8o4c",
+        "score": 16,
+        "body": "Home Depot:  you can buy all kinds of things (not just big stuff).  I\u2019ve used it for some nails and welded wire fence and a few other things and they delivered for free. \n\nLet\u2019s see:  get in truck, drive across town, buy it with tax, load it up, drive home\n\nOr sit on recliner, order it, save an extra 8.25% off sales tax, drink a beer, wait for it to arrive."
+      },
+      {
+        "id": "npq3wmb",
+        "score": 13,
+        "body": "Don\u2019t forget GE has a military program for Veterans. They have special pricing on all appliances. They do need you to verify status, I think with ID.me."
+      },
+      {
+        "id": "nppwh5y",
+        "score": 13,
+        "body": "I used the Home Depot through the exchange website to buy our dishwasher. You don't get the discount on major appliances (you don't in store either), but it was on a good sale and the no sales tax was a good perk.\n\nI would 100% recommend checking it out when ordering household appliances."
+      },
+      {
+        "id": "nppzbh3",
+        "score": 9,
+        "body": "Bought our washer and dryer this way. Worked out great"
+      },
+      {
+        "id": "nprj53p",
+        "score": 9,
+        "body": "I searched for graphics card and selected what ever came up then looked at the items like this or something. It took me a bit to find it but Here is the link https://www.shopmyexchange.com/product/4391189\n\nMake sure you update your address before ordering and test order something before it\u2019s ever in stock. It defaults to old address easily. I ordered to old address even though I updated it. So be warned."
+      },
+      {
+        "id": "npqvuhh",
+        "score": 9,
+        "body": "> I see firearms listed on the Exchange website, but I have never tried to purchase one online. I have no idea how that would work.\n\nI bought my AR this way. You buy it on the exchange site like any other purchase, at checkout you tell the site which AAFES location with a gun counter you want to go to, finish the purchase. Once it shows up, you get an email. Go to said PX/BX, do the FFL transfer paperwork. Since you can't have weapons on base, they will let you check it over in the store at the counter, then once you're satisfied, will box it back up, tape it shut, have you sign a form from the MPs stating you understand you are to leave base immediately without stopping, then walk you out, with them carrying it. My clerk handed the box to me as soon as we exited the building, I saw other clerks that carried box and placed into someone's car.  They also tell you that you cannot buy any ammunition of the same caliber of the weapon you picked up the same day. (I had ordered some rounds to go with my new rifle; in practice, the rounds go to the normal pickup counter so you could in theory go pick those up first, put in your car, then go back to the gun counter).\n\nThis was my experience used the Randolph AFB BX in San Antonio for this, within the last year."
+      },
+      {
+        "id": "npri3c0",
+        "score": 7,
+        "body": "I've tried searching for graphics cards.  The only thing that shows is prebuilt towers.  What search terms did you use?"
+      },
+      {
+        "id": "npr1zb3",
+        "score": 6,
+        "body": "The price of beer adds up, though."
+      },
+      {
+        "id": "npq4a0h",
+        "score": 6,
+        "body": "There are others as well, but absolutely yes.  And if you go to the [ID.me](http://ID.me) website, they list a lot of them.  I just find the discount + free shipping + no sales tax to be extra special good.  Thanks for mentioning GE as well!"
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1qm5ppi",
+    "title": "Highly considering ending it all",
+    "body": "Got out the Army last February. Haven\u2019t made any meaningful connections since then. I\u2019m so lonely it hurts. Most of my Army friends are slowly and slowly getting more distant from me. I live in the state I grew up in now (different city though) and realized throughout this past year that nobody really cares about me except for my parents.\n\nHaven\u2019t been in a real romantic relationship since my Army days. I have a good paying job know and am financially successful but what is the point of any of it when nobody gives a shit about me? What\u2019s the point of this life?",
+    "flair": "Call for Help",
+    "score": 257,
+    "comment_count": 216,
+    "created_at": "2026-01-25T01:46:54+00:00",
+    "top_comments": [
+      {
+        "id": "o1jjyjs",
+        "score": 134,
+        "body": "[removed]"
+      },
+      {
+        "id": "o1jhdy0",
+        "score": 93,
+        "body": "Marine Corps vet here, infantry, been out 10 years now (damn). \nI have personally been in and out of this point several times. I will say the first 3 years were the toughest. Once I was able to get out on my own, start school, and make at least one non military friend things slowly improved. It\u2019s not going to be easy by any means but we wouldn\u2019t enjoy the easy route anyways. My best advice to you is accept that people don\u2019t care, now you don\u2019t have to worry about impressing others. Make a short list of things you want to accomplish, for example getting into shape, getting a degree, traveling somewhere, buying a house, running a marathon, whatever! Then start the baby steps to making those goals a reality and don\u2019t look back. As you go along in your journey other opportunities will appear, I promise you that. If things get really dark go to the hospital and try to go inpatient a few days to reset. But do not end it all, there is no respawning, might as well give it your all and see what the universe gives you. You\u2019re not alone though, so many of us have been on that journey."
+      },
+      {
+        "id": "o1jgvof",
+        "score": 57,
+        "body": "We care about you . I dont even know you and I value your life"
+      },
+      {
+        "id": "o1jhkr4",
+        "score": 46,
+        "body": "Maybe depression and winter/seasonal affective disorder.  Go get some guidance at the VA.  Call the crisis line at the VA.  You\u2019re not alone."
+      },
+      {
+        "id": "o1jjbl9",
+        "score": 37,
+        "body": "Go to college. Find local military groups. Don\u2019t make military your only identity"
+      },
+      {
+        "id": "o1jwg4k",
+        "score": 27,
+        "body": "Hold on, bro. It gets better. Don't try to make anyone else happy until you are happy. If you can do the army, you can do this. I've been there a few times. I finally went to therapy and it changed the way I look at life. Try it. Try anything except ending it."
+      },
+      {
+        "id": "o1jiiee",
+        "score": 25,
+        "body": "Time to establish an identity outside the military. Where do you live ish?\u00a0"
+      },
+      {
+        "id": "o1ji2r9",
+        "score": 20,
+        "body": "Bro, I don't know what exactly you've got going through your noggin, but I promise it's always darkest before the dawn. Go out on a whim, experience something new, roll a dice with different random things to go explore. You'll make friends over time and you might meet someone you fancy. You get one life, might as well try to make the absolute most of it. If there's nowhere left to go, you can always go up; you can only find improvement. You have a good paying job, you can afford plenty of experiences. I have faith in you bud. You're loved and cared about"
+      },
+      {
+        "id": "o1ji69g",
+        "score": 16,
+        "body": "Every single one of us here cares about you. This time of year is tough for sure. Don't give up. I'm sure you could reach out to anyone here and we would all be willing to hear you."
+      },
+      {
+        "id": "o1jrzsi",
+        "score": 14,
+        "body": "You're not allowed to leave us. Some poeples cares about you. And it's geniuine. Look at the comments.\u00a0\n\n\nConsider other's advices mate. They're good.\u00a0\n\n\nThe army was just an era of your life. You are so much more than a soldier on this Earth.\u00a0\n\n\nTime for you to discover it.\u00a0"
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1jab9br",
+    "title": "My personal feelings of why I regret serving",
+    "body": "Since I\u2019ve gotten out of the military I\u2019ve had a new job every 2-3 years. Every time I think I\u2019ve found the place I belong my medical conditions get in the way. I\u2019ve got stomach problems and can be on a toilet for 20-30 minutes at a time. I give people a heads up on certain things that I will need or not need. Every time I have a coworker who makes a big enough stink about me shitting for 20-30 minutes, coming into work 10-15 minutes late, and even having to take an fmla day here or there. Like dude/dudette, I\u2019ll trade you. You can have all my problems cuz I could probably handle yours but I don\u2019t think you could handle mine.",
+    "flair": "Employment",
+    "score": 257,
+    "comment_count": 74,
+    "created_at": "2025-03-13T12:53:27+00:00",
+    "top_comments": [
+      {
+        "id": "mhk6pnb",
+        "score": 103,
+        "body": "Definitely didn't help having our main water source being plastic bottles cooking in the desert sun."
+      },
+      {
+        "id": "mhk88r6",
+        "score": 77,
+        "body": "[deleted]"
+      },
+      {
+        "id": "mhk4dax",
+        "score": 54,
+        "body": "People often overlook the part where some of us come out broken... and it sucks being broken. Some ever say, \"but you get that VA money...\", As \"nice\" as that VA money is, being broken sucks and direct impacts on life. \n\nStay strong brother, I know it sucks... Hopefully there is a job for you out there. I had a buddy start a Vet Non-Profit and it seemed to work for him."
+      },
+      {
+        "id": "mhkpedi",
+        "score": 49,
+        "body": "Dude I think about this alot. 120 degrees and those pallets of water just cooking for months and months then being drank"
+      },
+      {
+        "id": "mhla7o3",
+        "score": 25,
+        "body": "Not to mention pallets of water coming from a company in Pakistan. God knows what the plastics were leaching chemical wise either. \n\nOur pallets sat next to the massive diesel generators also\u2026so yea great water."
+      },
+      {
+        "id": "mhk9lw6",
+        "score": 19,
+        "body": "Man. I feel you. Coworkers have been the hardest part of civilian life. They all suck so much.\u00a0\n\nI did 15 years and was an extremely hard worker until the end. I had a very successful career in the army but got out because I had a Permanent profile and was average at PT. I knew it was time. But my 930-5 work ethic unmatched.\u00a0\n\nCivilians are lazy, chatty, and stupid sometimes. Like I work circles around them. Luckily I got a job where I can work alone. My part time coworker quit a year ago because I offended her by saying the S word once. I\u2019m not kidding.\u00a0\n\nFind a job that you can make yours. It took me 5 years after ETS"
+      },
+      {
+        "id": "mhkc35k",
+        "score": 19,
+        "body": "[deleted]"
+      },
+      {
+        "id": "mhkb65f",
+        "score": 17,
+        "body": "[removed]"
+      },
+      {
+        "id": "mhk3zm8",
+        "score": 15,
+        "body": "Gotta love years of mres on the digestive track. Im the same, and I even had another vet complain. He tried to tell me, \u201cyoure gonna need to use that as your break\u201d, like, dude, fuck you."
+      },
+      {
+        "id": "mhl3lzr",
+        "score": 11,
+        "body": "Shit.\u00a0\n\nShe was a c word"
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1mxdw1j",
+    "title": "Anyone else notice an alarming trend?",
+    "body": "I have been using the VA as my primary care for a while now and within the last year I\u2019ve had 3 different doctors resign or leave the VA. This has caused my soonest available appointment for telehealth to be in January. And requesting a different care facility is just as bad.\nI am a major city also.\nAnyone else experienced this recently.\nIf this is the future of the VA direction it\u2019s not looking good.",
+    "flair": "Discussion",
+    "score": 255,
+    "comment_count": 188,
+    "created_at": "2025-08-22T18:09:54+00:00",
+    "top_comments": [
+      {
+        "id": "na46axi",
+        "score": 140,
+        "body": "[removed]"
+      },
+      {
+        "id": "na4cenc",
+        "score": 47,
+        "body": "Do you think the current government's hostile stance towards federal workers (including the VA) might have had an impact?"
+      },
+      {
+        "id": "na4tii6",
+        "score": 46,
+        "body": "Yes\u2026 but for me, it\u2019s been Women\u2019s clinic specialists. I jokingly (but not really) told my PC I\u2019ve had more new Gynos down there than I have had partners. \n\nSorry if my comment offends anyone but I tend to use humor when having uncomfortable conversations."
+      },
+      {
+        "id": "na4cy04",
+        "score": 46,
+        "body": "It's not necessarily the pay. Now that VA employees have lost union coverage, and because the work conditions are being enshittified, I don't blame anybody for leaving. This isn't sustainable."
+      },
+      {
+        "id": "na4muzx",
+        "score": 33,
+        "body": "That\u2019s been my experience since first signing up for VA healthcare around 2014.  Every couple of years they\u2019d change.  My Psych care was the same.  A new one every year.  One clinic I went to got them from the hospital system I worked at.  They were a big teaching hospital so all the shrinks were actually just doing residencies.  They\u2019d frequently leave."
+      },
+      {
+        "id": "na487dy",
+        "score": 30,
+        "body": "There is higher pay outside of government jobs. Im a nurse and thought about working at the VA, but the pay is not as good as the local market."
+      },
+      {
+        "id": "na4eqy7",
+        "score": 29,
+        "body": "I do. As one person stated that loss of union contract and hostile work environment has not made the VA competitive for job seekers. I have always had to wait a few months but it seems it has gotten noticeably worse this year. Wait times for regular appointments were usually 2-3 months now it seems 6-8 months for a video appointment"
+      },
+      {
+        "id": "na4dxd1",
+        "score": 24,
+        "body": "Of course. They have not been leaving at this pace, however."
+      },
+      {
+        "id": "na4brj2",
+        "score": 18,
+        "body": "Drs nurses can make way more outside the VA. \nRetention has always been hard. \nRight now though filling the gaps is hard due to people not wanting to take jobs with incertently."
+      },
+      {
+        "id": "na4rh89",
+        "score": 18,
+        "body": "It's not looking good where I live, care has declined, and I am wondering of the VA will be there for me as promised. I had the same PCP since I started going to the VA in 2016, it was 18 miles each way. PCP retired in March, Googled and now in private practice. I was given an \"Interim\" PCP, he left less than 2 weeks later for private practice, and I was assigned another \"Interim\" PCP at a VA that was 46 miles each way. He lasted about a month, found out when I received a phone call from Community Care to coordinate an appointment with a Community Care Doctor, closest was over 90 miles each way. My car runs, but it isn't very reliable, so that 180 mile round trip wasn't something I wanted, and funds just are not there for a another car. I was told there was a staff shortage, and I would be put on a list for a VA PCP when one becomes available. The parting shot, I had to wait almost 49 days to be seen. I was told I could be seen before then, but had to drive farther. They told me to go to Urgent Care or the ER if I could not wait. \n\nThe numbers don't lie, the VHA is hemorrhaging Medical Staff. There are over 50% more vacancies in professional positions as of June30th this year, than June 30th 2024. As of June 30th of this year, the VHA has lost and not filled 751 Physicians, 2,129 Registered Nurses, 565 Licensed Practical Nurses, 148 Psychologists, and 564 Nurse Assistants. They cannot hire fast enough, and rumor has it the July numbers are even worse. \n\nI hope someone else is getting better service, I'm sure not seeing anything better, what I am seeing is the demise of the VHA."
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1jhrcy5",
+    "title": "Just found out about this today",
+    "body": "I guess this has been proposed before, but I figure if I'm just now hearing about it I'm probably not the only one. If this applies to you or someone you know, it could be the difference of a few hundred bucks a month. ",
+    "flair": "Article/News",
+    "score": 252,
+    "comment_count": 93,
+    "created_at": "2025-03-23T04:34:22+00:00",
+    "top_comments": [
+      {
+        "id": "mjblpwu",
+        "score": 62,
+        "body": "I have never understood the coupling of disability pay and retirement pay.  They are two entirely separate things:\n\nRetirement pay: a monetary recognition of service, sacrifice, and dedication.\n\nDisability pay: compensation for the decreased earning potential due to injuries sustained during service.\n\nI don't see how receiving one affects the other."
+      },
+      {
+        "id": "mjbes69",
+        "score": 31,
+        "body": "I would rather they switch CRSC to match retired pay rather than only longevity. Someone with 10 years as an example only gets 25% even if their disability retirement pay would have been calculated at 70%+"
+      },
+      {
+        "id": "mjbn09o",
+        "score": 24,
+        "body": "In the current political climate, this bill has essentially zero chance of passing.\n\nThe CR that was passed a week ago requires massive spending cuts across the government except for DoD and DHS.  No commitee is going to approve additional disability outlays."
+      },
+      {
+        "id": "mjc8x9v",
+        "score": 16,
+        "body": "Compounding it even further to only include a caveat for combat wounded is even more annoying."
+      },
+      {
+        "id": "mjcgfzw",
+        "score": 13,
+        "body": "The problem with CRSC is guard and reserve time doesn\u2019t count. I had little over 10 years guard, with 3.75 years of active duty time with deployments and or training. I deployed twice, 05 and 06. I only get the 3.75 years of active duty time that counts. So, my retirement is about 2100 a month but I get zero. VA pays 2800 or so. My crsc pays $199.00 based on their dumb math. So that is all my CRCS gives me, $199.00. No further offset. More veterans need to understand that there are so many other veterans that each have unique situations that saying blanket statements doesn\u2019t help all. The retirement offset needs to go away. I should be allowed to receive both VA AND Military retirement. Do away with crsc it\u2019s a joke."
+      },
+      {
+        "id": "mjbwbzw",
+        "score": 10,
+        "body": "[removed]"
+      },
+      {
+        "id": "mjc3eqq",
+        "score": 9,
+        "body": "I'm a combat vet with less than 20. When I separated I was getting medically retired from the Army and was getting retired pay and started to get VA disability comp they took away army pay and some back pay that overlapped.\n\n What is CRSC?"
+      },
+      {
+        "id": "mjc95mi",
+        "score": 9,
+        "body": "CRSC is branch based, as opposed to VA based. It is effectively your retirement money. \n\nIf you apply for it, it doesn't impact your VA pay."
+      },
+      {
+        "id": "mjcjebl",
+        "score": 8,
+        "body": "Senate version was recently introduced as S. 1032. Currently at 43 cosponsors.\n\nhttps://www.congress.gov/bill/119th-congress/senate-bill/1032/all-info\n\nLast years versions had overwhelming support in both the House and Senate yet it didn\u2019t get included in the NDAA or brought to the floor for a vote."
+      },
+      {
+        "id": "mjc74c2",
+        "score": 8,
+        "body": "Combat Related Special Compensation. Its effectively an alternative for retirement pay (using this very loosely). The criteria that makes a service member eligible is that the injury needs to occur in wartime or wartime related training.\n\nQuick examples, you got a tattoo and it became infected. This would not qualify for CRSC.\n\nEx 2 - injured while doing combat drills - tentatively eligible\nWounded while deployed - eligible \n\nIf you have more questions, I'm an open book! Best of luck if you choose to apply"
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1ojjdj7",
+    "title": "Did anyone else find you couldn\u2019t go back home?",
+    "body": "It\u2019s been a little while since I got out and it\u2019s all water under the bridge now, but I\u2019ve been thinking about it a lot lately and feeling nostalgic I guess.\n\nI grew up in a mid sized town in Kansas. I really did love where I grew up. It was about as nice a place to spend your childhood as you can hope for, I had some great friends and a high school sweetheart who I never stopped loving.\n\nI wound up joining the Army at 19, about six months after high school. You all know how it goes, I had one last going away party with the friends, and broke up with the girlfriend (but *of course* we promised we\u2019d try again if we were still single when I got back).\n\nIt\u2019s kinda weird to look back on now from the other side, but it felt so temporary back then. I was saying goodbye with the same attitude you have when you say goodbye to your friends before a summer camp. It seemed, at the time, I\u2019d be back in a few years and we\u2019d all just pick right up like the old times and everything would go back to normal.\n\nIn the end I wound up spending nine years in the Army, way longer than I expected to when I joined. Three duty stations, a twelve month Afghanistan deployment, rotations and TDY\u2019s all over the damned place.\n\nAnd then I got out in 2018. And I tried to move back home. \n\nI was excited when I went back. I knew no one was waiting around for me after nine years of course, but I thought I would be able to fit myself back in eventually.\n\nBut it just doesn\u2019t work that way, does it? \n\nI met back up with a few old friends, for a while. I even met up with the high school sweetheart, believe it or not. It was nice, for a little while. But then it wasn\u2019t. \n\nAfter nine years away, the town was just boring. There was nothing new, ever. The things my friends were excited about amounted to little more than local gossip in my opinion, and I found myself having a hard time caring about it. \n\nI tried it for a year or so, and finally admitted that I couldn\u2019t stay any longer. I said goodbye to the old friends one more time, and I left. I don\u2019t think I\u2019ll go back this time.\n\nIt makes me think we all really misunderstand being homesick. We always focus on the place, and we think that the place is what we miss. But it isn\u2019t the place, it\u2019s that time in our lives that we cannot return to once we\u2019ve left.\n\nI still get a little \u201chomesick\u201d for that place I left \u201ctemporarily\u201d almost twenty years ago now, but I can recognize now that it doesn\u2019t exist anymore.\n\nDid anyone else try to return home after your service, and find that you just couldn\u2019t do it?",
+    "flair": "Discussion",
+    "score": 249,
+    "comment_count": 101,
+    "created_at": "2025-10-29T22:56:37+00:00",
+    "top_comments": [
+      {
+        "id": "nm3l96s",
+        "score": 88,
+        "body": "Very astute and so well written.\n\nIt may sound corny, but IMO, once you realize home is in your heart, you can take your memories anywhere, build on them, and make a new, good life wherever you choose.  Enjoy your nostalgia!"
+      },
+      {
+        "id": "nm3l1xf",
+        "score": 49,
+        "body": "I feel the same as you do. I left, did 21 years at 7 bases with 4 deployments, and every time I\u2019m home for a visit I\u2019m reminded there\u2019s a reason I left, and a reason I\u2019ll never go back for good. I miss the memories, but they\u2019re already lived, and the people and the place are no longer compatible with the person I am now."
+      },
+      {
+        "id": "nm3rmfa",
+        "score": 44,
+        "body": "You can go back, but you can never go home. I think about this every so often:\n\n\"You can't go back home to your family, back home to your childhood, \u2026 back home to a young man's dreams of glory and of fame \u2026 back home to places in the country, back home to the old forms and systems of things which once seemed everlasting but which are changing all the time -- back home to the escapes of Time and Memory.\"\n\n-Thomas Wolfe, You Can't Go Home Again"
+      },
+      {
+        "id": "nm3n05j",
+        "score": 28,
+        "body": "Reminds me of a Bob Seger song:\n\nThe years rolled slowly past. \nAnd I found myself alone. \nSurrounded by strangers I thought were my friends. \nI found myself further and further from my home, and I\nguess I lost my way, \nthere were oh-so-many roads. \nI was living to run and running to live, \nnever worried about paying or even how much I owed. \nMoving eight miles a minute for months at a time. \nBreaking all of the rules that would bend. \nI began to find myself searching, \nsearching for shelter again and again...... \n\nAgainst the wind. \nA little something against the wind.\nI found myself seeking shelter against the wind......\n\nAnd yes. Been there. Done that after six years in the Army. It wasn't the same. Time to move on."
+      },
+      {
+        "id": "nm3p61z",
+        "score": 28,
+        "body": "Right before I left for basic training one of my dad\u2019s friends sat me down and told me the realest shit ever. \u201cYou\u2019re gonna go places and you\u2019re gonna do things and then you\u2019ll come back and the same motherfuckers will be working the same jobs and talking to the same girls and doing the same shit. Don\u2019t do that.\u201d Well going home on leave a couple of years later proved him right and I never went back after that. Some people are cut out for that life, others are not. Turned out I wasn\u2019t one of the ones cut out for it and I\u2019m glad I listened."
+      },
+      {
+        "id": "nm3n9tp",
+        "score": 12,
+        "body": "I left South Carolina at 18 did 7 years in the Air Force came back stayed for 3 months and 3 months in Atlanta, Georgia. \n\nI was going crazy back where I grew up at Just like you said the old memories of your youth, but that's all it was for me!\n\nI was PTing a lot, drinking a lot alone, etc \n\nI knew I had to leave so as soon as I got my car fixed and my DD214 back in 2008 you had to wait after you got out! \n\nAlmost stayed in Atlanta, Georgia, but I was staying with the ex so that's the only reason I really didn't stay. \n\nEnded up in Orlando, Florida this November 4th will be 17 years I believe.\n\nIt's been a hell of a journey! It was extremely hard only new one person from the Air Force here when I relocated, but the alternative was way worse \ud83d\udcaf\n\nNo guts, no glory!"
+      },
+      {
+        "id": "nm577xv",
+        "score": 11,
+        "body": "I went to basic at 18. Did 4 years. I was so homesick. My family, whom I was really close with, all basically disowned me when I came back and don't talk to me anymore, and my friends are on drugs or losers now. So now I moved away again, started a family, new career, and met new people."
+      },
+      {
+        "id": "nm3z5gy",
+        "score": 10,
+        "body": "\"The House that Built Me\" by Miranda Lambert helped me make peace with this feeling. \n\nThe good news is it's a pretty universal feeling. You'll find it reflected in songs and books and movies stretching back a thousand years. \n\nThe bad news is it hurts. And nobody can ever carry that hurt for you. I say turn your nostalgia into gratitude. Be grateful for the places and people and memories that shaped you."
+      },
+      {
+        "id": "nm5axsm",
+        "score": 9,
+        "body": "I just quoted this somewhere in reddit a few weeks ago. The book, but not the passage. I'm glad to see a reference to it out in the wild."
+      },
+      {
+        "id": "nm3woem",
+        "score": 7,
+        "body": "I had a similar experience. I've found that the folks that never left home tend to be the one spinning their wheels in life."
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1lp5bao",
+    "title": "Basic Training video",
+    "body": "Hi Everyone,\n\nI have never seen my basic training video or my yearbook because it was destroyed before I came back from active in my parents house in Brooklyn and it\u2019s always broke my heart that I was never able to see it\n\nI was in B-3-10 BTC, 4th Platoon - Fort Leonardwood, MO February 2000\n\nI have been searching the internet for about 20 years now and calling the base and I still have no luck finding a way to get copies, I\u2019ve attached a picture of my platoon if anyone at all can refer me to a number or web site I can call to get this video and year book I will be forever grateful \ud83d\ude4f\u2764\ufe0f\ud83e\udd0d\ud83d\udc99 God Bless and Army Pride!",
+    "flair": "Question/Advice",
+    "score": 246,
+    "comment_count": 113,
+    "created_at": "2025-07-01T15:54:34+00:00",
+    "top_comments": [
+      {
+        "id": "n0s788j",
+        "score": 136,
+        "body": "Y'all got videos?? Damn"
+      },
+      {
+        "id": "n0um2zs",
+        "score": 59,
+        "body": "In the Marines we got yearbooks which were 75% stock photos taken at least 10 years prior and about ten pages of photos from your training in black and white so you don't know who is who in any of them."
+      },
+      {
+        "id": "n0sm9ep",
+        "score": 54,
+        "body": "Pre 9/11 basic must have been LIT"
+      },
+      {
+        "id": "n0smev9",
+        "score": 23,
+        "body": "Haha yes it was"
+      },
+      {
+        "id": "n0siacb",
+        "score": 20,
+        "body": "Theres fort Leonard wood basic training groups on Facebook."
+      },
+      {
+        "id": "n0sbbg3",
+        "score": 20,
+        "body": "Must be nice. I just got yelled at a lot and was told I was on limited rations because I was too fat \ud83e\udd23"
+      },
+      {
+        "id": "n0s7zhs",
+        "score": 16,
+        "body": "It was a little hype video, they\u2019re funny to watch. I\u2019ve seen mine and I cringed lol but I never got mine though"
+      },
+      {
+        "id": "n0snbup",
+        "score": 15,
+        "body": "They had ACUs in 2000? Lol"
+      },
+      {
+        "id": "n0vj7z0",
+        "score": 13,
+        "body": "Ditto for Air Force BMT. I remember thinking \u201cI don\u2019t remember seeing cameras at any of these events\u201d"
+      },
+      {
+        "id": "n0vzjmv",
+        "score": 10,
+        "body": "Bro, it's the Marine Corps, they aren't going to put words in them for people who can't read."
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1lisxax",
+    "title": "Civilians don\u2019t get It. That\u2019s the hardest part",
+    "body": "**I\u2019m a veteran of the conflict currently tearing parts of Europe apart. I served as a combat medic in a frontline storm unit. I was pulled into that chaos for a full year \u2014 taken straight from medical university by a conscription notice I couldn\u2019t refuse. I was 20.**\n\nI\u2019m half Ua, half Ru. Which made the experience feel like a civil war. Like watching two parts of my identity tearing each other apart. No matter which way the fire came from, it hurt just the same. Two sides that are practically identical for me. They speak the same way. They act the same way. Watching it feels like looking into a mirror and fighting what you see.\n\nNow, life has shifted in an unexpected way. I fell in love with a German woman and moved to Austria. On the surface, everything is peaceful. No sounds of drones. Just calm streets, home-cooked meals, and people who\u2019ve never heard what real warfare sounds like.\n\nBut what truly unsettles me isn\u2019t what happened there is the total lack of understanding. Not just among civilians, but even within my own family. No one truly gets it. And that emotional distance, that inability to relate, sometimes feels even heavier than the memories I carry.\n\nI had a dialogue with my GF. What hit me hardest was she just\u2026 didn\u2019t connect with me. And what\u2019s exhausting (truly exhausting) is having to explain this reality again and again. To people who\u2019ve never been close to it.  \n  \nAnd here\u2019s the hardest part to swallow: people died for a failed mission that changed nothing. In war, maybe one out of a hundred such missions succeeds. That\u2019s the reality. That\u2019s what war really is. Just men trying to survive, clinging to orders they barely understand, carrying out missions that feel pointless, but they do it anyway. Because that\u2019s what war turns you into: a cog in a machine you didn\u2019t build, can\u2019t control, and probably won\u2019t survive\n\nThat \u201cvictory\u201d isn\u2019t when four buildings on a map get coloured in your team\u2019s shade. Victory is about achieving a goal \u2014 and most of the time, those goals are vague, illogical, or impossible. You didn\u2019t take that position for the sake of glory. You took it because someone ordered you to. And tomorrow, the enemy might send fresh reserves and take it right back. And you\u2019ll be told to go and assault it again. People die for plans that don\u2019t work. For attacks that accomplish nothing. For decisions made by commanders sitting far away, safe behind maps and screens. By commanders who will never bleed\n\nAnd I still have to explain this every time. Over and over. The worst part? I think most people just nod and pretend to understand, but they don\u2019t\n\nI\u2019m tired of the double standards. Civilian life is full of them. Especially when self-proclaimed experts  (who\u2019ve never left the safety of their screens) try to tell you how it really is out there. Honestly, war might be the strongest antidote to blind patriotism. It shatters all illusions \u2014 about flags, causes, righteousness\n\nAnd now, in a different city, in a different country, I share a drink with someone who, not so long ago, I might have seen through a scope. Someone who thinks like me. Talks like me. And the only difference that ever truly mattered... was the color of tape on our gear",
+    "flair": "Call for Help",
+    "score": 248,
+    "comment_count": 45,
+    "created_at": "2025-06-23T21:24:22+00:00",
+    "top_comments": [
+      {
+        "id": "mzelguo",
+        "score": 56,
+        "body": "I can relate. The only solution for me was finding other vets who understood and hanging out with them from time to time"
+      },
+      {
+        "id": "mzer3g4",
+        "score": 39,
+        "body": "[deleted]"
+      },
+      {
+        "id": "mzerote",
+        "score": 34,
+        "body": "Hey there. Welcome. A lot of us here have had similar experiences. Different wars, different flags. Very few on this sub have had to fight on their own doorstep, or against people who spoke the same language, so it's not quite the same. But leaving the war behind, I think that part is the same for everyone, everywhere."
+      },
+      {
+        "id": "mzeriwb",
+        "score": 21,
+        "body": "Welcome to the Veterans group. While we're largely vets from the US here, I think most of us can relate to this, some to a larger degree than others. Thanks for sharing with us and I just want to say, you'll be understood here, even if we can't relate perfectly to your specific conflict.\n\nThere's a lot to be said for finding a place where you're understood. Here in the US we have many veterans organizations, including the VFW which is specific for veterans who have deployed. I feel like you're not alone in your area as a veteran who's seen combat in the ongoing conflict, but I imagine there's probably fewer than we have in the US with the GWOT. I'd definitely make an effort to find others like you if you can. It does wonders for your mental health. And then there's always this sub, willing to listen.\n\nAs for relating to people, one of the best things I ever found was the book Tribe by Sebastian Junger. It's a short read, but he managed to put into words so many things I could never explain to people about how I felt. It helped me find a way to express it, and having my parents read it made a huge difference in them understanding my experience."
+      },
+      {
+        "id": "mzeuncu",
+        "score": 20,
+        "body": "Thank you! It\u2019s always easier to be around people who understand you"
+      },
+      {
+        "id": "mzerzxt",
+        "score": 20,
+        "body": "True. War is horrifying. Even more so when people you shoot speak your language, share your faith, and even have the same habits. I still hate myself. And I can\u2019t even look toward Eastern Europe anymore. It hurts. And it fills me with shame"
+      },
+      {
+        "id": "mzez5r8",
+        "score": 10,
+        "body": "Beautifully written, mate. I'm sorry I dont have anything to say to help you, but I can share a story related to your post. Civilians don't get it.\n\nI deployed to Khandahar Afghanistan in 2010. 77 combat missions as an infantryman, over 100+ times in contact with the enemy. I don't think my deployment was as intense as yours, but we had our fair share of shit.\n\nI kept in touch with 2 guys from my platoon after all these years. My two best friends. Bonded through trauma, we've all bounded through incoming rounds to save each other at some point. 2 of us carried another screaming buddy back to case-vac. We all three witnessed some gruesome shit by the taliban.\n\nI am so thankful to talk to these two men every day after my deployment. We've helped each other through some tough shit.\n\nI got married to my wife like 6 months after my deployment so she's known my 2 friends for the last 14 years too, but we only met and got married within 2 weeks of knowing each other. So they didn't know each other during or before deployment. \n\nWe've all hung out with our families the last 13 years, as we had kids we made a bigger \"family\". Friend weekends turned into friend-family weekends. All of our kids are within a year or two apart. The drinking and partying slowly stopped and we all \"grew-up\" together.\n\nLong story short, a couple months a go my wife wanted a divorce, and got super upset that my 2 friends \"chose\" me over her. They went no contact with her when they found out she wanted to divorce me, I didn't want it. Of course they \"took my side\", the 3 of us had experienced near death misses together for 9 months while watching the taliban brutalize women and children. \n\nMy wife and I worked out our differences, but shes still sore that my 2 friends didn't even check up on her to see if she was OK. She still doesn't understand the bond we share and has said as much."
+      },
+      {
+        "id": "mzfhmfr",
+        "score": 10,
+        "body": "I just try to focus on the little tidbits that I can pretty confidently state were unequivocally *good*, at least in the moment, even if they may not have lasted after I left. \n\nSome examples: \n\n- rebuilding a women\u2019s school and then many convoy missions to stock it with books and supplies \n\n- rebuilding wells and infrastructure so people could have some small measurable quality of life improvement, even if it the Taliban or someone blew it up again within months\n\n- playing soccer with kids, foreign militaries, police, tribes, etc - it didn\u2019t matter when you were on the field, it was a shared interest we could connect over even if we didn\u2019t speak each others language and didn\u2019t really share much else. \n\nHang on to those little moments. Let the combat blend into a blurry mess of memories that eventually fade."
+      },
+      {
+        "id": "mzeubj0",
+        "score": 10,
+        "body": "Thank you!"
+      },
+      {
+        "id": "mzfb73b",
+        "score": 10,
+        "body": "He is a great writer. He has been around enough conflict to share some of that pain."
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1mpbfmt",
+    "title": "Fianc\u00e9 is starting to resent me because I have 100% P&T",
+    "body": "Has being a Stay at home dad put a strain on your relationships? I\u2019ve been been at 100% for a little over 2 years now been out for 10 years. I recently started having health problems and lost my job because of it. I\u2019ve have changed my life style and went to a part time job. I spend most of my time with my toddler son. I live a modest life low bills. I could live like this for the rest of my life. I take care of all of the bills. We have separate finances. My fianc\u00e9 gets frustrated because she thinks I\u2019m not doing enough. She\u2019s an entrepreneur and works 6 days a week. She gets frustrated with me and accuses me of being lazy. I honestly think jealousy is hitting her hard. My son also is special needs and non verbal. He requires more attention and patience. \n\nUpdate 8/15/2025\n\nI just wanted to say I really appreciate your feedback I didn\u2019t think there would be a lot of people giving feedback. I\u2019m glad to hear that I\u2019m not alone in this type of situation. Thanks \n\nThis is something I\u2019ve been really struggling with since my son was born. To clear up some questions, the house is mine before the relationship began. Yes I do pay all the bills mortgage, utilities and all with no help. We both buy groceries as needed. I do all the house hold chores sometimes I ask for help if needed but I take care of them because it is my home. I do have hobbies. I\u2019m into cars, fishing and camping. My son\u2019s biological mother is the fianc\u00e9. Before my health took a bad turn I didn\u2019t have time for my hobbies because of work. After going to therapy by myself they recommended I start doing things that make me happy instead of trying to make other people happy. I\u2019m starting to prioritize myself and my son. I don\u2019t play video games my son requires too much attention for me to zone out. I\u2019ve been trying to prioritize my health. I\u2019m at a health bmi but I can always do more exercise. I will try couples counseling but from what it sounds like from you guys it\u2019s only going to get worse. \n\nThanks again for the feedback. ",
+    "flair": "Question/Advice",
+    "score": 242,
+    "comment_count": 152,
+    "created_at": "2025-08-13T17:51:19+00:00",
+    "top_comments": [
+      {
+        "id": "n8i9yjb",
+        "score": 116,
+        "body": "Wife and I started marriage counseling years before I got my p&t, and yeah I'm also a stay at home dad as well. \n\nThe health option is to have a sit down conversation with her. I very much recommend yall either sit down and have a long respectful talk about expectations or hit up a counselor who can also help you guys manage things. \n\nIt's greatly helped me and mine, and I wish you the best too."
+      },
+      {
+        "id": "n8iaeyz",
+        "score": 80,
+        "body": "Agree with the other people about communication and therapy. But also it might be fun to do some research and show her what it would cost to leave a special needs toddler with someone else full time! I doubt working would be worth it."
+      },
+      {
+        "id": "n8iutpo",
+        "score": 47,
+        "body": "She is a six-day-a-week entrepreneur but you pay all the bills?\n\nIs her \"business\" an MLM or some other scam or does actually make money?  She may be stacking debt and feeling financial pressure and projecting it on you because you could make more money."
+      },
+      {
+        "id": "n8ibf8o",
+        "score": 41,
+        "body": "[deleted]"
+      },
+      {
+        "id": "n8iikbn",
+        "score": 39,
+        "body": "I'd be willing to bet she is well aware and doesn't care, she'll just expect him to make even more."
+      },
+      {
+        "id": "n8iasiy",
+        "score": 33,
+        "body": "Run bud. Run away."
+      },
+      {
+        "id": "n8ia0vr",
+        "score": 31,
+        "body": "My husband is the vet.. so no it didn\u2019t put a strain. I do wish he would find something to keep him busy/productive, hobby whichever because I think it would help him sometimes when he gets restless but that\u2019s it."
+      },
+      {
+        "id": "n8iazf7",
+        "score": 25,
+        "body": "That will not work for a jealous woman. They\u2019d defy logic and would rather them pay the money for a sitter just to know he\u2019s also working somewhere full-time like her"
+      },
+      {
+        "id": "n8iooxr",
+        "score": 25,
+        "body": "[deleted]"
+      },
+      {
+        "id": "n8issba",
+        "score": 23,
+        "body": "Do you have clearly defined roles of who does what in the house? Does she work six days a week and still have to make meals for everyone and clean up after you and the kid? Why does she think you\u2019re lazy?\n\nI\u2019m in a similar boat as you after getting out of the army last year; I don\u2019t work a full time job and spend most of my time with the kids while my partner works. Financially I contribute significantly to the household from my retirement/disability, but because I am home most of the time I keep the house clean and maintained (as clean as I can with a two year old) while also putting together meals. I guess what I\u2019m getting at is when you say you\u2019re a stay-at-home dad are you literally just watching and feeding your kid the entire time?"
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1nrbv2i",
+    "title": "I took a Space A flight Cat VI",
+    "body": "I recently took a C17 to Europe for a mini vacation. If you are near a air base I highly recommend using this retirement benefit.  Im rarely around the military anymore. On base I was reminded of the feeling of community. In the 3 hours before the flight at the air terminal and going to base food court...i had more people say hello to me, ask me how I'm doing, holding doors open and just randomly talking to me than I have in the past 3 months. It just hit me that civilians are either miserable or oblivious of each other.",
+    "flair": "Discussion",
+    "score": 239,
+    "comment_count": 73,
+    "created_at": "2025-09-26T20:19:42+00:00",
+    "top_comments": [
+      {
+        "id": "ngdcdlr",
+        "score": 61,
+        "body": "Space-A is where it's at! While the terminal isn't as fancy as anything in an airport, it's less hassle and more welcoming... there's something comforting about it."
+      },
+      {
+        "id": "ngdda9x",
+        "score": 32,
+        "body": "I imagine a vast majority of us are missing that sense of belonging and community! Glad you\u2019re making the best of your retirement!\n\nHow exactly does Space A work? Is this only available to retirees, or all veterans?"
+      },
+      {
+        "id": "ngddcas",
+        "score": 20,
+        "body": "If you want to go to Europe then BWI to Ramstein. Once you are in Germany take a trains. Book refundable and changeable hotels and train tickets. AMC has a 72 hr flight schedule online. AMC website for rules and instructions, also check out Poppin'Smoke on FB for how to's."
+      },
+      {
+        "id": "ngddikc",
+        "score": 17,
+        "body": "Check out the AMC website. They have rule snd instructions. Easy to follow and sign up."
+      },
+      {
+        "id": "ngdiza7",
+        "score": 16,
+        "body": "I could be wrong, but if you are 100%P&T and **not** retired, I believe you can only fly space A in CONUS."
+      },
+      {
+        "id": "ngeotro",
+        "score": 14,
+        "body": "Blue and red IDs? Like the old IDs that got phased out like 4 years ago?"
+      },
+      {
+        "id": "ngdr0gw",
+        "score": 14,
+        "body": "[Not according to AMC](https://www.amc.af.mil/AMC-Travel-Site/AMC-Space-Available-Travel-Page/)\n\n>Authorized veterans with a permanent service-connected disability rated as total (100% DAV) and their dependents (when accompanied by their sponsor) traveling in the CONUS or directly between the CONUS and Alaska, Hawaii, Puerto Rico, the U.S. Virgin Islands, Guam, and American Samoa (Guam and American Samoa travelers may transit Hawaii or Alaska); or traveling within Alaska, Hawaii, Puerto Rico, or the U.S. Virgin Islands."
+      },
+      {
+        "id": "ngdpouu",
+        "score": 12,
+        "body": "From the FAQ:\n\nActive duty service members, Guard/Reserve members, retirees, and disabled veterans (with a blue DD Form 2 ID), accompanied by their dependents, may fly Space-A. Dependents of individuals with a red DD Form 2 ID cannot fly Space-A. Some travel restrictions apply. Contact your nearest AMC passenger terminal for more information."
+      },
+      {
+        "id": "ngdecf6",
+        "score": 12,
+        "body": "I signed up for a airline credit card with 100K miles sign up bonus and I've been hoarding those miles to use if I get stuck. I plan to take as many flights as possible next year."
+      },
+      {
+        "id": "ngdcaci",
+        "score": 11,
+        "body": "Any recommendations on how to find flights? I just recently got 100% P&T and I\u2019d like to take a Space A flight at some point when both a flight and my schedule aligns. Just don\u2019t know where to start"
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1rb9fhq",
+    "title": "I've been browsing GOVX for years but rarely find good prices in spite of their veteran \"discounts\"",
+    "body": "I've seen prices way lower than they offer but did score a good discounts on tickets before. Is it just me or are they just pandering to us?",
+    "flair": "Discussion",
+    "score": 237,
+    "comment_count": 70,
+    "created_at": "2026-02-22T02:06:14+00:00",
+    "top_comments": [
+      {
+        "id": "o6pdhsr",
+        "score": 90,
+        "body": "Yes I\u2019m not happy with govx. Id.me shop tends to have better things and more links with many different services anyway - as I can shop at the exchange and commesary anyway (online or in person), I tend to not bother with most discounts unless I\u2019m doing a major purchase anyway."
+      },
+      {
+        "id": "o6pdznh",
+        "score": 58,
+        "body": "Way way way back they had good deals, today even their travel deals discounts sucks"
+      },
+      {
+        "id": "o6pf703",
+        "score": 34,
+        "body": "Depending on the brand Expertvoice has some legit deals."
+      },
+      {
+        "id": "o6pdjlu",
+        "score": 34,
+        "body": "Yeah, their \u201cdeals\u201d suck. The id.me shop is better."
+      },
+      {
+        "id": "o6pee05",
+        "score": 27,
+        "body": "It's really just a data-collection service.  Sure, you get 10% off, but they get your contact information to market to you."
+      },
+      {
+        "id": "o6pm0t6",
+        "score": 23,
+        "body": "It\u2019s almost like they just want our money"
+      },
+      {
+        "id": "o6qs0zx",
+        "score": 21,
+        "body": "Wait what? Id.me has their own shop? I\u2019ve only ever used it for login stuff"
+      },
+      {
+        "id": "o6pf0yc",
+        "score": 17,
+        "body": ">Nobody is entitled to a veteran discount from a commercial vendor.\n\n\nNo shit, but when they advertise to give discounts to get you in tbe store that's a problem.\u00a0"
+      },
+      {
+        "id": "o6rv2wg",
+        "score": 15,
+        "body": "Shopping at the exchange (only) rarely seems to be a good bargain, even accounting for taxes, with the exception of their linkage to Home Depot. _Sometimes_ something will be worth it, but often enough, going direct to the source is much better (Whirlpool, Apple for example).\n\nDon't get me wrong; I always check, because every once in a while, they absolutely trounce everything else."
+      },
+      {
+        "id": "o6rck10",
+        "score": 15,
+        "body": "I think they kind of absorbed Expert Voice or whatever it was called/is called now. It would have decent deals every once in while but typically the prices were like Govx- they\u2019d show a massive discount off of MSRP which turns out to just be market price lol"
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1j9nhax",
+    "title": "General Wainwright\u2019s letter to Soldiers being dischanged following World War II",
+    "body": "I\u2019ve had this letter framed on my desk for the last 8 years. Felt like an appropriate time to share. \n\n\n\n**To: All Personnel being Discharged from the Army of the United States.**\n\n        You are being discharged from the Army today- from your Army.  It is your Army because your skill, patriotism, labor, courage and devotion have been some of the factors which make it great.  You have been a member of the finest military team in history.  You have accomplished miracles in battle and supply.  Your country is proud of you and you have every right to be proud of yourselves.\n\n        You have seen, in the lands where you worked and fought and where many of your comrades died, what happens when the people of a nation lose interest in their government.  You have seen what happens when they follow false leaders.  You have seen what happens when a nation accepts hate and intolerance.\n\n      We are all determined that what happened in Europe and in Asia must not happen to our country.  Back in civilian life you will find that your generation will be called upon to guide our country\u2019s destiny. Opportunity for leadership is yours.  The responsibility is yours.  The nation which depended on your courage and stamina to protect it from its enemies now expects you as individuals to claim your right to leadership, a right you earned honorably and which is well deserved.\n\n      Start being a leader as soon as you put on your civilian clothes.  If you see intolerance and hate, speak out against them.  Make your individual voices heard, not for selfish things, but for honor and decency among men, for the rights of all people.\n\n      Remember too, that No American can afford to be disinterested in any part of his government, whether it is county, city, state or nation.\n\n      Choose your leaders wisely- that is the way to keep ours the country for which you fought.  Make sure that those leaders are determined to maintain peace throughout the world.  You know what war is.  You know that we must not have another.  As individuals you can prevent it if you give to the task which lies ahead the same spirit which you displayed in uniform.\n\n       Accept and trust the challenge which it carries.  I know that the people of American are counting on you.  I know that you will not let them down.\n\n       Goodbye to each an every one of you and to each and every one of you, good luck!\n\n \n\nJ.M. WAINWRIGHT\n\nGeneral, U.S. Army\n\nCommanding",
+    "flair": "Discussion",
+    "score": 242,
+    "comment_count": 17,
+    "created_at": "2025-03-12T16:03:36+00:00",
+    "top_comments": [
+      {
+        "id": "mhg3us7",
+        "score": 55,
+        "body": "How relevant for today, and poignant reminder of everyone\u2019s civic responsibility. \n\nIf only Generals and leaders today could express the same sentiments."
+      },
+      {
+        "id": "mhhtiuv",
+        "score": 22,
+        "body": "I think the words are great and inspiring, but being a black man\u2026the words sound hollow as fuck to me. Respect for what they did but I can\u2019t get past the fact that so many came home and continued with maintaining the status quo.\nBand of brothers is great to watch - but I\u2019m not in it."
+      },
+      {
+        "id": "mhhiezn",
+        "score": 17,
+        "body": "They can. They won't. Because taking a stand means that cushy appointment to some government office would be at risk and it's every man for himself in the civilian world."
+      },
+      {
+        "id": "mhg4yfi",
+        "score": 16,
+        "body": "    \n\nYou are being discharged from the Army today- from your Army.  It is your Army because your skill, patriotism, labor, courage and devotion have been some of the factors which make it great.  You have been a member of the finest military team in history.  You have accomplished miracles in battle and supply.  Your country is proud of you and you have every right to be proud of yourselves.\n\n    You have seen, in the lands where you worked and fought and where many of your comrades died, what happens when the people of a nation lose interest in their government.  You have seen what happens when they follow false leaders.  You have seen what happens when a nation accepts hate and intolerance.\n\n  We are all determined that what happened in Europe and in Asia must not happen to our country.  Back in civilian life you will find that your generation will be called upon to guide our country\u2019s destiny. Opportunity for leadership is yours.  The responsibility is yours.  The nation which depended on your courage and stamina to protect it from its enemies now expects you as individuals to claim your right to leadership, a right you earned honorably and which is well deserved.\n\n  Start being a leader as soon as you put on your civilian clothes.  If you see intolerance and hate, speak out against them.  Make your individual voices heard, not for selfish things, but for honor and decency among men, for the rights of all people.\n\n  Remember too, that No American can afford to be disinterested in any part of his government, whether it is county, city, state or nation.\n\n  Choose your leaders wisely- that is the way to keep ours the country for which you fought.  Make sure that those leaders are determined to maintain peace throughout the world.  You know what war is.  You know that we must not have another.  As individuals you can prevent it if you give to the task which lies ahead the same spirit which you displayed in uniform.\n\n   Accept and trust the challenge which it carries.  I know that the people of American are counting on you.  I know that you will not let them down.\n\n   Goodbye to each an every one of you and to each and every one of you, good luck!"
+      },
+      {
+        "id": "mhjf366",
+        "score": 10,
+        "body": "Yessir. White guy Navy vet. As an older guy now, I realize that people in leadership positions get there by being charismatic and saying things that are inspiring. I served on two ships and was stationed at a few bases when training. The Captains who were the \"Old Man\" on the ship (Commanding Officers O-5 and up. They were called Captain if they were the CO, whether or not they were an O-6 yet) The ones I served under were natural leaders. You just wanted to do anything they told you well because they were very good at inspiring loyalty. I never had a CO that seemed too small to lead. \n\nIn the civilian world after my discharge from the Navy in 94, I saw the same thing in really good leaders. But they were not guaranteed like it felt in the military. (I realize everyone did not experience great COs like I did)\n\nSome people just have \"it\". It makes you want to make them look good. I have had terrible managers and leadership and great ones. The great ones always cared about the people that reported to them. Genuinely. That shit is rare. \n\nAnyway, I understand why (as much as someone who is just a witness to racism and not someone who experienced it directly like a black person or other minority in the US) \nI saw it. It was real. It was fucked up. \n\nSo, the words sound great from these people, but actions show they care. Words are just that. If I was a black guy, I wouldn't believe a damn thing anyone said. Hell I don't believe anyone as a white guy! They would have to show me who they are. Talk is talk. \n\nI thought we had turned a corner when Obama was elected. Finally we had a leader that didn't embarrass all of us when he spoke publicly. He was a natural leader. A good one. I did not realize that not everyone turned the corner with us. Some people viewed a black president as an existential threat to them. \n\nI worked my way into positions requiring critical thinking, and my co-workers were different. More intelligent. Critical thinkers that were always learning. People who said \"Now correct me if I'm wrong, but here is what I know.\"\n\nI was not ready for what happened in 2016. I thought we grew out of that. We did not. I doubt you ever felt we grew out of it. It's a naive position in hindsight.\n\nSorry this took so long. I meant to just say \"I hear you and your concerns are valid\""
+      },
+      {
+        "id": "mhho5x5",
+        "score": 9,
+        "body": "Unfortunately, this is exactly it - self preservation and a pursuit of profits no matter the cost. \n\nWe could have a cause or purpose to rally behind but we\u2019re either too busy fighting with each other or too busy trying to survive. I think that\u2019s by design."
+      },
+      {
+        "id": "mhjllyi",
+        "score": 8,
+        "body": "Thanks man, I appreciate that. \nI also appreciate that you see that I\u2019m not discounting their accomplishments or bravery.\nI had the opposite experience in the Air Force. Real leaders were not the norm. Most of the time it was the SNCOs that led and were inspiring leaders.\nI\u2019m glad you got to experience great leadership like that. I can count on one hand the number of inspiring true leaders that were officers that I served under"
+      },
+      {
+        "id": "mhh1o1e",
+        "score": 7,
+        "body": "You might want to think about updating the formatting from a \"code block\" to a \"quote\"."
+      },
+      {
+        "id": "mhhvsg0",
+        "score": 5,
+        "body": "It was this for me:\n\n>\u00a0 Start being a leader as soon as you put on your civilian clothes.\u00a0 If you see intolerance and hate, speak out against them. \u00a0Make your individual voices heard, not for selfish things, but for honor and decency among men, for the rights of all people.\n\n> Remember too, that\u00a0No\u00a0American can afford to be disinterested in any part of his government, whether it is county, city, state or nation."
+      },
+      {
+        "id": "mhjvsii",
+        "score": 4,
+        "body": "Yeah,  part of me was reading that thinking\"oh that's nice\", then another part of me was thinking \"those fuckers got us into vietnam.\"\n\nAlso, Masters of the Air if you haven't seen it already. You might like that a little better,  just give it a few episodes. If you've already seen it, let me know, I've got a story for you."
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1jsxqbs",
+    "title": "Putting away your uniforms. It's painful.",
+    "body": "It's has not even been 4 months since i was medically discharge an my wife wants me to clean out my closet and throw away my uniforms. Of course I will not do that but just preparing them for storage makes me tear up. Piss me off that she and the people that did not wear the uniforme just don't understand. \n\nHow about you guys, did it felt hard as well? ",
+    "flair": "Discussion",
+    "score": 240,
+    "comment_count": 300,
+    "created_at": "2025-04-06T16:13:31+00:00",
+    "top_comments": [
+      {
+        "id": "mlpwomu",
+        "score": 142,
+        "body": "I got out in 2009. All mine are still packed up in a sea bag out in the garage. \n\nSorry, I know that's not helpful to you. Just know, you aren't then only one that doesn't know what to do with them."
+      },
+      {
+        "id": "mlpzzy2",
+        "score": 78,
+        "body": "I got out in 1996.  My field jacket is still hanging in my closet.  It taunts me of when I used to be fit."
+      },
+      {
+        "id": "mlpx87u",
+        "score": 76,
+        "body": "Man I just got out after many years and a retirement, I had the opposite. I donated everything to a local military surplus place as soon as I could except my dress blues and one OCP set. I loved my time in the military but to get rid of that closet full of military stuff felt so nice."
+      },
+      {
+        "id": "mlpwyuu",
+        "score": 55,
+        "body": "Tbh, no. Not really. I eventually donated all of mine. No biggie. \n\nWhat got me was getting rid of all my gear. Uniforms are whatever to me. But that sleeping bag that kept me warm in those frigid desert nights in Iraq? Slick soled boots that I walked all over Al Anbar in? My shrapnel scarred flak from Afghanistan? \n\nSo many odds and ends that had personal stories and events tied to them. I did eventually slowly get rid of them though. TOO many memories in the end. Only have the flak left and a couple of beanies I still use. And the poncho liner of course. I will die before that thing leaves my grasp."
+      },
+      {
+        "id": "mlq33jv",
+        "score": 31,
+        "body": "I use them as motivation to stay fit haha. When I retired I hardly did anything my last year except go to appointments so I gained a bunch of weight. I had to buy a whole new dress uniform just to retire because I didn\u2019t fit in the one I had my entire career. Then I kept gaining weight for about six months until I had enough. I stopped drinking and started back into a routine, now I\u2019m back down to drill sergeant weight \ud83d\udc4c\ud83d\udcaa AND I can fit back into my old uniform again. I\u2019m keeping my fat boy uniform though as a reminder to never let myself go again."
+      },
+      {
+        "id": "mlpxl3y",
+        "score": 24,
+        "body": "I got rid of mine at the first chance I got."
+      },
+      {
+        "id": "mlpwp0c",
+        "score": 22,
+        "body": "I got out in 2015 and still have one uniform from my deployment in my closet. Don\u2019t let anyone tell you that you have to get rid of them."
+      },
+      {
+        "id": "mlpxouo",
+        "score": 20,
+        "body": "Mine are in a garment bag in the back of the closet and they have been there since 1977 so no, I don't understand your wife at all."
+      },
+      {
+        "id": "mlpwuei",
+        "score": 17,
+        "body": "Buy a box of the big ziplock bags (these are bigger than freezer bags) and a footlocker or cedar chest (you could build a custom one). Fold items and store in the big Z bags then put in cedar chest: preserved by both the bag and cedar. Then both agree this is for you and you\u2019re the only one that gets rid of it. The memories are yours, the cloth is a reminder."
+      },
+      {
+        "id": "mlqm5f9",
+        "score": 15,
+        "body": "Come across a pair of starched, pressed BDUs in my upstairs closet from time to time - like they just came from the cleaners.\n\nOne that hit me harder than expected though... a damn bird about suicided into my balcony window years ago, so I went digging through old Army shit looking for those black leather work gloves to police up said bird and toss it off the balcony. Got to a pair of my boots in that container, and I just stopped... some reason the boots just stopped me in my tracks. \ud83c\udf7b"
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1rl96a1",
+    "title": "Do you consider 100% P&T a form of retirement?",
+    "body": "I\u2019m tired boss. ",
+    "flair": "Discussion",
+    "score": 65,
+    "comment_count": 112,
+    "created_at": "2026-03-05T05:30:23+00:00",
+    "top_comments": [
+      {
+        "id": "o8qe2f3",
+        "score": 1,
+        "body": "I could if I wanted to, but I use it to take a lower paying job that genuinely brings me joy. And I can afford to quit if the day comes when I no longer enjoy the work. "
+      },
+      {
+        "id": "o8qdfgk",
+        "score": 1,
+        "body": "If you can live off it, then yes. Me? I consider it \"fuck you\" money lol"
+      },
+      {
+        "id": "o8qdfek",
+        "score": 1,
+        "body": "Depends on where you live and the quality of life you\u2019re looking for."
+      },
+      {
+        "id": "o8qfl03",
+        "score": 1,
+        "body": "I mean, I don't work and live off disability compensation, so I'd consider myself retired."
+      },
+      {
+        "id": "o8qedu8",
+        "score": 1,
+        "body": "If you pretended it was a lump sum and you were doing a 4% safe withdrawal rate then it would be equivalent to having $1.18 million for a single person.  "
+      },
+      {
+        "id": "o8r1s7t",
+        "score": 1,
+        "body": "For me, yes. The wife and I sold everything we owned. House, cars. Everything!!! Moved to the Philippines. "
+      },
+      {
+        "id": "o8qdpdm",
+        "score": 1,
+        "body": "I use it that way look into dual citizenship options"
+      },
+      {
+        "id": "o8qe9y3",
+        "score": 1,
+        "body": "If you need it to be it can be. It really depends on whether or not you are able/willing to work to increase your QOL later, and if its even worth it depending on your needs.\n\nEdit: wanted to add absolutely based on location as well, and if your getting SSDI and whatnot as well can help too"
+      },
+      {
+        "id": "o8qhtu3",
+        "score": 1,
+        "body": "I currently use it and the GI bill BAH to get through. Since I live in California, all in all, that's about 8K+ a month. "
+      },
+      {
+        "id": "o8qda7v",
+        "score": 1,
+        "body": "Dude I get it completely - that exhaustion hits different after everything youve been through. Even though its not traditional retirement the peace of mind from having that stability locked in is huge, especially when your dealing with all the other stuff that comes with service. Take care of yourself man"
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1rl742z",
+    "title": "VR&E and FT employment",
+    "body": "I\u2019ve been approved to use the program and almost ready to enroll in classes but have been offered a position that wouldn\u2019t necessarily exacerbate my conditions, can I/should I accept the position while I wait to enroll in classes and finish my BA to find a better position? I could really use the extra income and getting out of the house a little more ",
+    "flair": "VR&E - Voc Rehab Veteran Readiness",
+    "score": 7,
+    "comment_count": 3,
+    "created_at": "2026-03-05T03:47:33+00:00",
+    "top_comments": [
+      {
+        "id": "o8py6fu",
+        "score": 1,
+        "body": "'Have you looked in the **[Wiki]( https://www.reddit.com/r/Veterans/wiki/education)** for an answer? We have a lot of information posted there. \n\nTo contact VA Education, 1-888-442-4551, for ~~Voc Rehab~~ VR&E (Veteran Readiness and Employment Program) assistance with appointments or problems with your Case Manager (not for missing payments): 1-202-461-9600. \n\n**Payments for certain education benefits (DEA, VEAP) are paid at the end of the month you attend school - Department of Treasury issues these payments **using a 10 business day window** - these payments are not locked into a specific day of the month like VA disability/military pay is**. For Voc Rehab missing payments, contact your Case Manager or your local **[VA Regional Office](https://www.knowva.ebenefits.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001018/content/554400000260849/VRE-Officers-and-Contact-Information)\n\nFor Post 9/11 GI Bill only, If you signed up for direct deposit when you applied for education benefits, **we\u2019ll deposit your payment into your bank account 7 to 10 business days after you verify your school enrollment.** This is the fastest way to receive your payment. [Text Verification FAQ](https://benefits.va.gov/GIBILL/docs/IsaksonRoe/EnrollmentVerificationFAQs.pdf)\n\nMGIB and MGIB-SR and DEA CH 35 have to do [monthly verification](https://www.va.gov/education/verify-school-enrollment/) and you should receive the payment within 3 to 5 business days.\n\nFor Online Only training, the Post 9/11 GI Bill is currently **(1 August 2025) paying $1169.00** for those who started using their Post 9/11 GI Bill on/after 1 January 2018 - this is based on 1/2 of the National Average BAH paid to an E5 with dependents. Post 9/11 GI Bill MHA rates are adjusted 1 August of each year and are based on the 1 January DoD BAH rates for that year - **so VA can't use 1 January 2025 BAH rates until 1 August 2025** - for those who started training on/after 1 January 2018, the MHA rates are 95% of the DoD BAH rates. First possible payment for the 1 August 2025 increase is 1 September.\n\nFor VR&E, there are two different Subsistence Allowance programs - https://www.benefits.va.gov/vocrehab/subsistence_allowance_rates.asp The P9/11 Subsistence Allowance is based on the BAH paid to an E5 with dependents. Those who started using VR&E on/after 1 January 2018 receive 95% of the BAH paid to an E5 with dependents. **As of 1 January 2026 Online only students using VR&E are being paid $1198.00** if they started using VR&E on/after 1 January 2018. The CH31 Subsistence Allowance rates are adjusted 1 October each year by Congress.\n\nVA Education is going paperless - make sure VA has a current email address for you. Please make sure you add Veteransbenefits@messages.va.gov to your contacts list so that you don't miss important updates from VA.\n\n[VA Award Letter explanation](https://benefits.va.gov/gibill/understandingyourawardletter.asp)\n\n[Contact a VR&E Supervisor](https://www.knowva.ebenefits.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001018/content/554400000260849/VRE-Officers-and-Contact-Information)\n\n [VA Rudisill Decision](https://benefits.va.gov/gibill/rudisill.asp) - some veterans may qualify for an additional 12 months of a second GI Bill based on serving two or more different periods of active duty service.\n\n\n*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/Veterans) if you have any questions or concerns.*"
+      },
+      {
+        "id": "o8pyo5m",
+        "score": 1,
+        "body": "Yup. I\u2019m in a VR&E program with a full time 6 figure salary. In fact , I\u2019ve moved jobs during my program, under the assumption that I will graduate in six months and move into the position permanently versus interim. "
+      },
+      {
+        "id": "o8pyoa9",
+        "score": 1,
+        "body": "If the job won't mess with your conditions then why not take it? You can always adjust your class schedule around work or even do part-time enrollment if needed. Extra income is never bad thing especially when you're student, and getting out sounds like it would be good for your mental health too"
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1rl6pd1",
+    "title": "How best to support someone when the news is fresh?",
+    "body": "A colleague of mine has just learned he\u2019s going to be in a wheelchair for the rest of his life due to an injury from his time in the military. He\u2019s very young, and it was a total surprise. It\u2019s hit him hard. He was at our company temporarily and he\u2019ll be going back to his home country in a month. Over the course of the year we became work friends and would grab a beer occasionally after work. I will be seeing him for a final drink in a week.\n\nFolks who\u2019ve been through the same process; what are some things people did for you that made it all easier? Gifts people got, or nice words? I don\u2019t want to give him the \u201cI\u2019m so sorry\u201d and \u201cIt will get easier\u201d thing because I\u2019m sure he\u2019s getting enough of that already from family and I don\u2019t want him to feel pitied. One of my favourite things about him is his wicked sense of humour, so I was thinking of trying something lighthearted, but I also don\u2019t know if we\u2019re quite close enough for that to be appropriate. Was there anything that anybody did for you that made you feel understood, or even allowed to just be yourself?",
+    "flair": "Question/Advice",
+    "score": 19,
+    "comment_count": 5,
+    "created_at": "2026-03-05T03:28:03+00:00",
+    "top_comments": [
+      {
+        "id": "o8pwtki",
+        "score": 1,
+        "body": "If you\u2019re not that close with him, your best bet is to continue treating him like you always have while also not acting like you don\u2019t know about this issue. Let him guide the tone of conversations, topic. "
+      },
+      {
+        "id": "o8py6rz",
+        "score": 1,
+        "body": "How about the simple stuff- ask if they need help in their home. Bring food and drinks (Costco hotdog?\ud83e\udd23)and offer to mow lawn or fix anything the house. Drive them to appointments.  Buy a silly hemorrhoid donut cushion and tell him it\u2019s from Temo etc.   "
+      },
+      {
+        "id": "o8sjl3f",
+        "score": 1,
+        "body": "[removed]"
+      },
+      {
+        "id": "o8py719",
+        "score": 1,
+        "body": "Best advice right here. Just be an ear to lend if he chooses to vent. Continue being a friend. That's all anyone ever wants really. Just be there when needed but don't force it."
+      },
+      {
+        "id": "o8sofwa",
+        "score": 1,
+        "body": "Reddit has notified us that your account is associated with another account that is permanently banned from r/veterans with high confidence based on multiple signals/indicators not visible in any way to us moderators and only known to Reddit admins.\n\nThis behavior is called \"ban evasion\" and falls into the category of poor choices a Redditor can make, which also violates our subreddit rules and Reddit's Terms of Service.\n\nAs a result, this content was instantly removed and you were automatically banned by a bot before any users, including the moderators, could see, vote, or reply to it.\n\nIf you believe your account was incorrectly flagged by Reddit's ban evasion systems for any reason: please contact [Reddit Support directly regarding your account status and to make an appeal]( https://support.reddithelp.com/hc/en-us/requests/new?ticket_form_id=360000600232). Appeals made to this subreddits' moderation team will be rejected.\n\nOur subreddit rules and Reddit's Terms of Service apply to all accounts you operate. Violations that result in a ban place all of your other accounts at risk of permanent bans."
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1rl3r14",
+    "title": "Any other Life Insurance recommendations?",
+    "body": "I (41M) applied for life insurance last week. I was quoted $70 monthly and had normal exam but then received a letter stating an increased to $120 due to vague reasoning (maybe low dose MH med). First time applying and wanted to know if $120 for $500K is a fair rate or should I keep shopping around? and what do youll have other than VGLI? ",
+    "flair": "Question/Advice",
+    "score": 5,
+    "comment_count": 7,
+    "created_at": "2026-03-05T01:13:38+00:00",
+    "top_comments": [
+      {
+        "id": "o8pbe4o",
+        "score": 1,
+        "body": "I'd seek out a broker and let them get some preliminary rates."
+      },
+      {
+        "id": "o8p8v2x",
+        "score": 1,
+        "body": "VA whole life and Wysh. I think that's a fair rate? Mine is cheaper but I'm younger than you though and female.\u00a0"
+      },
+      {
+        "id": "o8pg1pb",
+        "score": 1,
+        "body": "Best case scenario $500,000- 30byr term rates for 41 yr old male in most States have monthly cost of $53 to $63 per month...\n\n\nAnd if you take 1 med for mental health issues then $63ish per month is a decent estimate assuming well controlled mild anxiety or depression, and decent health otherwise.\n\n\nDefinitely find a broker to help you find a better offer."
+      },
+      {
+        "id": "o8plh1q",
+        "score": 1,
+        "body": "AAFMAA - $102 monthly for $600K. I actually redid it last fall as I lost 35lbs.  I was paying $107 for $300K previously. Both are 30yr terms. "
+      },
+      {
+        "id": "o8r2thk",
+        "score": 1,
+        "body": "It's pretty common for rates to change after underwriting, especially when carriers flag medications, even low-dose ones. It can help to get a few other quotes and compare how different companies handle underwriting. Some people also look at simple online term options that can give quick decisions and may not require a medical exam, like Ethos, which tends to handle situations like yours better than traditional carriers."
+      },
+      {
+        "id": "o8sq3dm",
+        "score": 1,
+        "body": "Thank you for the advice\ud83e\udd14"
+      },
+      {
+        "id": "o8spusk",
+        "score": 1,
+        "body": "Thanks. I'll look into that one. "
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1rl36b1",
+    "title": "Dd214 question",
+    "body": "Separated in 2017 from active duty, i have a copy of my dd214 member 1, but i dont have my member 4. I reached out to my states veterans service office and they were able to send me their version which does show my discharge character, which is great, but blocks 25-27 are blacked out. I tried reaching out to the eVetRecs website and they only have my inactive reserve papers. They say they do not have my dd214 because their records dont show my active duty. What do i do? How do i get my member 4? Please help!!",
+    "flair": "Question/Advice",
+    "score": 6,
+    "comment_count": 7,
+    "created_at": "2026-03-05T00:48:26+00:00",
+    "top_comments": [
+      {
+        "id": "o8p3ml2",
+        "score": 1,
+        "body": "**New for 2025**: New Name - Certificate of Uniformed Services and a new form for reserves and national guard DD 214-1 Certificate of Uniformed Services Reserve Component Addendum. Instead of numbered copies of the DD-214, Service Members will receive these named copies: Member or Service. \n\nTo obtain a copy of your DD 214 or DD 214-1, we suggest trying [MilConnect](https://milconnect.dmdc.osd.mil/milconnect/) or the [National Archives](https://www.archives.gov/personnel-records-center/dd-214). The DD 214 is normally issued in 2 versions - Member 1 (short form) which has the discharge information on the bottom of the form removed and either the Member 4 or Service 2 (long form) which contains the discharge information - which one you receive depends on when you separated. [The Member 4 and Service 2 contain the exact same information](https://www.woundedwarrior.af.mil/Portals/23/documents/08_SUPPORT/04_Transition/05_B_DD%20214%20Service%20Copy%20Memo.pdf?ver=2018-06-29-105907-207).\n\n\nhttps://www.archives.gov/veterans/military-service-records/correct-service-records.html for correction to DD 214.\n\nDifferent branches of the service handle issuing of the DD 214 in different ways. The Army normally issues the DD 214 at your final out-processing appointment. The Air Force normally emails you a secure link to sign in/download your DD 214 on your last day of active duty. The Navy \"should\" issue you the DD 214 when final out-processing - but we have had multiple posts from Navy service members who have not received their DD 214 for months after separation.   \n\nhttps://www.arpc.afrc.af.mil/News/Article-Display/Article/1321351/ang-and-afr-general-discharge-information/\n\nhttps://www.arpc.afrc.af.mil/News/Article-Display/Article/1957722/facts-about-dd-form-214s-for-guard-reserve/\n\nMake multiple copies of your DD 214 and keep your DD 214 in multiple locations for when you need a copy. ~~Take a copy of your DD 214 to your County Court House - then you will be able to get a \"certified\" copy if/when you need a copy - some businesses want a certified copy. Plus it's faster to get a copy from your courthouse than from the National Archives.~~  It's recommended NOT to place a copy of your DD 214 in your County Court House records by the Army because of the chances of identity theft - https://www.hrc.army.mil/content/Protecting%20Documents%20Containing%20Personally%20Identifiable%20Information%20-%20PII\n\nWhile we shouldn't have to tell people this, you are not out of the military when on terminal leave. Terminal Leave is just the last leave you take in the military. You are still on active duty when you are on Terminal Leave.\n\nReview of Discharges - Each of the military services maintains a discharge review board with authority to change, correct or modify discharges or dismissals that are not issued by a sentence of a general courts-martial. *The board has no authority to address medical discharges*. The veteran or, if the veteran is deceased or incompetent, the surviving spouse, next of kin or legal representative may apply for a review of discharge by writing to the military department concerned, using DoD Form 293. https://www.archives.gov/veterans/military-service-records/correct-service-records.html\n\n\n*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/Veterans) if you have any questions or concerns.*"
+      },
+      {
+        "id": "o8stptz",
+        "score": 1,
+        "body": "Do you have access to milconnect? You can download it from your OMPF. https://milconnect.dmdc.osd.mil/milconnect/"
+      },
+      {
+        "id": "o8surm6",
+        "score": 1,
+        "body": "I have tried to use mil connect but either im doing something wrong or it wont allow me access. I dont have a cac or anything like that so when i try and create a login it tells me my like phone number isnt valid or something along those lines"
+      },
+      {
+        "id": "o8t1j82",
+        "score": 1,
+        "body": "Do you have DS logon? And what branch? if army you can login to iPERMS using DS login and the dd214 is in there. If you need help with DS login call the DMDC at(800) 477-8227"
+      },
+      {
+        "id": "o8t26nw",
+        "score": 1,
+        "body": "I was navy. I am trying to set up the ds login thats where im getting that invalid phone number error. I did email bupers last night under the foia request but havent heard anything back yet "
+      },
+      {
+        "id": "o8t45pd",
+        "score": 1,
+        "body": "Call the DMDC they can help you with the login issue. Alternatively you can call DEERS 800) 538-9552"
+      },
+      {
+        "id": "o8t4av8",
+        "score": 1,
+        "body": "I will do that thank you!"
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1rl1amt",
+    "title": "Moving to Vegas - vet benefits?",
+    "body": "I'm asking about vet benefits for civilians in Las Vegas or Nevada. \n\nSome things I've come across in the past is Virginia makes a veteran card thats the size of a license and shows dates of service. It's useful for stores and such that requires proof of vet status but u dont carry your DD214 with you. Oregon has a special state park pass for disabled vets. Connecticut has a property tax discount and tuition waiver to state schools for VFW. New Haven has special parking benefits.\n\nDoes Las Vegas or Nevada have anything like this? \n\nThanks! ",
+    "flair": "Question/Advice",
+    "score": 6,
+    "comment_count": 7,
+    "created_at": "2026-03-04T23:29:19+00:00",
+    "top_comments": [
+      {
+        "id": "o8oruu6",
+        "score": 1,
+        "body": "I maintain a home in Las Vegas.  You should immediately get a Nevada license.  Many resorts and hotels on the strip and off the strip offer massive discounts at their restaurants and bars for locals.  You can also stay at the hotel/resorts without resort fees showing your license.\n\nNot veteran related, but resident related.\n\nStay away from downtown at night unless you are on Fremont."
+      },
+      {
+        "id": "o8p4ux5",
+        "score": 1,
+        "body": "https://www.veteransbenefitskb.com/"
+      },
+      {
+        "id": "o8or087",
+        "score": 1,
+        "body": "You can get a veteran designation on your Nevada issued state ID."
+      },
+      {
+        "id": "o8ptd2l",
+        "score": 1,
+        "body": "Caesars offers automatic platinum membership and discounts to vets"
+      },
+      {
+        "id": "o8put2h",
+        "score": 1,
+        "body": "Discount on some utilities depending on rating "
+      },
+      {
+        "id": "o8opegz",
+        "score": 1,
+        "body": "**New for 2025**: New Name - Certificate of Uniformed Services and a new form for reserves and national guard DD 214-1 Certificate of Uniformed Services Reserve Component Addendum. Instead of numbered copies of the DD-214, Service Members will receive these named copies: Member or Service. \n\nTo obtain a copy of your DD 214 or DD 214-1, we suggest trying [MilConnect](https://milconnect.dmdc.osd.mil/milconnect/) or the [National Archives](https://www.archives.gov/personnel-records-center/dd-214). The DD 214 is normally issued in 2 versions - Member 1 (short form) which has the discharge information on the bottom of the form removed and either the Member 4 or Service 2 (long form) which contains the discharge information - which one you receive depends on when you separated. [The Member 4 and Service 2 contain the exact same information](https://www.woundedwarrior.af.mil/Portals/23/documents/08_SUPPORT/04_Transition/05_B_DD%20214%20Service%20Copy%20Memo.pdf?ver=2018-06-29-105907-207).\n\n\nhttps://www.archives.gov/veterans/military-service-records/correct-service-records.html for correction to DD 214.\n\nDifferent branches of the service handle issuing of the DD 214 in different ways. The Army normally issues the DD 214 at your final out-processing appointment. The Air Force normally emails you a secure link to sign in/download your DD 214 on your last day of active duty. The Navy \"should\" issue you the DD 214 when final out-processing - but we have had multiple posts from Navy service members who have not received their DD 214 for months after separation.   \n\nhttps://www.arpc.afrc.af.mil/News/Article-Display/Article/1321351/ang-and-afr-general-discharge-information/\n\nhttps://www.arpc.afrc.af.mil/News/Article-Display/Article/1957722/facts-about-dd-form-214s-for-guard-reserve/\n\nMake multiple copies of your DD 214 and keep your DD 214 in multiple locations for when you need a copy. ~~Take a copy of your DD 214 to your County Court House - then you will be able to get a \"certified\" copy if/when you need a copy - some businesses want a certified copy. Plus it's faster to get a copy from your courthouse than from the National Archives.~~  It's recommended NOT to place a copy of your DD 214 in your County Court House records by the Army because of the chances of identity theft - https://www.hrc.army.mil/content/Protecting%20Documents%20Containing%20Personally%20Identifiable%20Information%20-%20PII\n\nWhile we shouldn't have to tell people this, you are not out of the military when on terminal leave. Terminal Leave is just the last leave you take in the military. You are still on active duty when you are on Terminal Leave.\n\nReview of Discharges - Each of the military services maintains a discharge review board with authority to change, correct or modify discharges or dismissals that are not issued by a sentence of a general courts-martial. *The board has no authority to address medical discharges*. The veteran or, if the veteran is deceased or incompetent, the surviving spouse, next of kin or legal representative may apply for a review of discharge by writing to the military department concerned, using DoD Form 293. https://www.archives.gov/veterans/military-service-records/correct-service-records.html\n\n\n*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/Veterans) if you have any questions or concerns.*"
+      },
+      {
+        "id": "o8sbh8v",
+        "score": 1,
+        "body": "The parks thing is federal and yes you can still get the America the beautiful park pass\n\nVeteran designation on your DL requires your DD214 with an honorable discharge."
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1rkv3io",
+    "title": "Communication Behavior Survey",
+    "body": "Hello! I am conducting a research study to better understand the nuances of communication styles among veterans in civilian jobs. Your insights are invaluable in helping us bridge the gap and foster more effective professional collaborations. It is quick, and you will remain anonymous. Thank you for your time! Please reach out if you have any questions or concerns.",
+    "flair": "Moderator Approved",
+    "score": 5,
+    "comment_count": 1,
+    "created_at": "2026-03-04T19:32:38+00:00",
+    "top_comments": [
+      {
+        "id": "o8odlbk",
+        "score": 1,
+        "body": "Nah. "
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1rksmct",
+    "title": "Just got out of the navy after six years",
+    "body": "Trying to figure out my next steps. I was a CIWS Tech, so technically have experience in radar, cooling systems, pneumatics, electronics, and mechanics. I\u2019ve been considering just doing an apprenticeship vs going to trade school or college for something, but any advice would be appreciated. I just don\u2019t want to end up working some minimum wage job living paycheck to paycheck. ",
+    "flair": "GI Bill/Education",
+    "score": 7,
+    "comment_count": 10,
+    "created_at": "2026-03-04T18:03:22+00:00",
+    "top_comments": [
+      {
+        "id": "o8oepr4",
+        "score": 1,
+        "body": "Everybody situation is different but I can share mine. \n\nI went to nursing school to become a RN.  Pick a field in psychiatric nursing that nobody wanna do. \nGot my master while I am working full time.  Later went to the VA and continue my career. \n\nNot gonna get rich.  But the job is always going to be there. Experienced nurses make more and experienced count. \n\nNurses can always go admin nursing jobs which is easier on the body and it is good options for nurses who are in their mid or late career. \n\nI can do this job till I no longer want to do and I do have to put more stress on my body. \nAnd no risk of running my own business. \n\n"
+      },
+      {
+        "id": "o8mvdk5",
+        "score": 1,
+        "body": "Use VR&E to start a new career. That's what I did, but I also was MEB'd and can't do the career field of my military experience due to my disability. I used VR&E to get an MFA in Creative Writing at a school in the San Francisco area. One week a semester was in person, so I got the in-person BAH every month. Otherwise it was all online so I didn't have to move (which I couldn't due to family). The $4k/month allowed me to work a comfortable part time job to make ends meet. Shortly before graduating, I found a job in my old squadron by going in and walking around, asking all my old colleagues if they knew of any job openings. One had opened up that same day and I was immediately hired. It's even related to my MFA so VR&E was a resounding success."
+      },
+      {
+        "id": "o8n5p9k",
+        "score": 1,
+        "body": "Use your G.I. bill. You earned it. It's free. If you want to stay in a technical career, you can easily get an engineering technologies degree, if not an engineering degree. That opens a hell of a lot of doors."
+      },
+      {
+        "id": "o8ohuee",
+        "score": 1,
+        "body": "you can either use VR & E for your apprenticeship or consider using gi bill and studying in hybrid programs (work full time and go to school 1- 2 times per term but receive full bah rate). Both of them may help you a lot on paycheck."
+      },
+      {
+        "id": "o8qtl07",
+        "score": 1,
+        "body": "If you like Radar and want to learn the theory I'd say major in EE with a concentration in comms/DSP or CE  digital design/embedded.  Both majors are broad enough for you to pivot. Not sure how old you are or your education level but that is like 5 years of school."
+      },
+      {
+        "id": "o8rld5p",
+        "score": 1,
+        "body": "Hey, fellow CIWS tech veteran here. I too got out after my first enlistment. \n\nYour path is definitely up to you. I've known CIWS techs that either continued as a gov't contractor, went to school, or followed another occupation entirely.\n\nI personally went back to school and am currently working as an engineer. \n\nThe job market is tough affffff. There's alot of qualified individuals who are back in the job market after last year's cuts. Individuals with experience, education, and clearances.\n\nIMHO, it's not a bad idea to go back to school to get skilled up and buy yourself some time for this job market to hopefully get better.\n\nI personally know a former IRS IT gov't employee who took the 6 month severance package and was unable to find a job that fits him. He's now a truck driver which is respectable, but is a far cry from WFH as he once did.\n\nIf you would like to discuss more, shoot me a DM. Good luck!\n\n  \n\n\n"
+      },
+      {
+        "id": "o8squak",
+        "score": 1,
+        "body": "Same experience, but different. \n\nEveryone will experience something different but I did 5 years intel in USMC. We also did security management while in the S2. When I got out, went to work for a prime doing industrial security - which is security management. Went from E5 pay to now, 190k at another prime. Steady jumps over the last 6 years. You have  a TS, the background, and the experience. Go work at a prime doing IT, IA, or ISSO/ISSM work. We paid our help desk IT needs 100k starting off and they watched WoW videos all day between imports. \n\nI also still had enough time to do a full 4 year program in 2 years time, while on the clock due to workload. It comes in waves. "
+      },
+      {
+        "id": "o8n7rsb",
+        "score": 1,
+        "body": "I\u2019m definitely gonna use the GI bill, I\u2019m just struggling to decide what to use it on. I\u2019m not used to having choices, and now that all this is up to me, I\u2019m like internally freaking out"
+      },
+      {
+        "id": "o8n9c7k",
+        "score": 1,
+        "body": "Sure. That makes sense.\n\nMap out your options. Look up programs that sound interesting. The first thing you need to figure out is application dates and requirements. Make a list of half a dozen programs that sounds interesting and figure out where and when you need to apply."
+      },
+      {
+        "id": "o8pwy37",
+        "score": 1,
+        "body": "When you don\u2019t know where to start, it helps to first make a list of all your constraints - finances, geographic location, dependents, age, housing, health, etc. Then write down all the things you did in the military or otherwise that makes you happy as you try to recall. If you feel comfortable doing it, try using genAI tool to see what fields of study or career paths that might fit you well. Consider the list as a starting point and go from there. Also see if you have anyone around you in a particular field you think is worth learning more about, then go talk to that person. Baby steps. Hope this helps! "
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1rkr4h3",
+    "title": "12 years active duty, separating next year. Struggling to get traction with job applications",
+    "body": "I\u2019m about a year out from separating from active duty (honorable) after 12 years and trying to line up a career before I get out, but I\u2019m having a hard time getting traction with applications.\n\nI\u2019m 30, have a family depending on me, and I\u2019m trying to make the smartest move possible before transitioning.\n\nMost of my career has been in operations and readiness environments. I\u2019ve worked on operations planning, readiness reporting, deployment coordination, compliance/security programs, and command-level reporting used for leadership decisions. I\u2019ve supported aviation units, ground units, and special operations environments.\n\nSome of the other things I\u2019ve worked with:\n\n\t\u2022\tClassified systems and operational data analysis\n\n\t\u2022\tInternational travel clearances\n\n\t\u2022\tCommand investigations\n\n\t\u2022\tReadiness reporting and operational metrics\n\nI also spent time as a military recruiter where I managed recruiting operations, tracked performance metrics, and handled sensitive applicant information.\n\nEducation / other info:\n\n\t\u2022\tBachelor\u2019s in Business Administration (Data Analysis focus)\n\n\t\u2022\tActive TS/SCI clearance\n\nJobs I\u2019ve been applying to:\n\n\t\u2022\t1811 positions (this is the only area I\u2019ve had real traction so far)\n\n\t\u2022\tDoD contractor roles\n\n\t\u2022\tOperations / analyst roles\n\n\t\u2022\tAdministrative positions\n\n\t\u2022\tEntry-level cybersecurity\n\n\t\u2022\tFederal GS jobs\n\nMost responses so far have been the standard \u201cwe\u2019re pursuing other candidates.\u201d\n\nFor those who have transitioned or who hire vets:\n\n\u2022 Am I targeting the wrong types of jobs?\n\n\u2022 What fields translate best from this background?\n\n\u2022 What career paths tend to hire people with this kind of experience?\n\n\u2022 Are there certs or skills I should focus on before separating?\n\nI\u2019m open to federal, contracting, or private sector. Just trying to figure out where I realistically fit and what direction gives the best long-term career progression.\n\nAny advice from people who\u2019ve been through the transition would be appreciated",
+    "flair": "Question/Advice",
+    "score": 48,
+    "comment_count": 119,
+    "created_at": "2026-03-04T17:10:05+00:00",
+    "top_comments": [
+      {
+        "id": "o8mnbj3",
+        "score": 47,
+        "body": "Stay in. The job market is not great and you\u2019re going to have a hard time replacing you AD income. "
+      },
+      {
+        "id": "o8mnw72",
+        "score": 43,
+        "body": "The hiring market is currently ass, especially the tech sector. Government isn't hiring, as USAJobs has barely a fraction of the jobs or used to list.\n\nI'd say look into getting a Masters degree. If you're targeting Cybersecurity, look into the Sans Institute."
+      },
+      {
+        "id": "o8mnzqz",
+        "score": 32,
+        "body": "I got out after 13 years and so regret not going 7 more and retiring. Is this separation something your dead set on? With the geo political situation you may not find anything. Are you able to stay in just 8 more and you can retire."
+      },
+      {
+        "id": "o8mrnmq",
+        "score": 11,
+        "body": "Just as I\u2019ve seen it some of the other comments, man I would just stay in and do the eight. That\u2019s two more enlistments and then you\u2019re done retired at 38 from the military. You\u2019re still plenty young to go on and do great things. I really wish I had stayed in because I would\u2019ve retired like four years ago at this point. And with my service connection rating, I would definitely be set. At best just do one more enlistment and wait for the new administration to come and change how budget work for the economy."
+      },
+      {
+        "id": "o8mskcb",
+        "score": 6,
+        "body": "First, and I mean this with no hatred, whatever leadership and management of xyz assets, other members, executed - blah blah., will not count in the real world. \n\nSecond, a year out is too far out to job hunt for anything other than GS gigs. Even those are usually 3-6 months out. For private industry, no one is interviewing and floating an FTE for more than 30-60 days. \n\nThird, be practical, technical on your resume and lose the military lingo. Sounds like you have industrial security, IT/IA experience, etc. you can land on your feet pretty well if done right. \n\nSource - me, a Dir at a prime who went through the same thing and had the same questions you did when I got out 5 years ago. I\u2019ve also hired over 60 vets over my time in industry. "
+      },
+      {
+        "id": "o8mq8wk",
+        "score": 5,
+        "body": "Just to add to the state and county recommendation - city / municipal jobs are out there as well. \n\nMaybe consider something along the lines of emergency operations management. \n\nEdit to add - best wishes in your search."
+      },
+      {
+        "id": "o8mmqkr",
+        "score": 5,
+        "body": "State and County govt usually give vet preference points, too. The 1811 path used to be prohibitively long\u2026 meaning, nobody I ever met stepped off active duty and immediately into salaried spot like that. YMMV \n\nCame back to say, don\u2019t discount a Guard base near where you want to live. It will be part time initially, but there\u2019s a little security for you and fam as you transition."
+      },
+      {
+        "id": "o8mp6un",
+        "score": 2,
+        "body": "With all the RIF in government jobs thanks to this genius administration the prospects aren't near as good as they should be and usually are. I used voc-rehab to get my MSW, where there are always more jobs than most government career fields and even there it's been disappointing to say the least. With the clearances you have id imagine some contracting jobs might open up with what's going on in the world if you're willing to take that risk. Best of luck in the job search."
+      },
+      {
+        "id": "o8n1f5n",
+        "score": 1,
+        "body": "You are looking at a very specific job market, and you also have to change the verbiage. Do not use military jargon if all possible. Find a civilian equivalent to your degree, the rest is filler and doesn\u2019t mean too much in the civilian market. Also, 7 years for a retirement check I would reconsider staying in. I got out after 8, and was back in a year later. Best decision ever, full benefits for the family (won\u2019t even come close in civilian healthcare) and a pension every month. If you decide to get out, take advantage of every transition program they offer. Good luck"
+      },
+      {
+        "id": "o8myxcd",
+        "score": 1,
+        "body": "Stay in... you can do 10 more and retire.\n\nWould highly recommend NOT exiting.\n\nYou're halfway there...pull out now would be a mistake."
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1rkq45t",
+    "title": "No Gi Bill payment",
+    "body": "I still haven\u2019t received my GI Bill housing payment (BAH), and it\u2019s not showing up in my payment history either. Every time I call the VA, they tell me the same thing: *\u201cWe put a ticket in on the 24th and it\u2019s still processing.\u201d*\n\nAt this point, I\u2019m not sure what\u2019s going on or how long this usually takes. Is anyone else dealing with the same issue with their housing payments right now?\n\nJust trying to figure out if this is a broader delay or something specific to my account.",
+    "flair": "Question/Advice",
+    "score": 8,
+    "comment_count": 4,
+    "created_at": "2026-03-04T16:32:49+00:00",
+    "top_comments": [
+      {
+        "id": "o8ogrpp",
+        "score": 1,
+        "body": "I\u2019m still waiting too smh. Something must\u2019ve happened "
+      },
+      {
+        "id": "o8mk6ax",
+        "score": 1,
+        "body": "same boat here, I think they switched systems or something and delayed a lot of payments "
+      },
+      {
+        "id": "o8o5f87",
+        "score": 1,
+        "body": "Did you receive the email notification that your certifying official submitted?"
+      },
+      {
+        "id": "o8sh1yj",
+        "score": 1,
+        "body": "Doesn\u2019t really apply to your situation but I came here because I didn\u2019t get paid either. \n\nThey told me the payment was on hold because I didn\u2019t respond to the text message to verify enrollment.  So for anyone out there, those text are BS lol. \n\nI thought they were and stopped responding last month lol"
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1rkofvh",
+    "title": "Career Advice",
+    "body": "Once I got out of the military in 2016, I got a degree in Electrical Engineering and have been working since. It pays good, but I absolutely hate it. The problem is I don't know what else to do and still make good money. I'm in South Carolina just fyi, I am not interested in moving as I just bought 60 acres and am building a house, trying to start my own little permaculture farm.\n\nI know I shouldn't complain because I'm making a good livelihood and Im rated at 100%, but I'm absolutely miserable at work. Guess I just wanted to see if any of you had any good ideas for me. The cubicle life is killing me. Like I said my undergrad degree is in EE, and I also have an MBA. Rated 100%. Love ag stuff.",
+    "flair": "Question/Advice",
+    "score": 6,
+    "comment_count": 23,
+    "created_at": "2026-03-04T15:30:27+00:00",
+    "top_comments": [
+      {
+        "id": "o8mdiae",
+        "score": 4,
+        "body": "Get hobbies and learn to tolerate the job. "
+      },
+      {
+        "id": "o8m2fo7",
+        "score": 3,
+        "body": "Is 100% in South Carolina not enough to support you? Do you feel a need to have a job?"
+      },
+      {
+        "id": "o8m36yy",
+        "score": 3,
+        "body": "I'm married with 3 kids, wife homeschools the kids, the mortgage alone will be over half the VA money so in my case I do need to work still."
+      },
+      {
+        "id": "o8m96wl",
+        "score": 3,
+        "body": "I have a mechanical engineering degree and work in supply chain for an auto manufacturer. Perhaps you could look into supply chain for some electrical company or components manufacturing located in your area. Leverage your engineering knowledge and try to find an intermediary position between engineering and logistics operations maybe. Perhaps demand or capacity planning. Technical sales positions might be an option too, but personally they're not for me."
+      },
+      {
+        "id": "o8m7x82",
+        "score": 2,
+        "body": "Would you be willing to do field service engineering? Paid well for me but the travel was killing me \ud83e\udd23"
+      },
+      {
+        "id": "o8macc3",
+        "score": 2,
+        "body": "bro i feel that hard. 100% rated and good money but stuck in a cubicle sounds like a special kind of hell. with your ee degree + mba + land, maybe look at remote ag-tech stuff like farm automation or solar setup consulting? you could probably pull 100k+ working for yourself on homestead projects. cubicle life kills more vets than the va sometimes. whats your favorite part of the farm so far?"
+      },
+      {
+        "id": "o8mb3l0",
+        "score": 2,
+        "body": "Consider finding something that you love doing even if it doesn't pay as well. I see that you have a family but your happiness does matter, too. Otherwise, you're basically just working for them. You sound like you get paid well enough to set aside money and work towards something else. Maybe take up woodworking or learn carpentry and start making/selling tables and dressers/ installing cabinets through an LLC?"
+      },
+      {
+        "id": "o8m4p9s",
+        "score": 2,
+        "body": "Is it the engineering itself, or the job that's bothering you? You could look into logistics or supply chain leveraging your MBA. I know engineers typically do well in those positions. I don't know your area and you're set on staying so you just need to figure out what around you might interest you and pay well and apply directly to them. I've done so much better by focusing on companies and applying directly than through job boards and the such. "
+      },
+      {
+        "id": "o8m5kp3",
+        "score": 2,
+        "body": "I used to think it was just the job, but I've had multiple engineering positions now and have not enjoyed any of them, just not my thing I guess. I appreciate your suggestion, and I've thought about using my MBA for something so maybe I'll look into positions like you mentioned."
+      },
+      {
+        "id": "o8m9n1f",
+        "score": 2,
+        "body": "There is a massive EV plant being built not far from where I live, I just might look into that. I'm not a sales guy either, I think most engineers don't have the sales personality. Especially vets \ud83e\udd23 no filter"
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1rkfkx6",
+    "title": "Im just a problem",
+    "body": "Messed up stuff at home and left to distance myself. I think its time I stop being a burden and leave everyone forever. Don't want to be a problem for people",
+    "flair": "Call for Help",
+    "score": 22,
+    "comment_count": 30,
+    "created_at": "2026-03-04T07:56:50+00:00",
+    "top_comments": [
+      {
+        "id": "o8k77uf",
+        "score": 9,
+        "body": "Problems are only temporary life is like a roller coaster slow steep scary smooth.if you want or need to talk you can."
+      },
+      {
+        "id": "o8k9imr",
+        "score": 7,
+        "body": "Also open to talk.\u00a0 \u00a0I have going through some dark stuff, but I still have so many people I want to piss off.\u00a0 It keeps me going."
+      },
+      {
+        "id": "o8kt2le",
+        "score": 6,
+        "body": "That comes later.  Right now, just keep walking !  "
+      },
+      {
+        "id": "o8kbniv",
+        "score": 5,
+        "body": "Leaving forever is never the answer\n\nDude my ex left me, i pushed and ghosted friends, and i literally lost almost everything.\n\nThere are times you will hit rock bottom and be at your worst and seeing people will make you cringe, shrivel up, and hide. \n\nHowever, keep going and never give up.\n\nIt is what it is go back and apologize for your behavior and take accountability.\n\nGood luck OP"
+      },
+      {
+        "id": "o8kswue",
+        "score": 3,
+        "body": "Whoa whoa whoa Nelly!   That\u2019s a permanent solution to a temporary problem.  Call a battle buddy "
+      },
+      {
+        "id": "o8l9v3b",
+        "score": 3,
+        "body": "That\u2019s the voices telling you that you\u2019re a burden. Mine do it all the time. I fight back by going out and being around friends. Or sometimes I\u2019ll just take myself out on a me date and do things I like to do like get a beer and be outside or walk around a local park with a nice view. \n\nDo activities you enjoy with or without people. It helps boost the brain."
+      },
+      {
+        "id": "o8m3y3z",
+        "score": 3,
+        "body": "I also distance myself and become very detached from any and everything. It\u2019s an unfortunate thing we do, seems mainly common in vets with PTSD but take it from someone who became enveloped by that.. it only makes things worse. Find someone to talk to, even it\u2019s the crisis line. Anyway I\u2019m not good at the cheering up others thing, but I truly hope you find some peace even if temporary. There\u2019s still a lot of life left to live, brother. "
+      },
+      {
+        "id": "o8k7ip0",
+        "score": 2,
+        "body": "try to be calm.\n\nthink of some creative strategy for the future & survival that doesnt involve finality.\n\nAnd find caring supportive people. Maybe try to find mental health resources"
+      },
+      {
+        "id": "o8kfs0s",
+        "score": 2,
+        "body": "Taking ownership helps.\nAdding on:  I don\u2019t say this lightly.  It can be  difficult, but not so great a challenge that cannot be overcome.  It will require purposing yourself to do it though"
+      },
+      {
+        "id": "o8k5quk",
+        "score": 1,
+        "body": "'Have you looked in the **[Wiki]( https://www.reddit.com/r/Veterans/wiki/education)** for an answer? We have a lot of information posted there. \n\nTo contact VA Education, 1-888-442-4551, for ~~Voc Rehab~~ VR&E (Veteran Readiness and Employment Program) assistance with appointments or problems with your Case Manager (not for missing payments): 1-202-461-9600. \n\n**Payments for certain education benefits (DEA, VEAP) are paid at the end of the month you attend school - Department of Treasury issues these payments **using a 10 business day window** - these payments are not locked into a specific day of the month like VA disability/military pay is**. For Voc Rehab missing payments, contact your Case Manager or your local **[VA Regional Office](https://www.knowva.ebenefits.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001018/content/554400000260849/VRE-Officers-and-Contact-Information)\n\nFor Post 9/11 GI Bill only, If you signed up for direct deposit when you applied for education benefits, **we\u2019ll deposit your payment into your bank account 7 to 10 business days after you verify your school enrollment.** This is the fastest way to receive your payment. [Text Verification FAQ](https://benefits.va.gov/GIBILL/docs/IsaksonRoe/EnrollmentVerificationFAQs.pdf)\n\nMGIB and MGIB-SR and DEA CH 35 have to do [monthly verification](https://www.va.gov/education/verify-school-enrollment/) and you should receive the payment within 3 to 5 business days.\n\nFor Online Only training, the Post 9/11 GI Bill is currently **(1 August 2025) paying $1169.00** for those who started using their Post 9/11 GI Bill on/after 1 January 2018 - this is based on 1/2 of the National Average BAH paid to an E5 with dependents. Post 9/11 GI Bill MHA rates are adjusted 1 August of each year and are based on the 1 January DoD BAH rates for that year - **so VA can't use 1 January 2025 BAH rates until 1 August 2025** - for those who started training on/after 1 January 2018, the MHA rates are 95% of the DoD BAH rates. First possible payment for the 1 August 2025 increase is 1 September.\n\nFor VR&E, there are two different Subsistence Allowance programs - https://www.benefits.va.gov/vocrehab/subsistence_allowance_rates.asp The P9/11 Subsistence Allowance is based on the BAH paid to an E5 with dependents. Those who started using VR&E on/after 1 January 2018 receive 95% of the BAH paid to an E5 with dependents. **As of 1 January 2026 Online only students using VR&E are being paid $1198.00** if they started using VR&E on/after 1 January 2018. The CH31 Subsistence Allowance rates are adjusted 1 October each year by Congress.\n\nVA Education is going paperless - make sure VA has a current email address for you. Please make sure you add Veteransbenefits@messages.va.gov to your contacts list so that you don't miss important updates from VA.\n\n[VA Award Letter explanation](https://benefits.va.gov/gibill/understandingyourawardletter.asp)\n\n[Contact a VR&E Supervisor](https://www.knowva.ebenefits.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001018/content/554400000260849/VRE-Officers-and-Contact-Information)\n\n [VA Rudisill Decision](https://benefits.va.gov/gibill/rudisill.asp) - some veterans may qualify for an additional 12 months of a second GI Bill based on serving two or more different periods of active duty service.\n\n\n*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/Veterans) if you have any questions or concerns.*"
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1rkeks7",
+    "title": "Transportation to a veterans funeral",
+    "body": "I recently lost one of my good friends from when we were in the Navy, and there's no way around it, Im going to his funeral. The big problem im having is plane ticket prices are ridiculous right now ($1,200). Im in Oregon and need to go to Kentucky. The funeral is on March 24th.  Do any of you know of a service that provides flights for these kind of things, or a way to get better prices? \n\nIve looked at angel flights, air charity, red cross and they all basically say they wont do it. (Unless i can convince them I need to see the VA in Kentucky for some reason \ud83e\udd14) so in a desperate hope someone has some insider knowledge please share! \n\nThank you for reading, and sharing any input and help you can offer. ",
+    "flair": "Question/Advice",
+    "score": 11,
+    "comment_count": 6,
+    "created_at": "2026-03-04T06:56:27+00:00",
+    "top_comments": [
+      {
+        "id": "o8ko1zp",
+        "score": 31,
+        "body": "Airline pilot here. Look at your airport selections. Googleflights shows Alaska right around $500 round trip from Portland to Nashville 23-25 March\n\nOther than that, some airlines still offer bereavement fares although it has to be immediate family\n\nI\u2019m sorry for your loss"
+      },
+      {
+        "id": "o8lxb27",
+        "score": 15,
+        "body": "Thank you, I didnt realize the huge price difference between airports! Thats a way better price! Im flying pdx to CVG now for around $500. "
+      },
+      {
+        "id": "o8kjz2l",
+        "score": 6,
+        "body": "Not sure a service like that exists. Have you considered flying into or out of a different airport and driving?"
+      },
+      {
+        "id": "o8lxlg8",
+        "score": 6,
+        "body": "Glad you found something! Safe travels"
+      },
+      {
+        "id": "o8lgvhl",
+        "score": 3,
+        "body": "Do you qualify for space A?  I don't know if getting on cargo planes still exists or if you need to be active duty or something.   \nI know space isn't guarrenteed, so you'd need to give youself plenty of time.\n\nOf course space A won't get you super close but it might get you close enough to drive or get a cheaper flight.\n\nOr do you have anything you can sell to finance the trip?\n\nAnd just driving the hole way as mentioned might be an option."
+      },
+      {
+        "id": "o8mgixk",
+        "score": 1,
+        "body": "$1200? That doesn\u2019t sound right. Find another airport. "
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1rk90d5",
+    "title": "Are there any resources for spouses of disabled veterans when they abandon the household?",
+    "body": "My husband is a combat veteran and has been struggling mentally. Recently he snapped and left our household in a really difficult position. I\u2019m trying to figure out how to navigate all of this while also protecting the safety and stability of my home and family. One of the biggest issues I\u2019m facing is that he has stopped paying rent and cut off financial support. Because of that, I\u2019m suddenly trying to figure out how to cover rent and basic bills on my own.\n\nI know many veterans struggle with the effects of war and disability, and I have compassion for that. But at the same time, I\u2019m now in a position where I have to keep a roof over our heads and keep my family safe.\n\nAre there any programs, organizations, or resources that help spouses of veterans in situation like this? Especially emergency assistance for things like rent or utilities?\n\nI\u2019m having a hard time finding support that is specifically for the wife or family of the veteran, and I would really appreciate any guidance from people who may have seen or dealt with this before.\n\nThank you.",
+    "flair": "Question/Advice",
+    "score": 7,
+    "comment_count": 6,
+    "created_at": "2026-03-04T02:13:27+00:00",
+    "top_comments": [
+      {
+        "id": "o8jkviq",
+        "score": 11,
+        "body": "Call the VA and ask for a social worker.  \nCall the state or county VA office.\nCall the American Legion and VFW near you.  \nThese people should be able to point you to resources.  \nAll the best"
+      },
+      {
+        "id": "o8kcgn0",
+        "score": 6,
+        "body": "Sorry you are going through this it can be very scary. Here are some things I would do OP.\n\n\n\n1) Call the bank where you pay your mortgage and let them know of the situation and ask for an extension of payment or something of the sort. Basically hardship.\n\n2) call the VA and let them know your situation and ask for resources. \n\n3) call **Operations home front** and or **USA Care** and ask about emergency rent, groceries help, car payments, and other financial crises \n\nCall **National Coalition for Homeless Veterans** and ask for help with Evictions 8774243838\n\n4) go to your utilities account online, call your utilities company, or ask for your utilities account in person and ask to move the dates you pay utilities and your phone bill. as reasonably far as you can.\n\nSign up for school and use your spouse GI bill and get like 1400+ a month while going full time to school. Only one class needs to be on campus the rest can be online\n\n\u2014-\n\nOkay so a month or 2 goes by and your partner has not returned you need to contact a family lawyer and get temporary spousal support, alimony, child support, and tell the lawyer your situation.\n\nYou can call you **Stateside Legal** for free advice before hiring a professional.\n\nGood luck OP"
+      },
+      {
+        "id": "o8j8ys7",
+        "score": 2,
+        "body": "Are you part of any veterans organizations like tge American Legion or DAV or VFW.  The local Legion post helps vet families too when things are bad.  May wantvto reachnoutvto them locally."
+      },
+      {
+        "id": "o8k3lnm",
+        "score": 2,
+        "body": "Not sure if your VSO could help, but I think it\u2019s worth a try!"
+      },
+      {
+        "id": "o8mk7p8",
+        "score": 1,
+        "body": "General location might get you more specific help.  Here in South Florida if you call the local VA hospital they can put you in touch with folks that might be able to help.  Best of luck."
+      },
+      {
+        "id": "o8qyrbu",
+        "score": 1,
+        "body": "Do you guys have kids? Cause you didn\u2019t mentioned kids at all and just kept saying family? Are they pets by any chance? Maybe downsizing would help and can easily be done since you\u2019re not on a mortgage or forced to go on foreclosure, since you guys are only renting? Did he support through working or from a VA compensation? Do both of you work? Unemployment benefits, possibly, if you\u2019re not working. What have you tried that hasn\u2019t helped your situation? Maybe miscalculation on a few steps to execute for an assistance program available to your category of dependency? Cause you\u2019ve only mentioned specifically only needing help on rent and utilities. Is this a home size problem and/or work problem? Need more details to maybe help guide you to what your situation is applicable to."
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1rk7s3e",
+    "title": "If you\u2019ve dealt with regret of getting out, how do you deal with it?",
+    "body": "I got out because I deployed so much and I really wanted to be able to be home with my husband and daughter. I am home so much more now, have a job that doesn\u2019t work me to the ground, and everything else is doing ok. \n\nI really never wanted to get out but my daughter and husband mean so much to me so I know it\u2019s best. Idk I guess I\u2019m just sad that it ended that way. I really loved being in but my family means more. Just sucks to feel both ends. \n\nI took a job a few months ago working as a civilian contractor doing the same job I did while in. I really thought that would fulfill what was missing since it\u2019s the same shit, and I\u2019m with so many friends I\u2019ve been stationed with in the past. Idk it\u2019s just not the same tho. I am a very lucky person but I\u2019m just so gutted I guess. It\u2019s been about a year now and I still feel the same way. I feel kinda dumb, for throwing away 10 years like that, but I also feel great that I have so much more time with my family. My little girl is everything to me and my husband and I have really strengthened our marriage. I feel like an asshole, for having so much regret for getting out though. ",
+    "flair": "Question/Advice",
+    "score": 14,
+    "comment_count": 15,
+    "created_at": "2026-03-04T01:18:30+00:00",
+    "top_comments": [
+      {
+        "id": "o8j15kw",
+        "score": 6,
+        "body": "That nostalgia is common.\n\nWhy not look into Reserve/Guard?\n\nIf those aren't good options then your State Guard (different than Reserve/Guard)?\n\nAll those organizations are filled with people that had separated and came back in to serve again in a different capacity."
+      },
+      {
+        "id": "o8jdhbb",
+        "score": 5,
+        "body": "Finding non-military friends helped me out a lot. I still talk with my military buds regularly, but I also have friends who never served and it really grounded me during my transition out of active duty."
+      },
+      {
+        "id": "o8is1ti",
+        "score": 4,
+        "body": "I feel the same regrets about getting out but mine was a mix of bad supervisors/air forceisms. My therapy has turned into \u201cwhy do I feel so much when I think about regretting getting out\u201d & it\u2019s complex. Ultimately, I\u2019m happier. I can\u2019t kick myself with regret, because I could be in working myself to the bone & frayed out from stress, wishing I got out when I had the chance. I miss the military I had in my brain during the good times, but it wasn\u2019t all good times & I can\u2019t let it eat at me & discredit the good times I\u2019ve had since then as a free person. "
+      },
+      {
+        "id": "o8irq8q",
+        "score": 3,
+        "body": "I did for the first year I was out mostly because I was lost on what to do and I missed my friends while in. I then found a group of people who I get along with and now I would dread going back to that life. I also got married so that helped."
+      },
+      {
+        "id": "o8j81ts",
+        "score": 2,
+        "body": "I missed the camaraderie so I started taking jiu jitsu classes, strength training classes, sniper competitions, handgun competitions, etc. not all at once. I kind of rotated around alot of these different hobbies. I think joining my local SAR team would be really rewarding and is my next challenge."
+      },
+      {
+        "id": "o8kxtjr",
+        "score": 2,
+        "body": "Sorry you feel that way. Imagine the alternative life...if you had stayed in. What would be the stressors? What would have been the consequences? What would have been the pros? If you reflect on what might have been if you stayed in...why do you still regret it? "
+      },
+      {
+        "id": "o8jcj08",
+        "score": 1,
+        "body": "I think people's feelings about being in will be heavily tied to how fortunate they were when they were in. I got stuck with s#ithead leadership who clearly chased after cutting score rather than maturing and developing good leadership traits so they all acted one or two grades below their rank, which of course provides the juniors with no guidance other than to do the same or follow the \"sink or swim\" progression channel.\n\nI sometimes think about going back in until I think a little more and realize it's not worth it. I don't need someone to tell me what to do or how to live. What WOULD be good, though, is if civilians had a modicum of decency and discipline to do their jobs properly and to the best of their ability and conduct themselves professionally while at work. I'd have no problem if they could do that but that's my biggest hurdle as a civilian and I've left a number of jobs due to poor working climate and unprofessionalism from coworkers. Unfortunately, that just seems to be how the civilian working sector operates."
+      },
+      {
+        "id": "o8jnj6o",
+        "score": 1,
+        "body": "I rolled over and went back to sleep. I missed a lot of things about my time in the Army. I learned to focused on not having to do dumbsh@t because someone said too. If I want to take a mental health day and not go to work I do."
+      },
+      {
+        "id": "o8k437g",
+        "score": 1,
+        "body": "I was injured. My wife convinced me to retire as I had over 20 already. Took me a few years to get over leaving the job I loved\u2026 now years later, glad I left when I did. Soon to be retiring from my post-military job."
+      },
+      {
+        "id": "o8lnyyt",
+        "score": 1,
+        "body": "Have you considered affiliating with a reserve unit?  It might quench your thirst for the camaraderie, and at the same time allow you to salvage those ten years you spent on active duty.  "
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1rk78w7",
+    "title": "US identifies troops killed during actions against Iran",
+    "body": "Rest in Peace, soldiers \ud83d\ude4f. \n\nhttps://www.militarytimes.com/news/your-military/2026/03/03/us-identifies-troops-killed-during-actions-against-iran/",
+    "flair": "Article/News",
+    "score": 169,
+    "comment_count": 28,
+    "created_at": "2026-03-04T00:55:15+00:00",
+    "top_comments": [
+      {
+        "id": "o8ik0od",
+        "score": 45,
+        "body": "Unnecessary casualties. RIP \ud83d\udd4a\ufe0f "
+      },
+      {
+        "id": "o8iot9b",
+        "score": 26,
+        "body": "Youngest was 20 years old "
+      },
+      {
+        "id": "o8ik7vb",
+        "score": 25,
+        "body": "May they Rest in Peace\ud83c\uddfa\ud83c\uddf8"
+      },
+      {
+        "id": "o8ktaor",
+        "score": 15,
+        "body": "I keep thinking about how these guys weren't grunts. They were part of a sustainment brigade. I don't know their jobs, but I guarantee you they never expected to be in this situation. I don't know, it just hits me harder for some reason. I was a Marine grunt with multiple combat tours. It was more expected for us. But these poor guys and their families. \n\nThis might be the first war where the mortality rate for non combat roles will be higher than boots on the ground. Admin, pilots (yes they are combat jobs but stick with me) support staff, embassy staff. It's something to think about. Have we entered a new era of war in civilization where an entire war is fought with technology and no grunts?\n\nJust something I've been thinking about. Seems like a shift in the paradigm."
+      },
+      {
+        "id": "o8jz0hd",
+        "score": 13,
+        "body": "SPC was too young to die like this, solider or not. Not old enough to drink, but he was old enough to die"
+      },
+      {
+        "id": "o8irnql",
+        "score": 11,
+        "body": "Condolences to their loved ones.  RIP"
+      },
+      {
+        "id": "o8ijwiu",
+        "score": 11,
+        "body": "God bless these Soldiers and their families.  \ud83d\ude4f "
+      },
+      {
+        "id": "o8ijimw",
+        "score": 10,
+        "body": "Rip!"
+      },
+      {
+        "id": "o8j6vfr",
+        "score": 7,
+        "body": "So many of our brothers and sisters are laid to rest for what?"
+      },
+      {
+        "id": "o8j7j27",
+        "score": 7,
+        "body": "God bless them. I wish they made it back home. "
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1rk53z4",
+    "title": "IRS took my refund to pay for my article 15 overpayment from over 15 years ago",
+    "body": "I just got an IRS offset letter saying they paid the DFAS. Apparently when I got an Article 15, over 15 years ago I was overpaid and incurred a debt but they never found out until 15 years later?! ",
+    "flair": "Question/Advice",
+    "score": 45,
+    "comment_count": 29,
+    "created_at": "2026-03-03T23:24:40+00:00",
+    "top_comments": [
+      {
+        "id": "o8i2csh",
+        "score": 72,
+        "body": "Uncle Sam never forgets. He may let shit slide for a bit but he never forgets."
+      },
+      {
+        "id": "o8i2tjw",
+        "score": 27,
+        "body": "That's probably what the 15 stands for. 15 Years \ud83d\ude02"
+      },
+      {
+        "id": "o8i2loz",
+        "score": 15,
+        "body": "Death and taxes."
+      },
+      {
+        "id": "o8iqkvz",
+        "score": 13,
+        "body": "The IRS doesn\u2019t audit back more than three years on individuals unless there is an omission of 25% or more of income or fraud."
+      },
+      {
+        "id": "o8i7oq8",
+        "score": 12,
+        "body": "Uncle Sugar has long arms. "
+      },
+      {
+        "id": "o8iih0e",
+        "score": 12,
+        "body": "DFAS is relentless. Abandon all hope who owes them."
+      },
+      {
+        "id": "o8ijtwy",
+        "score": 11,
+        "body": "IRS didn\u2019t take it, DFAS did."
+      },
+      {
+        "id": "o8k1c80",
+        "score": 9,
+        "body": "Be happy they did not charge you interest for the fifteen years."
+      },
+      {
+        "id": "o8ibvfg",
+        "score": 9,
+        "body": "The green weinie stays hard for a long time. It's never too late to strike again."
+      },
+      {
+        "id": "o8jdxxf",
+        "score": 8,
+        "body": "it was a countdown"
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1rk47xt",
+    "title": "Separated, never got DD-214",
+    "body": "Hello everyone, I separated about a month ago and never received my DD-214. I was told it would arrive no later than a week after my discharge date. The VA has been sending me letters in regards to my GI benefits, but no DD 214. Anyone have advice on what to do? ",
+    "flair": "Question/Advice",
+    "score": 9,
+    "comment_count": 25,
+    "created_at": "2026-03-03T22:49:18+00:00",
+    "top_comments": [
+      {
+        "id": "o8hxglu",
+        "score": 12,
+        "body": "I\u2019m assuming things are Being done differently now?\nI remember I walked in\u2026 signed my dd214 some copies were given to me and one was kept at their end"
+      },
+      {
+        "id": "o8ik841",
+        "score": 6,
+        "body": "Different branches of service have different policies. Air Force all ways emails the DD 214 the day after separation in a password protected format for you to download. Navy has been screwed up for the last couple of years - most posts like this one are usually Navy."
+      },
+      {
+        "id": "o8i1qvy",
+        "score": 4,
+        "body": "They\u2019re supposed to hand you the DD-214 upon discharge. If they didn\u2019t then you should go to the National Archives website eVetRecs and submit for a copy."
+      },
+      {
+        "id": "o8ip9yo",
+        "score": 3,
+        "body": "Oh that\u2019s fair. I was Army. I exchanged my CAC for my DD214 and walked out."
+      },
+      {
+        "id": "o8in7wi",
+        "score": 3,
+        "body": "Most of the time it\u2019s sent out by email. There are multiple posts asking what password to use over in /r/airforce"
+      },
+      {
+        "id": "o8hxqz9",
+        "score": 2,
+        "body": "auto moderator below has some useful links, i'd recommend starting there."
+      },
+      {
+        "id": "o8ijyjg",
+        "score": 2,
+        "body": "VA doesn't send out your DD 214 because VA didn't discharge you - the military did and VA is not part of the military. You need to contact the transition point where you separated to obtain your DD 214. Or login to MilConnect and see if it's been loaded into your OMPF."
+      },
+      {
+        "id": "o8imu2w",
+        "score": 2,
+        "body": "I guess things changed. I signed mine and walked out with it when I separated"
+      },
+      {
+        "id": "o8ikgs4",
+        "score": 2,
+        "body": "Different branches of service have different policies on issuing the DD 214. Air Force emails a link the day after last day on active duty to download copies of your DD 214. Navy has been screwed up for the past couple of years and most of the posts like this one come from the Navy."
+      },
+      {
+        "id": "o8jilwa",
+        "score": 2,
+        "body": "You mean call my last base? "
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1rk27fs",
+    "title": "Anyone have experience with the DD Form 293?",
+    "body": "For background: I got administratively separated last year and now I\u2019m applying for a reenlistment code upgrade from RE4 to RE3. Regardless of the cause of separation(for medical reasons), does anyone have any experience with this form? Anyone experience any success from this form?\n\nHere is my statement for the board to grant my request, thoughts? \n\nDuring my service, I faced medical and behavioral health challenges that were formally diagnosed by X (doctor) at X (place). These conditions were attributable to sexual harassment and assault I had to endure by X (person), a superior to me. After discharge, I went through formal counseling at a VA facility and since then, feel confident in my ability to reenlist and serve. During the time of error, I had spurts of underage drinking and upon my command finding out, sent me to a 6-week inpatient substance abuse program that I benefited from. The issue was successfully addressed without reoccurrence. I was discharged due to minor infractions and underage drinking, both of which I were done without thinking of the consequences and both of which I have learned from. I respectfully request that the board grant the RE4 to RE3 to allow reenlistment. ",
+    "flair": "Question/Advice",
+    "score": 6,
+    "comment_count": 2,
+    "created_at": "2026-03-03T21:31:13+00:00",
+    "top_comments": [
+      {
+        "id": "o8i4qwj",
+        "score": 2,
+        "body": "I , personally am not familiar with this form.\nI wanted to leave my opinion concerning your statement. You make a great argument for reinstatement and it may even be accepted. \nOut of curiosity, are you 21 yet? As this may alleviate scrutiny and help your case. I also feel that that all things should be considered, as far as your unfortunate circumstances, which I am sorry you had to endure such a thing. With supporting documentation from the VA mental health department physicians would also give you much more of a chance.\n\nGood luck to you."
+      },
+      {
+        "id": "o8isnjg",
+        "score": 2,
+        "body": "Thanks for your encouraging words, I\u2019m 19. I was in Japan when this happened and the age limit for drinking there is 20 lol. I think the DD Form 149 is the one that\u2019s widely known for correction of service records but I couldn\u2019t spot the difference between DD Form 149 and DD Form 293. Thanks for your response"
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1rjzspv",
+    "title": "Any one take a math class at AMU?",
+    "body": "I want to know if anyone took calculus or applied statistics at AMU? If so are the exams proctored? I just need to check a box",
+    "flair": "Question/Advice",
+    "score": 5,
+    "comment_count": 0,
+    "created_at": "2026-03-03T20:02:16+00:00",
+    "top_comments": []
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1rjz6mo",
+    "title": "Service to School Staff Member Here: Very shitty infantryman with 0 deployments and 1.9 HS GPA and was accepted to Columbia University. Let me help you do it too!",
+    "body": "Hi everyone,\n\n  \nAs the title mentions, I was an infantryman with zero deployments. I was stationed in Germany in an OPFOR unit. I was an extremely below-average soldier with no experience as an NCO, no specialized schools, or awards. In high school, I had a 1.9 GPA and no real goals other than play video games and make it through the day. \n\n  \nAfter leaving the military, I enrolled in community college and joined two nonprofit organizations that helped me change the course of my life. I signed up for the Warrior Scholar Project, an academic boot camp program for veterans, and Service to School; who help veterans get into top colleges by assigning them mentors. Each person is assigned one mentor who attends one of the schools on your list (if they have one there), and they will help you with your essays and applications for all of your schools. \n\n  \nThe Warrior Scholar Project gave me the academic foundation needed to be successful while in college and Service to School helped me get admitted into my dream university (twice). \n\nAfter completing my Warrior Scholar Project cohort, I earned my Associate's degree with a 3.8 GPA and was selected as the graduation speaker for my community college. My Service to School mentor was instrumental in helping me get into Columbia University for my undergraduate degree. \n\n  \nAfter starting my undergraduate degree, I became a volunteer mentor at Service to School and was eventually hired as their Director of Alumni Programming. I now assign mentors to veterans applying to MBAs, Law Schools, Master's Programs, and PhD programs while studying full-time at Columbia University for my Master's degree.\n\nI'm not making this post to brag about getting into school; I'm making it to show others that it is possible to get into a high-level school, and you should not self-select out of the process. \n\nIf you have questions about Service to School, applying to college, need application advice, or just need reassurance that it's possible, please feel free to comment here or DM me. I want to see every veteran get into their dream school, whether it's a liberal arts college, a public school, a private institution, or a trade school. \n\nIf you want to earn a bachelor's degree, click this link: [https://www.service2school.org/undergraduate-admissions](https://www.service2school.org/undergraduate-admissions) \n\nIf you want to earn a graduate degree, click this link: [https://www.service2school.org/graduate-school-admissions](https://www.service2school.org/graduate-school-admissions) \n\nIf you want to learn more about the Warrior Scholar Project, click here: [https://www.warrior-scholar.org/](https://www.warrior-scholar.org/)",
+    "flair": "GI Bill/Education",
+    "score": 101,
+    "comment_count": 16,
+    "created_at": "2026-03-03T19:40:18+00:00",
+    "top_comments": [
+      {
+        "id": "o8hdaff",
+        "score": 9,
+        "body": "Thank you for this, these look like amazing resources. I'm looking to apply for graduate programs soon and it's been an intimidating and nerve racking experience so far. I already have a bachelor's but I think I'll try applying for the Warrior Scholar Project still, and see what happens. Thank you so much!"
+      },
+      {
+        "id": "o8i87yu",
+        "score": 3,
+        "body": "That\u2019s incredible, and you\u2019re awesome for giving back to the community. Keep doing good things \ud83e\udee1"
+      },
+      {
+        "id": "o8isptc",
+        "score": 3,
+        "body": "Way to go!!"
+      },
+      {
+        "id": "o8hfq9t",
+        "score": 2,
+        "body": "That's awesome! I'm waiting for May to be assigned my mentor. I didn't know S2S also helped with masters/PhD."
+      },
+      {
+        "id": "o8i6ltv",
+        "score": 2,
+        "body": "Fuck ya. Great stuff. Thanks for sharing"
+      },
+      {
+        "id": "o8imj4d",
+        "score": 2,
+        "body": "What\u2019s up fellow 1-4 alum. I only got one more semester after this one to get my BS in Comp Sci, but love the work you\u2019re doing! "
+      },
+      {
+        "id": "o8iuwi1",
+        "score": 2,
+        "body": "What years were you there? "
+      },
+      {
+        "id": "o8j2asb",
+        "score": 2,
+        "body": "Want to be a moderator for the Service2School subreddit? "
+      },
+      {
+        "id": "o8izrqx",
+        "score": 1,
+        "body": "I had a 1.72 HS GPA and got into Berkeley, and a full ride to UT Austin (declined). Only applied to these two. \n\nI can also explain if anyone wants to know. "
+      },
+      {
+        "id": "o8j3h5o",
+        "score": 1,
+        "body": "Thank you for sharing this wealth."
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1rjyvid",
+    "title": "Undocumented Veterans",
+    "body": "I\u2019m so livid. I know I\u2019m not alone. We just got word at the VA that if any of our Veterans who have document issues can\u2019t get their legal status in 30 days they lose their hud voucher immediately. We have a few. I\u2019m about in tears.",
+    "flair": "Discussion",
+    "score": 217,
+    "comment_count": 201,
+    "created_at": "2026-03-03T19:28:40+00:00",
+    "top_comments": [
+      {
+        "id": "o8gx03d",
+        "score": 315,
+        "body": "Veterans should get citizenship for serving the country"
+      },
+      {
+        "id": "o8gsrnb",
+        "score": 126,
+        "body": "We have been deporting veterans for decades.  Decorated veterans.  Vets with the Purple Heart.  Once deported, they lose VA access.  \n\nThis is bullshit.  \n\nI believe that veterans should be citizens.  If a veteran breaks the law, they need to be tried here in the USA, and punished here in the USA, like any other citizen.  \n\nWe are a country that can throw away those people who volunteered to support this country, even those who fought for this country.  \n\nIt is a disgrace."
+      },
+      {
+        "id": "o8h11i1",
+        "score": 108,
+        "body": "The citizenship process is expedited when you serve overseas, that\u2019s how I got mine so quick after serving in OIF (4 yrs green card vs. the normal 12)"
+      },
+      {
+        "id": "o8gtm9c",
+        "score": 43,
+        "body": "You do not get \"automatic\" citizenship for serving, there is a paperwork process that needs completed. Not everyone was fortunate enough to have a command that cared enough to inform foreign service members.\n\nhttps://www.congress.gov/crs-product/R48163#_Toc175137526"
+      },
+      {
+        "id": "o8hsnb2",
+        "score": 42,
+        "body": "I got my citizenship in 2003 after 3 years honorable service. I don\u2019t know if that policy still exists. But I was a resident, not undocumented."
+      },
+      {
+        "id": "o8grbqi",
+        "score": 29,
+        "body": "They\u2019re saying HUD\u2011VASH is now cutting off vouchers if a vet has a documentation or legal\u2011status issue that isn\u2019t fixed within 30 days. That\u2019s nowhere near enough time, so staff are freaking out because it basically puts vulnerable vets at risk of losing housing over paperwork delays."
+      },
+      {
+        "id": "o8hfgh7",
+        "score": 29,
+        "body": "It takes a little bit of legwork on your end but that\u2019s how the process works. Like just do the paperwork and follow up on it - you eventually get citizenship.\n\nOr you straight up do nothing your whole enlistment and ask 0 questions to anybody. Which seems like how it worked out for the people OP knows?"
+      },
+      {
+        "id": "o8gvf7q",
+        "score": 27,
+        "body": "[HUD orders citizenship verification for 200,000 tenants within 30 days](https://www.yahoo.com/news/articles/hud-orders-citizenship-verification-200-164100791.html)"
+      },
+      {
+        "id": "o8gz5ls",
+        "score": 27,
+        "body": "I had a PSG who wasn't a US citizen, but a US National. He can't even vote. He's from American Samoa. He served for almost 24 years."
+      },
+      {
+        "id": "o8gv8i2",
+        "score": 26,
+        "body": "Even if you serve in the military you still have to apply for citizenship. It\u2019s naturalization through military service that provides an accelerated path. \n\nhttps://www.uscis.gov/military/naturalization-through-military-service\n\nOnce citizenship is granted, they don\u2019t have to apply again. I\u2019m not sure how veterans are being deported unless they didn\u2019t file the paperwork. You can file after 1 year of serving. "
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1rjxs5n",
+    "title": "Hello fellow vets",
+    "body": "I was wanting to go to school for mechanical engineering online. Which colleges would yall recommend?",
+    "flair": "GI Bill/Education",
+    "score": 6,
+    "comment_count": 4,
+    "created_at": "2026-03-03T18:48:48+00:00",
+    "top_comments": [
+      {
+        "id": "o8gnyyn",
+        "score": 3,
+        "body": "For mechanical engineering I do not recommend going to a degree mill type of school. I'm not familiar with any online only mechanical engineering schools with good reputations, but that doesn't mean they don't exist. You need to ensure that whichever school you consider is ABET accredited. If your BSME isn't ABET accredited, then you don't have a BSME.\n\nMechanical Engineering requires lab work and I'm not sure how that will/would work in an online only curriculum. The course load is also pretty difficult, so you need to ensure that you're effectively able to understand quickly or able to teach yourself complex topics. On top of this, you will need internships as the degree without relevant experience will not get you far in engineering specific positions. I took a gamble and kept my stable job instead of taking on internships and I was unable to get calls back from any engineering positions, although I did end up with a good job in logistics."
+      },
+      {
+        "id": "o8hfik2",
+        "score": 3,
+        "body": "for mech engineering, I suggest you go to a hands on school. don't cheat yourself."
+      },
+      {
+        "id": "o8huhud",
+        "score": 3,
+        "body": "Good state school in your area I dropped out due to financial difficulties while going through just keep you head down and grind it away"
+      },
+      {
+        "id": "o8ot9a4",
+        "score": 1,
+        "body": "It would be better if you start to look for what your benefits can support you now and you can consider using VR&E if you are eligible. I don't suggest you do online because you will not be able to utilize your benefits. You can consider doing hybrid programs which offering full benefits and visit the schools for labs 1-2 times per term."
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1rjv4zi",
+    "title": "Army Retired, 100P&T..looking to start full time travel in a van.",
+    "body": "in terms of Healthcare, how do I schedule annual appointments or emergency appointments while I'm on the road. I do have humana and VA health care. any guidance is certainly appreciated. \u262e\ufe0f\ud83d\udc99",
+    "flair": "Question/Advice",
+    "score": 12,
+    "comment_count": 12,
+    "created_at": "2026-03-03T17:15:07+00:00",
+    "top_comments": [
+      {
+        "id": "o8fxcjk",
+        "score": 11,
+        "body": "The Va has a traveling veteran program. You would have to speak to that rep at whatever Va you currently are at."
+      },
+      {
+        "id": "o8g05pm",
+        "score": 7,
+        "body": "i stop in at any old VA, and just visit the ER.\n\nbeen on the road since 1995, off & on"
+      },
+      {
+        "id": "o8h06nz",
+        "score": 6,
+        "body": "How much research have you done on van life?  Social media makes it look awesome, but the reality is that there are a ton of risks and events you do not plan for that happen more often than they do in social media posts."
+      },
+      {
+        "id": "o8g0yr8",
+        "score": 5,
+        "body": "Not OP but thanks for this info! Im currently full time in my van and keep waiting til I get back to the city Im registered at the VA in to get any care. Will look into this asap!"
+      },
+      {
+        "id": "o8jfhj7",
+        "score": 4,
+        "body": "I can\u2019t answer your question but hell yeah man. That sounds awesome. Get to big bend in Texas before they build a wall and ruin the dark sky "
+      },
+      {
+        "id": "o8g1bfq",
+        "score": 3,
+        "body": "Read this really quick and thought you said \u201cfull time travel in Iran\u201d lol "
+      },
+      {
+        "id": "o8ir7wf",
+        "score": 3,
+        "body": "Damn this is like a dream of mine to not be tied down and for the adventure. Good luck and have fun "
+      },
+      {
+        "id": "o8itj9a",
+        "score": 2,
+        "body": "If you get tricare select i believe you can go to just about any doctor/clinic anywhere. Always a copay until you max your deductible. Not sure how it compares in price to humana though."
+      },
+      {
+        "id": "o8hcraj",
+        "score": 2,
+        "body": "Wow I didn\u2019t know that.  Will check it out"
+      },
+      {
+        "id": "o8kef2m",
+        "score": 2,
+        "body": "Had no idea, thanks for the info! "
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1rjt76u",
+    "title": "I'd like to say thank you to all those at the VA who continue to help.",
+    "body": "While I cannot speak for everyone, I am grateful for the care and benefits that I receive. I am grateful for the many hours of work behind the scenes that I'm not even aware of. I appreciate those advocating for veteran rights. Im grateful for the GI bill which has help me achieve a life I never thought possible growing up. \nTo those who continue to help. Thank you. Thank you. Thank you. ",
+    "flair": "Discussion",
+    "score": 94,
+    "comment_count": 11,
+    "created_at": "2026-03-03T16:04:03+00:00",
+    "top_comments": [
+      {
+        "id": "o8ftyo6",
+        "score": 12,
+        "body": "I always make it a point to thank every employee I interact with while at the VA. \n\nI used to work for the VA and know first hand the abuse that they endure on the daily from entitled vets. \n\nPlus the fact that they are usually paid well below what a similar position would get in the local economy. \n\nThe VA has literally saved my life many times over and I cannot stress enough how appreciative I am for their service."
+      },
+      {
+        "id": "o8i5ml8",
+        "score": 4,
+        "body": "This is nice to read, thank you! Morale is so low, I needed to read this. (VA/Vet Center psychologist)"
+      },
+      {
+        "id": "o8h34vw",
+        "score": 2,
+        "body": "If you're a disabled veteran look into the CH 31 VR&E for school. It's free chicken."
+      },
+      {
+        "id": "o8jfsa2",
+        "score": 2,
+        "body": "I join.  I have a high opinion of the VA.  And I am grateful."
+      },
+      {
+        "id": "o8h9lkn",
+        "score": 2,
+        "body": "Paid for with 10%"
+      },
+      {
+        "id": "o8hu6a4",
+        "score": 2,
+        "body": "Veterans cannot transfer their GI Bill."
+      },
+      {
+        "id": "o8fhmms",
+        "score": 1,
+        "body": "'Have you looked in the **[Wiki]( https://www.reddit.com/r/Veterans/wiki/education)** for an answer? We have a lot of information posted there. \n\nTo contact VA Education, 1-888-442-4551, for ~~Voc Rehab~~ VR&E (Veteran Readiness and Employment Program) assistance with appointments or problems with your Case Manager (not for missing payments): 1-202-461-9600. \n\n**Payments for certain education benefits (DEA, VEAP) are paid at the end of the month you attend school - Department of Treasury issues these payments **using a 10 business day window** - these payments are not locked into a specific day of the month like VA disability/military pay is**. For Voc Rehab missing payments, contact your Case Manager or your local **[VA Regional Office](https://www.knowva.ebenefits.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001018/content/554400000260849/VRE-Officers-and-Contact-Information)\n\nFor Post 9/11 GI Bill only, If you signed up for direct deposit when you applied for education benefits, **we\u2019ll deposit your payment into your bank account 7 to 10 business days after you verify your school enrollment.** This is the fastest way to receive your payment. [Text Verification FAQ](https://benefits.va.gov/GIBILL/docs/IsaksonRoe/EnrollmentVerificationFAQs.pdf)\n\nMGIB and MGIB-SR and DEA CH 35 have to do [monthly verification](https://www.va.gov/education/verify-school-enrollment/) and you should receive the payment within 3 to 5 business days.\n\nFor Online Only training, the Post 9/11 GI Bill is currently **(1 August 2025) paying $1169.00** for those who started using their Post 9/11 GI Bill on/after 1 January 2018 - this is based on 1/2 of the National Average BAH paid to an E5 with dependents. Post 9/11 GI Bill MHA rates are adjusted 1 August of each year and are based on the 1 January DoD BAH rates for that year - **so VA can't use 1 January 2025 BAH rates until 1 August 2025** - for those who started training on/after 1 January 2018, the MHA rates are 95% of the DoD BAH rates. First possible payment for the 1 August 2025 increase is 1 September.\n\nFor VR&E, there are two different Subsistence Allowance programs - https://www.benefits.va.gov/vocrehab/subsistence_allowance_rates.asp The P9/11 Subsistence Allowance is based on the BAH paid to an E5 with dependents. Those who started using VR&E on/after 1 January 2018 receive 95% of the BAH paid to an E5 with dependents. **As of 1 January 2026 Online only students using VR&E are being paid $1198.00** if they started using VR&E on/after 1 January 2018. The CH31 Subsistence Allowance rates are adjusted 1 October each year by Congress.\n\nVA Education is going paperless - make sure VA has a current email address for you. Please make sure you add Veteransbenefits@messages.va.gov to your contacts list so that you don't miss important updates from VA.\n\n[VA Award Letter explanation](https://benefits.va.gov/gibill/understandingyourawardletter.asp)\n\n[Contact a VR&E Supervisor](https://www.knowva.ebenefits.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001018/content/554400000260849/VRE-Officers-and-Contact-Information)\n\n [VA Rudisill Decision](https://benefits.va.gov/gibill/rudisill.asp) - some veterans may qualify for an additional 12 months of a second GI Bill based on serving two or more different periods of active duty service.\n\n\n*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/Veterans) if you have any questions or concerns.*"
+      },
+      {
+        "id": "o8j903d",
+        "score": 1,
+        "body": "West Haven VA in CT rocks. Great medical teams and not a bad thing to say. They definitely care and make you feel like a patient, not just a number."
+      },
+      {
+        "id": "o8jjn2b",
+        "score": 1,
+        "body": "I\u2019ll second this.  Oxford, AL VA Clinic has been good for me ! "
+      },
+      {
+        "id": "o8pk4dn",
+        "score": 1,
+        "body": "Same.  My VA has been great. "
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1rjs98w",
+    "title": "How can I get my separation package again?",
+    "body": "I separated from the navy about 3 years ago. My DD-214 has me as an honorable discharge, but my reason for separating as pattern of misconduct. I never went to mast or had any minor violations during my time. I know I can request to change it with the DD-149, but is there any way I can request my whole separation package? I'm applying to a new job and they say they need it to give more information than my DD-214 provides. They also say it's a rather large package, but for the life of me I don't remember ever receiving anything on my way out that sounds like what they are asking for.\nAny info helps, thanks in advance.",
+    "flair": "Question/Advice",
+    "score": 3,
+    "comment_count": 1,
+    "created_at": "2026-03-03T15:28:11+00:00",
+    "top_comments": [
+      {
+        "id": "o8fa5hp",
+        "score": 1,
+        "body": "**New for 2025**: New Name - Certificate of Uniformed Services and a new form for reserves and national guard DD 214-1 Certificate of Uniformed Services Reserve Component Addendum. Instead of numbered copies of the DD-214, Service Members will receive these named copies: Member or Service. \n\nTo obtain a copy of your DD 214 or DD 214-1, we suggest trying [MilConnect](https://milconnect.dmdc.osd.mil/milconnect/) or the [National Archives](https://www.archives.gov/personnel-records-center/dd-214). The DD 214 is normally issued in 2 versions - Member 1 (short form) which has the discharge information on the bottom of the form removed and either the Member 4 or Service 2 (long form) which contains the discharge information - which one you receive depends on when you separated. [The Member 4 and Service 2 contain the exact same information](https://www.woundedwarrior.af.mil/Portals/23/documents/08_SUPPORT/04_Transition/05_B_DD%20214%20Service%20Copy%20Memo.pdf?ver=2018-06-29-105907-207).\n\n\nhttps://www.archives.gov/veterans/military-service-records/correct-service-records.html for correction to DD 214.\n\nDifferent branches of the service handle issuing of the DD 214 in different ways. The Army normally issues the DD 214 at your final out-processing appointment. The Air Force normally emails you a secure link to sign in/download your DD 214 on your last day of active duty. The Navy \"should\" issue you the DD 214 when final out-processing - but we have had multiple posts from Navy service members who have not received their DD 214 for months after separation.   \n\nhttps://www.arpc.afrc.af.mil/News/Article-Display/Article/1321351/ang-and-afr-general-discharge-information/\n\nhttps://www.arpc.afrc.af.mil/News/Article-Display/Article/1957722/facts-about-dd-form-214s-for-guard-reserve/\n\nMake multiple copies of your DD 214 and keep your DD 214 in multiple locations for when you need a copy. ~~Take a copy of your DD 214 to your County Court House - then you will be able to get a \"certified\" copy if/when you need a copy - some businesses want a certified copy. Plus it's faster to get a copy from your courthouse than from the National Archives.~~  It's recommended NOT to place a copy of your DD 214 in your County Court House records by the Army because of the chances of identity theft - https://www.hrc.army.mil/content/Protecting%20Documents%20Containing%20Personally%20Identifiable%20Information%20-%20PII\n\nWhile we shouldn't have to tell people this, you are not out of the military when on terminal leave. Terminal Leave is just the last leave you take in the military. You are still on active duty when you are on Terminal Leave.\n\nReview of Discharges - Each of the military services maintains a discharge review board with authority to change, correct or modify discharges or dismissals that are not issued by a sentence of a general courts-martial. *The board has no authority to address medical discharges*. The veteran or, if the veteran is deceased or incompetent, the surviving spouse, next of kin or legal representative may apply for a review of discharge by writing to the military department concerned, using DoD Form 293. https://www.archives.gov/veterans/military-service-records/correct-service-records.html\n\n\n*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/Veterans) if you have any questions or concerns.*"
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1rjpgld",
+    "title": "How do GI Bill users decide on a degree when the pressure to choose the right one feels terrifying?",
+    "body": "Using the GI Bill feels like a one time shot and the pressure to pick the right degree is kind of paralyzing. Months of researching programs still leave you unable to commit because of the worry that picking the wrong one could burn through benefits on something that doesn't actually help with getting hired. There's also so much conflicting advice...some say just pick something and finish others say the degree matters more than people want to admit. Then there's the \"your military experience is what really matters\" angle, which sounds nice but isn't super reassuring, esp when you're trying to break into a new field. \n\nFor anyone who's already used their GI Bill, how did you finally decide? Did you choose based on labor market demand or did you go with something you were genuinely interested in? Any regrets or things you wish you'd considered earlier? \n\nNot looking for generic advice, just real talk from people who've been in this spot.\n\n",
+    "flair": "Question/Advice",
+    "score": 30,
+    "comment_count": 87,
+    "created_at": "2026-03-03T13:33:55+00:00",
+    "top_comments": [
+      {
+        "id": "o8f2hgn",
+        "score": 31,
+        "body": "Yeah - I googled \"which degrees make the most money\" and applied to programs that way. I don't give a shit about what \"makes me feel fulfilled\" or whatever. Money makes up for that. \n\nThe military taught me I can be semi-competent in virtually any field so long as I have enough energy drinks and Zyn in me."
+      },
+      {
+        "id": "o8erg58",
+        "score": 30,
+        "body": "In this economy. One that actually is gonna have a return"
+      },
+      {
+        "id": "o8epc7k",
+        "score": 13,
+        "body": "Personally, I\u2019ve been wanting to be a nurse for a while before I got out. I\u2019m in school now and graduate next year. I\u2019m excited for the opportunities and love that there are so many routes. Pick something you\u2019ll at least tolerate and has a good ROI. Is there a career that interests you?"
+      },
+      {
+        "id": "o8ftf0q",
+        "score": 11,
+        "body": "The second paragraph is the truest shit ive ever read and exactly how i live my life, bravo"
+      },
+      {
+        "id": "o8er1sn",
+        "score": 9,
+        "body": "my GI Bill degree was something I was interested in and theres a constant demand for it. The only thing I regret was the school I chose for it.\n\nMy VR&E degree was something I had been working in for awhile. Again the college I went to was a lil forced by the VA counselor but it is what it is.\n\nI will say my military experience is whats kept me gainfully employed. I just learned how intertwine that along with the degrees to be employed."
+      },
+      {
+        "id": "o8eu0hz",
+        "score": 9,
+        "body": "RN here. It is a great field, stressful and anxiety inducing in the beginning especially, if your in a critical care role as a new grad\u2026like anything \u2014 you\u2019ll adapt and you get better and faster :)"
+      },
+      {
+        "id": "o8f49yg",
+        "score": 7,
+        "body": "I was a marine. I thought it\u2019ll be funny to study biology so I can say I\u2019m a \u201cmarine\u201d biologist. Now I\u2019m an internal/emergency medicine physician. When I see patients who are veterans, specifically marines, I introduce myself as lance corporal rather than Doctor, and I\u2019ll be the one taking care of them. Some reactions were hilarious especially once I tell them I was just a grunt, albeit I did do a 2 weeks course of combat life saver."
+      },
+      {
+        "id": "o8er6ik",
+        "score": 5,
+        "body": "I started out as a mechanical engineering major. One semester of that and and I figured out it was definitely not for me. I was doing it more for the money and stability. Switched back to something I love and was interested in (history) and I switched to VR&E and got the retroactive induction, got my gi bill that I had used reinstated. VR&E let me do a masters after I graduated, I got it it in musuem studies. Now im currently doing a PhD and using my GI bill for that. So my point is, not sure how this is going to help or affect me getting hired, but I've followed what I love and feel way happier in life because of it."
+      },
+      {
+        "id": "o8fv6af",
+        "score": 4,
+        "body": "It varies from nurse to nurse. I have seen new nurses do well in ICU and some that went straight to ICU and were told that their orientation will be cut short due to them not progressing as anticipated.\n\nStarting in med surge is like working out the kinks in how you practice as a nurse. You will get good at head to toe assessment, IVs, foleys, when to call a rapid, how to delegate etc. Getting all that \u201cstuff\u201d out of the way leaves room for less stress when it comes to all the things you will be dealing with when you get to the ICU.\n\nIf critical care is your goal I would try a Progressive Care/Step-Down/IMC floor. We get everything similar to med surge, but more critical: Managing septic patients, CHF and COPD exacerbation, heparin and insulin drips, PCA pumps, Chest tubes, sickle cell, CIWA patients, liver failure, dialysis patients etc., some of these patients have \u201c1-foot in ICU\u201d meaning at any time they can be upgraded to ICU level of care due to what is clinically going on. It is a great mixture of really sick patients and can prep you for ICU better than a med surge floor will. \n\nDM if you have more questions."
+      },
+      {
+        "id": "o8etojw",
+        "score": 3,
+        "body": "I had an idea of what I wanted to do post service and got the degree that fulfilled that. I went to a top tier school so I could have also done like Econ or business and had good job prospects. \n\nI think you need to be realistic too. Some guys use all their GI bill with nothing to show for it."
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1rjijfr",
+    "title": "VA Home Loan COE help",
+    "body": "Currently deployed for the past 8 months been in for 5 years with the National Guard Army and wanting to use my VA home loan but I need to get a COE (Certificate of eligibility) \nI have provided a DA form 5016 (retirement points) and\nDA Form 1506 (Statement of service) to the VA and they keep denying it when both paperwork's includes what they are asking for. ",
+    "flair": "Question/Advice",
+    "score": 10,
+    "comment_count": 5,
+    "created_at": "2026-03-03T06:59:53+00:00",
+    "top_comments": [
+      {
+        "id": "o8ecpkm",
+        "score": 3,
+        "body": "It looks like your qualifying event would be the 8 month deployment, because the service requirement is 6 years and you only have 5. Is there paperwork you can provide that focuses only on that - mobilization orders or something that shows you under federal control for the last 8 months?"
+      },
+      {
+        "id": "o8defsh",
+        "score": 2,
+        "body": "sounds like typical va bureaucracy honestly - try calling them directly instead of just submitting paperwork, sometimes you need to walk someone through it over the phone to get it sorted"
+      },
+      {
+        "id": "o8df83z",
+        "score": 2,
+        "body": "I'm honestly at that point.. I Barney styled the paper work for them. Highlighting the information they needed on a copy pdf. Just hard to contact them when I'm overseas"
+      },
+      {
+        "id": "o8mr5np",
+        "score": 1,
+        "body": "If you\u2019ve been in the Guard for 5 years, you usually don\u2019t qualify yet by the \u201c6 good years\u201d route.\n\nBut an 8 month deployment can be enough to qualify if it was federal active duty (Title 10), or a qualifying Title 32 activation. State active duty usually doesn\u2019t count.\n\nMost COE denials in your situation are paperwork. VA usually wants a DD214 from that activation, or a DD220 plus the orders that show the activation type and dates. Your DA 1506 is a pay form, so VA may ignore it for home loan eligibility."
+      },
+      {
+        "id": "o8eadf8",
+        "score": 1,
+        "body": "Maybe a Para Legal or a lawyer could help. Try contacting the Division JAG through your chain of command. That's what they're there for."
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1rjdoqw",
+    "title": "How to Thank VA Provider?",
+    "body": "\\-Note: Previous post deleted because it was mistaken for asking for medical advice. I am not asking for that.  \n  \nIs there a good way to give positive feedback on my VA providers, like a thank you letter or e-mail just to show some gratitude? I don't know what would be appropriate, but the VA has helped me through a lot. Just want to thank somebody I don't have future appointments with. That's all.",
+    "flair": "Question/Advice",
+    "score": 18,
+    "comment_count": 16,
+    "created_at": "2026-03-03T02:51:43+00:00",
+    "top_comments": [
+      {
+        "id": "o8ckw0g",
+        "score": 11,
+        "body": "Patient Advocate could assist. \n\nThere are also little black comment boxes in most of the clinics that have a card you can fill out."
+      },
+      {
+        "id": "o8cqesi",
+        "score": 9,
+        "body": "so this is going to sound super cynical, but tell them in person when you can.\n\nI've been working with the VA for years now, and I swear if you say someone is doing a good job, they get shit canned.\n\nI've had a few employees appreciate my thanks, but literally tell me to please not say anything to anyone else."
+      },
+      {
+        "id": "o8ci3t4",
+        "score": 8,
+        "body": "You could reach out via the app or website to your care team. Each medical center or clinic might have their own formal feedback methods too."
+      },
+      {
+        "id": "o8clsvg",
+        "score": 4,
+        "body": "Didn't know about Patient Advocates! Thank you."
+      },
+      {
+        "id": "o8gmwtk",
+        "score": 3,
+        "body": "Yeah, VHA employees have to take an annual ethics course and it includes gifts. We can\u2019t accept monetary gifts from patients."
+      },
+      {
+        "id": "o8co161",
+        "score": 2,
+        "body": "Following, I would like to thank my local clinic too. They take great care of me"
+      },
+      {
+        "id": "o8cznqr",
+        "score": 2,
+        "body": "Tell them when you\u2019re there and in any VA-\u201cmessage\u201d communications.  You can also send a letter of recognition on behalf of staff to the Medical Director of your local center. "
+      },
+      {
+        "id": "o8embxp",
+        "score": 2,
+        "body": "If you want to go REALLY big send a letter to your local congressperson and senator. Highlight the VA facility, those (by name) who positively impacted you the most, and how they helped. You could CC the medical director and patient care advocate as well. It\u2019s a bit of politicking but those folks love to dote on government employees in their region when given a softball."
+      },
+      {
+        "id": "o8eypm7",
+        "score": 2,
+        "body": "If you look in the waiting room there's a survey for some award they can get. At least there is at the clinic I go to...\n\nBut when I had to go for infusions regularly I would bring the nurses little things. Like snacks, they really liked the Valentine I gave them that said \"you are out of this world\""
+      },
+      {
+        "id": "o8gdvzl",
+        "score": 2,
+        "body": "I tried to drop some coin on my primary. She pushed me, no, sent me to dermatology, turns out I had some cancer. Any way, about ran down the hall refusing my gift. So I use their lame portal to email the department thanking her in writing. Her boss calls and thanks me and I get a survey in the mail."
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1rjakb5",
+    "title": "MBA immediately after completing undergrad as a veteran?",
+    "body": "Hello,\n\nI got out of the military after 8 years and went to school using Chapter 31 VR&E. I'm in my sophomore year and am considering charging through my undergrad and moving right into a master's program using my Chapter 33 Post-911.\n\nI know a traditional undergrad is advised to wait 3 to 5 years before applying to an MBA program to pursue experience first.\n\nBeing older, I am unsure if I want to stretch my education out into an undergrad period, a period of work, and then trying to go back to student status. The break in income would be in my late thirties (assuming a full-time, in-person MBA program).\n\nI suppose I COULD do a part-time online MBA, but with the work schedule of my industry (construction), I don't know if this would just be a nightmare when balancing work, school, and family.\n\nI feel inclined to take advantage of this time to just do it all, rather than break it up.\n\nDo any of you have experience in this regard?",
+    "flair": "Question/Advice",
+    "score": 16,
+    "comment_count": 36,
+    "created_at": "2026-03-03T00:34:54+00:00",
+    "top_comments": [
+      {
+        "id": "o8bx1qb",
+        "score": 9,
+        "body": "Take a year or two in a field and then go get it. It isn\u2019t designed to help you find a career field\u2026more to advance yourself through one you\u2019re already established in."
+      },
+      {
+        "id": "o8bucsq",
+        "score": 8,
+        "body": "Don\u2019t. Get some experience in your new field."
+      },
+      {
+        "id": "o8ct55q",
+        "score": 7,
+        "body": "i did it. i\u2019m doing well.  \n\nThat said, I don\u2019t think MBA is the way to go with the current economic \n and technological headwinds facing corporate America.   \n\nWhether you like him or not, our president has hurt global trade which has hurt a lot of business.  \n\nOn top of that, AI is compressing the MBA related job market. Anecdotally we (huge software corp) let go of a slew of strategy, ops, revenue roles recently. All MBA-adjacent skills.  \n\nIf you\u2019re in your undergrad and rolling into MBA you will be competing with a lot of seasoned business pros in the next few years.  \n\nif you do go for it, ensure you specialize with some kind of focused MBA- I did data analytics, would recommend whatever future forward version there is of that.   \n\ngodspeed."
+      },
+      {
+        "id": "o8c0amu",
+        "score": 7,
+        "body": "I did this exactly and it worked out well. My advice is to self fund two semesters of undergrad, so you can fully fund the masters. I didn\u2019t, so 40k of my masters came out of pocket."
+      },
+      {
+        "id": "o8deym7",
+        "score": 5,
+        "body": "If you\u2019re using VR&E you\u2019re fine. They\u2019re saying don\u2019t burn your entire P9/11 on the undergrad. You\u2019ll have the full 36 months of gi bill after VR&E."
+      },
+      {
+        "id": "o8cgs4n",
+        "score": 3,
+        "body": "You\u2019re going want that MBA. Bachelors degree is not enough these days. The competition in job field either has too much experience or they have a masters degree. play it safe and get those higher credentials because you\u2019re gonna need them."
+      },
+      {
+        "id": "o8dm5dm",
+        "score": 3,
+        "body": "I don\u2019t agree with the comments about \u2018experience\u2019. You can leave the graduate degree off your resume if it makes you overqualified for entry level positions. With the way the economy is right now the GI bill housing allowance can help you while you look for an entry level. MBA is pretty general and you can work across all industries.\u00a0"
+      },
+      {
+        "id": "o8ch7uf",
+        "score": 3,
+        "body": "I\u2019ve been out of school since 2025. Coming back to school I wish I\u2019ve done it sooner, you should do it while your head is still fresh with the concepts of business and math. Just get it over with and enjoy your life."
+      },
+      {
+        "id": "o8bxvs6",
+        "score": 3,
+        "body": "Not that guy, but MBA depends on where you go.\n\n\nIt's all about networking. 2 years is plenty. So is 1 year.\u00a0\n\n\nI think you should go get your toe in the water, see if you like the new path, then go get your MBA and network with your new cohorts."
+      },
+      {
+        "id": "o8c3pk5",
+        "score": 2,
+        "body": "My friends who got MBAs say most of the value comes from networking and who's in your classes.  Personally, I'd work for a year or two in between."
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1rj8ef6",
+    "title": "what is the best way to approach learning about a loved one's experience from when they served?",
+    "body": "a bit of background - i grew up with someone I considered a grandfather-figure. he was the uncle of my mom's ex husband. he served in Vietnam and passed away in 2015. I was really young when he passed away, and I want to learn more about his role during that time. \nmy mother's ex husband was abusive, and so we don't stay in contact with any of the living family members. I have his name, date of birth, the date he passed, where he has a grave, and I know he was a corporal. \nI guess what im asking, is if theres any way I can possibly read up about him? \nI've never done research like this, nor do I know which questions to ask. \nim not absolutely sure if this is the best place to ask this question, or if it's insensitive to do so, but he truly meant a lot to me. and I just want to know more about him and who he was and what he did. I dont want to only remember him for the time I physically knew him. it was only for a couple of years, but he was a gentleman that did so much to protect my mom and I during that time. \nI ask this with as much respect as I can. and if theres anything I can do differently with approaching this, im open to listen. ",
+    "flair": "Question/Advice",
+    "score": 8,
+    "comment_count": 2,
+    "created_at": "2026-03-02T23:06:37+00:00",
+    "top_comments": [
+      {
+        "id": "o8be9uk",
+        "score": 3,
+        "body": "It would be much easier if his surviving next of kin were to request this info from the Archives.  Please read these. \n\n\nhttps://www.reddit.com/r/Veterans/s/tUUfwj7hGZ\n\nhttps://www.reddit.com/r/Veterans/s/t8LeFqIHnk"
+      },
+      {
+        "id": "o8c0k22",
+        "score": 3,
+        "body": "thank you, I think i found what I was looking for through the link in one of your comments. \nI am in no-contact with his next of kin, so accessing all documents or records of his through that way is a bit more difficult; but I did find other resources through the Archives that can offer limited information regarding certain veterans to the public. I think i will try this. \nthank you again for taking the time to respond, and thank you for your service. \ud83d\udc93"
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1rj7te8",
+    "title": "what are some of the best resources for veterans to work a civilian job and switch from an environment that is very do as your told to an environment that values initiative like the corporate and civilian world?",
+    "body": "basically i was an 18 year old kid that joined and got more swept away in just doing as i was told that i dont know how to understand whats expected out of me and engage with the environment appropriately and just do as i am told in a new setting",
+    "flair": "Question/Advice",
+    "score": 7,
+    "comment_count": 2,
+    "created_at": "2026-03-02T22:44:26+00:00",
+    "top_comments": [
+      {
+        "id": "o8brv7s",
+        "score": 2,
+        "body": "I would say to up skill if you want to change careers. It all depends on what you\u2019re interested in or what\u2019s available in the local area. Are you willing to relocate, things like that. Depending on what you wanna do, figure out the basic requirements of that job and then get the certifications or experience you need to be a good candidate. All in all those are the basic places to start."
+      },
+      {
+        "id": "o8bnl69",
+        "score": 1,
+        "body": "Not sure what your job was while in, but I tried to stick close to that. I was a warehousemen in the military. \n\nI got out and my first job was corporate Walmart. That lasted 2 weeks, when I got yelled at for helping a customer when I was suppoed to be going on break. I thought the strict rules and routines would be easy to adjust to, but they were toooo confining. \n\nMy 2nd job I chose a small business that fixed medical equipment and resold it. This was also my first taste at the safety side. That only lasted about a month because his OSHA fines were ridiculous and he actually got shut down. \n\nMy last and current job was a regular warehouse worker. It was for a small, family-owned business where the men were tough and the work tougher. I quickly fell into step. I was a hard worker as well, and was moved into the maintenance department as a metal fabrcatror, with zero prior experiance. My military training with safety and following S.O.P's actually helped big time. I was the type to point out better ways to do things and safety stuff and asked questions on how to improve. I also think that my ties to MIL standards helped. \n\nThat shined a light on me and made me the brightest crayon in the box. I was asked to help them build a quality program and later a saftey program. I LOVE it. I get to go around and yell at my buddy's for trying to do dumb unsafe stuff. I am not restricted by corporate this-and-that. I am highly valued for my ability to bring people together as a team and training others.\n\nI eventually went to school part time with suppport from my job and got my A.S in coocupational health and safety. I am now a safety manager for the same company (11  years now).\n\nThe take away for me was that I felt like I had no purpose. Somehow fate was kind, and handed me a rag-tag bunch of guys and a company that had so much growth potential that I could help with. It became my new mission in this new civilian life and I have had NO REGRETS so far. "
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1rj0d4c",
+    "title": "Question regarding Hegsteth\u2019s \u201cban of elite universities\u201d?",
+    "body": "So is he banning just ROTC programs and the like from there or is it simply we cannot use or GI Bill there at all?",
+    "flair": "Question/Advice",
+    "score": 12,
+    "comment_count": 9,
+    "created_at": "2026-03-02T18:10:57+00:00",
+    "top_comments": [
+      {
+        "id": "o89ptin",
+        "score": 36,
+        "body": "Hegseth doesn't have any power over VA benefits so MGIB CH 30 and Post 9/11 GI Bill are not affected at all. He can only ban service members from using military benefits at certain schools."
+      },
+      {
+        "id": "o8ap00n",
+        "score": 15,
+        "body": "The irony being he is a graduate of both Princeton (BA) and Harvard (MPP)."
+      },
+      {
+        "id": "o89w72n",
+        "score": 10,
+        "body": "Neither. Only thing banned is Senior Service College Fellowships, which is the program for mid-career officers to go to a civilian school and get a graduate degree. "
+      },
+      {
+        "id": "o8b2mco",
+        "score": 8,
+        "body": "He\u2019s referring to masters programs for career officers.  Can\u2019t make O6 today without a masters degree.  Also referring to think tanks & military conferences by or through elite academia.  "
+      },
+      {
+        "id": "o8cjzmj",
+        "score": 8,
+        "body": "Little rant: They\u2019re absolutely frightened by anyone who is educated that could possibly hold opposing views. It\u2019s silly. People should be able to attend whatever school they want. If they\u2019re going to fund places like Liberty University there\u2019s zero reason to ban others. \ud83d\udc81\u200d\u2640\ufe0f"
+      },
+      {
+        "id": "o8ard5l",
+        "score": 5,
+        "body": "Hegseth does not have any control over any VA benefits."
+      },
+      {
+        "id": "o8e6yuq",
+        "score": 4,
+        "body": "How does your comment make any sense in the context of this post and the comment you replied to?"
+      },
+      {
+        "id": "o8am1d5",
+        "score": -21,
+        "body": "keeps costs down"
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1riwtr3",
+    "title": "Quick question: Does VA cover 100% of surgery costs for a recently medically separated Marine?",
+    "body": "I\u2019m helping a friend who was recently medically separated from the Marines. He needs ankle surgery for a service-connected injury and we are currently starting the VA enrollment process.\n\nMy main question is about the financial side: **Does the VA cover 100% of the surgical costs (including anesthesia, hospital fees, and PT)?**\n\nAlso, if he qualifies for a **Community Care** referral because of wait times, does the $0 out-of-pocket coverage still apply? We want to make sure there are no surprise co-pays or bills later on. Any advice on how to verify his priority group or coverage status during enrollment would be greatly appreciated. Thanks!",
+    "flair": "Discussion",
+    "score": 7,
+    "comment_count": 11,
+    "created_at": "2026-03-02T16:05:22+00:00",
+    "top_comments": [
+      {
+        "id": "o890qk7",
+        "score": 3,
+        "body": "Yes if done in house the VA covers everything.\n\nReferral for surgery under community care might just cover the cost of surgery and refer him back in house for physical therapy snd any DME thats needed"
+      },
+      {
+        "id": "o8asz8p",
+        "score": 3,
+        "body": "I\u2019m 10% and the VA covered brain surgery this past fall through community cares for an acoustic neuroma.  I\u2019m 53, and this is my first experience w VA healthcare. I\u2019m thoroughly impressed!\n\n$250k bill from the University of Michigan hospital, the VA covered it all, and follow-ups are still w UofM, scheduled for Late June."
+      },
+      {
+        "id": "o89j2rn",
+        "score": 3,
+        "body": "Veterans don't have health insurance from VA, they receive healthcare. The only health insurance VA has is ChampVA for dependents."
+      },
+      {
+        "id": "o899cvm",
+        "score": 2,
+        "body": "[removed]"
+      },
+      {
+        "id": "o89o7g8",
+        "score": 2,
+        "body": "I'm positive if you have 100%, the VA will cover pretty much everything even if not service connected. I am 90% disabled and I had to have emergency appendix removal surgery last September and used the VA emergency room near me. Not only did they cover everything, but the care was amazing.\n\n  \n"
+      },
+      {
+        "id": "o8a3cqr",
+        "score": 2,
+        "body": "Yes I\u2019ve gotten surgery there it was all covered"
+      },
+      {
+        "id": "o8alt6k",
+        "score": 2,
+        "body": "Yes the VA will cover all the costs related to surgery that\u2019s service connected. They\u2019ll also award temporary 100% for that condition during recovery as well as SMC pay. You\u2019ll need the surgeons notes to file the claim. There\u2019s VSOs at VA hospitals if you need assistance. Even if your friend gets sent to community care there won\u2019t be any charge."
+      },
+      {
+        "id": "o8b2u86",
+        "score": 2,
+        "body": "They will cover everything if done there and in my case as so far from what i have experienced on community care side of things the 1 time i did recieve a bill from a place i brought it into the local va clinic and the ppl that handle cc stuff there i was like hey guys whats going on i got this bill here from the place i was sent to through u guys and they took care of right away and never recieved another bill from anywhere again on my cc appointments"
+      },
+      {
+        "id": "o8etw3o",
+        "score": 2,
+        "body": "I broke my ankle after getting out and the closest hospital was my VA so it was 100% covered by them including physical therapy"
+      },
+      {
+        "id": "o89ke5x",
+        "score": 2,
+        "body": "Thanks for the clear up"
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1rivdfz",
+    "title": "What Goes in the Box",
+    "body": "I wrote this recently and wanted to share it here.\n\nIn every conflict, there\u2019s always been one constant: someone back home packing a box.\n\nIt might have been coffee and socks in 1918. Cigarettes and chocolate in 1944. Cassette tapes and magazines in 1991. Protein bars and baby wipes today.\n\nWhat changes is the map on television. What doesn\u2019t change is the reflex at the kitchen table.\n\nI\u2019ve been thinking about how powerful those packages are, not because of what\u2019s inside them, but because of what they represent. Someone took the time. Someone stood in line at the post office. Someone folded a handwritten note and slid it between the snacks.\n\nAnd back home, someone always tries to make it suck just a little bit less.\n\nIf you ever received one of those boxes, what meant the most?\n\n[https://rootsandmainstreet.substack.com/p/what-goes-in-the-box?r=fowi2](https://rootsandmainstreet.substack.com/p/what-goes-in-the-box?r=fowi2)",
+    "flair": "Article/News",
+    "score": 33,
+    "comment_count": 19,
+    "created_at": "2026-03-02T15:11:19+00:00",
+    "top_comments": [
+      {
+        "id": "o893876",
+        "score": 19,
+        "body": "On my final deployment to Iraq I left a company meeting one day with a number of those packages labeled for \u201cAny Soldier\u201d to hand out to my platoon. I split them up amongst my squad leaders to hand out and kept one box for myself just to get rid of them. I tossed the box I kept in a corner of my room and forgot about it for a few weeks. Well one night right after my platoon had taken over perimeter guard I noticed the box in the corner and popped it open so I could shuffle through it and see if there was anything worth keeping in it. So I flip it open and see immediately the package is completely full of 5 hour energy drinks, top to bottom, not a single other item in sight. Talk about the best random package ever. Midnight rolls around and my guys are all on guard so I fill my cargo pockets with 5 hour energy drinks and I walk all the towers and hand them out. Man, the smiles, the \u201cHoly shit Sarn where\u2019d you get these?\u201d And just the utter joy they all had over something so small was amazing. Whoever put that box together was a fuckin\u2019 hero to my entire platoon and we will never know their name or be able to say thank you."
+      },
+      {
+        "id": "o88plvl",
+        "score": 15,
+        "body": "For me, it was the fact that my husband family cared enough about me to make sure I felt loved and that I wasn't alone while deployed."
+      },
+      {
+        "id": "o89may2",
+        "score": 11,
+        "body": "I used to send friends \u201cI almost care\u201d boxes.\nThey would have half used packs of cigarettes, open half eaten box of Cheese-It\u2019s, used books and magazines, you get the drift. I would send multiple boxes only 1 would be an \u201cI almost care\u201d package.\nDepending on the location I would send non-perishable snacks, jerky, candy, powdered sports drinks, rolls of Copenhagen and cartons of Marlboro Reds."
+      },
+      {
+        "id": "o8asuil",
+        "score": 6,
+        "body": "My wife, who was horrified at my family forgetting my birthday for 8 years in a row, managed to get me a birthday cake while I was on a small FOB in Afghanistan. Granted, she leveraged a couple friends and a former roommate of mine to get it there, but that was amazing. \n\nAs was her adding perfume to the cards she included in biweekly care packages. It made a few things odd (ever had a marshmallow that absorbed perfume?), but it was her way of reminding me that she was still there. \n\nOne of my Marines had a family member in a VP level position at RJ Reynolds. Family member and his tobacco industry pals sent a 30lb box at least every month for a year. Said Marine didn\u2019t smoke or dip, but had plenty of bartering material."
+      },
+      {
+        "id": "o893x2i",
+        "score": 5,
+        "body": "My mums work sent us a giant box of halloween candy for halloween. A couple items in top were 'just for me' like a pack of candy cigarettes (stuff to remind me of better times)."
+      },
+      {
+        "id": "o891msj",
+        "score": 4,
+        "body": "Really depends on what they do and where they are.  A Marine in the sand has different needs than a Medevac C-17 pilot in Germany vs a Navy Sailor on a Destroyer."
+      },
+      {
+        "id": "o8b8b0a",
+        "score": 4,
+        "body": "Im not a religious dude but a regligious family sponsored me via aome program(its been awhile).  The parents would send goodies and thr kids would draw stuff for me.\n\nThe clincher was my last package. Thry aent me a limited edition hallmark ceramic of a soldier sitting on thr ground reading a letter with and angel hovering over him.\n\nI may not believe in a higher power but the message was clear and heartfelt. That was around 2004. I still have it "
+      },
+      {
+        "id": "o8befud",
+        "score": 3,
+        "body": "My mom baked cookies, dad wrapped them in local newspaper for padding. This was Gulf War, 1990, no emails/computers, we had no idea where the ship was, our news was BBC on flight deck with little radios. So corpsman asked me for sports section, others wanted comics, we were starved for any news. So shared home made cookies and hometown newspapers with fellow sailors. Told parents keep both coming and they did."
+      },
+      {
+        "id": "o8cdyoq",
+        "score": 3,
+        "body": "I remember sending those to my Dad when he was in Vietnam.  I also remember getting them from my Mom and Dad when I was in Desert Storm then in Iraq during my two deployments there.  During my last deployment we had a young Iraqi man with a wife, small son and baby on the way.  While everyone else was getting snacks and junk food (not necessary because the mess halls were excellent) my wife was sending me baby wipes, disposable diapers and other stuff for the newborn.   \nI love this post, by the way.  Semper Fi.  USMC 1978-2008"
+      },
+      {
+        "id": "o89llav",
+        "score": 3,
+        "body": "Socks and baby wipes."
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1rilyte",
+    "title": "Chapter 35 ends half way through semester",
+    "body": "Hey everyone!\n\n  \nWife's chapter 35 benefits end half way through the semester for Spring 2026. My question will the VA cover her allowance ($1500 ish) until the end of her semester like they do with the GI Bill? ",
+    "flair": "Question/Advice",
+    "score": 5,
+    "comment_count": 12,
+    "created_at": "2026-03-02T07:00:48+00:00",
+    "top_comments": [
+      {
+        "id": "o87l5mw",
+        "score": 3,
+        "body": "No. They cease when entitlement is exhausted. If they end in the middle of a month, that final payment will be prorated based on the exact date entitlement ends."
+      },
+      {
+        "id": "o86vv50",
+        "score": 1,
+        "body": "'Have you looked in the **[Wiki]( https://www.reddit.com/r/Veterans/wiki/education)** for an answer? We have a lot of information posted there. \n\nTo contact VA Education, 1-888-442-4551, for ~~Voc Rehab~~ VR&E (Veteran Readiness and Employment Program) assistance with appointments or problems with your Case Manager (not for missing payments): 1-202-461-9600. \n\n**Payments for certain education benefits (DEA, VEAP) are paid at the end of the month you attend school - Department of Treasury issues these payments **using a 10 business day window** - these payments are not locked into a specific day of the month like VA disability/military pay is**. For Voc Rehab missing payments, contact your Case Manager or your local **[VA Regional Office](https://www.knowva.ebenefits.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001018/content/554400000260849/VRE-Officers-and-Contact-Information)\n\nFor Post 9/11 GI Bill only, If you signed up for direct deposit when you applied for education benefits, **we\u2019ll deposit your payment into your bank account 7 to 10 business days after you verify your school enrollment.** This is the fastest way to receive your payment. [Text Verification FAQ](https://benefits.va.gov/GIBILL/docs/IsaksonRoe/EnrollmentVerificationFAQs.pdf)\n\nMGIB and MGIB-SR and DEA CH 35 have to do [monthly verification](https://www.va.gov/education/verify-school-enrollment/) and you should receive the payment within 3 to 5 business days.\n\nFor Online Only training, the Post 9/11 GI Bill is currently **(1 August 2025) paying $1169.00** for those who started using their Post 9/11 GI Bill on/after 1 January 2018 - this is based on 1/2 of the National Average BAH paid to an E5 with dependents. Post 9/11 GI Bill MHA rates are adjusted 1 August of each year and are based on the 1 January DoD BAH rates for that year - **so VA can't use 1 January 2025 BAH rates until 1 August 2025** - for those who started training on/after 1 January 2018, the MHA rates are 95% of the DoD BAH rates. First possible payment for the 1 August 2025 increase is 1 September.\n\nFor VR&E, there are two different Subsistence Allowance programs - https://www.benefits.va.gov/vocrehab/subsistence_allowance_rates.asp The P9/11 Subsistence Allowance is based on the BAH paid to an E5 with dependents. Those who started using VR&E on/after 1 January 2018 receive 95% of the BAH paid to an E5 with dependents. **As of 1 January 2026 Online only students using VR&E are being paid $1198.00** if they started using VR&E on/after 1 January 2018. The CH31 Subsistence Allowance rates are adjusted 1 October each year by Congress.\n\nVA Education is going paperless - make sure VA has a current email address for you. Please make sure you add Veteransbenefits@messages.va.gov to your contacts list so that you don't miss important updates from VA.\n\n[VA Award Letter explanation](https://benefits.va.gov/gibill/understandingyourawardletter.asp)\n\n[Contact a VR&E Supervisor](https://www.knowva.ebenefits.va.gov/system/templates/selfservice/va_ssnew/help/customer/locale/en-US/portal/554400000001018/content/554400000260849/VRE-Officers-and-Contact-Information)\n\n [VA Rudisill Decision](https://benefits.va.gov/gibill/rudisill.asp) - some veterans may qualify for an additional 12 months of a second GI Bill based on serving two or more different periods of active duty service.\n\n\n*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/Veterans) if you have any questions or concerns.*"
+      },
+      {
+        "id": "o86xfih",
+        "score": 1,
+        "body": "[removed]"
+      },
+      {
+        "id": "o8dbks4",
+        "score": 1,
+        "body": "Was it easy to transfer chapter 35 to spouse? "
+      },
+      {
+        "id": "o89je15",
+        "score": 1,
+        "body": "That\u2019s the correct answer."
+      },
+      {
+        "id": "o86xk5q",
+        "score": 1,
+        "body": "It's for my wife. Not Chapter 31. \n\n  \nBut thanks for the advice"
+      },
+      {
+        "id": "o878cig",
+        "score": 1,
+        "body": "DEA CH 35 can only be used by dependents of veterans rated 100% P&T or TDIU. Those dependents are not eligible to use VR&E."
+      },
+      {
+        "id": "o8fshl5",
+        "score": 1,
+        "body": "You don't transfer Chapter 35 to a spouse. That is what they are entitled to as a spouse of someone who is 100% P&T from the VA"
+      },
+      {
+        "id": "o8hix6t",
+        "score": 1,
+        "body": "Thanks for this \ud83e\udee1"
+      },
+      {
+        "id": "o88nmxp",
+        "score": 1,
+        "body": "Will she be paid out until the end of the semester?"
+      }
+    ]
+  },
+  {
+    "subreddit": "Veterans",
+    "id": "1rijkk0",
+    "title": "My parents feel like they don\u2019t know me anymore",
+    "body": "I joined right out of high school and I never realized how big of a commitment this would be. I was stationed on the other side of the country and because of that, I never really got to see my family especially when I was on a ship. Time flew by events happened My siblings grew up and I was never there for any of it. My parents flat out told me the other day they don\u2019t even recognize who I am anymore. It\u2019s really hurt because growing up my family was all I had I never had friends in  or anything like that. I hung out with my siblings and my parents. I\u2019m less than a year and a half done with my first enlistment and  I can\u2019t wait to get the hell out of AD and to go to college and move over to reserves. I really want to repair my relationship with my family and my parents. I don\u2019t know what to do though. But I feel like a lot of this is my fault.",
+    "flair": "Discussion",
+    "score": 90,
+    "comment_count": 47,
+    "created_at": "2026-03-02T04:48:21+00:00",
+    "top_comments": [
+      {
+        "id": "o870ucg",
+        "score": 90,
+        "body": "They don\u2019t recognize you b/c you\u2019ve grown and matured during your absence. This is a good thing- imagine if you were the same callow youth who left."
+      },
+      {
+        "id": "o86hifd",
+        "score": 46,
+        "body": "Im 43. I joined the Army at 19. Since then, ive SEEN my family 6 times since then. The last time was last January 2025 for my dad's funeral. I am not the same person i was then. Hell, I wasnt the same person that left when I was 22 after returning from my first deployment. Your family, like mine, werent around as we changed so of course they see you as completely different now. It is the way it is. Maybe tell them, \"yes, ive changed. Would you like to know the new me?\""
+      },
+      {
+        "id": "o86lxd3",
+        "score": 28,
+        "body": "I left the army after receiving a tbi, getting told by loved ones that they don't know who you are.Anymore can be particularly crushing when you don't know who you are.Anymore. i can understand the disconnect between being in the Army and people in the civilian world. Going on with the normal idea of life."
+      },
+      {
+        "id": "o88s7kp",
+        "score": 26,
+        "body": "This.  Growing up I thought my parents new everything and mirrored all their world views. Once I joined the military and was on my own, I grew into my own person and now have a strained relationship with them because the things they do and say are so egregiously wrong.  Maybe I grew into something they didn\u2019t like, or maybe I outgrew them.  Who knows but my time away definitely opened my eyes to a lot of new perspectives and I suspect that\u2019s what\u2019s happened to you as well"
+      },
+      {
+        "id": "o87evg5",
+        "score": 21,
+        "body": "You are your own person. An adult.\nSome parents say that sort of stuff to their kids who choose to move out of state after HS.\u00a0\nBeing your own person is healthy and very normal.\nFamily enmeshment is common as well, attempting to guilt and handicap others who attempt to establish and ignore boundaries."
+      },
+      {
+        "id": "o880m1t",
+        "score": 20,
+        "body": "I mean you barely know how it is.\n\nChanging after deployments is an entirely different beast.\n\nHowever you\u2019re parents need to understand that you are going to grow and change, I don\u2019t think the year in the navy or whatnot that you have has been the most significant factor, it\u2019s more of spreading your wings and leaving home while being on your own.\n\nP.S. we are not all loud and violent. The fuck?"
+      },
+      {
+        "id": "o86gs45",
+        "score": 13,
+        "body": "Everyone\u2019s experience is different.\n\nSome of us just stock the vending machines on ship.\n\nSome bang the general\u2019s daughter\n\nSome bang the general\u2019s wife\n\nSome are suppliers of pleasurable stuff to officers\n\nSome see combat\n\nSome never see combat\n\nSome of us get DUI\n\nSome have a good time while in\n\nSome don\u2019t have a good time while in\n\n\nWhat i am trying to say is you aren\u2019t alone a lot of your sisters and brothers that have gotten out understand because they have been there.\n\nIf that is what you want then do it.\n\nSometimes it takes being away to see whats important \n\nTake care of yourself OP"
+      },
+      {
+        "id": "o86kqh5",
+        "score": 10,
+        "body": "That varies person to person. Im am neither loud nor violent unless a situation requires it and those are rare. Very rare. Also, loud and violent arent the same as just being more direct and to the point which is what we tend to be because thats whatbthe military teaches us. Keep communications to the point. Give the relevant information."
+      },
+      {
+        "id": "o87rxsl",
+        "score": 9,
+        "body": "Who you are is shaped by your experiences. You are experiencing new things that they have not, far away from them. The thing is, they are changing too, they just don\u2019t recognize it because they are surrounded by those changing similarly.\n\nI\u2019m from rural PA. Six years in Sicily and Spain with time in SWA and the Balkans, followed by three years in an AZ border town made me a very different person than my family who never left, or haven\u2019t left in several decades. After 10 years I got out and moved back home, but yeah at that point I was not the same as them. I moved away again for work and have been in TX for going on 15 years now. I am the odd duck out because my experiences have been so vastly different than theirs. It doesn\u2019t have to change your relationship unless they are so stuck in their ways that anything different is \u2018wrong\u2019.\n\nThere is no one at fault, that is growing, that is life.\n\nWhen they say they don\u2019t recognize you, what do they mean?"
+      },
+      {
+        "id": "o86j4om",
+        "score": 9,
+        "body": "Just be there.\n\nBe present\n\n for the vacations, birthdays, and holidays.\n\nI hope for a smooth transition out my friend"
+      }
+    ]
+  }
+]
+```

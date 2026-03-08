@@ -1,0 +1,4321 @@
+# Prompt 1: Need Extraction
+
+You are a market research analyst specializing in the U.S. veteran community.
+I’m going to give you a batch of Reddit posts and comments from veteran subreddits.
+For each post, identify:
+1. PRIMARY NEED: What is the veteran trying to accomplish or solve?
+2. PAIN POINTS: What specific frustrations or blockers do they describe?
+3. CURRENT SOLUTION: What are they currently doing to solve this? (DIY, paid service, nothing?)
+4. EMOTIONAL INTENSITY: Rate 1–5 (1=mild inconvenience, 5=desperate/life-impacting)
+5. CATEGORY: Assign one: Claims/Ratings, Appeals, Healthcare, Mental Health,
+   Employment/Transition, Education/GI Bill, Housing/VA Loan, Financial, Legal,
+   Community/Social, Other.
+
+Output strictly as a JSON array, one object per post.
+
+## Input JSON
+
+```json
+[
+  {
+    "subreddit": "disability",
+    "id": "1pk6pge",
+    "title": "Wheelchair vs. Old People",
+    "body": "I don\u2019t wanna sound ageist, buuuuut I\u2019m pretty over this. I went grocery shopping today, and I use a power chair because I have MS and can\u2019t walk long distances. \n\nMe: minding my business, stand up briefly holding onto my chair for support to grab something on a high shelf. \n\nOld couple: \u201cpffft. Nice.\u201d Glare at me. I run into them again 10 minutes later. They glare at me some more. \n\nThis happens to me so often in my chair and I just don\u2019t get it. 99% of the time it\u2019s the elderly who seem to just hate me. They\u2019ll police my use of the handicap spots, constantly glare, say things like, \u201cit must be nice.\u201d\n\nLike yeah, Ethel, I love being in my 30s and not being able to use my legs. I don\u2019t get if they just think I\u2019m lazy, or if I\u2019m eating up their resources, but why on earth would I shell out the price tag of a power chair if I didn\u2019t absolutely need it? UGH. I\u2019m so over it! \n\nAnyone else get relentlessly bullied by the elderly?",
+    "flair": "Rant",
+    "score": 603,
+    "comment_count": 189,
+    "created_at": "2025-12-11T19:35:03+00:00",
+    "top_comments": [
+      {
+        "id": "ntiupe5",
+        "score": 232,
+        "body": "As an ambulatory wheelchair user myself, I know first hand how judgmental folks get, the looks, the comments. It\u2019s tiring keeping up with it all sometimes. But it\u2019s not just older folks, I\u2019ve got it from a full range of ages. Depending on my mood sometimes I ignore them but other times if I\u2019m feeling a tad more sassy (my mouth can run), then I snap back some snarky comment. In the UK about a third of wheelchair users are ambulatory, yet we still get targeted by people who don\u2019t understand it. I wish more people would educate themselves instead of judging others"
+      },
+      {
+        "id": "ntj44zr",
+        "score": 162,
+        "body": "This is why I hate the \u201cone story\u201d of wheelchair users that\u2019s so often portrayed in the media.\n\nNo, we\u2019re not all paraplegics from a car accident.\n\nMost of us are ambulatory! And many of us are young. Seeing us move our legs or briefly stand isn\u2019t a miracle and doesn\u2019t mean we\u2019re \u201cfaking it.\u201d"
+      },
+      {
+        "id": "ntj0633",
+        "score": 144,
+        "body": "Whenever I get this bs I use the line \"I thought your generation was meant to be the one that had manners,\" always makes em buffer and look mad lol."
+      },
+      {
+        "id": "ntjg5o2",
+        "score": 125,
+        "body": "There's one episode of The Mentalist that infuriates me because of this. Patrick Jane catches the murderer because he had scuff marks on the bottom of his shoes which proves he's faking needing a wheelchair. And apparently he makes a habit of checking the shoes of all wheelchair users. And the show just presents that as a reasonable solve for the case, completely ignoring that ambulatory wheelchair users exist or that a wheelchair user might just be wearing old or secondhand shoes."
+      },
+      {
+        "id": "ntjahld",
+        "score": 100,
+        "body": "Yup. I MAY be able to walk from the parking lot into the store, but I sure can\u2019t walk all the way around the store."
+      },
+      {
+        "id": "ntj7f6e",
+        "score": 85,
+        "body": "I\u2019ve had old people try and physically remove me from MY PERSONAL WHEELCHAIR because \u201cI\u2019m too young to be playing around on that thing\u201d\n99% of the ableism and violence I face is from old people."
+      },
+      {
+        "id": "ntj0gk9",
+        "score": 70,
+        "body": "i remember a big publicity campaign a few years ago about how many people who are blind have some sort of vision. we need that but for wheelchair users."
+      },
+      {
+        "id": "ntirtky",
+        "score": 60,
+        "body": "What a horrible thing to say. I'm so sorry people are so shitty to you. I'd personally ask them \"what do you mean\" \"I don't get it\" \"explain it to me\" until they're forced to lay out all their bigotry louder and louder and then innocently correct them on how wrong them are loudly but that's just me. Your feelings are absolutely valid and I'm so sorry you have to go through this."
+      },
+      {
+        "id": "ntisnaa",
+        "score": 59,
+        "body": "I take off my shoes and let them see my severely overly pronated gloriously fucked up feet. That usually shuts them up."
+      },
+      {
+        "id": "ntjb61a",
+        "score": 59,
+        "body": "![gif](giphy|slI3Y2GR9iWWI|downsized)\n\nYou are a legend."
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1lwruk5",
+    "title": "Someone left this on my car while i was out of state\u2026a cop drove by making sure i had one\u2026while it was literally hanging",
+    "body": "",
+    "flair": "Rant",
+    "score": 598,
+    "comment_count": 244,
+    "created_at": "2025-07-10T23:37:55+00:00",
+    "top_comments": [
+      {
+        "id": "n2gnpi9",
+        "score": 400,
+        "body": "You can only do so much for stupid people \ud83e\udd37\u200d\u2642\ufe0f"
+      },
+      {
+        "id": "n2gxutg",
+        "score": 213,
+        "body": "I do this thing, it might be strange to so many people, but I just mind my own business when it comes to things like this. Even though I'm disabled through cerebral palsy, I don't judge anyone that parks in a handicapped spot, because it's just not my business. \n\nSorry you had to deal with this, hopefully sarcasm gets you through, it does for me when I get told I'm not disabled."
+      },
+      {
+        "id": "n2hdrh6",
+        "score": 153,
+        "body": "[removed]"
+      },
+      {
+        "id": "n2gk3da",
+        "score": 108,
+        "body": "Maybe they just don't believe people are handicapped /s"
+      },
+      {
+        "id": "n2hj5no",
+        "score": 103,
+        "body": "I judge the fuck out of them if they dont have a tag. If they have a tag, I keep walking."
+      },
+      {
+        "id": "n2guj06",
+        "score": 97,
+        "body": "People are idiots I stg, you HAD A SIGN saying you could park there, they should have minded their business, so sorry you had to deal with that"
+      },
+      {
+        "id": "n2gpy0o",
+        "score": 87,
+        "body": "I get this all the time. I look like I'm completely healthy. I get looks every time I use handicapped and at least once a month I get some Karen stop to curse at me. Love those people."
+      },
+      {
+        "id": "n2i2m9z",
+        "score": 81,
+        "body": "Not entirely the same, but this reminded me of an interaction that my grandmother had during a community outing with my younger sister, who's severely autistic. \n\nThey were at our favorite pizza joint in San Francisco (Golden Boy, you should check it out) when a group of young drunk girls started getting loud and my sister started shrieking from over stimulation. My grandmother tried to apologize but one of the girls had to say \"well you shouldn't take her in public then\"\n\nAs she started helping my sister towards the door, my grandmother casually knocked the girl's beer off the table. \"Again, I'm so sorry... That you're such a bitch.\"\n\nRest in peace grandma. \n\nNow that I'm disabled, it hits that much closer to home."
+      },
+      {
+        "id": "n2gqh63",
+        "score": 67,
+        "body": "I flash them my pace maker and they usually turn just a bit red in the face. That makes my day."
+      },
+      {
+        "id": "n2gku7z",
+        "score": 57,
+        "body": "Ehhh, depends on the needs. No matter if I'm away from my car 5 minutes or 5 days, I'm the same amount of f*cked if there's no clearance on the driver's side and I have to ask a stranger to back my car out so I can get in."
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1pzqerc",
+    "title": "New sign posted at my old high school :(",
+    "body": "The principal there is getting worse as time goes on with all sorts of stupid new policies and now this goes up.... Another sign that was already there is \"there is no elevator to success, you have to take the stairs\".\n\nATP I'm glad I graduated because this message rubs me the wrong way as someone with significant joint and spine issues",
+    "flair": "Image",
+    "score": 605,
+    "comment_count": 145,
+    "created_at": "2025-12-30T18:55:01+00:00",
+    "top_comments": [
+      {
+        "id": "nwscuiq",
+        "score": 304,
+        "body": "Honestly, this kind of \u201cmotivational\u201d toxic positivity is something that took a very long time for me to unlearn years after school sports, when my body started preventing me from being able to move like an able bodied person. So much ableism is sold as \u201cpersonal responsibility\u201d and did not make my loss of physical agency any less traumatic \ud83d\ude2d quite the opposite."
+      },
+      {
+        "id": "nws24ls",
+        "score": 199,
+        "body": "Lmfao. I had a therapist tell me I\u2019m using weed as a crutch\u2026  \n\nLike\u2026 is that a joke? Lmfao"
+      },
+      {
+        "id": "nwsa6f0",
+        "score": 129,
+        "body": "What's wrong with crutches? Some people use crutches for their entire lives and their quality of life is significantly better than if they didn't have crutches.\n\nEdit: Just read the caption under the photo, too. So apparently people in wheelchairs don't get to have success. Great message to teach children."
+      },
+      {
+        "id": "nws3y2s",
+        "score": 70,
+        "body": "I had a Dr talk me I take the pain pills for fun.So told her look at my back am I making it up. I lifted up my shirt and she walked around and stopped behind me. Next thing I hear is how the hell did you get that..A major back surgery when I was 15. Her eyes were wide open..She said she was sorry..\ud83e\udd23\ud83e\udd23Like I don\u2019t know my own body\u2026"
+      },
+      {
+        "id": "nws91pk",
+        "score": 65,
+        "body": "Tell me you don\u2019t check patients charts before seeing them lol"
+      },
+      {
+        "id": "nwsg2f6",
+        "score": 52,
+        "body": "That sign is toxic af. I bet some students will graffiti that soon."
+      },
+      {
+        "id": "nwuom5p",
+        "score": 43,
+        "body": "Yeah!!! The person that made this sign never had chronic pain in their life lol"
+      },
+      {
+        "id": "nws5mw4",
+        "score": 42,
+        "body": "Absolutely fucking insane, that\u2019s so wildly tone deaf jfc, hope none of these admin get hit by a drunk driver or fall down the stairs (or just straight up age wrong) and end up with a permanent chronic pain condition\u2026"
+      },
+      {
+        "id": "nws2vnp",
+        "score": 40,
+        "body": "when people say something like this to me, i always reply. \u201cyes, it\u2019s a crutch, but i haven\u2019t heard of any better solutions\u201d"
+      },
+      {
+        "id": "nwsamoo",
+        "score": 37,
+        "body": "I had one tell me I was using autism as an excuse for being treated like shit"
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1mmtkgd",
+    "title": "Thought some people might find this amusing",
+    "body": "",
+    "flair": null,
+    "score": 592,
+    "comment_count": 22,
+    "created_at": "2025-08-10T20:43:18+00:00",
+    "top_comments": [
+      {
+        "id": "n80l2n1",
+        "score": 72,
+        "body": "Explainer: autistic persons and model railroading have a greater statistical correlation than would be expected from random chance.\n\nThe problem of designing functioning commuter and high-speed rail networks among the larger cities of the USA is fascinating. It would be a pleasure to solve if not for the two confounding irrational factors of \"people\" and \"money\"."
+      },
+      {
+        "id": "n8051ym",
+        "score": 37,
+        "body": "They are talking about commuter trains. Amtrak is mostly leisure and its routes are very limited."
+      },
+      {
+        "id": "n805nd7",
+        "score": 34,
+        "body": "[removed]"
+      },
+      {
+        "id": "n80fqd1",
+        "score": 28,
+        "body": "Made me chuckle, because it's true. If I were in charge we would have at the very least state to state tracks"
+      },
+      {
+        "id": "n81k227",
+        "score": 20,
+        "body": "I think they're funny, but it also concerns me because I feel like it is part of the environment right now where sometimes people think of special interests when they think of autism and not much else. I saw someone saying they think the Queen of England had autism because she color coordinated her outfits a lot lol"
+      },
+      {
+        "id": "n829uye",
+        "score": 19,
+        "body": "I KNOW RIGHT? Rail networks are fascinating complex systems, trouble is people and economics come in and screw everything up."
+      },
+      {
+        "id": "n80px74",
+        "score": 16,
+        "body": "Compare the level of service offered by Amtrak (which barely exists outside the Northeast) to like, your average country. Not even a rich one."
+      },
+      {
+        "id": "n80jd0g",
+        "score": 13,
+        "body": "There should definitely be trains to/from Atlanta...like WTF"
+      },
+      {
+        "id": "n80d36s",
+        "score": 10,
+        "body": "I don't get it."
+      },
+      {
+        "id": "n80f3kd",
+        "score": 6,
+        "body": "Don't get it comments didn't explain"
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1lt2hlb",
+    "title": "My husband added a wheelchair ramp to access our sunroom. I took up gardening last year after becoming an ambulatory wheelchair user because I used to be a mountaineer and missed nature. Now I can wheel right up to my own piece of the outdoors.",
+    "body": "Major quality of life points added. If you used to be a big outdoor person or very active I cannot recommend gardening enough! It\u2019s given me back a piece of me i lost on my worst days I can still get my hands in the dirt, and it has lifted my spirits so much. ",
+    "flair": "Image",
+    "score": 583,
+    "comment_count": 25,
+    "created_at": "2025-07-06T14:25:14+00:00",
+    "top_comments": [
+      {
+        "id": "n1n37v9",
+        "score": 17,
+        "body": "Nice! I'm disabled and do vegetable gardening in raised beds and grow bags. It looks like you have plenty of room  to expand if you wanted to give vegetable growing a try. :)"
+      },
+      {
+        "id": "n1n8xo8",
+        "score": 9,
+        "body": "I also found I loved growing plants indoors after becoming disabled. It can distract me from life\u2019s troubles for hours."
+      },
+      {
+        "id": "n1ndxwx",
+        "score": 6,
+        "body": "I feel you, my good dude \u2764\ufe0f And I love your sunroom! I used to ski mountaineer, alpine/trad climb, paraglide, and I used to really dig the phrase \"when in doubt, go higher\". Now with my plants, I made a poster next to them saying \"when in doubt, grow higher\" \ud83d\ude04 I made a little climbing wall with old gym holds in the corner of my room for a couple of my viney plants to creep up; that's my favorite spot for reading/crafting and helps me feel more connected to the outdoors too"
+      },
+      {
+        "id": "n1pqpnz",
+        "score": 5,
+        "body": "damn pots are expensive though\u2026. like offensively"
+      },
+      {
+        "id": "n1ne49f",
+        "score": 4,
+        "body": "This is really cool to read/see. What a neat space in your sunroom that he made accessible with the ramp and that you now infuse with your care and green thumb. I absolutely agree with you about gardening\u2019s spirit-lifting properties. Thanks for sharing this!"
+      },
+      {
+        "id": "n1oon56",
+        "score": 4,
+        "body": "What a lovely husband you have! And a beautiful sunroom!"
+      },
+      {
+        "id": "n1ocj6k",
+        "score": 3,
+        "body": "Hes a goodman savannah"
+      },
+      {
+        "id": "n1pe4ek",
+        "score": 3,
+        "body": "How wonderful!  Lovely space for growing things and nurturing yourself!"
+      },
+      {
+        "id": "n22zi9n",
+        "score": 3,
+        "body": "do you grow them in a sun room?"
+      },
+      {
+        "id": "n235u68",
+        "score": 3,
+        "body": "yeah our house is over 100 years old by a long shot. we live on a military base - it\u2019s temporary and i hate this flooring so much"
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1mgzkmg",
+    "title": "Disabled people in America. I\u2019m scared.",
+    "body": "Hi, \nI\u2019m afraid. \nWith physical and mental disability I don\u2019t know what my future looks like under this presidency. With the EO titled \u201cending crime and disorder on Americas streets\u201d \nThey use language that is as vague as it is terrifying. Making it known that they will be targeting unhoused people especially but also mentally unwell people and people who are \u201cunable to take care of themselves\u201d forcing such people into institutions. What do we do? How do we keep ourselves and loved ones safe? What do you think this all means? ",
+    "flair": "Concern",
+    "score": 574,
+    "comment_count": 253,
+    "created_at": "2025-08-04T00:46:57+00:00",
+    "top_comments": [
+      {
+        "id": "n6smfqq",
+        "score": 233,
+        "body": "hey your fears are legitimate. I've seen a couple other people use their age to justify tut tutting you over this so just know that I am going to turn 56 later this year and I've been watching all of this play out and you are right to be worried. we don't know how far they're going to go with this stuff but we know what they intend to do and that they will go as far as they can."
+      },
+      {
+        "id": "n6sn74p",
+        "score": 116,
+        "body": "Thank you for the validation. And yes it\u2019s scary especially when this just feels like a repeat in history. In nazi Germany disabled Germans were some of the first targeted. And I\u2019m not just scared for me. I\u2019m scared for all my loved ones. Because I have so many friends and family who also have disability."
+      },
+      {
+        "id": "n6sic8t",
+        "score": 107,
+        "body": "What we can do right now is simple: stay informed, develop exit strategies if possible, and if we cannot do so then we rely on our safety nets. If you don't have one, make one. Friends, family, local disability advocate groups... make sure you can find help staying safe. \n\nIt has been repeatedly shown that this has been the plan for awhile under this administration. Don't let it ruin you, but do not ignore it either."
+      },
+      {
+        "id": "n6slysf",
+        "score": 77,
+        "body": "It\u2019s very hard to have an exit strategy that means leaving the country for a large amount of disabled people as many countries will not grant citizenship to non able bodied people. It may seem cruel, but it makes sense. They need to support their own vulnerable and can\u2019t tax their system more by supporting other countries vulnerable. \n\nJust a heads up on that. It\u2019s not really a valid option for many of us."
+      },
+      {
+        "id": "n6snzpv",
+        "score": 67,
+        "body": "no totally Aktion T4 was horrific and we know from things this administration has said that they'd love to do something very much like it. \n\nI know that I saw people in neuromuscular disease communities realizing months ago that Trump was going to take away their health care after they voted for him and the people in this community who are in denial right now are going to figure things out soon enough"
+      },
+      {
+        "id": "n6smmji",
+        "score": 64,
+        "body": "Lol, not because it's funny, but because people honestly think disabled people are anything other than a pawn. \n\nAs a disabled woman with dependant children in an abusive relationship that has to put up with the abuse because I have NO ONE, \n\n have my kids go on to get abused or perpetuate the abuse....\n\nBecause we don't grow adults in this dystopic dualist reality of men that believe they're God's, manufactured scarcity and artificial delusional competition....\n\nTHAT WHY WE'RE HERE.\n\nIt's 2025, can put a Rover on Mars but can't figure out how to feed and protect the vulnerable. \n\nAnd THAT'S when you realize what's REALLY going on. \n\nHumans are TOOLS for the Imperials.  Disposable tools. \n\nI'm sorry.  It's bleak.\nAll I can do is stare.\n\nSorry, I have BIG feelings about this.....\n\nI feel like a doe with a bum leg stuck in a burning valley with my fawns bleating HELPLESSLY and no exit in sight.\n\nThis is NOT a new problem.  We've been reliving the wet dream of some hairless bipedal primates delusions after consuming ergot (st Elmo's fire) contaminated grains 5k years ago and hallucinating a burning bush telling him he was GOD."
+      },
+      {
+        "id": "n6smhad",
+        "score": 61,
+        "body": "This is the executive order OP is taking about:\nhttps://www.whitehouse.gov/presidential-actions/2025/07/ending-crime-and-disorder-on-americas-streets/"
+      },
+      {
+        "id": "n6so1ac",
+        "score": 47,
+        "body": "I've had this kind of fear many times over the years, but yes, these last six months have got me fearing more. My wife and I could have qualified for disability benefits long ago but haven't. We just kept working. It's getting harder for me in my mid forties now. I just got hurt at work and im off for that right now. My older sister would love it if I could start the process for disability, but what's that going to mean?"
+      },
+      {
+        "id": "n6vl42m",
+        "score": 41,
+        "body": "Ive been told this doesnt effect you. You arent  going to be affected. This or that. \n\nIndifference  is part of how we got here. \nAnd to belittle  others fears. I cant be homeless.  I would just be dead.\n\nYou thought germans were like this is cool ok. No they were steered, lied to, propaganda  and gaslighting.  And one day it was too late. \n\nWeaponizing hatred and selfishness. Creating  an environment  where we fight each other  than fight the government."
+      },
+      {
+        "id": "n6t0gxf",
+        "score": 40,
+        "body": "The devil is in the details. It\u2019s an order to validate forcibly moving / relocating people and no defined plan for where they go. Services that would normally take in the people listed in this EO are largely underfunded or non-existent in some areas (rural areas most affected). It\u2019s a \u201cshoot first, ask questions later / never\u201d which is the issue. \n\nThe vague nature of it is a net; they can catch anything or anyone they think qualify for this forcible removal / movement.\n\nEO\u2019s are not law, but as others have said there has been clear intent by this admin to adopt policies like these, and it is concerning."
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1n6x6s0",
+    "title": "Rude Email by Professor",
+    "body": "You guys are going to think I am crazy for still dwelling on this. So, a few years I got approved for accomodations. My professor wrote a snippy comment insuitating that I did not need it. I contacted the Disability office about it. She later justified it to the office saying it was because students don\u2019t usually get them in the middle of the semester. But thats not what she was implying at all. It was a hurtful comment, because it made me feel that what was causing me to get the accommodation (which she did not know the reason) was not valid. I also had to rush through her quizzes and tests. She would give us 10 minutes to do a 30-question test that wasn\u2019t even multiple choice :)\n\nI wish I replied: Ironically, you are a college professor using a double negative",
+    "flair": null,
+    "score": 576,
+    "comment_count": 148,
+    "created_at": "2025-09-02T22:08:48+00:00",
+    "top_comments": [
+      {
+        "id": "nc3is7n",
+        "score": 385,
+        "body": "I was a disabled student and now I\u2019m a disabled faculty member. \nAcademia hates disabled people. Full stop. I don\u2019t care how much posturing they do about inclusivity and equity, all universities treat disabled people like trash. I\u2019m trying to change it from the inside, but I\u2019m realising that I really can\u2019t and I think there\u2019s a very good reason why I\u2019m the only disabled faculty member at my college."
+      },
+      {
+        "id": "nc3d4hi",
+        "score": 325,
+        "body": "One of my friends (who is completely blind and relies on a screen reader) had a similar experience. She had her accommodations sent from the disability office at the beginning of the semester when this happened. One of her online asynchronous classes had a really difficult to navigate Canvas website. It was so difficult that even her sighted classmates had a hard time finding the material. So one day she emailed the professor to explain how difficult the site was to navigate with a screen reader. The professor basically told her that she didn\u2019t think my friend was trying hard enough and that if she\u2019s going to be lazy and not do the work, she should just drop the class. This interaction happened a few years ago and she\u2019s still salty about it (and frankly I\u2019m salty on her behalf too). So yeah, don\u2019t feel too bad as it sucks whenever things like this happen."
+      },
+      {
+        "id": "nc4jy6p",
+        "score": 137,
+        "body": "I worked in Accessibility at Apple for years. I would have told that professor to put on a blindfold, turn on the screen reader on her computer and see just how lazy your friend was. I would absolutely run that up the chain about disability discrimination if that happened. Fun fact - when I worked at Apple our team had a second computer that we used as lab devices so we could test and use the different accessibility features like a customer would. Voiceover always stressed me out, but I learned how to navigate it and provided feedback to websites who had sucky accessibility."
+      },
+      {
+        "id": "nc3k1od",
+        "score": 74,
+        "body": "Professors in the United States have to honor disability accommodations whenever they get notice of them, even at the very end of a semester. Thus your professor\u2018s ostensible explanation was not OK (if true) either.\n\nAcademia is often particularly hostile to disability, and it often takes this form, suspecting a \u201cdisability con\u201c by students who request accommodations. I recommend *Academic Ableism* by Jay Dolmage and *DisCrit* (and the updated *DisCrit Expanded*) by multiple authors. You\u2018re not alone."
+      },
+      {
+        "id": "nc3lvx6",
+        "score": 68,
+        "body": "This is very disappointing to hear. I\u2019m in grad school now and haven\u2019t had any issues yet. I hear about so many others having negative experiences though, and it\u2019s sad that it even exists on the faculty side."
+      },
+      {
+        "id": "nc3hzb7",
+        "score": 59,
+        "body": "It costs nothing for a professor to give students accommodations yet they make it a battle sometimes. I truly don\u2019t get why it\u2019s so difficult ughh. I\u2019m sorry you had to deal with that."
+      },
+      {
+        "id": "nc3q71g",
+        "score": 43,
+        "body": "One of the absolute biggest barriers remaining for people with disabilities is inflexible placements. I excellent in academia, I freaking had a perfect GPA, but because I could not meet the demanding schedule of full-time, in-person placement shifts, I had to drop out. This issue prevents me from taking sooo many programs where this is a requirement to this day. \n\nIt\u2019s absolutely ridiculous because I would have been able to do the actually job where there are tons of part-time/flex hours/remote jobs in the field. Like so many. The only barrier was these damn placements. \n\nAnd there\u2019s literally no effort I\u2019ve seen anywhere to tackle this issue. My school was basically like you\u2019re SOL, even though they were actually very accommodating on the academic side \ud83d\udc4e"
+      },
+      {
+        "id": "nc3f18b",
+        "score": 40,
+        "body": "I think its normal to still think about things that upset you years later (as long as you aren't fixated on it every day). Your professor was quite rude."
+      },
+      {
+        "id": "nc3n3y8",
+        "score": 38,
+        "body": "ugh. i dropped out early anf havent gone back for this reason. ive only gotten more disabled since. it sucks bc i know myself and many others would absolutely thrive in academia if we had the supports to do so."
+      },
+      {
+        "id": "nc3zssa",
+        "score": 37,
+        "body": "The conflation of able-bodied and neurotypical with \"I won the absolutely fair and accessible meritocracy game\" and thus \"If you can't keep up, it's because you're just not good enough\" is insidious!"
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1lyuq7f",
+    "title": "Just found this while cleaning out my drawers",
+    "body": "My dad definitely wrote this btw lol. \nI think this was 7th grade in Health. Idk why this ended up being made tho. Maybe something for end of school year. This makes me cry every time I do this drawer clean out. \n\nI was diagnosed with Cerebral Palsy in October 2019( 6th grade and 12 years old) and was nonverbal for those 12 years until I was diagnosed. I try my absolute hardest to be the person my dad wrote about 4 years ago. I\u2019m still the peacemaker of the family and just in general, I try my hardest to be the light in the darkness. \n\nThank you Dad for writing this. And anyone who is struggling with their disability, please don\u2019t give up. I spent the first 12 years of my life being a prisoner in my own body. I couldn\u2019t talk, had trouble walking, and had no choice in what I wanted. Thankfully, I got out of the prison and has been trying to help others do the same thing. \n\nI cried while making this post. Thank you for reading. \n\nEverything Happens For A Reason. Someone out there loves you. If you don\u2019t think so, I love you. \ud83e\ude75",
+    "flair": "Discussion",
+    "score": 576,
+    "comment_count": 28,
+    "created_at": "2025-07-13T14:53:26+00:00",
+    "top_comments": [
+      {
+        "id": "n2wqbod",
+        "score": 111,
+        "body": "Thank you so much for sharing this\ud83e\ude75you are clearly such a fantastic person and your mum and dad wrote such beautiful things. I\u2019m so glad I got to read all this. I\u2019m crying too now. Keep that letter safe forever. Truly special family all round!"
+      },
+      {
+        "id": "n2wqyto",
+        "score": 68,
+        "body": "Thank god I keep stuff. I\u2019m so grateful for my life that I have and really want others to know that it\u2019s completely possible to have a \u201c normal \u201c life with a very werid body/ mind. Thank you for reading. Happy Disability Awareness Month"
+      },
+      {
+        "id": "n2x2qlf",
+        "score": 58,
+        "body": "You have wonderful parents \ud83e\udd79"
+      },
+      {
+        "id": "n2x3q84",
+        "score": 40,
+        "body": " I seriously do have amazing parents. Sisters too. I crossed out our names obviously but I love both of them so much"
+      },
+      {
+        "id": "n2wvyhi",
+        "score": 32,
+        "body": "![gif](giphy|14urMYvFxIKEms)"
+      },
+      {
+        "id": "n2xaa7k",
+        "score": 25,
+        "body": "I love this for you<3 I wish we could all be this lucky\ud83d\udc97"
+      },
+      {
+        "id": "n2xnuva",
+        "score": 20,
+        "body": "[removed]"
+      },
+      {
+        "id": "n2xb0oq",
+        "score": 20,
+        "body": "I am so insanely lucky. I am grateful every single second of my life that I have the life that I have. I really hope others are/ will be this lucky too someday if they aren\u2019t already here"
+      },
+      {
+        "id": "n2xg1fj",
+        "score": 19,
+        "body": "![gif](giphy|xTiTnnzSvW1FxGVi12)"
+      },
+      {
+        "id": "n2xoix8",
+        "score": 14,
+        "body": "Thank you and your welcome lol. When the drawer gets messy again, I\u2019ll post this again so that people can enjoy it as much as everyone is right now. I\u2019m so thankful for my OCD for not throwing anything away even if I don\u2019t use most of the stuff in my room \ud83d\ude02"
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1nz4i70",
+    "title": "I completed my regular check up myself for the first time today!!",
+    "body": "I've always browsed here, but I made an account today to share that I completed my check up myself for the first time today!!\n\nI'm always with either mom or dad, and it wasn't planned today, but mom had an emergency happen at her work, so she had to go in while we were waiting. And she asked me if I wanted to go back with her and reschedule or if I thought I could go in myself. And, I don't know why, but I said I could at the moment, and I'm glad I did!!\n\nI know it's not really a big deal for everyone and it's a small thing, but I feel really proud and good!! I always feel worried about my independence and all in the future and when I grow up, and it felt really good to go through it today myself!!\n\nI just wanted to share because I'm excited! I hope you have a great day and complete the weekend well! Thanks for reading all this!",
+    "flair": null,
+    "score": 568,
+    "comment_count": 35,
+    "created_at": "2025-10-06T00:15:46+00:00",
+    "top_comments": [
+      {
+        "id": "nhzpmv1",
+        "score": 73,
+        "body": "Two things:\n\n1. Good for you!!! As someone whose major disability didn\u2019t develop until after adulthood, I can assure you that going in for your checkup and becoming your own patient advocate is a big deal and you should feel proud. There are still some adults that don\u2019t know how to do this.\n\n2. Your hair is beautiful and I am jealous. \ud83e\udd29"
+      },
+      {
+        "id": "nhzlnwc",
+        "score": 37,
+        "body": "That is beyond awesome!!!    YOU GO GIRL!\n\n![gif](giphy|4xpB3eE00FfBm|downsized)"
+      },
+      {
+        "id": "nhzrlot",
+        "score": 17,
+        "body": "Congratulations! Big first step. I hope you are proud and are willing to try more things on your own."
+      },
+      {
+        "id": "nhzp012",
+        "score": 14,
+        "body": "observation pocket tan aware liquid crowd knee cause spectacular desert\n\n *This post was mass deleted and anonymized with [Redact](https://redact.dev/home)*"
+      },
+      {
+        "id": "nhzw5gu",
+        "score": 12,
+        "body": "Every step in the direction of independence is a win\u2026congratulations \ud83c\udf89"
+      },
+      {
+        "id": "nhzs271",
+        "score": 12,
+        "body": "Thank you!!"
+      },
+      {
+        "id": "ni2itm6",
+        "score": 10,
+        "body": "Dude, seriously\u2026.I agree with 1. and 2. so hard \ud83d\ude02"
+      },
+      {
+        "id": "ni06otd",
+        "score": 9,
+        "body": "Holy crap, great job! I was in my thirties before I felt comfortable advocating for myself at the doctor lmao!"
+      },
+      {
+        "id": "nhzs37e",
+        "score": 7,
+        "body": "Thank you!!"
+      },
+      {
+        "id": "nhzzled",
+        "score": 6,
+        "body": "It's totally a big deal! Congratulations!!"
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1mct6qr",
+    "title": "Update on \u201cpregnant with limb different baby\u201d",
+    "body": "Our daughter turned a year last month so I wanted to give an update to this community since yall were so helpful with advice and reassurances when we first got the news.\n\nTo everyone that commented- you will never know how much it meant to me and how it really helped set things in perspective and realize everything was going to be ok. It was earth shattering news when my husband and I found out during our 20 week ultrasound that our daughter was going to be born missing most of her right arm and several fingers. The reassurances and first hand accounts we got from this community were honestly a life saver.\n\nOur daughter was born just shy of 8 pounds and ready to take on the world. She is so perfect and everything we could have asked for. She has so much personality now, she doesn\u2019t let anything slow her down. She crawled at 5 months, a little lopsided but still \u201cfast as heck boi\u201d as her brother likes to say. She\u2019s up and running now, being an absolute terror to us, her big brother, and anyone that stands still long enough lol. She\u2019s the happiest little baby I\u2019ve ever met, she never stops smiling, and she\u2019s so smart it\u2019s ridiculous.\n\nWe\u2019ve had a couple appointments with an orthopedic surgeon that we really like, they\u2019ve taken X-rays and all. The doctor is very impressed with the use she has of her arm and says at this time there\u2019s no need to amputate or have her fitted for a prosthetic. She uses the heck out of her little arm and grabs everything between her two little fingers. The only issue she has is that it\u2019s significantly shorter than a standard arm, and she doesn\u2019t have an elbow joint so it doesn\u2019t bend, but she\u2019s figuring it out. The doctor says he\u2019s not sure whether it will continue to grow and how it will function as she gets older, but we\u2019ll cross that bridge when we get to it.\n\nI know I\u2019m probably rambling, but we\u2019re so proud of her, she\u2019s our little ray of sunshine.\nThanks again to everyone in this community that reached out with advice or personal stories, it helped us more than you\u2019ll ever know. ",
+    "flair": null,
+    "score": 566,
+    "comment_count": 40,
+    "created_at": "2025-07-30T01:09:55+00:00",
+    "top_comments": [
+      {
+        "id": "n5wfz6j",
+        "score": 199,
+        "body": "Her brother sounds awesome too"
+      },
+      {
+        "id": "n5wip0u",
+        "score": 138,
+        "body": "He\u2019s such a great kid! He\u2019s our little daredevil, always into something or another and so fearless it scares me lol. He just turned 3 and his hobbies are catching bugs and dressing in his Spider-Man costume to \u201cweb\u201d us and baby sister. We\u2019re very blessed with both of them, they\u2019re awesome"
+      },
+      {
+        "id": "n5wizw2",
+        "score": 95,
+        "body": "I'm so glad you're all doing well! I think you should check out April Lockhart and the work that she does. She's on instagram, tiktok, youtube, etc. She has a limb difference in one arm, and she does a lot of interviews with young girls with limb differences, does events and projects for them, etc."
+      },
+      {
+        "id": "n5wh30v",
+        "score": 81,
+        "body": "Sounds like she\u2019s going to keep you catching up to her for the next 2 decades or so.\ngo big brother! And mercy be on you as they both continue to learn!"
+      },
+      {
+        "id": "n5wr7a2",
+        "score": 52,
+        "body": "This makes me so happy and I know she's just a little one still but as a para-athlete you know I have to say when she's older try out parasports! (If you think she'll enjoy it- which sometimes tells me she will given how speedy and industrious she seems from your post) Not only will it help her figure out new ways to use what she has, she will also meet more people like her with limb differences who she can hang out with at practice every week. I don't have limb differences (my disability is complicated but I'll sum it up as spinal cord defects secondary to Ehlers Danlos syndrome, basically 2 spinal cord injuries one at the very top of my spine and one at the very bottom and my neck is surgically immobilized) but I play Parastanding tennis with a bunch of people who do, people who were both born with it and who lost their limbs later in life.\n\nNow here is my advertisement for parastanding tennis lmao ( I love my sport).\nParastanding tennis is a sport that is more up and coming but I'd bet by the time your kid is old enough to play we'll have gotten it into the Paralympics (things are moving fast) and there may be local programs that pop up wherever you live. In fact I'll be playing at an invitational for it in the US Open this September. Last year at parastanding nationals my doubles partner was a girl who was born without one of her arms and we got 2nd place! (We actually lost to a doubles pair that included a girl with limb differences in both her arms). It seems to be pretty popular with people with upper limb differences. Just take a look at this article about the players at the US open last year! Your daughter would probably be a PST3 player just like me which would mean she'd play with 2 bounces.\n\nhttps://www.usopen.org/en_US/news/articles/2024-09-06/this_levels_the_playing_field_parastanding_tennis_on_show_at_2024_us_open.html"
+      },
+      {
+        "id": "n5wkbdf",
+        "score": 52,
+        "body": "I just skimmed her instagram, that\u2019s exactly the kind of stuff I love to follow! Thanks so much for the recommendation"
+      },
+      {
+        "id": "n5wj888",
+        "score": 45,
+        "body": "She\u2019s gotten so quick! Between the two of them it\u2019s definitely a full time job. They\u2019re both so adventurous, I\u2019m pretty sure I\u2019ll go gray in the next couple years lol"
+      },
+      {
+        "id": "n5ww714",
+        "score": 23,
+        "body": "That\u2019s such a great idea, I\u2019ll look into it for sure! She\u2019s such a mover and groover, she definitely keeps me on my toes. She was early to crawl, early to walk, she\u2019s nearly running now and recently learned to climb. She\u2019s an unstoppable little trouble maker. I\u2019m sure she\u2019ll be jumping off of counters and bunk beds like her brother in no time.\n\nIf you\u2019re comfortable sharing your info we would love to watch this September and cheer you on from our living room!"
+      },
+      {
+        "id": "n5wx1ta",
+        "score": 19,
+        "body": "Check out Allie Johnson, a member of the U.S. Paralympic ski team. Allie , now 30 years old, has a \u201clittle arm\u201d, much like your daughter, and grew up with my daughter. Nothing can stop her, she has an unbeatable spirit, and became a competitive skier after college. When she was in grade school and high school, she competed in diving. She also played Little League baseball."
+      },
+      {
+        "id": "n5xksos",
+        "score": 15,
+        "body": "You may want to check out Liv Stone on Facebook. I\u2019m sure she\u2019s on other social media sites too but that\u2019s where I see her. She\u2019s an amazing young woman and might be a good resource going forward. Best wishes!"
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1og95jq",
+    "title": "I love being \u201cdisabled\u201d",
+    "body": "I\u2019ve never experienced such hate. Wrong week for me to start tapering off my depression meds lol",
+    "flair": "Rant",
+    "score": 558,
+    "comment_count": 105,
+    "created_at": "2025-10-26T02:16:20+00:00",
+    "top_comments": [
+      {
+        "id": "nleyu8j",
+        "score": 218,
+        "body": "Yes, you could have a job where you don\u2019t need to work your legs. Maybe you\u2018re a receptionist. Maybe you work at a computer. But you still need a handicapped spot for your wheelchair or maybe because walking is exhausting for you."
+      },
+      {
+        "id": "nlewwer",
+        "score": 194,
+        "body": "It\u2019s so insane that people say these things online. Anything you post online could get back to you eventually. I doubt any of their employers, friends, family members, coworkers etc would be thrilled to know that\u2019s how they speak to disabled people."
+      },
+      {
+        "id": "nlf1v5v",
+        "score": 128,
+        "body": "Why are abelists even using the /disability subreddit?? Like what do you benefit from that, genuinely. those guys suck"
+      },
+      {
+        "id": "nlf299s",
+        "score": 105,
+        "body": "one time someone here said i cant be disabled because there was a post on my profile from years ago about me hanging out with friends at a bar."
+      },
+      {
+        "id": "nlf358f",
+        "score": 90,
+        "body": "Didn\u2019t you know disabled people aren\u2019t allowed in bars?! /s"
+      },
+      {
+        "id": "nlf4af6",
+        "score": 79,
+        "body": "Because it's saturday night, and they don't have anyone who wants to spend time with their hateful asses. So they decided to be miserable to others in a vain attempt to feel superior."
+      },
+      {
+        "id": "nlf6otr",
+        "score": 77,
+        "body": "Exactly!!! What logic are these ppl going off of? They clearly have nothing but marbles in their brain\ud83d\ude44\ud83d\ude02"
+      },
+      {
+        "id": "nlf1upw",
+        "score": 77,
+        "body": "Legit, i just had a post my cousin made come across my main page and clocked it as them so fast."
+      },
+      {
+        "id": "nlf4zwq",
+        "score": 62,
+        "body": "If they got what they wanted, we wouldn't even leave our homes. They don't want to know that sick and disabled people exist because it just ruins their fun. I don't get it because I've never had issues with anyone because they have some kind of health condition or anything, for that matter. I judge people according to their heart."
+      },
+      {
+        "id": "nlf69w0",
+        "score": 56,
+        "body": "Sadly I think disability related subs attract trolls who come here on purpose"
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1pzyweg",
+    "title": "They Have Wheelchairs at Build-a-Bear",
+    "body": "I was at the mall today and decided to go by Build-a-Bear. I was thinking about getting a new Sanrio plushie. While I was in the store I said \"It would be cool if they had wheelchairs\". Then a kid pointed across the room and said \"The wheelchairs are over there\". I walked over there and for the first time in my life I saw a wheelchair made for a stuffed animal. \n\nI am so happy about this. I've never had any kind of mobility aid for a stuffed animal. I use an electric wheelchair and they only had manual wheelchairs, but I don't care. The wheelchairs are so cool. They roll and can even fold in half. I've been smiling all day. ",
+    "flair": "Image",
+    "score": 555,
+    "comment_count": 23,
+    "created_at": "2025-12-31T00:40:31+00:00",
+    "top_comments": [
+      {
+        "id": "nwuaylx",
+        "score": 54,
+        "body": "That\u2019s great! Build A Bear has had these for many years, but I think only recently SOME stores have started to stock them in the physical location. I think I\u2019ve only seen them in person once, and there\u2019s a good handful of stores in my area. \n\nI\u2019m crossing my fingers that BAB will eventually add more mobility aids to their collection. I\u2019m especially hoping for a white cane one day!"
+      },
+      {
+        "id": "nwu8r2y",
+        "score": 41,
+        "body": "I love this. I am 40F and I have hearing aids. Finally got an American Girl doll that came with a pair.\u00a0"
+      },
+      {
+        "id": "nwubnhx",
+        "score": 37,
+        "body": "Yeah, build a bear didn't have one so I sewed one myself when I got home."
+      },
+      {
+        "id": "nwubhe4",
+        "score": 30,
+        "body": "Omg is that an ostomy bag too \ud83e\udd79"
+      },
+      {
+        "id": "nwubfyk",
+        "score": 24,
+        "body": "They also had crutches that came with an ace bandage looking thing for the plushie's knee. That was the only other mobility aid they had."
+      },
+      {
+        "id": "nwu95ku",
+        "score": 23,
+        "body": "That's cool. Unfortunately Build-a-Bear didn't have any colostomy bags so I had to make one myself. Now Mocha and I are twins."
+      },
+      {
+        "id": "nwu734t",
+        "score": 14,
+        "body": "That's so cool!! I used to work at a Build a Bear for several years and we never got wheelchairs in stock at our store. Super lucky that you found a location where you could get one for yourself!!"
+      },
+      {
+        "id": "nwubz03",
+        "score": 9,
+        "body": "I love that! Hopefully they can add more accessories like this in the future"
+      },
+      {
+        "id": "nwu4y5x",
+        "score": 6,
+        "body": "That's awesome!"
+      },
+      {
+        "id": "nwyqy9v",
+        "score": 5,
+        "body": "I also forgot to mention that Build-a-Bear was the most accessible store in the mall. It was fairly easy to navigate my wheelchair around there and when I went to stuff my plushies the worker took me to the other side of the machine where there was a hand remote instead of a foot pedal that you could use to stuff them."
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1plb2xe",
+    "title": "A meme I made about the state of things lately",
+    "body": "Image features an adult playing with a child in a pool while ignoring a drowning child. Underneath them both is a skeleton in the water.\n\nThe first child is labelled \"ANXIETY AND DEPRESSION.\" The adult is labelled \"'MENTAL HEALTH' COMMUNITY\". The skeleton is labelled \"LITERALLY ANY OTHER MENTAL DISORDER/DISABILITY\".",
+    "flair": "Image",
+    "score": 554,
+    "comment_count": 57,
+    "created_at": "2025-12-13T03:09:42+00:00",
+    "top_comments": [
+      {
+        "id": "ntro6ik",
+        "score": 148,
+        "body": "Maybe reactive.\n\nMajor depressive disorder, severe anxiety - anything that significantly deviates from temporary or manageable does not garner any sort of understanding."
+      },
+      {
+        "id": "ntrynne",
+        "score": 75,
+        "body": "yes! people also stigmatize depression when it makes people unable to work or care for themselves, anxiety when it results in aggressive/unruly panic attacks and \u201cirrational behavior,\u201d etc. what\u2019s stigmatized here is mental disability\u2014-any experience of being unable to do things, or to do them in a way that looks \u201cnormal.\u201d"
+      },
+      {
+        "id": "ntrf24t",
+        "score": 72,
+        "body": "Literally.\n\nI have a *highly* stigmatized mental health disorder/disability that is so notoriously harpooned by media and the general zeitgeist that I don\u2019t like saying what it is even in these types of communities. I feel utterly alone and only share it with people I truly know and trust.\n\nWorse yet, the medication i used to take for it has left me with a lifelong, permanent physical disability that requires it\u2019s own seperate medication which has it\u2019s own set of side effects.\n\nSo i have to take meds for my meds. For an illness I \u201ccan\u2019t\u201d disclose to basically anyone."
+      },
+      {
+        "id": "ntsf468",
+        "score": 71,
+        "body": "What's with the increase in the infighting? Lads, other mentally ill and/or neurodivergent people are not the enemy.\n\nSave the memes for the assholes who ignore all of or, dare I say, pit us against eachother."
+      },
+      {
+        "id": "ntrktyn",
+        "score": 38,
+        "body": "As someone with treatment-resistant depression (as well as AuDHD and various other things), I have to disagree based on my experiences. Things are pretty good for people with mild depression or anxiety who are generally able to function fairly well but could use a little support, but not for people with severe, chronic issues. My TRD is way more disabling than my AuDHD has ever been."
+      },
+      {
+        "id": "ntrtjxt",
+        "score": 30,
+        "body": "Intellectual disabilities are in Marianas' trench."
+      },
+      {
+        "id": "ntslj82",
+        "score": 26,
+        "body": "Yeah, seeing a lot of no true Scotsman crap going on around this Reddit and it stinks we're all supposed to be supporting each other. Who cares? If you think that people with anxiety and depression have it better than you do cuz it's not true just because you think that way"
+      },
+      {
+        "id": "ntsru5e",
+        "score": 26,
+        "body": "Thank you yes.\n\nI\u2019m so tired of seeing people with disabilities and illnesses dismiss other people\u2019s disabilities and illnesses and explain their own experience to them. And for what? To feel like their suffering is more valid than someone else\u2019s? To feel like they\u2019re first in line when people realize we need to actually change things?\n\nAll this ableism coming from inside the house is getting me down."
+      },
+      {
+        "id": "ntsx892",
+        "score": 22,
+        "body": "Thank you\u2026this has always troubled me about my situation. I have some combination of MDD and ADHD\u2026but I\u2019ve always been hard on myself because it seems like everyone else with depression still holds a job or remains functional. I simply haven\u2019t been able to\u2026and once my depression started to meet the literal definition of a disability, one by one everyone jumped ship on me. It still feels like my fault. This lessened the load a bit."
+      },
+      {
+        "id": "ntrsbed",
+        "score": 21,
+        "body": "I think I get what you\u2019re talking about, and I\u2019m so sorry. As if the symptoms themselves aren\u2019t debilitating enough, the meds are their own beast. I\u2019m hoping there will be better awareness and acceptance for people living with it."
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1kpw42j",
+    "title": "To the people who voted for trump and republicans",
+    "body": "When they pass this truly evil work requirements bill\nKicking at least 15 million people of Medicaid .\n\nAnd preventing those do get kicked off from buying insurance off the marketplace ,and from states from waiving the work requirement.\n\nI hope you are happy ,this is going to kill people.\nAll to pay for tax cuts for the rich ,and a boarder policy that is racist .\nIt\u2019s also going to end up costing money - people are still, going to go to er and hospital -just without insurance .\n\nOh right trump didn\u2019t support or read project 2025-that is such a joke /",
+    "flair": "Rant",
+    "score": 551,
+    "comment_count": 238,
+    "created_at": "2025-05-18T22:19:12+00:00",
+    "top_comments": [
+      {
+        "id": "mt11xn0",
+        "score": 212,
+        "body": "It seems like MAGA disabled no longer exist. They\u2019ve apparently gone missing on this sub. Curious as to why? /s"
+      },
+      {
+        "id": "mt2diru",
+        "score": 129,
+        "body": "They voted to kill people, they do not care at all"
+      },
+      {
+        "id": "mt1cy1k",
+        "score": 111,
+        "body": "I think it's worth reiterating that the GOP stopped Trump's \"big, beautiful, whatever\" bill of crap because it somehow *wasn't cruel enough.*\n\nThese people are all ghouls. Anyone who supports them is guilty.\n\nAnd that includes the \"protest vote\" types too because we all know they don't really care what happens to us but are more than glad to pretend and condescend."
+      },
+      {
+        "id": "mt123fv",
+        "score": 108,
+        "body": "I feel no sympathy if you voted republican and get kicked off Medicaid -you voted for this and get what you deserve"
+      },
+      {
+        "id": "mt2o9ae",
+        "score": 98,
+        "body": "Eugenics. Exactly what he promised yet people will still be surprised with their blinkers on"
+      },
+      {
+        "id": "mt2jtn6",
+        "score": 77,
+        "body": "And that\u2019s why you\u2019re posting here. Because you\u2019re banned. Got it."
+      },
+      {
+        "id": "mt2xddo",
+        "score": 76,
+        "body": "I've noticed that a big chunk of the MAGA crowd has gone totally silent.\u00a0 Before it was either \"I love that he tells it like it is\" or \"Oh, that's just his rhetorical style; he's not going to actually do XYZ\" and now it's crickets, because his policies are ruining lives.\u00a0\u00a0\n\n\nI'm lucky to have SSDI, but my husband has been paying $500 per month on his 160k worth of student loans (from undergrad and law school) for 8 and a half years now, just a year and a half from having them forgiven.\u00a0 He took out those loans 12 years ago, always planning on working in public service/participating in a loan forgiveness program, rather than working crazy hours in big law and paying the loans off himself.\u00a0 Now it's looking like Trump will be doing away with those programs, and we are livid.\u00a0\u00a0"
+      },
+      {
+        "id": "mt1g9qi",
+        "score": 58,
+        "body": "I've learned that even disabled people can be mean. I posted on Facebook that Missouri senator Josh Hawley doesn't care about people. I was laughed at. Not nice."
+      },
+      {
+        "id": "mt1fy3t",
+        "score": 55,
+        "body": "They won\u2019t be allowed to buy subsidies on marketplace-it\u2019s in the bill,"
+      },
+      {
+        "id": "mt4nuqd",
+        "score": 52,
+        "body": "I see them every day on Facebook. They don't care about Medicaid cuts because it \"ends waste and abuse\" (they literally think half of the funding is fraud) and don't think *their* medicaid will be impacted because they voted Trump or are white. They'll say oh nothing bad happened last time because they have no clue what John McCain saved them from. They deserve what'll happen to medicaid, snap, and the ADA"
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1lcklvj",
+    "title": "Made this to cheer myself up today \u270c\ud83c\udffb",
+    "body": "Sometimes my brain says that if I\u2019m not in pain 24/7 that my disability\u2019s are real or valid and I call bs I treat it like a bully and politely say screw off! Anyone else ever experience these types of thoughts?",
+    "flair": "Image",
+    "score": 547,
+    "comment_count": 27,
+    "created_at": "2025-06-16T05:14:54+00:00",
+    "top_comments": [
+      {
+        "id": "my1gkwg",
+        "score": 13,
+        "body": "I misread that as \"your disability is ONLY valid on your good days\" and I was like well.. okay.. rude.. \ud83d\ude12\ud83d\ude12 lmfao"
+      },
+      {
+        "id": "my1i73u",
+        "score": 10,
+        "body": "I read stuff like that all the time and have to double take \ud83d\ude02"
+      },
+      {
+        "id": "my18kgl",
+        "score": 7,
+        "body": "I have that too! You are valid and don\u2019t need to prove you need care or support. I am happy that you have some good days! You deserve it!"
+      },
+      {
+        "id": "my1gnrs",
+        "score": 5,
+        "body": "stunning!!"
+      },
+      {
+        "id": "my1ijga",
+        "score": 5,
+        "body": "Why\u2019s my autocorrect being ableist out here though\n \u201cmy brain says my disability\u2019s aren\u2019t* real or valid\u201d"
+      },
+      {
+        "id": "my19p5x",
+        "score": 5,
+        "body": "Thank you! I don\u2019t know any other folks irl with disability\u2019s so I was truly curious if it was just me, it\u2019s Reassuring that I\u2019m not alone \ud83d\ude0a"
+      },
+      {
+        "id": "my1imux",
+        "score": 5,
+        "body": "Thank you! I try my best!\ud83d\ude0a"
+      },
+      {
+        "id": "my29qyo",
+        "score": 4,
+        "body": "I have had my main disability since birth, but I recently (finally) got my Tourette\u2019s dx and I have been super struggling with impostor syndrome because my case is considered more mild. My therapist said \u201cif it really that mild, if you were really faking, would you be here 15 years later in my office crying about it?\u201d which might sound harsh to some, but we are Massholes, it was exactly the validation I needed to hear."
+      },
+      {
+        "id": "my1tsw2",
+        "score": 3,
+        "body": "Love this, Thankyou \ud83d\udc96"
+      },
+      {
+        "id": "my2czkc",
+        "score": 3,
+        "body": "I needed to see this, thank you. It's also a very cute design."
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1nux5e5",
+    "title": "Enjoying some fresh air in my chair \ud83c\udf33",
+    "body": "Nothing beats a little time outdoors surrounded by green.",
+    "flair": "Image",
+    "score": 535,
+    "comment_count": 49,
+    "created_at": "2025-10-01T03:01:00+00:00",
+    "top_comments": [
+      {
+        "id": "nh4ihqh",
+        "score": 15,
+        "body": "I love your outfit!"
+      },
+      {
+        "id": "nh8cfhz",
+        "score": 9,
+        "body": "You\u2019re so pretty!"
+      },
+      {
+        "id": "nh54om6",
+        "score": 6,
+        "body": "Your style is amazing girllll \ud83e\ude77\ud83d\ude0d"
+      },
+      {
+        "id": "nh4t444",
+        "score": 6,
+        "body": "That\u2019s so cool you grew up surrounded by trees \ud83c\udf32\ud83c\udf32 I can imagine Colorado being gorgeous. And yes, scooters make things different! I definitely know the struggle with walkers cutting me off, haha."
+      },
+      {
+        "id": "nh9mdx0",
+        "score": 5,
+        "body": "It looks like a beautiful place to enjoy some relaxation. I will definitely gave me a boost to go for a walk with one of my siblings. Your pictures came out beautifully and you're very pretty \ud83d\udc96\ud83d\udc96\ud83d\udc96"
+      },
+      {
+        "id": "nh5784b",
+        "score": 5,
+        "body": "Thanks so much! \ud83d\ude0a I had fun putting this look together!"
+      },
+      {
+        "id": "nh4sw9q",
+        "score": 4,
+        "body": "You\u2019re so kind \ud83d\ude33 thank you for making me smile!"
+      },
+      {
+        "id": "nh4j69m",
+        "score": 3,
+        "body": "Aww thank you! \ud83d\udc95 Glad you like it!"
+      },
+      {
+        "id": "nh9x54l",
+        "score": 3,
+        "body": "Thanks a lot! \ud83d\ude0a That means so much to me."
+      },
+      {
+        "id": "nh4ny8h",
+        "score": 2,
+        "body": "I have to agree about the outfit!  It looks so awesome on you!   And if you don't mind me saying so, you're a very pretty young lady!"
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1ksl5pn",
+    "title": "I\u2019m heartbroken",
+    "body": "The budget bill has passed out of committee and, even as I type, they are arguing its merits on the House floor. A vote is expected before 4 am EST.\n\nI\u2019m heartbroken because I spent a year trying to educate people about Project 2025, registering voters, phone banking, sending postcards, calling reps and senators.\n\nAnd it all amounted to nothing.\n\nNow, so many of us stand to lose Medicaid and SNAP.\n\nAnd there\u2019s nothing that can be done.\n\nMy heart aches for all of us tonight and hangs heavy.",
+    "flair": null,
+    "score": 540,
+    "comment_count": 169,
+    "created_at": "2025-05-22T07:55:13+00:00",
+    "top_comments": [
+      {
+        "id": "mtmcdfq",
+        "score": 105,
+        "body": "thank you for all your hard work. It didn\u2019t amount to nothing. It actually could have been worse. the bill I mean. many maga wanted it to be harsher. \n\nDo you know what it\u2019s fate might be in the Senate? Do we have any chance of stopping it there?"
+      },
+      {
+        "id": "mtmbpax",
+        "score": 89,
+        "body": "I need to update my will."
+      },
+      {
+        "id": "mtmmcox",
+        "score": 89,
+        "body": "We were basically standing in front of a tsunami, knowing there was no escaping it. There isn't much more that can be said about people, this country, evil... the feeling of inevitability this entire time is depressing. As George Carlin said about fascism..."
+      },
+      {
+        "id": "mtmj6tm",
+        "score": 61,
+        "body": "I'm so scared. I'm in the middle of applying for disability. If I lose my medical and my food stamps because of the work rules, I don't know what I'm going to do. My roommates have been graciously covering my rent and some of my bills for now during the application process, but I'm expecting the initial denial any day now and I don't know what I'll do if I lose insurance within the next year.\n\n I won't die without my medications (holy fuck I'm so scared and angry about how this will impact folx who will/could), but I will end up bedridden and in horrible pain. And well, not being able to buy food is obviously a problem.\n\nI hate this timeline. Trying to hold out hope as best I can."
+      },
+      {
+        "id": "mtmdlup",
+        "score": 60,
+        "body": "I'm sorry, this is so horrible. \n\nI wish someone had organized a way to ensure people got their care even if the government is useless and cruel. But. I can't find people doing anything. \n\nIf anyone knows, please let me know so I can help."
+      },
+      {
+        "id": "mtnljuh",
+        "score": 60,
+        "body": "I\u2019m on disability but I\u2019ve been on the non elderly disabled housing waitlist for almost 15 years!!!! I finally got an apt that\u2019s income restricted but I still pay 60% towards rent and utilities (or more). \nI make too much to qualify for section 8, Medicaid or food assistance. But my medical bills are so high I can\u2019t afford much food. It\u2019s very frustrating all around. But I am very grateful for having had the ability to make a good living while I did work and paid in a lot to social security. I\u2019m grateful to have what I have. But it\u2019s not enough to have a car or do much fun things with friends. I despise this administration."
+      },
+      {
+        "id": "mtmcrbe",
+        "score": 45,
+        "body": "[deleted]"
+      },
+      {
+        "id": "mtnjv18",
+        "score": 43,
+        "body": "It could all be stopped if the GOP would grow a backbone and stand up to this administration. But I guess we are all screwed. \ud83d\ude14"
+      },
+      {
+        "id": "mtmwnpx",
+        "score": 43,
+        "body": "It\u2019s honestly unclear. The Rs have the Senate. So they could pass it along party lines. We\u2019re just going to have to wait and see unfortunately."
+      },
+      {
+        "id": "mtnoluw",
+        "score": 37,
+        "body": "[removed]"
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1lq66dq",
+    "title": "Patty Berne, one of the founders of the Disability Justice movement, has passed",
+    "body": "Patty's impact on the Disability Community is immeasurable, learn more at www.sinsinvalid.org ",
+    "flair": null,
+    "score": 533,
+    "comment_count": 6,
+    "created_at": "2025-07-02T20:18:17+00:00",
+    "top_comments": [
+      {
+        "id": "n10b73d",
+        "score": 43,
+        "body": "Inshallah their memory and activism always be remembered as a blessing \u2764\ufe0f \n\nTheir loss is felt and they will always be loved"
+      },
+      {
+        "id": "n124hu8",
+        "score": 13,
+        "body": "May their memory always be a blessing and a revolution."
+      },
+      {
+        "id": "n11n3ob",
+        "score": 12,
+        "body": "I hope theyre resting easy"
+      },
+      {
+        "id": "n13amf4",
+        "score": 5,
+        "body": "Oh this is devastating news. I was lucky enough to have met them, just an incredible person. May their memory be a blessing."
+      },
+      {
+        "id": "n14d7jb",
+        "score": 1,
+        "body": "Oh, this is really devastating to hear \ud83d\ude22 may she rest in peace and always watch over us."
+      },
+      {
+        "id": "n1ae50u",
+        "score": 1,
+        "body": "We'll meet again in another world. I'll always be grateful of what she has done. May her soul rest in peace.\u2764\ufe0f\u2764\ufe0f\u2764\ufe0f"
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1qo59i2",
+    "title": "Able-Bodied People Love This Narrative Because It Makes Them Comfortable.",
+    "body": "Stephen Hawking\u2019s life wasn\u2019t some inspirational fairytale. A lot of able-bodied people love to say, \u201cLook how amazing his life was despite ALS,\u201d but the truth is much harsher.\n\nAfter his diagnosis, his parents largely stepped back from his care. His first wife became so overwhelmed with his care that she cheated on him and effectively had another \"husband \" living openly in front of him. He watched his children being raised by his wife\u2019s boyfriend. Later, his second wife was accused of physically abusing him.\n\nCalling that an \u201cawesome life\u201d says more about how uncomfortable people are with disability than about the reality he lived.",
+    "flair": "Rant",
+    "score": 531,
+    "comment_count": 72,
+    "created_at": "2026-01-27T05:39:41+00:00",
+    "top_comments": [
+      {
+        "id": "o1yvby4",
+        "score": 188,
+        "body": "He was an absolutely horrible person in his personal life, but he did do most than most able-bodied people professionally.  If someone asks you why you aren\u2019t successful like he was, ask them why they aren\u2019t. He didn\u2019t have a normal trajectory for ALS, anyway. I personally like seeing other disabled people achieve something though."
+      },
+      {
+        "id": "o1yuxgw",
+        "score": 159,
+        "body": "So many of us are called inspiring while we struggle with abuse, neglect, addiction, chronic pain, etc. They don\u2019t like talking about that part, just how amazing it is when we do anything they don\u2019t perceive us capable of doing"
+      },
+      {
+        "id": "o1yykq3",
+        "score": 137,
+        "body": "You're being too unkind to his wife. She made enormous personal sacrifices caring for him and their children. Their home life was all about him. He was a celebrity. He then left her for his abusive nurse, and he had little contact with his children and grandchildren until his divorce. Like Frieda Kahlo who was bedridden most of her life, you remember the genius and not the lowly nurse that contributed to it and made that life possible.\u00a0"
+      },
+      {
+        "id": "o1yznn6",
+        "score": 96,
+        "body": "I'm sure she felt used by him. He was a narcissist and a misogynist. He was also a brilliant scientist so that's all anyone talks about."
+      },
+      {
+        "id": "o1z3x8m",
+        "score": 93,
+        "body": "Yes, when you're brilliant then that behavior is being  complex and multifaceted. For us non celebrities it's called being an ass."
+      },
+      {
+        "id": "o1z3j7y",
+        "score": 77,
+        "body": "It's almost like people can be complex and multifaceted or something..."
+      },
+      {
+        "id": "o20qc5h",
+        "score": 56,
+        "body": "It also reflects our culture of productivity and disability. Hawking is considered a \"good\" disabled person because he could still use his brain for smarty-pants things and, thus, \"earned his keep\" in society. Were he of average intelligence, or simply existing to be comfortable while alive, he would've been treated far worse. Angelina Fanous, a former journalist who retired after her ALS diagnosis in her 20s and has enjoyed spending her days traveling and taking psychedelic drugs--as is her right, in my opinion, because she has ALS and should just be allowed to be as comfortable as she can be--spends a ton of time fighting with insurance companies over her treatment. Disabled people are not allowed to exist unless we can find some other way to \"contribute\" to society."
+      },
+      {
+        "id": "o1z31ha",
+        "score": 56,
+        "body": "We're aspirational until we demand what we are owed by the community around us. Then we're a burden."
+      },
+      {
+        "id": "o1yyccm",
+        "score": 52,
+        "body": "He is on the Epstein list, and I believe he had an affair with a nurse (his second wife).  Maybe that's why people didn't want to take care of him.  Obviously, that doesn't justfiy abuse (or maybe it does?), but somehow he managed to be a pedo in that condition"
+      },
+      {
+        "id": "o1zeci7",
+        "score": 49,
+        "body": "I didn't want to meet with someone in the middle of covid because I was just cancer free for less than a year and only 60% of lungs are working and I'm in constant pain. The person then started telling me about someone in sports who got burned and lost half of his lungs but it never stopped him and how much he looks up on him. ... Okay dude, I'm still not gonna risk my life only to meet.with you, we're not even good friends, we're just playing in the same group in an online game \ud83d\udc80 like? I'm not your inspirational person material."
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1qvmrqa",
+    "title": "Indeed",
+    "body": "",
+    "flair": "Image",
+    "score": 534,
+    "comment_count": 11,
+    "created_at": "2026-02-04T12:04:38+00:00",
+    "top_comments": [
+      {
+        "id": "o3irdsq",
+        "score": 61,
+        "body": "Okay, this makes sense finally. If you didn't sleep with your wheelchair then how would you get around in your dreams? /s"
+      },
+      {
+        "id": "o3jespy",
+        "score": 31,
+        "body": "Actually in my Dreams i can walk \ud83d\ude18"
+      },
+      {
+        "id": "o3ivh2c",
+        "score": 29,
+        "body": "Hey do you mind sharing this in r/disabledmemes we would love you to join our community and have some giggles with us \ud83d\ude0a."
+      },
+      {
+        "id": "o3io68j",
+        "score": 19,
+        "body": "That looks uncomfortable \ud83d\ude02 of course people sleep in wheelchairs don\u2019t people sleep in regular chairs? Definitely never imagined finding an image like this"
+      },
+      {
+        "id": "o3jedd9",
+        "score": 18,
+        "body": "I've joined the community \ud83c\udf41 TX a lot"
+      },
+      {
+        "id": "o3netsq",
+        "score": 7,
+        "body": "Lol, I had that happen once. I smiled and hit a few buttons on Black Beauty (my customized Permobil Mach 3) and once fully reclined I smiled and said \"Of course I do, wouldn't you?\"\n\nThe little boy was maybe 5 or so and he looked up at his mom mouth wide and said \"Mom! That's a cool bed!!\"\n\n#BestErrandDayEver"
+      },
+      {
+        "id": "o3jmc9h",
+        "score": 6,
+        "body": "This kind of humor definitely is welcome , thank you I hope you have fun with us."
+      },
+      {
+        "id": "o3ita0s",
+        "score": 2,
+        "body": "\ud83e\udd23\ud83e\udd23\ud83e\udd23"
+      },
+      {
+        "id": "o3kslv3",
+        "score": 1,
+        "body": "Stop it! \ud83d\ude06 \ud83e\udd23"
+      },
+      {
+        "id": "o4clskj",
+        "score": 1,
+        "body": "Well, tbf, I've been known to nod off with my head on my desk. Be sure to set your brakes on if you're going to try this. Don't ask me how I know."
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1oeiqdu",
+    "title": "People have repeatedly been horrible to this man, I feel terrible for him",
+    "body": "",
+    "flair": "Concern",
+    "score": 524,
+    "comment_count": 70,
+    "created_at": "2025-10-23T23:38:10+00:00",
+    "top_comments": [
+      {
+        "id": "nl1yunz",
+        "score": 550,
+        "body": "The fact that I've seen people saying he's a \"poor mutilated little girl who doesn't even know what's going on and [his] parents must have done this for woke points\" literally makes me so mad. he's an adult man with a movement disorder. he knows what's going on and transitioned on his own."
+      },
+      {
+        "id": "nl1zgk8",
+        "score": 347,
+        "body": "I hate how the people who are doing the absolute worst for disabled people use \u201cprotecting disabled people\u201d as a way to be bigoted and somehow STILL ableist."
+      },
+      {
+        "id": "nl1xj6f",
+        "score": 265,
+        "body": "This top of mockery is infuriating to me, and proof that disabled joy is a great fear of society.\n\nIt threatens systems of oppression to see a body they deem worthless experience such joy. I know what its like to finally get to be shirtless after top surgery (scars look like mine around the time where I didnt have to wear the compression binder all the time) and that joy is radical. The facists already hate trans bodies, but a visibly disabled body too? \n\nDisabled, queer, and other marginalized peoples experiencing joy shows the facists that they haven't won yet, so they get scared, and they mock.\n\n I wish this dude the best, and I hope he continues to have joy in these fucked up times."
+      },
+      {
+        "id": "nl26i3f",
+        "score": 176,
+        "body": "wish they cared about protecting us when our healthcare was on the chopping block"
+      },
+      {
+        "id": "nl1xo73",
+        "score": 106,
+        "body": "Yep. As a fellow disabled trans guy, it\u2019s nice to see other disabled trans people doing well. Of course it\u2019s not nice to see people using them to claim there\u2019s some sort of \u201ctrans agenda\u201d going on."
+      },
+      {
+        "id": "nl294nt",
+        "score": 98,
+        "body": "Yeah well these are the same people who say they're just trying to protect women while at the same time saying women shouldn't have the right to vote."
+      },
+      {
+        "id": "nl3hs6s",
+        "score": 96,
+        "body": "pretty interesting how 'protect children' 'protect disabled people' 'protect women' etc always involves taking their rights and autonomy away. Weird!"
+      },
+      {
+        "id": "nl1s8gi",
+        "score": 89,
+        "body": "Whoa, he seems to really rolled a one on life struggles. Glad he's still able to smile about it"
+      },
+      {
+        "id": "nl1z801",
+        "score": 83,
+        "body": "I\u2019m severely disabled and trans, I like to joke that I\u2019m playing life on hell mode lol"
+      },
+      {
+        "id": "nl1uq51",
+        "score": 74,
+        "body": "He got top surgery and probably didnt want to keep his nipples, its not uncommon."
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1mu1kjx",
+    "title": "Local library has a rollator for people to use :)",
+    "body": "",
+    "flair": null,
+    "score": 530,
+    "comment_count": 10,
+    "created_at": "2025-08-18T23:04:16+00:00",
+    "top_comments": [
+      {
+        "id": "n9fqbjm",
+        "score": 59,
+        "body": "My local library has a rollator and a few wheelchairs!!  It makes me really happy to see that we are thought of in these spaces. Why the library is my favorite place!"
+      },
+      {
+        "id": "n9ftn44",
+        "score": 32,
+        "body": "Oh my goodness I love this!! And the little basket in front to put all your books?? I don't currently use any mobility aids (been on the fence about trying any for a while) but having these in spaces like the library would be so useful for me! I could try it out to see if it's useful and be able to be in a lot more comfort and reduce strain on my body on days when I'm out and about."
+      },
+      {
+        "id": "n9gir18",
+        "score": 18,
+        "body": "For a second, I though the fire extinguisher was attached to it, and I was like, wow, they really mean business when it comes to safety!"
+      },
+      {
+        "id": "n9gd08d",
+        "score": 17,
+        "body": "Try them! The eaiest to access is likely a powered scooter cart at your nearest decent grocery store.\n\nETA: I will also say I have literally never heard anyone say \"Gee, I wish I'd waited longer to start using aids\". It's very easy, when faced with slow decline over years as almost all of us experience, to forget what \"normal\" or being without pain even feels like. By the time you are even thinking about aids, you are likely at a point where you would benefit."
+      },
+      {
+        "id": "n9gmqq6",
+        "score": 15,
+        "body": "This kind of stuff is exactly what got me cave and just get myself a wheelchair. Deciding to try one out at a shopping centre made me realise just how fun life could be without the constant pain, I actually had a full day looking around the shops at stuff rather than my typical 30 minutes just going for one specific shop for one specific thing. \n\nAnd just to say I tried other mobility aids like this as well but they just didn't cut it, I was still in pain quite quickly. \n\nPersonal anecdotes out the way this is just great, I'm sure there's plenty of folk who would find it useful and would be able to actually spend a good amount of time enjoying their visit all thanks to this being available"
+      },
+      {
+        "id": "n9hoasv",
+        "score": 8,
+        "body": ">The eaiest to access is likely a powered scooter cart at your nearest decent grocery store.\n\nFYI: this is not a thing in many (most?) countries. I've literally only seen them in the US, but I haven't visited all countries and all grocery stores of course."
+      },
+      {
+        "id": "n9kgwzu",
+        "score": 4,
+        "body": "Brilliant idea. I have one to donate to them! Thank you for the wink in the right direction"
+      },
+      {
+        "id": "n9gpdl8",
+        "score": 3,
+        "body": "![gif](giphy|5xtDarmwsuR9sDRObyU)"
+      },
+      {
+        "id": "n9gnye2",
+        "score": 3,
+        "body": "lol me too\u00a0"
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1r6xy4m",
+    "title": "APPROVED",
+    "body": "",
+    "flair": null,
+    "score": 526,
+    "comment_count": 51,
+    "created_at": "2026-02-17T05:51:32+00:00",
+    "top_comments": [
+      {
+        "id": "o5tznoo",
+        "score": 77,
+        "body": "I made my appeal a few weeks ago and this is my second time I applied for Disability. I had no hope for my approval the first or second time, but my Therapist, Case Worker and Care Coordinator are walking me through the process and rooting for me every step of the way.\u00a0\n\n\n\nIt's a horrible experience.\u00a0\n\n\n\n\nI'm just happy to see someone made it out.\u00a0"
+      },
+      {
+        "id": "o5tmf20",
+        "score": 34,
+        "body": "CONGRATULATIONS!! It\u2019s a horrible process but you did it!! So proud of you!"
+      },
+      {
+        "id": "o5vgukf",
+        "score": 26,
+        "body": "All I can say is dont stop fighting! They want you to give up, so dont. \u2764\ufe0f"
+      },
+      {
+        "id": "o5tphg6",
+        "score": 22,
+        "body": "You shouldn\u2019t have to have gone through this, but Congratulations \ud83e\udd73\u00a0\n\nand you can finally\u2026 Breathe again.\u00a0"
+      },
+      {
+        "id": "o5tpqm9",
+        "score": 20,
+        "body": "Cool. Now cross your fingers the current administration stays off our backs and at least let us keep or meager benefits."
+      },
+      {
+        "id": "o5x8nvo",
+        "score": 15,
+        "body": "I'm assuming that's the date they filed their appeal, it took the govt well over a year to review and finally approve said appeal, and they do so retroactively. So OP has been needlessly struggling all this time, but is owed a metric tonne of back pay. (Correct me if I'm wrong, op!)\n\n\nETA: Something similar happened to me in the Netherlands: filed a request for them to review my status (from temporarily to permanently disabled) in late 2023, wasn't approved until mid 2025. Which sucks, because they paid the owed amount as a lump sum, making my taxable income for 2025 a lot higher than usual, potentially causing me to lose and thus have to pay back certain income based benefits (like rent assistance) for that calendar year. Which might end up costing me more than what I was paid. But that's a whole other story smh..."
+      },
+      {
+        "id": "o5vrt3e",
+        "score": 14,
+        "body": "Dec 2024? congrats but im confused!\n\n"
+      },
+      {
+        "id": "o5ulwgn",
+        "score": 10,
+        "body": "Just exhaled a huge sigh of relief for you bud!"
+      },
+      {
+        "id": "o5vidfd",
+        "score": 9,
+        "body": "I\u2019m trying to understand the last part of your reply but the point I\u2019m trying to make is I AM CONCERNED. We didn\u2019t have Dr. Oz or the obviously misguided RFK Jr. steering the ship of healthcare and our benefits. There already have been changes in what we can do to protect ourselves and our, in y case compromised immune system. If you are happy, cool.  These madmen are going to fuck it up for the rest of us."
+      },
+      {
+        "id": "o5w78re",
+        "score": 6,
+        "body": "I don\u2019t mean to rain on anyone\u2019s parade but depending on the insurer just getting approval doesn\u2019t mean it\u2019s over. I suggest keep documenting, and keep your eyes open. Depending on the insurer or carrier your struggle may not be over. Also depends on the benefits too. I apologize but felt if I can help someone else by sharing what I learned I need to do it."
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1jch15i",
+    "title": "Since becoming disabled, I\u2019ve realized humans suck. I can\u2019t speak to anyone without feeling deep resentment.",
+    "body": "Chronic pain, pretty much housebound unless take meds. Even when go out, I cannot use a wheelchair (I can\u2019t sit upright). My wife must carry a gravity chair with me everywhere.\n\nMy brother (who claimed to be my best friend and was my best man) no longer comes by the house, or when he does it\u2019s very short and infrequent. People look at me like I have 3 heads. People kind of ignore me when speaking to them. My friends have moved on. The exception is my wife - she is ride or die, the greatest person I\u2019ve ever met. Thank God I have her, but that\u2019s not stopping me from being extremely depressed.\n\nI fucking hate people - hate them. They all just look for value to suck out of each other and if you can\u2019t provide any, they don\u2019t give you the time of day. I was recently at a party (in my chair) and when I tried speaking, peoples eye\u2019s glazed over and I could see them looking away frequently (as if they wanted the conversation to end).\n\nI hate people and everyone\u2019s just jacking each other off to get a nut. I\u2019ve tried smiling and not take things personally, but it\u2019s quite impossible when you see able-bodied\u2019s being listened to and me not.",
+    "flair": null,
+    "score": 520,
+    "comment_count": 98,
+    "created_at": "2025-03-16T08:32:37+00:00",
+    "top_comments": [
+      {
+        "id": "mi2h1ek",
+        "score": 119,
+        "body": "I\u2019ve realised having no expectations is best. People who were friends with me through easier \u201ctough times\u201d like a job loss, break up or when I was struggling with money vanished. One friend in particular was full of talk about being there for me at the beginning. \n\nMost people will step away once things genuinely get hard and you experience something that\u2019s hard to comprehend. Especially those lucky enough to have health privilege. \n\nI have a few incredible friends and family who have stood by and supported me since I\u2019ve been housebound. I have so much love and gratitude for them if I recover I\u2019ll be their ride or die no matter what.\n\nThe one thing I take takeaway from this is the silence and avoidance from others is so loud that at least I don\u2019t have to waste my time on them anymore."
+      },
+      {
+        "id": "mi3nid4",
+        "score": 80,
+        "body": "Join the club, when you\u2019re disabled you get a different perspective on people,the nicest person can be just as ableist as that asshole at the supermarket."
+      },
+      {
+        "id": "mi3hblh",
+        "score": 60,
+        "body": "yeah my dad threatens me with being homeless, everything, for a whole year+ and it is hard to be able to love him anymore. he will even mock my disability. Say things like, \"oh boohoo, you lost 18 feet of your intestines, with something you were born with\". Makes me sad."
+      },
+      {
+        "id": "mi3phn7",
+        "score": 56,
+        "body": "I am 100% with you. Having become disabled has shown me how shitty people are."
+      },
+      {
+        "id": "mi2c45j",
+        "score": 37,
+        "body": "You're gonna get a bunch of toxically positive people spouting stupid platitides or - even worse - most are going to ignore this (and thereby prove it right). But go and post a stupid positive platitude post and you'll get 900 upvotes. Ugh.\n\nI just want to state that I fully agree. Most people are self-serving fair-weather garbage individuals, and anyone who claims differently either isn't paying attention, lives under a very  privileged rock, or is fucking deluded.\n\nWelcome to the misanthropy club."
+      },
+      {
+        "id": "mi4dfou",
+        "score": 36,
+        "body": "My dad used to tell me I was worthless and would never amount to anything.  He would tell me I would never be able to get a driver's license because I was on meds.  My favorite though, my absolute favorite was \"Don't act like yourself and just be silent!\""
+      },
+      {
+        "id": "mi3oqhy",
+        "score": 35,
+        "body": "Yeah, most do suck. My dogs help me cope. You\u2019re dead on with providing value."
+      },
+      {
+        "id": "mi3j3zy",
+        "score": 34,
+        "body": "This is not my experience but I am surrounded by a community of empathetic folks - educators, artists, musicians. There are kind folks out there. Sorry you have been let down by folks, who may be showing you there true colors now that you are disabled."
+      },
+      {
+        "id": "mi4wzxb",
+        "score": 29,
+        "body": "Dang that\u2019s so abusive. My mom used to threaten to kick me off her health insurance during a time I was super sick and undiagnosed."
+      },
+      {
+        "id": "mi51inl",
+        "score": 28,
+        "body": "this is part of the reason why my friend group now is just disabled people. The last normie I let into my circle hurt me so badly and so directly with her ableism that I vowed never again. And she wasn\u2019t the first - just the *last*.\n\nAbleism is so baked into society that most people just don\u2019t see it in their own behavior and most of those people are the type to take poorly to being corrected. So eff them. I\u2019ve been a lot happier since I made that decision and now I\u2019m surrounded by good friends who understand.\n\nps. I grew up with my grandparents, and my grandfather was wheelchair bound (lost both legs in WWII). As a child in the mfing 70s, I was mad as hell about people who stared and whispered\u2026 I had hoped that by the time I got old things would have changed because Ethel Kennedy blah blah blah disabled rights yadda yaddaa and ooohhh ADA LAW. But here it is 2025, I\u2019m 55, and nothing has really changed. I hate it."
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1qcn0aa",
+    "title": "Don\u2019t date a disabled person if you\u2019re going to get mad at them for being disabled.",
+    "body": "Sighhhhh. Here we go. My boyfriend and I have been together for a year and a half. About eight months in, we had our first fight about a particular subject. Basically, while I\u2019m totally okay with voicing what I need or asking for help.. it started feeling more like bossing him around because even though my care needs are pretty chill (adjusting lighting, checking on whether I ate and making me something easy if I\u2019m unable to do it myself, checking my water bottle from time to time) he just kept telling me that I needed to tell him what I needed. I said, okay. He\u2019s not used to helping a disabled person, I\u2019ll be patient and give him time. but it never changed. To be clear, what I\u2019ve wanted is for him to just put in effort or explain himself. It gets exhausting asking every time because I started feeling like he just didn\u2019t want to do things and that was why he wasn\u2019t learning. But the fights have been escalating. He\u2019s been telling me to shut up, told me I am a freak out if everything isn\u2019t just perfect, that I\u2019m not special, that I\u2019m ridiculous, that I\u2019m making fights out of nothing.. he always comes around eventually to understanding he\u2019s been a bully in our fights. But I am starting to feel like he does this so he doesn\u2019t have to take responsibility for why I was upset in the first place because nothing changes or gets better. I honestly miss being single at this point because at least I never made myself feel bad for needing things.. It honestly feels like he just wanted me for my sparkle and then found he didn\u2019t have the desire to keep up or maybe the wherewithal? ",
+    "flair": null,
+    "score": 513,
+    "comment_count": 106,
+    "created_at": "2026-01-14T13:17:07+00:00",
+    "top_comments": [
+      {
+        "id": "nzjldxs",
+        "score": 192,
+        "body": "It\u2019s one thing if he\u2019s forgetful or something like that, but the escalation is a red flag. In my opinion he\u2019s not a good fit for you.\n\nOn a side note, for when you are alone, maybe look into some sort of automated system to help you with lighting? I know that\u2019s not always easy or cheap."
+      },
+      {
+        "id": "nzjj3by",
+        "score": 123,
+        "body": "As I was reading through I was thinking, ok maybe a quick checklist would work for him somehow. But then got to the escalation in arguments. Yeah he needs to go sorry. That is not on. No one deserves to be called names like that and be spoken to like that. No one. \nMake that checklist and use it for yourself to check on yourself. Run through it with yourself a few times a day, maybe set alarms to do so. You do not need his nastiness in your life at all. I\u2019m sorry you\u2019re dealing with that and I wish you the best for however you chose to deal with it"
+      },
+      {
+        "id": "nzjc1t2",
+        "score": 67,
+        "body": "You misspelled \"ex-boyfriend.\" Disability or not, when someone you are with chooses anger and hatred in their arguments, they need to go.\n\nWith your list of needs, that is the basic minimum for any couple's lives.  It's not like you asked them to build you a table out of matchsticks.  Each of those tasks would take five minutes and little strain.\n\nYou can always sit down and explain, but to me he's too far gone into the rabbit hole when someone pulls out the 'freak' card in an argument"
+      },
+      {
+        "id": "nzjr3zs",
+        "score": 40,
+        "body": "Seconding that. Sounds like we should both dump our boyfriends."
+      },
+      {
+        "id": "nzjnsq0",
+        "score": 39,
+        "body": "Your boyfriend also sounds awful and you deserve way better, im so sorry"
+      },
+      {
+        "id": "nzjnuj4",
+        "score": 39,
+        "body": "We\u2019re not \u201cwired\u201d that way, that\u2019s just weaponized incompetence. Not only is this not true, framing men as fundamentally incapable of inference & compassion does a disservice to everyone that doesn\u2019t perform weaponized incompetence to get out of responsibilities. Or are at least trying to unlearn that."
+      },
+      {
+        "id": "nzk2wsi",
+        "score": 32,
+        "body": "I agree, the escalation is not good. Those needs are very simple but as seen many times, some people just don't get that any kind of caregiving should be done without complaint and especially without argument (wtf).\n\nOn automating some things, Amazon Echo Dot + smart plugs for lamps and smart bulbs for main lighting. I have a few things on smart plugs, like my electric blanket so I can switch it on an hour before bed. Echo Dots are on eBay as well as brand new, if using them for simple automation, getting the newest version isn't necessary. You don't have to be in the same room as the Dot to speak instructions, you can do it from a phone or even get a button to press.\n\nA lower cost option is mechanical timer plugs for lamps etc that switch on and off at set times. These can be picked up for around $10."
+      },
+      {
+        "id": "nzjmza0",
+        "score": 26,
+        "body": "I don't think men are born that way. They just never learn how to do emotional laboring and continue to avoid it as adults. It's not rocket science. It's practice and mindfulness."
+      },
+      {
+        "id": "nzjku0r",
+        "score": 25,
+        "body": "Kind of the same. Except I'm in a wheelchair and I've been struggling so hard this past year has been horrible. I'm doing ALL the communication and he just gets upset with everything. \n\nExample, I went with him to bowling. Got incredibly sick and he wheeled me out and left me outside in the cold. Had to UBER home and explained to the Uber guy how to put my wheelchair together ect and this stranger was more caring and patient with me than my boyfriend has ever been. \n\nIt's been so rough between us. His form of communication is waking me up at 2 in the morning wanting to talk to me. He claims the reason he's emotionally shutting me out is because I do not cook him dinner when he gets home from work. \n\nAsked him if I'm suddenly a mind reader because he's never asked (I can't eat solid food number one number two I'm struggling with severe malnutrition due to malabsorption so I'm exhausted all of the time!) and he told me I should just know.\n\nLike I'm not s damn mind-reader so how are you mad at me because you can't communicate?\n\n\nFor me though the hardest thing he knows I've been out of work since June. He has spent almost $8,000 on fast food while he holds my food stamp card. Let's food rot and then I'm the one that's supposed to throw it out and be able to keep up with everything. He's also been living rent free because he stays here and I've been getting help covering my rent due to all my health issues going on. \n\nThink about that almost $8,000 since July. I've pretty much been hospitalized since June in and out every month. He knows financially. We are in a horrible spot. He told me the reason why he's working two jobs and never here to help is to support our financial future. \n\nThe truth is one of his jobs is to support his fast food habit. \n\nThe lease ends in July and I told him we basically have 3 months to figure out if this relationship is worth it. 4 years together and for him he doesn't know. \nBecause \n\nDespite everything, I understand that this is a really trying time for both of us. I'm the one with the body that's trying to kill me but the change happens to both of us and I respect that and I get that and I'm willing to forgive. \n\nProblem is when I communicate how he hurts me like with his words and his actions he responds with anger. \n\nI told him last night when you get home. I'm not fighting with you with you is literally making me sicker and I can't do it anymore. Told him he needs to get his s*** together because I deserve happiness.\n\nTold him he does too. Love is funny like that. You can't control who you love and I love this man but his actions and words don't seem to reciprocate. I've been working with my therapist. I'm setting boundaries with him. \n\nAnd we'll just see. But like me, you deserve your happiness too. And you're so freshly in the relationship. My health took a turn in June so this is very new for us. It sounds like he has known when he got into your relationship kind of what the deal was. \n\nI will say communication is big, I know you don't want to hear he should be a mind reader, but it's not that he should care and love you enough to know by now what comes with your needs. \n\nAnd girl, if he knows that you are physically unable to get your own water and you're having a bad day to look and be like oh, let me just fill this up. I think the question here is his actions seemingly from day one haven't changed. You're expecting him to what suddenly change. He is who he is. His actions are telling you. \n\nI know it sucks but like I said this isn't new. This is from day one. He knew getting into the relationship that's a lot different. I think it's time that you guys part your ways. \n\nAnd really sorry you're going through this."
+      },
+      {
+        "id": "nzjn77h",
+        "score": 24,
+        "body": "There is no \"male brain\". Yes no one is a mindreader, but if you are constantly communicating your needs and they are still constantly being forgotten then thats not \"not being a mind reader\", thats not giving a shit."
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1m85t5a",
+    "title": "You shouldn\u2019t do (insert normal thing here) because of your disability!",
+    "body": "I am a two time stroke survivor, both happened while I was in the NICU. They resulted in cerebral palsy. The other day I was talking to a friend while drinking a Diet Coke, all of a sudden my friend tells me I \u201cshouldn\u2019t drink Diet Coke because it\u2019s bad for your health\u201d I almost started laughing because of how ridiculous it was. I tell my friend \u201cstatistically I\u2019m supposed to be dead, I\u2019ll drink my Diet Coke if I want.\u201d My friend goes on to tell me \u201cyeah you survived all that, and now you\u2019re poisoning your body.\u201d Like if a Diet Coke takes me out, at least I will have died happy. I\u2019m so tired of being treated like a baby, and being told I shouldn\u2019t do basic things like throw a football or drink a Diet Coke.  I am twenty goddamn years old, not five. I was never supposed to walk, talk, feed myself, let alone drive, or go to college. Be grateful I can drink that Diet Coke instead of needing a feeding tube. Be grateful that I can throw a football, instead of needing a wheelchair 24/7. Be grateful I can drive to class, let alone even go to college. ",
+    "flair": null,
+    "score": 521,
+    "comment_count": 115,
+    "created_at": "2025-07-24T14:24:50+00:00",
+    "top_comments": [
+      {
+        "id": "n4wndu3",
+        "score": 185,
+        "body": "i hate when people tell me what to do or not to do with my body\ud83d\ude2d like i couldn\u2018t decide for myself"
+      },
+      {
+        "id": "n4wpvl3",
+        "score": 109,
+        "body": "also enabled folks doing dangerous and unhealthy things like drinking, smoking and doing drugs regularly and nobody questions it but god help when a disabled person wants to drink a diet coke"
+      },
+      {
+        "id": "n4xgkn3",
+        "score": 78,
+        "body": "If you're on disability, don't tell people you're going on a vacation. People will make a huge deal about it. I'm disabled not Dead."
+      },
+      {
+        "id": "n4wnlcj",
+        "score": 53,
+        "body": "I always tell people that if my worst vice is diet Pepsi, then i think I'm doing fine. People are stupid. Sugar plantations were unfortunately very very good at demonizing diet drinks and now a not insignificant number of people think they're the devil. I know aspartame can have health issues with some folks, but like ... you can say that about anything people can ingest lol. And god forbid they've heard where it was labeled as a carcinogen, that one makes me want to scream. Yeah, so is your iPhone and microwave, technically, there's different LEVELS of carcinogen, Jan, and diet drinks are like the least serious of them all. \ud83e\udee0"
+      },
+      {
+        "id": "n4xvyfk",
+        "score": 52,
+        "body": "please you can\u2019t buy anything on disability without people making a fuss, even brand name cereal is too much of a luxury apparently"
+      },
+      {
+        "id": "n4xuj3g",
+        "score": 43,
+        "body": "People really think we have the _audacity_ to live"
+      },
+      {
+        "id": "n4x3z0q",
+        "score": 41,
+        "body": "I\u2019ve been told on numerous occasions that i shouldn\u2019t have my pet cats because i am disabled\ud83e\udd14\n\nI have an automatic litter box so i don\u2019t have to bend down to scoop litter. And in my opinion given that i don\u2019t work currently due to my health, my cats get a lot more attention from me than those who work. \nYes they cost me a small fortune a month, but the companionship and mental health benefits make it worth it!"
+      },
+      {
+        "id": "n4wu62g",
+        "score": 35,
+        "body": "Drink coffee. I have a seven year old\u2026 I\u2019m just trying to survive out here goddamn."
+      },
+      {
+        "id": "n4ycqe1",
+        "score": 35,
+        "body": "The double standards are WILD"
+      },
+      {
+        "id": "n4xcnmc",
+        "score": 34,
+        "body": "Unless you are on my medical team, it's none of your business. \n\nPointing out concern is different than telling me what I should or shouldn't do."
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1luvz36",
+    "title": "Saw this today, and it felt really relevant.",
+    "body": "I\u2019ve been having a hard time lately with loved ones really not understanding my struggles. They want me not have MS, they want me to be how I used to be before progression has made the day to day difficult. I know they are also mourning for me and themselves about the way they thought things \"should be\" but at the same time it makes my struggles feel so unseen. It feels like all they want it for me to just keep pushing myself to be \"normal.\" It\u2019s so hard. How can they not notice the crumbling foundation I\u2019m trying to balance on? ",
+    "flair": null,
+    "score": 512,
+    "comment_count": 11,
+    "created_at": "2025-07-08T18:16:34+00:00",
+    "top_comments": [
+      {
+        "id": "n234v3a",
+        "score": 23,
+        "body": "My fibromyalgia has got so bad that i am now a part time wheelchair user , i can\u2019t bend over anymore because of both the fibromyalgia and hernias from my GI surgeries , and i really deeply realate to this post."
+      },
+      {
+        "id": "n218ap0",
+        "score": 13,
+        "body": "\ud83d\ude2d"
+      },
+      {
+        "id": "n23whiw",
+        "score": 10,
+        "body": "I had to agonize and question if I could do the most simple job ever, as I was offered more work.\n\nIt feels so bad to question if I can do something so simple reliably enough to accept since I can't predict my health problems and they were very disruptive in the past year or so. \n\nI decided to try, but it sucks to be feeling exactly like the comic. \n\nEven if I do it successfully, I know I'll actually struggle with what seems easy to most people, and that just sucks. \n\nI feel like I'm living life on hard mode lately."
+      },
+      {
+        "id": "n283sw5",
+        "score": 4,
+        "body": "Part time wheel chair sounds rough, people will just immediately jump to conclusion when they see you with and then without it..."
+      },
+      {
+        "id": "n2vqitt",
+        "score": 3,
+        "body": "Autism/Epilepsy hybrid here.\n\nEven when you only admit to the Epilepsy, that's still often the case with some people. \n\nCo-Worker: \"Why don't you do x,everyone else does?\"\n\nMe: \"Since I can't sense a seizure coming x is pretty dangerous and be a bad idea.\"\n\nCo-worker: \"Just call if anything goes wrong?\"\n\nMe: \"Are you stupid? My form of epilepsy causes Grand Mals, like the seizures you see in a movie.\"\n\nCo-worker: *Either Shocked Pichuku Face or shrugs*"
+      },
+      {
+        "id": "n28cf2y",
+        "score": 3,
+        "body": "I have fibromyalgia and some issues with my feet where I cant stand for more than 5 minutes or walk long distances. So like I don't need to use it at home or to just walk outdoors to take my dog potty but I need to use if I am going to need to walk a certain distance or stand"
+      },
+      {
+        "id": "n2dezd6",
+        "score": 2,
+        "body": "Thank you for sharing. It's nice knowing there's other people in the same ship even if some of us are sinking more than others. As someone who didn't realize why I relied on weed until the beginning of this year and is currently unemployed because I realized I can't talk to people all day without drugs, I think it would help so much if people became more aware of how even just isolating it is to struggle with maintaining work and my mental health."
+      },
+      {
+        "id": "n37xpfg",
+        "score": 2,
+        "body": "Yeah. Everyone assumes you\u2019re being lazy or don\u2019t really need it. I have a custom chair covered by insurance, you can\u2019t get that if you don\u2019t *really* need it. My PT thinks I should use it full time, because of the degree of fall risk I have, but I like the independence of walking as much as I can, and I don\u2019t want to lose any more mobility."
+      },
+      {
+        "id": "n2ih6kb",
+        "score": 1,
+        "body": "YOPD and cancer treatment caused fibrosis(still better than the alternative of course \ud83d\ude05). Yep, definitely relate."
+      },
+      {
+        "id": "n2yohc6",
+        "score": 1,
+        "body": "Oh man that hits hard especially when my siblings are yelling at me me over the phone with regard to our aging mom who I can't help as much as she needs right now! \ud83e\udd15\ud83d\ude2b"
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1oqgm7l",
+    "title": "Worst disabled ramp of the week...",
+    "body": "",
+    "flair": "Image",
+    "score": 511,
+    "comment_count": 55,
+    "created_at": "2025-11-07T00:58:53+00:00",
+    "top_comments": [
+      {
+        "id": "nniwx8m",
+        "score": 178,
+        "body": "Parkour disability style.\n\n![gif](giphy|2Faz2xzp2kkO5mARW|downsized)"
+      },
+      {
+        "id": "nnj4prb",
+        "score": 141,
+        "body": "Disabling ramp\u2026"
+      },
+      {
+        "id": "nnishau",
+        "score": 108,
+        "body": "Yeah I wouldn't call that a ramp. Hopefully they put up a sign that says 'Warning Cliff Ahead\""
+      },
+      {
+        "id": "nniwdmr",
+        "score": 75,
+        "body": "As a skateboarder, awesome street gap, but as a disabled person and soon to be wheelchair user that fucking sucks"
+      },
+      {
+        "id": "nnj88yt",
+        "score": 49,
+        "body": "Based on the lack of rails on the side not on the wall, the lack of a handrail on the wall, and the lip at the top of the ramp, I think this was meant for carts and not wheelchairs or other people using mobility aids.  I'm guessing they put plywood down to complete the ramp, making the doorway temporarily unusable, to make moving heavy carts easier.\n\nEven if the wood was there as a ramp and somehow rigid, I still wouldn't feel safe using my mobility aid on that.  I'd barely feel safe walking on it on a good day."
+      },
+      {
+        "id": "nnit9wp",
+        "score": 40,
+        "body": "aha! wheelchair accessible street skate spot! /j"
+      },
+      {
+        "id": "nnixt05",
+        "score": 15,
+        "body": "Someone's been watching too many skateboarding videos"
+      },
+      {
+        "id": "nnj8g11",
+        "score": 15,
+        "body": "My wife says you just have to push really fast."
+      },
+      {
+        "id": "nnk7bys",
+        "score": 15,
+        "body": "Weeeeeee!!!!!"
+      },
+      {
+        "id": "nnjau4n",
+        "score": 14,
+        "body": "You gotta do a kick flip over the gap."
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1ltgoyv",
+    "title": "Can we just call this what it is, please?",
+    "body": "This is the government of the United States taking proactive steps to kill disabled people off. Period.  \n\nThis is intentional.",
+    "flair": null,
+    "score": 512,
+    "comment_count": 81,
+    "created_at": "2025-07-07T00:37:57+00:00",
+    "top_comments": [
+      {
+        "id": "n1qfkso",
+        "score": 137,
+        "body": "I've been saying the government is killing disabled people since they removed universal masking requirements during an active pandemic. America is part of a rising eugenics movement."
+      },
+      {
+        "id": "n1q9034",
+        "score": 115,
+        "body": "Yeah, makes it feel progressively harder to even ask for resources :/"
+      },
+      {
+        "id": "n1qg88z",
+        "score": 55,
+        "body": "Let's call it eugenics, that's what it is"
+      },
+      {
+        "id": "n1qbcz4",
+        "score": 45,
+        "body": "Oh I thought we already were\u2026"
+      },
+      {
+        "id": "n1r7w6c",
+        "score": 37,
+        "body": "And yet, historically, disabled people were among many who were victimized by the eugenics movement, regardless of if their disabilities were genetic or present at birth. Many of the disabled people that were killed by the nazis were mentally ill or deemed otherwise \u201cunfit\u201d (even just for being poor), so countless disabilities could fall under that umbrella. The mentally ill in particular are often targeted by eugenicists for sterilization, and we know that many mental illnesses often have onsets ranging from late teens to young adulthood, so it wasn\u2019t something they were born with."
+      },
+      {
+        "id": "n1qkc1i",
+        "score": 29,
+        "body": "The problem with this is that not all disabilities, in fact probably only a tiny percent of disability is genetically inherited.  I'd argue that more disabilities are caused by the shitty quality of food, the shitty quality of life, the abuse that people have suffered, traumatic injuries, dangerous work environments, etc.  Eugenics doesn't make sense because so many disabilities happen because of factors outside of genetics."
+      },
+      {
+        "id": "n1q9hlm",
+        "score": 26,
+        "body": "We only get it if we can jump through endless hoops some of us are no longer capable of jumping through."
+      },
+      {
+        "id": "n1qyfov",
+        "score": 21,
+        "body": "Useless Eaters: Disability as Genocidal Marker in Nazi Germany\n\n[https://www.catholicculture.org/culture/library/view.cfm?recnum=7019](https://www.catholicculture.org/culture/library/view.cfm?recnum=7019)\n\nUseless Eaters: Disability as Genocidal Marker in ~~Nazi Germany~~ the United States of America \n\nHow messed up does this look?"
+      },
+      {
+        "id": "n1qb513",
+        "score": 21,
+        "body": "The thing is though, no steps are being taken to improve it.  The only steps being taken are steps to make things harder for the people who can't climb anymore.  It's intentional."
+      },
+      {
+        "id": "n1qc9wj",
+        "score": 20,
+        "body": "YesI have been saying that"
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1p5kk5z",
+    "title": "I'm never asking non disabled people for job search advice again.",
+    "body": "I posted in a subreddit unrelated to disability looking for job search advice, as I struggle both due to being disabled and being trans. And this is the dismissive response I got when I clarified some of the limitations I have in the sort of work I can do.\n\nThe \"obsession with cleanliness\" is a reference to me saying I have ocd and it limits what jobs I can do. I can't for example be a carer because after helping a service user use the bathroom I'd have to wash my hands for 10 minutes afterwards. And that's not acceptable in that job.\n\nThe \"coming across weak in interviews\" comment is in reference to me saying I'm autistic and fear I don't come across well in interviews due to struggling with eye contact. \n\nAnd I can't work a 5 day job due to my disabilities. \n\nThe reference to \"time for hobbies and social events\" was in reference to me saying I have commitments in the week and so I'm looking for a part time job mostly on Fridays, Saturdays, or Sundays. I didn't say anything about hobbies and social events, I barely have the time for either.\n\nI'm trans and the commenter is trans as well,  it's so frustrating when a person from one marginalised community can't empathise with the struggles of another. And this comment has been upvoted and my reply explaining that I can't choose to not have ocd has been down voted. There's no point to this post I'm just venting.",
+    "flair": "Rant",
+    "score": 514,
+    "comment_count": 129,
+    "created_at": "2025-11-24T15:51:04+00:00",
+    "top_comments": [
+      {
+        "id": "nqjv5px",
+        "score": 234,
+        "body": "I have invisible disabilities with mental illness and likely undiagnosed neurodivergence. I'm still a student but I worry a lot about my ability to get a job that allows me to pay the bills. When I try to talk about this (especially with my mom, who is my biggest support right now), people just don't get it. They just see me as lazy and dramatic. They can't understand why I struggle so much and why I can't just \"get over myself just like everyone else does\"."
+      },
+      {
+        "id": "nqk35ar",
+        "score": 97,
+        "body": "In my experience the disabled friendly employers arent very open about it. I had to try a ton of different jobs before I found one. Word of mouth helps, keeping an eye out for places staffed with folks with visible disabilities as possible employers may help as well. If they have a strict calling off policy and expect you to always explain yourself as well as find your coverage, it probably is not the place for you. Typically those expectations are paired with managers who assume everyone is a stealing liar and will not put up with disabled staff protecting their own health and wellbeing."
+      },
+      {
+        "id": "nqkj4mk",
+        "score": 56,
+        "body": "I had the same issue, but I went to a job fair. The advice I got was, \u201csuck it up\u201d and find a \u201creal\u201d job. I\u2019m in a wheelchair and living in an RV. The door is too small for me to get through in my current wheelchair. I have an old wheelchair which DOES fit. Stupidly I have to move the couch to even get that one and me out and in. I can\u2019t. I can\u2019t live like that everyday or I would. I\u2019m literally right next to a place where I can work, I know they\u2019d hire me, but I genuinely CANT. It\u2019s so stupid. I\u2019d love to go work. It\u2019s not like we don\u2019t want to! WE CANT."
+      },
+      {
+        "id": "nqlcgf4",
+        "score": 48,
+        "body": "Finding meaningful employment as a disabled person is one of the most often overlooked challenges we face. I was always very qualified for positions and get interviews. When I showed up with my cane and severe limp you could see the mood change in the room with the interviewer. The worst was \u201cgroup interviews\u201d with multiple team members - you could tell that in the back of their minds them thinking  \u201cHe\u2019s qualified and articulate but I don\u2019t want to work with a disabled person\u201d\n\nI can\u2019t tell you how many jobs I never got because of my disability. I could only get lower level jobs at crappy companies and I was always so disappointed when I was younger by the constant rejection. It wasn\u2019t until I started my own business that I could finally have some recognition."
+      },
+      {
+        "id": "nqlm0bv",
+        "score": 41,
+        "body": "I fucking hate the term beggars cant be choosers. Its off topic but I heard it alot at goodwill when I told people we couldn't accept certain donations because they are illegal and/or covered in mold."
+      },
+      {
+        "id": "nqk2920",
+        "score": 37,
+        "body": "This sucks so much and I\u2019m sorry you were treated that way. OCD is something people without it will\nnever understand. \n\nHave you looked into Rat Race Rebellion? They are a free site that lists legit work opportunities and free vids on how to apply for them. They also email out new job offers they\u2019ve vetted. Highly recommend."
+      },
+      {
+        "id": "nqkro1n",
+        "score": 35,
+        "body": "You\u2019re going to be okay. I\u2019m not saying that it will be easy because it probably won\u2019t be but I have invisible disabilities, raging ADHD, and diagnosed neurodivergence, and a history with depression and generalized anxiety. I decided not to disclose to employers about my disabilities or mental health until AFTER I was employed. While you\u2019re still in school, Focus on building strong relationships with professors/people who can help you get a job. (It\u2019s all about who you know). I totally understand the thing about coming across as lazy, it\u2019s fckin infuriating. You can be upset/worried/mad but Keep your head up because if you don\u2019t then things will be harder. It\u2019s possible to find a job to support yourself it will just take more work, your worries are valid."
+      },
+      {
+        "id": "nqjqvmp",
+        "score": 27,
+        "body": "Gloves only work with some things. If I can feel it through the glove it still sets off my ocd even though logically I know whatever it is hasn't touched my actual hand."
+      },
+      {
+        "id": "nqjv61y",
+        "score": 25,
+        "body": "Gotta love when someone with half a fact acts like an expert."
+      },
+      {
+        "id": "nqk7np0",
+        "score": 24,
+        "body": "Are you in ERP therapy and/or meds for your OCD? Are you on disability?"
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1ri4h77",
+    "title": "March 1st is Disability Day of Mourning",
+    "body": "\u203c\ufe0fTW: Discussion of filicide \n\nMarch 1st is Disability Day of Mourning \n\nStarted in 2012 by The Autistic Self Advocacy Network\u2019s (ASAN) Director of Advocacy, Zoe Gross, Disability Day of Mourning is a day of remembrance for disabled victims of murder via a family member or caregiver, also known as filicide. \n\nTo find a vigil locally, visit: https://autisticadvocacy.org/2026/01/ddom2026/ and ASAN will be holding a virtual vigil on their YouTube channel\n\nThere is also an online Memorial List at: https://disability-memorial.org/\n\nMay we come together as a Community to remember our disabled comrades who were lost to such tragedy, and hold their memories dear \ud83e\ude75\ud83d\udd6f\ufe0f\n\nImage description for accessibility: \n\nA graphic with a black background and the Disability Pride Flag colors, with a white circle in the center containing the words, \u201cMarch 1st is Disability Day of Mourning.\u201d There is a black ribbon surrounding a lit white candle to the right of the circle, and a grouping of white lilies at the bottom.",
+    "flair": null,
+    "score": 510,
+    "comment_count": 6,
+    "created_at": "2026-03-01T18:14:47+00:00",
+    "top_comments": [
+      {
+        "id": "o84ixez",
+        "score": 41,
+        "body": "What a bitter but necessary day, a grim reminder of what could have (and still could) happened to me and what has likely happened to innumerable people like me in the past, life is cruel but ableds are crueler."
+      },
+      {
+        "id": "o84zslo",
+        "score": 20,
+        "body": "\ud83d\udc9c \ud83d\udd6f\ufe0f"
+      },
+      {
+        "id": "o86h34d",
+        "score": 9,
+        "body": "I've seen horrible discrimination and ableism towards disabled people and their families. Breaks my heart actually"
+      },
+      {
+        "id": "o8bd51p",
+        "score": 4,
+        "body": "I miss you, Iona. I hope you\u2019re happier up there"
+      },
+      {
+        "id": "o8ip3i6",
+        "score": 2,
+        "body": "Anything in Australia?"
+      },
+      {
+        "id": "o8iqso4",
+        "score": 1,
+        "body": "I didn\u2019t see anything listed for Australia, unfortunately. I believe ASAN\u2019s YouTube broadcast/livestream vigil was available worldwide. "
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1qu5xbk",
+    "title": "I Lost Both My Hands in a Train Accident \u2014 But I Found Love, Hope, and a Life Worth Living",
+    "body": "Hello, my name is Marius, and I am from Romania. I want to share my story in the hope that it can bring a little light to people with disabilities who feel alone or believe they will never find a stable partner.\n\nIn 1990, my life changed forever. I was involved in a serious train accident and lost both of my hands. After the accident, I fell into a deep depression. I didn\u2019t want to talk to anyone. I truly believed that my life was over.\n\nFor three years, I lived in darkness. But then something beautiful happened.\n\nI met a girl. At first, we became friends. Slowly, we fell in love. Three years later, we got married. Today, we have been together for 32 years, and I can honestly say that our relationship is strong and full of love.\n\nMy wife does not have any physical or mental disabilities. Unfortunately, we were not able to have children because of medical complications that prevent her from becoming pregnant. That has been one of the hardest parts of our journey, but we have learned to support each other through every pain and every joy.\n\nI want to leave you with a few simple but important thoughts:\n\nDon\u2019t isolate yourself. Try to communicate with people as much as you can.\n\nGo out into the world. Go to church, take walks, visit places where you can meet others. If you stay behind closed doors, no one will come knocking to meet you.\n\nHave courage. Even if we live with a physical disability, our lives are not over. They can still be full of love, purpose, and meaning.\n\nIf you have any questions, please feel free to ask me. I will answer with all my heart.\n\nThank you for reading.\n\n",
+    "flair": null,
+    "score": 497,
+    "comment_count": 41,
+    "created_at": "2026-02-02T20:03:15+00:00",
+    "top_comments": [
+      {
+        "id": "o37uknj",
+        "score": 31,
+        "body": "This is such a great story! Thank you for the inspiration, love from Greece\u00a0"
+      },
+      {
+        "id": "o3871pn",
+        "score": 18,
+        "body": "Thank you.  I'm saving this post for future reference. I lost the ability to walk in March 2025. I've been very depressed because I never thought something like this would happen to me. Yet here I am."
+      },
+      {
+        "id": "o37vm93",
+        "score": 11,
+        "body": "Awe wholesome"
+      },
+      {
+        "id": "o38k287",
+        "score": 9,
+        "body": "You guys look so cute together!!"
+      },
+      {
+        "id": "o37x90h",
+        "score": 9,
+        "body": "Thank you very much!"
+      },
+      {
+        "id": "o3816d0",
+        "score": 7,
+        "body": "I was only referring to love and life as a couple. That's all."
+      },
+      {
+        "id": "o385oc1",
+        "score": 6,
+        "body": "thanks for sharing from the usa"
+      },
+      {
+        "id": "o38cqx4",
+        "score": 6,
+        "body": "This is so beautiful I\u2019m glad you had a good partner\ud83d\udc4d"
+      },
+      {
+        "id": "o39a9ew",
+        "score": 6,
+        "body": "someone's always got to jump in and rain on your parade. congrats on finding your person! I am disabled as well and I found mine 8 years ago!"
+      },
+      {
+        "id": "o37wy5y",
+        "score": 5,
+        "body": "Thank you!"
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1nh9n7h",
+    "title": "Kids Books on Disability",
+    "body": "I\u2019m a disabled preschool teacher who is passionate about de-stigmatizing and celebrating disability for all ages. SO, I have compiled a categorized list of my favorite picture books on the subject, including short descriptions.\n\nI have read most of these all the way through at least once, so I can vouch for the quality of them with a few exceptions. So if you have questions on any of the specific titles, I would be happy to share my thoughts on them.\n\nMost of these can also be found on YouTube as a read aloud if you want to hear the story before purchasing or finding them from your local library. I hope people find this helpful!\n\nAutism, Neurodiversity, & Sensory Processing\n- \u201cFlap Your Hands: A Celebration of Stimming\u201d (stylized illustrations of what overstimulation feels like)\n- \u201cNext Level: A Hymn in Gratitude for Neurodiversity\u201d (loving depiction of an autistic child, celebrating how he sees the world. Depicts a lot of sensory toys and access tools throughout the pictures) \n- \u201cMy Autistic Mama\u201d (one child describes what makes having an autistic Mama great)\n- \u201cThis beach is loud!\u201d (an overstimulating day learning what happens at the beach, author has some other similar books)\n- \u201cToo much! And Overwhelming Day\u201d (not specific to kids with processing disorders, just describes overwhelm for any child)\n- \u201cFriends Are Not For Biting\u201d (explaining lack of impulse control and overstimulation in a compassionate way that doesn\u2019t shame the child, written by a therapist, parent resources in the back)\n- \u201cMy Brain is a Racecar\u201d (how ADHD brains work. Not the best illustrations, but a good explanation still)\n- \u201cAll the Ways to be Smart\u201d (celebrates the many skills we may have and how they\u2019re all important, good for all kids)\n- \u201cDon\u2019t Hug Doug\u201d (consent and boundary setting, not specific to disabled kids)\n- \u201cHattie Hates Hugs\u201d (consent and boundary setting, not specific to disabled kids)\nSpeech differences \n- \u201cI Talk Like a River\u201d (a frustrated child explains his stutter and how his dad helps him cope)\n- \u201cA Day With No Words\u201d (a nonverbal child enjoys a day with his mom using his AAC device to communicate. There\u2019s a part I don\u2019t love where he\u2019s teased and called \u2018handicapped\u2019, although his mom sticks up for him. I think it\u2019s still a could\u2019ve been handled better, but there\u2019s a good read-aloud on YouTube if you want to see for yourself.)\n- \u201cMore Than Words\u201d (celebrating many different types of communication from the perspective of a nonverbal child)\n\nMental Health:\n- \u201cMaybe Tomorrow?\u201d (two animal friends spend time together, allowing Elba to open up at her own pace about her grief and process her feelings. Great book about any kind of grief or friendship.)\n- \u201cMy Happy Sad Mummy\u201d (having a mom with bipolar, written by a bipolar woman about her daughter\u2019s experience)\n\nVisual Impairment:\n- \u201cThe Black Book of Colors\u201d (all black book with braille text, raised English text, and textured illustrations you can feel.)\n- \u201cMy City Speaks\u201d (how a blind girl navigates her city through sound)\nService dogs:\n- \u201cRescue & Jessica\u201d (true story of a woman and her service dog)\n- \u201cWhen Dogs Work\u201d (list of the many job dogs can have with real photos)\n\nd/Deaf Culture & sign language:\n- \u201cListen: How Evelyn Glennie, A Deaf Girl, Changed Percussion\u201d (true story of hearing loss, self-advocacy, and music history with gorgeous illustrations)\n- \u201cMara Hears in Style\u201d (Mara tries her first brightly-colored hearing aids, navigating questions from her classmates and educating them about ASL while she finds her confidence)\n- \u201cCan Bears Ski?\u201d (A young bear experiences confusion from hearing loss and finally gets diagnosed)\n- \u201cDancing Hands: A Story of Friendship in Filipino Sign Language\u201d (a story of how two friends communicate in their language)\n\nMobility and limb difference:\n- \u201cWhat Happened to You?\u201d (Answering unwanted questions and assumptions about limb differences with a sense of humor. Author was born with a limb difference and references his own childhood experiences)\n- \u201cMama Zooms\u201d (loving story about the joys of a mom in a wheelchair from the perspective of her child. Oldie but a goodie!)\n- \u201cBest Friend on Wheels\u201d (a girl tells us all about her wonderful friend who happens to also use a wheelchair)\n- \u201cDancing with Daddy\u201d (a girl with cerebral palsy goes to a dance with her dad, using her feeding tube, power chair, and other access tools to enjoy the night like everyone else)\n- \u201cI Will Dance\u201d (girl with cerebral palsy feels left out of dancing, until she discovers a dance class for disabled students. Starts on a pretty solemn note, but has a happy and realistic ending)\n- \u201cAwesomely Emma: A Charlie and Emma Story\u201d (how a fictional child enjoys life with her limb differences. It is a sequel to a book about her friend Charlie getting to know her, but this one is more centered on Emma\u2019s experience so I prefer it to the original)\n\nAdvocacy, Accessibility, Activism:\n- \u201cAll the Way to the Top: How One Girl\u2019s Fight for American\u2019s with Disabilities Changed Everything\u201d (the Capitol Crawl protest that passed the ADA with the help of 10yo Jenifer Keelan)\n- \u201cWe Move Together\u201d (explores the many ways we can include everyone and fight for a better world, plus lots of illustrated cameos of real disabled activists that are named in the back!)\n- \u201cFighting for YES!: The Story of Disability Rights Activist Judy Heumann\u201d (a LONG book for this age group\u2014as much as I love Judy Heumann and her work, I wish they\u2019d edited the book down a lot more. But it is thorough and accurate.)\n\nCovering many disabilities:\n- \u201cCome Over to My House\u201d (viewing different homes, and how they\u2019re suited to the needs of the families that live there who have people with different disabilities. Great intro for able-bodied kids.)\n- \u201cThis is How We Play: A Celebration of Disability and Adaptation\u201d (showing diverse families and how they play together. Very detailed and respectful illustrations of facial differences, dwarfism, and other features that aren\u2019t often represented.)\n- \u201cJust ask!: Be Different, Be Brave, Be You\u201d (many kids introduce themselves and explain their own disability, and how they want to be supported and included. Good framing for how kids can respect disabled peers.)\n- \u201cThe ABC\u2019s of Inclusion\u201d (alphabet of different ways we can include everyone)\n\nHonorable Mentions:\n- \u201cShiny Misfits\u201d (funny middle grade graphic novel about the social misadventures of a competitive girl with cerebral palsy, good friends, and big ideas. Written by comedian with CP, Maysoon Zayid)\n- \u201cHorizontal Parenting: How to Entertain Your Kid While Laying Down\u201d (list of fun activities with cute illustrations that parents and kids can use together)\n",
+    "flair": null,
+    "score": 499,
+    "comment_count": 39,
+    "created_at": "2025-09-15T02:09:02+00:00",
+    "top_comments": [
+      {
+        "id": "nea89gh",
+        "score": 82,
+        "body": "We also love \u201chow many marbles do you have\u201d which is about a mom with fibromyalgia and cfs and her kid and how they work with her disability"
+      },
+      {
+        "id": "neagrdz",
+        "score": 37,
+        "body": "Oh thank you this is fantastic!\n\nFYI for *A Day With No Words*, I actually follow the author (she is Fidgets and Fries on Facebook/Insta) and she is writing from her experiences since her oldest son is non-speaking (her and both of her sons are autistic). Her page is a pretty excellent follow overall (also her boys stay on her last nerve, which is pretty funny)."
+      },
+      {
+        "id": "neal9nq",
+        "score": 24,
+        "body": "Great list! Thanks for compiling! I see lots of loved books and some new ones to me. \n\nHeads up, The Black Book of Colors is not accessible to the blind. The braille and tactile images are not embossed properly. I wanted to use it with my blind/VI program and couldn\u2019t. Even my adult fluent braille reader friends couldn\u2019t decipher it."
+      },
+      {
+        "id": "neaead2",
+        "score": 16,
+        "body": "Ooh I\u2019ll have to check that one out, thanks for the recommendation! I use the \u201cspoons\u201d metaphor for my chronic fatigue among friends, and this seems great for explaining the same kind of idea to kids as well"
+      },
+      {
+        "id": "neb9rgt",
+        "score": 15,
+        "body": "This list is wonderful! I hope you don't mind, but I compiled your list (plus some other books) into a goodreads list. I'm a visual person, so I find it helpful to have things like titles, authors, covers, and ratings all in one place. Feel free to add more books or vote on favorites!\n\n\nhttps://www.goodreads.com/list/show/233872.Children_s_Picture_Books_about_Disability"
+      },
+      {
+        "id": "nea2s32",
+        "score": 12,
+        "body": "Thank you so much for sharing these! I\u2019ll have to get some for our local free little library"
+      },
+      {
+        "id": "neao3cx",
+        "score": 12,
+        "body": "Aw, what a disappointment! Thank you for letting me know, though. Are there any other good braille books you suggest?"
+      },
+      {
+        "id": "neaf8ti",
+        "score": 11,
+        "body": "I\u2019ll also shout out books by Includas Publishing who focus on kids lit with positive disability representation"
+      },
+      {
+        "id": "neaq8gi",
+        "score": 8,
+        "body": "May I also suggest Brett J Cole's kids' [books](https://brettjcole.com/childrensbooks)? Brett is an Australian author, early childhood education, & is autistic, & has published the following books under his own label, Teach to Care Books:\n\n- Shine (about self-worth)\n- This is not your stone (about trauma & abuse)\n- How We Say Goodbye (about grief & loss)\n- More You is more than okay, never less (about autism & other neurodivergence)\n\nI'm nowhere near a kid, & I actually bought all these for myself because they're wonderful. \ud83d\ude0a"
+      },
+      {
+        "id": "neahiy1",
+        "score": 6,
+        "body": "Oh cool, maybe I\u2019ll look at her page! I do love the book and have gifted it to a family I know whose child is non-verbal. It\u2019s a really lovely depiction of their life and how they understand and show affection for each other! I especially love when he\u2019s feeling the grass on his toes.\n\nI just make sure when I\u2019m reading it to other kids that they understand the \u201cbad\u201d thing isn\u2019t that people noticed he\u2019s different or disabled, but that they\u2019re unkind and act like he can\u2019t hear them that\u2019s the problem. I figure people may want a heads up about that part before getting it, but it\u2019s still a great book in my opinion!"
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1ompqhc",
+    "title": "My carer can't come if she doesn't have SNAP",
+    "body": "I'm sick(er than usual) and I just found out my carer can only come two days this week because she needs to use the money she should be spending on gas to feed her family. All I can say at this point is this is dystopian.",
+    "flair": "Rant",
+    "score": 496,
+    "comment_count": 114,
+    "created_at": "2025-11-02T19:02:40+00:00",
+    "top_comments": [
+      {
+        "id": "nmr4pmk",
+        "score": 288,
+        "body": "It's not going to change anything immediately for you or your caregiver, but you should think about calling your congressmen, local disabilty advocacy network and your local media and tell them how this is impacting your life and your caregiver's. Its easy to ignore your situation if you remain quiet. And you should be heard. \u2764\ufe0f"
+      },
+      {
+        "id": "nmrstux",
+        "score": 100,
+        "body": "The lack of SNAP is going to kill people :( people need food and many people rely on SNAP to afford to eat enough to live."
+      },
+      {
+        "id": "nmr7h5n",
+        "score": 99,
+        "body": "Yes, be the squeaky wheel"
+      },
+      {
+        "id": "nmra4si",
+        "score": 72,
+        "body": "She wont get paid for two weeks even if she does come. She needs to feed her family *now*."
+      },
+      {
+        "id": "nmr22tr",
+        "score": 68,
+        "body": "Exactly. She has no good options"
+      },
+      {
+        "id": "nmrfrs8",
+        "score": 61,
+        "body": "it is totally valid for us all to email every single congressional member of the GOP from every state and urge them to approve the healthcare subsidy and end this bullshit. I\u2019ve done this myself. I email those bastards every single day. Just make the subject line a tldr and make it different each time. There are spreadsheets listing all their emails available with a quick google search. Select the column with the emails, copy, and paste in your email to: field. \n\nLet\u2019s inundate them!\n\nOh and also, Nov 28 is the next No Kings. No consumerism on Black Friday and protests nationwide. Let\u2019s break the record we just set and really make them hurt. It\u2019s not like we have money to buy christmas gifts this year, much less food."
+      },
+      {
+        "id": "nmrz1um",
+        "score": 48,
+        "body": "Senator Marshall said this is exactly the point where they want to be. republicans.According to him, want to force, democrats by literally starving people.And forcing people to make decisions that are going to be quite difficult, particularly on the disabled.The elderly and children. \n\nI do find this incredibly interesting considering when I grew up, they were always saying that they wanted more fiscal responsibility.They wanted things to be spent better.But what this does is it puts more people at risk?And the more people at risk, the more hospitals fill up, the more other resources get used.And the cost of that is significant more than the snap program.It's not even that we don't have the money for snap.We have the money in a contingency fund to allow it to continue to go on.Despite shutdowns, and yet, that money it's not being used."
+      },
+      {
+        "id": "nmrb3ii",
+        "score": 40,
+        "body": "Can\u2019t speak from experience but I worry that with so many people concerned about food, getting food from food banks is going to be much harder than usual."
+      },
+      {
+        "id": "nmrm56t",
+        "score": 39,
+        "body": "The No Consumerism on Black Friday is excellent and it should be made known to ANYONE who has been affected by this horrible administration and their cruelty!!"
+      },
+      {
+        "id": "nmrp9fm",
+        "score": 36,
+        "body": "Carers might not be paid enough to compensate for how much she'd be spending on gas just to get to and from work. It sucks, but it sounds like her immediate concern is using the money she currently has to feed the family even if that means no pay in the long-term. This is hurting everyone, and it sucks how far the ripples will travel."
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1luxshk",
+    "title": "Disability Pride Month",
+    "body": "July is disability Pride month.  I think that the healthiest way to respond to shame from society is with a celebration of pride.  Pride over all we've overcome and pride in all we've accomplished despite our situation.  \n\nYou can't feel both shame and pride at the same time, so it's a good month to choose pride.\n\nIs anyone doing anything for Disability Pride month?  I saw my local library had a single piece of paper with the disability Pride flag and I think some reading recommendations.\n\nUnlike queer pride where there's parades and stuff to attend, I'm not sure what could be done for disability Pride month.  Thoughts? \ud83e\udd14",
+    "flair": "Discussion",
+    "score": 496,
+    "comment_count": 32,
+    "created_at": "2025-07-08T19:25:55+00:00",
+    "top_comments": [
+      {
+        "id": "n21kr28",
+        "score": 39,
+        "body": "I bring my Disability Pride flag with me to Pride and people are excited to fly it! I put it with the Progress Pride Flag since the black stripe on the PPF flag and the charcoal area of the disability Pride flag have similar meanings associated with mourning lost members of the community, so I feel like it helps me explain to people. I also see a lot of Pride events extend into this month and beyond. I think it would be so awesome to see more Pride-like events that are made to be more accessible such as having wheelchair access, room for groups of people in varying types of mobility aids, clean air management indoors for allergen conflicts and keeping illness spread down. Shade/temperature management. Days with different types of accessibility for different needs. Etc etc."
+      },
+      {
+        "id": "n21mq6s",
+        "score": 34,
+        "body": "I actually like this one a lot more then the older version of it, might just be me though"
+      },
+      {
+        "id": "n21o6by",
+        "score": 28,
+        "body": "i believe the older version was changed was changed for eyestrain reasons"
+      },
+      {
+        "id": "n24o8u8",
+        "score": 26,
+        "body": "What can be done for disability pride month? People can make sure their businesses are accessible. Hire disabled people. Demand marriage equality. Write to elected representatives and advocate for better supports on disabled people's behalf. For a start. Lol \n\nI definitely need better supports more than i do some damned parade."
+      },
+      {
+        "id": "n21usks",
+        "score": 15,
+        "body": "What happened to Purple?  For years that was the colour of disability pride here in the UK.  The economic power of disabled families is called the Purple Pound.\n\nDon't get me wrong - I'm a child of the 80's and love a Sinclair Spectrum, so our flag being an off brand copy of their logo is great fun.  \n\nJust find it odd Purple hasn't seemed to cross the pond."
+      },
+      {
+        "id": "n26a134",
+        "score": 14,
+        "body": "im so glad to see that the real threat and violence of eugenics is acknowledged and recognized as such in the pride flag! i left the main autism subreddit many months ago due to so many advocating for eugenics for autistic folk (much of it stemmed from unmet support as well as self hatred, yes, but that doesnt mean its okay to start spouting pro-eugenics rhetoric!)"
+      },
+      {
+        "id": "n21upko",
+        "score": 11,
+        "body": "Yea it was definitely interesting, it felt like a relic of the 80s and I\u2019m happy we have something that is a bit more aesthetically pleasing"
+      },
+      {
+        "id": "n22lmpe",
+        "score": 10,
+        "body": "Oh interesting, in my local area purple gets used alongside the other colours in the flag because the flag left off neurological disability, so purple is used for that. I'd heard of the gold-silver-bronze disability icon, but I'd never heard of purple as a symbol of disability as a whole before."
+      },
+      {
+        "id": "n25jgrr",
+        "score": 8,
+        "body": "In the states/USA, the purple ribbon is the epilepsy ribbon, so putting on the flag is weird yet makes some sense."
+      },
+      {
+        "id": "n24ior2",
+        "score": 7,
+        "body": "Oh wow four of these colors apply to me\n\nFor anyone wondering I\u2019m good and happy I use humor to cope"
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1lk9trf",
+    "title": "I have to perform disability",
+    "body": "What bothers me the most is that I have to pretend I'm unable to do anything just to get the services I'm entitled to.  I have to put on this character to appeal to nondisableds perception of disabled.  What if I'm severely disabled and can still get a degree,  work part time,  do sports,  have sex, live independently.  Why must I pretend? ",
+    "flair": null,
+    "score": 486,
+    "comment_count": 243,
+    "created_at": "2025-06-25T16:10:49+00:00",
+    "top_comments": [
+      {
+        "id": "mzqfqlc",
+        "score": 244,
+        "body": "I understand what you mean. It sounds like Imposter Syndrome from having some Good Days tbh.  \n\nUnfortunately, whenever we are seeking services, we must show up as our Worst Days. Often, despite our socialized desire to mask our shortcomings while in public. It's counterintuitive to how we feel on a daily basis for most of us since we tend to keep our bad days behind closed doors. \n\nIt's important to remember that a Good Day, a Good Week, a Good Month, doesn't erase a disability that has or will plague you for years. It's not faking or acting in bad faith to demonstrate how your Bad Days look.\n\nOne last note - Yes, YOU ARE ENTITLED TO SSDI IF YOU HAVE BEEN PAYING INTO THE SYSTEM. That's literally what the law that created Social Security says. OPs use of the word entitled is not wrong."
+      },
+      {
+        "id": "mzqf187",
+        "score": 82,
+        "body": "I have to perform my disability so it manifests in ways people understand. \n\nE.g. I am autistic and struggle with audio processing, communicating my thoughts accurately, understanding what people say, infering implied meaning, executive function... yet what people are looking for when they assess me are stereotypes. \n\nSo I avoid eye contact and stim as much as I want- when usually in a medical context I force eye contact and suppress stimming. \n\nIts not about faking a disorder I don't have, I am autistic. It's about having to show up in a certain way to have your concerns taken seriously so you get access to the supports you need."
+      },
+      {
+        "id": "mzqop01",
+        "score": 70,
+        "body": "Yup.. because they aren't there when you are struggling to get by or when medication isn't working."
+      },
+      {
+        "id": "mzqtx6q",
+        "score": 65,
+        "body": "It's also worth noting that many of us suffer more in the mornings. My mornings are pretty solidly spent managing my disabilities, but by 1pm on good days, I totally pass as 100% abled."
+      },
+      {
+        "id": "mzq9efk",
+        "score": 57,
+        "body": "If Im understanding OP correctly I think they are saying they have to act like they can NEVER do those things even though a lot of days they can not, but on days they get examined.. it could be a \"good day\". \n\nAnother interpretation is that the disability qualifiers are biased. For example someone being able to mask heavily enough with autism that they can \"make friends\" or \"get a degree\", doesn't mean they wont burn out eventually or that they should have to continue masking."
+      },
+      {
+        "id": "mzrds2d",
+        "score": 48,
+        "body": "I get it. I was assessed, fairly and honestly, based on my bad days, for the services I receive. But I\u2019m constantly afraid that if I seem too competent on my good days it\u2019ll send up red flags that\u2019ll be used to take my benefits away. I need these services. I need them. But agencies and support people seem *shocked* when they see that I\u2019m a mentally sharp, well educated, younger person who\u2019s able to speak for myself and self advocate. I think they are more accustomed to either elderly folks or developmentally/intellectually disabled younger people. They are often taken aback by someone who is physically disabled but young and mentally able."
+      },
+      {
+        "id": "mzq78ry",
+        "score": 45,
+        "body": "I immediately sympathized with OP because I had something similar.  I was asking for work accommodations, eg allowed to sit while doing my work, because I can\u2019t stand for long periods of time without pain.  My essential duties do not require standing \n\nThe person who I had to talk to about this brought up a whole bunch of things outside this, like one was: \u201cwell I saw you posted on FB you went to a concert last week, so you are apparently able to stand for that.\u201d\n\nLike WTF.  Like number 1 it was a one- hour concert and my \u201cshifts\u201d are up to 8 hours. Number 2 I got to maybe one concert a year, as opposed to my  five times a week , every week, work.  Number 3 I was actually in pain the following day, but the enjoyment from the activity  outweighed the pain. \n\nSo I don\u2019t know, maybe OP is trying to game the system.  But I\u2019ve recently been in a position where it seems like if I am anything other than miserable all the time, or doing anything besides the bare necessities to keep myself alive, I must not have a disability. If I make an extra effort to do something just for enjoyment, it must mean these things come easy and I have no disability"
+      },
+      {
+        "id": "mzq4sxk",
+        "score": 39,
+        "body": "I think it\u2019s important to ask if you\u2019re performing, or if you\u2019re letting yourself show the level of disability you actually experience instead of pretending to be able to handle everything perfectly. The second one can easily feel like the first when you\u2019re struggling to accept it."
+      },
+      {
+        "id": "mzqql0r",
+        "score": 35,
+        "body": "I had to stop strolling the comments because it started feeling as if people were being intentionally obtuse. OP never said they did anything fraudulent or egregious, like pretending to be blind for a parking placard ffs. \n\nAs someone with multiple \"invisible\" disabilities the internalized able-ism is fucking real and it hurts. Imposter Syndrome is often a precursor to self-sabotage...usually right before our circumstances punch us squarely in the fucking mouth."
+      },
+      {
+        "id": "mzq9jra",
+        "score": 32,
+        "body": "This is what I took from OP too.  I use a white cane for mobility.  I have central vision but it can be spotty.  Thus the cane.  But my real disability is my invisible illness.  \n\nPeople stare at me and gawk and question how disabled I am cause I can move around so easily.  There are places where I only have to hold the cane to move around but I still wave the cane below me cause I just know someone is looking to say FAKE!\n\nIt stinks but it\u2019s my life.  Oh well."
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1o0v1ik",
+    "title": "Discrimination at my job 2019",
+    "body": "Here\u2019s a picture showing when I came back to you one day at work. They had put a handicap parking space by my desk and signs up saying this is space is me. One of my coworkers did this just painters tape. What happened them on here thank you. Can I still file a disability discrimination claim as this as been going on still? \n\n\n",
+    "flair": "Question",
+    "score": 486,
+    "comment_count": 127,
+    "created_at": "2025-10-07T23:39:28+00:00",
+    "top_comments": [
+      {
+        "id": "nic6ciz",
+        "score": 585,
+        "body": "HR is there to protect the company.  Go to a lawyer first."
+      },
+      {
+        "id": "nic728s",
+        "score": 541,
+        "body": "Don\u2019t go to HR or managers first. Don\u2019t talk about this to your coworkers. You\u2019ll get mobbed. Go to a lawyer first."
+      },
+      {
+        "id": "nic7xet",
+        "score": 308,
+        "body": "Do not go to HR, go straight to a lawyer.\n\nDocument every single thing silently.\n\nLAWYER FIRST"
+      },
+      {
+        "id": "nicevcn",
+        "score": 234,
+        "body": "[deleted]"
+      },
+      {
+        "id": "nicavt9",
+        "score": 179,
+        "body": "I wish I had learned this before I entered the workforce, but instead, I learned it the hard way. I agree 100%."
+      },
+      {
+        "id": "nicephi",
+        "score": 154,
+        "body": "Even more reason to go straight to a lawyer. The company will protect itself. A lawyer will protect you."
+      },
+      {
+        "id": "nic4b9g",
+        "score": 128,
+        "body": "I don\u2019t think Reddit can help you, you need to talk to hr and a lawyer"
+      },
+      {
+        "id": "nid3ovp",
+        "score": 122,
+        "body": "I\u2019m so sorry. That manager\u2019s response was so completely disrespectful and disgusting. PTSD or not that would be a tough thing to see."
+      },
+      {
+        "id": "nic70zc",
+        "score": 95,
+        "body": "Edit\u2026I didn\u2019t catch the date here but am leaving my post up because the other information is relevant to current or recent discrimination. With that said the EEOC requires that a claim be filed in 180 days of the incident and the statute of limitations for filing suit have long passed if this occurred in 2019. Unless there were more recent infractions with this being part of a pattern there is no case. While this is still very much discrimination why was not reported in 2019? \n\n Go to a lawyer and file an EEOC complaint (government is closed). This is targeted harassment based on a protected status. It\u2019s beyond HR. After getting lawyer, go to HR with pics and time stamps. When I filed my discrimination case I secured a lawyer prior to responding to any contact from HR and directed all future communication regarding the issue to them. I would also ask the lawyer about filing an EEOC complaint because that will be needed prior to any legal action more than a demand letter being taken. This goes to HR. \n\nNot a lawyer, not legal advice just a person who filed and settled an employment discrimination case. \n\nAlso people are not only cruel, they are idiots"
+      },
+      {
+        "id": "nid61hn",
+        "score": 82,
+        "body": "What the actual fuck dude Jesus Christ"
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1q25azo",
+    "title": "Disabled people were Holocaust victims, too: they were excluded from German society and murdered by Nazi programs",
+    "body": "",
+    "flair": "Article / News",
+    "score": 482,
+    "comment_count": 60,
+    "created_at": "2026-01-02T17:48:51+00:00",
+    "top_comments": [
+      {
+        "id": "nxaiqj2",
+        "score": 133,
+        "body": "They started murdering disabled people very early on as well."
+      },
+      {
+        "id": "nxaghzu",
+        "score": 69,
+        "body": "Disabled people were killed in \"hospitals.\" T4. Also Doctor Asperger sent 800 disabled children to be tortured and killed. That likely included autistic girls, as he didn't believe women could be autistic."
+      },
+      {
+        "id": "nxalfv2",
+        "score": 47,
+        "body": "And today we are still excluded by society and murdered. Murdered by our caregivers, by greedy governments that want us gone."
+      },
+      {
+        "id": "nxbfpjr",
+        "score": 45,
+        "body": "Correctly. Usually on the spot or taken to a \u201ccare home\u201d where they\u2019re gathered together and driven to a death camp or similar. \n\nAnd this was before the other targets were hunted down. Horrid."
+      },
+      {
+        "id": "nxahu99",
+        "score": 42,
+        "body": "I hate that people are callous enough to either ignore this or agree with it!"
+      },
+      {
+        "id": "nxb0agr",
+        "score": 38,
+        "body": "Yep. Disabled people were the first group targeted. They tested out the gas method on disabled people."
+      },
+      {
+        "id": "nxbvc5z",
+        "score": 34,
+        "body": "Yeah. Disabled people were the first victims, but they never talk about them. Theyre always the first in any fascist regime. People don't get how victimized they are\u00a0"
+      },
+      {
+        "id": "nxat75t",
+        "score": 31,
+        "body": "Damn right and no political group seems to care about this as a main issue."
+      },
+      {
+        "id": "nxd3x22",
+        "score": 30,
+        "body": "This is something that doesn't get talked about nearly enough. The fact that Asperger's name was used for so long to describe a condition, when he actively participated in sending children to their deaths, is pretty horrifying when you think about it."
+      },
+      {
+        "id": "nxbwi5z",
+        "score": 22,
+        "body": "And continued murdering them after Germany surrendered as well \ud83d\ude23"
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1lonsg7",
+    "title": "You're not disabled if you can...",
+    "body": "This is another post that may get me wailed on. But for those of us who are young,  born disabled, have invisible disabilities,or a person of color,  people seem to hyper police our disability.  People are so comfortable with defining our disability based on what we do. God forbid you go to a concert or work a little bit. A lot of us are still trying to live our lives with a disability while the system is designed to isolate and eradicate you because you have a disability.\nNobody asks,  what it takes for you to do the actions you do.  Living a disabled life in isolation can drive you to harm yourself.  Its only human nature to crave social interaction.  If you want to do something and you have enough spoons for that day,  do it. Even if you have to get creative. If you can't do much today, don't. Relax. ",
+    "flair": null,
+    "score": 484,
+    "comment_count": 77,
+    "created_at": "2025-07-01T00:21:23+00:00",
+    "top_comments": [
+      {
+        "id": "n0oe400",
+        "score": 108,
+        "body": "yes this!! i had a fight with my parents about this today. they said they can\u2019t see me as disabled bc i have friends, ambition, do well in school, etc. even though i have 12+ diagnoses that say otherwise. it so important to have empathy for others and realize you never know how much effort can be behind every action they take!!"
+      },
+      {
+        "id": "n0odjvl",
+        "score": 105,
+        "body": "I don't think I can do a concert, I've tried and couldn't even get past the anxiety to go. \n\nBut what I can do, especially when it's warmer temps, takes days or weeks to recover. And yeah there have been those who claim I'm not disabled because I was able to do something fun and they saw me doing it and didn't see the recovery needed."
+      },
+      {
+        "id": "n0oh1m4",
+        "score": 64,
+        "body": "Right! Disabled has become synonymous with nothingness and I hate it. I'm glad you have friends and ambition."
+      },
+      {
+        "id": "n0omdvi",
+        "score": 41,
+        "body": "I\u2019m in a group about Australian government benefits. So often a person who is on a disability pension gets wailed on for working. They\u2019re told if you\u2019re disabled you can\u2019t work, at all, therefore you\u2019re cheating the system. Our government, thankfully, encourages us to do some work but too many people decide if you\u2019re disabled you can\u2019t work. So frustrating."
+      },
+      {
+        "id": "n0p44gi",
+        "score": 35,
+        "body": "This is so on the money. And why I mentally struggle with being \"allowed\" happiness or nice things. \n\nI'm supposed to be disabled, right? I'm supposed to permanently (and visibly) struggle, right? Barf. Barf forever."
+      },
+      {
+        "id": "n0p8041",
+        "score": 34,
+        "body": "I actually just lost my last family connections save my brother, like last week, because of this shit.\n\nMy biological mother died June 5th or something around that this year. no need for the im sorry's or anything. she was, quite frankly, a piece of shit my entire life. i digress, my family got extremely upset with me volunteering to sit on my walker and hand out water at a respite tent for an hour and a half in place of,,,I shit you not: dropping everything (including drs appts and a very important set of MRIs) getting in a car for a minimum 2 day drive to go to FL (a state I refuse to step foot in already as a queer trans man) to do the manual labour of going thru all of her stuff, moving furniture, and helping clean out the house of what my brother and I would retain (pictures, my father's ashes, etc) and then doing another 2-3 day drive back up. \n\nI have rheumatoid arthritis, so at the current moment, on top of synovitis, a partial tear in some tendon or another on my left foot, as well as my luck to have achillies tendonitis on both sides, for which i am waiting on bilateral ankle braces, I also have some level of bone marrow edema and just like general edema in my legs, feet, and ankles right now that gets SO fucking bad, even with my walker I have literally cried at the thought of taking the next step bc it was SO painful, and have had some near misses on eating shit by falling.\n\nbut my family looks at me and is like \"well ur 26, so ur too young to be sick\"\n\n\"Oh so you can fucking do that but you can't be there for your brother?\" was a comment I got. The final comment that made me go completely no contact was, when I tried to explain myself, my aunt yelled through the phone, \"it isn't about you, it won't be about you today, or tomorrow, or the day after that, or fucking ever-\" and then I hung up :shrug: idk no family for me ig"
+      },
+      {
+        "id": "n0opwb6",
+        "score": 34,
+        "body": "This is one of those times where you gotta tell people to adjust what they view as \"disabled\" in their own head. \"If I don't fit your idea of what a disabled person is supposed to be like it's time to change how you see disabled people.\""
+      },
+      {
+        "id": "n0rf9ps",
+        "score": 29,
+        "body": "Gosh, we just went to WDW yesterday and the anxiety and overstimulation had us leave a couple hours before fireworks, because I just couldn\u2019t handle it after about 6 or so hours. \n\nA big part of that is being young and needing a mobility device to make it through the day, but even so I\u2019ll be in bed for the next few days trying to reset everything back to a tolerable level. It takes a lot to go, but I want to live and enjoy my life too, ya know?"
+      },
+      {
+        "id": "n0ovlor",
+        "score": 27,
+        "body": "It's similar in the US and according to one disability lawyer I watch sometimes on YouTube if you work or going through a rehabilitation program to get you employed they often will think you can work. It doesn't make sense. \nI say encourage companies to employ disabled people and give them incentives. When we contribute to society through employment we are helping the economy and feeling like we're contributing to society. They shouldn't expect us to be fully employed, but giving us some of the smaller tasks some companies need would help everyone in the long run."
+      },
+      {
+        "id": "n0pmdml",
+        "score": 18,
+        "body": "Today I almost cried telling my doctor about this. I\u2019m so lucky she\u2019s one of the few good ones my insurance will cover \ud83d\ude2d I look fine but I am anything but fine!"
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1kn8n0j",
+    "title": "I WON MY DISABILITY CASE!!",
+    "body": "Original Post: https://www.reddit.com/r/disability/s/yzHZuJYyrw\n\nI\u2019m 26 years old, physically disabled since birth and also have acquired a few mental illnesses (namely C-PTSD) over my lifetime. Applied for disability in April 2024 after losing my part-time job, lawyered up, had my hearing on April 30th, 2025. \n\nAs of today, May 15th, 2025, It\u2019s official - I just got the paperwork from my disability judge\u2019s decision, and he ruled Fully Favorable!!! I won my disability case!!!",
+    "flair": null,
+    "score": 486,
+    "comment_count": 54,
+    "created_at": "2025-05-15T13:47:19+00:00",
+    "top_comments": [
+      {
+        "id": "msgabgg",
+        "score": 21,
+        "body": "Totally awesome!! You did a good job!!"
+      },
+      {
+        "id": "msgbov8",
+        "score": 13,
+        "body": "Congrats!! \ud83c\udf89\ud83c\udf8a"
+      },
+      {
+        "id": "msg8ndj",
+        "score": 11,
+        "body": "Congratulations!!!! \ud83c\udf89\ud83c\udf88"
+      },
+      {
+        "id": "msg8oby",
+        "score": 9,
+        "body": "Congratulations \ud83c\udf89\ud83c\udf89"
+      },
+      {
+        "id": "msg973t",
+        "score": 6,
+        "body": "CONGRATS!!"
+      },
+      {
+        "id": "msgbksg",
+        "score": 6,
+        "body": "Mazel tov!"
+      },
+      {
+        "id": "msgbqpd",
+        "score": 5,
+        "body": "Yaaaahooo :) wait a go \ud83d\udc4f\ud83d\udc4f\ud83d\udc4f"
+      },
+      {
+        "id": "msgfj3f",
+        "score": 4,
+        "body": "Congratulations!!!!"
+      },
+      {
+        "id": "msgj6w8",
+        "score": 4,
+        "body": "Congratulations!!!! God bless you! You should celebrate and enjoy a cold beverage and a big greasy pizza lol"
+      },
+      {
+        "id": "msgkl10",
+        "score": 4,
+        "body": "Congrats!"
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1oqi9l7",
+    "title": "My SNAP got cut (zero income and situation changes!)",
+    "body": "I\u2019m sitting on my couch holding back tears because not only did I get nothing this month but now they\u2019re cutting my snap down over 50%! My income and situation are exactly the same as when I got the previous amount. My only income is SSI, my cat has health issues and I have chronic health issues so those costs add up FAST! Food pantries run out fast, food is expensive, my cat\u2019s food is extremely expensive and if I had to give him up no one would want him (plus I can\u2019t go on without him. He\u2019s my ESA and the biggest factor between me and my MDD leading to my credits), I live alone so I have to pay for everything and I\u2019m already exhausted and fragile from everything getting worse and worse\u2026 I don\u2019t know why I\u2019m going to do :( $70 will barely cover 1 and a half weeks of food if I stretch it at Winco\u2026 do I need to survive off ramen and rice now?? \n\nLook, I don\u2019t want to be rich or even well off for that matter. I just want to be able to survive and keep my cat as healthy as possible with his circumstances. I don\u2019t care if I\u2019m practically dying as long as he\u2019s okay but I need to be able to survive so he can live. That means having money for food! \n\nI\u2019m scared, angry, lost, anxious, frustrated, confused and depressed right now. This world is a dystopia! I\u2019m terrified to see my own future. I used to say I\u2019ll live to see how screwed we are but now I know I wouldn\u2019t be able to bear the sight of it. I hate the rich and the ones  in power but unlike them at least I have the compassion to believe they have a right to food, shelter, water and healthcare regardless of my views on them. \n\nI\u2019m probably just going to go sit in a hot shower and cry for a while because we\u2019re all one hateful person in power\u2019s decision away from losing everything\u2026 ",
+    "flair": "Rant",
+    "score": 473,
+    "comment_count": 224,
+    "created_at": "2025-11-07T02:14:54+00:00",
+    "top_comments": [
+      {
+        "id": "nnj6n8x",
+        "score": 263,
+        "body": "Everyone\u2019s did. They literally have taken it away from everyone. This has been the main news for weeks now. Some states are funding partially and that\u2019s probably what you\u2019re seeing."
+      },
+      {
+        "id": "nnj6t25",
+        "score": 263,
+        "body": "OP you are entitled to file an appeal.\nHere's a link that explains\n\nhttps://www.ncoa.org/article/how-do-i-appeal-a-snap-benefits-decision/"
+      },
+      {
+        "id": "nnj6rzo",
+        "score": 138,
+        "body": "Me along with millions of others are getting $0 this month\u2026+ the foreseeable future"
+      },
+      {
+        "id": "nnjf5qu",
+        "score": 88,
+        "body": "Yep.\n\nI wasn't even getting very much, but it still helped with basics. Having to restructure my budget once again.\n\nBut hey, my states government made sure to send me 11 different texts over a period of 6 hours while I was trying to sleep to be extra sure I felt like shit each time I woke up to \"you will not be receiving EBT benefits\" lol."
+      },
+      {
+        "id": "nnjmdfz",
+        "score": 71,
+        "body": "It says $70 through 2027. This is not because of the shutdown. It\u2019s her new benefit level when SNAP resumes."
+      },
+      {
+        "id": "nnnynn3",
+        "score": 38,
+        "body": "Also the USDA is complying with court orders to release SNAP funds in full for this month. News broke a little while ago.\n\nhttps://www.nbcnews.com/now/video/usda-says-it-will-begin-fully-funding-snap-benefits-after-court-ruling-251566149666\n\nETA: Y\u2019all I posted this here for visibility because people were still talking about no SNAP funding. As of a little while ago the USDA is complying with a court order. I don\u2019t know how/when states will process payments, but you are owed 100% of your benefits and should contact your local benefits office if you haven\u2019t heard from them. \n\nOP\u2019s situation may be unrelated and definitely needs an appeal."
+      },
+      {
+        "id": "nnj8bef",
+        "score": 35,
+        "body": "[deleted]"
+      },
+      {
+        "id": "nnjf6as",
+        "score": 34,
+        "body": "believe it or not rehoming is kind of impossible. we have an overpopulation of cats without homes and besides, they shouldnt have to and they definitely dont need strangers telling them about it. say something productive or zip it"
+      },
+      {
+        "id": "nnjhvre",
+        "score": 34,
+        "body": "no? they dont actually. people go homeless with their animals bc the alternative would be throwing them to the streets by themselves. ive been on disability for years now and needed to be after already owning cats. i struggled for a year begging for people to rehome my cats and no shelter took them. at the end of the day they had to eat something and i tried my best, the alternative wouldve been throwing them outside and thats inhumane as well. luckily i got some help and now my cats eat regularly again but it is so fucking unhelpful to say what we already know: if we could rehome them happily and safely we often would anyway ur not saying anything new or productive it just rubs salt on a wound. asshat"
+      },
+      {
+        "id": "nnjc7x3",
+        "score": 32,
+        "body": "They already had one asshole"
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1m08kzo",
+    "title": "My 6 year old son rejected his disabled mom. HELP!",
+    "body": "Hello everyone. \nMy wife has CP (she doesn't have balance in her left side and needs a wheelchair or a walker) we have a little son, out of nowhere he said that he wants a new mom who can walk and cook. My wife feels disheartened, because since her pregnancy she couldn't use the walker anymore and is using wheelchair. She sacrificed her health for him, I think that as he is growing up, he is realizing her disability and the extend of it in our routine. I hope it's just temporary, that he will accept her condition. He was crying and anguished while saying these things to her. \nDoes anybody have experience with this? How to handle this?\nThanks in advance. ",
+    "flair": null,
+    "score": 471,
+    "comment_count": 76,
+    "created_at": "2025-07-15T04:38:54+00:00",
+    "top_comments": [
+      {
+        "id": "n37i2f0",
+        "score": 622,
+        "body": "His feelings are most likely brought on by the fact that his awareness is growing, and that he is realizing that his mom is different from others. \n\nI would have your wife speak with him. She can say, \u201cIt\u2019s okay to be sad that Mommy can\u2019t do the things others can. I get sad too, and wish I could walk and cook. But we do lots of other fun things together! (Insert whatever activities you guys do).\u201d\n\nAnd then maybe too, get him a few children\u2019s books that talk about different kinds of parents, or people with disabilities. This is natural for kids his age - I used to ask my dad why we never went camping like other families at his age."
+      },
+      {
+        "id": "n37o622",
+        "score": 339,
+        "body": "Along those lines it might be good for him to meet other families where someone is disabled so it's more normalised."
+      },
+      {
+        "id": "n37htz9",
+        "score": 166,
+        "body": "i'd ask him (and his teacher?) if he's made fun of for having a disabled mom. if that's not the case then i'd assume that he was just frustrated by a single incident (eg mom couldn't do something with him) unless he keeps saying that. if he says stuff like that repeatedly i'd try finding a child psychologist who can work with him (preferebly somebody who is experienced in that area)"
+      },
+      {
+        "id": "n382nli",
+        "score": 151,
+        "body": "First, I'd like to thank for all your answers. They are very helpful. \nSecond, he suffered bullying from another kid about my wife's disability. This boy also said that my son's hair is ugly and stupid things like that.\nMy son really seems affected by everything another children tell him."
+      },
+      {
+        "id": "n37lakf",
+        "score": 129,
+        "body": "I can imagine that was incredibly painful for you and your wife to hear.\n\nIt is important to realize that a 6-yo is going to express themselves in ways that aren't fully articulate or diplomatic or esp accurate.\n\nIt is very likely that was his way of saying he wished his mom didn't have these struggles.  Or he maybe recently visited a friends house and saw a very different life there, and wished he could have that too.  (You and your wife probably also each have moments when you feel discouraged and wished it could be different.)\n\nSometimes, as parents, we have to do the very difficult task of looking past our personal hurt reaction and seek, instead, to better understand the child's.  \n\nThe challenge is to allow his \\*feelings\\* to be valid, but help him work through the reality of what is. If it's too hard for your wife, then it's on you to have a gentle conversation, starting with: \"What makes you say that?\"\n\nMake sure you make time for positive activities you can do together.  Between mom and your son: \"I wish I could walk too, but  I can still cuddle next to you and read a story, isn't this fun!\"  AND all together: \"Hey, let's play go-fish together as a family!\"\n\nI don't know enough to have any clue about the relevance of this next bit, but it's also worth examining: how much of the burden is being put on this child, and are you doing enough to minimize it?\n\nI, personally, think that kids should be expected to help the family - in age-appropriate ways (such as picking up their toys or helping bring dishes from the table to the sink, for instance.)  But when determining chores, I think you gotta be honest about if they are given to help the kid develop life skills, vs asking them to do things for, say, your wife's benefit.  And for the second category... be very careful about putting too much on them.  It's good for kids to learn to be helpful.  It's not okay to make them the goto solution for any adult's problem.\n\nFor some things: I make a point of respectfully asking, and accepting when the answer is no.  (But also, other things aren't so optional.)\n\nAnd finally... it's your job, as parents, to make sure your kids needs are met.  That can mean asking for help outside the home.   We had a friend who was kind enough to give rides to an extracurricular activity for years, for instance - I appreciated it so much and did try to find other ways to reciprocate - but wow, that was such a huge gift to our family.\n\nDepending on budget, you might also consider hiring out some tasks to reduce the pressure on all of you.  (Such as housekeeping)"
+      },
+      {
+        "id": "n386h5t",
+        "score": 69,
+        "body": "Love this response as a disabled therapist who works with other disabled people"
+      },
+      {
+        "id": "n38zmod",
+        "score": 69,
+        "body": "He will also be as (if not more) affected by the things you and Mom tell him. \n\nNo matter what he says, whether he is angry and screaming, crying, or eerily calm, be firm and consistent with your response: \u201cIt\u2019s okay for you to feel sad that _____. Mom/Dad/I/we always love(s) you.\u201d\n\nAlso, therapy. Start with him on his own. His therapist will bring you and Mom in as needed. But also consider it for your entire family. That\u2019s the kind of investment that has a lifetime of benefits \u2764\ufe0f"
+      },
+      {
+        "id": "n39s1fv",
+        "score": 61,
+        "body": "Some books on this that are good for his age:\n\n- \u201cThis is How We Play!\u201d\n- \u201cWe Move Together\u201d\n- \u201cMama Zooms\u201d\n- \u201cBest Friend on Wheels\u201d\n\nAlso when he\u2019s slightly older, I really like Maysoon Zayid\u2019s middle grade graphic novel \u201cShiny Misfits\u201d. The protagonist has CP and navigates some of the social problems of people exploiting or infantilizing her, but she mostly is just dealing with normal kid stuff like crushes, friendships, and her own competitive nature. It\u2019s funny, light hearted, and thoughtful. Might be nice for him to see CP from a kid\u2019s perspective, too!\n\n(Edit to add one more called \u201cCome Over to My House!\u201d)"
+      },
+      {
+        "id": "n38be6a",
+        "score": 31,
+        "body": "Do you think that it might be a developmental stage? Children can be very blunt in the way they talk about things. It doesn\u2019t necessarily mean that they dislike something. Although the young boy has indicated that he does dislike certain actions or mobility variation. Perhaps he\u2019s just learning to understand it and it would be a great idea to expose him to more people with disabilities."
+      },
+      {
+        "id": "n37i29x",
+        "score": 30,
+        "body": "I'm really sorry this happened, it's horrible for everyone involved. Maybe therapy is the best option? He's obviously dealing with big emotions and it might be good to have someone professional help out"
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1qtzc5z",
+    "title": "Went back and made these without AI. We're going to embrace the wonky lines \ud83d\udc9a",
+    "body": "Got some significant feedback regarding my (very ethically confusing) logo \"I made\" previously. I'm sorry for letting ya'll down. I feel panicked and I just wanted to get SOMETHING done. I still feel panicked. But actually making this feels a lot better. And holy Hannah this is so much better. \n\nI'm not okay with anything thats happening in our country, and I am very aware of how the future can be for the disabled community. \n\nI started a new sub but WOW  do you need executive function skills to be a good creator. I just want a place where we can gather as angry people. Im not trying to violate this sub with fear. \n\nAlso as far as alt text (Im just learning about it), can someone help me figure out how to describe this picture in a concise way. I mean, my whole life motto is \"ill never be concise\". \n\nThe flag is relatively new (2021) designed by Ann Magill. \nThe colors represent, physical, undiagnosed/invisible, sensory, psychiatric disabilities and neurodivergence. The gray represents the pain, fear, and mourning the disabled community experiences\n\nDid you know a Loon cannot stand? They can't run. They are naturals in the water though. They have skills other birds don't have. \n\nI used to say that the disabled community is like sitting ducks. But then I realized the fear we can associate with that. So I named the sub Sitting Loons. Because we're powerful regardless of our disabilities. \n\nI hope to discuss these current events with you and take some control over our futures. \n\nSorry for the novel. But I cant be concise. \ud83d\ude2d",
+    "flair": null,
+    "score": 473,
+    "comment_count": 36,
+    "created_at": "2026-02-02T16:13:56+00:00",
+    "top_comments": [
+      {
+        "id": "o36jcvx",
+        "score": 56,
+        "body": "\\[alt text\\] the image is a combination of current resistance / protest symbolism. A loon, the state bird of Minnesota, flies in a way that makes it look like the star wars rebel alliance flag. the lower half of the body of the loon has been covered by the handicapped logo, with two kinds of cane flanking it to either side. behind the loon, the colors of the disability pride flag can be seen. This hand drawn artwork is a beautiful representation of the disabled community's power to resist oppression and stand for whats right, even when theyre afraid."
+      },
+      {
+        "id": "o36jr5e",
+        "score": 36,
+        "body": "when writing alt text, I try to pick basic descriptors first. X, Y, Z can be seen. these details (color, texture, framing) seem to be especially important to the message. Then ill add one line about what I think the image is trying to evoke, in case other neurodivergent people need the extra assist of that description. \u200b"
+      },
+      {
+        "id": "o372vfw",
+        "score": 26,
+        "body": "I really like it.  I would put a sticker of one on my wheelchair."
+      },
+      {
+        "id": "o375blw",
+        "score": 14,
+        "body": "Feel free to use it however you want. I used to hand embroider patches. I guess I could figure out how to use my cricut?"
+      },
+      {
+        "id": "o3949kf",
+        "score": 13,
+        "body": "Do you feel good about what you made? I think you should. It\u2019s beautiful. Perfection and AI are soulless and without the complexities of humanity. Be proud of your hand in it. Be proud of how your lines live and breathe."
+      },
+      {
+        "id": "o36ozy7",
+        "score": 13,
+        "body": "pictures are the biggest use case, but I also see it needed for things like graphic fonts and GIFs!"
+      },
+      {
+        "id": "o36ncqt",
+        "score": 12,
+        "body": "Nice! Thank you so much. Im just learning the importance of alt text. Am I right in assuming its just for pictures?"
+      },
+      {
+        "id": "o37bke8",
+        "score": 11,
+        "body": "I didn\u2019t know that about loons. These look really cool! Thanks for sharing :) \n\nPS. I spend so much of my life trying to be clear/concise. It never feels like enough, but it usually is. Besides, it\u2019s totally fine to ask for help.. like with the alt text; I see some advice in the comments. Just keep learning about it and trying your best :) you\u2019re doing great."
+      },
+      {
+        "id": "o36m642",
+        "score": 9,
+        "body": "Hell yeah!"
+      },
+      {
+        "id": "o3850xt",
+        "score": 9,
+        "body": "I would love an embroidered patch. I'm new to the disabled community. I lost my ability to walk in March 2025."
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1kxkd44",
+    "title": "Update on my new chair",
+    "body": "My partner took this photo of me on our cinema date, and for the majority of getting to and from the cinema he didn\u2019t have to push me! He had to help me up the steep hill twice and a couple times when I needed a rest but I managed to push myself and I\u2019m so happy about that.\n\nThere\u2019s a few things I\u2019ve noticed since getting it:\n\n1.\t\u2060It\u2019s soooo much smoother! The right caster wheel doesn\u2019t shake like crazy and cause headaches/pain\n\n2.\t\u2060It\u2019s much more comfier and I have better posture\n\n3.\t\u2060The folding down handles are a blessing, no more getting pushed by strangers (most of the time) cause they have to ask how to sort the handles out - they just need lifting but they don\u2019t know that \ud83e\udd23\n\n4.\t\u2060I don\u2019t know what wheels I had before but spoked wheels are the god of wheels - so much easier to push \n\n5.\t\u2060The footplate! Oh the footplate! It\u2019s one where I could change the depth of it if needed. Because of the issues with my ankles I have to have a bit of droop to my feet otherwise I get horrible ankle/foot pain. The footplate is great where it is and I get so much relief from said pain\n\nThe only issue that I\u2019m having at the moment, which isn\u2019t really to do with the chair, is neck stability. I struggle keeping my head up due to pain and it just not wanting to stay up. Any suggestions? I bought a neck pillow but it doesn\u2019t really do anything to help\n\nEdit: I\u2019m gonna speak to my doctors about my neck instability but until I do I need some help haha",
+    "flair": null,
+    "score": 470,
+    "comment_count": 27,
+    "created_at": "2025-05-28T15:42:05+00:00",
+    "top_comments": [
+      {
+        "id": "mupu9f6",
+        "score": 29,
+        "body": "We went and saw final destination: bloodlines btw!"
+      },
+      {
+        "id": "muqm94v",
+        "score": 10,
+        "body": "Lots of places online sell attachable headrests for wheelchairs. You need to check that the kind you find will work for your chair (they usually clamp onto the back or handles), but that would help with the neck instability."
+      },
+      {
+        "id": "muq2b2x",
+        "score": 10,
+        "body": "Course! It\u2019s the Icon 60 from Invictus Active\n\nhttps://www.invictusactive.com/product/icon-60-wheelchair/"
+      },
+      {
+        "id": "muqq4yk",
+        "score": 9,
+        "body": "Looks like a keeper. Him too."
+      },
+      {
+        "id": "muqqbok",
+        "score": 7,
+        "body": "I\u2019ll have this chair for years to come I bet! It\u2019s so good for me\nHe definitely is, I adore him so much \ud83d\ude0a"
+      },
+      {
+        "id": "muqmj5b",
+        "score": 6,
+        "body": "Amazon! I can send you over the links if you\u2019d like?"
+      },
+      {
+        "id": "muvat5v",
+        "score": 5,
+        "body": "During this time of great insanity and anxiety, and for me a depression, I can\u2019t tell you how HAPPY I am for you. This is so good to see."
+      },
+      {
+        "id": "muqjvmr",
+        "score": 5,
+        "body": "Wow! Where did you get the drink and phone holders please?"
+      },
+      {
+        "id": "muq1ndc",
+        "score": 4,
+        "body": "Ooo looks good, any chance you can link to the brand?"
+      },
+      {
+        "id": "murb4ok",
+        "score": 3,
+        "body": "I love the green spokes!"
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1rlnvhz",
+    "title": "At what point do you just accept that you'll never find a cause for your chronic pain and disability?",
+    "body": "I'm fucking tired, man. Just tired. Tired of SSA, tired of doctors, tired of tests, tired of pain, and tired of being tired.\n\nI had a positive ANA 1:640 nuclear dot pattern on 05/2025 and was made to wait 8 months to see a rheumatologist. I moved and found one that would see me much sooner. It's now 03/2026 and I finally get an autoimmune workup. And the results were all negative except for the ANA 1:640. So no sjogrens, no lupus, no RA, no AS.\n\nThen why do I have functional limitations and severe chronic pain? \u200b\n\nOBGYN confirmed adenomyosis and PCOS via MRI and hysterosonogram and HTPFD on exam but my doctors say none of those cause disability. SI joint dysfunction was ruled out with pelvic MRI. \n\nI have been given multiple conflicting Dx regarding my x-rays. One doctor says I have scoliosis and another says I have facet joint degeneration and another one says I have nothing. \u200b\u200b\n\nMy orthopedics refuse to do any diagnostic injections because my xray was insignificant.\n\nMy neurologist did a pin prick test and said there was nothing wrong with me and I don't have a disability.\n\nBuuuuuuuut\n\nI was approved to live in an adapted apartment for disabled people.\n\nI was prescribed a rollator and shower bench.\n\nI was approved for the OH Home Care Waiver.\n\nI have a history of falling.\n\nI have several FCEs measuring my limitations.\n\nSo what the fuck is wrong with me, then? Why can't I work? What am I supposed to do, now?\n\nI am exhausted. I ran out of doctors to see and tests to run. There's literally nothing left. ",
+    "flair": null,
+    "score": 5,
+    "comment_count": 1,
+    "created_at": "2026-03-05T17:35:00+00:00",
+    "top_comments": [
+      {
+        "id": "o8tepi1",
+        "score": 1,
+        "body": "Sometimes things don\u2019t have an answer and it\u2019s really frustrating. Welcome to the world of fibromyalgia. It doesn\u2019t mean your pain is not real. The thing is doctors are seeing you. It\u2019s REALLY hard to get approved for a home care waiver and be actually prescribed mobility aids. Doctors that don\u2019t believe you would not do that. \n\nEven still the tests you have had don\u2019t rule everything out. Have you had genetics testing for connective tissue disorders? A MRI of your brain or spine? The ANA is high and even if you didn\u2019t have the markers for standard rehumotological diseases many other autoimmune conditions exist. There is a saying that when doctors hear hoofbeats they think horses not zebras, but sometimes we really are the zebras and maybe even an okapi (a rare zebras like equine). \n\nDon\u2019t give up, but people do see that you are struggling even if it does not seem like it."
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1rldowq",
+    "title": "Trying to educate the ableds",
+    "body": "I am fighting for my life in a thread trying to explain to able-bodied people how \"I'd rather kill myself than be disabled\" is an ableist thing to say. As usual, they are absolutely refusing to listen. \n\nWhat ableist statement had you laying some education down? Were you able to get the other person to understand how they were ableist, or did you have to walk away out of frustration and/or rage? ",
+    "flair": "Rant",
+    "score": 61,
+    "comment_count": 80,
+    "created_at": "2026-03-05T09:59:58+00:00",
+    "top_comments": [
+      {
+        "id": "o8r8dll",
+        "score": 1,
+        "body": "\"it can't be that bad if you've just been diagnosed\". Um, I woke up one day with it. I'm diagnosed because I was struggling\u00a0"
+      },
+      {
+        "id": "o8rei2w",
+        "score": 1,
+        "body": "Every time I say anything about accessibility on here I get downvoted to the lowest circles of hell. I asked someone to say disabled people not less able and got accused of virtue signalling.\n\nI got downvoted for saying public transport should be accessible and that disabled people are tired of hearing that it\u2019s too expensive or complicated. "
+      },
+      {
+        "id": "o8r9c3b",
+        "score": 1,
+        "body": "\"I wasn't talking about you\"\n\nOk, but you said \"anyone should be able to do this,\" meaning if you can't do it, you're nobody? Or they're explicitly excluding disabled people, which... ,\ud83c\udf89*Tada*\ud83c\udf89... That's ableism! "
+      },
+      {
+        "id": "o8reg99",
+        "score": 1,
+        "body": "You can\u2019t. It is very difficult to change someone\u2019s mind once they have set it, especially an internet stranger. They probably won\u2019t understand unless they experience a disability. \n\nThere is an old saying, \u201cthose convinced against their will are of the same opinion still\u201d\nEssentially you can\u2019t force someone to agree with you, whether it is through argument, pressure or authority, you do not actually change their mind. Their inner dialogue remains the same. "
+      },
+      {
+        "id": "o8rge7t",
+        "score": 1,
+        "body": "Just got kicked outta presidency of a board of directors for standing up for accessibility. One of the last things the executive Director said in front of me recently was that she would kill herself if she was ever in a wheelchair so I\u2019m totally feeling your pain right now."
+      },
+      {
+        "id": "o8r9p0k",
+        "score": 1,
+        "body": "People straight up calling autism \"a different way of thinking and not a disability\" is unfortunately very common now."
+      },
+      {
+        "id": "o8rayo8",
+        "score": 1,
+        "body": "There are certain painful or incapacitating disabilities I\u2019d rather die than have, but I certainly wouldn\u2019t say that to anybody with them. "
+      },
+      {
+        "id": "o8rlgqz",
+        "score": 1,
+        "body": "My boyfriend literally threw my condition in my face, when he freaked out one day thinking he might have the same thing I did. (Without even get tested first) and he actually said the words, \"I'd rather kill myself than wear a bag\".  Turned out he just had food poisoning. \n\n\nI broke up with him. "
+      },
+      {
+        "id": "o8rqxna",
+        "score": 1,
+        "body": "Today I heard someone refer to a politician as hot wheels. Did a quick search to confirm that they are indeed a wheelchair user. Tried to explain that it may be more beneficial to critique them based on something they did or said rather than naming them based on an uncontrollable circumstance."
+      },
+      {
+        "id": "o8s4yrf",
+        "score": 1,
+        "body": "![gif](giphy|igR5863TALcSk)\n\nNo point in arguing with someone who won't understand. That was the best lesson I learned after being disabled. I just dont care anymore. Intelligence is chasing them but they are faster. Thats ok, everyone joins the disability community at some point, karma will humble them. LET IT GO\ud83c\udfb5"
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1rl7po8",
+    "title": "I got my loaner wheelchair today and it really felt like it was a person again. Then I also ordered my new wheelchair",
+    "body": "",
+    "flair": null,
+    "score": 48,
+    "comment_count": 6,
+    "created_at": "2026-03-05T04:16:36+00:00",
+    "top_comments": [
+      {
+        "id": "o8q6jn0",
+        "score": 2,
+        "body": "Oooo!  Thats amazing!"
+      },
+      {
+        "id": "o8r4rmf",
+        "score": 1,
+        "body": "You just reminded me I gotta get a renewal on my loaner, new chair is still being built and my loaner is 3 months. Thanks for the reminder! :) "
+      },
+      {
+        "id": "o8r77gy",
+        "score": 1,
+        "body": "Congrats! I remember the first time I went outside with the demo chair and how free I felt. I hadn't been in the sun for four years at that point, and it really was like feeling human again. I hope your new chair does the same for you. \n\nDid you get that green? It's a gorgeous color \ud83d\ude0d"
+      },
+      {
+        "id": "o8r8zj6",
+        "score": 1,
+        "body": "I\u2019m so happy for you! It really makes worlds of difference in daily life, to have a mobility aid. Yeehaw!! \ud83e\udd20 "
+      },
+      {
+        "id": "o8qo9s7",
+        "score": 1,
+        "body": "That great news! Hopefully its brings you more freedom \ud83d\ude42"
+      },
+      {
+        "id": "o8s3z1y",
+        "score": 1,
+        "body": "\nHi, yes I got the green. Thanks for your message."
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1rkrx1r",
+    "title": "Quick! What is Your Comeback to \"You Don't Look Disabled?\"",
+    "body": "",
+    "flair": "Question",
+    "score": 100,
+    "comment_count": 174,
+    "created_at": "2026-03-04T17:38:33+00:00",
+    "top_comments": [
+      {
+        "id": "o8mrkuj",
+        "score": 184,
+        "body": "Why thank you, that is lovely of you to say, and might I add that you don't look ignorant, I would have never guessed if not for your comment."
+      },
+      {
+        "id": "o8msqki",
+        "score": 110,
+        "body": "Oh, so how does a disabled person look like?"
+      },
+      {
+        "id": "o8mph1y",
+        "score": 107,
+        "body": "\u2026.and you don\u2019t look rude and condescending."
+      },
+      {
+        "id": "o8n3865",
+        "score": 74,
+        "body": "Either \"what do you think disabled people look like?\" or \"You don't look like my doctor.\""
+      },
+      {
+        "id": "o8murmr",
+        "score": 65,
+        "body": "You don\u2019t look like a prick yet here we are"
+      },
+      {
+        "id": "o8mtcgm",
+        "score": 50,
+        "body": "\"And *you* don't look that dumb!\""
+      },
+      {
+        "id": "o8n39v2",
+        "score": 50,
+        "body": "This is my go to as well. \"What does a disabled person look like?\""
+      },
+      {
+        "id": "o8n5qsb",
+        "score": 44,
+        "body": "I always say \u201cI didn\u2019t ask\u201d haha"
+      },
+      {
+        "id": "o8mthha",
+        "score": 44,
+        "body": "Thank you, you neither"
+      },
+      {
+        "id": "o8nbbub",
+        "score": 40,
+        "body": "A phrase I learned since moving to TX from NYC:\n\n\"Bless Your Heart\" said in a passive-aggressive sarcastically sweet tone which is very confusing for anyone not from the South to wrap their brains around.\n\n(In most situations it is the verbal equivalent of giving someone the middle finger)"
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1rkkeuj",
+    "title": "I'm starting to really resent my mother because shes against mobility aids",
+    "body": "im 18, living with my mam and chronically ill. Shes very against me using mobility aids for some fucking reason and i cant get the help i need. I was at a college open day yesterday with my school and spent half the day crying from the pain and exhaustion and the other half borrowing my friends wheelchair (friend is ambulatory and wanted to walk on my crutches for a bit). I'm so fucking angry because i felt like i think and hold a conversation while in my friends chair and my mother would rather me in extreme pain over enjoying myself because of some preconceived notions about disability. I dont know what to do I want my life back, I want to be able to go out with friends and not be terrified of how painful its going to be. \n",
+    "flair": "Rant",
+    "score": 56,
+    "comment_count": 14,
+    "created_at": "2026-03-04T12:41:53+00:00",
+    "top_comments": [
+      {
+        "id": "o8lt7j5",
+        "score": 19,
+        "body": "Going purely on your use of \"mam\" I THOUGHT you might be a fellow Brit but I've seen you use G\u00e6lic so, maybe Irish ? If so, I'm not as much use ( I also  Mod the UK Benefits Sub but we only cover the mainland plus NI not ROI, it's the DfC there) but have you actually had an OT assessment for your own Mobility Aids ? It would be far better than borrowing your mate's. You're 18, you don't need her permission to get the help and support you need ( it might reinforce the notion that you need them because \"a professional said so\" )\n\nArranging health and social care | nidirect https://share.google/z0H1VFEO6rkZRHOfl"
+      },
+      {
+        "id": "o8lcawo",
+        "score": 11,
+        "body": "Maybe the exchanging of mobility devices with your friend isnt helping your case. \nI would never (be able to) let someone use my chair or crutches. \n\nYou need to speak to your own doctor to find what devices work for you. If its crutches and a wheelchair, then so be it. But they're given to you for your health. Not your friends."
+      },
+      {
+        "id": "o8oijre",
+        "score": 7,
+        "body": "Has your physical therapist recommended devices?  The one way to move forward is have them prescribed for you. "
+      },
+      {
+        "id": "o8nrh8v",
+        "score": 5,
+        "body": "If I were you, if you are 18 and you are a fully-fledged adult where you are from, I would report your mom to your doctor / adult protective Services wherever you are located. She can't stop you from using mobility aids if you truly need them. \n\nIs your mom one of those types where she wants to pretend where your disability doesn't exist? "
+      },
+      {
+        "id": "o8mak1w",
+        "score": 2,
+        "body": "im sorry you're dealing with this, i wish i knew how to change her mind for you. "
+      },
+      {
+        "id": "o8nc709",
+        "score": 2,
+        "body": "Is she actively stopping you from buying yourself a cane or anything like that? I'd consider asking a friend to purchase for you and paying them if you're not allowed to buy under supervision."
+      },
+      {
+        "id": "o8ozius",
+        "score": 2,
+        "body": "I actually had people making fun of me for using a cane after a doctor hit a nerve in my spine during a botched epidural. I was only 32 and even other DOCTORS and nurses were making snide remarks about whether I really needed it or not. I could barely walk for a year after the incident and the cane is the only thing that helped me. I just don't understand why people act like that! I'm really sorry you are going through that! Personally, I think that's abuse of people with disabilities! Whether they are temporary or permanent. "
+      },
+      {
+        "id": "o8posnw",
+        "score": 2,
+        "body": "While your mother should not forbid you from seeking the proper assistance with pain and mobility you also really should not be using or choosing mobility aids without the guidance of a doctor and physical therapist because they are not without risks and do come with very real chances for long term harm. Using the incorrect mobility device, using the correct mobility device but not sized properly or made to accommodate your body and your needs, or using the correct mobility aid but incorrectly without proper form and building strength can worsen disabilities and cause injuries and even additional disabling conditions. Our bodies are designed for our feet and legs to function exactly as needed to engage in the repetitive weight bearing motions involved in walking but our arms and hands were not so when this has to he shifted due to disability it really needs to be done with educated guidance and oversight especially at a young age where you want to be able to be independently mobile not just how but decades from now. I used a manual wheelchair under the guidance of doctors and with frequent check ins for technique and to adjust fit or such through PT and OT for fifteen years and even doing everything they recommended my shoulders are trashed and have a tremendous amount of osteoarthritis and constant inflammation. Mobility aids are both incredibly freeing when used properly and with guidance and support and incredibly damaging long term without that guidance (and to an extent even with it - the goal is honestly limit the harm done to the very greatest extent possible). "
+      },
+      {
+        "id": "o8pu0u1",
+        "score": 2,
+        "body": "You're an adult now so your mother can't make decisions for you, anymore. She does not have the authority to permit or disallow your use of aids. She will be insufferable no matter what you do. So it's better to make yourself comfortable until you're able to move out. If you need them, use them.\u00a0"
+      },
+      {
+        "id": "o8qk23t",
+        "score": 1,
+        "body": "I\u2019m sorry you\u2019re going through that. It\u2019s wild how parents can\u2019t see past their own ableist crap sometimes. You literally feel much better and more like yourself in that chair. You deserve your life back."
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1rkexx4",
+    "title": "Love doesn\u2019t need hands to hold you tight. I wanted to share a piece of my heart with you all.",
+    "body": "I don\u2019t have arms, but I found a love that holds me tighter than anything.\n\nThey say we need hands to hold our world together, but I\u2019ve learned that the heart does a much better job. Even though I live my life without both hands, I found a love that makes me feel whole.\n\nBeing together is everything. There is always someone to pull me close and whisper, It\u2019s going to be okay. Even when I know it might not be, even when the world feels like it\u2019s falling apart, I believe him. I believe him because he is the center of my universe. And the world, what is the world compared to a love that doesn't need hands to hold you tight?\n\nWith us, the sun always rises twice. Once in the sky and once in his eyes. Seasons have become poetry, and our days are chests filled with smiles and memories. To love is to have the fearless courage to be limitless. For me, love is the axis around which the entire universe rotates, and I have finally found my place to rest.\n\n",
+    "flair": null,
+    "score": 118,
+    "comment_count": 8,
+    "created_at": "2026-03-04T07:18:06+00:00",
+    "top_comments": [
+      {
+        "id": "o8k4sg3",
+        "score": 8,
+        "body": "That is so heartwrenchingly beautiful \ud83e\udd79 Thank you so much for sharing it with us  \ud83d\udc95\n\nMy partner decided , after a very hard time, to finally have a Civil Partnership a year ago. 30 years of ups and downs, illness, disability ( accident left me disabled 18 months after we got together ) but THAT'S love. Not the hearts and flowers but the being there on that long road together, still in step even if one isn't walking anymore ! "
+      },
+      {
+        "id": "o8k6u8m",
+        "score": 6,
+        "body": "You are so right, actions always speak louder than hearts and flowers. Being by someone's side through the toughest times for three decades is the most beautiful form of art. Congratulations on such an unbreakable bond! "
+      },
+      {
+        "id": "o8mlbpy",
+        "score": 3,
+        "body": "Love conquers all that is awesome that you found your soul mate "
+      },
+      {
+        "id": "o8lwgjx",
+        "score": 3,
+        "body": "You two, too !! \ud83d\udc95"
+      },
+      {
+        "id": "o8mdivj",
+        "score": 3,
+        "body": "Thank you!"
+      },
+      {
+        "id": "o8mma4k",
+        "score": 2,
+        "body": "Yes, that's right!"
+      },
+      {
+        "id": "o8r9vp1",
+        "score": 1,
+        "body": "I love your writing. The line about the sun rising twice a day was particularly beautiful \ud83e\udd79\n\nI feel the same way about my partner. I was only lightly disabled (lol) when we got together \u2014 I could still work full time, help with errands and chores, go out and do things spontaneously, all that normal domestic partnership stuff.\n\nLess than five years later, my disease had progressed to the point where I was on SSDI (it was so bad that I got approved right away without a lawyer), using a rollator in the apartment, and needing a wheelchair everywhere else. I was no longer able to help with anything around our home.\n\nAnother three years later and I couldn't stand up anymore. I was bedbound, unable to even brush my own hair, let alone take care of myself in any bigger way like showering or taking care of other basic needs.\n\nYet another ten years later and we're still going strong. You know you've found the right person when they're there for you through thick and thin, with a smile on their face and love in their heart. I'm so glad you found a true life partner like that, too. Disability is still difficult to deal with sometimes, but having that kind of steady, warm presence in your life makes the hard times so much easier to bear \ud83e\udef6"
+      },
+      {
+        "id": "o8ra5v2",
+        "score": 1,
+        "body": "Thank you. I'm glad you liked it!"
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1rk7vzt",
+    "title": "Spotted this trashy autism mum sticker today, the puzzle piece:\ud83e\udd2e how are some autistic people supposed to reclaim the puzzle piece and remove the ableist meanings?",
+    "body": "It also outs their diagnosis, when they haven't consented or are not able to consent to other passbyers their diagnosis. Also the wheelchair user dragging the other person, but it's the autism mum sticker I hate the most",
+    "flair": "Country-Australia",
+    "score": 319,
+    "comment_count": 58,
+    "created_at": "2026-03-04T01:23:16+00:00",
+    "top_comments": [
+      {
+        "id": "o8iqf2c",
+        "score": 221,
+        "body": "I don\u2019t understand the sticker of a person in a wheelchair dragging someone else\u2026 that just seems mean/rude\u2026\n\nLike is the mom a wheelchair user dragging her child? Is her child a wheelchair user dragging her?\n\nEither way I don\u2019t like it. It just rubs be the wrong way, like they are implying the wheelchair user is rude/mean dragging people behind them.\n\nAm I misunderstanding this? Can someone explain it?\n\nAnd yes, I agree about not liking the autism sticker about their child who hasn\u2019t consented and may regret that as they get older.\n"
+      },
+      {
+        "id": "o8ivw1c",
+        "score": 186,
+        "body": "Yuck. And combining the \"shitshow supervisor\" sticker with the disability stickers has some gross implications too. Plus it's just plain ugly, those stickers would be better suited for a laptop than a car (and why the car door and not the back of the car?!)"
+      },
+      {
+        "id": "o8istis",
+        "score": 166,
+        "body": "It\u2019s the whole car door I find offensive. And the wheelchair one just sets the tone for the rest of the"
+      },
+      {
+        "id": "o8it3zu",
+        "score": 120,
+        "body": "As a wheelchair user.....I have no clue"
+      },
+      {
+        "id": "o8ix7ph",
+        "score": 78,
+        "body": "It reminds me of those wedding cake toppers where the wife is dragging the husband unwillingly. Its just weird. Dragging someone is weird."
+      },
+      {
+        "id": "o8ir9tj",
+        "score": 64,
+        "body": "Why do parents feel the need to display their child's medical information for the world to see? Do I need to know that? I'm autistic and I don't see how I need to know your child is. Shit, even if I care for the child, it would be much handier to know their care needs instead of some label that could mean all sorts of things.\n\nBut nah, they wanna just tell me their kids medical information like damn bro let the kid breathe without being labelled to the damn person at the grocery store just trynna get the butter.\n\nHow does this sign help me drive better around your child in the slightest? I already look for children as a general. Why are you telling me this? Who does it help?"
+      },
+      {
+        "id": "o8jfbrz",
+        "score": 64,
+        "body": "Puzzle piece is the least offensive part, are you serious???"
+      },
+      {
+        "id": "o8j5fy3",
+        "score": 58,
+        "body": "its about them feeling like they are a servant to their disabled child and how hard it is on them have a disabled kid. Its basically a self victimizing way of calling their kid dead weight and the kids needs a waste of attention and energy."
+      },
+      {
+        "id": "o8j7dav",
+        "score": 52,
+        "body": "The wheelchair one just confuses me"
+      },
+      {
+        "id": "o8j3wl1",
+        "score": 44,
+        "body": "It\u2019s 100 percent about getting attention for the parent."
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1rjy8kw",
+    "title": "Using ABLE account for retirement?",
+    "body": "Can anyone tell me more about why you should not use an ABLE account for retirement? I am not on SSI but on SSDI- and some are telling me to use it as a retirement account and some are not. Can anyone please help me out here?\n\nIf I can contribute over 18k a year into it and I put at least 8-10k a year into it- how is that possibly not a retirement account? ",
+    "flair": null,
+    "score": 10,
+    "comment_count": 3,
+    "created_at": "2026-03-03T19:05:31+00:00",
+    "top_comments": [
+      {
+        "id": "o8hxyyd",
+        "score": 9,
+        "body": "There are restrictions to what a withdrawal from an ABLE account may be used for. There are no restrictions for how you spend money in a retirement account. "
+      },
+      {
+        "id": "o8j4362",
+        "score": 4,
+        "body": "If you\u2019re using SSDI funds for contributions, ABLE\u2019s likely makes the most sense because you need earned income for retirement accounts (including Roth IRA). If you also have a PT or self-employed job, you could do an IRA or 401k/403b/457/etc., if available, but only using the earned income for contributions.\n\nABLE annual maximum contributions increase annually and in 2026 is $20k, similar to traditional retirement accounts which 401k is at $24,500. Retirement accounts don\u2019t have account maximums, whereas, ABLE accounts have state plan balance maximums where you cannot make contributions until the balance goes below the max amount permitted (it\u2019ll be at least $100k, but often higher).\n\nABLE accounts are 100% tax free for QDE distributions and investment earnings. QDE\u2019s are pretty broad, as long as you can connect it to you and your disability in some way. However, there are limitations, like you cannot take a distribution and buy someone else a car. With an ABLE\u2019s you can do a cash account, like a savings, or choose investment options similar to a retirement account to earn money on your savings. However, the investment options are dependent on the entity that administers the account (a lot of states\u2019 ABLE administrators and laws permit non-residents to open an account, so you have many options of administrators). Moreover, the investment options are often limited and do not allow self-management options, whereas, retirement plans often have more choice for investment options.\n\nABLE accounts are highly guarded and cannot be levied by most. Retirement accounts are protected, but can be levied by some and become part of marital property in a divorce.\n\nIf you are on any means-tested programs (Medicaid LTC, SNAP, LEAP, etc.), the funds in an ABLE account are exempt. Retirement accounts are not. So, if you ever need LTC as you age or your condition worsens, if it does, and the funds exceed resource limits, you\u2019d have to spend down your retirement savings in most states (most states are $2k, but some like CA and NY are much higher).\n\nThe most important difference between the two options is that you can withdrawal money at any age, anytime, without penalty, from an ABLE account. Retirement accounts have strict rules around age of the account or person and penalties. Some also have tax implications. Check out this [site](https://www.ablenrc.org/determining-whether-something-is-a-qualified-disability-expense-qde/) for some great ABLE account resources and info. \n\nIf you\u2019re using it as a means of building a savings using your SSDI money and using the investment options, it makes sense to use it as a retirement savings because you have few other options available. You could open a high-yield savings account or CD, but funds in there are not sheltered or protected. You also are taxed on the earnings."
+      },
+      {
+        "id": "o8hv2t7",
+        "score": 3,
+        "body": "I am a realtor not a financial advisor. However, mine has told me that for tax advantages you would want a retirement account and then an able account. Retirement accounts provide more tax advantages. You could put extra money into your able account once you maxed out your retirement account."
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1rjt1k9",
+    "title": "\"Why are you dead?\" \ud83d\udc80",
+    "body": "I was feeling very run down. I have joint pain issues which generally come and go, but recently they've been more consistent. My back is still hurting. My knee hurts, and clicks every time it moves. I'm tired, and a bit spaced. I couldn't focus on my crochet, despite it being both enjoyable and time sensitive, and I was trying very hard to stay awake.\n\nMy partner, having been sat next to me (and periodically asking if I'm okay), stood up, looked at me and said \"Why are you dead?\".\n\nIt caught me off guard, and amused me. I couldn't help but laugh, replaying the sentence over and over in my head.\n\n\"Why are you dead?\"\n\nThat little bit of morbid humour and laughing at my own condition has perked me up a little. I've now got a coffee, am watching TV and considering picking up my crochet. It was an offhand, casual quip from my partner, but in his weird way, once again, he has helped with his silliness.\n\nDon't tell him.\n",
+    "flair": null,
+    "score": 49,
+    "comment_count": 4,
+    "created_at": "2026-03-03T15:58:19+00:00",
+    "top_comments": [
+      {
+        "id": "o8gp0zt",
+        "score": 12,
+        "body": ">Don\u2019t tell him. \n\nI think you\u2019re joking, but please *do* though! Our partners deserve to know they\u2019re helping (as long as they actually are). I try to let mine know how grateful I am for their care and patience as often as possible. \n\nThat\u2019s funny, btw. Can\u2019t say anyone\u2019s ever asked me that."
+      },
+      {
+        "id": "o8g1x4s",
+        "score": 11,
+        "body": "It's strange what becomes a pick me up but in a lovely way"
+      },
+      {
+        "id": "o8hged3",
+        "score": 3,
+        "body": "It's *nearly* the reaction I get when I repeatedly ask my partner if he's is awake. And he says \"no\". I have a feeling this might be how he gets his own back \ud83d\ude02 "
+      },
+      {
+        "id": "o8fopvs",
+        "score": 3,
+        "body": "Why do you smell dead, pops?"
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1rjk5ad",
+    "title": "Lost it all",
+    "body": "Lost health, where I live (8. Years now stuck in a room in a rural apartment), friends (were they really if they won\u2019t talk anymore), capability to do anything I like, sheer poverty. Just the same day in and day out. Can never get back what I lost. ",
+    "flair": "Rant",
+    "score": 20,
+    "comment_count": 9,
+    "created_at": "2026-03-03T08:39:23+00:00",
+    "top_comments": [
+      {
+        "id": "o8e2j8l",
+        "score": 7,
+        "body": "Yeah, I have my mom and siblings at least but I really feel you still, some of us just aren't fit to live in this world it seems, I'm gonna keep trying though and so should you, I wish we could help each other somehow, I'd give you lots of hugs if I could friend."
+      },
+      {
+        "id": "o8e8jep",
+        "score": 4,
+        "body": "Yes, I'd argue that REAL friends don't disappear like that but unfortunately it happens and circumstances mean that when we can't engage socially  ( physically or because we haven't got the money or lifestyle they still have ) they drift away. Ironically I found the internet and realised that you can have friends that you've never even met.  An odd concept at my age. Which I know sounds trite, but it was actually ready Reddit that saved me. \n\nI've been disabled for a very long time but I had a job, a social life etc ( I do still have a relationship but it's been hard the last few years, because  he's struggled too ). However what did it was the double whammy of having to stop work to be a full time caregiver and my own health deteriorating, and then covid. Which was a hard time:  caring alone;  isolating and eventually watching the people I cared for ( and others ) die, both towards the end and just afterwards. \n\nBUT I reached out for help. I'd already started chatting online in the wee small hours because I'd often me up 3 or 4 am UK time which means there's lots of people in the US and elsewhere,  active on groups talking about things we collect and programmes we watch. Anything to not feel alone. I then  found the main UK group that I moderate ( I'm a new mod here )  giving out welfare advice to people in similar situations ( because it's actually related to the job I'd done before ). I realised I could actually be *useful* again. This led to me finding a group of online friends friends and spending several hours doing a \"job\"  that I might not get paid for what makes me feel far more useful and gives me a purpose again. Which has in turn increased my confidence and well-being. \n\nFind your thing and your tribe online. Then hopefully it might lead to more \ud83d\ude4f\u2764\ufe0f"
+      },
+      {
+        "id": "o8gfelc",
+        "score": 2,
+        "body": "The internet has practically saved my life. I love my friends who live in my pocket."
+      },
+      {
+        "id": "o8gioj2",
+        "score": 2,
+        "body": "As someone who didn't grow up with this and was a very late adopter ( I got my first smart phone aged 50 !) it's surprised me but, yes, saved me too !"
+      },
+      {
+        "id": "o8gadml",
+        "score": 1,
+        "body": "I share this feeling. Until recently I had a sliver of hope that one day I'd feel a bit more \"normal\", but after being told that some of what I struggle with is a product of the brain damage and not post-ictal I don't think I can ever do my favorite physical activities again. "
+      },
+      {
+        "id": "o8jlony",
+        "score": 1,
+        "body": "I feel very similar. I'm sorry about this, disability can be so hard sometimes\u00a0"
+      },
+      {
+        "id": "o8qwxv0",
+        "score": 1,
+        "body": "Sorry to hear. I think most of us know what it's like to loose friends. I spent 10 years in the nursing home. Everything changed when I moved with my dad 2 years ago. All I'm saying is hold on things will get better. Make new buddies on reddit don't give up. You are better off without those ex friends. "
+      },
+      {
+        "id": "o8qyl6p",
+        "score": 1,
+        "body": "Sorry to hear 10 years in nursing home. That is harrowing. Glad you got out of there. Glad things improved. "
+      },
+      {
+        "id": "o8r3ctm",
+        "score": 1,
+        "body": "Haha ikr thanks. I still have to plan for the future. My dad is up there in age. So saving my disability up to afford assisted living. Regardless I got siblings looking out for me."
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1rjiels",
+    "title": "Has anyone experienced issues with paperwork/communication while managing healthcare appointments?",
+    "body": "I've noticed that communication/faxing between healthcare locations tends to have issues, which feels unacceptable since health/ability/well-being is quite important. For instance, I first noticed issues when I saw a mental health provider years ago, and the doctor requested lab results (e.g., EKG, blood tests). Long story short, I was able to send everything required so it would be safe to take prescription meds, but something as simple as sending over a blood test had issues (I think I was seeing Quest Diagnostics at the time).  \n\nMore recently, when I suffered an acute tooth issue, the communication between the general dentist's office and the oral and maxillofacial surgeon had issues as well, and it seemed ridiculous from my end because the specific paperwork was just a one-page referral with a stamp (I resolved this lack of communication by physically driving over and obtaining the paper referral with an official stamp). \n\nAs of now, one provider is seeking my annual blood and urine test results, and when I last called the med department of the provider, a lady said she would call the testing clinic regarding the whereabouts of the results (it has been at least 5 business days since I got tested, so the results should be processed). I guess all I can do is be persistent and make sure there is no free floating data, but I just wonder if anyone else had to deal with logistical problems in healthcare management?",
+    "flair": "Country-USA",
+    "score": 5,
+    "comment_count": 3,
+    "created_at": "2026-03-03T06:51:42+00:00",
+    "top_comments": [
+      {
+        "id": "o8dmcmh",
+        "score": 2,
+        "body": "I have. There's one lab I quit using because they never sent my results to my doctor's office. It was a big problem. It shouldn't be like that. They should just figure it out.\n\n\nIn both offices, there might be a single point of failure, and if you can find someone in charge you might be able to resolve the problem.\u00a0"
+      },
+      {
+        "id": "o8ov2y0",
+        "score": 1,
+        "body": "In 2016 my GP referred me to a hospital genetics department with a hand typed 40 page assessment of a robust clinical assessment and why my GP thinks I need to see a geneticist. I was put on the wait list. I received a letter saying it could take up to 2 years.\n\nIn 2018 I called them and they said they needed an updated referral, so my GP faxed one through.\n\nIn 2019 I got a letter with an appointment for a rheumatologist, weird,I wasn't referred to a rheum. I phoned them and the admin team explained that the rheum is the gatekeeper of genetics.\n\nDuring the appointment the rheumatologist just kept rolling her eyes saying \"genetics always does this, they get swamped and fob patients onto us but I can't do anything for you because this is clearly [lists the conditions my GP queried] and we need to know with subtype to know how it's going to progress. Fortunately if I'm referring you to genetics they should see you within a year\"\n\nThe next year was 2020 so I didn't expect to see anyone for routine appointments, likewise in 2021. I called after lock downs had been lifted and the genetics department said they didn't have any referrals for me.\n\nI got my GP to send another referral.\n\nThis time I got a letter saying \"this patient was discharged from our services in December 2019 as the referring clinician failed to provide the requested documentation\"\n\nMy GP hadn't received a letter so I put in an FOI request to the hospital.\n\nThe rheumatologist had referred me to genetics with a 1 page \"nothing\" referral of \"please see this patient please\", genetics asked rheum to send through some more information on why they should see me, rheum never replied, so genetics just threw out the referral.\n\nMy GP called to ask what happened to the original genetics referral he sent in 2016 with all the information genetics needed and more.\n\n\"oh, that referral went to rheum. Could you send it again for genetics?\"\n\nSo my GP sent another 48 page referral with the original clinical assessment plus everything that had happened to my health since 2016.\n\nI got a letter basically saying \"there is no biomarker for hypermobile ehlers danlos syndrome, genetics department doesn't see HEDS patients. We are transferring your referral to rheumatology\"\n\nMy doctor faxed off 3 additional letters questioning their decision, because he was referring me to genetics because he strongly suspected I had ClEDS(TXNB), CMTD and Ushers Syndrome based on clinical observations and a \"family planning\" genetic screening test which said I have these 3 conditions! The GP attached the results of the screening test which literally say \"the results are strongly suggestive of multiple inheritable genetic conditions, this test is non diagnostic, the results of this screening test indicate the patient requires further genetic assessment and clinical care\"\n\nI am disabled by my symptoms which are perfectly explained by these diagnoses but I can't be officially diagnosed without a geneticist consultation. There's only 1 public clinic in the state, I can't afford anything else because without an official diagnosis I can't access any social support. I've lost my job m, my housing and my independence because my diagnosis and support has been delayed.\n\nMy GP was going crazy reading his own referral asking himself \"what are they not understanding? Why are they not triaging you properly? Even AI wouldn't mess up this badly?\" and that's when we thought, maybe they're only getting page 1 of the automated referral template.\n\nEventually I have the time to go to the hospital. It's 5 hours away and I don't drive, but my partner and I printed everything out and I walked up to the admin counter to explain \"I think something has gone wrong with my referral\"\n\nThe admin/clark said \"we have your referral right here\" and showed me a 1 page pdf.\n\n\"where's the rest of it?\"\n\nThe genetics department digital fax machine was only ever receiving the first page of the referral! Page 1 of a 40+ page document that my GP was sending them every year since 2016!\n\nI gave them the now 50 page hard copy document and they said a geneticist would personally phone me within the week to discuss.\n\nInstead an admin worker contacted me and happily told me \"we've processed the whole 50 page referral and you are on our wait list, you should have an appointment letter within 24 months\"\n\nI lost it, I explained that I understand this counts as a new referral but from my perspective as a patient I'd been waiting since 2016 because of their broken fax machine, please expedite this.\n\nOne of their genetic counsellors called me back and apologised, they said they'd called rheumatology and asked for the old notes from 2019 and waited by the fax machine to again only get one page. So they walked down the corridor to collect the rheumatology notes in person, read them, and they have an appointment for me this June.\n\nApril 2016, until June 2026.\n\n10 years waiting.\n\nBecause of a broken fax machine.\n\nThe same thing happened with the Gastroenterologist at a different hospital, I only waited 6 years for that. But then on the day of my appointment the doctor had to be called away to the ward so they rescheduled me for 8 months after that with a different doctor. The second doctor only spent 15 minutes with me and cut me off while I was explaining the key of my poop journal, said \"it's functional gut, we don't treat that here\" and sent a referral to a different hospital, which I found out later was a private hospital so I couldn't afford the appointment.\n\nFortunately that private hospital called me and said \"we've received your referral and we reached out to your GP, because it wasn't making sense. You have a demyelinating disorder...your symptoms map perfectly onto neurogenic bowel, this isn't a function gut motility disorder, so your GP can refer you back to the public GI with our triage notes attached\"\n\nSo I'm back on the wait list for the Gastroenterologist, which I'm told will be 24 months..."
+      },
+      {
+        "id": "o8peaz8",
+        "score": 1,
+        "body": "I just changed my insurance company in Jan (from last year) and am now just getting my regular prescription approved first week of March. It was such a joke..and a nightmare how much one has to jump through all healthcare loops to get themselves proper care."
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1rjfdhe",
+    "title": "in danger of dying, need help",
+    "body": "(CW for rape and suicide)  \n  \nI've become too disabled to live on my own and I'm now thousands in medical debt, so I'm losing my house at the end of the month. I'll probably have to move back in with my abusive, neglectful, and controlling narcissist parents in order to \"survive\".\n\nThe reason I say \"survive\" is because they tried to kill me and my sister multiple times as a child intentionally, and prior to that (hopefully) less intentionally via neglect, and they're very manipulative money-worshipping Baal-worshipping boomer CHUDs. This is basically my worst nightmare coming true, and I'm fighting like hell to avoid it, because I moved out to begin with because I was going to Commit Die.\n\nAnd so I worked hard for 15 years on my own with no support, and broke my body and became disabled because nobody would help me. And now I'm too disabled to live on my own. It's really a bad situation, like 10/10 on the Nightmare scale for me, and I firmly believe some fates are actually worse than death.\n\nI'm 100% positive that living there would cause me more harm than good, and would result in my death.\n\nAlso, they live in Texas and I'm a woman, so if I get raped and get pregnant I'll get arrested by Ya'll Qaeda and executed by the hospital system for seeking basic medical care.\n\nAny advice on how to survive or find some alternative so that I don't die? If I can't get a job in the next 2 weeks, I'm toast.",
+    "flair": "Question",
+    "score": 54,
+    "comment_count": 35,
+    "created_at": "2026-03-03T04:09:51+00:00",
+    "top_comments": [
+      {
+        "id": "o8ctu09",
+        "score": 42,
+        "body": "Reach out to DV shelters in your current area and ask if you'd qualify for services. Look into shelters in your area. You could also post in r/raisedbynarcissists for additional ideas and support. Adult protective services might also be worth calling, but they may only reactively help. Also, the hospitals might have a social worker who could assist you in a multitude of ways (medical debt, housing, food, etc.). "
+      },
+      {
+        "id": "o8cucc2",
+        "score": 22,
+        "body": "I hear you- what a tough situation, I\u2019m so sorry. Solidarity, friend. \n\nPerhaps contacting your state\u2019s [Independent Living Council](https://acl.gov/programs/aging-and-disability-networks/statewide-independent-living-councils) for some guidance/resources would be a good first step \ud83e\ude75"
+      },
+      {
+        "id": "o8ctimr",
+        "score": 18,
+        "body": "I believe you dude some parents are evil af"
+      },
+      {
+        "id": "o8cv5y5",
+        "score": 12,
+        "body": "I don't know what state you currently live in, but the Dept. Of Health and Human Services website may have some information that could help. Also try looking for state and federal programs for people with disabilities.  Even if you only manage to buy some time in your current residence, it may be enough to get you into a long-term facility or maybe a visiting nurse depending on your needs."
+      },
+      {
+        "id": "o8f4gw8",
+        "score": 12,
+        "body": "Call 211 and ask for resources in your area for housing and disability. They can also help find food, rent assistance, legal aid and many other things you may need."
+      },
+      {
+        "id": "o8dgg13",
+        "score": 11,
+        "body": "those things take a pretty long time to get"
+      },
+      {
+        "id": "o8d0lkz",
+        "score": 9,
+        "body": "Have you applied for disability and section 8?"
+      },
+      {
+        "id": "o8e0wcg",
+        "score": 9,
+        "body": "Hi OP, I\u2019m sorry you\u2019re dealing with this. Please reach out to your regional [Center for Independent Living](https://www.ilru.org/cil-directory) (CIL). This is not a living facility, but free services for people with disabilities. They can help you to connect with local housing and other resources, provide advocacy services, finding home health care, etc. \n\nYou might also reach out to YWCA, they provide services to survivors of abuse. Despite the name, it\u2019s not just for women."
+      },
+      {
+        "id": "o8dkh9h",
+        "score": 9,
+        "body": "Emergency housing options are often dependent on having an in progress application for long term housing solutions, so yeah, applying for disability and section 8 will make immediate help more available."
+      },
+      {
+        "id": "o8di6qv",
+        "score": 8,
+        "body": "Gotta start sometime or instead of being free in a few years you're never gonna be. You can get disability in two years or less usually, and that may be enough to move out and get a room while waiting for section 8."
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1rjexrw",
+    "title": "Stickers on my Mac, with a story behind it. Figured the disability community would like my stickers.",
+    "body": "",
+    "flair": "Image",
+    "score": 14,
+    "comment_count": 2,
+    "created_at": "2026-03-03T03:49:06+00:00",
+    "top_comments": [
+      {
+        "id": "o8d0m0l",
+        "score": 2,
+        "body": "I almost commented just about the SAI sticker, then saw the self titled, then saw the Car Radio one lmao, very glad to see TOP on my feed :)"
+      },
+      {
+        "id": "o8en2ib",
+        "score": 2,
+        "body": ":)"
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1rj9m6i",
+    "title": "Told I have severe muscle wasting in my hands??",
+    "body": "Does it look like I have muscle wasting in my hands?\n\nI guess I\u2019m not really sure what muscle wasting in the hands looks like, but I don\u2019t think I do? I have a lot of friends who are quadriplegics with muscle atrophy in their hands, and my hands look nothing like theirs.\n\nI do have a lot of weakness and dexterity issues in my hands, but my medical team isn\u2019t sure why. They all agree I have hypermobile Ehlers Danlos, and I\u2019m pushing for an occult tethered cord consultation, but that\u2019s very hard in my country.",
+    "flair": "Question",
+    "score": 105,
+    "comment_count": 45,
+    "created_at": "2026-03-02T23:55:46+00:00",
+    "top_comments": [
+      {
+        "id": "o8brm6s",
+        "score": 157,
+        "body": "According to the internets diagnosis, you have hands."
+      },
+      {
+        "id": "o8c3nli",
+        "score": 101,
+        "body": "Come up to the lab and see what\u2019s on the slab"
+      },
+      {
+        "id": "o8cag0x",
+        "score": 61,
+        "body": "It's impossible for us to tell from a photo. My hands look similar and I do have muscle atrophy and it's not visible because I have a layer of fat and you can't see what's actually happening. A medical professional who specialises in hands should be able to tell by feel and by strength testing"
+      },
+      {
+        "id": "o8bx6d3",
+        "score": 43,
+        "body": "Theraputty time!"
+      },
+      {
+        "id": "o8c3uyt",
+        "score": 34,
+        "body": "It\u2019s my comfort movie, I watch it so much\ud83d\ude02 it\u2019s a nice way to relax after a long day of appointments"
+      },
+      {
+        "id": "o8bpeva",
+        "score": 19,
+        "body": "Idk maybe I just also have cooked hand muscles but yours like mine and I think mine are fine "
+      },
+      {
+        "id": "o8byr8j",
+        "score": 18,
+        "body": "I wouldn\u2019t shrug it off then, that\u2019s someone whose opinion I would definitely be paying attention to. There might be functional impairments that led them to that conclusion like the ones you mention, or something they could feel when touching your hands."
+      },
+      {
+        "id": "o8bn8hb",
+        "score": 17,
+        "body": "Physical therapy time! You'll feel much better after getting some strength in them"
+      },
+      {
+        "id": "o8bxexz",
+        "score": 14,
+        "body": "It was written in my clinical report from an appointment with an orthopaedic spinal surgeon. I\u2019ve had my strength and dexterity issues mentioned many times by the medical professionals I see more regularly, but no one has said muscle wasting in my hands as far as I\u2019m aware."
+      },
+      {
+        "id": "o8bwwjo",
+        "score": 11,
+        "body": "Honestly I\u2019m not trained but they look pretty normal. Who told you that you had muscle wasting? If it wasn\u2019t your medical team, I would disregard it. If it was someone on your medical team, I\u2019d seek another opinion to be sure."
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1rj97w4",
+    "title": "Question in the body text\u2b07\ufe0f",
+    "body": "If I volunteer for Crisis Text Line (the organization with the 741-741 number), will my parents or social security administration find out?\n\nCrisis Text Line is a mental health crisis service where you text 741-741 if you're having a mental health crisis. When applying to volunteer, they require your address and ssn for a background check. I still live with my parents despite being an adult (and don't see myself ever having the guts to stand up to my parents or moving out so I'm probably stuck with my parents' infantalization and control until they die). Sorry, if that's dark and morbid but it's probably the truth, unfortunately. I receive disability benefits and my mom is my payee. And she genuinely think she's my guardian but I don't think she is after digging around, although I'm not 100 percent sure.\n\nAnd I know Crisis Text Line sends volunteers a gift once they reach a milestone (200 hours of service for example) but if I received something from them, I can have my mom think or assume it's something I ordered because I order stuff a lot from the internet and she's okay with that and is used to that. I earn money on sites/apps like Swagbucks, which is where I get the money to order stuff from, and my mom is okay with that because I was able to convince her that earning money that way won't interfere with my disability benefits.\n\nBut she wouldn't want me volunteering for Crisis Text Line because she would consider it \"talking to strangers\" even if I'm helping people and she would probably worry I'd say the wrong thing and make a crisis worse (she doesn't have a lot of confidence or faith in me or my abilities). But I want to help people *and* feel like I'm doing something with my life. Hotline volunteer was one of a number of things I wanted to do when I was in my teens. Other things I wanted to do (dreams I had) included being a nurse (which I didn't get to pursue because of my disability and my situation) and being a professional songwriter (I still write lyrics as a hobby and now I share my lyrics and poems online which makes me feel like a real published writer). And yes, I post my writing online behind my parents' backs because it's not something they'd approve of. But again, I just want to follow my dreams and feel like I'm doing something with my life. And helping people and being a hotline volunteer was/is one of my dreams. I might can't pursue nursing behind my parents' backs, but I might could volunteer for Crisis Text Line. That is, if providing my address and ssn doesn't lead to my parents or the social security administration finding out. Would they find out??\n\nBy the way, Crisis Text Line is volunteer, *not* a paid job.",
+    "flair": "Question",
+    "score": 7,
+    "comment_count": 11,
+    "created_at": "2026-03-02T23:39:22+00:00",
+    "top_comments": [
+      {
+        "id": "o8bo2y8",
+        "score": 3,
+        "body": "I mean I just wanna know if they'll find out about it if I  go ahead with it."
+      },
+      {
+        "id": "o8ihnrv",
+        "score": 2,
+        "body": "It depends how many hours you volunteer a week.  I don\u2019t know for sure, but you should be aware that SSA might find out.  (I don\u2019t think Crisis Text Line would notify them, but SSA sometimes stalks people.  If SSA finds out, they will try to argue that those are hours you can work when it comes time to renew your benefits.  If your parents are involved in this process, they might learn this information then.  If you\u2019re only volunteering a few hours a week it shouldn\u2019t be a problem, but if it\u2019s over like 10 hours a week they might try to argue that you could work a job."
+      },
+      {
+        "id": "o8byaf3",
+        "score": 2,
+        "body": "I have my own phone, and it's prepaid. And Crisis Text Line does the background check, but the site doesn't say anything about the volunteers paying for their own background check."
+      },
+      {
+        "id": "o8ecnu2",
+        "score": 2,
+        "body": "If that was the case with them, I don't think they'd be asking volunteers for their address and ssn during the application process."
+      },
+      {
+        "id": "o8bn9n9",
+        "score": 1,
+        "body": "hey, you should be able to do this. don\u2019t worry so much about what your parents think about you. i know it is hard since you live with them but you are an adult and able to make your own choice whether or not you have to live with your parents. It sounds like they don\u2019t treat you the best or make it to be like u have to feel like u have to ask them before u do things which shouldn\u2019t be. if this is going to make you happy and feel more whole then you should 100% do it who cares what they think and u won\u2019t know if ur good at it till u try and u can post whatever u want on social"
+      },
+      {
+        "id": "o8o8eh9",
+        "score": 1,
+        "body": "Volunteering is not illegal as far as I know as long you do not exceed the 20 hours per week max on work . You can work on SS but if I think you go over 800 dollars in a month  that counts as a back to work month . If you use more than your 9 allowed back to work months you lose your benefits. If you go over SGA which is about 1300 I think in a month you lose a check.\n\nFor self employed people whose income is consistent, you may only work 20 hours per week .\n\nIf you keep the volunteering to like 12 hours per week ,you are fine as far as I know .\n\nDouble checking with your lawyer who won your case won't hurt either ."
+      },
+      {
+        "id": "o8iix7e",
+        "score": 1,
+        "body": "What ways would ssa find out about me volunteering for Crisis Text Line if no money is involved and if they're not notified?"
+      },
+      {
+        "id": "o8ixos2",
+        "score": 1,
+        "body": "Talking about it online would probably be the main way.  Reddit is less likely to be traced, but not impossible.  I don't think its particularly likely that they would go looking, but if they wanted to they could.  "
+      },
+      {
+        "id": "o8iyw85",
+        "score": 1,
+        "body": "I don't use my real name on reddit or any social media. My first and middle name if anything but I have a common first and middle name and there's a lot of people in the US and a lot of people receiving disability benefits. So I could be anyone."
+      },
+      {
+        "id": "o8bsrzl",
+        "score": 0,
+        "body": "if ur above 18 ur good. so you have to put ur phone number and ssn and stuff all for a background check and you can do that yourself. that should be like 15 dollars about. the only way they\u2019ll find out is if ur on the same phone bill and they check the phone bill for individual text statements to see who ur texting"
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1rj7skh",
+    "title": "New England Cherishes Its Local Elections. Many Disabled Voters Are Locked Out.",
+    "body": "",
+    "flair": "Article / News",
+    "score": 97,
+    "comment_count": 6,
+    "created_at": "2026-03-02T22:43:31+00:00",
+    "top_comments": [
+      {
+        "id": "o8bij2v",
+        "score": 45,
+        "body": "It\u2019s not that they couldn\u2019t accommodate the disabled. They just don\u2019t want to."
+      },
+      {
+        "id": "o8bja3u",
+        "score": 38,
+        "body": "Ya know I think a ton of the general public are ableist, they won\u2019t say it up front obviously but I bet they are and this just shows it"
+      },
+      {
+        "id": "o8bucur",
+        "score": 23,
+        "body": "after the BAFTA thing, alot of the general public  straight up support eugenics. The admin we already know does too as do the rich but the mask is off."
+      },
+      {
+        "id": "o8cvkmj",
+        "score": 10,
+        "body": "I think it's more that people don't know that they are.  Like with micro-agressions and racism, people sometimes just don't know that that is what they are doing, they need education and help getting over defensiveness when called out so they can become an ally."
+      },
+      {
+        "id": "o8cno48",
+        "score": 8,
+        "body": "This has \"The Lottery\" vibes."
+      },
+      {
+        "id": "o8iilx0",
+        "score": 3,
+        "body": "Man that's messed up disabled people definitely deserve the right to vote"
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1rinlod",
+    "title": "Tired of being discriminated against due to my job",
+    "body": "Hi! I am an RN at a hospital. Sounds like a lot of work, right? Well it is. But I manage. \n\nI have IBS, GERD, functional neurological disorder, POTS/dysautonomia, neuropathy, sleep apnea, as well as mental disorders (bipolar and ADHD are my main ones). It makes work really hard. I\u2019ve had these disabilities for a while now but after getting on meds for bipolar and gaining weight due to the meds, they\u2019ve been worse than before (when I was in nursing school). \n\nI live on my own with my boyfriend so we need dual income. He couldn\u2019t support us on his income alone. I make good money as an RN. But what annoys me is when people say stuff like \u201chow are you working that job with all your issues?\u201d Or \u201cI know what you have to do at your job, you can\u2019t be THAT disabled.\u201d \n\nI push through a lot to make my job work. I work nights so I have less to do, regulating my energy expenditure which mitigates POTS and FND symptoms. More time to rest to help the neuropathy. More time for bathroom breaks for my IBS. Nights is really accommodating for me. \n\nIt is so annoying to be told I either can\u2019t be good enough at my job, or that I\u2019m so good at my job I can\u2019t be disabled. Have you considered the third option, I am good at my job AND disabled? As mentioned, I work through a lot of symptoms, take my as needed meds, and have an accommodating position. And I\u2019m damn good at my job too. Still learning, always learning, but I\u2019m empathetic and good at connecting with my patients  and knowledgeable about meds and procedures enough to provide good education (one of my strong points is educating). \n\nI plan to get an accommodation that in the event of a code blue, I cannot be assigned to compressions as the workload can cause my heart rate to skyrocket. I\u2019ve been told others who work in healthcare with POTS often get this accommodation. I also plan to get bariatric surgery this year which will hopefully help mitigate my symptoms.\n\nThanks for listening! I\u2019m open to any questions. ",
+    "flair": "Rant",
+    "score": 19,
+    "comment_count": 13,
+    "created_at": "2026-03-02T08:42:08+00:00",
+    "top_comments": [
+      {
+        "id": "o8ag7nh",
+        "score": 6,
+        "body": "Is it possible for RNs to get an accommodation even in a code blue?\n\nEta: I'm not sure why I'm being downvoted for asking an honest question. OP said they were going to ask about that specific accommodation. I have a multitude of other medical problems, along with HF and POTS, and would be interested if an HCF would allow that adjustment."
+      },
+      {
+        "id": "o89hqin",
+        "score": 3,
+        "body": "Sounds almost like people can\u2019t believe that people in healthcare can\u2019t possibly need healthcare themselves. It sounds like your conditions make you a better nurse because you can truly empathize with your patients. Don\u2019t let the misinformed get you down. They don\u2019t realize nursing is as much a calling as an occupation. Heal yourself so you can keep healing others and thank you for your service. \u2764\ufe0f\u200d\ud83e\ude79"
+      },
+      {
+        "id": "o8c51fx",
+        "score": 2,
+        "body": "I have been told by my coworkers that another RN on my floor with POTS has this accommodation. I need to find out for myself tho lol can\u2019t always trust everyone"
+      },
+      {
+        "id": "o87d5dl",
+        "score": 1,
+        "body": "I completely get that feeling judged that you're not disabled 'enough' because you're able to work. Especially when you have invisible disabilities, it's not clear to people how much you're really struggling. \n\nI have a condition which flares and I've sometimes been unable to work for long stretches of time (I'm in one right now) so it's true that you can be too disabled to work, and that sucks. But it's also true that when I'm well enough to go back to work, I will still be disabled and I will still struggle with that. \n\nPeople obviously don't give as much thought to our disability as we do, and cannot understand our lived experience. Hopefully, you have one or two people in your life who recognise and acknowledge both how much you have to struggle and how much you excel at your job."
+      },
+      {
+        "id": "o8c29io",
+        "score": 1,
+        "body": "I feel this. Glad I am not the only one who feels this way. Also glad RNs like you are out\u00a0there. As someone who also has chronic health issues, I mostly have crap experiences with Healthcare professionals but the few who get it change my life. You are one of the ones changing lives for the better \u2764\ufe0f"
+      },
+      {
+        "id": "o8r3cjk",
+        "score": 1,
+        "body": "Firstly, I can't help myself to say that you are an absolute legend for being able to work, particularly in bedside nursing.  Can I suggest you be very careful with what you say to your colleagues to protect yourself from using it against you?  Your comments are wreaking of unprofessional behaviour and bullying.  If I were in your shoes, I would work towards Nursing out of the hospital environment.  Maybe look at community nursing or private practice nursing?  I would expect them to be more accomodating. In my personal experience, bedside nursing is unaccomodating and the endemic bullying contributes to worsening mental health.  My wake up call was ending up in a catatonic state in a psych unit.  Just my 2 cents worth. Would hate for anyone else to end up like me.  You have a warrior spirit and I'm sure you will be fine. Keep shining!"
+      },
+      {
+        "id": "o8edgbn",
+        "score": 1,
+        "body": "im not in the field but i assume the accommodation would be if other RN are available, they go, if none are available, they still have to attend to a code blue. \n\niirc, some compressions are still better than none, so that is what would happen"
+      },
+      {
+        "id": "o8c8c9t",
+        "score": 1,
+        "body": "That would be extra helpful if it's possible. Use askjan.org as a resource."
+      },
+      {
+        "id": "o87hqp3",
+        "score": 0,
+        "body": "I'm really sorry to hear there doesn't sound like there's any set process to provide adjustments. I also moderate a UK \"welfare\" Sub  and we'd be advising how to get adjustments under the Disability Rights Act.  You'd more than likely be working in the NHS (although we do our private hospitals) and in that case it would all be in-house as government jobs provides an Occupational Health Service that will assess your needs when you start (or soon afterwards) and put a plan together abides by both the law and what they think will best accommodate you, in your job, so that you're able to do it. All your conditions would be considered. \n\nIt's not perfect and if you work for a private company you've got to use the main government system called Access to Work which is currently actually meltdown due to demand and poor management. There's a lot of money available for a lot of help ( up to nearly \u00a370k pa per person but most get a few \u00a3 thousand ) but applications are taking far too long and people are waiting a long time for their regular reimbursements for things like transport. The  current government is vowing to overhaul it ( we'll see !). \n\nI hope someone has some suggestions and you can get help."
+      },
+      {
+        "id": "o88de8q",
+        "score": 0,
+        "body": "I fuuuuuuuuuucking hate the \u201cyou\u2019re not that disabled\u201d bs also THANK YOU. The world needs more disabled RNs/healers"
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1rimtt9",
+    "title": "Best way to have groceries delivered regularly",
+    "body": "In the u.s., I know there\u2019s instacart and DoorDash, but they honestly are only good for small/simple orders.  I am tired of not having groceries in the house now that I\u2019m feeling well enough to start using my kitchen again!  I\u2019m close enough to a city so that most things are available, like Walmart, but to my knowledge we don\u2019t have any grocery stores that still deliver their own groceries here.  When our grocery store used to delivery, like during covid, that was awesome!  (If I could drive, I\u2019d do pick-up, it\u2019s hard to find a wheelchair taxi and Ubers won\u2019t pick me up reliably because of both my chair and my service dog.)\n\nI\u2019m looking for your experiences and recommendations, because I\u2019m hungry, and Amazon sent me food that was tampered with twice in the past two weeks, so we are done with them when it comes to food.  (Safety seals were removed on one jar, and the cellophane AND tamper resistant seal were broken-missing on a tub of cheese dip that I had been craving).",
+    "flair": "Question",
+    "score": 46,
+    "comment_count": 127,
+    "created_at": "2026-03-02T07:53:15+00:00",
+    "top_comments": [
+      {
+        "id": "o872kud",
+        "score": 53,
+        "body": "I use Walmart same day delivery. I pay the monthly $12.95 fee and I get free same day delivery, a free streaming channel and other perks. Then I'm reimbursed the fee from my Amex card, but even if I weren't, I'd still pay for the convenience. They bring it right to my door and one driver even brought into my house despite having 3 large dogs."
+      },
+      {
+        "id": "o87iz2m",
+        "score": 31,
+        "body": "Same. I have Walmart+, which you can even get half off if you're in government assistance. I've been using it for 5-6 years now and really love it. Just harder to get deliveries in snowy weather unless you tip a lot."
+      },
+      {
+        "id": "o877gsn",
+        "score": 18,
+        "body": "Totally agree with those who\u2019ve suggested Walmart. More specifically get the Walmart+ membership, it is worth it. When I had a surgery and couldn\u2019t leave the house or really move much for a couple months I used that for groceries and the quality/accuracy was quite good."
+      },
+      {
+        "id": "o88riah",
+        "score": 16,
+        "body": "If you have Walmart + \n\nDelivery from your local store is $35. min order to be free.\n\nItem that are \u201cshipped\u201d have no minimum  I say \u201cshipped\u201d because sometime they really are shipped but sometimes they are some day delivered from a near store. Normally you can\u2019t get perishables this way  \n\n"
+      },
+      {
+        "id": "o87702p",
+        "score": 12,
+        "body": "You can even get a disabled rate for the monthly fee, I only pay $6.50 per month. Can't recall the approval process but it was quick and easy."
+      },
+      {
+        "id": "o892ska",
+        "score": 10,
+        "body": "if you get the more expensive plan that includes delivery inside your home, those employees are paid an hourly rate. as i understand it they are not supposed to accept tips even if offered.\n\nif you're using the door delivery, those are independent contractors similar to door dash etc. they're paid by a base rate from Walmart, plus tips. however what I found out is that if no one accepts the delivery, Walmart will increase their offer until someone picks it up. I mostly use it for grocery purchases with EBT, so it won't let me tip."
+      },
+      {
+        "id": "o87ef9c",
+        "score": 8,
+        "body": "I'm genuinely shocked that the large supermarkets in the US don't deliver, all do in the UK. Most of the disabled members on my main UK Sub use all of these. Very few are able to shop at the main supermarket particularly if they live alone. I'm learning a lot about being disabled in the US v UK in the short time I've been here.  \n\n Yes, there's a minimum order about \u00a340 which isn't much for groceries these days; less than an average week spend ! Some do \u00a31 delivery wide slots if home in the day ( which we often are ) and the Discount store I use a lot does it free or \u00a325 spend. Otherwise we have Uber Eats, Just eat, Deliveroo etc for small orders and many retailers do similar things from their smaller local stores that provide that deliver within a radius such as Tesco Whoosh !\n\nI obviously  can't help but hope there's SOME way and someone can help \ud83d\ude4f"
+      },
+      {
+        "id": "o8777ad",
+        "score": 7,
+        "body": "walmart is what I use. they had a year's subscription half off for Christmas so I spent $40 and get delivery at no extra charge. unless I want it within 2 hours, then it's $5. I use it often enough that I'll probably pay the full amount when it resets. it's way cheaper than the $7 delivery per week I was paying last year I've realized."
+      },
+      {
+        "id": "o871yyy",
+        "score": 7,
+        "body": "My local Walmart still delivers and it's how Ive been able to keep my place stocked. Have you checked the Walmart website? I'd log in and see if the local store can deliver. If not, one thing that might be worth doing is posting an Ad on facebook or other social medias and offer to pay someone once a week/bi-weekly to shop for you and/or take you shopping. "
+      },
+      {
+        "id": "o87tu8c",
+        "score": 7,
+        "body": "The grocery store chains near me deliver. It varies based on where you live."
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1rif71q",
+    "title": "People think it's funny that I swear, is that infantilizing/ableist?",
+    "body": "Last night I was in some reunion and while explaining something i swore and everyone laughed and i was like, why is that funny? Later I asked someone about it and she told me that it was funny because you could tell i don't swear much, and i was just like wdym? I do swear, just that i know enough to not do it much with people that don't know me very well but that seems like a common unspoken social norm to me.   \n\n   \n\nSo i can't help but think that they assumed that i don't swear because I'm disabled and apparently disabled people can't swear (?   \n\n   \n\nAm I thinking it too much or could that be a possibility? Have you ever been infantilize in that way? ",
+    "flair": null,
+    "score": 102,
+    "comment_count": 25,
+    "created_at": "2026-03-02T01:18:08+00:00",
+    "top_comments": [
+      {
+        "id": "o85krwk",
+        "score": 96,
+        "body": "Hard to tell if they thought you wouldn't swear because you were disabled, or because you just seemed like a proper, formal person at first.\n\nDefinitely happens, though. They expect us to be cute little inspirational angels and get surprised when we swear or tell dirty jokes or express the desire to violently crush someone's kneecaps."
+      },
+      {
+        "id": "o85mw3d",
+        "score": 31,
+        "body": "It definitely could be, but if you\u2019re also not someone who swears often in front of others it may have just caught them off guard. Sometimes people are surprised when I swear, but I don\u2019t think it\u2019s because of my disability as I mask well. It\u2019s usually because I\u2019m someone perceived as being shy or demure."
+      },
+      {
+        "id": "o85sw3w",
+        "score": 14,
+        "body": "Only you know the people involved in this situation enough to be able to tell if their comments were motivated by ableism. They very well could be, infantalisation is a common expression of ableism.\n\nHowever I will offer an alternative reason they might have said what they said, a phenomenon I call \"kindergarten teacher vibes\"\n\nIt's where the nature of your personality superceeds the actions of swearing in the perception someone has of you.\n\nI worked at a community centre and the environment was coincidentally accessible and accommodating so while the hiring management knew I was disabled I chose not to disclose that to any of the other staff. (which I recognise is a privilege of having invisible disabilities) for that reason I know my interactions with coworkers wasn't motivated by ableism.\n\nI ran children's social engagement programs and IT education classes for seniors. Two demographics whom I found it inappropriate to swear in front of.\n\nI've got friends who swear a lot and when they're told not to swear they struggle to replace those words in a way that comes across naturally, or they use direct swear substitutions which tend to stand out. Sugar, fudge, drats. I avoided \"swear substitutions\" because I'd actually be more likely to swear by mistake. I'd change my whole manner of speaking to avoid anything remotely adjacent to swearing. The two different approaches to avoiding swearing give two different impressions, especially if someone using swear substitutes hesitates on the word, it creates the impression that they swear often and their brain is buffering while they think of a substitute word.\n\nThere were two sides of my vocabulary at work, classroom and staff room. But my personality and my nature was always the same regardless of which words I was using.\n\nI was shooting shit in the staff room with two coworkers, but the door was open and students were walking past so I was avoiding swear words. We were complaining about some new policy, I forget what non-swear flowery language I'd used to describe the situation but a coworker commented on how \"it's so cute that you never swear\" to which I replied \"I swear all the fucking time\" and it took him off guard, he laughed and said that sounded so unnatural for me.\n\nThe other coworker who was there was laughing now too and turned to the first coworker and said \"Eile swears! you asked her how she was doing this morning when she came in and she said \"living the fucking dream\".\"\n\nThe first coworker didn't believe it, he kept insisting he's never heard me swear.\n\nThis exact interaction happened 3 or 4 times with the same guy!\n\nIt's not the first time it's happened.\n\nMy own mother used to say \"I'm so glad you aren't one of those teenagers who swear\" to me, even after we'd just had a conversation in which I'd told her that \"school was really shit and I fucking hate how that asshole Jackson keeps snapping my bra.\" my brother would say \"just punch the cunt\" and mum would roll her eyes at my brother then thank me for not swearing.\n\nI genuinely think there's just something about the persona and aura of my personality that is bubbly and innocent enough that even when I do swear, people don't immediately pick up on it. They hear what they want to hear and see what they want to see and that is an image of a kindergarten teacher.\n\nPeople who assume I don't swear are thinking about my vibes not my vocabulary.\n\nI also once had a manager buy everyone some decent wine for a thank you for a project we ran and me and my Muslim coworker got a box of luxury chocolates. I asked \"oh, did you run out of wine?\" and my manager was shocked \"I thought you were a tea totaler?\"\n\n*Ma'am, I called in sick last month because I fell down the stairs while drunk and had to go to the ER because I dislocated my knee and ankle. Last Monday when you asked if I was getting a migraine I replied \"no, for once this headache is just a regular hangover\"*\n\nAt the company Christmas party we split a bottle of ouzo because we both love aniseed....though I'll forgive her for not remembering that, it was a hazy night considering we were stoned too."
+      },
+      {
+        "id": "o863z4d",
+        "score": 11,
+        "body": "Not enough information here but could be"
+      },
+      {
+        "id": "o85l12i",
+        "score": 8,
+        "body": "I\u2019ve had this before but because I have autism and they gave me a \u201cyou\u2019re so grown up\u201d type of vibe from them. Autism is just so infantilized because it\u2019s manly seen as a thing only kids have where I\u2019m from \ud83d\ude2c"
+      },
+      {
+        "id": "o85pzpq",
+        "score": 8,
+        "body": "It depends.\n\nSome people look \u201ccute and sweet\u201d and it\u2019s not a disabled thing. Or something else other than disability.\n\nBut it could be a \u201cinnocent disabled people can\u2019t swear\u201d thing or \u201cperson with this disability can\u2019t swear\u201d.\n\nPeople always think I\u2019m \u201csweet and quiet\u201d. Then something happens at work, we go into the backroom, and I let my curse words out. First time I do it I always alarm people. Maybe it\u2019s word choice?"
+      },
+      {
+        "id": "o86joz9",
+        "score": 6,
+        "body": "Hard to say when you said you don\u2019t swear much with people you don\u2019t know.   So, if a person isn\u2019t used you swearing it is going to sound weird.   If it just sounds weird coming out your mouth because of your voice doesn\u2019t sound right swearing it will sound weird too."
+      },
+      {
+        "id": "o882hex",
+        "score": 6,
+        "body": "\ud83d\udc4c\ud83d\udcaf"
+      },
+      {
+        "id": "o871yhj",
+        "score": 3,
+        "body": "Hard to say-I often laugh when \u201cinnocent\u201d or people like you who don\u2019t swear much, suddenly drop the \u201cf\u201d bomb or similar.  It\u2019s impossible to say from the context.  I\u2019m in my 60\u2019s and I swear frequently.  I\u2019ve never had someone say that to me, and I\u2019ve been using a wheelchair for about 10 years, before that I had a scooter and walkers.  I wouldn\u2019t assume you were being infantilized based on this, though I have been told that I shouldn\u2019t go out at night because it isn\u2019t safe \u201cunless you have a carer with you.\u201d  I use a wheelchair\ud83e\udd37\ud83c\udffb\u200d\u2640\ufe0f"
+      },
+      {
+        "id": "o8ax927",
+        "score": 3,
+        "body": "Every other word out of my sailor's mouth is colorful. And I've been told it's 'unbecoming' of a disabled person. I'm the combo breaker pacifist after several centuries of sailors. Swearing in both main languages is my normal/automatic."
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1ri4txp",
+    "title": "how do you motivate yourself and do something when you don\u2019t want to do something",
+    "body": "this is disability-specific because it\u2019s like damn i have no energy and am sick and i \\*still\\* have to put my clothes away? damn i can\u2019t walk today but i \\*still\\* have to take a shower? i\u2019m rationing my opioids but i \\*still\\* have to be a functioning human? my immediate reaction is \u201cno, i don\u2019t want to do chores because i am miserable enough fuck that\u201d but that\u2019s not really conducive to being like,,, the version of myself i want to be. i don\u2019t think it\u2019s depression i just feel no oomph to do anything and am looking for tips and tricks to regaining some ability to do things i don\u2019t want to do ",
+    "flair": "Question",
+    "score": 31,
+    "comment_count": 17,
+    "created_at": "2026-03-01T18:27:34+00:00",
+    "top_comments": [
+      {
+        "id": "o83h74v",
+        "score": 12,
+        "body": "I am very nice to myself and proud of myself and say uplifting things like \u201cI know this was very hard for you, im so proud!\u201d. I tell myself what the outcome will be as motivation and how it will feel. I validate myself\n\nI don\u2019t force myself to do things that aren\u2019t actually that important\n\nFor example when it was really exhausting to change my clothes I just didn\u2019t do it often. I was at home anyways."
+      },
+      {
+        "id": "o83j6mx",
+        "score": 9,
+        "body": "I give myself little rewards and treats for doing stuff"
+      },
+      {
+        "id": "o83ru93",
+        "score": 9,
+        "body": "Break the chore down into baby steps, as small as you need them.  \nReward with therapy disguised as a treat.\n\nie.  Dishes are piling up.  I've got to clean the kitchen.  \na)  I'll wash either 1 sinkful or for 10 minutes, whichever comes first.  Set timer.  \na1) put on the next sink of dishes to soak.  \nb) go sit on a heating pad and stream some Netflix / play a video game (etc. ) for 20-30 minutes.\n\nRepeat.\n\nOr arrange as needed."
+      },
+      {
+        "id": "o84h7gl",
+        "score": 7,
+        "body": "\u201cDo something today your future self will thank you for.\u201d\u00a0\n\nI grump around loudly saying YOU\u2019RE WELCOME FUTURE SELF.\u00a0\n\nThen it makes me laugh, and I\u2019ve done the thing.\u00a0\n\nWin-win.\u00a0\n"
+      },
+      {
+        "id": "o83uixs",
+        "score": 6,
+        "body": "I'm in the \"little rewards\" club too. Very simple stuff like: 5 more minutes, then sit down, tea and biccies. \n\nIt's taken a long time but I'm amazed now what I once thought was essential - hair wash and blow dry; makeup, clean matching outfit etc - yes THAT'S no longer happening ! If I can't get dressed, tough. If I haven't showered and used body wipes, that'll do. If I wash my hair once week, fair enough.\n\n There's jobs in the house that just aren't done because I *can't* do them. That's the difference. Once it was: I'm doing it but it's a struggle; I'd rather not, I'll put it off; I'm doing this, but I'll suffer tomorrow. Now many are simply: can't do them and accept that. I'm now accepting my disability. \n\nI'm also not rationing morphine, I have a right to not being in pain and accept the side effects,  but appreciate you might have good reason to."
+      },
+      {
+        "id": "o841x2q",
+        "score": 6,
+        "body": "I reward myself after with pot or take out or something small."
+      },
+      {
+        "id": "o83nxha",
+        "score": 5,
+        "body": "1) rewards - if i already want something, like a nice snack, movie, play games, etc I tell myself ok if I do this one task, then I can do xyz after. Keep it going for other treats and tasks at hand. \n\n2) peace of mind/feeling better - A messy house/area makes my mental health topple & you dont even notice it until you actually do have a clean house/space, Im aware of this which helps me pace cleaning a bit.\n\n3) grace - we arent superhuman. We have limits and we have to listen to our body. If we truly are in a spot where we cant do things, that deserves grace not self hatred/guilt tripping. I may want to clean on the weekends but Im no longer able bodied to do so on a whim. (& Ive had to keep telling myself NO cleaning past midnight, because then ill be up all night as after midnight for whatever reason i tend to feel better & get an energy boost)\n\nEdit; An additional tip - clean along the way, if youre making food clean the dishes in the middle of that so you can sit and eat & not worry about dirty dishes after. If you shower use the towel to wipe things down & immediately pop it into the laundry. Going to the kitchen for a snack? Bring some dishes since youre going anyway. Etc. Also automation can be your friend, dish washers, those lil robot vacuums, etc"
+      },
+      {
+        "id": "o87kb7h",
+        "score": 3,
+        "body": "I treat myself like a child or animal. I let myself be grumpy about it, but gently try to enforce what I need to do anyway. I don't WANT to shower, but \"I know, meow mrow mow, but you need to do this and you'll feel better. Do you want to shower now or after one more video?\" When the time actually comes I remind myself of the positives. \"Come on, let's go get nice and clean, then we can put on comfy pajamas and get cozy in bed.\" I try to make each individual part as nice as possible - soft towels, grab pajamas before so they're ready, nice lotion, soap I like. Of course some of that is modifying your environment ahead of time, like having nice towels, but I try to invest in half-decent stuff for difficult tasks like that to take away some of the unpleasantness. Doesn't have to be expensive, just stuff you like!"
+      },
+      {
+        "id": "o84ue5v",
+        "score": 2,
+        "body": "The way I do it is by only allowing myself to do a certain thing while doing what I have to do. So for example, I only allow myself to listen to my audiobooks if I'm doing things that need to be done. So like I needed to do my laundry and go clean my bed sheets and such, and I was really dreading it, but I also really wanted to continue the book I'm listening to (if you're wondering I'm currently listening to Jurassic Park, probably one of my favorite books), but I made it a rule that I can't listen to it unless I do the stuff I need to do. And so I did it all. I hated it, but I got to continue my book and my clothes and sheets were clean. This might only work for me, but it works very well. \n\nThis one might be a bit more niche but I take a lot of inspiration from videogames, and there's a character in the game fallout New Vegas named Joshua Graham. I won't go into details, but basically he's a severe burn victim but managed to survive, and he talks about how everyday he has to replace his bandages with fresh ones everyday, and that exposing his body to the air is like being burned all over again but he does it because in his words \"It's better to be clean than comfortable.\" I know it's fiction, but sometimes when I'm laying in bed, just hurting and not wanting to shower or brush my teeth, I just tell myself \"it's better to be clean than comfortable.\" A few times, and it usually gets me to go and do the thing I need to do."
+      },
+      {
+        "id": "o8aark7",
+        "score": 2,
+        "body": "I use apps that gamify my tasks. Specifically Habitica and Finch. The dopamine hits help, and having the tasks written down help with decision paralysis."
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1ri3cz2",
+    "title": "A snapshot of the morning on the first of the month in the day.",
+    "body": "The joys of having multiple chronic illness. Its a darn good thing I'm not afraid of needles.\n",
+    "flair": null,
+    "score": 342,
+    "comment_count": 49,
+    "created_at": "2026-03-01T17:33:45+00:00",
+    "top_comments": [
+      {
+        "id": "o84yxob",
+        "score": 126,
+        "body": "This is only my morning meds. It doesn't include my midday or evening meds. Nor my monthly infusions, as needed infusions,  inhalers, and rescue meds.\n\nFor those who say they could never - there comes a point in your life where to continue to life and function,  you just have to.  And while some may say \"thank God\" you have this available to you, it's not God im thankful to. I'm thankful and grateful for science, medical research, Dr's who listen and pay attention. Dr's who are willing to change care plans when things aren't working best. I'm thankful for a family who cares for me when im not functioning well, and cheers me on when I am."
+      },
+      {
+        "id": "o83mpyq",
+        "score": 34,
+        "body": "Thank you for posting this.  It's so perfectly laid out it almost looks like art.   \n\nI'm glad you can get this. Even if it's difficult to love with all our problems.  I'm glad we can still keep living."
+      },
+      {
+        "id": "o850hyg",
+        "score": 30,
+        "body": "The gratitude is a great message. There are so many instances where I have thought, what would have happened in the \"old days\"? Or if I lived somewhere that didn't have universal health care or access?"
+      },
+      {
+        "id": "o85hmn1",
+        "score": 25,
+        "body": "Definitely!  I'm forever thankful to be living in a country with universal health care. Not having to worry over medical bills when unemployed, disabled, on maternity/parental leave or any other reason including beginning and ending of life is wonderful for not only one's financial well-being,  but it relieves that added stress."
+      },
+      {
+        "id": "o8549sq",
+        "score": 22,
+        "body": "I\u2019ve got half as many pokes, but about that many pills, and I got several inhalers. I think if we combined our medication we could maybe make Superman"
+      },
+      {
+        "id": "o84xhm1",
+        "score": 19,
+        "body": "Cross checking medication interactions is what a pharmacist's job is ALL about.  Dr's are not expected to know about all the interactions between various medications. And *I* certainly do not have enough pharmaceutical knowledge to know if a possible interaction is going to cause an adverse reaction or harm. This is why its exceptionally important to use ONE pharmacy for all your meds.  \n\nAlso, online drug interaction checkers aren't always accurate.   It's always best to check with your pharmacist."
+      },
+      {
+        "id": "o85l218",
+        "score": 18,
+        "body": "From left to right is Ajovy for migraines,  cyanocobalamin  for b12, ozempic for diabetes,  and  basal insulin for diabetes. \n\nThe breakfast pile of pills are painkillers,  immune suppressants, muscle relaxants, and digestion meds.\n\nThis is the \"fun\" of having multiple complex medical conditions."
+      },
+      {
+        "id": "o83ywel",
+        "score": 16,
+        "body": "It's kinda a perfect metaphor for life: art and science meeting in the real-world conditions of each new day."
+      },
+      {
+        "id": "o85hllz",
+        "score": 15,
+        "body": "woof. i am both deeply grateful and profoundly resentful of my laundry list of medications and supplements. i am also grateful that YOU are alive and fighting, yet resentful that you have to be suffering in any way.\n\nmay your spoons be many and your aches be few\ud83e\udef6\ud83c\udffd"
+      },
+      {
+        "id": "o88oo9c",
+        "score": 13,
+        "body": "We shoot up very differently than our parents worried about, dont we? But all the same, here's to clean needles! "
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1rhqtlk",
+    "title": "Hate my body's ill temperature regulation. It drives me nuts more than pain",
+    "body": "I'm already neurodivergent and for me very difficult to keep track when I need change clothes for my own good. But with bad temperature regulation? Actually make me feel I'm insane \n\nEvery time I take off sweatshirt when im dying from heat - next second im freezing. This repeats over and over. Even if Im on full belly and room temperature is perfectly fine. Like this actually takes so much energy and this never ends",
+    "flair": "Rant",
+    "score": 36,
+    "comment_count": 16,
+    "created_at": "2026-03-01T07:14:18+00:00",
+    "top_comments": [
+      {
+        "id": "o80qv5y",
+        "score": 9,
+        "body": "I have bad temperatures regulation due to my cerebral palsy. I constantly run cold, and I live on the 3rd floor so my apartment is extra warm but other people its always too hot for. They put on the air-conditioning and then I'm even colder. \n\nSolidarity"
+      },
+      {
+        "id": "o812k32",
+        "score": 4,
+        "body": "I'm autoimmune and possibly partially menopausal. Usually run hot, but lately sometimes cold (though it's winter here and our house is not the warmest, and sometimes it feels warmer when the furnace is on). It's weird, and the flip from cold to hot to cold happens within like 20 min. sometimes. It's so annoying!"
+      },
+      {
+        "id": "o816j6l",
+        "score": 4,
+        "body": "This is why I'm basically always using a blanket. Easy to put a little bit over me, cover myself completely or somewhere in between"
+      },
+      {
+        "id": "o81ppwv",
+        "score": 4,
+        "body": "Feel this so hard, I\u2019ve had to change all my clothes to cotton (no blends) just so I\u2019m not overheating in a basic t shirt and jeans. And it IS absolutely exhausting!"
+      },
+      {
+        "id": "o81utwu",
+        "score": 4,
+        "body": "I totally understand. The most frustrating part is people who don\u2019t understand how having a body that can\u2019t regulate temp is extremely difficult to live with. It limits how much and when I can go outside and makes it hard to do any sort of strenuous work or fun exercise activities. And people will just say \u201coh just drink some water and cool down\u201d or \u201cput a jacket on, you\u2019ll warm up\u201d like no it\u2019s not that easy and I\u2019m in pain :("
+      },
+      {
+        "id": "o815j42",
+        "score": 3,
+        "body": "It takes so. Much. Energy! \nAnd can be really hard to sleep. And make ya sick when the weather changes.\n\nI feel ya!"
+      },
+      {
+        "id": "o83n1pr",
+        "score": 3,
+        "body": "Always had this.  Cardigans are amazing. And oddly extra large sweaters because there is room for the heat to shift around in there."
+      },
+      {
+        "id": "o824oge",
+        "score": 3,
+        "body": "Me too ! I have a thyroid condition (and other things). I'm now very much *post* menopausal but my menopause happened suddenly due to a medical procedure and the two things meant I didn't know what earth was going on most of the time. \n\nI have partial paralysis in my right leg and nerve damage in left hand, so I can feel a bit  but not always properly ( or FEELS freezing, might not be ) peripheral neuropathy and circulation isn't great. Oh and rosacea. I swear I could have a hot flush ( flash ) and had my top half burning and bottom half freezing \ud83d\ude43 \n\nLayers. Lots of layers and undressing in the middle of shops. It's Winter here too and currently a heated throw is working wonders \ud83d\ude05"
+      },
+      {
+        "id": "o850vmd",
+        "score": 3,
+        "body": "I have major neuropathy in my hands fingers feet and toes, some in my arms and legs (it gets less as  u get to my trunk). I can feel temperature, but I can't really feel much otherwise (except pressure). I miss reaching into my bag or my pocket and not being able to discern the object I'm looking for. Or, if I even grabbed anything! Mine is caused by CIDP (similar to Guillain Barre) and I have horrible balance and muscle weakness. It messes with my other body processes too (autonomic stuff) I surmise might be some of my temperature stuff."
+      },
+      {
+        "id": "o85lgkc",
+        "score": 2,
+        "body": "We've been so frustrated with this, and people act like we're crazy even though it's a well-documented thing. Our body doesn't thermoregulate, so dealing with it typically needs accommodation.\n\nIt's completely exhausting."
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1rhlz5g",
+    "title": "Fat and disabled",
+    "body": "One of the things I REALLY struggle with is how I feel that my size is responsible for my disabilities and chronic pain. I grew up with a family where I was fat shamed relentlessly as a way to \u201cprevent me becoming like my grandmother\u201d who my father cast as lazy and inactive because it was a choice and because she was fat. I repeatedly heard about my grandmothers size and lack of activity led to her pain. It also extended to fat people who used mobility aids being a joke and even fat.people trying to move and exist in their community as a joke. I am heavy, I always had been heady in large part due to PCOS that was never treated as well as dyxpraxia and autism that was not diagnosed until my late 30. Everything was harder for me physically, but I still tried including playing club hockey. In spite of this I now have back issues, fibro, and other chronic pain conditions that limit my mobility. I also have PTSD, who would have thought right, that has to extreme hypoarrousal,concerns with failing at movement over and above the pain, and just extreme executive dysfunction. Nevertheless I can\u2019t shake that had I just listened to my fathers berrating about moving more like my sister (an athlete) and following his diet and forcing myself to be thin in order to not \u201cbe like my grandmother\u201d I would not be like her now.\n\nLogically I know my father, from which I am now estranged, was wrong here and just projecting his trauma on me in the worst possible way, I still struggle to shake his voice because it was so pronounced. I have been able to work though other instances of additional ableism and perfection that he pushed on me, but the physical stuff that is causing me daily pain and limiting my ability to engage with things I love ie going to disney, going to shows, and just being able to walk more than a block with my lower body screaming at me or falling asleep from very limited physical activity.\n\nThis sucks and I don\u2019t see this talked about much on here",
+    "flair": null,
+    "score": 54,
+    "comment_count": 62,
+    "created_at": "2026-03-01T02:57:05+00:00",
+    "top_comments": [
+      {
+        "id": "o7zp3jg",
+        "score": 37,
+        "body": "I'm so sorry to hear that.\n\nSize is often not a choice. PCOS isn't a choice.\n\nPTSD isn't a choice.\n\nI've been all sorts of weights. My body has hurt at all of them.\n\npeople have been obnoxious at all sizes (not trying to suggest there aren't more intersectional issues when there's abelism and fat phobia, because there are)\n\nBut the main issue isn't your size. If there was a magical pill that would take (insert # here) of pounds off, it wouldn't affect many of the issues. \n\nI'm not sure if that helps? but I'm sorry that people are shitty."
+      },
+      {
+        "id": "o7zq4rq",
+        "score": 18,
+        "body": "I've lost about 50 pounds in the past 6months ish my pain is worse now than when I was at my heaviest."
+      },
+      {
+        "id": "o7zsgxg",
+        "score": 14,
+        "body": "I have a disability that isn't caused by excess weight but made a lot worse if you do have excess weight. I was in so much pain I felt like I had no choice but to get in shape, and it was really, really hard. Like near-impossible at times. Any time I'd have a bad flare I wouldn't be able to keep losing weight for months at a time. And I realized going through the process that if I had just one more thing wrong, I couldn't have done it. \n\nWeight loss can help with many health issues but it's genuinely not always possible even when we know we'd be better off for it. People without disabilities/EDs/addiction/chronic illness/mental illness/etc rarely realize that. The guilting and shaming is wrong and unhelpful. It's simply not something everyone can just \"do,\" and you're not lazy, or bad for not being able to do it right now."
+      },
+      {
+        "id": "o7zqnxh",
+        "score": 14,
+        "body": "I think a lot of our parents are not great to us about our disabilities. Boomers and even the older Gen X are largely pretty fucked in the head.\n\nYou deserve to be treated much better and I hope you know that.\n\nAlso being fat doesn't cause disabilities. There is literally no medical research backing a claim that it does."
+      },
+      {
+        "id": "o7zv6ng",
+        "score": 13,
+        "body": "one of the things that doesn't get mentioned is that's kinda common for hEDS/POTS...not sure if that applies to you. but weight loss isn't the answer for all things for sure."
+      },
+      {
+        "id": "o8020dx",
+        "score": 8,
+        "body": "I'm also fat and disabled, but my size isn't responsible for my disabilities, my disabiliies are responsible for my size.  I was pretty skinny as a child and still was when I developed my physical disabilities at age 12.   But once I became an adult, everything started changing.  My physical disabilities became worse which prevented me from being able to exercise.  My mental health (including autism and medical ptsd) makes dieting incredibly hard if not impossible.  I do struggle a lot with my size, but I know it is caused by my disabilities, not the other way around, and it sounds like that is true for you too."
+      },
+      {
+        "id": "o7zvib5",
+        "score": 7,
+        "body": "Ding ding it is heds ive been diagnosed since a kid and honestly between covid and now losing weight im at the lowest point ive ever been"
+      },
+      {
+        "id": "o7zqe6n",
+        "score": 7,
+        "body": "Thanks. I had a meltdown today because I realized that the only way for me to get through Disney would be with a scooter or maybe a rollator and I had memories of my family collectively making fun of fat people in scooters and my father comparing my fitness to my mother. Like dayum family I did what I did with an undiagnosed motor disorder and it still wasn\u2019t enough for an apology or an acknowledgment. Like honestly this stuff was kinda the final flag for estrangement after nearly 4 decades of emotional abuse and control"
+      },
+      {
+        "id": "o80g1y1",
+        "score": 6,
+        "body": "Chronic illness on top of metabolic issues, does NOT equal lazy!!!\nI get so angry at this skinny people / ableist attitude!\nIllness, medications, disabilities, menopause, whatever, people struggle and the judgemental people who have zero empathy can honestly go to hell!"
+      },
+      {
+        "id": "o80lvpk",
+        "score": 6,
+        "body": "I'd say you can't logic yourself out of something so emotional like years of cruel propaganda. It's more of an ongoing process chipping away at the crap by surrounding yourself with better, kinder, and truer views. The memories coming up could be you grieving and actively working through that stuff already though. (*Could*. Could also be less productive, more like harmful flashbacks or rumination. Hard to say.) \n\nBut either way. I have two recommendations for podcasts that were deeply informative and healing for me to listen to (but also a lot to process at times). \"Maintenance Phase\" mostly debunks weird diets and looks at some of the history of anti fatness; \"Unsolicited: Fatties talk back\" is more about personal and social-cultural discussions of different topics and experiences, very intersectional as well. I find that listening to others and their kindness, laughter, knowledge and wisdom really helps with working through internalised fatphobia, especially if they themselves are working/have worked on that. It's a process for sure though.\n\n(Sorry, my brain is exhausted, I'm not even sure if this is on topic anymore. But hey, maybe there's something useful for someone here.)"
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1rhlrub",
+    "title": "Looking for pregnancy/parenting advice!",
+    "body": "Hi friendos! I recently found out I'm pregnant and I'm trying to figure out how to adapt to pregnancy and parenthood with my disabilities in mind.\n\nA quick overview of my struggles so people can have an idea of where I need advice!\n- Chronic Fatigue\n- Wheelchair User\n- Un-adapted home\n- ADHD\n- Non-epileptic seizures \n\nI'm mostly concerned I think about how my fatigue will shape my ability to do things. I already struggle immensely on a day to day basis so any tips and tricks that any parents with chronic fatigue themselves might have will be super helpful and appreciated!\n\nAlso accessible furniture/baby gear that people have used and liked would also be super helpful!\n\nI do mostly know what to expect from babies and children, I just want to make sure I'm going into this with the best knowledge and tools I can to offset how my disabilities will add extra challenges to parenting for me.",
+    "flair": null,
+    "score": 8,
+    "comment_count": 11,
+    "created_at": "2026-03-01T02:46:55+00:00",
+    "top_comments": [
+      {
+        "id": "o80phb5",
+        "score": 8,
+        "body": "I\u2019d talk to a doctor to make sure it\u2019s safe for you to be pregnant and that you have the support system to help you with caring for a child as it is extremely physically and emotionally demanding"
+      },
+      {
+        "id": "o80sxaa",
+        "score": 5,
+        "body": "The biggest issue I see is how to do you keep baby safe if you have a seizure? Do your docs know about your pregnancy yet? Are your meds safe for pregnancy?\n\nYou are going to have to really work on getting your home adapted. You should schedule a couple of at home OT appointments because they will show you how to do stuff safely. They make cribs that are at floor level. You might be able to do \u201cBaby Wearing\u201d with a sling to help when you need to propel your chair. \n\nThe fatigue though is a nightmare. Healthy parents literally cry about the sleep deprivation. You may have to consider getting in some help like a nanny. I have no idea how many hours your partner works so they may not be able to pick up as much as you wish. I learned to sleep light once we got my son and I couldn\u2019t take any sleep a\u00edds at night either unless my husband agreed to be fully responsible. \n\nBabies don\u2019r sleep through the night and you always have to  make sure that you can get up fairly quickly when they cry. Might be easiest to keep the crib in your bedroom. Have the changing table right there as well. I made bottles preloaded with powder formula every night before going to bed, so I could make one up at bedside with a bottle of water. \n\nToddlers are much more to negotiate. There are plenty of parents who are in wheelchairs. You will have to learn how to contain and confine them to a safe space with child safety gates, and you will need to find ones that you can fit your wheelchair through."
+      },
+      {
+        "id": "o81k082",
+        "score": 4,
+        "body": "On IG look up WCTripletMom. Both her and her husband are in wheelchairs and they have 5 kids. There are ways to modify the cribs so you don\u2019t have to pick them up out of them. They sell a wrap around baby holder that\u2019s great in while in the chair. When they get older it\u2019s trickier but getting a good harness is key if you are out with them alone. \nThey do have a bassinet that is great to keep by the bedside and is easy to manage but Idr the name of it. \nMy nephew is almost 5 and I help watch him a lot. It\u2019s not always easy but it\u2019s rewarding and fun. Best of luck to you and look up wheelchair users with kids and see how they do it for tips and ideas."
+      },
+      {
+        "id": "o810vdd",
+        "score": 3,
+        "body": "I understand non epileptic seizures where people just kind of zone out for a while. I\u2019m a retired Medic. \n\nI know you are talking about moving. Moving is exhausting but if it means a more accessible space you should do it. Do you drive? Can you lift and carry a car seat with your baby in it. They can weight between 20-30 pounds with your baby in it. \n\nThe problem is that a toddler can get themselves into a very bad position in less than a minute. Kids drown in the toilet or even a bucket of mop water. If they can breach the safety gates they can get to the stove, open the front door, climb out a window, walk into traffic. Even really good babies and kids will test you like you cannot imagine. Babies can choke on their own spit and be blue in a minute.\n\nYou are going to need really good harnesses that you can clip to your chair when you go out to public spaces. I\u2019m not sure how you can manage toddler play at a playground if you are in a wheelchair. I really think you need to take a very objective look at the risks here because it only takes a second for kids to get seriously hurt or killed. I\u2019ve seen it first hand all those years working EMS. \n\nI really think you should be considering a nanny for safety reasons. Please tell me you already checked with your doctors for all your medications. Many that people like us take can have serious, negative sequelae  on the developing fetus, especially in the earliest part of the pregnancy."
+      },
+      {
+        "id": "o8lgqdv",
+        "score": 2,
+        "body": "Also congratulations! I wish i had money to adopt or physically have a baby safely \ud83d\udc95are you going to be parenting alone? When you\u2019re disabled it\u2019s definitely a 2 person (or a village) job. Ive raised so many other people\u2019s children throughout my life and it\u2019s really hard without enough sleep. Will make pain etc worse not getting enough sleep for a while. "
+      },
+      {
+        "id": "o81kkjw",
+        "score": 2,
+        "body": "Thank you so much I'll definitely look them up!!!"
+      },
+      {
+        "id": "o81b3uw",
+        "score": 2,
+        "body": "Nannies aren't an option for my family, we're a single income family and this pregnancy wasn't planned. I can get out of my wheelchair, so those safety aspects don't particularly concern me more than they would any other parent. \n\nI'm still waiting on my first midwife appointment but I have spoken to doctors about medication (I'm not really on much of any anyway). \n\nRE things like children drowning in toilets, that's why things like baby gates exist and to be honest, the toddler period is still quite far away and I'm more interested in how to cope in the beginning when everything is full on and I'm also recovering from *having a child*. I've been around babies and young children my whole life, I understand safety and I understand how to keep children safe. \n\nI don't drive but my partner does. I'm not looking for reasons why it's 'dangerous' to be a parent. I'm looking for help and advice on how to best manage parenting with a disability. I was hoping to hear people's experiences and what they found helped them f.ex. Not to be told you \"don't know how I'll manage\". It's hurtful and doesn't exactly help with the whole 'trying to not stress too much during pregnancy' thing"
+      },
+      {
+        "id": "o8liq5v",
+        "score": 1,
+        "body": "I'm not alone! My partner is here every step with me - just unfortunately he works 8:30 till 6 5 days a week and also has spoon limiting disabilities! XD\n\nFortunately I already don't sleep a lot and have weird sleep patterns occasionally so it should be quite as bad - though I'm not looking forward to how my day naps will be affected! Haha\n\nETA: Thanks for the congrats!!"
+      },
+      {
+        "id": "o8lg8en",
+        "score": 1,
+        "body": "If you\u2019re in the states. Your landlord cannot legally deny any housing accommodations under the fair housing act. Literally was just on the page reading about it. Finding out i could have had a parking spot all along \ud83e\udd26\ud83c\udffb\u200d\u2640\ufe0f\ud83d\ude2d\ud83e\udd26\ud83c\udffb\u200d\u2640\ufe0f been ten months of hell with parking "
+      },
+      {
+        "id": "o8libsa",
+        "score": 1,
+        "body": "It's appreciated but I'm in the UK, we have sorta levels to describe what landlords can or cannot deny. Mostly it falls under \"reasonable adaptations\" but unfortunately the use of the word reasonable can make it quite subjective - and based on how it would make the kitchen nigh unusable (we already have very limited cupboard space -not enough- so adapting the kitchen would make it lose very valuable space haha) \n\nEssentially the landlord could possibly try to deny based on it reducing his ability to re-let the property after we leave\n\nPlus to be honest - he's fleecing us for the rent and we want to move anyway, he left us without a boiler for 2 weeks last January lol"
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1rhehna",
+    "title": "how many if us have high support needs autism or meedium support needs autism? how are you doing today? what have you been doing today?",
+    "body": "",
+    "flair": "Discussion",
+    "score": 18,
+    "comment_count": 14,
+    "created_at": "2026-02-28T21:25:09+00:00",
+    "top_comments": [
+      {
+        "id": "o800i9q",
+        "score": 9,
+        "body": "Not me but my daughter (sorry, I hope it\u2019s ok for me to post in this thread, I have an unrelated disability myself so that\u2019s why I\u2019m in this sub). She is a very high support needs autistic person and it was her birthday actually! She did not want to have a party, which is always the case but I still check in every year just in case. She wanted to go to the botanical gardens with just her dad and I and her grandparents and then to the bookstore. I was worried it would be crowded because there was a special event, and that could lead to sensory overload, but fortunately it wasn\u2019t! She got some new plushie friends that she\u2019d asked for, and some books, and had a great day. \n\nI\u2019m really sorry to see that it seems like a lot of people in this thread are having a tough time, and I hope your days tomorrow are 1000% better."
+      },
+      {
+        "id": "o7ybltg",
+        "score": 6,
+        "body": "I have medium support needs autism  but was not dx until 39. I also have CPTSD, ADHD, Dyspraxia, PCOS and multiple chronic pain conditions: fibro, tos, central lumbar stenosis and facet hypertrophy, DDD in Lumbar and thoracic, I feel like all I do these days is rack up new incurable diagnosis. Growing up as a fat person being fat shamed into submission and being told that the only reason fat disabled people exist is because they brought these conditions upon themselves by not being active enough or eating too much is not helping either\n\nHow am I doing? I\u2019ve had two meltdown today: one thinking about the reason why I hurt is because I am fat and had I just moved more or starved myself as a child like I was encouraged to do I would not be in pain and able to do move. A second because my estranged sister\u2019s stalker contacted me to mock me because I dared to stand up to her and not a damn family member ever considered that I tried to help her in their repeated beat downs of my character. I had to break no contact to report this to my family for the second time in 2 weeks because it is a legal thing. All I did was try to help, but no I\u2019m horrible and don\u2019t care about her or others, and I\u2019m selfish despite sacrificing myself repeatedly to save their assess"
+      },
+      {
+        "id": "o80272c",
+        "score": 5,
+        "body": "im am level 2/3 autistic and im had a good day \n\n and i did getted this doggy stuffy named Frederick this week i think  i wish i can to show you i posted him in comment recently\n\n and happy birtdthay \n\nand i watched sesame street today about freinds\n\n and mine new freund at inpatient say she is gonna read me mine sesame street oscar grouch picture books tomorow and im am excited"
+      },
+      {
+        "id": "o8032bx",
+        "score": 5,
+        "body": "It's okay, she's in a better place now. She had a lot of health problems since she was a puppy, everyone says they are surprised she lived as long as she did and that it's because I spoiled her and loved her more than anything else and that makes me really happy to hear and think about. She was having trouble walking and she spent most of her time sleeping for the last few months, she had heart issues since she was a puppy. She passed in her sleep and I hope it wasn't painful. The last memory I have of her is her falling asleep on my chest, she would whine if I didn't watch her when she wanted to sleep. I would just watch her and talk to her and her eyes would slowly close until she fell asleep, she really liked that. I hope it means she felt safe and loved. She was a wonderful dog who deserved all the treats and cuddles in the world. Thank you for your kind words \u2764\ufe0f\u00a0"
+      },
+      {
+        "id": "o7zot5i",
+        "score": 4,
+        "body": "I am playing dreamlight valley, my dog passed yesterday so I am trying to distract myself. I keep crying and I just want my baby again, but I know she isn't coming back. I feel sad. But she was old and I know she's in a better place now where she can run all she wants and eat whatever she wants and play like a puppy again. She was small, she'd sit in my lap while I played Minecraft (which is my special interest) so playing it makes me sad, so I'm trying to play something else that is fun until it doesn't make me sad to play. 101/102 Dalmations was my special interest when I was little, so having Lucky in the game as a companion is awesome and I love having him run around with me.\u00a0"
+      },
+      {
+        "id": "o803cps",
+        "score": 3,
+        "body": "That sounds like a really awesome birthday, happy birthday to her!\u00a0"
+      },
+      {
+        "id": "o81o4ct",
+        "score": 3,
+        "body": "You\u2019re doing great!  That\u2019s what I call a power of example and it\u2019s unconditional. Love that it\u2019s best.  And I know your job isn\u2019t easy because I have a niece that\u2019s autistic and my sister-in-law is just dynamite with her and that\u2019s how they thrive. Sounds like you travel that same road God bless my friend."
+      },
+      {
+        "id": "o81kk2c",
+        "score": 2,
+        "body": "im am level 2/3 autistic and im had a good day yesterday \n\n and i did getted this doggy stuffy named Frederick this week i think  i wish i can to show you i posted him in comment recently\n\n\nand i watched sesame street yesterday about freinds\n\n and mine new freund at inpatient say she is gonna read me mine sesame street oscar grouch picture books today and im am excited"
+      },
+      {
+        "id": "o801a4y",
+        "score": 2,
+        "body": "its is ok"
+      },
+      {
+        "id": "o7zz11a",
+        "score": 2,
+        "body": "I am so, so sorry for your loss \ud83d\ude22."
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1rh7vgn",
+    "title": "I feel completely stuck in life due to disability and finances \u2014 what practical paths am I missing?",
+    "body": "Hi. I\u2019m posting here because I feel like I\u2019ve hit a dead end, and maybe someone outside my situation can see options I can\u2019t.\n\nI have a disability called **SMA** (Spinal Muscular Atrophy). Because of it, I developed a hip injury that causes extreme pain whenever I put pressure on it. As a result, I\u2019ve been essentially bedridden for almost 9 years.\n\nI can only spend very short periods sitting in my wheelchair before the pain becomes unbearable. When I do manage to go outside, I try to make those moments count. I take pictures so I can remind myself that life still exists beyond my bedroom, that there\u2019s still hope **(the photos in this post are a few of examples).**\n\nBut recently I looked at those photos and felt\u2026 **nothing**. Just *emptiness.*\n\nWhat frustrates me the most is that my problems technically *have solutions*, they\u2019re just **completely out of reach financially.**\n\nMy hip needs surgery.\n\nI also need an adapted vehicle.\n\nI know a vehicle might sound like a luxury to some people, but for me it isn\u2019t. I live in a small rural area where there are no adapted transportation options at all. No buses, no taxis, nothing! Without a vehicle, my entire world shrinks to about a one-mile radius, which is the maximum distance I can manage in my wheelchair without triggering severe pain from sitting too long.\n\n# And this is where the loop starts:\n\nI **can\u2019t** get the surgery without **transportation** to attend appointments and treatment.\n\nBut I **can\u2019t afford** a vehicle.\n\n**And I also can\u2019t afford the surgery.**\n\nSo each solution depends on **another solution** that I don\u2019t have access to.\n\nBecause I rarely can leave the house, a traditional job isn\u2019t possible. My only realistic option is fully remote work. The problem is that I\u2019m a high school dropout, and most stable remote jobs require degrees or formal qualifications.\n\nWhat makes this harder is that **I do have skills**. I\u2019m not saying this to brag, honestly I feel awkward even mentioning it, but **I\u2019m capable!** I work with image editing, video editing, design, website building, and some 3D modeling/sculpting. My strongest skill is illustration and painting, and my long-term dream is to build a stable income through art.\n\nI\u2019ve been slowly building a small **portfolio** and trying to take commissions online while figuring out how to reach people consistently.\n\nRight now though, I\u2019m mostly just trying to survive financially.\n\nI\u2019ve been trying to sell commissions online (including here on Reddit). So far I\u2019ve gotten one $40 commission, which I\u2019m genuinely grateful for, it reduced my debt from $240 to $200. I don\u2019t take that lightly at all!\n\nBut when I zoom out, the numbers feel ***overwhelming:***\n\nThe surgery is around $15k.\n\nAn adapted vehicle would be at least $30k.\n\nThat\u2019s about $45k **just to reach a point where I could start rebuilding my independence**, and that doesn\u2019t even include future goals like college, which I still hope to pursue someday.\n\nI can\u2019t take loans because I\u2019m already in debt and my credit isn\u2019t good. There\u2019s no government assistance available where I live. Moving somewhere with better medical infrastructure isn\u2019t an option because moving itself costs money I don\u2019t have.\n\nSo I genuinely feel stuck in a system where I need money to become functional enough to earn money.\n\n**Things I\u2019ve already tried:**\n\n\u2013 Taking online commissions and building a small art portfolio\n\n\u2013 Learning new skills for remote work\n\n\u2013 Looking into local assistance programs (none available in my area)\n\n\u2013 Searching for remote jobs, most requiring degrees or experience I don\u2019t yet have\n\nI\u2019m not posting just to vent (*although I guess I needed that too*). I\u2019m mostly looking for outside perspectives.\n\nIf anyone has experience or ideas, I\u2019d really appreciate hearing them, especially about:\n\n\u2022 Remote career paths that value portfolios or skills more than formal education\n\n\u2022 Where independent artists realistically find consistent online clients\n\n\u2022 Funding, grants, or support programs for disabled people that I might not know about\n\n\u2022 If you were starting from zero mobility but full internet access, what would you focus on first?\n\nI feel like I\u2019m missing something, and right now outside perspectives would genuinely help.\n\nThanks for reading.",
+    "flair": "Question",
+    "score": 121,
+    "comment_count": 9,
+    "created_at": "2026-02-28T17:05:21+00:00",
+    "top_comments": [
+      {
+        "id": "o7wwoqg",
+        "score": 37,
+        "body": "I'm sorry I don't have anything helpful to say but I just wanted to wish you luck and interact for algorithm purposes, I'm sort of stuck in a similar situation myself and am struggling to work through it too, sending you much love friend. Edit: just wanted to say that I've seen your pictures in previous posts and adore them still to this day."
+      },
+      {
+        "id": "o7wxbtu",
+        "score": 23,
+        "body": "I feel so inundated in photos that they rarely make me feel anything but yours made me feel wonder and nostalgia. I bet you\u2019re quite a good artist judging by that. I don\u2019t have anything to say that can help with the practical. I\u2019m angry for you and me who also needs expensive/ expert surgery and it\u2019s very possible I don\u2019t get it. Idk, I didn\u2019t want to just upvote without saying anything. I hope things get better for you."
+      },
+      {
+        "id": "o7x1vc2",
+        "score": 17,
+        "body": "Have you tried setting up an online gallery to sell prints of your photos?\n\nYou said you are in a small town. Do they have any kind of art club or a gallery that displays works? Heck, even an annual fair that has an art ocmpetition  might have an award.\n\nThings like transportation swrvices to and from doctors exist in larger cities. You can also apply for disabled housing and other aervices. Is there a reason you can't move?"
+      },
+      {
+        "id": "o7wxfyv",
+        "score": 8,
+        "body": "Thank you for taking the time to write something so kind, it really means a lot. I\u2019m sorry you\u2019re going through something similar, and I truly hope both of our situations improve sooner than we expect. Sending you strength right back \ud83e\udd0d"
+      },
+      {
+        "id": "o7xgweb",
+        "score": 7,
+        "body": "The department of rehabilitation might be able to help fund any education and/or job searching endeavors for you. Wishing you all the best :)"
+      },
+      {
+        "id": "o7wxwsa",
+        "score": 7,
+        "body": "Thank you for saying that, it genuinely means a lot to me that the photos made you feel something. Sometimes taking them is my way of trying to hold onto moments that feel bigger than my circumstances.\n\nAnd I\u2019m really sorry you\u2019re going through something similar with needing surgery. That kind of uncertainty is incredibly heavy to carry. I hope things move in the right direction for you too, truly! Thank you for taking the time to write this and for sharing a bit of your story with me."
+      },
+      {
+        "id": "o7xadq3",
+        "score": 5,
+        "body": "You might try looking at Job Accommodations Network for potential jobs. \n\nDo you have a Personal Agent or Service Coordinator that helps you with disability resources?"
+      },
+      {
+        "id": "o7wygw9",
+        "score": 5,
+        "body": "You're welcome and I hope so too <333333333333"
+      },
+      {
+        "id": "o7xhoae",
+        "score": 3,
+        "body": "I think a lot of us find ourselves in this situation and it sucks. Have you tried speaking to your insurance company about transportation or your local disability services org"
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1rgn83f",
+    "title": "I Have Tourette Syndrome and I Have the N-Word Thrown at Me. I Have Thoughts on BAFTA.",
+    "body": ">My experience is my own, but I hope it helps others. I want people to know more about this condition, I want people with Tourette\u2019s to be able to feel comfortable in public spaces, and I want society to understand. I want kids who are being punished, mocked or excluded because of their condition to be met with empathy, and I hope that\u2019s the result of\u00a0[this BAFTA controversy](https://www.hollywoodreporter.com/movies/movie-news/bafta-launches-review-film-awards-letter-tourettes-davidson-1236513673/).\n\n>We have to have grace and consideration for\u00a0[the person with the disability](https://www.hollywoodreporter.com/movies/movie-news/tourettes-campaigner-john-davidson-statement-apology-bafta-1236512771/)\u00a0\u2014\u00a0especially someone there as an advocate to share about Tourette\u2019s. We also have to have grace for Michael B. Jordan, Delroy Lindo and all of the people in the room.\n\n>All of that doesn\u2019t mean that there was nothing to be done, or that hearing that word, in that moment, didn\u2019t cause immense harm. As a Black man, no matter the reason, that word has power and does real damage, and we can\u2019t minimize it.\u00a0 I think we can recognize that even involuntary impact, devoid of intent, can\u2019t be ignored. Too often, the burden of empathy is placed primarily on the Black community.\n\n>Like many Black people in the public eye, I am far too familiar with what Jordan and Lindo were forced to do in that moment \u2014\u00a0show poise in the face of pain. And\u00a0[BAFTA](https://www.hollywoodreporter.com/t/bafta/)\u00a0and the\u00a0[BBC](https://www.hollywoodreporter.com/t/bbc/)\u00a0offered no real support or care for that burden.",
+    "flair": "Article / News",
+    "score": 206,
+    "comment_count": 16,
+    "created_at": "2026-02-27T23:57:06+00:00",
+    "top_comments": [
+      {
+        "id": "o7v5hht",
+        "score": 34,
+        "body": "the bafta and the bbc where the main culprit of this, they edited the homofobic one, and free palestine, and said him there are no microphones near him, as someone with tourette, this is pure and intentional torture"
+      },
+      {
+        "id": "o7sr7qn",
+        "score": 24,
+        "body": "Wow. I love this. Your writing is so powerful. The way you write about your experience with Tourette's is so visceral. Thanks for writing and posting."
+      },
+      {
+        "id": "o7sy3f8",
+        "score": 22,
+        "body": "I think this is a wonderfully nuanced take about the situation."
+      },
+      {
+        "id": "o7v20xo",
+        "score": 15,
+        "body": "I admit i am glad to see takes like this because this whole situation along side the ongoing genocide of both black people and disabled people means education is important as whole within all communties so we can have better solidarity too"
+      },
+      {
+        "id": "o7ufren",
+        "score": 12,
+        "body": "'Disabled man shouldn't be outside' is certainly a take"
+      },
+      {
+        "id": "o7ufjyb",
+        "score": 10,
+        "body": "Crazy how much abelism there is even in the disabled community"
+      },
+      {
+        "id": "o7twls7",
+        "score": 9,
+        "body": "I think all of the black people with tourettes who have been willing to speak out about this matter and educate botj communties deserve to be awarded by the different tourettes society. They deal with double the oppresion and they are dealing with double the effoet educating all sides.\nThank you\nJumaane D. Williams and Shay and so many others who have been needlessly bullied and had to deal with reaction by both sides"
+      },
+      {
+        "id": "o7srnc8",
+        "score": 7,
+        "body": "Oh this is not mine! Just copied and pasted the title of the article.  \n"
+      },
+      {
+        "id": "o7st8ct",
+        "score": 6,
+        "body": "Well, thanks for posting. This is an amazing piece and this is the dialogue we need."
+      },
+      {
+        "id": "o7v52wm",
+        "score": 5,
+        "body": "you whould be surprised, sadly"
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1rg8enh",
+    "title": "Career as a disabled person",
+    "body": "Sometimes I think about how different urgency feels depending on the life you were given.  \n  \nMost people grow up knowing they have options. If one path doesn\u2019t work, they can try another. If they get tired, they can pause. If something fails, there\u2019s always a backup plan.  \nI didn\u2019t grow up with that mindset.  \nI was born with a physical disability, and from very early on I understood something that shaped me deeply: independence is not guaranteed it is built.  \nSince I was young, I had thoughts most children don\u2019t usually have. I would think about my parents one day not being here anymore. I would ask myself: What will happen to me? How will I survive? Will I be independent?  \nThose thoughts didn\u2019t make me afraid. They made me aware.  \nThey made me understand that I needed to build something solid for myself. Something that didn\u2019t depend on physical strength. Something that depended on knowledge, discipline, and skill.  \nTechnology became more than an interest. It became possibility. It became security. It became the space where my physical limitations don\u2019t define my performance.  \nI won\u2019t pretend I\u2019m the best student in the room. I\u2019m not always the fastest. I don\u2019t always get the highest grades. Sometimes I struggle. Sometimes I feel behind.  \nBut what I do have is consistency.  \nWhile others are out partying on Friday or Sunday, I\u2019m usually studying. Not because I don\u2019t value enjoying life but because I understand what this means for me. If something needs to be done, I\u2019ll be there. If there\u2019s pressure, I don\u2019t run from it. If a problem appears at 2 a.m., I don\u2019t see it as an inconvenience I see it as responsibility.  \nWhen you grow up thinking about survival and independence earlier than most, your perspective changes.  \nSome people see late nights as sacrifice.  \n For me, it feels like building stability.  \n It feels like preparing for the day I must stand completely on my own.  \nLiving with limitations teaches you resilience in a quiet way. You don\u2019t talk about the daily adaptations. You don\u2019t explain the extra effort behind normal things. But that mentality carries into everything you do.  \nCybersecurity challenges me mentally. It forces me to think critically, to stay calm, to keep digging until I understand the root of a problem. And maybe that\u2019s why I connect with it so deeply it mirrors how I\u2019ve had to approach life.  \nI\u2019m not sharing this for sympathy. I don\u2019t want special treatment. I just wanted to share something honest that was stuck on my hearth.  \nFor some of us, this isn\u2019t just a degree or a career path. It\u2019s the foundation of our independence. It\u2019s the answer to questions we started asking ourselves at a very young age.  \nI may not be perfect. I may not be the top student. But I will show up. I will stay. I will improve. And if you ever need someone who understands responsibility deeply I\u2019m that person.  \nTechnology gave me a space where performance is measured by skill, persistence, and mindset not by physical capacity.  \nAnd that means more than I can explain. ",
+    "flair": null,
+    "score": 8,
+    "comment_count": 6,
+    "created_at": "2026-02-27T14:38:41+00:00",
+    "top_comments": [
+      {
+        "id": "o8fh34l",
+        "score": 3,
+        "body": "that's nice and I'm happy for you, I just wish my disability was that forgiving, I had already fully understood what sort of limitations muscular dystrophy would leave me with at age 8 (diagnosed earlier, my dad just threw out the papers and lied to my mom about it) and even now at 20 things have only gotten worse, I haven't been able to graduate HS for 3 years now, no job prospects, have never had adequate healthcare access (and it only got worse the more mobility I lost!), can't do anything at home, nothing is adapted for me not even the kitchen counters are low enough for me to do stuff on, I'm happy for you but I just wish I had any method out of this like you seem to have discovered."
+      },
+      {
+        "id": "o89sff1",
+        "score": 2,
+        "body": "Here ! Here!\n\nI wish I could amplify your message louder and more broadly. Frankly, I'm a bit disappointed that in three days since you posted it, it hasn't received more positive comments but, to be honest, I am not surprised.\n\nI was 25 before the Americans With Disabilities Act was even signed and older than that before the country actually started to care about it. I love what it has done for the disabled. Unfortunately, though I see an unintended outcome, which I believe to a certain extent has been a disservice. Not in all cases, but some.\n\nThriving with a physical disability has always required what I like to refer to as a certain kind of \"fire in the belly\". As difficult as it was pre-Americans With Disabilities Act, the harsh realities of the time made us immediately aware of what we were dealing with. In response many of us developed a certain grit and resilience, which has served us well. That still happens with a great many young disabled people today, but I fear it may not be happening to the extent that it is needed.\n\nIn most cases today (not at all, but in most) a child with a documented disability who entered the public school system after 1995 encountered a process that my generation never dreamed of. In many cases, there are dedicated resources who know in advance of their arrival and whose job it is to make sure that any of all hindrances or obstacles which their disability may create are removed. Not by their own effort, but by the effort of others. They are not required to figure out a way around challenges, to adapt their functional style just thriving an environment that wasn't designed with them in mind. In as much as I love the fact that all these things have taken place, and believe me, I truly do love it. As I try to participate within online communities for the disabled, I find an ever-growing population of people who for no fault of their own believe based on their history that the world adapts to them as opposed to them adapting to the world. This concern when articulated has on more than one occasion led to my being banned for being insensitive. Mind you I was an early 70 ies poster boy for the United cerebral palsy Association. I used braces then. Today I use a wheelchair. Trust me, I know the battle.\n\nKeep sounding the trumpet."
+      },
+      {
+        "id": "o8h8da5",
+        "score": 2,
+        "body": "I am DM'ing you. \u2764\ufe0f\u2764\ufe0f\u2764\ufe0f\u2764\ufe0f"
+      },
+      {
+        "id": "o8ffqte",
+        "score": 2,
+        "body": "that's cool and all but my muscular dystrophy doesn't care about how much \"grit\" or \"resilience\" I have, I live in a developing country where laws like the ADA still don't exist and trust me people being a bit \"soft\" is a much lesser evil (in my opinion it is not an evil at all, having to be resilient and \"tough\" has turned me into an extremely bitter, resentful, angry and generally awful person to be around) than having them be frequently killed (esp if disabled at birth), abandoned, shunned and relegated to a subhuman status, we are simply not as capable and in my specific case this degenerative disease has only made me less capable with time, please speak for yourself, maybe you're a super strong badass with the mental fortitude of a prophet but some of us are little bitches who need the help okay?"
+      },
+      {
+        "id": "o8hf3zz",
+        "score": 2,
+        "body": "You are not a \"little bitch\". If anything you are likely one of the bravest people I've communicated with in a long time. I'm sure many people in this group would agree with me on that. It sounds to me like you're doing everything humanly possible in the face of a set of adverse circumstances that almost defy even a description. Your circumstances are on a completely different level in a completely different place. I sent you a direct message if and when you need an ear you can talk to me."
+      },
+      {
+        "id": "o8qb9f4",
+        "score": 1,
+        "body": "I relate to your story very much. I had the same focus growing up, I knew I needed to support myself because my parents wouldn\u2019t be able to and I knew I needed a desk job for when I eventually ended up wheelchair bound.\n\nSo like you I grinded through high school and college. I worked while going to school full time and rarely had time for friends. Never dated because I don\u2019t have the time or energy. I graduated college, got my first accounting job, got my CPA license, quickly climbed the ranks and was a manager making over $100k by 30.\n\nLast year I took a new role, moved out of my parents (had lived with them off and on for years) and was at the peak managing a department of 7 people with huge potential.\n\nAnd then everything crashed. My body gave up on me. I\u2019ve been on medical leave for two months and debating applying for disability. I had to move back in with my parents for more help which means moving and loosing my job. I have no idea if anyone will hire me again (I wear a vent 24:7). I went from pushing through to too tired to sit at a desk more than a half hour at a time.\n\nMy point is that while I\u2019m glad I did everything I did to get where I am my biggest mistake was taking for granted what I was accomplishing and the strain on my body. Looking back I can see where the warning signs started and I wish I would have slowed down and listened.\n\nMy other regret is not taking time to life life when I had my health. Never dated in college, never built those social skills, always said there would be time later. But now I\u2019m in my 30s and everyone I know is married and it\u2019s hard to put yourself out there.\n\nI\u2019m mentally struggling right now. My whole self worth was built around my accomplishments. My success of with work and now it\u2019s all gone. I\u2019m not sure how to go on now.\n\nSo work hard, have goals but don\u2019t forget to appreciate what you have while you have it. Muscular dystrophy is hard and even non progressive types like mine can get harder as you get older."
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1rg5xnb",
+    "title": "How do you come to terms and be at peace with your situation?",
+    "body": "I am 22, I have autism and ADHD and I will probably never be able to really have a job or live independently. I'll likely always need assistance. I still live with my elderly parents who support and love me but I feel guilty about them having to do so much for me like wrangling with the shitty german social welfare system so I get some sort of accommodations when they should be enjoying retirement instead. they reassure me that they do this for me because they want to, and they love me but I still think they deserve better.\n\nI grieve the life I could have had if I was either diagnosed earlier, if i was lower support needs or better, if i was neurotypical and not disabled. if I was diagnosed early in life I probably at least would have had more time to come to terms with my situation and I would have lower expectations for myself from the start instead of having my dreams crushed. I wanted to have a job. I wanted to go to art school. I wanted to study at uni like everyone else. None of this is going to happen. everything I tried resulted in burnout. I can not adjust to any environment. all I can do is be more gentle and kind to myself and try to accept my situation but it's so hard. how did you come to terms with your disability and your situation and what helped you?",
+    "flair": "Question",
+    "score": 5,
+    "comment_count": 7,
+    "created_at": "2026-02-27T12:56:34+00:00",
+    "top_comments": [
+      {
+        "id": "o86v5ol",
+        "score": 3,
+        "body": "I am also late diagnosed autistic. I don\u2019t have a good answer for this since I am also struggling.. but I relate to you a lot. \n\nI was diagnosed when I was older than you. and diagnosis is really important because otherwise you would blame yourself. but now you know that it is not your fault, you just have a disability. \n\n  \nbut at the same time, I also had to go through this phase when many of my dreams were shattered. \n\n  \nI actually got really good grades until high school, went into one of the best unis of my country. \n\nand I eventually graduated but.. I had to go through 6 years of autistic burnout.\n\nand I now have moderate depression as a result. so yes it is f\\*cked up. \n\nnow looking back, getting good grades or unis were not worth it. I had to sacrifice everything for it, gaining nothing as a result. \n\neven though I tried, I couldn\u2019t work at all. believe me, I tried. but every job I tried ended up horribly and led to autistic burnout that seems endless. \n\nI so live in the mercy of my parents. but they are abusive and poor and I am stuck. \n\nI am also struggling. I wanted to work, I wanted to live independently, I wanted to be a doctor or something, and everything crumbled down. \n\nI have never been loved nor dated. very lonely and isolated. \n\nI can relate to you a lot. "
+      },
+      {
+        "id": "o8hqacj",
+        "score": 3,
+        "body": "I'm originally from Germany myself but moved to the UK a bunch of years ago.  \nI'm on disability, ASD (diagnosed about \\~3 years ago) with suspected ADHD, plus diagnoses of C-PTSD, DID and all the other stuff that comes with the latter two diagnoses (shit like OCD, depression, agoraphobia, anxiety, etc.)  \nI'm living on my own (I never had a choice, which also led to me having been homeless in Germany--in other words, you're really, really lucky!), and today I'm studying part-time at an online university while working on my art stuff (illustration, comics, writing).\n\nI'm currently also working on accepting my disability, while still attending uni (and regularly getting deadline extensions and mental health/autism support from a mentor, + additional software to help me). I'm cutting down on excess stress as good as I can, and try to be gentle with myself. I think big part of my route to acceptance was actually accepting the help that was offered to me. Like, you won't see a wheelchair user say no to a wheelchair, they usually NEED them. Likewise, it's okay (or even necessary) to accept disablility money, therapy, and any other kind of support.\n\nI think what kept me sane (more or less, considering my diagnoses lmao) is art. Learning instruments, refining my art skills, learning new things (incl. music). But also: not letting go of dreams. I always dreamt of living in Japan but being disabled that dream is super unlikely to come true. So, what I do is saving money to stay there for a month at a time. It's not the same as moving there, but it's still so much more than I ever thought I'd be able to do in my life (ngl I kinda thought I'd be long dead by now, I'm in my 30s). I'm still learning the language, still reading a lot of related material, still working on my art skills to increase my small income.\n\nHonestly, if you take away anything from my ramble, let it be: Find something you enjoy, and get good at it."
+      },
+      {
+        "id": "o8aumvc",
+        "score": 2,
+        "body": "I am also ASD diagnosed at 14 in 1988.\n\n\nI have had a difficult life , never really had a career but three years ago I gave my Jesus Christ, the best decision I ever made . Now I feel hope where once I felt none .\n \nHe is the way the truth and the life !"
+      },
+      {
+        "id": "o8aj9cl",
+        "score": 2,
+        "body": "Yea this fucking sucks i'm sorry man. But its somewhat comforting to know that i am not alone in this because this is such an isolating experience. Its unfair that we have to go through all of this"
+      },
+      {
+        "id": "o8cz7g8",
+        "score": 2,
+        "body": "totally agree. life is so hard for us and it\u2019s so isolating and devastating. wish you the best"
+      },
+      {
+        "id": "o8pelh0",
+        "score": 1,
+        "body": "I didn't really get that much help from my family since they deny disabilities and mistreat me because of it. So every time that i needed to become autonomous or get on my own terms, i always had to force it against them in order to let them get used to it. Sometimes it hurts, but i had no other way to do that at the time unfortunately. "
+      },
+      {
+        "id": "o8qprve",
+        "score": 1,
+        "body": "I can relate so much. I do live with BPD, OCPD and AVPD, depression. I am 24 and not able to work since I finished school (6 years ago) and it hurts so much. I feel so bad for it. \n\nI just want to say that I wish you the very best."
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1rg5he4",
+    "title": "Nearly blind refugee abandoned by US border patrol found dead in Buffalo | Investigation under way after man was dropped off five miles from home but family wasn\u2019t notified, officials say",
+    "body": "",
+    "flair": null,
+    "score": 133,
+    "comment_count": 9,
+    "created_at": "2026-02-27T12:34:46+00:00",
+    "top_comments": [
+      {
+        "id": "o7qj7lk",
+        "score": 15,
+        "body": "The immediate comments I saw on this were, \"So... the system is working, then?\"\n\nGlad we're full mask-off now..."
+      },
+      {
+        "id": "o7qpv0e",
+        "score": 11,
+        "body": "That was the intended outcome as far as I can tell."
+      },
+      {
+        "id": "o7rb6nq",
+        "score": 11,
+        "body": "Border Patrol investigation ? Right. I know the outcome for that Investigation ! No Wrong doing on their Part ! \n\nIt's plain Murder because they think it's funny !"
+      },
+      {
+        "id": "o7rjuwm",
+        "score": 9,
+        "body": "In Canada these would have been called 'starlight tours'"
+      },
+      {
+        "id": "o7tlsv9",
+        "score": 4,
+        "body": "Honestly this makes me want to completely give up on humanity."
+      },
+      {
+        "id": "o7sdtdf",
+        "score": 3,
+        "body": "This is heartbreaking"
+      },
+      {
+        "id": "o7t9z8p",
+        "score": 3,
+        "body": "Despicable."
+      },
+      {
+        "id": "o8rdd7v",
+        "score": 1,
+        "body": "Infuriating "
+      },
+      {
+        "id": "o87zdhn",
+        "score": 0,
+        "body": "Dishonest article, the two events are not linked. He died due to health issues, which apparently occurred in a public setting, so he likely almost immediately got assisted by people nearby."
+      }
+    ]
+  },
+  {
+    "subreddit": "disability",
+    "id": "1rg4grl",
+    "title": "Studying with disability sucks",
+    "body": "well I downed a big cup of coffee to study overnight to make up for all the studying time I have lost these two weeks due to multiple health issues and now I feel like shit because of probably having too much caffeine and end up not being able to study anyway, how lovely; yes I do have disability accommodations at school, but I often feel so much shame for not being able to do what others can do (should probably see a therapist for this as well\ud83d\ude2d)",
+    "flair": "Rant",
+    "score": 7,
+    "comment_count": 6,
+    "created_at": "2026-02-27T11:42:36+00:00",
+    "top_comments": [
+      {
+        "id": "o7orm7f",
+        "score": 2,
+        "body": "Also, if your in the US your school should have a program for people who need more support with school such as dealing with health issues, first gen students, and probably some other criteria. Its called the TRIO program, its federally funded so all colleges should have it. One of their programs is a mentorship program, i found it very helpful. The mentorship can help you learn how to deal with school work in relation to your condition. Including learning to accept your limitations, and how to use your accommodations. For me my mentor said i could put them in the email thread, or be in a video meeting with the teachers when talking to them about accommodations."
+      },
+      {
+        "id": "o7x1yza",
+        "score": 2,
+        "body": "Omg I know. I'm on business analytics. On temporarily disability can't do what I used , paint houses. Ladder collapsed 30ft. Have severe spinal stenosis 6.7 mm spinal canal, rupture. L4-L5 disc, torn ACL, and torn meniscus, torn CT joint injury. It is very difficult. I'm also taking Google analytics certification program on Coursera in off time when not in school. Have 5 classes left to get associate of science would of had 3 but I missed my finals after 12 hrs studying in torture pain, I got sick and had strep throat, influenza type A flu, and a head injury to my temple and now have to retake those 2 classes for missing finals. Tough world"
+      },
+      {
+        "id": "o7xzi8g",
+        "score": 1,
+        "body": "Craming is counterproductive.\n\nInstead, know when the test is coming. Seriously, the course schedule exists for you to plan with and start studying a week or two before short 15- 30-minute intervals.\n\nEarned 3 degrees this way while dealing with chronic  headaches, brain fog, aphasia, and neurological issues."
+      },
+      {
+        "id": "o7ot6b5",
+        "score": 1,
+        "body": "I\u2019m in Canada, but I\u2019ll look into it to see if there\u2019s anything similar; also yea I probably need someone to guide me in making better decisions because I do dumb shit like this all the time forgetting my health is terrible. I feel like decades of having an anti-vax and anti-medicine father also doesn\u2019t help in this case lollll like oh wow now I\u2019m an adult who can visit a doctor and don\u2019t have to get shamed for feeling sick anymore"
+      },
+      {
+        "id": "o7qutfk",
+        "score": 1,
+        "body": "You\u2019d think so! At my college, our accommodations were old, reused, shoddy, and there was no clear instructions on how to access the office to specifically get accommodations. You\u2019d have to jump through so many hoops. One of my teachers straight up didn\u2019t care and shamed me for having to use my accommodations. Also there was no wheelchair accessibility in a lot of areas of the college I went to."
+      },
+      {
+        "id": "o7pds6s",
+        "score": 1,
+        "body": "Do you get OSAP or the equivalent? If so, you may qualify for CSG-DSE funding which can help pay for a learning strategies coach and/or therapy!"
+      }
+    ]
+  }
+]
+```
