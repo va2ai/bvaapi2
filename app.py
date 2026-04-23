@@ -12,7 +12,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field, ConfigDict
 from typing import Optional, List, Dict, Any
 from datetime import datetime
-import logging, requests, asyncio, re, signal, sys, os
+import logging, requests, asyncio, re, os
 from bs4 import BeautifulSoup
 import html2text as _html2text
 from urllib.parse import urlencode
@@ -2242,13 +2242,15 @@ async def cavc_find_entry(
                           field="keyword", suggested_fix="Try broader terms like 'brief', 'motion', 'order', 'mandate', or 'remand'")
     return _dc_to_dict(entry)
 
-def _shutdown(signum, frame):
-    logger.info("Shutting down -- releasing ports...")
+@app.on_event("shutdown")
+async def _shutdown_event():
+    # Cloud Run sends SIGTERM during rollout / scale-down. Let uvicorn handle
+    # the signal and run this hook to clean up the thread pool gracefully.
+    # Replaced a bare signal handler that called sys.exit(0) — which bypassed
+    # FastAPI's graceful shutdown and caused "no available instance" 429s
+    # when instances were terminated before replacement capacity was ready.
+    logger.info("Shutting down executor...")
     executor.shutdown(wait=False, cancel_futures=True)
-    sys.exit(0)
-
-signal.signal(signal.SIGINT, _shutdown)
-signal.signal(signal.SIGTERM, _shutdown)
 
 # --- Static site serving (must be AFTER all API routes) ---
 STATIC_DIR = os.path.join(os.path.dirname(__file__), "static")
